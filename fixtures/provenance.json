@@ -1,0 +1,14 @@
+{
+  "schema": "weather-fixture-provenance/1.0",
+  "provider": "MET Norway",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "sourceUrl": "https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=59.93&lon=10.72",
+  "recordedResponse": "met-oslo-recorded.json",
+  "fixtureDerivations": {
+    "oslo": "first six recorded points",
+    "helsinki": "synthetic zero-temperature boundary derived from recorded structure",
+    "lisbon": "synthetic temperature values derived from recorded structure"
+  },
+  "liveWeather": false
+}
