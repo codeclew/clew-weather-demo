@@ -1,0 +1,110 @@
+{
+  "schema": "clew-weather-demo-design/1.0",
+  "status": "IMPLEMENTATION_PENDING",
+  "services": {
+    "places": {
+      "language": "csharp",
+      "database": "places",
+      "httpRoots": [
+        "GET /places",
+        "POST /places",
+        "POST /places/{id}/refresh",
+        "GET /health",
+        "GET /openapi.json"
+      ],
+      "backgroundRoots": [
+        "publishPendingRequests"
+      ],
+      "kafkaPublishes": [
+        "weather.place-requested"
+      ],
+      "state": [
+        "places",
+        "request_outbox"
+      ]
+    },
+    "forecasts": {
+      "language": "kotlin",
+      "database": "forecasts",
+      "httpRoots": [
+        "GET /forecasts/{id}",
+        "GET /health",
+        "GET /openapi.json"
+      ],
+      "kafkaConsumes": [
+        "weather.place-requested"
+      ],
+      "backgroundRoots": [
+        "refreshExpiredForecasts",
+        "publishPendingForecasts"
+      ],
+      "kafkaPublishes": [
+        "weather.forecast-updated"
+      ],
+      "state": [
+        "places",
+        "forecasts",
+        "inbox",
+        "forecast_outbox"
+      ]
+    },
+    "dashboard": {
+      "language": "typescript",
+      "database": "dashboard",
+      "httpRoots": [
+        "GET /",
+        "GET /api/weather",
+        "POST /api/places",
+        "POST /api/places/{id}/refresh",
+        "GET /health",
+        "GET /openapi.json"
+      ],
+      "kafkaConsumes": [
+        "weather.place-requested",
+        "weather.forecast-updated"
+      ],
+      "state": [
+        "weather_cards",
+        "inbox"
+      ]
+    }
+  },
+  "modes": [
+    "fixture-default",
+    "met-norway-live-opt-in"
+  ],
+  "failureBranches": [
+    "unsupported preset city",
+    "invalid input",
+    "provider unavailable",
+    "conditional provider 304",
+    "database failure before commit",
+    "Kafka publication failure",
+    "publish succeeded then local acknowledgement failed",
+    "duplicate event",
+    "older forecast",
+    "equal-version conflicting forecast",
+    "malformed event",
+    "service interruption and replay"
+  ],
+  "researchCases": [
+    "exact precipitation boundary >=0.2 versus intentional >0.2 exercise",
+    "duplicate/out-of-order forecast after restart",
+    "older forecast never overwrites newer under validated event/schema assumptions"
+  ],
+  "authoring": {
+    "requiredModel": "gpt-6-luna",
+    "reasoning": "max",
+    "path": [
+      "installed clew admission",
+      "docs check/snapshot",
+      "docs work prepare",
+      "recorded reads",
+      "Luna proposal submit",
+      "native publish/render"
+    ],
+    "meaningReview": "UNASSESSED unless real configured review exists",
+    "freshCloneOwnAgentRequired": true,
+    "manualNarrativeEditsForbidden": true
+  }
+}
