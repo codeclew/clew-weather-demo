@@ -1,0 +1,140 @@
+package weather
+import tools.jackson.databind.JsonNode
+import tools.jackson.databind.ObjectMapper
+import org.springframework.stereotype.Component
+import org.springframework.jdbc.core.JdbcTemplate
+import org.springframework.transaction.support.TransactionTemplate
+import org.springframework.kafka.annotation.KafkaListener
+import org.springframework.kafka.support.Acknowledgment
+import org.springframework.kafka.core.KafkaTemplate
+import org.springframework.scheduling.annotation.Scheduled
+import org.apache.kafka.clients.consumer.ConsumerRecord
+import java.time.Instant
+import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
+import java.math.BigDecimal
+import java.math.RoundingMode
+import java.net.URI
+import java.net.http.HttpClient
+import java.net.http.HttpRequest
+import java.net.http.HttpResponse
+import java.nio.file.Files
+import java.nio.file.Path
+import java.time.Duration
+import java.util.concurrent.TimeUnit
+import java.util.concurrent.ConcurrentHashMap
+import java.io.ByteArrayInputStream
+import java.util.zip.GZIPInputStream
+
+@Component
+class Forecasts(private val jdbc: JdbcTemplate, private val transaction: TransactionTemplate, private val kafka: KafkaTemplate<String, String>) {
+    private val json = ObjectMapper()
+    private val nextAttempt = ConcurrentHashMap<String, Instant>()
+    private val mode = System.getenv("FORECAST_MODE") ?: "fixture"
+    private val http = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).followRedirects(HttpClient.Redirect.NORMAL).build()
+    fun ping() { jdbc.queryForObject("SELECT 1", Int::class.java) }
+    fun get(id: String): String? = jdbc.query("SELECT payload::text FROM forecasts WHERE place_id=?", { row, _ -> row.getString(1) }, id).firstOrNull()
+
+    @KafkaListener(topics = ["weather.place-requested"])
+    fun consume(record: ConsumerRecord<String, String>, acknowledgment: Acknowledgment) {
+        val event = try { json.readTree(record.value()).also { validatePlaceEvent(it) } } catch (error: Exception) {
+            jdbc.update("INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES(?,?,?,'INVALID_EVENT') ON CONFLICT DO NOTHING", record.topic(), record.partition(), record.offset())
+            acknowledgment.acknowledge()
+            return
+        }
+        transaction.executeWithoutResult {
+            val inserted = jdbc.update("INSERT INTO inbox(event_id) VALUES(?) ON CONFLICT DO NOTHING", event["id"].asText())
+            if (inserted == 0) return@executeWithoutResult
+            val place = event["place"]
+            jdbc.update("INSERT INTO places(id,name,latitude,longitude) VALUES(?,?,?,?) ON CONFLICT(id) DO UPDATE SET name=EXCLUDED.name,latitude=EXCLUDED.latitude,longitude=EXCLUDED.longitude", place["id"].asText(), place["name"].asText(), place["latitude"].asDouble(), place["longitude"].asDouble())
+            refresh(place)
+        }
+        acknowledgment.acknowledge()
+    }
+
+    fun validatePlaceEvent(event: JsonNode) {
+        val place = event["place"]
+        require(event["version"]?.asInt() == 1 && event["type"]?.asText() == "place.requested" && !event["id"]?.asText().isNullOrBlank())
+        require(place != null && place["id"]?.asText() in listOf("oslo", "helsinki", "lisbon") && !place["name"]?.asText().isNullOrBlank())
+        require(place["latitude"]?.isNumber == true && place["longitude"]?.isNumber == true)
+    }
+
+    @Scheduled(fixedDelayString = "\${REFRESH_INTERVAL_MS:60000}")
+    fun refreshExpired() {
+        val places = jdbc.query("SELECT p.id,p.name,p.latitude,p.longitude FROM places p LEFT JOIN forecasts f ON f.place_id=p.id WHERE f.expires_at IS NULL OR f.expires_at<now() ORDER BY p.id", { row, _ -> json.createObjectNode().put("id", row.getString(1)).put("name", row.getString(2)).put("latitude", row.getDouble(3)).put("longitude", row.getDouble(4)) })
+        for (place in places) {
+            try { transaction.executeWithoutResult { refresh(place) } } catch (error: Exception) { System.err.println("FORECAST_RETRY:" + error.javaClass.simpleName) }
+        }
+    }
+
+    fun refresh(place: JsonNode) {
+        val id = place["id"].asText()
+        val cached = jdbc.queryForList("SELECT payload::text,expires_at,last_modified FROM forecasts WHERE place_id=?", id).firstOrNull()
+        if (cached != null && (cached["expires_at"] as java.sql.Timestamp).toInstant().isAfter(Instant.now())) return
+        var expires = Instant.now().plusSeconds(3600)
+        var lastModified: String? = null
+        val raw = if (mode == "fixture") {
+            Files.readString(Path.of("/app/fixtures/$id.json"))
+        } else {
+            require(mode == "live")
+            val agent = System.getenv("MET_USER_AGENT")?.takeIf { it.isNotBlank() } ?: error("MET_USER_AGENT_REQUIRED")
+            if (nextAttempt[id]?.isAfter(Instant.now()) == true) error("PROVIDER_BACKOFF")
+            nextAttempt[id] = Instant.now().plusSeconds(60)
+            val lat = BigDecimal.valueOf(place["latitude"].asDouble()).setScale(4, RoundingMode.DOWN).toPlainString()
+            val lon = BigDecimal.valueOf(place["longitude"].asDouble()).setScale(4, RoundingMode.DOWN).toPlainString()
+            val builder = HttpRequest.newBuilder(URI.create("https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=$lat&lon=$lon")).timeout(Duration.ofSeconds(20)).header("User-Agent", agent).header("Accept-Encoding", "gzip")
+            val modified = cached?.get("last_modified") as String?
+            if (modified != null) builder.header("If-Modified-Since", modified)
+            val response = http.send(builder.GET().build(), HttpResponse.BodyHandlers.ofByteArray())
+            expires = response.headers().firstValue("Expires").map { ZonedDateTime.parse(it, DateTimeFormatter.RFC_1123_DATE_TIME).toInstant() }.orElse(Instant.now().plusSeconds(3600))
+            nextAttempt[id] = if (response.statusCode() == 429) {
+                val seconds = response.headers().firstValue("Retry-After").orElse("60").toLongOrNull() ?: 60L
+                Instant.now().plusSeconds(seconds.coerceAtLeast(60L))
+            } else expires
+            if (response.statusCode() == 304 && cached != null) {
+                jdbc.update("UPDATE forecasts SET expires_at=? WHERE place_id=?", java.sql.Timestamp.from(expires), id)
+                return
+            }
+            require(response.statusCode() == 200 || response.statusCode() == 203) { "PROVIDER_HTTP_" + response.statusCode() }
+            lastModified = response.headers().firstValue("Last-Modified").orElse(null)
+            if (response.headers().firstValue("Content-Encoding").orElse("").equals("gzip", ignoreCase = true)) GZIPInputStream(ByteArrayInputStream(response.body())).bufferedReader().use { it.readText() } else response.body().toString(Charsets.UTF_8)
+        }
+        val document = json.readTree(raw)
+        val periods = json.createArrayNode()
+        for (point in document["properties"]["timeseries"].take(6)) {
+            val temperature = point["data"]["instant"]["details"]["air_temperature"]
+            require(temperature != null && temperature.isNumber)
+            val next = point["data"]["next_1_hours"]
+            val period = json.createObjectNode().put("time", point["time"].asText()).put("temperatureC", temperature.asDouble()).put("symbol", next?.get("summary")?.get("symbol_code")?.asText() ?: "unknown")
+            val rain = next?.get("details")?.get("precipitation_amount")
+            if (rain == null || !rain.isNumber) period.putNull("precipitationMm") else period.put("precipitationMm", rain.asDouble())
+            periods.add(period)
+        }
+        require(periods.size() > 0)
+        val updatedAt = document["properties"]["meta"]["updated_at"].asText()
+        Instant.parse(updatedAt)
+        val forecast = json.createObjectNode().put("updatedAt", updatedAt).put("fetchedAt", Instant.now().toString()).put("mode", mode)
+        forecast.set("periods", periods)
+        val payload = json.writeValueAsString(forecast)
+        jdbc.update("INSERT INTO forecasts(place_id,updated_at,payload,expires_at,last_modified) VALUES(?,?,?::jsonb,?,?) ON CONFLICT(place_id) DO UPDATE SET updated_at=EXCLUDED.updated_at,payload=EXCLUDED.payload,expires_at=EXCLUDED.expires_at,last_modified=EXCLUDED.last_modified WHERE EXCLUDED.updated_at>=forecasts.updated_at", id, java.sql.Timestamp.from(Instant.parse(updatedAt)), payload, java.sql.Timestamp.from(expires), lastModified)
+        val eventId = "$id:$updatedAt"
+        val event = json.createObjectNode().put("id", eventId).put("type", "forecast.updated").put("version", 1)
+        event.set("place", place)
+        event.set("forecast", forecast)
+        jdbc.update("INSERT INTO forecast_outbox(id,payload) VALUES(?,?::jsonb) ON CONFLICT DO NOTHING", eventId, json.writeValueAsString(event))
+    }
+
+    @Scheduled(fixedDelayString = "\${PUBLISH_INTERVAL_MS:1000}")
+    fun publishPending() {
+        try {
+            transaction.executeWithoutResult {
+                val rows = jdbc.queryForList("SELECT id,payload::text FROM forecast_outbox WHERE NOT published ORDER BY id LIMIT 1 FOR UPDATE SKIP LOCKED")
+                if (rows.isEmpty()) return@executeWithoutResult
+                val row = rows.first()
+                val event = json.readTree(row["payload"] as String)
+                kafka.send("weather.forecast-updated", event["place"]["id"].asText(), row["payload"] as String).get(10, TimeUnit.SECONDS)
+                jdbc.update("UPDATE forecast_outbox SET published=true WHERE id=?", row["id"])
+            }
+        } catch (error: Exception) { System.err.println("PUBLISH_RETRY:" + error.javaClass.simpleName) }
+    }
+}
