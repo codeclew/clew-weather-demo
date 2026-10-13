@@ -1,0 +1,58 @@
+# Run the fixture and capture evidence
+
+The weather demo source repository is https://github.com/codeclew/clew-weather-demo. Native threaded documentation requires an official installed Codeclew release 0.13.29 or newer; full scenario bodies require 0.13.32 or newer. The weather documentation reader URL is https://codeclew.github.io/clew-weather-demo/index.html. Use a clean attached checkout, a fresh documentation root outside it with an existing parent, and fresh capture receipts. Restore services/places/Places.csproj with the .NET 10 SDK before capture; Kotlin and TypeScript declarations use source-syntax evidence. Capture does not author prose or import old cache.
+
+For the local fixture, use Docker Compose v2 and free ports 8080 through 8082. Start:
+
+```sh
+FORECAST_MODE=fixture docker compose -p clew-weather-demo up --build -d
+```
+
+Open http://127.0.0.1:8080. Fixture cities are Oslo, Helsinki, and Lisbon; fixture mode does not use live-provider data. Stop:
+
+```sh
+docker compose -p clew-weather-demo down
+```
+
+
+Capture with the installed launcher:
+
+```sh
+python3 -I -S -B documentation/capture.py --root /absolute/new-docs-root --clew clew --include-observations --include-processes
+```
+
+Set CODECLEW_HOME to the state directory recorded beneath the fresh capture receipts, for example: export CODECLEW_HOME=/absolute/new-docs-root-capture-receipts/state. The local application is separate from the native documentation reader. Work preparation binds to the explicit saved snapshot and retained evidence; it never falls back to source acquisition.
+
+## Recompose, publish, and render the guide
+
+Use one Work request per service: documentation/work/places-overview.json, documentation/work/forecasts-overview.json, and documentation/work/dashboard-overview.json. Prepare each Work against CAPTURE_SNAPSHOT (receipt snapshot); sourceCaptureSnapshot holds the original source handle for post-publication recompose. Use the returned WORK_ID to read its references and follow every nextCursor through null. Author a new proposal from those recorded reads; do not copy prior prose or cache.
+
+Example:
+
+```sh
+clew docs work prepare --root /absolute/new-docs-root --subject service:dashboard --input documentation/work/dashboard-overview.json --snapshot CAPTURE_SNAPSHOT
+clew docs work read --root /absolute/new-docs-root --work WORK_ID --input selection.json
+clew docs proposal submit --root /absolute/new-docs-root --work WORK_ID --input proposal.json
+```
+
+Publish only a machine-ready proposal with its returned ID:
+
+```sh
+clew docs proposal publish --root /absolute/new-docs-root --proposal PROPOSAL_ID --unassessed
+```
+
+The --unassessed option leaves meaning review unassessed. Open the index path returned by proposal publish in a local browser. For an additional render after publication, recompose from the original source handle, SOURCE_CAPTURE_SNAPSHOT (the receipt field sourceCaptureSnapshot), not from CAPTURE_SNAPSHOT:
+
+```sh
+clew docs recompose --root /absolute/new-docs-root --snapshot SOURCE_CAPTURE_SNAPSHOT
+```
+
+Use the returned POST_PUBLICATION_SNAPSHOT for rendering:
+
+```sh
+clew docs render --root /absolute/new-docs-root --snapshot POST_PUBLICATION_SNAPSHOT --language en
+```
+
+The render --publish flag records a local released snapshot/history; it does not upload the site or make it available online.
+
+The C# capture is PARTIAL; Kotlin and TypeScript source-syntax records are not runtime proof. Imported runtime observations retain their own provenance and do not verify this capture; fresh-clone verification of new prose is separate. Use your configured model and provider; no Codeclew-hosted model or paid API is required.

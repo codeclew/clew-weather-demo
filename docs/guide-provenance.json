@@ -1,0 +1,30 @@
+{
+  "schema": "weather-guide-publication/1.0",
+  "author": {
+    "model": "gpt-6-luna",
+    "reasoningEffort": "max"
+  },
+  "launcher": {
+    "version": "0.13.32",
+    "distribution": "HELD_CANDIDATE",
+    "officialReleaseStatus": "CANCELLED_UNPUBLISHED"
+  },
+  "work": "faa98a68393abf41c8e5eb3db6b0a3f4a114382051ba67d7bdc20ac3295d5765",
+  "proposal": "d92a4a23e9d1b264e58cba402cb38779b1cb901c7d0ed1bf884dddb6d8c242e7",
+  "proposalStatus": "READY_WITH_LIMITATIONS",
+  "bundle": "9a0fa44570f0704200979a8bcb6e55d4ef2eccdcf1c1afac1494cf1a8743412e",
+  "priorBundle": "6cf9fa5432fb65c8de2bc322c45e0cb9f76733e136c2f393dce9e2f84c226e27",
+  "snapshot": "sha256:3ad66263cca8eae041d6e62e1598e6b35f646201c25ee302d48dda085744974a/2394",
+  "contextDigest": "sha256:f18f0601c3d3fecbcb45e35e100f93032428cb0be1c08443a2c0223a6a83e41e",
+  "coverage": "PARTIAL",
+  "meaningReview": "UNASSESSED",
+  "nativeReleased": false,
+  "urlCorrection": {
+    "from": "https://codeclew.github.io/codeclew/weather/index.html",
+    "to": "https://codeclew.github.io/clew-weather-demo/index.html"
+  },
+  "sha256": {
+    "README.md": "3ad78d6b0a73b7c6fab509349013567d610a0273b53ac396774dd4323e71ca26",
+    "weather-guide.html": "e1df92ab1e3a406ddbf2aa683945dd5cb1d28f1b11fbe2cff297fc27e2cc4ea9"
+  }
+}
