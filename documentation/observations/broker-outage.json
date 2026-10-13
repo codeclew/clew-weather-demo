@@ -1,13 +1,21 @@
 {
   "schema": "clew-weather-runtime-observation/1.0",
   "id": "broker-outage",
-  "origin": "LOCAL_TEST_OBSERVATION",
+  "origin": "GITHUB_ACTIONS_TEST_OBSERVATION",
   "compilerEvidence": false,
-  "originalRecordSha256": "789d6394fbc4e75473b134e41de0c59f7cf940d0a19fb29f924932f40532ebf2",
+  "originalRecordSha256": "114d2103efc72decc3ad929f2e0efb5eb3530fa71049ede4d7e9a18492e30845",
+  "runUrl": "https://github.com/codeclew/clew-weather-demo/actions/runs/38363357256",
   "status": "PASSED",
-  "sourceRevision": "c289b28be4819eddf29d59a7c12f178559ec5229",
-  "startedAt": "2026-10-13T00:42:52.148414+00:00",
-  "finishedAt": "2026-10-13T00:43:37.667088+00:00",
+  "sourceRevision": "d135990a1c8770928d3c7be2274ff60e7f5d75d3",
+  "project": "clew-weather-outage-431a9af3e8d6",
+  "runnerSha256": "c36ff8bf2ca8ad555e80a28a8663b7856d3b861bd7c245176ea4b5e78ffb8714",
+  "sourceHashes": {
+    "compose.yaml": "76d5d8226d233a558b901a06887bcce216e4738778edff8462367d827169c167",
+    "services/places/RequestPublisher.cs": "1f6e0b7b1d1f54e318bcc903f875407e879ed591e29c0509423525e3772c099e",
+    "services/places/PlacesRepository.cs": "f77ef5110e62488caaa82deeeb599e33f8063303aad786b8763b1be3b6d5e578",
+    "services/forecasts/src/main/kotlin/weather/Forecasts.kt": "6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+    "services/dashboard/src/main.ts": "24e65777311802d2204bc41eedf3b814e869f777c2e65cb74d5c8be8c4d47e6a"
+  },
   "checks": [
     {
       "case": "fresh-dashboard-empty",
@@ -117,7 +125,7 @@
                 "precipitationMm": 0
               }
             ],
-            "fetchedAt": "2026-10-13T00:43:13.278793388Z",
+            "fetchedAt": "2026-10-13T07:34:47.468329316Z",
             "updatedAt": "2026-10-12T20:34:59Z"
           }
         }
@@ -131,5 +139,7 @@
       }
     }
   ],
-  "fixtureMode": true
+  "startedAt": "2026-10-13T07:33:08.044370+00:00",
+  "cleanup": "COMPLETED_OWN_PROJECT_ONLY",
+  "finishedAt": "2026-10-13T07:35:22.322626+00:00"
 }
