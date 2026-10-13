@@ -1,20 +1,5 @@
 {
-  "schema": "codeclew-documentation-process/1.0",
   "id": "dashboard-save-city",
-  "title": "Dashboard save-city thread",
-  "summary": "Source-level thread connecting the proposed POST /places mapping to the place-requested publisher, Forecasts consumer and publisher, and both Dashboard consumer views; linked views do not establish execution order or delivery.",
-  "root": {
-    "service": "dashboard",
-    "selector": {
-      "language": "typescript",
-      "owner": "package:",
-      "name": "savePlace",
-      "parameterTypes": [
-        ": FastifyRequest",
-        ": FastifyReply"
-      ]
-    }
-  },
   "interactions": [
     "dashboard-save-place-to-places",
     "places-place-requested-to-forecasts",
@@ -24,23 +9,270 @@
   "maxDepth": 4,
   "maxNodes": 64,
   "process": {
-    "scope": "Dashboard.savePlace and its proposed Places.Save mapping, linked to the place-requested publisher, Forecasts consumer/publisher, and Dashboard consumer views.",
-    "participants": [
-      "dashboard",
-      "places",
-      "forecasts"
-    ],
-    "objects": [],
-    "trigger": "A caller enters the source-declared Dashboard.savePlace handler.",
-    "outcomes": [
-      "The declared HTTP and Kafka relationships are retained as separate views; target resolution, network result and downstream delivery are not established here."
-    ],
     "linkedSubviews": [
       "places-request-publisher",
       "forecasts-place-requested-consumer",
       "forecasts-publish-pending",
       "dashboard-place-requested-consumer",
       "dashboard-forecast-updated-consumer"
-    ]
-  }
+    ],
+    "objects": [],
+    "outcomes": [
+      "The declared HTTP and Kafka relationships are retained as separate views; target resolution, network result and downstream delivery are not established here."
+    ],
+    "participants": [
+      "dashboard",
+      "places",
+      "forecasts"
+    ],
+    "scope": "Dashboard.savePlace and its proposed Places.Save mapping, linked to the place-requested publisher, Forecasts consumer/publisher, and Dashboard consumer views.",
+    "trigger": "A caller enters the source-declared Dashboard.savePlace handler.",
+    "thread": {
+      "scope": "Dashboard.savePlace and the declared Places.Save HTTP boundary, with controller-visible request and response branches.",
+      "rootMethod": "dashboard-save",
+      "methods": [
+        {
+          "id": "dashboard-save",
+          "label": "Dashboard savePlace handler",
+          "service": "dashboard",
+          "entrypoint": "dashboard-ad968c2137fedea90215",
+          "sourceId": "dashboard-7970ac3e2a8cf3f45b4a",
+          "textDigest": "sha256:d36fd526184e291acfb7df17b6ebb41df8afb1f284fcdb448f552c1b457260a8"
+        },
+        {
+          "id": "places-save",
+          "label": "Places Save controller",
+          "service": "places",
+          "entrypoint": "places-691b340ea61828b197b6",
+          "sourceId": "places-309961f88b197290c1b0",
+          "textDigest": "sha256:b6a46a9557e67342266ccce88f28a634490cacba1ee8f705d71066775158f708"
+        }
+      ],
+      "steps": [
+        {
+          "id": "dashboard-save-forward",
+          "title": "Forward POST /places",
+          "text": "Serialize request.body as JSON, send it with application/json and a 10-second abort signal, then forward the response status and parsed JSON. A caught fetch or JSON parsing error returns 503 PLACES_UNAVAILABLE; completion at Places before an error is unresolved.",
+          "method": "dashboard-save",
+          "startLine": 67,
+          "endLine": 74,
+          "kind": "BOUNDARY",
+          "children": [
+            {
+              "id": "places-save-handler",
+              "title": "Handle the save request",
+              "text": "Map CityId. Return 400 for an unsupported city; otherwise await repository.Save and return the mapped city. The repository implementation and commit behavior are outside this controller wrapper.",
+              "method": "places-save",
+              "startLine": 10,
+              "endLine": 17,
+              "kind": "DECISION",
+              "branchGroup": {
+                "mode": "IF_ELSE",
+                "arms": [
+                  {
+                    "id": "unsupported-city",
+                    "condition": "city is null",
+                    "guard": {
+                      "method": "places-save",
+                      "startLine": 14,
+                      "endLine": 14
+                    },
+                    "steps": [
+                      {
+                        "id": "save-bad-request",
+                        "title": "Return unsupported-city response",
+                        "text": "Return BadRequest with error UNSUPPORTED_CITY.",
+                        "method": "places-save",
+                        "startLine": 14,
+                        "endLine": 14,
+                        "kind": "ERROR",
+                        "effects": [
+                          {
+                            "id": "save-400",
+                            "kind": "RETURN",
+                            "label": "Return HTTP 400 for an unsupported city.",
+                            "citation": {
+                              "method": "places-save",
+                              "startLine": 14,
+                              "endLine": 14
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "supported-city",
+                    "condition": null,
+                    "guard": null,
+                    "steps": [
+                      {
+                        "id": "await-save-repository",
+                        "title": "Await the repository save",
+                        "text": "Await repository.Save(city, token); this wrapper does not establish its storage or commit semantics.",
+                        "method": "places-save",
+                        "startLine": 15,
+                        "endLine": 15,
+                        "kind": "ACTION"
+                      },
+                      {
+                        "id": "save-ok-response",
+                        "title": "Return the mapped city",
+                        "text": "Return Ok(city) after the repository call returns.",
+                        "method": "places-save",
+                        "startLine": 16,
+                        "endLine": 16,
+                        "kind": "ACTION",
+                        "effects": [
+                          {
+                            "id": "save-200",
+                            "kind": "RETURN",
+                            "label": "Return HTTP 200 with the mapped city.",
+                            "citation": {
+                              "method": "places-save",
+                              "startLine": 16,
+                              "endLine": 16
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "target": "places-save",
+          "effects": [
+            {
+              "id": "save-http-post",
+              "kind": "EXTERNAL_CALL",
+              "label": "Send POST /places to the declared Places target.",
+              "citation": {
+                "method": "dashboard-save",
+                "startLine": 69,
+                "endLine": 69
+              }
+            }
+          ]
+        }
+      ],
+      "boundaries": [
+        "The Dashboard-to-Places target is a declared HTTP boundary; compiler linkage and runtime routing are not established.",
+        "The selected wrappers do not establish repository commit, timeout completion, retry, or duplicate-request behavior."
+      ],
+      "serviceFragments": [
+        {
+          "id": "places-save-handler",
+          "entryMethod": "places-save",
+          "rootStep": "places-save-handler"
+        }
+      ],
+      "boundaryContracts": [
+        {
+          "id": "dashboard-save-http",
+          "callStep": "dashboard-save-forward",
+          "receiverFragment": "places-save-handler",
+          "transport": "HTTP",
+          "operation": {
+            "text": "Dashboard sends POST /places to the declared Places.Save target.",
+            "evidenceRefs": [
+              "dashboard-save",
+              "places-save"
+            ]
+          },
+          "request": [
+            {
+              "text": "Dashboard serializes request.body as JSON and sets content-type to application/json. The body schema is not established by these two handler bodies.",
+              "evidenceRefs": [
+                "dashboard-save"
+              ]
+            },
+            {
+              "text": "Places reads SavePlace.CityId; an unsupported mapped city returns 400 with UNSUPPORTED_CITY.",
+              "evidenceRefs": [
+                "places-save"
+              ]
+            }
+          ],
+          "response": [
+            {
+              "text": "For a supported mapped city, Places awaits repository.Save and then returns 200 with the city. The repository effect is not proven by the controller wrapper.",
+              "evidenceRefs": [
+                "places-save"
+              ]
+            },
+            {
+              "text": "Dashboard forwards the upstream status and JSON body after parsing the response.",
+              "evidenceRefs": [
+                "dashboard-save"
+              ]
+            }
+          ],
+          "failures": [
+            {
+              "text": "Places returns 400 with error UNSUPPORTED_CITY when CityId maps to no city.",
+              "evidenceRefs": [
+                "places-save"
+              ]
+            },
+            {
+              "text": "Dashboard maps an exception from fetch or response JSON parsing to 503 with PLACES_UNAVAILABLE; this handler does not reveal whether Places completed the save before that error.",
+              "evidenceRefs": [
+                "dashboard-save"
+              ]
+            }
+          ],
+          "guarantees": [
+            {
+              "text": "The source shows no request idempotency key in these handlers; retry and duplicate-save semantics are unresolved at this boundary.",
+              "evidenceRefs": [
+                "dashboard-save",
+                "places-save"
+              ]
+            },
+            {
+              "text": "A successful Places response follows the awaited repository.Save call, but its storage and commit outcome are outside this wrapper contract.",
+              "evidenceRefs": [
+                "places-save"
+              ]
+            }
+          ],
+          "evidence": {
+            "dashboard-save": {
+              "service": "dashboard",
+              "sourceId": "dashboard-7970ac3e2a8cf3f45b4a",
+              "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+              "textDigest": "sha256:d36fd526184e291acfb7df17b6ebb41df8afb1f284fcdb448f552c1b457260a8",
+              "startLine": 67,
+              "endLine": 74
+            },
+            "places-save": {
+              "service": "places",
+              "sourceId": "places-309961f88b197290c1b0",
+              "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+              "textDigest": "sha256:b6a46a9557e67342266ccce88f28a634490cacba1ee8f705d71066775158f708",
+              "startLine": 10,
+              "endLine": 17
+            }
+          }
+        }
+      ]
+    }
+  },
+  "root": {
+    "selector": {
+      "language": "typescript",
+      "name": "savePlace",
+      "owner": "package:",
+      "parameterTypes": [
+        ": FastifyRequest",
+        ": FastifyReply"
+      ]
+    },
+    "service": "dashboard"
+  },
+  "schema": "codeclew-documentation-process/1.0",
+  "summary": "Source-level thread connecting the proposed POST /places mapping to the place-requested publisher, Forecasts consumer and publisher, and both Dashboard consumer views; linked views do not establish execution order or delivery.",
+  "title": "Dashboard save-city thread"
 }

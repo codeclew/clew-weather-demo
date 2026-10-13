@@ -1,0 +1,10 @@
+{
+  "schema": "codeclew-documentation-work-request/1.0",
+  "audience": "Service maintainers tracing dashboard entrypoints, contracts, side effects, failures and retries from retained source evidence; distinguish source behavior from imported runtime observations",
+  "maxItems": 100,
+  "maxBytes": 49152,
+  "documentationLanguage": "en",
+  "externalInputs": [],
+  "entrypoint": "section-overview",
+  "contextProfile": "section-orientation-v1"
+}

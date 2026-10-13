@@ -43,8 +43,8 @@ if args.include_processes:
     process_inputs = [json.loads(p.read_text()) for p in
                       sorted((repository / "documentation/processes").glob("*.json"))]
     if (any(p.get("process", {}).get("thread") for p in process_inputs)
-            and tuple(map(int, match.groups())) < (0, 13, 28)):
-        parser.error("C# and TypeScript process threads require Codeclew 0.13.28 or newer")
+            and tuple(map(int, match.groups())) < (0, 13, 29)):
+        parser.error("C# and TypeScript process threads require Codeclew 0.13.29 or newer")
 capabilities = json.loads(subprocess.check_output([launcher, "capabilities"], env=environment, text=True))
 contract = capabilities.get("agentContract", {})
 if (capabilities.get("runtimeMode") != "RELEASE"
@@ -176,6 +176,7 @@ if check.get("status") != "CHECKED" or check.get("unresolved") or set(services) 
 if any(service.get("revision") != revision for service in services.values()):
     raise SystemExit("native capture revision differs from the selected source checkout")
 receipt = {"schema": "clew-weather-fresh-native-capture/1.0", "version": version, "revision": revision, "targetRef": target, "snapshot": check["snapshot"], "status": check["status"], "runtimeMode": capabilities["runtimeMode"], "launcherAuthority": contract["launcherAuthority"], "sourceFallbackAllowed": False, "freshCallerState": True, "sourceCacheImported": False, "modelInvoked": False, "proseAuthored": False, "services": services}
+receipt["stateDirectory"] = environment["CODECLEW_HOME"]
 receipt["historicalRuntimeObservationsImported"] = args.include_observations
 receipt["portableProcessDeclarationsImported"] = args.include_processes
 if args.include_processes:
