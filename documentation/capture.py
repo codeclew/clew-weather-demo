@@ -64,7 +64,8 @@ def invoke(arguments):
     prefix.with_suffix(".stdout.json").write_bytes(result.stdout)
     prefix.with_suffix(".stderr.log").write_bytes(result.stderr)
     value = json.loads(result.stdout)
-    if result.returncode and not (arguments[:2] == ["docs", "check"] and value.get("status") == "CHECKED" and not value.get("unresolved")):
+    saved_check = arguments[:2] in (["docs", "check"], ["docs", "recompose"])
+    if result.returncode and not (saved_check and result.returncode in (3, 4) and value.get("status") == "CHECKED" and not value.get("unresolved")):
         raise SystemExit(f"native command failed ({result.returncode}); inspect {prefix}.stdout.json")
     return value
 
