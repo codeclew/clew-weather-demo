@@ -1,0 +1,19 @@
+name: Research reproduction
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  broker-outage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run isolated broker outage and recovery
+        run: python3 -I -S -B exercises/broker-outage.py --output "$RUNNER_TEMP/broker-outage"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: broker-outage-evidence
+          path: ${{ runner.temp }}/broker-outage
+          if-no-files-found: error
