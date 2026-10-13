@@ -1,0 +1,41 @@
+{
+  "schema": "codeclew-documentation-interaction/1.0",
+  "id": "dashboard-request-refresh-to-places",
+  "title": "Dashboard requestRefresh to Places.Refresh",
+  "from": {
+    "service": "dashboard",
+    "selector": {
+      "language": "typescript",
+      "owner": "package:",
+      "name": "requestRefresh",
+      "parameterTypes": [
+        ": FastifyRequest<{ Params: { id: string } }>",
+        ": FastifyReply"
+      ]
+    },
+    "callSite": {
+      "observation": "dashboard:flow:118d806d3691510542299f52"
+    }
+  },
+  "to": {
+    "service": "places",
+    "selector": {
+      "language": "csharp",
+      "owner": "class:Weather.Places.PlacesController",
+      "name": "Refresh",
+      "parameterTypes": [
+        "System.String",
+        "System.Threading.CancellationToken"
+      ]
+    }
+  },
+  "transport": {
+    "kind": "http",
+    "method": "POST",
+    "path": "/places/{id}/refresh"
+  },
+  "declaration": {
+    "origin": "agent-proposal",
+    "rationale": "Agent-proposed POST /places/{id}/refresh mapping. The exact captured fetch location is selected; its target service binding and runtime routing remain unverified."
+  }
+}

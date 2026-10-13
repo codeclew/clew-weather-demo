@@ -1,0 +1,41 @@
+{
+  "schema": "codeclew-documentation-interaction/1.0",
+  "id": "dashboard-save-place-to-places",
+  "title": "Dashboard savePlace to Places.Save",
+  "from": {
+    "service": "dashboard",
+    "selector": {
+      "language": "typescript",
+      "owner": "package:",
+      "name": "savePlace",
+      "parameterTypes": [
+        ": FastifyRequest",
+        ": FastifyReply"
+      ]
+    },
+    "callSite": {
+      "observation": "dashboard:flow:0a52ae14321115b046495f87"
+    }
+  },
+  "to": {
+    "service": "places",
+    "selector": {
+      "language": "csharp",
+      "owner": "class:Weather.Places.PlacesController",
+      "name": "Save",
+      "parameterTypes": [
+        "Weather.Places.SavePlace",
+        "System.Threading.CancellationToken"
+      ]
+    }
+  },
+  "transport": {
+    "kind": "http",
+    "method": "POST",
+    "path": "/places"
+  },
+  "declaration": {
+    "origin": "agent-proposal",
+    "rationale": "Agent-proposed POST /places mapping. The exact captured fetch location is selected; its target service binding and runtime routing remain unverified."
+  }
+}

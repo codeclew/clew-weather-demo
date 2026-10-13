@@ -1,0 +1,34 @@
+{
+  "schema": "codeclew-documentation-process/1.0",
+  "id": "dashboard-forecast-updated-consumer",
+  "title": "Dashboard forecast-updated consumer view",
+  "summary": "Agent-proposed association between the weather.forecast-updated topic and source handler Dashboard.consumeMessage; topic subscription and runtime delivery remain unverified.",
+  "root": {
+    "service": "dashboard",
+    "selector": {
+      "language": "typescript",
+      "owner": "package:",
+      "name": "consumeMessage",
+      "parameterTypes": [
+        ": EachMessagePayload"
+      ]
+    }
+  },
+  "interactions": [
+    "forecasts-forecast-updated-to-dashboard"
+  ],
+  "maxDepth": 4,
+  "maxNodes": 64,
+  "process": {
+    "scope": "Dashboard.consumeMessage with the agent-proposed weather.forecast-updated topic mapping.",
+    "participants": [
+      "dashboard"
+    ],
+    "objects": [],
+    "trigger": "An agent-proposed mapping associates a weather.forecast-updated message with Dashboard.consumeMessage.",
+    "outcomes": [
+      "The topic-to-handler association is retained for review; handler behavior, subscription configuration and runtime delivery remain unverified."
+    ],
+    "linkedSubviews": []
+  }
+}

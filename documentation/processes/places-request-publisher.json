@@ -1,0 +1,42 @@
+{
+  "id": "places-request-publisher",
+  "interactions": [
+    "places-place-requested-to-forecasts",
+    "places-place-requested-to-dashboard"
+  ],
+  "maxDepth": 4,
+  "maxNodes": 64,
+  "process": {
+    "linkedSubviews": [
+      "dashboard-place-requested-consumer",
+      "forecasts-place-requested-consumer"
+    ],
+    "objects": [],
+    "outcomes": [
+      "If an unpublished request row is selected, send its payload to weather.place-requested and then mark that outbox row published in the database transaction.",
+      "If no unpublished row is available, the publish operation returns without sending a message.",
+      "Other observed failures are logged for retry; the source alone does not establish that the hosted service is activated at runtime."
+    ],
+    "participants": [
+      "places",
+      "forecasts",
+      "dashboard"
+    ],
+    "scope": "RequestPublisher.ExecuteAsync and its source-level outbox publishing operation.",
+    "trigger": "ExecuteAsync receives a cancellation token and enters its publisher loop."
+  },
+  "root": {
+    "selector": {
+      "language": "csharp",
+      "name": "ExecuteAsync",
+      "owner": "class:Weather.Places.RequestPublisher",
+      "parameterTypes": [
+        "System.Threading.CancellationToken"
+      ]
+    },
+    "service": "places"
+  },
+  "schema": "codeclew-documentation-process/1.0",
+  "summary": "Source-level process for RequestPublisher.ExecuteAsync and its PublishPending helper in the Places service.",
+  "title": "Publish pending place requests"
+}

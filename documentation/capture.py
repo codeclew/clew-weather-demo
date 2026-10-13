@@ -13,6 +13,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--root", required=True, type=Path)
 parser.add_argument("--clew", default="clew")
 parser.add_argument("--include-observations", action="store_true")
+parser.add_argument("--include-processes", action="store_true")
 args = parser.parse_args()
 repository = Path(__file__).resolve().parents[1]
 root = args.root.expanduser().resolve()
@@ -90,6 +91,22 @@ if args.include_observations:
         digest = invoke(["docs", "service", "list", "--root", str(root)])["inputDigest"]
         invoke(["docs", "note", "import", "--root", str(root), "--input", str(input_path),
                 "--source", str(source), "--expected-input-digest", digest])
+declarations = {"interaction": [], "process": []}
+if args.include_processes:
+    for kind, directory, schema in (
+        ("interaction", "interactions", "codeclew-documentation-interaction/1.0"),
+        ("process", "processes", "codeclew-documentation-process/1.0"),
+    ):
+        for source in sorted((repository / "documentation" / directory).glob("*.json")):
+            contents = source.read_bytes()
+            declaration = json.loads(contents)
+            if declaration.get("schema") != schema or declaration.get("id") != source.stem:
+                raise SystemExit("invalid portable process declaration")
+            digest = invoke(["docs", "service", "list", "--root", str(root)])["inputDigest"]
+            invoke(["docs", kind, "put", "--root", str(root), "--input", str(source),
+                    "--expected-input-digest", digest])
+            declarations[kind].append({"id": declaration["id"],
+                                       "sha256": hashlib.sha256(contents).hexdigest()})
 check = invoke(["docs", "check", "--root", str(root)])
 services = check.get("services", {})
 if check.get("status") != "CHECKED" or check.get("unresolved") or set(services) != {"places", "forecasts", "dashboard"}:
@@ -98,6 +115,10 @@ if any(service.get("revision") != revision for service in services.values()):
     raise SystemExit("native capture revision differs from the selected source checkout")
 receipt = {"schema": "clew-weather-fresh-native-capture/1.0", "version": version, "revision": revision, "targetRef": target, "snapshot": check["snapshot"], "status": check["status"], "runtimeMode": capabilities["runtimeMode"], "launcherAuthority": contract["launcherAuthority"], "sourceFallbackAllowed": False, "freshCallerState": True, "sourceCacheImported": False, "modelInvoked": False, "proseAuthored": False, "services": services}
 receipt["historicalRuntimeObservationsImported"] = args.include_observations
+receipt["portableProcessDeclarationsImported"] = args.include_processes
+if args.include_processes:
+    receipt["declarations"] = declarations
+    receipt["interactionAuthority"] = "AGENT_PROPOSAL_NOT_RUNTIME_VERIFIED"
 if args.include_observations:
     receipt["observationAuthority"] = "HUMAN_OR_IMPORTED_UNVERIFIED"
     receipt["observationCompilerEvidence"] = False

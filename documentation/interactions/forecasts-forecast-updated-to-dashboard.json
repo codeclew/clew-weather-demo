@@ -1,0 +1,36 @@
+{
+  "schema": "codeclew-documentation-interaction/1.0",
+  "id": "forecasts-forecast-updated-to-dashboard",
+  "title": "Forecasts forecast-updated message to Dashboard.consumeMessage",
+  "from": {
+    "service": "forecasts",
+    "selector": {
+      "language": "kotlin",
+      "owner": "class:weather.Forecasts",
+      "name": "publishPending",
+      "parameterTypes": []
+    },
+    "callSite": {
+      "observation": "forecasts:flow:a5b0ed72a047f4f36e281eb2"
+    }
+  },
+  "to": {
+    "service": "dashboard",
+    "selector": {
+      "language": "typescript",
+      "owner": "package:",
+      "name": "consumeMessage",
+      "parameterTypes": [
+        ": EachMessagePayload"
+      ]
+    }
+  },
+  "transport": {
+    "kind": "kafka",
+    "topic": "weather.forecast-updated"
+  },
+  "declaration": {
+    "origin": "agent-proposal",
+    "rationale": "Agent-proposed weather.forecast-updated subscriber mapping. The selected source method and producer callsite are retained; topic resolution, consumer subscription and runtime delivery remain unverified."
+  }
+}

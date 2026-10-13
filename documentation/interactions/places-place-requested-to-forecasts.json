@@ -1,0 +1,40 @@
+{
+  "schema": "codeclew-documentation-interaction/1.0",
+  "id": "places-place-requested-to-forecasts",
+  "title": "Places place-requested message to Forecasts.consume",
+  "from": {
+    "service": "places",
+    "selector": {
+      "language": "csharp",
+      "owner": "class:Weather.Places.RequestPublisher",
+      "name": "PublishPending",
+      "parameterTypes": [
+        "Confluent.Kafka.IProducer`2",
+        "System.Threading.CancellationToken"
+      ]
+    },
+    "callSite": {
+      "observation": "places:flow:941152b2ec99892568c9e40a"
+    }
+  },
+  "to": {
+    "service": "forecasts",
+    "selector": {
+      "language": "kotlin",
+      "owner": "class:weather.Forecasts",
+      "name": "consume",
+      "parameterTypes": [
+        "record: ConsumerRecord<String, String>",
+        "acknowledgment: Acknowledgment"
+      ]
+    }
+  },
+  "transport": {
+    "kind": "kafka",
+    "topic": "weather.place-requested"
+  },
+  "declaration": {
+    "origin": "agent-proposal",
+    "rationale": "Agent-proposed weather.place-requested subscriber mapping. The captured Places producer call location is exact; topic resolution, consumer subscription and runtime delivery remain unverified."
+  }
+}

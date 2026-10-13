@@ -1,0 +1,46 @@
+{
+  "schema": "codeclew-documentation-process/1.0",
+  "id": "dashboard-save-city",
+  "title": "Dashboard save-city thread",
+  "summary": "Source-level thread connecting the proposed POST /places mapping to the place-requested publisher, Forecasts consumer and publisher, and both Dashboard consumer views; linked views do not establish execution order or delivery.",
+  "root": {
+    "service": "dashboard",
+    "selector": {
+      "language": "typescript",
+      "owner": "package:",
+      "name": "savePlace",
+      "parameterTypes": [
+        ": FastifyRequest",
+        ": FastifyReply"
+      ]
+    }
+  },
+  "interactions": [
+    "dashboard-save-place-to-places",
+    "places-place-requested-to-forecasts",
+    "places-place-requested-to-dashboard",
+    "forecasts-forecast-updated-to-dashboard"
+  ],
+  "maxDepth": 4,
+  "maxNodes": 64,
+  "process": {
+    "scope": "Dashboard.savePlace and its proposed Places.Save mapping, linked to the place-requested publisher, Forecasts consumer/publisher, and Dashboard consumer views.",
+    "participants": [
+      "dashboard",
+      "places",
+      "forecasts"
+    ],
+    "objects": [],
+    "trigger": "A caller enters the source-declared Dashboard.savePlace handler.",
+    "outcomes": [
+      "The declared HTTP and Kafka relationships are retained as separate views; target resolution, network result and downstream delivery are not established here."
+    ],
+    "linkedSubviews": [
+      "places-request-publisher",
+      "forecasts-place-requested-consumer",
+      "forecasts-publish-pending",
+      "dashboard-place-requested-consumer",
+      "dashboard-forecast-updated-consumer"
+    ]
+  }
+}

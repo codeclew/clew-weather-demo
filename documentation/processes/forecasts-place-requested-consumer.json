@@ -1,0 +1,38 @@
+{
+  "schema": "codeclew-documentation-process/1.0",
+  "id": "forecasts-place-requested-consumer",
+  "title": "Forecasts place-requested consumer",
+  "summary": "Source-level view of the weather.place-requested KafkaListener and Forecasts.consume handler; rejection, inbox transaction and acknowledgment detail stays with the accepted Forecasts.consume service operation. Linked process views do not establish cross-process ordering or delivery.",
+  "root": {
+    "service": "forecasts",
+    "selector": {
+      "language": "kotlin",
+      "owner": "class:weather.Forecasts",
+      "name": "consume",
+      "parameterTypes": [
+        "record: ConsumerRecord<String, String>",
+        "acknowledgment: Acknowledgment"
+      ]
+    }
+  },
+  "interactions": [
+    "places-place-requested-to-forecasts"
+  ],
+  "maxDepth": 4,
+  "maxNodes": 64,
+  "process": {
+    "scope": "Forecasts.consume is the source-declared KafkaListener for weather.place-requested; its rejection, inbox transaction, and acknowledgment behavior remains described by the accepted service operation.",
+    "participants": [
+      "forecasts"
+    ],
+    "objects": [],
+    "trigger": "The source-declared weather.place-requested listener invokes Forecasts.consume; runtime activation and message delivery are unverified.",
+    "outcomes": [
+      "The consumer node links to the shared Forecasts refresh and publishing views; those links do not establish cross-process order, transaction atomicity, acknowledgment timing, or delivery."
+    ],
+    "linkedSubviews": [
+      "forecasts-refresh-scheduled",
+      "forecasts-publish-pending"
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "codeclew-documentation-process/1.0",
+  "id": "dashboard-refresh-request",
+  "title": "Dashboard refresh-request thread",
+  "summary": "Source-level thread connecting the proposed POST /places/{id}/refresh mapping to the place-requested publisher, Forecasts consumer and publisher, and both Dashboard consumer views; linked views do not establish execution order or delivery.",
+  "root": {
+    "service": "dashboard",
+    "selector": {
+      "language": "typescript",
+      "owner": "package:",
+      "name": "requestRefresh",
+      "parameterTypes": [
+        ": FastifyRequest<{ Params: { id: string } }>",
+        ": FastifyReply"
+      ]
+    }
+  },
+  "interactions": [
+    "dashboard-request-refresh-to-places",
+    "places-place-requested-to-forecasts",
+    "places-place-requested-to-dashboard",
+    "forecasts-refresh-to-external-met",
+    "forecasts-forecast-updated-to-dashboard"
+  ],
+  "maxDepth": 4,
+  "maxNodes": 64,
+  "process": {
+    "scope": "Dashboard.requestRefresh and its proposed Places.Refresh mapping, linked to the place-requested publisher, Forecasts consumer/publisher, and Dashboard consumer views.",
+    "participants": [
+      "dashboard",
+      "places",
+      "forecasts"
+    ],
+    "objects": [],
+    "trigger": "A caller enters the source-declared Dashboard.requestRefresh handler.",
+    "outcomes": [
+      "The declared HTTP and Kafka relationships are retained with related process views; target resolution, network result, scheduling, provider delivery and message delivery are not established here."
+    ],
+    "linkedSubviews": [
+      "places-request-publisher",
+      "forecasts-place-requested-consumer",
+      "forecasts-publish-pending",
+      "dashboard-place-requested-consumer",
+      "dashboard-forecast-updated-consumer"
+    ]
+  }
+}
