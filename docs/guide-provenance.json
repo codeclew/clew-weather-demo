@@ -25,6 +25,23 @@
   },
   "sha256": {
     "README.md": "3ad78d6b0a73b7c6fab509349013567d610a0273b53ac396774dd4323e71ca26",
-    "weather-guide.html": "e1df92ab1e3a406ddbf2aa683945dd5cb1d28f1b11fbe2cff297fc27e2cc4ea9"
+    "weather-guide.html": "c31da511dc73c159f00b430c4ed154ffbed6bc424278c38e789ff3682b1d85c9"
+  },
+  "relocationNavigation": {
+    "kind": "MECHANICAL_HREF_WIRING",
+    "sourceSha256": "e1df92ab1e3a406ddbf2aa683945dd5cb1d28f1b11fbe2cff297fc27e2cc4ea9",
+    "proseUnchanged": true,
+    "links": [
+      {
+        "label": "weather documentation reader",
+        "from": "weather/index.html",
+        "to": "index.html"
+      },
+      {
+        "label": "Codeclew",
+        "from": "index.html",
+        "to": "https://codeclew.github.io/codeclew/"
+      }
+    ]
   }
 }
