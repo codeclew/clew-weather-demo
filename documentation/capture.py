@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Capture fresh native evidence; prose is supplied by the caller's agent."""
 import argparse
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -11,6 +12,7 @@ import subprocess
 parser = argparse.ArgumentParser()
 parser.add_argument("--root", required=True, type=Path)
 parser.add_argument("--clew", default="clew")
+parser.add_argument("--include-observations", action="store_true")
 args = parser.parse_args()
 repository = Path(__file__).resolve().parents[1]
 root = args.root.expanduser().resolve()
@@ -61,6 +63,31 @@ for service in ("places", "forecasts", "dashboard"):
     digest = invoke(["docs", "service", "list", "--root", str(root)])["inputDigest"]
     invoke(["docs", "service", "add", "--root", str(root), "--input", str(input_path), "--expected-input-digest", digest])
     invoke(["docs", "bind", "--root", str(root), "--service", service, "--repo", str(repository)])
+if args.include_observations:
+    for name, service in (("validator-node24", "dashboard"), ("kafka-replay", "dashboard"), ("broker-outage", "places")):
+        source = repository / "documentation/observations" / (name + ".json")
+        contents = source.read_bytes()
+        observation = json.loads(contents)
+        if (observation.get("schema") != "clew-weather-runtime-observation/1.0"
+                or observation.get("compilerEvidence") is not False):
+            raise SystemExit("invalid imported runtime observation")
+        association = {
+            "schema": "codeclew-documentation-note-association/1.0",
+            "id": "runtime-" + name,
+            "title": source.name,
+            "service": service,
+            "path": "notes/runtime-" + name + ".md",
+            "targets": ["service:" + service + "/section-overview"],
+            "classification": "mixed",
+            "period": observation.get("startedAt", observation.get("nodeVersion", "historical")),
+            "tags": ["imported-context"],
+            "metadata": {"sourceSha256": hashlib.sha256(contents).hexdigest(), "compilerEvidence": False}
+        }
+        input_path = receipts / (name + "-association.json")
+        input_path.write_text(json.dumps(association, indent=2) + "\n")
+        digest = invoke(["docs", "service", "list", "--root", str(root)])["inputDigest"]
+        invoke(["docs", "note", "import", "--root", str(root), "--input", str(input_path),
+                "--source", str(source), "--expected-input-digest", digest])
 check = invoke(["docs", "check", "--root", str(root)])
 services = check.get("services", {})
 if check.get("status") != "CHECKED" or check.get("unresolved") or set(services) != {"places", "forecasts", "dashboard"}:
@@ -68,5 +95,9 @@ if check.get("status") != "CHECKED" or check.get("unresolved") or set(services) 
 if any(service.get("revision") != revision for service in services.values()):
     raise SystemExit("native capture revision differs from the selected source checkout")
 receipt = {"schema": "clew-weather-fresh-native-capture/1.0", "version": version, "revision": revision, "targetRef": target, "snapshot": check["snapshot"], "status": check["status"], "runtimeMode": capabilities["runtimeMode"], "launcherAuthority": contract["launcherAuthority"], "sourceFallbackAllowed": False, "freshCallerState": True, "sourceCacheImported": False, "modelInvoked": False, "proseAuthored": False, "services": services}
+receipt["historicalRuntimeObservationsImported"] = args.include_observations
+if args.include_observations:
+    receipt["observationAuthority"] = "HUMAN_OR_IMPORTED_UNVERIFIED"
+    receipt["observationCompilerEvidence"] = False
 (receipts / "capture.json").write_text(json.dumps(receipt, indent=2) + "\n")
 print(json.dumps(receipt))
