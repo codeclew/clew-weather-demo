@@ -46,11 +46,11 @@ if args.include_processes:
             and tuple(map(int, match.groups())) < (0, 13, 29)):
         parser.error("C# and TypeScript process threads require Codeclew 0.13.29 or newer")
 capabilities = json.loads(subprocess.check_output([launcher, "capabilities"], env=environment, text=True))
-contract = capabilities.get("agentContract", {})
+launcher_contract = capabilities.get("agentContract", {})
 if (capabilities.get("runtimeMode") != "RELEASE"
-        or contract.get("schema") != "codeclew-agent-contract/1.0"
-        or contract.get("launcherAuthority") != "INSTALLED_RELEASE"
-        or contract.get("sourceFallbackAllowed") is not False):
+        or launcher_contract.get("schema") != "codeclew-agent-contract/1.0"
+        or launcher_contract.get("launcherAuthority") != "INSTALLED_RELEASE"
+        or launcher_contract.get("sourceFallbackAllowed") is not False):
     parser.error("use an installed public release")
 target = subprocess.check_output(["git", "symbolic-ref", "--short", "HEAD"], cwd=repository, text=True).strip()
 revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=repository, text=True).strip()
@@ -119,8 +119,8 @@ if args.include_processes:
             thread = process["process"]["thread"]
             for method in thread["methods"]:
                 needed.setdefault(method["service"], set()).add(method["sourceId"])
-            for contract in thread.get("boundaryContracts", []):
-                for evidence in contract["evidence"].values():
+            for boundary_contract in thread.get("boundaryContracts", []):
+                for evidence in boundary_contract["evidence"].values():
                     needed.setdefault(evidence["service"], set()).add(evidence["sourceId"])
         original_capture = invoke(["docs", "check", "--root", str(root)])
         if (original_capture.get("status") != "CHECKED" or original_capture.get("unresolved")
@@ -176,7 +176,7 @@ if check.get("status") != "CHECKED" or check.get("unresolved") or set(services) 
     raise SystemExit("native capture is incomplete; inspect saved check output")
 if any(service.get("revision") != revision for service in services.values()):
     raise SystemExit("native capture revision differs from the selected source checkout")
-receipt = {"schema": "clew-weather-fresh-native-capture/1.0", "version": version, "revision": revision, "targetRef": target, "snapshot": check["snapshot"], "status": check["status"], "runtimeMode": capabilities["runtimeMode"], "launcherAuthority": contract["launcherAuthority"], "sourceFallbackAllowed": False, "freshCallerState": True, "sourceCacheImported": False, "modelInvoked": False, "proseAuthored": False, "services": services}
+receipt = {"schema": "clew-weather-fresh-native-capture/1.0", "version": version, "revision": revision, "targetRef": target, "snapshot": check["snapshot"], "status": check["status"], "runtimeMode": capabilities["runtimeMode"], "launcherAuthority": launcher_contract["launcherAuthority"], "sourceFallbackAllowed": False, "freshCallerState": True, "sourceCacheImported": False, "modelInvoked": False, "proseAuthored": False, "services": services}
 receipt["stateDirectory"] = environment["CODECLEW_HOME"]
 receipt["historicalRuntimeObservationsImported"] = args.include_observations
 receipt["portableProcessDeclarationsImported"] = args.include_processes

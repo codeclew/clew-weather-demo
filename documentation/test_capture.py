@@ -8,6 +8,18 @@ from unittest.mock import patch
 
 
 class CaptureExitStatusTest(unittest.TestCase):
+    def test_launcher_contract_survives_thread_contract_iteration(self):
+        tree = ast.parse(Path(__file__).with_name('capture.py').read_text())
+        stores = [node for node in ast.walk(tree) if isinstance(node, ast.Name)
+                  and node.id == 'launcher_contract' and isinstance(node.ctx, ast.Store)]
+        self.assertEqual(len(stores), 1)
+        receipt = next(node for node in tree.body if isinstance(node, ast.Assign)
+                       and any(isinstance(target, ast.Name) and target.id == 'receipt' for target in node.targets))
+        authority = next(value for key, value in zip(receipt.value.keys, receipt.value.values)
+                         if isinstance(key, ast.Constant) and key.value == 'launcherAuthority')
+        self.assertIsInstance(authority, ast.Subscript)
+        self.assertEqual(authority.value.id, 'launcher_contract')
+
     def invoke(self, arguments, code, response):
         source = Path(__file__).with_name('capture.py')
         tree = ast.parse(source.read_text())
