@@ -1,0 +1,37 @@
+{
+  "schema": "clew-weather-source-spans/1.0",
+  "sources": {
+    "places-309961f88b197290c1b0": {
+      "id": "places-309961f88b197290c1b0",
+      "service": "places",
+      "file": "services/places/PlacesController.cs",
+      "startLine": 10,
+      "endLine": 17,
+      "textDigest": "sha256:b6a46a9557e67342266ccce88f28a634490cacba1ee8f705d71066775158f708"
+    },
+    "places-65de4bdfa04d114b73df": {
+      "id": "places-65de4bdfa04d114b73df",
+      "service": "places",
+      "file": "services/places/PlacesController.cs",
+      "startLine": 18,
+      "endLine": 25,
+      "textDigest": "sha256:15621e3458e3e37377113dbf343bd3621c520edd48affea91206c49bec8b238f"
+    },
+    "dashboard-7970ac3e2a8cf3f45b4a": {
+      "id": "dashboard-7970ac3e2a8cf3f45b4a",
+      "service": "dashboard",
+      "file": "services/dashboard/src/main.ts",
+      "startLine": 67,
+      "endLine": 74,
+      "textDigest": "sha256:d36fd526184e291acfb7df17b6ebb41df8afb1f284fcdb448f552c1b457260a8"
+    },
+    "dashboard-1612e17d589cb9d0fa4a": {
+      "id": "dashboard-1612e17d589cb9d0fa4a",
+      "service": "dashboard",
+      "file": "services/dashboard/src/main.ts",
+      "startLine": 76,
+      "endLine": 83,
+      "textDigest": "sha256:8a1197a24ccae2bc108ed3180894b777ff122a2be4b0f3510f70588e0e3d8dbf"
+    }
+  }
+}
