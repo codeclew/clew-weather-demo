@@ -1,0 +1,24 @@
+{
+  "schema": "codeclew-documentation-service/1.0",
+  "repositoryId": "clew-weather-demo",
+  "repository": "https://github.com/codeclew/clew-weather-demo",
+  "targetRef": "main",
+  "id": "forecasts",
+  "title": "Forecasts",
+  "language": "kotlin",
+  "profile": "source-syntax",
+  "source": {
+    "roots": [
+      "services/forecasts",
+      "contracts/forecasts.openapi.json",
+      "contracts/events.schema.json",
+      "database/init.sql",
+      "compose.yaml",
+      "fixtures"
+    ],
+    "dialect": "2.4.21"
+  },
+  "contractFiles": [
+    "contracts/forecasts.openapi.json"
+  ]
+}

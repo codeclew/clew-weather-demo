@@ -1,0 +1,25 @@
+{
+  "schema": "codeclew-documentation-service/1.0",
+  "id": "dashboard",
+  "title": "Dashboard",
+  "repositoryId": "clew-weather-demo",
+  "repository": "https://github.com/codeclew/clew-weather-demo",
+  "language": "typescript",
+  "profile": "source-syntax",
+  "targetRef": "main",
+  "source": {
+    "roots": [
+      "services/dashboard",
+      "contracts/dashboard.openapi.json",
+      "contracts/events.schema.json",
+      "database/init.sql",
+      "compose.yaml",
+      "fixtures",
+      "exercises"
+    ],
+    "dialect": "7.0.2"
+  },
+  "contractFiles": [
+    "contracts/dashboard.openapi.json"
+  ]
+}
