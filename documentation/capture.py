@@ -20,6 +20,8 @@ if root == repository or repository in root.parents or root in repository.parent
     parser.error("documentation root must be separate from the source checkout")
 if root.exists():
     parser.error("use a new documentation root; existing evidence is never replaced")
+if not root.parent.is_dir():
+    parser.error("documentation root parent must already exist; create it before capture")
 launcher = shutil.which(args.clew)
 if launcher is None:
     parser.error("installed clew launcher is unavailable")
