@@ -1,0 +1,310 @@
+{
+  "schema": "clew-weather-runtime-observation/1.0",
+  "id": "kafka-replay",
+  "origin": "LOCAL_TEST_OBSERVATION",
+  "compilerEvidence": false,
+  "originalRecordSha256": "caddd2d52464acb6a2fa5107473b77e1a47d94bd5101e27011382549efd87552",
+  "status": "PASS",
+  "sourceCommit": "8d69f2b1d4a6d9770f87c720cd665dab30081815",
+  "sourceHashes": {
+    "services/dashboard/src/main.ts": "24e65777311802d2204bc41eedf3b814e869f777c2e65cb74d5c8be8c4d47e6a",
+    "services/dashboard/src/events.ts": "a17702c69c12855a10f629ed89938eba6b4492e1b84efa9faf0e02f251ce2a2b",
+    "services/forecasts/src/main/kotlin/weather/Forecasts.kt": "6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+    "compose.yaml": "76d5d8226d233a558b901a06887bcce216e4738778edff8462367d827169c167",
+    "database/init.sql": "c888c357d74a2e37512309e826d90fc689be0c348fb3e1cbfe635ce5a46f879f"
+  },
+  "runnerSha256": "8bfaa5d4fa467df91f7b46609bf5bd1cd561f30abcf6d635da5bfabf20930f10",
+  "startedAt": "2026-10-13T01:19:20.188431+00:00",
+  "finishedAt": "2026-10-13T01:19:39.261171+00:00",
+  "sourceUnchangedAtFinish": true,
+  "cases": [
+    {
+      "case": "forecast-before-place",
+      "pass": true,
+      "observed": {
+        "id": "lisbon",
+        "name": "Lisbon",
+        "latitude": 38.72,
+        "longitude": -9.14,
+        "forecast": {
+          "mode": "fixture",
+          "periods": [
+            {
+              "time": "2026-10-12T21:34:59Z",
+              "symbol": "synthetic_acceptance",
+              "temperatureC": 18,
+              "precipitationMm": 0
+            }
+          ],
+          "fetchedAt": "2026-10-12T20:36:59Z",
+          "updatedAt": "2026-10-12T20:35:59Z"
+        }
+      },
+      "topicEnd": 1,
+      "groupSnapshot": "\nGROUP                TOPIC                    PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                            HOST            CLIENT-ID\nweather-dashboard-v1 weather.forecast-updated 0          1               1               0               weather-dashboard-6d4f072e-edfd-4d08-9f35-6cf7f1ad7234 /172.19.0.6     weather-dashboard\nweather-dashboard-v1 weather.place-requested  0          -               0               -               weather-dashboard-6d4f072e-edfd-4d08-9f35-6cf7f1ad7234 /172.19.0.6     weather-dashboard\n"
+    },
+    {
+      "case": "duplicate",
+      "pass": true,
+      "inboxTimestampBefore": "2026-10-13 01:19:20.860972+00",
+      "inboxTimestampAfter": "2026-10-13 01:19:20.860972+00",
+      "topicEnd": 2,
+      "groupSnapshot": "\nGROUP                TOPIC                    PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                            HOST            CLIENT-ID\nweather-dashboard-v1 weather.forecast-updated 0          2               2               0               weather-dashboard-6d4f072e-edfd-4d08-9f35-6cf7f1ad7234 /172.19.0.6     weather-dashboard\nweather-dashboard-v1 weather.place-requested  0          -               0               -               weather-dashboard-6d4f072e-edfd-4d08-9f35-6cf7f1ad7234 /172.19.0.6     weather-dashboard\n"
+    },
+    {
+      "case": "older",
+      "pass": true,
+      "inboxRows": "1",
+      "observed": {
+        "id": "lisbon",
+        "name": "Lisbon",
+        "latitude": 38.72,
+        "longitude": -9.14,
+        "forecast": {
+          "mode": "fixture",
+          "periods": [
+            {
+              "time": "2026-10-12T21:34:59Z",
+              "symbol": "synthetic_acceptance",
+              "temperatureC": 18,
+              "precipitationMm": 0
+            }
+          ],
+          "fetchedAt": "2026-10-12T20:36:59Z",
+          "updatedAt": "2026-10-12T20:35:59Z"
+        }
+      },
+      "topicEnd": 3,
+      "groupSnapshot": "\nGROUP                TOPIC                    PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                            HOST            CLIENT-ID\nweather-dashboard-v1 weather.forecast-updated 0          3               3               0               weather-dashboard-6d4f072e-edfd-4d08-9f35-6cf7f1ad7234 /172.19.0.6     weather-dashboard\nweather-dashboard-v1 weather.place-requested  0          -               0               -               weather-dashboard-6d4f072e-edfd-4d08-9f35-6cf7f1ad7234 /172.19.0.6     weather-dashboard\n"
+    },
+    {
+      "case": "equal",
+      "pass": true,
+      "inboxRows": "1",
+      "observed": {
+        "id": "lisbon",
+        "name": "Lisbon",
+        "latitude": 38.72,
+        "longitude": -9.14,
+        "forecast": {
+          "mode": "fixture",
+          "periods": [
+            {
+              "time": "2026-10-12T21:34:59Z",
+              "symbol": "synthetic_acceptance",
+              "temperatureC": 18,
+              "precipitationMm": 0
+            }
+          ],
+          "fetchedAt": "2026-10-12T20:36:59Z",
+          "updatedAt": "2026-10-12T20:35:59Z"
+        }
+      },
+      "topicEnd": 4,
+      "groupSnapshot": "\nGROUP                TOPIC                    PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                            HOST            CLIENT-ID\nweather-dashboard-v1 weather.forecast-updated 0          4               4               0               weather-dashboard-6d4f072e-edfd-4d08-9f35-6cf7f1ad7234 /172.19.0.6     weather-dashboard\nweather-dashboard-v1 weather.place-requested  0          -               0               -               weather-dashboard-6d4f072e-edfd-4d08-9f35-6cf7f1ad7234 /172.19.0.6     weather-dashboard\n"
+    },
+    {
+      "case": "newer-zero-temperature-unknown-rain",
+      "pass": true,
+      "observed": {
+        "id": "lisbon",
+        "name": "Lisbon",
+        "latitude": 38.72,
+        "longitude": -9.14,
+        "forecast": {
+          "mode": "fixture",
+          "periods": [
+            {
+              "time": "2026-10-12T21:34:59Z",
+              "symbol": "synthetic_acceptance",
+              "temperatureC": 0,
+              "precipitationMm": null
+            }
+          ],
+          "fetchedAt": "2026-10-12T20:36:59Z",
+          "updatedAt": "2026-10-12T20:37:59Z"
+        }
+      },
+      "topicEnd": 5,
+      "groupSnapshot": "\nGROUP                TOPIC                    PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                            HOST            CLIENT-ID\nweather-dashboard-v1 weather.forecast-updated 0          5               5               0               weather-dashboard-6d4f072e-edfd-4d08-9f35-6cf7f1ad7234 /172.19.0.6     weather-dashboard\nweather-dashboard-v1 weather.place-requested  0          -               0               -               weather-dashboard-6d4f072e-edfd-4d08-9f35-6cf7f1ad7234 /172.19.0.6     weather-dashboard\n"
+    },
+    {
+      "case": "place-arrives-later-and-generated-older-forecast",
+      "pass": true,
+      "observed": {
+        "id": "lisbon",
+        "name": "Lisbon",
+        "latitude": 38.72,
+        "longitude": -9.14,
+        "forecast": {
+          "mode": "fixture",
+          "periods": [
+            {
+              "time": "2026-10-12T21:34:59Z",
+              "symbol": "synthetic_acceptance",
+              "temperatureC": 0,
+              "precipitationMm": null
+            }
+          ],
+          "fetchedAt": "2026-10-12T20:36:59Z",
+          "updatedAt": "2026-10-12T20:37:59Z"
+        }
+      },
+      "generatedForecastConsumed": "1",
+      "topicEnd": 1,
+      "groupSnapshot": "\nGROUP                TOPIC                    PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                            HOST            CLIENT-ID\nweather-dashboard-v1 weather.forecast-updated 0          6               6               0               weather-dashboard-6d4f072e-edfd-4d08-9f35-6cf7f1ad7234 /172.19.0.6     weather-dashboard\nweather-dashboard-v1 weather.place-requested  0          1               1               0               weather-dashboard-6d4f072e-edfd-4d08-9f35-6cf7f1ad7234 /172.19.0.6     weather-dashboard\n"
+    }
+  ],
+  "inputs": [
+    {
+      "topic": "weather.forecast-updated",
+      "event": {
+        "id": "acceptance-lisbon-7f836229-f312-4e59-881a-d709e7fbd1ee-initial",
+        "type": "forecast.updated",
+        "version": 1,
+        "place": {
+          "id": "lisbon",
+          "name": "Lisbon",
+          "latitude": 38.72,
+          "longitude": -9.14
+        },
+        "forecast": {
+          "updatedAt": "2026-10-12T20:35:59Z",
+          "fetchedAt": "2026-10-12T20:36:59Z",
+          "mode": "fixture",
+          "periods": [
+            {
+              "time": "2026-10-12T21:34:59Z",
+              "temperatureC": 18,
+              "precipitationMm": 0,
+              "symbol": "synthetic_acceptance"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "topic": "weather.forecast-updated",
+      "event": {
+        "id": "acceptance-lisbon-7f836229-f312-4e59-881a-d709e7fbd1ee-initial",
+        "type": "forecast.updated",
+        "version": 1,
+        "place": {
+          "id": "lisbon",
+          "name": "Lisbon",
+          "latitude": 38.72,
+          "longitude": -9.14
+        },
+        "forecast": {
+          "updatedAt": "2026-10-12T20:35:59Z",
+          "fetchedAt": "2026-10-12T20:36:59Z",
+          "mode": "fixture",
+          "periods": [
+            {
+              "time": "2026-10-12T21:34:59Z",
+              "temperatureC": 18,
+              "precipitationMm": 0,
+              "symbol": "synthetic_acceptance"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "topic": "weather.forecast-updated",
+      "event": {
+        "id": "acceptance-lisbon-7f836229-f312-4e59-881a-d709e7fbd1ee-older",
+        "type": "forecast.updated",
+        "version": 1,
+        "place": {
+          "id": "lisbon",
+          "name": "Lisbon",
+          "latitude": 38.72,
+          "longitude": -9.14
+        },
+        "forecast": {
+          "updatedAt": "2026-10-12T20:34:59Z",
+          "fetchedAt": "2026-10-12T20:36:59Z",
+          "mode": "fixture",
+          "periods": [
+            {
+              "time": "2026-10-12T21:34:59Z",
+              "temperatureC": 99,
+              "precipitationMm": 0,
+              "symbol": "synthetic_acceptance"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "topic": "weather.forecast-updated",
+      "event": {
+        "id": "acceptance-lisbon-7f836229-f312-4e59-881a-d709e7fbd1ee-equal",
+        "type": "forecast.updated",
+        "version": 1,
+        "place": {
+          "id": "lisbon",
+          "name": "Lisbon",
+          "latitude": 38.72,
+          "longitude": -9.14
+        },
+        "forecast": {
+          "updatedAt": "2026-10-12T20:35:59Z",
+          "fetchedAt": "2026-10-12T20:36:59Z",
+          "mode": "fixture",
+          "periods": [
+            {
+              "time": "2026-10-12T21:34:59Z",
+              "temperatureC": 98,
+              "precipitationMm": 0,
+              "symbol": "synthetic_acceptance"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "topic": "weather.forecast-updated",
+      "event": {
+        "id": "acceptance-lisbon-7f836229-f312-4e59-881a-d709e7fbd1ee-newer",
+        "type": "forecast.updated",
+        "version": 1,
+        "place": {
+          "id": "lisbon",
+          "name": "Lisbon",
+          "latitude": 38.72,
+          "longitude": -9.14
+        },
+        "forecast": {
+          "updatedAt": "2026-10-12T20:37:59Z",
+          "fetchedAt": "2026-10-12T20:36:59Z",
+          "mode": "fixture",
+          "periods": [
+            {
+              "time": "2026-10-12T21:34:59Z",
+              "temperatureC": 0,
+              "precipitationMm": null,
+              "symbol": "synthetic_acceptance"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "topic": "weather.place-requested",
+      "event": {
+        "id": "acceptance-lisbon-7f836229-f312-4e59-881a-d709e7fbd1ee-place-last",
+        "type": "place.requested",
+        "version": 1,
+        "place": {
+          "id": "lisbon",
+          "name": "Lisbon",
+          "latitude": 38.72,
+          "longitude": -9.14
+        }
+      }
+    }
+  ],
+  "topicPartitions": 1
+}

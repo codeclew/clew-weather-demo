@@ -1,0 +1,17 @@
+{
+  "schema": "clew-weather-runtime-observation/1.0",
+  "id": "validator-node24",
+  "origin": "LOCAL_TEST_OBSERVATION",
+  "compilerEvidence": false,
+  "originalRecordSha256": "dd0db06bc40207580d6c1097e68fff4d0fe696172e7d861fe528e98468bc218a",
+  "status": "PASSED",
+  "nodeVersion": "v24.21.0",
+  "assetSha256": "bed7eea5325e1108f32ce5228ddd6a5f0f08a499ee42aa7442aea583702f6057",
+  "officialChecksumMatched": true,
+  "exerciseResult": {
+    "status": "PASSED",
+    "assertions": 6,
+    "runtime": "v24.21.0"
+  },
+  "repositoryRevision": "8d69f2b1d4a6d9770f87c720cd665dab30081815"
+}

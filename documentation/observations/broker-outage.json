@@ -1,0 +1,135 @@
+{
+  "schema": "clew-weather-runtime-observation/1.0",
+  "id": "broker-outage",
+  "origin": "LOCAL_TEST_OBSERVATION",
+  "compilerEvidence": false,
+  "originalRecordSha256": "789d6394fbc4e75473b134e41de0c59f7cf940d0a19fb29f924932f40532ebf2",
+  "status": "PASSED",
+  "sourceRevision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+  "startedAt": "2026-10-13T00:42:52.148414+00:00",
+  "finishedAt": "2026-10-13T00:43:37.667088+00:00",
+  "checks": [
+    {
+      "case": "fresh-dashboard-empty",
+      "passed": true,
+      "observed": {}
+    },
+    {
+      "case": "save-commits-with-broker-down",
+      "passed": true,
+      "observed": {
+        "status": 200,
+        "body": {
+          "id": "oslo",
+          "name": "Oslo",
+          "latitude": 59.93,
+          "longitude": 10.72
+        }
+      }
+    },
+    {
+      "case": "outbox-retained-unpublished-after-producer-timeout",
+      "passed": true,
+      "observed": {
+        "outbox": 1,
+        "published": 0
+      }
+    },
+    {
+      "case": "places-health-does-not-attest-broker",
+      "passed": true,
+      "observed": {
+        "status": 200,
+        "body": {
+          "database": "READY"
+        }
+      }
+    },
+    {
+      "case": "duplicate-save-does-not-create-another-outbox-row",
+      "passed": true,
+      "observed": {
+        "response": {
+          "status": 200,
+          "body": {
+            "id": "oslo",
+            "name": "Oslo",
+            "latitude": 59.93,
+            "longitude": 10.72
+          }
+        },
+        "counts": {
+          "outbox": 1,
+          "published": 0
+        }
+      }
+    },
+    {
+      "case": "broker-recovery-delivers-through-all-three-services",
+      "passed": true,
+      "observed": {
+        "counts": {
+          "outbox": 1,
+          "published": 1
+        },
+        "card": {
+          "id": "oslo",
+          "name": "Oslo",
+          "latitude": 59.93,
+          "longitude": 10.72,
+          "forecast": {
+            "mode": "fixture",
+            "periods": [
+              {
+                "time": "2026-10-12T20:00:00Z",
+                "symbol": "fair_night",
+                "temperatureC": 2,
+                "precipitationMm": 0
+              },
+              {
+                "time": "2026-10-12T21:00:00Z",
+                "symbol": "partlycloudy_night",
+                "temperatureC": 2.3,
+                "precipitationMm": 0
+              },
+              {
+                "time": "2026-10-12T22:00:00Z",
+                "symbol": "cloudy",
+                "temperatureC": 2.6,
+                "precipitationMm": 0
+              },
+              {
+                "time": "2026-10-12T23:00:00Z",
+                "symbol": "cloudy",
+                "temperatureC": 2.6,
+                "precipitationMm": 0
+              },
+              {
+                "time": "2026-10-13T00:00:00Z",
+                "symbol": "cloudy",
+                "temperatureC": 2.5,
+                "precipitationMm": 0
+              },
+              {
+                "time": "2026-10-13T01:00:00Z",
+                "symbol": "cloudy",
+                "temperatureC": 2.4,
+                "precipitationMm": 0
+              }
+            ],
+            "fetchedAt": "2026-10-13T00:43:13.278793388Z",
+            "updatedAt": "2026-10-12T20:34:59Z"
+          }
+        }
+      }
+    },
+    {
+      "case": "publisher-recorded-retry",
+      "passed": true,
+      "observed": {
+        "retryMarkerPresent": true
+      }
+    }
+  ],
+  "fixtureMode": true
+}
