@@ -1,0 +1,31 @@
+{
+  "schema": "weather-native-page-variant/1.0",
+  "renderer": {
+    "command": "clew docs pages render",
+    "mode": "input",
+    "runtimeSelection": "SOURCE_BUILD",
+    "sourceRevision": "6f52d11fc780c243b4b79adece3db76905c2db6e",
+    "sourceRepository": "https://github.com/codeclew/codeclew",
+    "productVersion": "0.13.32"
+  },
+  "snapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
+  "selection": "https://github.com/codeclew/clew-weather-demo/blob/main/documentation/pages-consume-message-variant.json",
+  "selectionSha256": "sha256:218449a9aaa0bb21798abd77a047166c84ea913ee412b8b0f47c33b552b8640d",
+  "projectionDigest": "sha256:494f81f56b4c67d817ac5a1a5e0013183396dcf9bc76b0741fc5ec3da7e61acc",
+  "manifest": "manifest.json",
+  "manifestSha256": "sha256:4ebdea2845090c3c1c8601cf83f24b295b18b3e22f4714fc77a539d840031319",
+  "proseAuthored": false,
+  "recaptured": false,
+  "acceptedBehavior": {
+    "page": "../../scenarios/dashboard-forecast-updated-consumer.html#dashboard-forecast-updated-consumer",
+    "data": "../../scenarios/dashboard-forecast-updated-consumer.json",
+    "dataSha256": "sha256:99fb9db78c5fbe329df0bd8d83c420a7bb9faf5b6be8dabf5fa41757837fc398",
+    "markdown": "../../scenarios/dashboard-forecast-updated-consumer.md",
+    "markdownSha256": "sha256:597045153448e07ee66461377a1fbf2c7b697787554c068d605e78bc9ded9c25",
+    "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+    "renderProvenance": "../../render-provenance.json"
+  },
+  "projectionKind": "DECLARATION_ONLY",
+  "sourceAuthority": "SYNTAX_DECLARATION",
+  "runtime": "UNVERIFIED"
+}

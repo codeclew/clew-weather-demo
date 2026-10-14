@@ -1,0 +1,127 @@
+{
+  "contextDigest": "sha256:9ccf913e21f2edd096b2e7a9858e543668cbd72211e2b1c54c15d52d2dd866dd",
+  "files": [
+    {
+      "digest": "sha256:4a7438fbe225d7820189ad633d931dec18c5794d417c72bf7031acff73fcf02d",
+      "path": "catalogue.json"
+    },
+    {
+      "digest": "sha256:00b5283b7d3fff159bdb6e1553f2489575ca76bc23c26aae3a89abc00881f5d5",
+      "path": "dashboard-consume-message-diagnostic.html"
+    },
+    {
+      "digest": "sha256:89fa14bd0edc48b18a941c1c1b1c50ef617112654836849c150c647d2f93382b",
+      "path": "dashboard-consume-message-diagnostic.mdx"
+    },
+    {
+      "digest": "sha256:40f15dfa86c66002a7d64ef713312fd56b874ed0107119e625bfed46b293ee1c",
+      "path": "dashboard-consume-message-endpoint.html"
+    },
+    {
+      "digest": "sha256:a4da513fe3405bb67fe2dcec8901f15a20f5f6b03f94d9d643a1ec3117319f48",
+      "path": "dashboard-consume-message-endpoint.mdx"
+    },
+    {
+      "digest": "sha256:7642a2420a841465a179dcce2521b9ca027dbe23680d7887a1c692490619c997",
+      "path": "dashboard-consume-message-fields-state.html"
+    },
+    {
+      "digest": "sha256:c336e205c11ab526d18d3a49c4166ce44cd8feea19bffcd7aa5685741e79da11",
+      "path": "dashboard-consume-message-fields-state.mdx"
+    },
+    {
+      "digest": "sha256:381f0d241dbab4772caa2742d4add371b1d4d5f77700ec08049dc5daedc76953",
+      "path": "dashboard-consume-message-overview.html"
+    },
+    {
+      "digest": "sha256:ff9a979bb0b9fe8abd89dfb01263d8c686f8dc87ca0a9f7804e53a7c591781f2",
+      "path": "dashboard-consume-message-overview.mdx"
+    },
+    {
+      "digest": "sha256:79b402669d70fb932ced9e38f6c9743008c7ab1fbe96c59f580bffad7fc836ac",
+      "path": "dashboard-consume-message-worker.html"
+    },
+    {
+      "digest": "sha256:d7d8cfc3505a6b27c158b953ba7ebe4717844eb70c90a25cddf4256dc5d35674",
+      "path": "dashboard-consume-message-worker.mdx"
+    },
+    {
+      "digest": "sha256:e3f71d2e17bea4fc1f0a35b90b1c50474d9ab06fdf9fe02adc3a8c5bcf658675",
+      "path": "index.html"
+    },
+    {
+      "digest": "sha256:82e393fc68168b996d4e7435f40fd030d81efb94cacf2f858e6ea0144aa0d0b8",
+      "path": "index.mdx"
+    },
+    {
+      "digest": "sha256:ce9995c761f68342e490f9d6c96d481c6a93c8c706f3bd336513fedda3108425",
+      "path": "native-reader.js"
+    },
+    {
+      "digest": "sha256:525217e0c682cfb9958122fabce81bdcfca1e1a13a35f4bc154815d64755ed57",
+      "path": "projection.json"
+    },
+    {
+      "digest": "sha256:90db6b723a3f21fea8844ed41920cc21d9f4931eb284c154994e07bb3687e516",
+      "path": "sources.html"
+    },
+    {
+      "digest": "sha256:cb04f052ed1e720137f667706aaf41e2f2118e043635d42050c7732229c74d7a",
+      "path": "sources.mdx"
+    },
+    {
+      "digest": "sha256:30f2a7247d667d5fc0ae6992a7aff6761faeef34b00a391252bb295c15ee4109",
+      "path": "style.css"
+    }
+  ],
+  "inputDigest": "sha256:e14f03b3255df5946625b6ed2995158404bf1c58ea789f1d4b63ca48dd739a20",
+  "mdxProfile": "MDX 3; inert native JSX; no imports, executable expressions, scripts or network dependencies",
+  "pages": [
+    {
+      "contentDigest": "sha256:4ea4a7b7a558473c6dcb02a102aefa43d8cff6b828e8c24e45bb1350ecd29a22",
+      "html": "dashboard-consume-message-diagnostic.html",
+      "id": "dashboard-consume-message-diagnostic",
+      "mdx": "dashboard-consume-message-diagnostic.mdx"
+    },
+    {
+      "contentDigest": "sha256:0576988000e9f763dce8c6788d08d2e115703b863a2d34017a911ffc7383b92b",
+      "html": "dashboard-consume-message-endpoint.html",
+      "id": "dashboard-consume-message-endpoint",
+      "mdx": "dashboard-consume-message-endpoint.mdx"
+    },
+    {
+      "contentDigest": "sha256:74c1d345d407080cd0823ae214f2bc512a6ea11d075f4ea0e8f17deb8ae9d471",
+      "html": "dashboard-consume-message-fields-state.html",
+      "id": "dashboard-consume-message-fields-state",
+      "mdx": "dashboard-consume-message-fields-state.mdx"
+    },
+    {
+      "contentDigest": "sha256:9af58e625c024521397d18a1d78a081b80ec40a35ed586a40247b3e39929c634",
+      "html": "dashboard-consume-message-overview.html",
+      "id": "dashboard-consume-message-overview",
+      "mdx": "dashboard-consume-message-overview.mdx"
+    },
+    {
+      "contentDigest": "sha256:2fa2a00559a430b02d1c6de306ef614405551052e1b40ef8cbb7ccba837e1d01",
+      "html": "dashboard-consume-message-worker.html",
+      "id": "dashboard-consume-message-worker",
+      "mdx": "dashboard-consume-message-worker.mdx"
+    },
+    {
+      "contentDigest": "sha256:3e06029e568e63b022b2fe26482f085fcf05796465e15a3e726bd32d2dac2dc1",
+      "html": "index.html",
+      "id": "index",
+      "mdx": "index.mdx"
+    },
+    {
+      "contentDigest": "sha256:d30c245e28c6e826de303b8b6789cdb793af5dd624ff16e074e4f79a8349484a",
+      "html": "sources.html",
+      "id": "sources",
+      "mdx": "sources.mdx"
+    }
+  ],
+  "projectionDigest": "sha256:494f81f56b4c67d817ac5a1a5e0013183396dcf9bc76b0741fc5ec3da7e61acc",
+  "schema": "codeclew-native-pages-static-manifest/1.0",
+  "selectionDigest": "sha256:295502016802c7a43e8d7217da83a543dae40d303d88bdb77240cdac77d3baa9",
+  "snapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956"
+}

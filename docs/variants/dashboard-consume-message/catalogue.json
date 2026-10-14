@@ -1,0 +1,25 @@
+{
+  "authority": "SELECTED_AND_EXAMINED_DOCUMENTATION_CONTEXT_NOT_RUNTIME_IMPACT",
+  "contextDigest": "sha256:9ccf913e21f2edd096b2e7a9858e543668cbd72211e2b1c54c15d52d2dd866dd",
+  "inputDigest": "sha256:e14f03b3255df5946625b6ed2995158404bf1c58ea789f1d4b63ca48dd739a20",
+  "rows": [
+    {
+      "context": "dashboard · unavailable scope",
+      "href": "dashboard-consume-message-overview.html",
+      "id": "declarations-dashboard-consume-message",
+      "kind": "Selected declarations",
+      "relatedLinks": [],
+      "searchText": [
+        "dashboard",
+        "unavailable scope",
+        "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5",
+        "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5"
+      ],
+      "summary": "Retained syntax declarations, signatures and cited source structure; compiler resolution, behavior and relationships are not inferred.",
+      "title": "Selected functions: source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5"
+    }
+  ],
+  "schema": "codeclew-native-catalogue/1.0",
+  "selectionDigest": "sha256:295502016802c7a43e8d7217da83a543dae40d303d88bdb77240cdac77d3baa9",
+  "snapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956"
+}

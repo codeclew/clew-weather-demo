@@ -1,0 +1,8 @@
+[
+  {
+    "id": "dashboard-consume-message",
+    "service": "dashboard",
+    "endpointDeclaration": "dashboard:symbol:a4627e5e868830287e83e0dc",
+    "workerDeclaration": "dashboard:symbol:a4627e5e868830287e83e0dc"
+  }
+]
