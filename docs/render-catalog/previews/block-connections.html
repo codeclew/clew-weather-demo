@@ -1,0 +1,84 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Declared service connections</title><link rel="stylesheet" href="../preview.css"><body><p class="preview-note">Read-only excerpt from the real Weather publication. Open the full example for source interactions.</p><main><section class="thread-connections"><h3>Declared service connections</h3><p>These source-linked connections do not prove routing or delivery.</p><ul><li><span>dashboard → places</span><p>Dashboard savePlace to Places.Save</p><p class="thread-connection-status">Declared transport: http · POST · /places · Delivery unverified</p><a class="source-link" href="https://codeclew.github.io/clew-weather-demo/scenarios/dashboard-save-city.html#thread-source-dashboard-save-L67">Source · Dashboard savePlace handler</a> <a class="source-link" href="https://codeclew.github.io/clew-weather-demo/scenarios/dashboard-save-city.html#thread-source-places-save-L10">Source · Places Save controller</a><details open><summary>Connection evidence and unresolved checks</summary><pre>{
+  "id": "dashboard-save-place-to-places",
+  "origin": "agent-proposal",
+  "from": "SOURCE_MATCH",
+  "to": "RESOLVED",
+  "callSite": "RESOLVED",
+  "destination": {
+    "declared": null,
+    "observed": [],
+    "status": "UNRESOLVED"
+  },
+  "runtime": "UNKNOWN",
+  "contractStatus": "NOT_ASSESSED",
+  "boundaries": [
+    "RUNTIME_DESTINATION_AND_ACTIVATION_UNKNOWN",
+    "WIRE_SERIALIZATION_NOT_ASSESSED",
+    "ENVIRONMENT_SCOPE_UNSPECIFIED",
+    "CLIENT_PATTERN_UNSUPPORTED_OR_AMBIGUOUS",
+    "UNACCEPTED_AGENT_PROPOSAL"
+  ]
+}</pre></details></li><li><span>forecasts → dashboard</span><p>Forecasts forecast-updated message to Dashboard.consumeMessage</p><p class="thread-connection-status">Declared transport: kafka · weather.forecast-updated · Delivery unverified</p> <button class="source-link" data-current-sources="" data-sources="forecasts-3d7b217355f2e6a34064 dashboard-a4627e5e868830287e83">Retained source outside the selected thread ↗</button><details open><summary>Connection evidence and unresolved checks</summary><pre>{
+  "id": "forecasts-forecast-updated-to-dashboard",
+  "origin": "agent-proposal",
+  "from": "SOURCE_MATCH",
+  "to": "SOURCE_MATCH",
+  "callSite": "RESOLVED",
+  "destination": {
+    "declared": null,
+    "observed": [],
+    "status": "UNRESOLVED"
+  },
+  "runtime": "UNKNOWN",
+  "contractStatus": "NOT_ASSESSED",
+  "boundaries": [
+    "RUNTIME_DESTINATION_AND_ACTIVATION_UNKNOWN",
+    "WIRE_SERIALIZATION_NOT_ASSESSED",
+    "MESSAGE_DELIVERY_ORDER_RETRY_AND_CONSUMER_ACTIVATION_UNKNOWN",
+    "ENVIRONMENT_SCOPE_UNSPECIFIED",
+    "CLIENT_PATTERN_UNSUPPORTED_OR_AMBIGUOUS",
+    "UNACCEPTED_AGENT_PROPOSAL"
+  ]
+}</pre></details></li><li><span>places → dashboard</span><p>Places place-requested message to Dashboard.consumeMessage</p><p class="thread-connection-status">Declared transport: kafka · weather.place-requested · Delivery unverified</p> <button class="source-link" data-current-sources="" data-sources="places-722b268c12cec9e1cb51 dashboard-a4627e5e868830287e83">Retained source outside the selected thread ↗</button><details open><summary>Connection evidence and unresolved checks</summary><pre>{
+  "id": "places-place-requested-to-dashboard",
+  "origin": "agent-proposal",
+  "from": "RESOLVED",
+  "to": "SOURCE_MATCH",
+  "callSite": "RESOLVED",
+  "destination": {
+    "declared": null,
+    "observed": [],
+    "status": "UNRESOLVED"
+  },
+  "runtime": "UNKNOWN",
+  "contractStatus": "NOT_ASSESSED",
+  "boundaries": [
+    "RUNTIME_DESTINATION_AND_ACTIVATION_UNKNOWN",
+    "WIRE_SERIALIZATION_NOT_ASSESSED",
+    "MESSAGE_DELIVERY_ORDER_RETRY_AND_CONSUMER_ACTIVATION_UNKNOWN",
+    "ENVIRONMENT_SCOPE_UNSPECIFIED",
+    "CLIENT_PATTERN_UNSUPPORTED_OR_AMBIGUOUS",
+    "UNACCEPTED_AGENT_PROPOSAL"
+  ]
+}</pre></details></li><li><span>places → forecasts</span><p>Places place-requested message to Forecasts.consume</p><p class="thread-connection-status">Declared transport: kafka · weather.place-requested · Delivery unverified</p> <button class="source-link" data-current-sources="" data-sources="places-722b268c12cec9e1cb51 forecasts-ad28a606f0881dfe7cfc">Retained source outside the selected thread ↗</button><details open><summary>Connection evidence and unresolved checks</summary><pre>{
+  "id": "places-place-requested-to-forecasts",
+  "origin": "agent-proposal",
+  "from": "RESOLVED",
+  "to": "SOURCE_MATCH",
+  "callSite": "RESOLVED",
+  "destination": {
+    "declared": null,
+    "observed": [],
+    "status": "UNRESOLVED"
+  },
+  "runtime": "UNKNOWN",
+  "contractStatus": "NOT_ASSESSED",
+  "boundaries": [
+    "RUNTIME_DESTINATION_AND_ACTIVATION_UNKNOWN",
+    "WIRE_SERIALIZATION_NOT_ASSESSED",
+    "MESSAGE_DELIVERY_ORDER_RETRY_AND_CONSUMER_ACTIVATION_UNKNOWN",
+    "ENVIRONMENT_SCOPE_UNSPECIFIED",
+    "CLIENT_PATTERN_UNSUPPORTED_OR_AMBIGUOUS",
+    "UNACCEPTED_AGENT_PROPOSAL"
+  ]
+}</pre></details></li><li><span>dashboard → places</span> <a href="https://codeclew.github.io/clew-weather-demo/scenarios/dashboard-save-city.html#thread-step-dashboard-save-forward">Forward POST /places</a><p>Explicit step target; transport is not inferred.</p></li></ul></section></main></body></html>

@@ -1,0 +1,235 @@
+{
+  "contextDigest": "sha256:9ccf913e21f2edd096b2e7a9858e543668cbd72211e2b1c54c15d52d2dd866dd",
+  "examinedSourceAuthority": "EXAMINED_DOCUMENTATION_CONTEXT_NOT_RUNTIME_IMPACT",
+  "examinedSourceSchema": "codeclew-native-examined-source/1.0",
+  "files": [
+    {
+      "digest": "sha256:fe6fe3c32c857b6b8211a5a52e3bee0622ab0e871d6a43ad84e6e9e0eff8eba8",
+      "path": "catalogue.json"
+    },
+    {
+      "digest": "sha256:31b4d9ef3d8269cfdfe43ca69661a3d1edbf9fc78dfb94e8cf5499af1ecafe7b",
+      "path": "index.html"
+    },
+    {
+      "digest": "sha256:af33b6aa2104016cf4dbb93ddf6656fe09442e824480e04068fc4b64bda3c769",
+      "path": "index.mdx"
+    },
+    {
+      "digest": "sha256:ce9995c761f68342e490f9d6c96d481c6a93c8c706f3bd336513fedda3108425",
+      "path": "native-reader.js"
+    },
+    {
+      "digest": "sha256:b104375194a6e19f5627059ed6a606b455138ff997eb69b54c047731dd552649",
+      "path": "places-save-diagnostic.html"
+    },
+    {
+      "digest": "sha256:1383f2d13dc4d284b1dbb2fc5c781d57252c0c811e6e49c51dac57810f712a12",
+      "path": "places-save-diagnostic.mdx"
+    },
+    {
+      "digest": "sha256:38c463a271008489a8afe3a42a45c3fbcf5a4b34c0e3549c60a4c0a5d22238ca",
+      "path": "places-save-endpoint.html"
+    },
+    {
+      "digest": "sha256:cff139f847ec8c80789d5d55c76ec448c4edb240ec7b4a4e27b23396aff6e250",
+      "path": "places-save-endpoint.mdx"
+    },
+    {
+      "digest": "sha256:6612fc234a55e096cbe59145a625239a2148be6f4712cd506f707ec0a7f34802",
+      "path": "places-save-fields-state.html"
+    },
+    {
+      "digest": "sha256:6d5c426a5a3b16b06d68da3699a74536dbffb85a6c9635933c3f15672f66eb09",
+      "path": "places-save-fields-state.mdx"
+    },
+    {
+      "digest": "sha256:0c9437182c080286c19a2ed80f3fc078538d0890fa7293a5febd283e531925d4",
+      "path": "places-save-overview.html"
+    },
+    {
+      "digest": "sha256:a7f78351257864e75fa0a202f490ef19ab0b866d0733ea5f84f0613f1d47af64",
+      "path": "places-save-overview.mdx"
+    },
+    {
+      "digest": "sha256:169c5391abe832a0e0ad9fe3dcddebea193ec47b5781d1dae5c4800809dee2ee",
+      "path": "places-save-worker.html"
+    },
+    {
+      "digest": "sha256:fb54627d27d9887278e2cddb5c454914f6730b14201ff5303f4457f0645c98f8",
+      "path": "places-save-worker.mdx"
+    },
+    {
+      "digest": "sha256:e6d4677f85b12ba0797d730855afe0226165da2a08248e9f0faca422a8ea2f9c",
+      "path": "projection.json"
+    },
+    {
+      "digest": "sha256:502781afecf9b1a188e2e56b3801c20ced7f5357e3f47c0135963b04639976ce",
+      "path": "source-calls.html"
+    },
+    {
+      "digest": "sha256:87c432c39af10aabe3845742e47dddb475c362c75b86fe1e131234545405816d",
+      "path": "source-calls.mdx"
+    },
+    {
+      "digest": "sha256:aac7289f643581825e58739e0bb98ff324633bfb7343deb9a1f6fbffd957d359",
+      "path": "sources.html"
+    },
+    {
+      "digest": "sha256:b5c75078a541e35a3a4a8a83ffc8e0efd4ab697e88bc5f11a69cd031fb4d250b",
+      "path": "sources.mdx"
+    },
+    {
+      "digest": "sha256:30f2a7247d667d5fc0ae6992a7aff6761faeef34b00a391252bb295c15ee4109",
+      "path": "style.css"
+    }
+  ],
+  "inputDigest": "sha256:e14f03b3255df5946625b6ed2995158404bf1c58ea789f1d4b63ca48dd739a20",
+  "mdxProfile": "MDX 3; inert native JSX; no imports, executable expressions, scripts or network dependencies",
+  "pages": [
+    {
+      "contentDigest": "sha256:8b4dd404740c5bed4f493525eeb6acf4d0f7231e1442a0d7c363eda31464e32f",
+      "html": "index.html",
+      "id": "index",
+      "mdx": "index.mdx"
+    },
+    {
+      "contentDigest": "sha256:2b8bae3192d0f415dca17caee6c1debee417ba32239842ebf6479025722facdf",
+      "examinedSourceDigest": "sha256:85fbd9c521940abe9f73db6044efa18b9a6e3be63c33c7302abff8c1cd8bdc9e",
+      "html": "places-save-diagnostic.html",
+      "id": "places-save-diagnostic",
+      "mdx": "places-save-diagnostic.mdx"
+    },
+    {
+      "contentDigest": "sha256:65cbfd5bf5e48b8338705fc62074df8d9609391c9743e9c844bb6b17821bc2d9",
+      "examinedSourceDigest": "sha256:85fbd9c521940abe9f73db6044efa18b9a6e3be63c33c7302abff8c1cd8bdc9e",
+      "html": "places-save-endpoint.html",
+      "id": "places-save-endpoint",
+      "mdx": "places-save-endpoint.mdx"
+    },
+    {
+      "contentDigest": "sha256:bc911fba2e6050b4bac6aa4fd9bd4dbf2923b8bd62d7c7d72cfbb56c674121b4",
+      "examinedSourceDigest": "sha256:85fbd9c521940abe9f73db6044efa18b9a6e3be63c33c7302abff8c1cd8bdc9e",
+      "html": "places-save-fields-state.html",
+      "id": "places-save-fields-state",
+      "mdx": "places-save-fields-state.mdx"
+    },
+    {
+      "contentDigest": "sha256:158610d844aa24b7fab7722646c6edfdf14d0774630fe27d4853c965ad294fb9",
+      "examinedSourceDigest": "sha256:85fbd9c521940abe9f73db6044efa18b9a6e3be63c33c7302abff8c1cd8bdc9e",
+      "html": "places-save-overview.html",
+      "id": "places-save-overview",
+      "mdx": "places-save-overview.mdx"
+    },
+    {
+      "contentDigest": "sha256:1c19db7b86055b5f21b4ae486a54f0c0d545bc1fa9263a3ac23cdf02d4ff1229",
+      "examinedSourceDigest": "sha256:85fbd9c521940abe9f73db6044efa18b9a6e3be63c33c7302abff8c1cd8bdc9e",
+      "html": "places-save-worker.html",
+      "id": "places-save-worker",
+      "mdx": "places-save-worker.mdx"
+    },
+    {
+      "contentDigest": "sha256:90b144a10ac33960a74273097a8b3382ac9153ca513f9ce8f455a0c3c42a0872",
+      "html": "source-calls.html",
+      "id": "source-calls",
+      "mdx": "source-calls.mdx"
+    },
+    {
+      "contentDigest": "sha256:5823d2b49ea004986dd29bc7f84fcba283801c7c4ded3eaa8ae51b32eed92638",
+      "html": "sources.html",
+      "id": "sources",
+      "mdx": "sources.mdx"
+    }
+  ],
+  "projectionDigest": "sha256:22e11fefd518205dc4b6c49b3d58eab2677996ce0a77cce4a604ca1371d83d9e",
+  "reverseExaminedPages": {
+    "callable-2ea71ab1ac18b4837049c939d6b58b047ef5318d90b3c25cb5c1cdb1631b646f": [
+      {
+        "html": "places-save-overview.html",
+        "mdx": "places-save-overview.mdx",
+        "pageId": "places-save-overview",
+        "processId": "places-save",
+        "reasons": [
+          {
+            "node": "callable-2ea71ab1ac18b4837049c939d6b58b047ef5318d90b3c25cb5c1cdb1631b646f",
+            "reason": "SELECTED_ENDPOINT",
+            "viaProcess": null
+          },
+          {
+            "node": "callable-2ea71ab1ac18b4837049c939d6b58b047ef5318d90b3c25cb5c1cdb1631b646f",
+            "reason": "SELECTED_WORKER",
+            "viaProcess": null
+          },
+          {
+            "node": "callable-2ea71ab1ac18b4837049c939d6b58b047ef5318d90b3c25cb5c1cdb1631b646f",
+            "reason": "SOURCE_CALL_BODY",
+            "viaProcess": null
+          }
+        ]
+      }
+    ],
+    "callable-a72d6403993dee7e9ed148deee3d5550355e9102233ed96b045d35f71130bf3d": [
+      {
+        "html": "places-save-overview.html",
+        "mdx": "places-save-overview.mdx",
+        "pageId": "places-save-overview",
+        "processId": "places-save",
+        "reasons": [
+          {
+            "node": "callable-a72d6403993dee7e9ed148deee3d5550355e9102233ed96b045d35f71130bf3d",
+            "reason": "SOURCE_CALL_BODY",
+            "viaProcess": null
+          }
+        ]
+      }
+    ],
+    "callable-b2392ad05d5ccdf59f3dced8813f54f96cdd0b368a21decbd23876d6893b493b": [
+      {
+        "html": "places-save-overview.html",
+        "mdx": "places-save-overview.mdx",
+        "pageId": "places-save-overview",
+        "processId": "places-save",
+        "reasons": [
+          {
+            "node": "callable-b2392ad05d5ccdf59f3dced8813f54f96cdd0b368a21decbd23876d6893b493b",
+            "reason": "SOURCE_CALL_BODY",
+            "viaProcess": null
+          }
+        ]
+      }
+    ],
+    "callable-baef7be5ad54a5458689bb0be314e969bca7b8d2d330543ce495672d10659648": [
+      {
+        "html": "places-save-overview.html",
+        "mdx": "places-save-overview.mdx",
+        "pageId": "places-save-overview",
+        "processId": "places-save",
+        "reasons": [
+          {
+            "node": "callable-baef7be5ad54a5458689bb0be314e969bca7b8d2d330543ce495672d10659648",
+            "reason": "SOURCE_CALL_BODY",
+            "viaProcess": null
+          }
+        ]
+      }
+    ],
+    "callable-c293fa383a54fe0e024cefe4de192208379385e632edabfbbccd3d77564323e4": [
+      {
+        "html": "places-save-overview.html",
+        "mdx": "places-save-overview.mdx",
+        "pageId": "places-save-overview",
+        "processId": "places-save",
+        "reasons": [
+          {
+            "node": "callable-c293fa383a54fe0e024cefe4de192208379385e632edabfbbccd3d77564323e4",
+            "reason": "SOURCE_CALL_BODY",
+            "viaProcess": null
+          }
+        ]
+      }
+    ]
+  },
+  "schema": "codeclew-native-pages-static-manifest/1.0",
+  "selectionDigest": "sha256:730d562ebbab4f793b9f2b4eb09c371a01d09ec1410273e58dfe32a5bbe20e9f",
+  "snapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956"
+}

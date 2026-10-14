@@ -1,0 +1,130 @@
+{
+  "authority": "SELECTED_AND_EXAMINED_DOCUMENTATION_CONTEXT_NOT_RUNTIME_IMPACT",
+  "contextDigest": "sha256:9ccf913e21f2edd096b2e7a9858e543668cbd72211e2b1c54c15d52d2dd866dd",
+  "inputDigest": "sha256:e14f03b3255df5946625b6ed2995158404bf1c58ea789f1d4b63ca48dd739a20",
+  "rows": [
+    {
+      "context": "places · csproj:services/places/Places.csproj@net10.0",
+      "displayTitle": "Weather.Places.PlacesController.Save",
+      "href": "source-calls.html#ref-d5631d3bc8eac6c0f37ca6f76a512c0b3de24e32aa9c13b8785efa874955bd89",
+      "id": "callable-2ea71ab1ac18b4837049c939d6b58b047ef5318d90b3c25cb5c1cdb1631b646f",
+      "kind": "Examined callable",
+      "relatedLinks": [
+        {
+          "href": "places-save-overview.html",
+          "title": "Examined by: places-save"
+        }
+      ],
+      "searchText": [
+        "places",
+        "csproj:services/places/Places.csproj@net10.0",
+        "method:class:Weather.Places.PlacesController#Save(LWeather/Places/SavePlace;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;",
+        "places-save"
+      ],
+      "summary": "Retained examined source body; reverse links are documentation context, not runtime impact. Call frontiers remain local gaps.",
+      "title": "method:class:Weather.Places.PlacesController#Save(LWeather/Places/SavePlace;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;"
+    },
+    {
+      "context": "places · csproj:services/places/Places.csproj@net10.0",
+      "displayTitle": "Weather.Places.PlacesRepository.City",
+      "href": "source-calls.html#ref-0f024f16da8a4740872237692b4f10fa3dd90a52f2348f105ade36fc970e2487",
+      "id": "callable-baef7be5ad54a5458689bb0be314e969bca7b8d2d330543ce495672d10659648",
+      "kind": "Examined callable",
+      "relatedLinks": [
+        {
+          "href": "places-save-overview.html",
+          "title": "Examined by: places-save"
+        }
+      ],
+      "searchText": [
+        "places",
+        "csproj:services/places/Places.csproj@net10.0",
+        "method:class:Weather.Places.PlacesRepository#City(LSystem/String;)LWeather/Places/Place;",
+        "places-save"
+      ],
+      "summary": "Retained examined source body; reverse links are documentation context, not runtime impact. Call frontiers remain local gaps.",
+      "title": "method:class:Weather.Places.PlacesRepository#City(LSystem/String;)LWeather/Places/Place;"
+    },
+    {
+      "context": "places · csproj:services/places/Places.csproj@net10.0",
+      "displayTitle": "Weather.Places.PlacesRepository.InsertRequest",
+      "href": "source-calls.html#ref-7cf2225a7a7618d3f18c497c1d2450ab7c6e2d79f7697e8149915384ff1eb416",
+      "id": "callable-b2392ad05d5ccdf59f3dced8813f54f96cdd0b368a21decbd23876d6893b493b",
+      "kind": "Examined callable",
+      "relatedLinks": [
+        {
+          "href": "places-save-overview.html",
+          "title": "Examined by: places-save"
+        }
+      ],
+      "searchText": [
+        "places",
+        "csproj:services/places/Places.csproj@net10.0",
+        "method:class:Weather.Places.PlacesRepository#InsertRequest(LNpgsql/NpgsqlConnection;LNpgsql/NpgsqlTransaction;LWeather/Places/Place;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;",
+        "places-save"
+      ],
+      "summary": "Retained examined source body; reverse links are documentation context, not runtime impact. Call frontiers remain local gaps.",
+      "title": "method:class:Weather.Places.PlacesRepository#InsertRequest(LNpgsql/NpgsqlConnection;LNpgsql/NpgsqlTransaction;LWeather/Places/Place;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;"
+    },
+    {
+      "context": "places · csproj:services/places/Places.csproj@net10.0",
+      "displayTitle": "Weather.Places.PlacesRepository.Open",
+      "href": "source-calls.html#ref-e136cbe9df9c1196603498d8c90652030c21cf01c626808c691f46a3aebbbe55",
+      "id": "callable-c293fa383a54fe0e024cefe4de192208379385e632edabfbbccd3d77564323e4",
+      "kind": "Examined callable",
+      "relatedLinks": [
+        {
+          "href": "places-save-overview.html",
+          "title": "Examined by: places-save"
+        }
+      ],
+      "searchText": [
+        "places",
+        "csproj:services/places/Places.csproj@net10.0",
+        "method:class:Weather.Places.PlacesRepository#Open(LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;",
+        "places-save"
+      ],
+      "summary": "Retained examined source body; reverse links are documentation context, not runtime impact. Call frontiers remain local gaps.",
+      "title": "method:class:Weather.Places.PlacesRepository#Open(LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;"
+    },
+    {
+      "context": "places · csproj:services/places/Places.csproj@net10.0",
+      "displayTitle": "Weather.Places.PlacesRepository.Save",
+      "href": "source-calls.html#ref-ca905dca22248761af2e02a3133fc019f7a72d26f50ecab754759dde61442ecd",
+      "id": "callable-a72d6403993dee7e9ed148deee3d5550355e9102233ed96b045d35f71130bf3d",
+      "kind": "Examined callable",
+      "relatedLinks": [
+        {
+          "href": "places-save-overview.html",
+          "title": "Examined by: places-save"
+        }
+      ],
+      "searchText": [
+        "places",
+        "csproj:services/places/Places.csproj@net10.0",
+        "method:class:Weather.Places.PlacesRepository#Save(LWeather/Places/Place;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;",
+        "places-save"
+      ],
+      "summary": "Retained examined source body; reverse links are documentation context, not runtime impact. Call frontiers remain local gaps.",
+      "title": "method:class:Weather.Places.PlacesRepository#Save(LWeather/Places/Place;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;"
+    },
+    {
+      "context": "places · csproj:services/places/Places.csproj@net10.0",
+      "href": "places-save-overview.html",
+      "id": "declarations-places-save",
+      "kind": "Selected declarations",
+      "relatedLinks": [],
+      "searchText": [
+        "places",
+        "csproj:services/places/Places.csproj@net10.0",
+        "method:class:Weather.Places.PlacesController#Save(LWeather/Places/SavePlace;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;",
+        "method:class:Weather.Places.PlacesController#Save(LWeather/Places/SavePlace;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;"
+      ],
+      "summary": "Retained compiler-bound declarations and source; behavior and relationships are not inferred.",
+      "title": "Selected functions: method:class:Weather.Places.PlacesController#Save(LWeather/Places/SavePlace;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;"
+    }
+  ],
+  "schema": "codeclew-native-catalogue/1.0",
+  "selectionDigest": "sha256:730d562ebbab4f793b9f2b4eb09c371a01d09ec1410273e58dfe32a5bbe20e9f",
+  "snapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956"
+}

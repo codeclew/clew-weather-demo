@@ -1,0 +1,9 @@
+[
+  {
+    "id": "places-save",
+    "service": "places",
+    "endpointDeclaration": "places:symbol:309961f88b197290c1b04e50",
+    "workerDeclaration": "places:symbol:309961f88b197290c1b04e50",
+    "expandSourceCalls": true
+  }
+]

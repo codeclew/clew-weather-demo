@@ -1,0 +1,53 @@
+{
+  "schema": "weather-render-catalog-provenance/1.0",
+  "sourceRevision": "31a559851b947d5eda90afc003f2bfb2b2c27130",
+  "launcher": "SOURCE_BUILD ./clew",
+  "snapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
+  "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+  "nativeBundles": [
+    "examples/weather/pages-manifest.json",
+    "examples/places-native/manifest.json"
+  ],
+  "previewAuthority": "READ_ONLY_EXCERPTS_OF_REAL_NATIVE_OUTPUT_NOT_A_NEW_CLEW_TEMPLATE",
+  "previewChanges": [
+    "Extract displayed HTML blocks",
+    "Open disclosures",
+    "Resolve original source links",
+    "Make source panel static inside preview"
+  ],
+  "capturedUiAssetsMatchCurrentNativeOutput": true,
+  "businessProseAuthored": false,
+  "fullReaderCommand": [
+    "./clew",
+    "docs",
+    "pages",
+    "render",
+    "--root",
+    "DOCS_ROOT",
+    "--snapshot",
+    "SNAPSHOT",
+    "--publication",
+    "PUBLICATION",
+    "--output",
+    "docs/render-catalog/examples/weather"
+  ],
+  "nativeCommand": [
+    "./clew",
+    "docs",
+    "pages",
+    "render",
+    "--root",
+    "DOCS_ROOT",
+    "--snapshot",
+    "SNAPSHOT",
+    "--input",
+    "documentation/render-catalog/places-selection.json",
+    "--output",
+    "EMPTY_OUTPUT_DIRECTORY"
+  ],
+  "existingProvenance": [
+    "../render-provenance.json",
+    "../guide-provenance.json"
+  ],
+  "captureDigest": "sha256:b017690fbe3ef47631f575c4978f10369a0333f26702d6904be2a0ff070f3107"
+}

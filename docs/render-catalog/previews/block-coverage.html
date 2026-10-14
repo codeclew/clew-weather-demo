@@ -1,0 +1,735 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Coverage and analysis authority</title><link rel="stylesheet" href="../preview.css"><body><p class="preview-note">Read-only excerpt from the real Weather publication. Open the full example for source interactions.</p><main><section id="coverage-view"><section class="evidence-contexts"><h3>Evidence contexts</h3><p>Selected source snapshot: <code>sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956</code></p><details open><summary>Selected source revisions, coverage and boundaries</summary><pre>{
+  "authority": "SELECTED_SNAPSHOT_NOT_RUNTIME_PROOF",
+  "revisions": {
+    "dashboard": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+  },
+  "services": {
+    "dashboard": {
+      "boundaries": [
+        "CALL_TARGETS_UNRESOLVED",
+        "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+        "FILE_ONLY:compose.yaml",
+        "FILE_ONLY:contracts/dashboard.openapi.json",
+        "FILE_ONLY:contracts/events.schema.json",
+        "FILE_ONLY:database/init.sql",
+        "FILE_ONLY:exercises/broker-outage.py",
+        "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+        "FILE_ONLY:exercises/replay.py",
+        "FILE_ONLY:exercises/validator-regression.mjs",
+        "FILE_ONLY:fixtures/helsinki.json",
+        "FILE_ONLY:fixtures/lisbon.json",
+        "FILE_ONLY:fixtures/met-oslo-recorded.json",
+        "FILE_ONLY:fixtures/oslo.json",
+        "FILE_ONLY:fixtures/provenance.json",
+        "FILE_ONLY:services/dashboard/Dockerfile",
+        "FILE_ONLY:services/dashboard/package-lock.json",
+        "FILE_ONLY:services/dashboard/package.json",
+        "FILE_ONLY:services/dashboard/public/index.html",
+        "FILE_ONLY:services/dashboard/tsconfig.json",
+        "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+        "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+        "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+        "ORDER_LEXICAL_ONLY",
+        "SCOPE_WATCH_CONSERVATIVE"
+      ],
+      "coverage": "SYNTAX",
+      "extractor": "codeclew-documentation-source/1.0"
+    },
+    "forecasts": {
+      "boundaries": [
+        "ANNOTATION_DECLARATION_UNAVAILABLE",
+        "CALL_TARGETS_UNRESOLVED",
+        "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+        "FILE_ONLY:compose.yaml",
+        "FILE_ONLY:contracts/events.schema.json",
+        "FILE_ONLY:contracts/forecasts.openapi.json",
+        "FILE_ONLY:database/init.sql",
+        "FILE_ONLY:fixtures/helsinki.json",
+        "FILE_ONLY:fixtures/lisbon.json",
+        "FILE_ONLY:fixtures/met-oslo-recorded.json",
+        "FILE_ONLY:fixtures/oslo.json",
+        "FILE_ONLY:fixtures/provenance.json",
+        "FILE_ONLY:services/forecasts/Dockerfile",
+        "FILE_ONLY:services/forecasts/pom.xml",
+        "FILE_ONLY:services/forecasts/src/main/resources/application.properties",
+        "NO_BEAN_OWNER",
+        "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+        "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+        "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+        "ORDER_LEXICAL_ONLY",
+        "RUNTIME_REGISTRATION_UNPROVEN",
+        "SCOPE_WATCH_CONSERVATIVE",
+        "SOURCE_NAMES_NOT_COMPILER_RESOLVED",
+        "UNRESOLVED_ANNOTATION_VALUE"
+      ],
+      "coverage": "SYNTAX",
+      "extractor": "codeclew-documentation-source/1.0"
+    },
+    "places": {
+      "boundaries": [
+        "CLR_SIGNATURE_PROJECTED_TO_JVM_DESCRIPTOR_GRAMMAR",
+        "CSHARP_SOURCE_GENERATED_DOCUMENTS_NOT_INDEXED",
+        "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+        "GENERATED_SOURCE_BODIES_NOT_INDEXED",
+        "LAMBDA_EXECUTION_NOT_EXPANDED",
+        "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+        "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+        "SWITCH_FLOW_REQUIRES_SOURCE_REVIEW"
+      ],
+      "coverage": "PARTIAL",
+      "extractor": "codeclew-documentation-jvm/1.3"
+    }
+  }
+}</pre></details><details open><summary>Retained explanation source context</summary><pre>{
+  "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+  "revisions": {
+    "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37"
+  },
+  "coverage": {
+    "dashboard": "SYNTAX"
+  },
+  "extractor": "codeclew-documentation-jvm/1.3"
+}</pre></details><p>The selected source facts and retained explanations have separate contexts. A selected snapshot does not reverify the retained explanations or runtime behavior.</p></section><div class="coverage-heading"><div class="eyebrow">COVERAGE AND AUTHORITY</div><h2>What the sources support</h2><p>Freshness is scoped to the recorded dependencies. Runtime routing and wire compatibility remain unverified.</p></div><div class="coverage-grid"><div class="metric"><b>12</b><p>entrypoints in scope</p></div><div class="metric"><b>12</b><p>documented operations</p></div><div class="metric"><b>183</b><p>retained source fragments</p></div></div><section class="gap-card"><h3>Analysis evidence</h3><p>Evidence from this publication's source check. Compiler facts enrich source interpretation; deployed behavior and narrative meaning remain separately assessed.</p><h4>dashboard</h4><p>SYNTAX · provider: <strong>NOT_REQUESTED</strong> · 0 mapped semantic symbols</p><p> codeclew-documentation-source/1.0 · revision e635069293d5</p><p>Optional compiler enrichment was not requested for this service.</p><details open><summary>Provider details and example semantic facts</summary><pre>{
+  "coverage": "SYNTAX",
+  "extractor": "codeclew-documentation-source/1.0",
+  "mappedSymbols": 0,
+  "provider": {
+    "status": "NOT_REQUESTED"
+  },
+  "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+  "runtimeMode": "COMMITTED_SOURCE_NO_BUILD",
+  "sampleFacts": []
+}</pre></details></section><div class="gap-card"><p>CALL_TARGETS_UNRESOLVED</p></div><div class="gap-card"><p>DIALECT_DECLARED_NOT_COMPILER_VALIDATED</p></div><div class="gap-card"><p>FILE_ONLY:compose.yaml</p></div><div class="gap-card"><p>FILE_ONLY:contracts/dashboard.openapi.json</p></div><div class="gap-card"><p>FILE_ONLY:contracts/events.schema.json</p></div><div class="gap-card"><p>FILE_ONLY:database/init.sql</p></div><div class="gap-card"><p>FILE_ONLY:exercises/dashboard-focus-regression.mjs</p></div><div class="gap-card"><p>FILE_ONLY:exercises/replay.py</p></div><div class="gap-card"><p>FILE_ONLY:exercises/validator-regression.mjs</p></div><div class="gap-card"><p>FILE_ONLY:fixtures/helsinki.json</p></div><div class="gap-card"><p>FILE_ONLY:fixtures/lisbon.json</p></div><div class="gap-card"><p>FILE_ONLY:fixtures/met-oslo-recorded.json</p></div><div class="gap-card"><p>FILE_ONLY:fixtures/oslo.json</p></div><div class="gap-card"><p>FILE_ONLY:fixtures/provenance.json</p></div><div class="gap-card"><p>FILE_ONLY:services/dashboard/Dockerfile</p></div><div class="gap-card"><p>FILE_ONLY:services/dashboard/package-lock.json</p></div><div class="gap-card"><p>FILE_ONLY:services/dashboard/package.json</p></div><div class="gap-card"><p>FILE_ONLY:services/dashboard/public/index.html</p></div><div class="gap-card"><p>FILE_ONLY:services/dashboard/tsconfig.json</p></div><div class="gap-card"><p>OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED</p></div><div class="gap-card"><p>OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED</p></div><div class="gap-card"><p>OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED</p></div><div class="gap-card"><p>ORDER_LEXICAL_ONLY</p></div><div class="gap-card"><p>SCOPE_WATCH_CONSERVATIVE</p></div><div class="gap-card"><p>Static source interpretation; runtime activation and execution are not established.</p></div><div class="gap-card"><h3>Declared service interactions</h3><p>dashboard-request-refresh-to-places · origin: agent-proposal · runtime: UNKNOWN</p><details class="technical-evidence" open><summary>Checks and boundaries</summary><pre>{
+  "applicability": null,
+  "boundaries": [
+    "RUNTIME_DESTINATION_AND_ACTIVATION_UNKNOWN",
+    "WIRE_SERIALIZATION_NOT_ASSESSED",
+    "ENVIRONMENT_SCOPE_UNSPECIFIED",
+    "CLIENT_PATTERN_UNSUPPORTED_OR_AMBIGUOUS",
+    "UNACCEPTED_AGENT_PROPOSAL"
+  ],
+  "callSite": {
+    "candidates": [
+      "dashboard:flow:118d806d3691510542299f52"
+    ],
+    "details": [
+      {
+        "id": "dashboard:flow:118d806d3691510542299f52",
+        "selectedOrdinal": 0,
+        "sourceIds": [
+          "dashboard-118d806d369151054229"
+        ],
+        "target": null,
+        "transport": null
+      }
+    ],
+    "sourceIds": [
+      "dashboard-118d806d369151054229"
+    ],
+    "status": "RESOLVED"
+  },
+  "contractStatus": "NOT_ASSESSED",
+  "declaration": {
+    "declaration": {
+      "origin": "agent-proposal",
+      "rationale": "Agent-proposed POST /places/{id}/refresh mapping. The exact captured fetch location is selected; its target service binding and runtime routing remain unverified."
+    },
+    "from": {
+      "callSite": {
+        "observation": "dashboard:flow:118d806d3691510542299f52"
+      },
+      "selector": {
+        "language": "typescript",
+        "name": "requestRefresh",
+        "owner": "package:",
+        "parameterTypes": [
+          ": FastifyRequest&lt;{ Params: { id: string } }&gt;",
+          ": FastifyReply"
+        ]
+      },
+      "service": "dashboard"
+    },
+    "id": "dashboard-request-refresh-to-places",
+    "schema": "codeclew-documentation-interaction/1.0",
+    "title": "Dashboard requestRefresh to Places.Refresh",
+    "to": {
+      "selector": {
+        "language": "csharp",
+        "name": "Refresh",
+        "owner": "class:Weather.Places.PlacesController",
+        "parameterTypes": [
+          "System.String",
+          "System.Threading.CancellationToken"
+        ]
+      },
+      "service": "places"
+    },
+    "transport": {
+      "kind": "http",
+      "method": "POST",
+      "path": "/places/{id}/refresh"
+    }
+  },
+  "declarationDigest": "sha256:12e85a97dc3625913c098433803d002b467be829a385ece09bfdc4b2d3a76b4c",
+  "destination": {
+    "declared": null,
+    "observed": [],
+    "status": "UNRESOLVED"
+  },
+  "from": {
+    "candidates": [
+      "dashboard:symbol:1612e17d589cb9d0fa4ae1f7"
+    ],
+    "details": [
+      {
+        "descriptor": null,
+        "id": "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+        "parameterTypes": [
+          ": FastifyRequest&lt;{ Params: { id: string } }&gt;",
+          ": FastifyReply"
+        ],
+        "sourceIds": [
+          "dashboard-1612e17d589cb9d0fa4a"
+        ],
+        "symbol": "source:services/dashboard/src/main.ts/package:/requestRefresh/e49ec3442bac18d9abaa"
+      }
+    ],
+    "sourceIds": [
+      "dashboard-1612e17d589cb9d0fa4a"
+    ],
+    "status": "SOURCE_MATCH"
+  },
+  "id": "dashboard-request-refresh-to-places",
+  "method": {
+    "caller": {
+      "declared": "POST",
+      "observed": [],
+      "status": "UNRESOLVED"
+    },
+    "receiver": {
+      "declared": "POST",
+      "observed": [
+        "POST"
+      ],
+      "status": "MATCH"
+    }
+  },
+  "origin": "agent-proposal",
+  "path": {
+    "caller": {
+      "declared": "/places/{id}/refresh",
+      "observed": [],
+      "status": "UNRESOLVED"
+    },
+    "receiver": {
+      "declared": "/places/{id}/refresh",
+      "observed": [
+        "/places/{id}/refresh"
+      ],
+      "status": "MATCH"
+    }
+  },
+  "runtime": "UNKNOWN",
+  "to": {
+    "candidates": [
+      "places:symbol:65de4bdfa04d114b73dffbc2"
+    ],
+    "details": [
+      {
+        "descriptor": "(LSystem/String;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;",
+        "id": "places:symbol:65de4bdfa04d114b73dffbc2",
+        "parameterTypes": [
+          "System.String",
+          "System.Threading.CancellationToken"
+        ],
+        "sourceIds": [
+          "places-65de4bdfa04d114b73df"
+        ],
+        "symbol": "method:class:Weather.Places.PlacesController#Refresh(LSystem/String;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;"
+      }
+    ],
+    "sourceIds": [
+      "places-65de4bdfa04d114b73df"
+    ],
+    "status": "RESOLVED"
+  }
+}</pre></details><p>dashboard-save-place-to-places · origin: agent-proposal · runtime: UNKNOWN</p><details class="technical-evidence" open><summary>Checks and boundaries</summary><pre>{
+  "applicability": null,
+  "boundaries": [
+    "RUNTIME_DESTINATION_AND_ACTIVATION_UNKNOWN",
+    "WIRE_SERIALIZATION_NOT_ASSESSED",
+    "ENVIRONMENT_SCOPE_UNSPECIFIED",
+    "CLIENT_PATTERN_UNSUPPORTED_OR_AMBIGUOUS",
+    "UNACCEPTED_AGENT_PROPOSAL"
+  ],
+  "callSite": {
+    "candidates": [
+      "dashboard:flow:0a52ae14321115b046495f87"
+    ],
+    "details": [
+      {
+        "id": "dashboard:flow:0a52ae14321115b046495f87",
+        "selectedOrdinal": 0,
+        "sourceIds": [
+          "dashboard-0a52ae14321115b04649"
+        ],
+        "target": null,
+        "transport": null
+      }
+    ],
+    "sourceIds": [
+      "dashboard-0a52ae14321115b04649"
+    ],
+    "status": "RESOLVED"
+  },
+  "contractStatus": "NOT_ASSESSED",
+  "declaration": {
+    "declaration": {
+      "origin": "agent-proposal",
+      "rationale": "Agent-proposed POST /places mapping. The exact captured fetch location is selected; its target service binding and runtime routing remain unverified."
+    },
+    "from": {
+      "callSite": {
+        "observation": "dashboard:flow:0a52ae14321115b046495f87"
+      },
+      "selector": {
+        "language": "typescript",
+        "name": "savePlace",
+        "owner": "package:",
+        "parameterTypes": [
+          ": FastifyRequest",
+          ": FastifyReply"
+        ]
+      },
+      "service": "dashboard"
+    },
+    "id": "dashboard-save-place-to-places",
+    "schema": "codeclew-documentation-interaction/1.0",
+    "title": "Dashboard savePlace to Places.Save",
+    "to": {
+      "selector": {
+        "language": "csharp",
+        "name": "Save",
+        "owner": "class:Weather.Places.PlacesController",
+        "parameterTypes": [
+          "Weather.Places.SavePlace",
+          "System.Threading.CancellationToken"
+        ]
+      },
+      "service": "places"
+    },
+    "transport": {
+      "kind": "http",
+      "method": "POST",
+      "path": "/places"
+    }
+  },
+  "declarationDigest": "sha256:dcd080d2a75cc2675e71e02192a8cfb195fdefad670afe9089e61b6f6f42a751",
+  "destination": {
+    "declared": null,
+    "observed": [],
+    "status": "UNRESOLVED"
+  },
+  "from": {
+    "candidates": [
+      "dashboard:symbol:7970ac3e2a8cf3f45b4a6217"
+    ],
+    "details": [
+      {
+        "descriptor": null,
+        "id": "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+        "parameterTypes": [
+          ": FastifyRequest",
+          ": FastifyReply"
+        ],
+        "sourceIds": [
+          "dashboard-7970ac3e2a8cf3f45b4a"
+        ],
+        "symbol": "source:services/dashboard/src/main.ts/package:/savePlace/7a5f9ccc269b81055666"
+      }
+    ],
+    "sourceIds": [
+      "dashboard-7970ac3e2a8cf3f45b4a"
+    ],
+    "status": "SOURCE_MATCH"
+  },
+  "id": "dashboard-save-place-to-places",
+  "method": {
+    "caller": {
+      "declared": "POST",
+      "observed": [],
+      "status": "UNRESOLVED"
+    },
+    "receiver": {
+      "declared": "POST",
+      "observed": [
+        "POST"
+      ],
+      "status": "MATCH"
+    }
+  },
+  "origin": "agent-proposal",
+  "path": {
+    "caller": {
+      "declared": "/places",
+      "observed": [],
+      "status": "UNRESOLVED"
+    },
+    "receiver": {
+      "declared": "/places",
+      "observed": [
+        "/places"
+      ],
+      "status": "MATCH"
+    }
+  },
+  "runtime": "UNKNOWN",
+  "to": {
+    "candidates": [
+      "places:symbol:309961f88b197290c1b04e50"
+    ],
+    "details": [
+      {
+        "descriptor": "(LWeather/Places/SavePlace;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;",
+        "id": "places:symbol:309961f88b197290c1b04e50",
+        "parameterTypes": [
+          "Weather.Places.SavePlace",
+          "System.Threading.CancellationToken"
+        ],
+        "sourceIds": [
+          "places-309961f88b197290c1b0"
+        ],
+        "symbol": "method:class:Weather.Places.PlacesController#Save(LWeather/Places/SavePlace;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;"
+      }
+    ],
+    "sourceIds": [
+      "places-309961f88b197290c1b0"
+    ],
+    "status": "RESOLVED"
+  }
+}</pre></details><p>forecasts-forecast-updated-to-dashboard · origin: agent-proposal · runtime: UNKNOWN</p><details class="technical-evidence" open><summary>Checks and boundaries</summary><pre>{
+  "applicability": null,
+  "boundaries": [
+    "RUNTIME_DESTINATION_AND_ACTIVATION_UNKNOWN",
+    "WIRE_SERIALIZATION_NOT_ASSESSED",
+    "MESSAGE_DELIVERY_ORDER_RETRY_AND_CONSUMER_ACTIVATION_UNKNOWN",
+    "ENVIRONMENT_SCOPE_UNSPECIFIED",
+    "CLIENT_PATTERN_UNSUPPORTED_OR_AMBIGUOUS",
+    "UNACCEPTED_AGENT_PROPOSAL"
+  ],
+  "callSite": {
+    "candidates": [
+      "forecasts:flow:a5b0ed72a047f4f36e281eb2"
+    ],
+    "details": [
+      {
+        "id": "forecasts:flow:a5b0ed72a047f4f36e281eb2",
+        "selectedOrdinal": 0,
+        "sourceIds": [
+          "forecasts-a5b0ed72a047f4f36e28"
+        ],
+        "target": null,
+        "transport": null
+      }
+    ],
+    "sourceIds": [
+      "forecasts-a5b0ed72a047f4f36e28"
+    ],
+    "status": "RESOLVED"
+  },
+  "contractStatus": "NOT_ASSESSED",
+  "declaration": {
+    "declaration": {
+      "origin": "agent-proposal",
+      "rationale": "Agent-proposed weather.forecast-updated subscriber mapping. The selected source method and producer callsite are retained; topic resolution, consumer subscription and runtime delivery remain unverified."
+    },
+    "from": {
+      "callSite": {
+        "observation": "forecasts:flow:a5b0ed72a047f4f36e281eb2"
+      },
+      "selector": {
+        "language": "kotlin",
+        "name": "publishPending",
+        "owner": "class:weather.Forecasts",
+        "parameterTypes": []
+      },
+      "service": "forecasts"
+    },
+    "id": "forecasts-forecast-updated-to-dashboard",
+    "schema": "codeclew-documentation-interaction/1.0",
+    "title": "Forecasts forecast-updated message to Dashboard.consumeMessage",
+    "to": {
+      "selector": {
+        "language": "typescript",
+        "name": "consumeMessage",
+        "owner": "package:",
+        "parameterTypes": [
+          ": EachMessagePayload"
+        ]
+      },
+      "service": "dashboard"
+    },
+    "transport": {
+      "kind": "kafka",
+      "topic": "weather.forecast-updated"
+    }
+  },
+  "declarationDigest": "sha256:8ac8a86546986aaebf4e49f48ef5814cb8b7fe8248d349a1e0c13b3296a169b8",
+  "destination": {
+    "declared": null,
+    "observed": [],
+    "status": "UNRESOLVED"
+  },
+  "from": {
+    "candidates": [
+      "forecasts:symbol:3d7b217355f2e6a34064e800"
+    ],
+    "details": [
+      {
+        "descriptor": null,
+        "id": "forecasts:symbol:3d7b217355f2e6a34064e800",
+        "parameterTypes": [],
+        "sourceIds": [
+          "forecasts-3d7b217355f2e6a34064"
+        ],
+        "symbol": "source:services/forecasts/src/main/kotlin/weather/Forecasts.kt/class:weather.Forecasts/publishPending/db0508abb6d728a6b0f2"
+      }
+    ],
+    "sourceIds": [
+      "forecasts-3d7b217355f2e6a34064"
+    ],
+    "status": "SOURCE_MATCH"
+  },
+  "id": "forecasts-forecast-updated-to-dashboard",
+  "method": {
+    "caller": {
+      "declared": null,
+      "observed": [],
+      "status": "UNRESOLVED"
+    },
+    "receiver": {
+      "declared": null,
+      "observed": [],
+      "status": "UNRESOLVED"
+    }
+  },
+  "origin": "agent-proposal",
+  "path": {
+    "caller": {
+      "declared": null,
+      "observed": [],
+      "status": "UNRESOLVED"
+    },
+    "receiver": {
+      "declared": null,
+      "observed": [],
+      "status": "UNRESOLVED"
+    }
+  },
+  "runtime": "UNKNOWN",
+  "to": {
+    "candidates": [
+      "dashboard:symbol:a4627e5e868830287e83e0dc"
+    ],
+    "details": [
+      {
+        "descriptor": null,
+        "id": "dashboard:symbol:a4627e5e868830287e83e0dc",
+        "parameterTypes": [
+          ": EachMessagePayload"
+        ],
+        "sourceIds": [
+          "dashboard-a4627e5e868830287e83"
+        ],
+        "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5"
+      }
+    ],
+    "sourceIds": [
+      "dashboard-a4627e5e868830287e83"
+    ],
+    "status": "SOURCE_MATCH"
+  },
+  "topic": {
+    "caller": {
+      "declared": "weather.forecast-updated",
+      "observed": [],
+      "status": "UNRESOLVED"
+    },
+    "receiver": {
+      "declared": "weather.forecast-updated",
+      "observed": [],
+      "status": "UNRESOLVED"
+    }
+  }
+}</pre></details><p>places-place-requested-to-dashboard · origin: agent-proposal · runtime: UNKNOWN</p><details class="technical-evidence" open><summary>Checks and boundaries</summary><pre>{
+  "applicability": null,
+  "boundaries": [
+    "RUNTIME_DESTINATION_AND_ACTIVATION_UNKNOWN",
+    "WIRE_SERIALIZATION_NOT_ASSESSED",
+    "MESSAGE_DELIVERY_ORDER_RETRY_AND_CONSUMER_ACTIVATION_UNKNOWN",
+    "ENVIRONMENT_SCOPE_UNSPECIFIED",
+    "CLIENT_PATTERN_UNSUPPORTED_OR_AMBIGUOUS",
+    "UNACCEPTED_AGENT_PROPOSAL"
+  ],
+  "callSite": {
+    "candidates": [
+      "places:flow:941152b2ec99892568c9e40a"
+    ],
+    "details": [
+      {
+        "id": "places:flow:941152b2ec99892568c9e40a",
+        "selectedOrdinal": 0,
+        "sourceIds": [
+          "places-941152b2ec99892568c9"
+        ],
+        "target": "method:class:Confluent.Kafka.IProducer`2#ProduceAsync(LSystem/String;LConfluent/Kafka/Message`2;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;",
+        "transport": null
+      }
+    ],
+    "sourceIds": [
+      "places-941152b2ec99892568c9"
+    ],
+    "status": "RESOLVED"
+  },
+  "contractStatus": "NOT_ASSESSED",
+  "declaration": {
+    "declaration": {
+      "origin": "agent-proposal",
+      "rationale": "Agent-proposed weather.place-requested subscriber mapping. The captured Places producer call location is exact; topic resolution, consumer subscription and runtime delivery remain unverified."
+    },
+    "from": {
+      "callSite": {
+        "observation": "places:flow:941152b2ec99892568c9e40a"
+      },
+      "selector": {
+        "language": "csharp",
+        "name": "PublishPending",
+        "owner": "class:Weather.Places.RequestPublisher",
+        "parameterTypes": [
+          "Confluent.Kafka.IProducer`2",
+          "System.Threading.CancellationToken"
+        ]
+      },
+      "service": "places"
+    },
+    "id": "places-place-requested-to-dashboard",
+    "schema": "codeclew-documentation-interaction/1.0",
+    "title": "Places place-requested message to Dashboard.consumeMessage",
+    "to": {
+      "selector": {
+        "language": "typescript",
+        "name": "consumeMessage",
+        "owner": "package:",
+        "parameterTypes": [
+          ": EachMessagePayload"
+        ]
+      },
+      "service": "dashboard"
+    },
+    "transport": {
+      "kind": "kafka",
+      "topic": "weather.place-requested"
+    }
+  },
+  "declarationDigest": "sha256:f99b328ff02e501a2a7a9c8b2b18bb41f4a198ea9ffc5d05000d4e2b89ddaeb0",
+  "destination": {
+    "declared": null,
+    "observed": [],
+    "status": "UNRESOLVED"
+  },
+  "from": {
+    "candidates": [
+      "places:symbol:722b268c12cec9e1cb51cbe8"
+    ],
+    "details": [
+      {
+        "descriptor": "(LConfluent/Kafka/IProducer`2;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;",
+        "id": "places:symbol:722b268c12cec9e1cb51cbe8",
+        "parameterTypes": [
+          "Confluent.Kafka.IProducer`2",
+          "System.Threading.CancellationToken"
+        ],
+        "sourceIds": [
+          "places-722b268c12cec9e1cb51"
+        ],
+        "symbol": "method:class:Weather.Places.RequestPublisher#PublishPending(LConfluent/Kafka/IProducer`2;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;"
+      }
+    ],
+    "sourceIds": [
+      "places-722b268c12cec9e1cb51"
+    ],
+    "status": "RESOLVED"
+  },
+  "id": "places-place-requested-to-dashboard",
+  "method": {
+    "caller": {
+      "declared": null,
+      "observed": [],
+      "status": "UNRESOLVED"
+    },
+    "receiver": {
+      "declared": null,
+      "observed": [],
+      "status": "UNRESOLVED"
+    }
+  },
+  "origin": "agent-proposal",
+  "path": {
+    "caller": {
+      "declared": null,
+      "observed": [],
+      "status": "UNRESOLVED"
+    },
+    "receiver": {
+      "declared": null,
+      "observed": [],
+      "status": "UNRESOLVED"
+    }
+  },
+  "runtime": "UNKNOWN",
+  "to": {
+    "candidates": [
+      "dashboard:symbol:a4627e5e868830287e83e0dc"
+    ],
+    "details": [
+      {
+        "descriptor": null,
+        "id": "dashboard:symbol:a4627e5e868830287e83e0dc",
+        "parameterTypes": [
+          ": EachMessagePayload"
+        ],
+        "sourceIds": [
+          "dashboard-a4627e5e868830287e83"
+        ],
+        "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5"
+      }
+    ],
+    "sourceIds": [
+      "dashboard-a4627e5e868830287e83"
+    ],
+    "status": "SOURCE_MATCH"
+  },
+  "topic": {
+    "caller": {
+      "declared": "weather.place-requested",
+      "observed": [],
+      "status": "UNRESOLVED"
+    },
+    "receiver": {
+      "declared": "weather.place-requested",
+      "observed": [],
+      "status": "UNRESOLVED"
+    }
+  }
+}</pre></details></div><details class="technical-evidence" open><summary>Revision vector and evidence scope</summary><pre>{
+  "revisions": {
+    "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37"
+  },
+  "coverage": {
+    "dashboard": "SYNTAX"
+  },
+  "extractor": "codeclew-documentation-jvm/1.3",
+  "renderer": "codeclew-documentation-html/1.16"
+}</pre></details></section></main></body></html>

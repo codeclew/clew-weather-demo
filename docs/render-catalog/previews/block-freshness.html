@@ -1,0 +1,203 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Evidence contexts and freshness</title><link rel="stylesheet" href="../preview.css"><body><p class="preview-note">Read-only excerpt from the real Weather publication. Open the full example for source interactions.</p><main><section id="freshness-status" aria-label="Documentation freshness"><section class="evidence-contexts"><h3>Evidence contexts</h3><p>Selected source snapshot: <code>sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956</code></p><details open><summary>Selected source revisions, coverage and boundaries</summary><pre>{
+  "authority": "SELECTED_SNAPSHOT_NOT_RUNTIME_PROOF",
+  "revisions": {
+    "dashboard": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+  },
+  "services": {
+    "dashboard": {
+      "boundaries": [
+        "CALL_TARGETS_UNRESOLVED",
+        "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+        "FILE_ONLY:compose.yaml",
+        "FILE_ONLY:contracts/dashboard.openapi.json",
+        "FILE_ONLY:contracts/events.schema.json",
+        "FILE_ONLY:database/init.sql",
+        "FILE_ONLY:exercises/broker-outage.py",
+        "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+        "FILE_ONLY:exercises/replay.py",
+        "FILE_ONLY:exercises/validator-regression.mjs",
+        "FILE_ONLY:fixtures/helsinki.json",
+        "FILE_ONLY:fixtures/lisbon.json",
+        "FILE_ONLY:fixtures/met-oslo-recorded.json",
+        "FILE_ONLY:fixtures/oslo.json",
+        "FILE_ONLY:fixtures/provenance.json",
+        "FILE_ONLY:services/dashboard/Dockerfile",
+        "FILE_ONLY:services/dashboard/package-lock.json",
+        "FILE_ONLY:services/dashboard/package.json",
+        "FILE_ONLY:services/dashboard/public/index.html",
+        "FILE_ONLY:services/dashboard/tsconfig.json",
+        "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+        "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+        "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+        "ORDER_LEXICAL_ONLY",
+        "SCOPE_WATCH_CONSERVATIVE"
+      ],
+      "coverage": "SYNTAX",
+      "extractor": "codeclew-documentation-source/1.0"
+    },
+    "forecasts": {
+      "boundaries": [
+        "ANNOTATION_DECLARATION_UNAVAILABLE",
+        "CALL_TARGETS_UNRESOLVED",
+        "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+        "FILE_ONLY:compose.yaml",
+        "FILE_ONLY:contracts/events.schema.json",
+        "FILE_ONLY:contracts/forecasts.openapi.json",
+        "FILE_ONLY:database/init.sql",
+        "FILE_ONLY:fixtures/helsinki.json",
+        "FILE_ONLY:fixtures/lisbon.json",
+        "FILE_ONLY:fixtures/met-oslo-recorded.json",
+        "FILE_ONLY:fixtures/oslo.json",
+        "FILE_ONLY:fixtures/provenance.json",
+        "FILE_ONLY:services/forecasts/Dockerfile",
+        "FILE_ONLY:services/forecasts/pom.xml",
+        "FILE_ONLY:services/forecasts/src/main/resources/application.properties",
+        "NO_BEAN_OWNER",
+        "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+        "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+        "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+        "ORDER_LEXICAL_ONLY",
+        "RUNTIME_REGISTRATION_UNPROVEN",
+        "SCOPE_WATCH_CONSERVATIVE",
+        "SOURCE_NAMES_NOT_COMPILER_RESOLVED",
+        "UNRESOLVED_ANNOTATION_VALUE"
+      ],
+      "coverage": "SYNTAX",
+      "extractor": "codeclew-documentation-source/1.0"
+    },
+    "places": {
+      "boundaries": [
+        "CLR_SIGNATURE_PROJECTED_TO_JVM_DESCRIPTOR_GRAMMAR",
+        "CSHARP_SOURCE_GENERATED_DOCUMENTS_NOT_INDEXED",
+        "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+        "GENERATED_SOURCE_BODIES_NOT_INDEXED",
+        "LAMBDA_EXECUTION_NOT_EXPANDED",
+        "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+        "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+        "SWITCH_FLOW_REQUIRES_SOURCE_REVIEW"
+      ],
+      "coverage": "PARTIAL",
+      "extractor": "codeclew-documentation-jvm/1.3"
+    }
+  }
+}</pre></details><details open><summary>Retained explanation source context</summary><pre>{
+  "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+  "revisions": {
+    "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37"
+  },
+  "coverage": {
+    "dashboard": "SYNTAX"
+  },
+  "extractor": "codeclew-documentation-jvm/1.3"
+}</pre></details><p>The selected source facts and retained explanations have separate contexts. A selected snapshot does not reverify the retained explanations or runtime behavior.</p></section><div class="freshness-banner freshness-stale"><strong>STALE</strong><p>Source changed. This retained explanation needs review.</p><p>Meaning review: UNASSESSED</p><details class="freshness-details" open><summary>Source and review details</summary><p>Source freshness: <b>STALE</b></p><p>Content: dashboard: e635069293d5 · forecasts: c289b28be481 · places: c289b28be481<br>Target: dashboard: e635069293d5 · forecasts: c289b28be481 · places: c289b28be481</p><p>Model review approves an interpretation; evidence links do not prove every statement in the prose.</p><details open><summary>What needs attention</summary><pre>[
+  {
+    "reason": "INFLUENCE_SCOPE_CHANGED",
+    "scope": "sha256:ac3a0dbf1c1647fa8eb551993e294d7b91ff84f1947bb633c2d48a2c36b80330"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:075eaf91a32efa41fabb141466eef5f868bab2be3a330c91f6459ad3fbf6d4f4/164667"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:1a4acebe796911a46a9e52eca80ae1d5d73922c3b192aad0340dd6d985253a2c/164667"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:2670b888a7260cb79c4fea9ba99055838dd5fb9c0b6424324a66f731b76cf345/164667"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:2a1f34950abf28bda91fdc0c865172ee0e480303a094267c6753f4d938cc2308/164667"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:3a9b90284e7e55aad6d289e1492ede1cf10d03888f64c9f6497197b6b7d5f5c6/164667"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:4113ccc4ec0d866b29203388408c0cd6990dc051aedeb2828d5b747e72f5f4c5/164667"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:42dd9707f70452cf8ddb5aa195f79648caa42306df373512cd045007fad38e6d/164667"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:504b0babac4b6086256f5881975f96e395c4752c57a841887f5d7d19f8399f14/164667"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:5b15e56bdf420ed673b509e7784fbc455f416e2d91022910249d0e90b2e971a0/164667"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:62f3a247fafb6c0cf327e9240a30672f840692a306df3c518be5e550b58c72e4/164667"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:8231c762b267ded34757547c03abe0b2be76ab7d0ec20c004cd52a1afb89b86a/164667"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:82acdb08ffb6fb86bb3081263a5ac8f5c33072aad214beec0dc556efb70a78f1/164667"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:8cfa6609f990481eaff2383c5863cbd1f6d71d851f0fb8331d98ed21ec16122a/164667"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:9d7396f3571d9e6903b744f17b28fbc3f6eeaa23340800217f19e6f1c3fb3a48/164667"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:a83f5e37b1f441e91da6cfecbe89c9c46a23b9a98503e929c18ec3060f65fd96/164667"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:a89632e1e09a12549ee8b46b7ad66049f0180801d91c29ddd8a2549101591572/164667"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:aa1752174458377b64788add727011c17393569a55474c2c707efb4184a9462d/164746"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:ae691e7e59e2b379be5d0e43d43be4a7d515c01beaf94b3d4fefde740f13d0fe/164667"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:bbb46b335e7ad79b79887f1fae0a272b899b1f23744493e8c0ca95fd521e151b/164667"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:c56218dbae51569a92fad8e73c36ed07994846170d98761570ea66ef6ebac8c8/164667"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:d9360cb3f6bbc523c0931347691b2618fecd1c94d7378865168a95cf05ff45c5/164667"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:dc696444abfd17803a99e40cab6476bc78a7a2dc05b37bca1f98f1dc1b9ffe4d/164667"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:eff84b20a6320ab207fd84b1bd2c586668bd6a194526191f933e5ca35d0e02a4/164667"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:f9320dacc7fb65a75d47abe97bde64f17495db3abd5759532e053b6bd562b148/164667"
+  },
+  {
+    "reason": "SERVICE_REMOVED",
+    "service": "external-met"
+  },
+  {
+    "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+    "snapshot": "sha256:b57016f8fd0621d202cb2ee1e96f17cd3ba84d6a935e64660e40ac3d60be0ca4/164667"
+  }
+]</pre></details></details></div></section></main></body></html>
