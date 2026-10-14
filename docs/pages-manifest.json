@@ -287,7 +287,7 @@
       "path": "runbooks.html"
     },
     {
-      "digest": "sha256:a67e4eae94eda5754898215b9f6df6e033b28ac10e16560c576eb745385bf0e0",
+      "digest": "sha256:c5ceeefdf36be44209cd897ac1f40605a0c5c98fa22181e9bb0f0cc4af5512a2",
       "path": "scenarios/dashboard-forecast-updated-consumer.html"
     },
     {
@@ -299,7 +299,7 @@
       "path": "scenarios/dashboard-forecast-updated-consumer.md"
     },
     {
-      "digest": "sha256:25fc17e4fa858ca934e78af3f44a94dcda722671687a7b331817bd073da281cf",
+      "digest": "sha256:cf992dac932384af0a0422021865896c17c4827783bb8de16abb233db91cf36b",
       "path": "scenarios/dashboard-place-requested-consumer.html"
     },
     {
@@ -311,7 +311,7 @@
       "path": "scenarios/dashboard-place-requested-consumer.md"
     },
     {
-      "digest": "sha256:83b6b28f4f6a71300eeb2b8e0ab6f9015948fc2cc324accb40cb649b323f2983",
+      "digest": "sha256:45820d76e9e0a3a1816592568ef29eb05971faf77a94cb735bfef8d310a2c8c6",
       "path": "scenarios/dashboard-refresh-request.html"
     },
     {
@@ -323,7 +323,7 @@
       "path": "scenarios/dashboard-refresh-request.md"
     },
     {
-      "digest": "sha256:2ebffa5426e8d97fa58e6671cacf8c06229654446ab7330a6fb4908254c9f123",
+      "digest": "sha256:acbc70ea52689508d251efe1a21122595a1cc54dc9521ee644f72d35d970731f",
       "path": "scenarios/dashboard-save-city.html"
     },
     {
@@ -335,7 +335,7 @@
       "path": "scenarios/dashboard-save-city.md"
     },
     {
-      "digest": "sha256:f13fe6f3cbb4a80c2dadf3d4a61a1718ac75513d86fba3960b311cf3c896b2ab",
+      "digest": "sha256:da105b2eb2beafbfd4f217f1d54f98721b43c60c7520b3ee87e355546fb6fc35",
       "path": "scenarios/forecasts-place-requested-consumer.html"
     },
     {
@@ -347,7 +347,7 @@
       "path": "scenarios/forecasts-place-requested-consumer.md"
     },
     {
-      "digest": "sha256:39cb74d4a07bd28b484a757064185d12c997bdcdd36b5e19fea2133cf1a10f65",
+      "digest": "sha256:3ca12672c123b4bf1a3cbd7b558079540e71b837b432d312f63d25377f7dba85",
       "path": "scenarios/forecasts-publish-pending.html"
     },
     {
@@ -359,7 +359,7 @@
       "path": "scenarios/forecasts-publish-pending.md"
     },
     {
-      "digest": "sha256:3122696e04300e164249cedb5858bcbef4c4e097e14d1f5288ea9218600b9f11",
+      "digest": "sha256:1fcdba5bec2595380747d9e63cddb75f1d0bcc8e6f784230df4550d354b073eb",
       "path": "scenarios/forecasts-refresh-scheduled.html"
     },
     {
@@ -371,7 +371,7 @@
       "path": "scenarios/forecasts-refresh-scheduled.md"
     },
     {
-      "digest": "sha256:9838df9717322c34c8f73a683e0f46f491609bde909f6a5d70142b6d1abc44db",
+      "digest": "sha256:60ff08ff90d6602dddaf3d274626a04b5a493b842e216ede87515e16affabb8a",
       "path": "scenarios/places-request-publisher.html"
     },
     {
@@ -383,7 +383,7 @@
       "path": "scenarios/places-request-publisher.md"
     },
     {
-      "digest": "sha256:52607d526d3299d9780c6da0314934bfbf0ed7acb9ab619cb1b22280c914d897",
+      "digest": "sha256:9c36d562f07f736611711646adaad0661e60d1d853edb07ed8929c2b4e685ea3",
       "path": "services/dashboard.html"
     },
     {
@@ -395,7 +395,7 @@
       "path": "services/dashboard.md"
     },
     {
-      "digest": "sha256:70d6a2bbbf9887bd613b4496652c9244f6afd6bfa249beb384320688c637dc6e",
+      "digest": "sha256:902c01ba0a0fba6f76827bcbf33e2e12a3a5db9ebab25d07f15ee244d6edc84a",
       "path": "services/forecasts.html"
     },
     {
@@ -407,7 +407,7 @@
       "path": "services/forecasts.md"
     },
     {
-      "digest": "sha256:938541639733891d43007aa4b761e8014da94377ddfe58f5f4bfb552a84f498e",
+      "digest": "sha256:d7eb1031f35a1298e9113bd90dbc5a3f07f7acdc8ace354a436a385db30696e3",
       "path": "services/places.html"
     },
     {
@@ -426,7 +426,7 @@
   "frozenBindingsDigest": "sha256:7e3540de505d85c8eab70b5d97243eeb14ae601f433e5d4b8157fb790a2fa64b",
   "index": "index.html",
   "inputDigest": "sha256:e14f03b3255df5946625b6ed2995158404bf1c58ea789f1d4b63ca48dd739a20",
-  "output": ".artifacts/diagram-layout/geometry-output-v1",
+  "output": "./full-pages-sequence-empty-arms-v2",
   "pages": [
     {
       "html": "scenarios/dashboard-forecast-updated-consumer.html",

@@ -6,7 +6,7 @@
     "invocation": "SOURCE_LAUNCHER",
     "productVersion": "0.13.32",
     "sourceRepository": "https://github.com/codeclew/codeclew",
-    "sourceRevision": "98bc5f681acb702c6f333baf0b2d1c47ece471da",
+    "sourceRevision": "13c118542fcd5caf01617f631e574a161f11daba",
     "officialReleaseCreated": false,
     "runtimeMetadataStatus": "NOT_REPORTED_BY_RENDER_COMMAND"
   },
@@ -14,7 +14,7 @@
   "frozenPublication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
   "frozenPublicationManifest": "generated/14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8/publication.json",
   "pagesManifest": "pages-manifest.json",
-  "pagesManifestSha256": "5300633364b2ad1638fad6727891e351f73ee96290af7ec92c61433632745bb0",
+  "pagesManifestSha256": "20e587420902fdf108f8695dddc0705a4578c8c3f91230651473f3f9c8e5b451",
   "authority": "FROZEN_NARRATIVES_WITH_SEPARATE_SELECTED_SNAPSHOT_EVIDENCE",
   "proseAuthored": false,
   "sourceCaptureRepeated": false,
@@ -63,7 +63,12 @@
     "scenario": "dashboard-forecast-updated-consumer",
     "scenarioNoteCount": 7,
     "svgNoteCount": 0,
-    "displayedClickableEvents": 11
+    "displayedClickableEvents": 8,
+    "emptyAlternativeBranches": "OMITTED_AFTER_NOTE_FILTERING",
+    "survivingBranchGuards": "RETAINED_WITH_ORIGINAL_EVIDENCE",
+    "readableBehaviorUnchanged": true,
+    "displayedFrames": 2,
+    "displayedMessageEvents": 5
   },
   "rendererHistory": [
     {
@@ -85,6 +90,16 @@
       "productVersion": "0.13.32",
       "sourceRepository": "https://github.com/codeclew/codeclew",
       "sourceRevision": "21ce3a69cd5f02ef58155f0f3dd3908566d0fa93",
+      "officialReleaseCreated": false,
+      "runtimeMetadataStatus": "NOT_REPORTED_BY_RENDER_COMMAND"
+    },
+    {
+      "command": "clew docs pages render",
+      "selection": "full-publication",
+      "invocation": "SOURCE_LAUNCHER",
+      "productVersion": "0.13.32",
+      "sourceRepository": "https://github.com/codeclew/codeclew",
+      "sourceRevision": "98bc5f681acb702c6f333baf0b2d1c47ece471da",
       "officialReleaseCreated": false,
       "runtimeMetadataStatus": "NOT_REPORTED_BY_RENDER_COMMAND"
     }
