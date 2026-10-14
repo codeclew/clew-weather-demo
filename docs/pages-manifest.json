@@ -287,7 +287,7 @@
       "path": "runbooks.html"
     },
     {
-      "digest": "sha256:c5ceeefdf36be44209cd897ac1f40605a0c5c98fa22181e9bb0f0cc4af5512a2",
+      "digest": "sha256:0ed4a0c09045bfc5e4460eccc98b115fb44b31766d3d734a143636929986d102",
       "path": "scenarios/dashboard-forecast-updated-consumer.html"
     },
     {
@@ -299,7 +299,7 @@
       "path": "scenarios/dashboard-forecast-updated-consumer.md"
     },
     {
-      "digest": "sha256:cf992dac932384af0a0422021865896c17c4827783bb8de16abb233db91cf36b",
+      "digest": "sha256:b5f88f85374ff982adc5cb7f2be1ef27e211503c28fdbc8c8b5c717b6651b52c",
       "path": "scenarios/dashboard-place-requested-consumer.html"
     },
     {
@@ -311,7 +311,7 @@
       "path": "scenarios/dashboard-place-requested-consumer.md"
     },
     {
-      "digest": "sha256:45820d76e9e0a3a1816592568ef29eb05971faf77a94cb735bfef8d310a2c8c6",
+      "digest": "sha256:88ec2570c5ed6f687b8423f1cf928ddd14371113f466a3b672b41ace8d278355",
       "path": "scenarios/dashboard-refresh-request.html"
     },
     {
@@ -323,7 +323,7 @@
       "path": "scenarios/dashboard-refresh-request.md"
     },
     {
-      "digest": "sha256:acbc70ea52689508d251efe1a21122595a1cc54dc9521ee644f72d35d970731f",
+      "digest": "sha256:2b1ee8c02735da7fc00adc96f3c85446196899e4dec05abaf40ab48729d24df9",
       "path": "scenarios/dashboard-save-city.html"
     },
     {
@@ -335,7 +335,7 @@
       "path": "scenarios/dashboard-save-city.md"
     },
     {
-      "digest": "sha256:da105b2eb2beafbfd4f217f1d54f98721b43c60c7520b3ee87e355546fb6fc35",
+      "digest": "sha256:3124933d34da5d03780ee43dccb8510de56fc2a8d27e60a68e905d402ba4f6e7",
       "path": "scenarios/forecasts-place-requested-consumer.html"
     },
     {
@@ -347,7 +347,7 @@
       "path": "scenarios/forecasts-place-requested-consumer.md"
     },
     {
-      "digest": "sha256:3ca12672c123b4bf1a3cbd7b558079540e71b837b432d312f63d25377f7dba85",
+      "digest": "sha256:14c74ef8da37c67dc8129f881489ae4921d3488546f67d9734dff451452bfbce",
       "path": "scenarios/forecasts-publish-pending.html"
     },
     {
@@ -359,7 +359,7 @@
       "path": "scenarios/forecasts-publish-pending.md"
     },
     {
-      "digest": "sha256:1fcdba5bec2595380747d9e63cddb75f1d0bcc8e6f784230df4550d354b073eb",
+      "digest": "sha256:d40c9a74eea2cf4b4c207dd3d533fd77ee2288bc3ce12fd739e927aab3e8030e",
       "path": "scenarios/forecasts-refresh-scheduled.html"
     },
     {
@@ -371,7 +371,7 @@
       "path": "scenarios/forecasts-refresh-scheduled.md"
     },
     {
-      "digest": "sha256:60ff08ff90d6602dddaf3d274626a04b5a493b842e216ede87515e16affabb8a",
+      "digest": "sha256:e928ed5673dedeec10c0d7508ce96a0168745668bb2f7a29369078eedf5932b7",
       "path": "scenarios/places-request-publisher.html"
     },
     {
@@ -383,7 +383,7 @@
       "path": "scenarios/places-request-publisher.md"
     },
     {
-      "digest": "sha256:9c36d562f07f736611711646adaad0661e60d1d853edb07ed8929c2b4e685ea3",
+      "digest": "sha256:d9ca76c1e397ccbc2ee793480a90169106a25f35be47e1437bb77ef7d93af21e",
       "path": "services/dashboard.html"
     },
     {
@@ -395,7 +395,7 @@
       "path": "services/dashboard.md"
     },
     {
-      "digest": "sha256:902c01ba0a0fba6f76827bcbf33e2e12a3a5db9ebab25d07f15ee244d6edc84a",
+      "digest": "sha256:81c24bb7fcdcf7412e1cffd22051751d39f6c4f8d208b5ff5ee731b8a735f772",
       "path": "services/forecasts.html"
     },
     {
@@ -407,7 +407,7 @@
       "path": "services/forecasts.md"
     },
     {
-      "digest": "sha256:d7eb1031f35a1298e9113bd90dbc5a3f07f7acdc8ace354a436a385db30696e3",
+      "digest": "sha256:69a2cecbf3e6a29057448b6499528db75cb39d47f818ecfd2ddb338b8d6ef0ef",
       "path": "services/places.html"
     },
     {
@@ -426,7 +426,7 @@
   "frozenBindingsDigest": "sha256:7e3540de505d85c8eab70b5d97243eeb14ae601f433e5d4b8157fb790a2fa64b",
   "index": "index.html",
   "inputDigest": "sha256:e14f03b3255df5946625b6ed2995158404bf1c58ea789f1d4b63ca48dd739a20",
-  "output": "./full-pages-sequence-empty-arms-v2",
+  "output": "./full-pages-sequence-participants-v1",
   "pages": [
     {
       "html": "scenarios/dashboard-forecast-updated-consumer.html",
