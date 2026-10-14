@@ -6,7 +6,7 @@
     "invocation": "SOURCE_LAUNCHER",
     "productVersion": "0.13.32",
     "sourceRepository": "https://github.com/codeclew/codeclew",
-    "sourceRevision": "e8f6b59d0c15a878f57618d0dd14299306b2a7f5",
+    "sourceRevision": "5320db5d2896d500aea26ed365b7a368a93a62da",
     "officialReleaseCreated": false,
     "runtimeMetadataStatus": "NOT_REPORTED_BY_RENDER_COMMAND"
   },
@@ -14,7 +14,7 @@
   "frozenPublication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
   "frozenPublicationManifest": "generated/14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8/publication.json",
   "pagesManifest": "pages-manifest.json",
-  "pagesManifestSha256": "03ab44eb6c12e5ea59f5984e697628987e1fe4569bd5ca1d6c6fafca7ca63cd1",
+  "pagesManifestSha256": "4023e1c0e04d9be4f1a442d00901bddc1767299cf70b334971c962df84fef13c",
   "authority": "FROZEN_NARRATIVES_WITH_SEPARATE_SELECTED_SNAPSHOT_EVIDENCE",
   "proseAuthored": false,
   "sourceCaptureRepeated": false,
@@ -123,11 +123,29 @@
       "sourceRevision": "13c118542fcd5caf01617f631e574a161f11daba",
       "officialReleaseCreated": false,
       "runtimeMetadataStatus": "NOT_REPORTED_BY_RENDER_COMMAND"
+    },
+    {
+      "command": "clew docs pages render",
+      "selection": "full-publication",
+      "invocation": "SOURCE_LAUNCHER",
+      "productVersion": "0.13.32",
+      "sourceRepository": "https://github.com/codeclew/codeclew",
+      "sourceRevision": "e8f6b59d0c15a878f57618d0dd14299306b2a7f5",
+      "officialReleaseCreated": false,
+      "runtimeMetadataStatus": "NOT_REPORTED_BY_RENDER_COMMAND"
     }
   ],
   "sequenceLayout": {
     "rowSizing": "WRAPPED_LINE_COUNT",
     "messageArrows": "BELOW_WRAPPED_TEXT",
-    "participantLabels": "WRAPPED_WITH_DYNAMIC_HEADER_HEIGHT"
+    "participantLabels": "WRAPPED_WITH_DYNAMIC_HEADER_HEIGHT",
+    "widthSizing": "CONTAINER_CONTENT_WIDTH",
+    "textWrapping": "MEASURED_TEXT_WIDTH",
+    "reflowTriggers": [
+      "DISCLOSURE",
+      "RESIZE"
+    ],
+    "fixedMinimumWidthRemoved": true,
+    "acceptedTextUnchanged": true
   }
 }
