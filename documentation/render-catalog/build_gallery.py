@@ -30,7 +30,8 @@ def item(id, category, title, description, path, action='', capture=None, status
         markup = re.sub(r'\shidden(?:="[^"]*")?', '', markup)
         markup = re.sub(r'(href|src)="([^"]*)"', lambda m: f'{m[1]}="{html.escape(urljoin(url, html.unescape(m[2])), quote=True)}"', markup)
         file = f'previews/{id}.html'
-        (OUT / file).write_text(f'<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)}</title><link rel="stylesheet" href="../preview.css"><body><p class="preview-note">Read-only excerpt from the real Weather publication. Open the full example for source interactions.</p><main>{markup}</main></body></html>')
+        stylesheet = '../examples/places-native/style.css' if capture[0]=='native' else '../preview.css'
+        (OUT / file).write_text(f'<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)}</title><link rel="stylesheet" href="{stylesheet}"><style>body{{display:block!important;margin:0!important;padding:20px!important;min-width:0!important}}main{{margin:0!important;padding:0!important;max-width:none!important}}.preview-note{{font:13px system-ui;color:#56665c;margin-bottom:18px}}pre{{max-width:100%;overflow:auto}}</style><body><p class="preview-note">Read-only excerpt from the real Weather publication. Open the full example for source interactions.</p><main>{markup}</main></body></html>')
         row['preview'] = file
         row['captureUrl'] = url
         row['capturedHtmlDigest'] = 'sha256:' + hashlib.sha256(lookup[capture][0].encode()).hexdigest()
@@ -40,6 +41,18 @@ D=W+'services/dashboard.html'
 S=W+'scenarios/dashboard-save-city.html'
 C=W+'scenarios/dashboard-forecast-updated-consumer.html'
 N='examples/places-native/'
+# Balanced element extraction preserves the original renderer HTML without rewriting prose.
+def element_at(markup, start, tag):
+    depth = 0
+    for match in re.finditer(r'</?' + tag + r'\b[^>]*>', markup[start:]):
+        depth += -1 if match[0].startswith('</') else 1
+        if depth == 0:
+            return markup[start:start + match.end()]
+    raise ValueError('Unbalanced captured element: ' + tag)
+def element_with(markup, opening, tag):
+    match = re.search(opening, markup)
+    assert match, opening
+    return element_at(markup, match.start(), tag)
 # Page families. These links open complete native output, not a gallery reconstruction.
 for id,title,path,desc in [
  ('page-overview','Documentation overview',W+'overview.html','Services and saved scenarios across the real Weather repository.'),
@@ -82,15 +95,45 @@ for id,title,family,key,path,desc,action in [
  ('block-process-list','Saved process cards','process-catalog','catalog',D+'#process-catalog','Existing process titles, declared triggers, freshness and authoring state.',''),
  ('block-coverage','Coverage and analysis authority','coverage','coverage',D+'#section-overview','Source counts, syntax/compiler provider details, declared interactions and revision vector.','Click “Coverage and evidence”.'),
  ('block-inventory','Source and API inventory table','inventory','inventory',D+'#section-overview','Trigger, operation, coverage and exact identity for all 12 retained Dashboard entrypoints.','Click “Source and API inventory 12”.')]: item(id,'Diagrams' if id.startswith('diagram') else 'Blocks',title,desc,path,action,(family,key))
+# Individual blocks inside the real HTTP and imported-note views.
+http_html,http_url=lookup[('http-contract','contract')]
+for key,opening,tag in [('interface',r'<section class="contract-card"','section'),('raw',r'<details class="contract-raw"','details')]:
+    lookup[('http-parts',key)]=(element_with(http_html,opening,tag),http_url)
+for key,label in [('parameters','Request parameters'),('request','Request body'),('responses','Responses'),('access','Declared access and servers')]:
+    lookup[('http-parts',key)]=(element_with(http_html,r'<section class="contract-section"><h3>'+label,'section'),http_url)
+note_html,note_url=lookup[('note','note')]
+for key,opening,tag in [('record',r'<pre class="note-original"','pre'),('metadata',r'<details','details'),('assessment',r'<section class="gap-card"','section')]:
+    lookup[('note-parts',key)]=(element_with(note_html,opening,tag),note_url)
+for id,title,family,key,path,desc,action in [
+ ('block-http-interface','Source-derived HTTP interface card','http-parts','interface',D+'#dashboard:contract-operation:46eb1353d8493620edc8bfcb','The accepted interpretation and evidence table, distinct from the parsed OpenAPI fields.',''),
+ ('block-request-parameters','OpenAPI request parameters','http-parts','parameters',D+'#dashboard:contract-operation:46eb1353d8493620edc8bfcb','This real POST operation declares no parameters; the renderer displays the empty case explicitly.',''),
+ ('block-request-body','OpenAPI request body and field constraints','http-parts','request',D+'#dashboard:contract-operation:46eb1353d8493620edc8bfcb','Real required cityId field, string type and declared enumeration.',''),
+ ('block-responses','OpenAPI response schemas','http-parts','responses',D+'#dashboard:contract-operation:46eb1353d8493620edc8bfcb','Declared 200, 400, 415, 500 and 503 responses. The preview opens each response.',''),
+ ('block-access','Declared access and servers','http-parts','access',D+'#dashboard:contract-operation:46eb1353d8493620edc8bfcb','The real contract has null security and server records. This demonstrates the actual empty declaration case.',''),
+ ('block-raw-contract','Complete operation contract','http-parts','raw',D+'#dashboard:contract-operation:46eb1353d8493620edc8bfcb','The retained machine-readable OpenAPI operation, opened as a disclosure.',''),
+ ('block-original-note','Original imported runtime record','note-parts','record',D+'#assessment-runtime-kafka-replay','The exact historical Weather replay record, preserved without converting it to compiler evidence.',''),
+ ('block-note-metadata','Imported note metadata and associations','note-parts','metadata',D+'#assessment-runtime-kafka-replay','Original classification, timestamp and captured input associations.',''),
+ ('block-assessment','Separate agent assessment','note-parts','assessment',D+'#assessment-runtime-kafka-replay','Existing accepted assessment with its own evidence, review and freshness status.','')]: item(id,'Blocks',title,desc,path,action,(family,key))
 # Native compiler output. All examples come from the current source launcher, retained real Places source.
 for id,title,path,desc in [
  ('native-declaration','Compiler declaration and signature',N+'places-save-endpoint.html','The actual C# PlacesController.Save declaration and exact source citation.'),
  ('native-outline','Cited C# source outline',N+'places-save-endpoint.html','Actual local source structure: calls, city-null guard, BadRequest and Ok returns. A text outline, not a compiler CFG.'),
- ('native-calls','Retained exact call-site table',N+'places-save-endpoint.html','Compiler target status, exact spans and source citations for Places.Save calls.'),
+ ('native-calls','Retained exact call-site list',N+'places-save-endpoint.html','Compiler target status, exact spans and source citations for Places.Save calls.'),
  ('native-expanded','Expanded source-call bodies',N+'source-calls.html','Five real retained methods, including repository Save, InsertRequest, City and Open.'),
  ('native-context','Examined documentation context',N+'source-calls.html','Documentation-context links retained for the selected method bodies; not runtime impact.'),
  ('native-limits','Question and local limits',N+'places-save-diagnostic.html','Projection authority and unavailable behavior/state/relationship claims.'),
  ('native-source-index','Native catalogue and source index',N+'index.html','Native source index, selected declaration search and links to all output pages.')]: item(id,'Blocks',title,desc,path,renderer='static_pages/publish.rs')
+native_url=PUBLIC+'render-catalog/'+N+'places-save-overview.html'
+native_html=(OUT/N/'places-save-overview.html').read_text()
+for key,opening in [('outline',r'<section><h3>Cited C# source outline'),('calls',r'<section><h3>Retained exact call sites')]:
+    lookup[('native',key)]=(element_with(native_html,opening,'section'),native_url)
+for row in items:
+    if row['id'] in ['native-outline','native-calls']:
+        key='outline' if row['id']=='native-outline' else 'calls'
+        # Reuse the preview generation helper; replace the existing inventory row in place.
+        item(row['id'],row['category'],row['title'],row['description'],row['path'],capture=('native',key),renderer=row['renderer'])
+        replacement=items.pop()
+        row.update(replacement)
 # Supported renderers without an admissible populated Weather example. Do not substitute test fixtures.
 for id,title,reason,renderer in [
  ('gap-execution','Authored execution-flow diagram','No accepted typed execution-flow visual in this Weather publication.','visuals.rs + app.js visualGraph'),
