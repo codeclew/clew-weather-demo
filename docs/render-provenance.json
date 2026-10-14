@@ -6,7 +6,7 @@
     "invocation": "SOURCE_LAUNCHER",
     "productVersion": "0.13.32",
     "sourceRepository": "https://github.com/codeclew/codeclew",
-    "sourceRevision": "5320db5d2896d500aea26ed365b7a368a93a62da",
+    "sourceRevision": "6f52d11fc780c243b4b79adece3db76905c2db6e",
     "officialReleaseCreated": false,
     "runtimeMetadataStatus": "NOT_REPORTED_BY_RENDER_COMMAND"
   },
@@ -14,7 +14,7 @@
   "frozenPublication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
   "frozenPublicationManifest": "generated/14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8/publication.json",
   "pagesManifest": "pages-manifest.json",
-  "pagesManifestSha256": "4023e1c0e04d9be4f1a442d00901bddc1767299cf70b334971c962df84fef13c",
+  "pagesManifestSha256": "dd0ea4ec152e347c8b356170ea0c2fdf95f4e1d9750413742347d12a81a98dad",
   "authority": "FROZEN_NARRATIVES_WITH_SEPARATE_SELECTED_SNAPSHOT_EVIDENCE",
   "proseAuthored": false,
   "sourceCaptureRepeated": false,
@@ -41,7 +41,8 @@
     "contractMapping": "SOURCE_ROUTE_MATCH_ONLY",
     "runtimeEnforcement": "UNVERIFIED",
     "proseAuthored": false,
-    "allPublishedSubjectPayloadsExact": true
+    "allPublishedSubjectPayloadsExact": true,
+    "provenanceIdentifierValuesUnchanged": true
   },
   "endpoint": {
     "method": "POST",
@@ -133,6 +134,16 @@
       "sourceRevision": "e8f6b59d0c15a878f57618d0dd14299306b2a7f5",
       "officialReleaseCreated": false,
       "runtimeMetadataStatus": "NOT_REPORTED_BY_RENDER_COMMAND"
+    },
+    {
+      "command": "clew docs pages render",
+      "selection": "full-publication",
+      "invocation": "SOURCE_LAUNCHER",
+      "productVersion": "0.13.32",
+      "sourceRepository": "https://github.com/codeclew/codeclew",
+      "sourceRevision": "5320db5d2896d500aea26ed365b7a368a93a62da",
+      "officialReleaseCreated": false,
+      "runtimeMetadataStatus": "NOT_REPORTED_BY_RENDER_COMMAND"
     }
   ],
   "sequenceLayout": {
@@ -147,5 +158,6 @@
     ],
     "fixedMinimumWidthRemoved": true,
     "acceptedTextUnchanged": true
-  }
+  },
+  "contextIdentifierPresentation": "FULL_TEXT_WITH_VISUAL_WRAP"
 }
