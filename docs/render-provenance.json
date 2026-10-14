@@ -6,17 +6,15 @@
     "invocation": "SOURCE_LAUNCHER",
     "productVersion": "0.13.32",
     "sourceRepository": "https://github.com/codeclew/codeclew",
-    "sourceRevision": "f7813289964b8a5349336f8acb35daed9b9ffa3c",
-    "runtimeKey": "sha256:c6c32980b17d4ce0cb04c7308d8767717a0eb8fc4689d2478e401f7e52b40504",
-    "runtimeManifestDigest": "sha256:99661edc5c95482724bca8314a796a3fc7f3b332f88a35d73529a52f3e226a73",
-    "runtimeModeReported": "RELEASE",
-    "officialReleaseCreated": false
+    "sourceRevision": "21ce3a69cd5f02ef58155f0f3dd3908566d0fa93",
+    "officialReleaseCreated": false,
+    "runtimeMetadataStatus": "NOT_REPORTED_BY_RENDER_COMMAND"
   },
   "snapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
   "frozenPublication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
   "frozenPublicationManifest": "generated/14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8/publication.json",
   "pagesManifest": "pages-manifest.json",
-  "pagesManifestSha256": "d1efe47155e9d2aa409396203c1128ae1f73c3e76c17eb024e4edb4830a5bf4f",
+  "pagesManifestSha256": "127182aeb7d3486f939de6ae10b5665e64302e71398dd1d1a8c34f86a91655cf",
   "authority": "FROZEN_NARRATIVES_WITH_SEPARATE_SELECTED_SNAPSHOT_EVIDENCE",
   "proseAuthored": false,
   "sourceCaptureRepeated": false,
@@ -42,7 +40,8 @@
     "canonicalEndpoint": "dashboard-ad968c2137fedea90215",
     "contractMapping": "SOURCE_ROUTE_MATCH_ONLY",
     "runtimeEnforcement": "UNVERIFIED",
-    "proseAuthored": false
+    "proseAuthored": false,
+    "allPublishedSubjectPayloadsExact": true
   },
   "endpoint": {
     "method": "POST",
@@ -52,5 +51,30 @@
     "contractAnchor": "dashboard:contract-operation:46eb1353d8493620edc8bfcb",
     "sourceMapping": "SOURCE_ROUTE_MATCH_ONLY",
     "runtimeEnforcement": "UNVERIFIED"
+  },
+  "previousRenderer": {
+    "command": "clew docs pages render",
+    "selection": "full-publication",
+    "invocation": "SOURCE_LAUNCHER",
+    "productVersion": "0.13.32",
+    "sourceRepository": "https://github.com/codeclew/codeclew",
+    "sourceRevision": "f7813289964b8a5349336f8acb35daed9b9ffa3c",
+    "runtimeKey": "sha256:c6c32980b17d4ce0cb04c7308d8767717a0eb8fc4689d2478e401f7e52b40504",
+    "runtimeManifestDigest": "sha256:99661edc5c95482724bca8314a796a3fc7f3b332f88a35d73529a52f3e226a73",
+    "runtimeModeReported": "RELEASE",
+    "officialReleaseCreated": false
+  },
+  "sequenceProjection": {
+    "omittedEventKinds": [
+      "note"
+    ],
+    "omissionScope": "SEQUENCE_SVG_ONLY",
+    "acceptedEventDataUnchanged": true,
+    "readableBehaviorNotesPreserved": true,
+    "evidencePreserved": true,
+    "scenario": "dashboard-forecast-updated-consumer",
+    "scenarioNoteCount": 7,
+    "svgNoteCount": 0,
+    "displayedClickableEvents": 11
   }
 }

@@ -287,7 +287,7 @@
       "path": "runbooks.html"
     },
     {
-      "digest": "sha256:f132c4039dc6c2a3b4a81d8a7e01b74b9aeadaf955209f570baa89cc38363038",
+      "digest": "sha256:691bafea23b910af545738aa4eae46ecea8c3effd3be8428f8053d90e64f0e99",
       "path": "scenarios/dashboard-forecast-updated-consumer.html"
     },
     {
@@ -299,7 +299,7 @@
       "path": "scenarios/dashboard-forecast-updated-consumer.md"
     },
     {
-      "digest": "sha256:231ee489c93c585c06ab46b021ad343ba9223e480c95c5129bfdaf2594bd57fe",
+      "digest": "sha256:151bd55dc9fb0e7bc62f429a3c61075ea420f1d9759dc83bb7e737ad86736ce1",
       "path": "scenarios/dashboard-place-requested-consumer.html"
     },
     {
@@ -311,7 +311,7 @@
       "path": "scenarios/dashboard-place-requested-consumer.md"
     },
     {
-      "digest": "sha256:fbb23e2d99b6c0087d18643665b0658cc66284b130b4c56bb1d84f22fb246a96",
+      "digest": "sha256:a0c0e5ac887291911a73da88847e189beeaf331c51408d06655c9f95558b42cf",
       "path": "scenarios/dashboard-refresh-request.html"
     },
     {
@@ -323,7 +323,7 @@
       "path": "scenarios/dashboard-refresh-request.md"
     },
     {
-      "digest": "sha256:d593280eeb4aeef5e6f14673b1bb61faf27aa92ff6588460d5dea28a828cae2e",
+      "digest": "sha256:f0256ce40a3ab624fdf440637abfc6c7a3f08d5c4045f191a267765461cbc059",
       "path": "scenarios/dashboard-save-city.html"
     },
     {
@@ -335,7 +335,7 @@
       "path": "scenarios/dashboard-save-city.md"
     },
     {
-      "digest": "sha256:167168be89d7bb37e9e310088ecfbf06f0b0d44b4d013693c6c6fda945567968",
+      "digest": "sha256:072f3ecdcd0517746d6edf87c7bb13f9f07a284e1aca3784e6892092ba5da0b7",
       "path": "scenarios/forecasts-place-requested-consumer.html"
     },
     {
@@ -347,7 +347,7 @@
       "path": "scenarios/forecasts-place-requested-consumer.md"
     },
     {
-      "digest": "sha256:ad062b5e3d130481d77ecfbf485b80c73f66873ecfe336265e5c0fe6e7da5330",
+      "digest": "sha256:3f34bef2a2a3896557512e3fe752c28901fb35614a3dc759529b4310545e7708",
       "path": "scenarios/forecasts-publish-pending.html"
     },
     {
@@ -359,7 +359,7 @@
       "path": "scenarios/forecasts-publish-pending.md"
     },
     {
-      "digest": "sha256:46c220712eabc9cfbf165fa4278ff32bc4ed45b3d0f4cc4692c11c845e89623c",
+      "digest": "sha256:2c6f38cd306a140df8a64e89d6b8bb0c4311962599deb8267a77f8838772924b",
       "path": "scenarios/forecasts-refresh-scheduled.html"
     },
     {
@@ -371,7 +371,7 @@
       "path": "scenarios/forecasts-refresh-scheduled.md"
     },
     {
-      "digest": "sha256:d7540cd18cb2b0d5a5075a2b049f989c1a18faf657c317d3272291b48a725617",
+      "digest": "sha256:bb854c8fee8c4442470b5450aa59f7801a90e60357dc70f3221603f8ab8928a7",
       "path": "scenarios/places-request-publisher.html"
     },
     {
@@ -383,7 +383,7 @@
       "path": "scenarios/places-request-publisher.md"
     },
     {
-      "digest": "sha256:7048d0e12d79159d088efa5d654abf75ea9ef462d29e4450a30c988f8e28ffc6",
+      "digest": "sha256:c8f039d066ad5b5908eb879729cd203e769d298837074342d6fda1b2b255267f",
       "path": "services/dashboard.html"
     },
     {
@@ -395,7 +395,7 @@
       "path": "services/dashboard.md"
     },
     {
-      "digest": "sha256:e67204c96e5b7b2313546e6c373e2f0f3a4b0b5a6faf05348b9039cd1d4f3b87",
+      "digest": "sha256:c4edbd04832b42e5159493b6bb3c7cfd1460610643203fe99451a96758e3ee30",
       "path": "services/forecasts.html"
     },
     {
@@ -407,7 +407,7 @@
       "path": "services/forecasts.md"
     },
     {
-      "digest": "sha256:9ef203823089bd6bc6ac64042dc38b6ad4581511a703176e459030c38eddb98f",
+      "digest": "sha256:5385113fbc16a7bca048eb2f316c10b033c90c8adff32a5697006e6dcc3ba4ca",
       "path": "services/places.html"
     },
     {
@@ -426,7 +426,7 @@
   "frozenBindingsDigest": "sha256:7e3540de505d85c8eab70b5d97243eeb14ae601f433e5d4b8157fb790a2fa64b",
   "index": "index.html",
   "inputDigest": "sha256:e14f03b3255df5946625b6ed2995158404bf1c58ea789f1d4b63ca48dd739a20",
-  "output": ".artifacts/pages-migration/output-v2",
+  "output": "../research/experiments/codeclew-documentation-hardening-20261014/full-pages-no-svg-notes-v1",
   "pages": [
     {
       "html": "scenarios/dashboard-forecast-updated-consumer.html",
