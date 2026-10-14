@@ -1,0 +1,21 @@
+{
+  "schema": "weather-pages-render-request/1.0",
+  "snapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
+  "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+  "command": [
+    "clew",
+    "docs",
+    "pages",
+    "render",
+    "--root",
+    "DOCS_ROOT",
+    "--snapshot",
+    "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
+    "--publication",
+    "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+    "--output",
+    "EMPTY_OUTPUT_DIRECTORY"
+  ],
+  "runtimeSelection": "SOURCE_BUILD",
+  "sourceRevision": "f7813289964b8a5349336f8acb35daed9b9ffa3c"
+}
