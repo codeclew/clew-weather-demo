@@ -63,5 +63,12 @@
     "../guide-provenance.json"
   ],
   "captureDigest": "sha256:b017690fbe3ef47631f575c4978f10369a0333f26702d6904be2a0ff070f3107",
-  "coverageCaptureDigest": "sha256:296ce5e74343df5100a21273aebbd7d5ad8d485173b54c47cd5edd6e0a895349"
+  "coverageCaptureDigest": "sha256:296ce5e74343df5100a21273aebbd7d5ad8d485173b54c47cd5edd6e0a895349",
+  "renderingConditions": {
+    "metadata": "render-conditions.json",
+    "sourceRevision": "31a559851b947d5eda90afc003f2bfb2b2c27130",
+    "authority": "SOURCE_RESEARCH_NOT_NEW_NATIVE_OUTPUT_OR_MEANING_REVIEW",
+    "itemCount": 93,
+    "digest": "sha256:7bc3f42d00798e50574e683356185169a44941fd1e3e8f5e987e268f0a19c2fa"
+  }
 }

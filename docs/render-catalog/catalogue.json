@@ -3,6 +3,359 @@
   "sourceRevision": "31a559851b947d5eda90afc003f2bfb2b2c27130",
   "repository": "codeclew/clew-weather-demo",
   "scope": "Weather first; real public Petclinic examples where Weather cannot admit the renderer. No synthetic compiler fixtures or private UpdateDeal content.",
+  "renderingPolicies": {
+    "publication": {
+      "title": "Frozen service/process publication",
+      "inputs": "docs pages render --root ROOT --snapshot SNAPSHOT --publication PUBLICATION --output EMPTY_DIRECTORY",
+      "gate": "The immutable snapshot and saved publication must load. Frozen manifests, safe paths, content digests and canonical operations must validate. Full publication rendering rejects endpoint exclusions. Output must be new or empty; no model authoring occurs.",
+      "limits": "An existing saved narrative can be displayed with STALE, UNVERIFIED or UNASSESSED labels. A missing requested-language translation replaces the affected narrative with a translation gap. Rendering does not grant meaning review or prove runtime behavior.",
+      "sourceReferences": [
+        "full",
+        "native",
+        "ui-render"
+      ]
+    },
+    "selection": {
+      "title": "Selected native declaration pages",
+      "inputs": "docs pages render --root ROOT --snapshot SNAPSHOT --input SELECTIONS_JSON --output EMPTY_DIRECTORY",
+      "gate": "Supply 1\u2013128 exact selections, with unique nonempty IDs, service, endpointDeclaration and workerDeclaration; wiringDeclaration is optional. Applicable captured evidence, source coordinates and publication policy determine the admitted projection. Output must be new or empty.",
+      "limits": "Selection does not imply source behavior: declaration-only, compiler CFG and source-call expansion have different capabilities. Unsupported evidence produces a local gap or rejects an incompatible selection; no missing behavior is invented.",
+      "sourceReferences": [
+        "native",
+        "projection",
+        "native-write"
+      ]
+    },
+    "answer": {
+      "title": "OperationAnswer business reader",
+      "inputs": "A retained endpoint/process packet and its structurally valid OperationAnswer; docs work explain input mode or a saved review-run export.",
+      "gate": "Validate the supported answer schema, exact packet binding, cited evidence labels, semantic IDs and references. Plain input rendering may remain DRAFT / UNREVIEWED / NOT_PUBLISHED. Review-run export additionally requires one durable approved unpublished answer bound to that exact work, checkpoint and snapshot.",
+      "limits": "A locally rendered reader, even with model approval, is not automatically a published service narrative. Optional rich blocks depend on their answer/packet fields and supported schema.",
+      "sourceReferences": [
+        "answer",
+        "answer-ui",
+        "approved"
+      ]
+    },
+    "dsl": {
+      "title": "Explicit Java flow DSL projection",
+      "inputs": "An explicit codeclew-flow-dsl-profile/1.0 plus retained real Java methods; builder-chain or operation-queue family.",
+      "gate": "Validate exact method/file/owner/scope bindings and the selected DSL family. The extractor must recognize the bounded Java AST construction; the publisher writes only new files and refuses collisions.",
+      "limits": "AST method references and declared operation queues are static declarations. They do not prove dispatch, execution, completion or deployed activation.",
+      "sourceReferences": [
+        "dsl",
+        "dsl-extract",
+        "dsl-publish"
+      ]
+    },
+    "unsupported": {
+      "title": "No supported rendering route in the catalogue source",
+      "inputs": "No supported input selector for this design in source 31a5598.",
+      "gate": "Not renderable through the supported profiles in this catalogue revision.",
+      "limits": "A deferred prototype or similar-looking reader is not evidence that this exact presentation is supported.",
+      "sourceReferences": [
+        "native",
+        "answer-ui"
+      ]
+    }
+  },
+  "conditionSources": {
+    "full": {
+      "path": "crates/clew/src/documentation/static_pages/full.rs",
+      "line": 16,
+      "symbol": "render"
+    },
+    "native": {
+      "path": "crates/clew/src/documentation/static_pages.rs",
+      "line": 129,
+      "symbol": "Command::Render and run"
+    },
+    "projection": {
+      "path": "crates/clew/src/documentation/static_pages/project.rs",
+      "line": 100,
+      "symbol": "project_declarations"
+    },
+    "ui-profile": {
+      "path": "crates/clew/assets/documentation/app.js",
+      "line": 542,
+      "symbol": "serviceProfile"
+    },
+    "ui-entries": {
+      "path": "crates/clew/assets/documentation/app.js",
+      "line": 564,
+      "symbol": "sourceCatalogue and entries"
+    },
+    "ui-render": {
+      "path": "crates/clew/assets/documentation/app.js",
+      "line": 998,
+      "symbol": "showEntry"
+    },
+    "ui-thread": {
+      "path": "crates/clew/assets/documentation/app.js",
+      "line": 630,
+      "symbol": "processThreadCard"
+    },
+    "ui-boundary": {
+      "path": "crates/clew/assets/documentation/app.js",
+      "line": 609,
+      "symbol": "boundaryContractsCard"
+    },
+    "ui-extraction": {
+      "path": "crates/clew/assets/documentation/app.js",
+      "line": 595,
+      "symbol": "processExtractionCard and processCallBindingsCard"
+    },
+    "ui-flow": {
+      "path": "crates/clew/assets/documentation/app.js",
+      "line": 694,
+      "symbol": "processOutlineCard"
+    },
+    "ui-dataflow": {
+      "path": "crates/clew/assets/documentation/app.js",
+      "line": 706,
+      "symbol": "relatedViews and dataflowDiagram"
+    },
+    "ui-sequence": {
+      "path": "crates/clew/assets/documentation/app.js",
+      "line": 744,
+      "symbol": "sequenceEvents and sequenceLayout"
+    },
+    "ui-behavior": {
+      "path": "crates/clew/assets/documentation/app.js",
+      "line": 875,
+      "symbol": "behaviorPseudocode, explanation and overviewDiagram"
+    },
+    "ui-external": {
+      "path": "crates/clew/assets/documentation/app.js",
+      "line": 871,
+      "symbol": "externalCallDetails"
+    },
+    "ui-contract": {
+      "path": "crates/clew/assets/documentation/app.js",
+      "line": 947,
+      "symbol": "interfaceContracts, fields, contentBodies and contract"
+    },
+    "ui-finding": {
+      "path": "crates/clew/assets/documentation/app.js",
+      "line": 974,
+      "symbol": "findings"
+    },
+    "ui-freshness": {
+      "path": "crates/clew/assets/documentation/app.js",
+      "line": 979,
+      "symbol": "freshness and evidence contexts"
+    },
+    "ui-inventory": {
+      "path": "crates/clew/assets/documentation/app.js",
+      "line": 1067,
+      "symbol": "catalogue and coverage"
+    },
+    "ui-source": {
+      "path": "crates/clew/assets/documentation/app.js",
+      "line": 1091,
+      "symbol": "source and sourceContent"
+    },
+    "ui-visual": {
+      "path": "crates/clew/assets/documentation/app.js",
+      "line": 491,
+      "symbol": "visualFragment, visualGraph, visualCard and visualGallery"
+    },
+    "visual": {
+      "path": "crates/clew/src/documentation/visuals.rs",
+      "line": 240,
+      "symbol": "validate_structure"
+    },
+    "state": {
+      "path": "crates/clew/src/documentation/render.rs",
+      "line": 3535,
+      "symbol": "state and transition artifacts in scenario rendering"
+    },
+    "transition": {
+      "path": "crates/clew/src/documentation/process_states.rs",
+      "line": 325,
+      "symbol": "activity_transitions_puml"
+    },
+    "dataflow": {
+      "path": "crates/clew/src/documentation/dataflow.rs",
+      "line": 564,
+      "symbol": "validate_graph"
+    },
+    "source-flow": {
+      "path": "crates/clew/src/documentation/process_flow.rs",
+      "line": 103,
+      "symbol": "qualified_documentation_authority"
+    },
+    "native-callable": {
+      "path": "crates/clew/src/documentation/static_pages/publish.rs",
+      "line": 222,
+      "symbol": "callable"
+    },
+    "native-cfg": {
+      "path": "crates/clew/src/documentation/static_pages/publish.rs",
+      "line": 316,
+      "symbol": "control_flow_panel"
+    },
+    "native-outline": {
+      "path": "crates/clew/src/documentation/static_pages/publish.rs",
+      "line": 386,
+      "symbol": "source_outline_panel"
+    },
+    "native-calls": {
+      "path": "crates/clew/src/documentation/static_pages/publish.rs",
+      "line": 443,
+      "symbol": "retained_call_sites_panel"
+    },
+    "native-arguments": {
+      "path": "crates/clew/src/documentation/static_pages/publish.rs",
+      "line": 545,
+      "symbol": "argument_bindings_panel"
+    },
+    "native-expanded": {
+      "path": "crates/clew/src/documentation/static_pages/publish.rs",
+      "line": 1127,
+      "symbol": "expanded_sources"
+    },
+    "native-context": {
+      "path": "crates/clew/src/documentation/static_pages/publish.rs",
+      "line": 677,
+      "symbol": "retained_data_context_links"
+    },
+    "native-write": {
+      "path": "crates/clew/src/documentation/static_pages/publish.rs",
+      "line": 1863,
+      "symbol": "write"
+    },
+    "data-state": {
+      "path": "crates/clew/src/documentation/static_pages/data_state.rs",
+      "line": 903,
+      "symbol": "attach and attach_graph"
+    },
+    "handoff": {
+      "path": "crates/clew/src/documentation/static_pages/source/handoff.rs",
+      "line": 39,
+      "symbol": "prove and project"
+    },
+    "authored": {
+      "path": "crates/clew/src/documentation/static_pages/authored.rs",
+      "line": 17,
+      "symbol": "attach"
+    },
+    "instructions": {
+      "path": "crates/clew/src/documentation/static_pages/project.rs",
+      "line": 444,
+      "symbol": "pinned_note_inputs and human_instructions"
+    },
+    "instructions-ui": {
+      "path": "crates/clew/src/documentation/static_pages/publish.rs",
+      "line": 262,
+      "symbol": "operational_instructions"
+    },
+    "notes": {
+      "path": "crates/clew/src/documentation/notes.rs",
+      "line": 229,
+      "symbol": "visible and page"
+    },
+    "dsl": {
+      "path": "crates/clew/src/documentation/flow_dsl.rs",
+      "line": 87,
+      "symbol": "Profile validation and run"
+    },
+    "dsl-extract": {
+      "path": "crates/clew/src/documentation/flow_dsl/extract.rs",
+      "line": 1,
+      "symbol": "Java AST extraction"
+    },
+    "dsl-publish": {
+      "path": "crates/clew/src/documentation/flow_dsl/publish.rs",
+      "line": 132,
+      "symbol": "write"
+    },
+    "answer": {
+      "path": "crates/clew/src/documentation/operation_answer.rs",
+      "line": 800,
+      "symbol": "answer validation"
+    },
+    "answer-ui": {
+      "path": "crates/clew/src/documentation/operation_answer.rs",
+      "line": 3671,
+      "symbol": "render_html"
+    },
+    "answer-glossary": {
+      "path": "crates/clew/src/documentation/operation_answer.rs",
+      "line": 2130,
+      "symbol": "render_glossary_html"
+    },
+    "answer-predicates": {
+      "path": "crates/clew/src/documentation/operation_answer.rs",
+      "line": 2262,
+      "symbol": "render_predicates_html"
+    },
+    "answer-preparations": {
+      "path": "crates/clew/src/documentation/operation_answer.rs",
+      "line": 2319,
+      "symbol": "render_preparations_html"
+    },
+    "answer-movement": {
+      "path": "crates/clew/src/documentation/operation_answer.rs",
+      "line": 2697,
+      "symbol": "render_data_movement_html"
+    },
+    "answer-blocks": {
+      "path": "crates/clew/src/documentation/operation_answer.rs",
+      "line": 1990,
+      "symbol": "render_block_evidence_html"
+    },
+    "answer-steps": {
+      "path": "crates/clew/src/documentation/operation_answer.rs",
+      "line": 4121,
+      "symbol": "render_html_steps"
+    },
+    "answer-outline": {
+      "path": "crates/clew/src/documentation/operation_answer.rs",
+      "line": 4437,
+      "symbol": "render_process_outline_html"
+    },
+    "answer-pseudocode": {
+      "path": "crates/clew/src/documentation/operation_answer.rs",
+      "line": 4734,
+      "symbol": "render_pseudocode_html"
+    },
+    "answer-outcomes": {
+      "path": "crates/clew/src/documentation/operation_answer.rs",
+      "line": 5133,
+      "symbol": "first_match_table"
+    },
+    "answer-facts": {
+      "path": "crates/clew/src/documentation/operation_answer.rs",
+      "line": 5322,
+      "symbol": "render_packet_fact_tables_html"
+    },
+    "answer-uncertainties": {
+      "path": "crates/clew/src/documentation/operation_answer.rs",
+      "line": 5833,
+      "symbol": "render_uncertainties_html"
+    },
+    "answer-evidence": {
+      "path": "crates/clew/src/documentation/operation_answer.rs",
+      "line": 5871,
+      "symbol": "render_evidence_index_html"
+    },
+    "answer-sources": {
+      "path": "crates/clew/src/documentation/operation_answer.rs",
+      "line": 6057,
+      "symbol": "render_source_locations_html"
+    },
+    "answer-review": {
+      "path": "crates/clew/src/documentation/operation_answer.rs",
+      "line": 3575,
+      "symbol": "render_review_provenance"
+    },
+    "approved": {
+      "path": "crates/clew/src/documentation/agent_jobs/operation_draft_review.rs",
+      "line": 198,
+      "symbol": "load_terminal_review"
+    }
+  },
   "items": [
     {
       "id": "page-overview",
@@ -12,7 +365,17 @@
       "path": "examples/weather/overview.html",
       "action": "",
       "status": "EXAMPLE",
-      "renderer": "static_pages/full.rs or static_pages/publish.rs"
+      "renderer": "static_pages/full.rs or static_pages/publish.rs",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A valid frozen publication containing its retained overview payload.",
+        "renderWhen": "The publication renderer copies the saved overview and links its selected service/scenario readers.",
+        "otherwise": "Absent service/scenario content is not synthesized into new prose.",
+        "limits": "",
+        "sourceReferences": [
+          "full"
+        ]
+      }
     },
     {
       "id": "page-catalog",
@@ -22,7 +385,17 @@
       "path": "examples/weather/catalog.html",
       "action": "",
       "status": "EXAMPLE",
-      "renderer": "static_pages/full.rs or static_pages/publish.rs"
+      "renderer": "static_pages/full.rs or static_pages/publish.rs",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A valid publication and its retained subject/operation metadata.",
+        "renderWhen": "Full pages rendering generates the cross-subject searchable catalogue.",
+        "otherwise": "An empty selection gives an inventory without populated business examples.",
+        "limits": "",
+        "sourceReferences": [
+          "full"
+        ]
+      }
     },
     {
       "id": "page-service",
@@ -32,7 +405,19 @@
       "path": "examples/weather/services/dashboard.html#section-overview",
       "action": "",
       "status": "EXAMPLE",
-      "renderer": "static_pages/full.rs or static_pages/publish.rs"
+      "renderer": "static_pages/full.rs or static_pages/publish.rs",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A service subject in the frozen publication; selected snapshot service facts.",
+        "renderWhen": "A service reader is emitted with its canonical sections and source inventory. Authored summaries populate their matching sections.",
+        "otherwise": "The reader can open with explicit section/operation gaps; missing prose does not prevent the shell.",
+        "limits": "",
+        "sourceReferences": [
+          "full",
+          "ui-render",
+          "ui-profile"
+        ]
+      }
     },
     {
       "id": "page-operation",
@@ -42,7 +427,19 @@
       "path": "examples/weather/services/dashboard.html#dashboard-ad968c2137fedea90215",
       "action": "",
       "status": "EXAMPLE",
-      "renderer": "static_pages/full.rs or static_pages/publish.rs"
+      "renderer": "static_pages/full.rs or static_pages/publish.rs",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A retained entrypoint or declared OpenAPI operation in a service reader.",
+        "renderWhen": "The operation is selected from navigation/inventory; a uniquely mapped contract routes to its canonical source entrypoint.",
+        "otherwise": "An entry without narrative shows an authoring gap. An unmapped OpenAPI operation remains a contract-only entry.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-entries",
+          "ui-render",
+          "ui-contract"
+        ]
+      }
     },
     {
       "id": "page-scenario",
@@ -52,7 +449,18 @@
       "path": "examples/weather/scenarios/dashboard-forecast-updated-consumer.html#dashboard-forecast-updated-consumer",
       "action": "",
       "status": "EXAMPLE",
-      "renderer": "static_pages/full.rs or static_pages/publish.rs"
+      "renderer": "static_pages/full.rs or static_pages/publish.rs",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A saved scenario subject and its frozen operations.",
+        "renderWhen": "The scenario page is emitted; matching authored operations populate behavior and supporting views.",
+        "otherwise": "Missing operation prose remains a gap; a title or interaction declaration alone is not a behavior narrative.",
+        "limits": "",
+        "sourceReferences": [
+          "full",
+          "ui-render"
+        ]
+      }
     },
     {
       "id": "page-process",
@@ -62,7 +470,19 @@
       "path": "examples/weather/scenarios/dashboard-save-city.html#process-overview",
       "action": "",
       "status": "EXAMPLE",
-      "renderer": "static_pages/full.rs or static_pages/publish.rs"
+      "renderer": "static_pages/full.rs or static_pages/publish.rs",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A captured process definition; optionally a source-bound thread or reviewed overview.",
+        "renderWhen": "A PROCESS overview entry renders the declared trigger, scope and participants; available thread, source outline and lifecycle artifacts are added independently.",
+        "otherwise": "A missing accepted overview falls back to declared summary or a gap. Missing thread does not become an inferred call chain.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-entries",
+          "ui-render",
+          "ui-thread"
+        ]
+      }
     },
     {
       "id": "page-fragment",
@@ -72,7 +492,19 @@
       "path": "examples/weather/services/places.html#service-fragment-dashboard-save-city:places-save-handler",
       "action": "",
       "status": "EXAMPLE",
-      "renderer": "static_pages/full.rs or static_pages/publish.rs"
+      "renderer": "static_pages/full.rs or static_pages/publish.rs",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "An explicitly retained serviceFragments record derived from the selected thread.",
+        "renderWhen": "The matching SERVICE_FRAGMENT entry renders that receiving subtree and the methods it uses.",
+        "otherwise": "No fragment is created from a coincidentally similar handler or destination name.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-entries",
+          "ui-render",
+          "ui-thread"
+        ]
+      }
     },
     {
       "id": "page-native",
@@ -82,7 +514,18 @@
       "path": "examples/places-native/places-save-overview.html",
       "action": "",
       "status": "EXAMPLE",
-      "renderer": "static_pages/full.rs or static_pages/publish.rs"
+      "renderer": "static_pages/full.rs or static_pages/publish.rs",
+      "renderConditions": {
+        "mode": "selection",
+        "requiredInputs": "Exact selected declarations with applicable compiler evidence.",
+        "renderWhen": "The admitted native projection writes linked overview, endpoint, worker and diagnostic views.",
+        "otherwise": "Unavailable behavior stays a declaration-only view or a local gap.",
+        "limits": "",
+        "sourceReferences": [
+          "projection",
+          "native-write"
+        ]
+      }
     },
     {
       "id": "page-syntax",
@@ -92,7 +535,18 @@
       "path": "../variants/dashboard-consume-message/dashboard-consume-message-overview.html",
       "action": "",
       "status": "EXAMPLE",
-      "renderer": "static_pages/full.rs or static_pages/publish.rs"
+      "renderer": "static_pages/full.rs or static_pages/publish.rs",
+      "renderConditions": {
+        "mode": "selection",
+        "requiredInputs": "An admitted source-syntax declaration and exact retained source coordinates.",
+        "renderWhen": "The selected syntax adapter emits a source declaration reader within its supported capabilities.",
+        "otherwise": "No compiler target resolution, parameter mapping or causal behavior is supplied merely from syntax. The linked historical example uses 6f52d11.",
+        "limits": "The rule is researched in 31a5598; this particular example retains its earlier renderer provenance.",
+        "sourceReferences": [
+          "projection",
+          "native-outline"
+        ]
+      }
     },
     {
       "id": "page-sources",
@@ -102,7 +556,17 @@
       "path": "examples/places-native/sources.html",
       "action": "",
       "status": "EXAMPLE",
-      "renderer": "static_pages/full.rs or static_pages/publish.rs"
+      "renderer": "static_pages/full.rs or static_pages/publish.rs",
+      "renderConditions": {
+        "mode": "selection",
+        "requiredInputs": "Citations and exact retained fragments in a native bundle projection.",
+        "renderWhen": "The native writer emits sources.html and source anchors for the retained citation inventory.",
+        "otherwise": "Only captured source appears; unretained files and method bodies are not fetched to fill the appendix.",
+        "limits": "",
+        "sourceReferences": [
+          "native-write"
+        ]
+      }
     },
     {
       "id": "page-history",
@@ -112,7 +576,17 @@
       "path": "examples/weather/history.html",
       "action": "",
       "status": "EXAMPLE",
-      "renderer": "static_pages/full.rs or static_pages/publish.rs"
+      "renderer": "static_pages/full.rs or static_pages/publish.rs",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A valid frozen publication.",
+        "renderWhen": "The full renderer generates history.html from the saved publication history.",
+        "otherwise": "No new review, publication or runtime event is created by displaying history.",
+        "limits": "",
+        "sourceReferences": [
+          "full"
+        ]
+      }
     },
     {
       "id": "page-help",
@@ -122,7 +596,17 @@
       "path": "examples/weather/help.html",
       "action": "",
       "status": "EXAMPLE",
-      "renderer": "static_pages/full.rs or static_pages/publish.rs"
+      "renderer": "static_pages/full.rs or static_pages/publish.rs",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A valid frozen publication and the reader assets.",
+        "renderWhen": "The full renderer emits the reader help page with its output bundle.",
+        "otherwise": "Help is static reader guidance, not a populated business-data block.",
+        "limits": "",
+        "sourceReferences": [
+          "full"
+        ]
+      }
     },
     {
       "id": "block-profile",
@@ -135,7 +619,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-profile.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/services/dashboard.html#section-overview",
-      "capturedHtmlDigest": "sha256:fd8890c209ba4b8bebaa8e02b1d553479c8ea7bd0bde86442c957b3162dc5930"
+      "capturedHtmlDigest": "sha256:fd8890c209ba4b8bebaa8e02b1d553479c8ea7bd0bde86442c957b3162dc5930",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A service subject. Matching section operations are optional.",
+        "renderWhen": "The overview calls serviceProfile and always lays out the four responsibility/entity/ingress/egress cards.",
+        "otherwise": "Missing accepted summaries show per-card gaps; entity declarations and ingress inventory are independent additions.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-profile"
+        ]
+      }
     },
     {
       "id": "block-responsibilities",
@@ -148,7 +642,18 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-responsibilities.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/services/dashboard.html#section-overview",
-      "capturedHtmlDigest": "sha256:8fd1727b196c23fcfd479bdccef90a945e8992d135e9084386e5caa463a16055"
+      "capturedHtmlDigest": "sha256:8fd1727b196c23fcfd479bdccef90a945e8992d135e9084386e5caa463a16055",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A matching section-responsibilities operation with summary in the saved narrative.",
+        "renderWhen": "The matching summary populates the service card and section reader as responsibility summary.",
+        "otherwise": "Without the summary the section shows its explicit gap; pending translation replaces narrative text.",
+        "limits": "Inventory and accepted prose have separate inputs; one does not automatically author the other.",
+        "sourceReferences": [
+          "ui-profile",
+          "ui-render"
+        ]
+      }
     },
     {
       "id": "block-entity-summary",
@@ -161,7 +666,18 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-entity-summary.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/services/dashboard.html#section-overview",
-      "capturedHtmlDigest": "sha256:da8d16431b7abfb42f06593355f6627e639de50f237d1daa88cb8e2e24816ba4"
+      "capturedHtmlDigest": "sha256:da8d16431b7abfb42f06593355f6627e639de50f237d1daa88cb8e2e24816ba4",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A matching section-entities operation with summary in the saved narrative.",
+        "renderWhen": "The matching summary populates the service card and section reader as entity/storage-shape summary prose.",
+        "otherwise": "Without the summary the section shows its explicit gap; pending translation replaces narrative text.",
+        "limits": "Entity prose alone establishes neither domain identity nor ownership.",
+        "sourceReferences": [
+          "ui-profile",
+          "ui-render"
+        ]
+      }
     },
     {
       "id": "block-ingress",
@@ -174,7 +690,18 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-ingress.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/services/dashboard.html#section-overview",
-      "capturedHtmlDigest": "sha256:6ab5671e13601cdecb71ce55af06f8e42605740722e4ae9586fa58e62d747690"
+      "capturedHtmlDigest": "sha256:6ab5671e13601cdecb71ce55af06f8e42605740722e4ae9586fa58e62d747690",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A matching section-ingress operation with summary in the saved narrative.",
+        "renderWhen": "The matching summary populates the service card and section reader as entry-point summary.",
+        "otherwise": "Without the summary the section shows its explicit gap; pending translation replaces narrative text.",
+        "limits": "Inventory and accepted prose have separate inputs; one does not automatically author the other.",
+        "sourceReferences": [
+          "ui-profile",
+          "ui-render"
+        ]
+      }
     },
     {
       "id": "block-egress",
@@ -187,7 +714,18 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-egress.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/services/dashboard.html#section-overview",
-      "capturedHtmlDigest": "sha256:af6189bada0c9c8894b786353cf838b9ef19c2f4d9deff2fb5a35551a76c788a"
+      "capturedHtmlDigest": "sha256:af6189bada0c9c8894b786353cf838b9ef19c2f4d9deff2fb5a35551a76c788a",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A matching section-egress operation with summary in the saved narrative.",
+        "renderWhen": "The matching summary populates the service card and section reader as external-call/storage summary.",
+        "otherwise": "Without the summary the section shows its explicit gap; pending translation replaces narrative text.",
+        "limits": "Inventory and accepted prose have separate inputs; one does not automatically author the other.",
+        "sourceReferences": [
+          "ui-profile",
+          "ui-render"
+        ]
+      }
     },
     {
       "id": "block-summary",
@@ -200,7 +738,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-summary.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/scenarios/dashboard-forecast-updated-consumer.html#dashboard-forecast-updated-consumer",
-      "capturedHtmlDigest": "sha256:506a7c747d152a5dba90a30965bf8496ff1bee8b019d32b8fb557609026e739d"
+      "capturedHtmlDigest": "sha256:506a7c747d152a5dba90a30965bf8496ff1bee8b019d32b8fb557609026e739d",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "An entry record for the trigger/heading; a matching operation.summary for authored prose.",
+        "renderWhen": "The operation shell displays its retained method/path/title. Authored summary appears when the operation exists.",
+        "otherwise": "Heading and trigger can still display without prose; the summary slot explicitly reports the missing narrative.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-render"
+        ]
+      }
     },
     {
       "id": "block-readable",
@@ -213,7 +761,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-readable.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/scenarios/dashboard-forecast-updated-consumer.html#dashboard-forecast-updated-consumer",
-      "capturedHtmlDigest": "sha256:5169a38e7e37bbe26558670e719b3a625e66366ce8cfc4a3e68674a9404f1979"
+      "capturedHtmlDigest": "sha256:5169a38e7e37bbe26558670e719b3a625e66366ce8cfc4a3e68674a9404f1979",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A matching operation with events.",
+        "renderWhen": "behaviorPseudocode renders when at least one event is not end; it preserves Note, branch, message and other documented event rows.",
+        "otherwise": "No non-end events means no Readable behavior block. A missing operation yields a behavior gap.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-behavior"
+        ]
+      }
     },
     {
       "id": "diagram-sequence",
@@ -226,7 +784,18 @@
       "renderer": "documentation/app.js",
       "preview": "previews/diagram-sequence.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/scenarios/dashboard-forecast-updated-consumer.html#dashboard-forecast-updated-consumer",
-      "capturedHtmlDigest": "sha256:bd46f5fa88b3c745bee20be4233f718fbb5742b74d8312914d4a13ed5897ae7a"
+      "capturedHtmlDigest": "sha256:bd46f5fa88b3c745bee20be4233f718fbb5742b74d8312914d4a13ed5897ae7a",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A matching operation, its participants and event stream; no authored overviewDiagram override.",
+        "renderWhen": "Without an overview override, at most 64 original events enter the responsive sequence renderer. Notes are hidden, empty frames/arms pruned and participants restricted to visible messages.",
+        "otherwise": "Over 64 events without an authored overview shows a bounded-overview gap. Hidden notes and original guards remain in Readable behavior/provenance.",
+        "limits": "An authored overviewDiagram selects the alternative node/edge overview, rather than this sequence rendering.",
+        "sourceReferences": [
+          "ui-sequence",
+          "ui-behavior"
+        ]
+      }
     },
     {
       "id": "block-implementation",
@@ -239,7 +808,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-implementation.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/scenarios/dashboard-forecast-updated-consumer.html#dashboard-forecast-updated-consumer",
-      "capturedHtmlDigest": "sha256:680f0304263c8ea78f3972efa0d10f669b62af66514f8a99daa98b72d31ff773"
+      "capturedHtmlDigest": "sha256:680f0304263c8ea78f3972efa0d10f669b62af66514f8a99daa98b72d31ff773",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "operation.explanation paragraphs, with detail=true for implementation commentary.",
+        "renderWhen": "Matching detail paragraphs are rendered inside Implementation details and source commentary; remaining narrative paragraphs can share the disclosure when Readable behavior exists.",
+        "otherwise": "An empty explanation produces no paragraph body. Exact narrative duplicates already displayed as events can be suppressed.",
+        "limits": "Authored paragraphs retain authorship and context labels; source links do not themselves verify meaning.",
+        "sourceReferences": [
+          "ui-behavior"
+        ]
+      }
     },
     {
       "id": "block-scope",
@@ -252,7 +831,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-scope.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/scenarios/dashboard-forecast-updated-consumer.html#dashboard-forecast-updated-consumer",
-      "capturedHtmlDigest": "sha256:c3353aa152fd9991a7b308618dfd535eeeef5e5823ec20f30162f0d36ea9cf2f"
+      "capturedHtmlDigest": "sha256:c3353aa152fd9991a7b308618dfd535eeeef5e5823ec20f30162f0d36ea9cf2f",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A matching operation with nonempty boundaries.",
+        "renderWhen": "The behavior view adds Scope and evidence boundaries when boundaries.length is nonzero.",
+        "otherwise": "No boundaries means this disclosure is omitted; this is not a claim of complete coverage.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-behavior"
+        ]
+      }
     },
     {
       "id": "block-freshness",
@@ -265,7 +854,18 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-freshness.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/scenarios/dashboard-forecast-updated-consumer.html#dashboard-forecast-updated-consumer",
-      "capturedHtmlDigest": "sha256:09f62529a473d8b33683343c1c5f6cf57dbb4780a18e985ab8aa77be0187034b"
+      "capturedHtmlDigest": "sha256:09f62529a473d8b33683343c1c5f6cf57dbb4780a18e985ab8aa77be0187034b",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "Reader evidence contexts and optional section/operation state records.",
+        "renderWhen": "The reader displays selected source context separately from retained narrative/review context; entry selection updates the state banner.",
+        "otherwise": "Absent review/freshness information stays UNASSESSED/UNVERIFIED or unavailable; it does not become current or approved.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-freshness",
+          "ui-render"
+        ]
+      }
     },
     {
       "id": "block-kafka",
@@ -278,7 +878,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-kafka.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/scenarios/dashboard-forecast-updated-consumer.html#dashboard-forecast-updated-consumer",
-      "capturedHtmlDigest": "sha256:8734c6e1ac21de23e17665e08c5dc8622b62c9e3c676aa1360b9f2af0e158460"
+      "capturedHtmlDigest": "sha256:8734c6e1ac21de23e17665e08c5dc8622b62c9e3c676aa1360b9f2af0e158460",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A matching authored interfaceContracts record describing Kafka/event interpretation.",
+        "renderWhen": "The Contract view renders the retained source-derived interface card and its evidence.",
+        "otherwise": "A topic name or a code-level consumer alone does not create this authored card; the view reports missing contract documentation.",
+        "limits": "No assertion of topic subscription, delivery or runtime routing follows from displaying the card.",
+        "sourceReferences": [
+          "ui-contract"
+        ]
+      }
     },
     {
       "id": "block-http",
@@ -291,7 +901,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-http.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/services/dashboard.html#dashboard-ad968c2137fedea90215",
-      "capturedHtmlDigest": "sha256:67db4ec1baba50b2129d6ccf336f05dad64fc546be59d0ea63180b607896bdca"
+      "capturedHtmlDigest": "sha256:67db4ec1baba50b2129d6ccf336f05dad64fc546be59d0ea63180b607896bdca",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A matching authored interfaceContracts card and/or parsed CONTRACT_OPERATION.",
+        "renderWhen": "The Contract tab renders source interpretation and parsed OpenAPI as distinct sections; current and retained earlier contract contexts are labeled separately.",
+        "otherwise": "With neither source interpretation nor matching parsed contract the view shows a documentation gap.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-contract"
+        ]
+      }
     },
     {
       "id": "block-external-call",
@@ -304,7 +924,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-external-call.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/services/dashboard.html#dashboard-ad968c2137fedea90215",
-      "capturedHtmlDigest": "sha256:9168778952b3bc6506877b7f1894bde052e95fd41af9e1e61eee8b05b57316e3"
+      "capturedHtmlDigest": "sha256:9168778952b3bc6506877b7f1894bde052e95fd41af9e1e61eee8b05b57316e3",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "An operationExternalCalls row bound to the exact operation ID and event ID.",
+        "renderWhen": "The matching Readable behavior event includes declared destination, addresses, contract and provenance disclosures.",
+        "otherwise": "No matching row means no details. Multiple declarations or unavailable/ambiguous contracts produce explicit uncertainty instead of an automatic target.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-external"
+        ]
+      }
     },
     {
       "id": "block-process-intro",
@@ -317,7 +947,18 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-process-intro.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/scenarios/dashboard-save-city.html#thread-step-places-save-handler",
-      "capturedHtmlDigest": "sha256:485da317ed9f559776c2c45a31cc2ca7b36cffcc6a28a56be60397d27b3c1387"
+      "capturedHtmlDigest": "sha256:485da317ed9f559776c2c45a31cc2ca7b36cffcc6a28a56be60397d27b3c1387",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A captured process definition; accepted overview summary and source-bound thread are optional.",
+        "renderWhen": "The process overview combines its trigger/scope with the retained summary and participants; method counts come from the thread when present.",
+        "otherwise": "Summary falls back to the declared definition or a gap; a definition does not prove its stated goals occur.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-render",
+          "ui-thread"
+        ]
+      }
     },
     {
       "id": "block-connections",
@@ -330,7 +971,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-connections.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/scenarios/dashboard-save-city.html#thread-step-places-save-handler",
-      "capturedHtmlDigest": "sha256:e4a5128911489fca3c3eec6ea25febc67a010b0ff634e8b94bd0a54d9e53b397"
+      "capturedHtmlDigest": "sha256:e4a5128911489fca3c3eec6ea25febc67a010b0ff634e8b94bd0a54d9e53b397",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A SOURCE_BOUND_DECLARATION thread with cross-service step targets and/or explicitly selected interaction declarations.",
+        "renderWhen": "The connections section appears if at least one such target or selected declaration exists.",
+        "otherwise": "No matching connections means this section is omitted; transport is not inferred from the call target.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-thread"
+        ]
+      }
     },
     {
       "id": "block-boundary",
@@ -343,7 +994,18 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-boundary.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/scenarios/dashboard-save-city.html#thread-step-places-save-handler",
-      "capturedHtmlDigest": "sha256:9c6daaf66f319d12e41e5844fcf21e2653b1ab589ca2056ab9f09a1a9151bb20"
+      "capturedHtmlDigest": "sha256:9c6daaf66f319d12e41e5844fcf21e2653b1ab589ca2056ab9f09a1a9151bb20",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A SOURCE_BOUND_DECLARATION thread with boundaryContracts entries.",
+        "renderWhen": "Each retained boundary contract renders its request/response/failure/guarantee claims and source links.",
+        "otherwise": "An empty array emits no contract cards; missingEvidence entries are displayed as unresolved.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-boundary",
+          "ui-thread"
+        ]
+      }
     },
     {
       "id": "block-steps",
@@ -356,7 +1018,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-steps.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/scenarios/dashboard-save-city.html#thread-step-places-save-handler",
-      "capturedHtmlDigest": "sha256:d942348c7ca0e5b0955ba46091635347ad3ff398db4458427359531a5e57769f"
+      "capturedHtmlDigest": "sha256:d942348c7ca0e5b0955ba46091635347ad3ff398db4458427359531a5e57769f",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A thread whose status is SOURCE_BOUND_DECLARATION and whose steps identify retained methods.",
+        "renderWhen": "The renderer recursively displays thread.steps and children with exact source anchors and explicit target links.",
+        "otherwise": "Other thread statuses suppress this component. No steps means no populated step list.",
+        "limits": "Declared reading order and nesting are not a runtime execution trace.",
+        "sourceReferences": [
+          "ui-thread"
+        ]
+      }
     },
     {
       "id": "block-branches",
@@ -369,7 +1041,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-branches.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/scenarios/dashboard-save-city.html#thread-step-places-save-handler",
-      "capturedHtmlDigest": "sha256:9e2d87c22babe8c6de62bb598eb83a0f13a93f2c8b011028374861151db9018c"
+      "capturedHtmlDigest": "sha256:9e2d87c22babe8c6de62bb598eb83a0f13a93f2c8b011028374861151db9018c",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A displayed thread step with branchGroup and its arms.",
+        "renderWhen": "The step renders its declared IF_ELSE, FIRST_MATCH or INDEPENDENT interpretation, guards and nested arm steps.",
+        "otherwise": "No branchGroup means no branch panel; guards are not reverse-engineered from prose.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-thread"
+        ]
+      }
     },
     {
       "id": "block-effects",
@@ -382,7 +1064,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-effects.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/scenarios/dashboard-save-city.html#thread-step-places-save-handler",
-      "capturedHtmlDigest": "sha256:a75adfa75578e739fc7f2b7c83d8f5176b42367a73325777b77c3c09ef27aa12"
+      "capturedHtmlDigest": "sha256:a75adfa75578e739fc7f2b7c83d8f5176b42367a73325777b77c3c09ef27aa12",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A displayed thread step with nonempty effects, each carrying its declaration/citation.",
+        "renderWhen": "The step adds selected effect labels when effects.length is nonzero.",
+        "otherwise": "No declared effects means the effect list is omitted; calls alone do not establish commit or delivery.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-thread"
+        ]
+      }
     },
     {
       "id": "block-thread-source",
@@ -395,7 +1087,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-thread-source.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/scenarios/dashboard-save-city.html#thread-step-places-save-handler",
-      "capturedHtmlDigest": "sha256:c74200e2ecc41eec6b97a9e13796cb5a538d2f4fb693efe8470c774c0c46d1f1"
+      "capturedHtmlDigest": "sha256:c74200e2ecc41eec6b97a9e13796cb5a538d2f4fb693efe8470c774c0c46d1f1",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A SOURCE_BOUND_DECLARATION thread containing methods and methodOrder (or method keys).",
+        "renderWhen": "The whole-thread source disclosure renders complete selected method text, line anchors, revisions and digests in that order.",
+        "otherwise": "Unselected methods are not expanded; unavailable thread status suppresses this component.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-thread"
+        ]
+      }
     },
     {
       "id": "block-thread-limits",
@@ -408,7 +1110,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-thread-limits.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/scenarios/dashboard-save-city.html#thread-step-places-save-handler",
-      "capturedHtmlDigest": "sha256:b5a875dd342e318b9a9dc59e8f830d46982e53a7bdec8f235a3f8baaacf4a433"
+      "capturedHtmlDigest": "sha256:b5a875dd342e318b9a9dc59e8f830d46982e53a7bdec8f235a3f8baaacf4a433",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A SOURCE_BOUND_DECLARATION thread with scope and optional boundaries.",
+        "renderWhen": "The thread always includes its scope/limits section; nonempty boundaries populate the list.",
+        "otherwise": "If boundaries are empty it states that none were declared and completeness is not established.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-thread"
+        ]
+      }
     },
     {
       "id": "block-note",
@@ -421,7 +1133,18 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-note.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/services/dashboard.html#assessment-runtime-kafka-replay",
-      "capturedHtmlDigest": "sha256:b9716ceb62828b7707ac05439156b8d51c641dc5aeec6df22761ed0998e849da"
+      "capturedHtmlDigest": "sha256:b9716ceb62828b7707ac05439156b8d51c641dc5aeec6df22761ed0998e849da",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A captured human/imported note visible through its target association in this reader.",
+        "renderWhen": "A NOTE entry renders original capture and metadata; a saved assessment is displayed separately when attached.",
+        "otherwise": "Missing assessment yields an explicit unassessed state. Changed capture/association leaves the retained assessment labeled stale.",
+        "limits": "",
+        "sourceReferences": [
+          "notes",
+          "ui-render"
+        ]
+      }
     },
     {
       "id": "block-source-panel",
@@ -434,7 +1157,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-source-panel.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/services/dashboard.html#dashboard-ad968c2137fedea90215",
-      "capturedHtmlDigest": "sha256:c73ddfd45e4823f33ff7ed3297e5fb3157ec3b503b64c377fda420abffb806e4"
+      "capturedHtmlDigest": "sha256:c73ddfd45e4823f33ff7ed3297e5fb3157ec3b503b64c377fda420abffb806e4",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A source/evidence action carrying IDs from the appropriate retained source context.",
+        "renderWhen": "On activation all requested IDs must resolve before the panel displays exact source text, coordinates, revision and digests.",
+        "otherwise": "Missing/incomplete fragment context shows an explicit unavailable/incomplete message; no unrelated source is substituted.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-source"
+        ]
+      }
     },
     {
       "id": "block-process-list",
@@ -447,7 +1180,18 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-process-list.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/services/dashboard.html#process-catalog",
-      "capturedHtmlDigest": "sha256:2718ddfecffb4dab8a25fd5654991f6ae448f2ebacfe09b190daa148f8a2ceca"
+      "capturedHtmlDigest": "sha256:2718ddfecffb4dab8a25fd5654991f6ae448f2ebacfe09b190daa148f8a2ceca",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A service reader with savedProcesses; internal candidates additionally require readerOptions.showInternalProcesses=true.",
+        "renderWhen": "The navigation entry appears for saved processes, or enabled nonempty internal candidates; saved cards show retained authoring/freshness states.",
+        "otherwise": "No saved process and no enabled candidate means no process-catalog entry. Candidates alone are not accepted business processes.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-entries",
+          "ui-render"
+        ]
+      }
     },
     {
       "id": "block-coverage",
@@ -460,7 +1204,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-coverage.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/services/dashboard.html#process-catalog",
-      "capturedHtmlDigest": "sha256:ee65b20910846bc113057f15414fd63446bcbe93adc6acc6cfe87ce9a3086a54"
+      "capturedHtmlDigest": "sha256:ee65b20910846bc113057f15414fd63446bcbe93adc6acc6cfe87ce9a3086a54",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A service reader and its selected evidence metadata.",
+        "renderWhen": "The Coverage and evidence control opens source counts, retained boundaries, selected interactions and revision vector.",
+        "otherwise": "Zero counts/empty interactions are displayed explicitly; this shell does not certify complete discovery.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-inventory"
+        ]
+      }
     },
     {
       "id": "block-inventory",
@@ -473,7 +1227,18 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-inventory.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/services/dashboard.html#process-catalog",
-      "capturedHtmlDigest": "sha256:62a07efed463b95dcb086b43303521e4bd64678efcc513350bdd0fa08f2647d0"
+      "capturedHtmlDigest": "sha256:62a07efed463b95dcb086b43303521e4bd64678efcc513350bdd0fa08f2647d0",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "The source catalogue plus declared OpenAPI entries without source mapping.",
+        "renderWhen": "The inventory control opens rows for retained entries and labels each as documented, pending translation, unmapped contract or authoring gap.",
+        "otherwise": "An empty inventory stays empty; no missing HTTP/message/scheduled/CLI entry is invented.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-entries",
+          "ui-inventory"
+        ]
+      }
     },
     {
       "id": "block-http-interface",
@@ -486,7 +1251,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-http-interface.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/services/dashboard.html#dashboard-ad968c2137fedea90215",
-      "capturedHtmlDigest": "sha256:04ed92f3124f74c5322d1a3e61bcd1eb2a789975b0294976132079290aa25816"
+      "capturedHtmlDigest": "sha256:04ed92f3124f74c5322d1a3e61bcd1eb2a789975b0294976132079290aa25816",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A matching operation.interfaceContracts source-derived HTTP record.",
+        "renderWhen": "interfaceContracts renders the authored interpretation/evidence card independently of parsed OpenAPI.",
+        "otherwise": "A parsed schema alone does not populate this authored card.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-contract"
+        ]
+      }
     },
     {
       "id": "block-request-parameters",
@@ -499,7 +1274,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-request-parameters.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/services/dashboard.html#dashboard-ad968c2137fedea90215",
-      "capturedHtmlDigest": "sha256:3709db8e277bb3149cd2633b78af250507e2c6c53cc2689962b532646575be7c"
+      "capturedHtmlDigest": "sha256:3709db8e277bb3149cd2633b78af250507e2c6c53cc2689962b532646575be7c",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A matching parsed OpenAPI contract operation.",
+        "renderWhen": "Every displayed parsed contract includes Request parameters; declared parameter rows appear when present.",
+        "otherwise": "An empty parameters array displays No parameters declared; without a parsed contract the section does not exist.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-contract"
+        ]
+      }
     },
     {
       "id": "block-request-body",
@@ -512,7 +1297,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-request-body.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/services/dashboard.html#dashboard-ad968c2137fedea90215",
-      "capturedHtmlDigest": "sha256:90c3e937d7da98bfd259951e2f40c6a1772851d8df6bcfe0a3ee36b2dadf63ee"
+      "capturedHtmlDigest": "sha256:90c3e937d7da98bfd259951e2f40c6a1772851d8df6bcfe0a3ee36b2dadf63ee",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A displayed parsed OpenAPI operation with requestBody.content media/schema.",
+        "renderWhen": "Declared media types render field tables, required flags and constraints; declared examples appear only when supplied.",
+        "otherwise": "No content shows No body declared. Deep schema recursion falls back to raw schema instead of inventing fields.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-contract"
+        ]
+      }
     },
     {
       "id": "block-responses",
@@ -525,7 +1320,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-responses.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/services/dashboard.html#dashboard-ad968c2137fedea90215",
-      "capturedHtmlDigest": "sha256:7c4f41584c2f7b2cefb39ca6576eadf0e7813229978362676df54e8f2e230189"
+      "capturedHtmlDigest": "sha256:7c4f41584c2f7b2cefb39ca6576eadf0e7813229978362676df54e8f2e230189",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A displayed parsed OpenAPI operation.responses map.",
+        "renderWhen": "Each declared response status is an expandable row with its description, body schema and examples.",
+        "otherwise": "No declared response entries means no populated response rows; no success/failure schema is inferred from handler prose.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-contract"
+        ]
+      }
     },
     {
       "id": "block-access",
@@ -538,7 +1343,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-access.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/services/dashboard.html#dashboard-ad968c2137fedea90215",
-      "capturedHtmlDigest": "sha256:525a102727e1ac2dabba628e187a73e41280c807c3c54de43e7c8c069a74a0d3"
+      "capturedHtmlDigest": "sha256:525a102727e1ac2dabba628e187a73e41280c807c3c54de43e7c8c069a74a0d3",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A displayed parsed OpenAPI contract, with optional security and servers fields.",
+        "renderWhen": "Declared access and servers displays the retained declarations as JSON, even when null.",
+        "otherwise": "Null/absent declarations remain null/empty; that is not evidence of public access or a particular deployment URL.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-contract"
+        ]
+      }
     },
     {
       "id": "block-raw-contract",
@@ -551,7 +1366,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-raw-contract.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/services/dashboard.html#dashboard-ad968c2137fedea90215",
-      "capturedHtmlDigest": "sha256:b08d28fdf598d43aeaa88747ba06d99b754ada64002af5b95e0ea84586aa88a3"
+      "capturedHtmlDigest": "sha256:b08d28fdf598d43aeaa88747ba06d99b754ada64002af5b95e0ea84586aa88a3",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A displayed parsed OpenAPI contract operation.",
+        "renderWhen": "The Complete operation contract disclosure contains that retained machine-readable operation.",
+        "otherwise": "No matching parsed operation means there is no raw-contract disclosure.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-contract"
+        ]
+      }
     },
     {
       "id": "block-original-note",
@@ -564,7 +1389,18 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-original-note.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/services/dashboard.html#assessment-runtime-kafka-replay",
-      "capturedHtmlDigest": "sha256:06c8546ebaa2a2fb350be3bd5cd31b6d33200ea61298c83c6a4dd93fc4653cf9"
+      "capturedHtmlDigest": "sha256:06c8546ebaa2a2fb350be3bd5cd31b6d33200ea61298c83c6a4dd93fc4653cf9",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A visible captured note with original.text, reason or status.",
+        "renderWhen": "The NOTE reader displays the original capture in its own preformatted block.",
+        "otherwise": "Unavailable text is represented by the retained reason/status rather than invented note content.",
+        "limits": "",
+        "sourceReferences": [
+          "notes",
+          "ui-render"
+        ]
+      }
     },
     {
       "id": "block-note-metadata",
@@ -577,7 +1413,18 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-note-metadata.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/services/dashboard.html#assessment-runtime-kafka-replay",
-      "capturedHtmlDigest": "sha256:45a52ca2e63a954f0dfaadca1d1e0fbf8ab48083c0324f7843961fa77a4d4461"
+      "capturedHtmlDigest": "sha256:45a52ca2e63a954f0dfaadca1d1e0fbf8ab48083c0324f7843961fa77a4d4461",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A visible note with its captured association object.",
+        "renderWhen": "Original metadata and associations always exposes that note association independently of assessment.",
+        "otherwise": "Missing/unresolved targets are labeled; metadata is not promoted to compiler evidence.",
+        "limits": "",
+        "sourceReferences": [
+          "notes",
+          "ui-render"
+        ]
+      }
     },
     {
       "id": "block-assessment",
@@ -590,7 +1437,17 @@
       "renderer": "documentation/app.js",
       "preview": "previews/block-assessment.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/services/dashboard.html#assessment-runtime-kafka-replay",
-      "capturedHtmlDigest": "sha256:573f74adf9b22763e0890ff914c6b150ceeb5a5e88c67ab4fe24d005e5eb39de"
+      "capturedHtmlDigest": "sha256:573f74adf9b22763e0890ff914c6b150ceeb5a5e88c67ab4fe24d005e5eb39de",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A visible note; populated assessment requires note.assessment.assessment and summary.",
+        "renderWhen": "Separate agent assessment displays the attached outcome/period/summary and evaluates note/association digest match plus targetChanged.",
+        "otherwise": "No assessment shows No assessment has been accepted; a mismatch displays stale rather than rewriting the original record.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-render"
+        ]
+      }
     },
     {
       "id": "native-declaration",
@@ -600,7 +1457,18 @@
       "path": "examples/places-native/places-save-endpoint.html",
       "action": "",
       "status": "EXAMPLE",
-      "renderer": "static_pages/publish.rs"
+      "renderer": "static_pages/publish.rs",
+      "renderConditions": {
+        "mode": "selection",
+        "requiredInputs": "An admitted compiler callable projection with retained declaration citation.",
+        "renderWhen": "The endpoint/worker view displays the declaration, signature, authority and exact source link.",
+        "otherwise": "Unresolved/unsupported declaration identity remains a gap or fails selection validation; no signature is guessed.",
+        "limits": "",
+        "sourceReferences": [
+          "native-callable",
+          "projection"
+        ]
+      }
     },
     {
       "id": "native-outline",
@@ -613,7 +1481,17 @@
       "renderer": "static_pages/publish.rs",
       "preview": "previews/native-outline.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/places-native/places-save-overview.html",
-      "capturedHtmlDigest": "sha256:499e497f9b4338568d1289b0ca9bd457689334753678d3f5108f1849bb6cdc01"
+      "capturedHtmlDigest": "sha256:499e497f9b4338568d1289b0ca9bd457689334753678d3f5108f1849bb6cdc01",
+      "renderConditions": {
+        "mode": "selection",
+        "requiredInputs": "A selected callable with source_outline populated by an applicable adapter.",
+        "renderWhen": "source_outline_panel renders the retained local statement/call outline and source citations.",
+        "otherwise": "No source_outline means no panel. A C# outline is not a compiler CFG.",
+        "limits": "",
+        "sourceReferences": [
+          "native-outline"
+        ]
+      }
     },
     {
       "id": "native-calls",
@@ -626,7 +1504,17 @@
       "renderer": "static_pages/publish.rs",
       "preview": "previews/native-calls.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/places-native/places-save-overview.html",
-      "capturedHtmlDigest": "sha256:a850ca3a4ed4380e4296cc2031b0713d301115220a3c81c382b301d7bc861efd"
+      "capturedHtmlDigest": "sha256:a850ca3a4ed4380e4296cc2031b0713d301115220a3c81c382b301d7bc861efd",
+      "renderConditions": {
+        "mode": "selection",
+        "requiredInputs": "Retained exact call sites attached to the selected callable.",
+        "renderWhen": "retained_call_sites_panel displays source spans and retained target resolution status, including unresolved/external cases.",
+        "otherwise": "No captured call sites means no populated call-site rows; textual similarity cannot resolve a target.",
+        "limits": "",
+        "sourceReferences": [
+          "native-calls"
+        ]
+      }
     },
     {
       "id": "native-expanded",
@@ -636,7 +1524,18 @@
       "path": "examples/places-native/source-calls.html",
       "action": "",
       "status": "EXAMPLE",
-      "renderer": "static_pages/publish.rs"
+      "renderer": "static_pages/publish.rs",
+      "renderConditions": {
+        "mode": "selection",
+        "requiredInputs": "expandSourceCalls=true and an admitted bounded source-call graph.",
+        "renderWhen": "The native source-calls page displays the exact retained callee bodies selected by expansion.",
+        "otherwise": "Unretained, unsupported or external targets remain gaps; declaration selection by itself does not expand arbitrary callees.",
+        "limits": "",
+        "sourceReferences": [
+          "projection",
+          "native-expanded"
+        ]
+      }
     },
     {
       "id": "native-context",
@@ -646,7 +1545,18 @@
       "path": "examples/places-native/source-calls.html",
       "action": "",
       "status": "EXAMPLE",
-      "renderer": "static_pages/publish.rs"
+      "renderer": "static_pages/publish.rs",
+      "renderConditions": {
+        "mode": "selection",
+        "requiredInputs": "A retained source-call graph with examined documentation-context links on its nodes.",
+        "renderWhen": "Expanded source bodies include matching retained context links and their stated authority.",
+        "otherwise": "No retained context links means no populated context list; no runtime impact or dependency traversal is inferred.",
+        "limits": "",
+        "sourceReferences": [
+          "native-context",
+          "native-expanded"
+        ]
+      }
     },
     {
       "id": "native-limits",
@@ -656,7 +1566,18 @@
       "path": "examples/places-native/places-save-diagnostic.html",
       "action": "",
       "status": "EXAMPLE",
-      "renderer": "static_pages/publish.rs"
+      "renderer": "static_pages/publish.rs",
+      "renderConditions": {
+        "mode": "selection",
+        "requiredInputs": "A selected native page projection and its question, diagnostic and gap records.",
+        "renderWhen": "The native diagnostic view reports the question, available authority and local limitations.",
+        "otherwise": "Unsupported behavior/state/handoff claims remain diagnostic gaps even when declaration pages render successfully.",
+        "limits": "",
+        "sourceReferences": [
+          "native-write",
+          "projection"
+        ]
+      }
     },
     {
       "id": "native-source-index",
@@ -666,7 +1587,17 @@
       "path": "examples/places-native/index.html",
       "action": "",
       "status": "EXAMPLE",
-      "renderer": "static_pages/publish.rs"
+      "renderer": "static_pages/publish.rs",
+      "renderConditions": {
+        "mode": "selection",
+        "requiredInputs": "An admitted native bundle projection and its retained page/citation inventory.",
+        "renderWhen": "The writer generates the native catalogue/search index and source appendix links.",
+        "otherwise": "Only selected/examined context is indexed; it is not a repository-wide runtime inventory.",
+        "limits": "",
+        "sourceReferences": [
+          "native-write"
+        ]
+      }
     },
     {
       "id": "gap-execution",
@@ -684,7 +1615,18 @@
       "domCapture": [
         "coverage-visuals",
         "consumeMessage static execution flow"
-      ]
+      ],
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "An operation.visuals artifact of kind execution-flow, with purpose, scope, nonempty nodes, valid edges, evidence-bound claims and explicit limitations.",
+        "renderWhen": "The validated typed artifact is in the retained operation; visualCard calls visualGraph for its nodes/edges describing execution relationships.",
+        "otherwise": "Absent artifact means no view. Invalid graph shape is rejected before publication; the UI also has a no-nodes fallback.",
+        "limits": "Graph placement alone does not imply execution order; displayed freshness/review belongs to the containing operation.",
+        "sourceReferences": [
+          "visual",
+          "ui-visual"
+        ]
+      }
     },
     {
       "id": "gap-dependency",
@@ -702,7 +1644,18 @@
       "domCapture": [
         "coverage-visuals",
         "consumeMessage local dependencies"
-      ]
+      ],
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "An operation.visuals artifact of kind dependency-map, with purpose, scope, nonempty nodes, valid edges, evidence-bound claims and explicit limitations.",
+        "renderWhen": "The validated typed artifact is in the retained operation; visualCard calls visualGraph for its nodes/edges describing dependencies.",
+        "otherwise": "Absent artifact means no view. Invalid graph shape is rejected before publication; the UI also has a no-nodes fallback.",
+        "limits": "Graph placement alone does not imply execution order; displayed freshness/review belongs to the containing operation.",
+        "sourceReferences": [
+          "visual",
+          "ui-visual"
+        ]
+      }
     },
     {
       "id": "gap-decision",
@@ -720,7 +1673,18 @@
       "domCapture": [
         "coverage-visuals",
         "applyEvent database outcome selection"
-      ]
+      ],
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A typed decision-table visual with nonempty rules, FIRST/UNIQUE/UNKNOWN hitPolicy and evidence-bound policyExplanation; no graph fields.",
+        "renderWhen": "The retained artifact renders conditions/outcomes and hit policy. A parent node link is added only if an explicit valid parent is supplied.",
+        "otherwise": "Missing artifact means no table; absent/invalid policy, empty rules or invalid parent references fail structural validation.",
+        "limits": "Row selection and action execution remain separate; this is not an executable or formally verified DMN model.",
+        "sourceReferences": [
+          "visual",
+          "ui-visual"
+        ]
+      }
     },
     {
       "id": "gap-state",
@@ -732,7 +1696,18 @@
       "status": "REAL_SOURCE_EXAMPLE",
       "renderer": "render.rs + app.js PROCESS",
       "repository": "Weather",
-      "media": "examples/weather-coverage/diagrams/scenario-places-request-publisher-states.svg"
+      "media": "examples/weather-coverage/diagrams/scenario-places-request-publisher-states.svg",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A captured process-state schema for the selected scenario/process.",
+        "renderWhen": "Scenario rendering creates stateDiagram; the reader shows declared states and transitions.",
+        "otherwise": "No schema means no state diagram. Without generated SVG the reader retains PlantUML/fallback information; event names do not invent states.",
+        "limits": "Declared states and source bindings do not prove observed transitions.",
+        "sourceReferences": [
+          "state",
+          "ui-render"
+        ]
+      }
     },
     {
       "id": "gap-transitions",
@@ -744,7 +1719,19 @@
       "status": "REAL_SOURCE_EXAMPLE",
       "renderer": "render.rs + app.js PROCESS",
       "repository": "Weather",
-      "media": "examples/weather-coverage/diagrams/scenario-places-request-publisher-activity-transitions.svg"
+      "media": "examples/weather-coverage/diagrams/scenario-places-request-publisher-activity-transitions.svg",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A captured process-state schema with transitions whose operation is nonempty and resolves in the selected evidence.",
+        "renderWhen": "activity_transitions_puml returns an artifact only if at least one resolved operation group remains; the reader then adds Activity on transitions.",
+        "otherwise": "No resolved operation groups means no activity artifact. SVG failure is separate from source/PlantUML availability.",
+        "limits": "",
+        "sourceReferences": [
+          "transition",
+          "state",
+          "ui-render"
+        ]
+      }
     },
     {
       "id": "gap-entity",
@@ -762,7 +1749,18 @@
       "domCapture": [
         "coverage-entity",
         "identity"
-      ]
+      ],
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "Explicit DOMAIN_ENTITY declarations with relations naming the current service.",
+        "renderWhen": "The entity section filters declarations to the selected service and renders identity, relation and supplied provenance.",
+        "otherwise": "No matching declaration produces an entity-declaration gap. DTOs, table names and summary prose alone do not qualify.",
+        "limits": "An agent-proposed stored-copy relation does not establish authoritative ownership.",
+        "sourceReferences": [
+          "ui-profile",
+          "ui-render"
+        ]
+      }
     },
     {
       "id": "gap-dataflow",
@@ -780,7 +1778,19 @@
       "domCapture": [
         "coverage-dataflow",
         "diagram"
-      ]
+      ],
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A registered entity-dataflow view/module and an operation.dataflow graph bound to its exact definition digest and selected evidence.",
+        "renderWhen": "After graph validation, the VIEW reader draws its nodes/edges, representation table, source claims and protected annotations.",
+        "otherwise": "A definition can show the view shell without a graph. Invalid IDs, scope/bindings, domain labels or lost protected material reject the graph; changed definitions show review-needed status.",
+        "limits": "Mappings are interpretations; dashed candidates stay UNKNOWN and declared transfer does not prove routing or wire compatibility.",
+        "sourceReferences": [
+          "dataflow",
+          "ui-dataflow",
+          "ui-render"
+        ]
+      }
     },
     {
       "id": "gap-findings",
@@ -798,7 +1808,18 @@
       "domCapture": [
         "coverage-findings",
         "finding"
-      ]
+      ],
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A matching operation with a nonempty findings array.",
+        "renderWhen": "The Findings tab shows one source-based observation card per finding, and the first can appear in the operation strip.",
+        "otherwise": "An empty/missing array shows No findings recorded within the documented scope.",
+        "limits": "A populated static finding is not an observed runtime failure or automatically a verified defect.",
+        "sourceReferences": [
+          "ui-finding",
+          "ui-render"
+        ]
+      }
     },
     {
       "id": "gap-extraction",
@@ -816,7 +1837,17 @@
       "domCapture": [
         "coverage-extraction",
         "envelope"
-      ]
+      ],
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A retained processExtraction packet attached to the selected process page.",
+        "renderWhen": "processExtractionCard renders packet status/counts and selected outcome/control events; call bindings require at least one methods[].callBindings row.",
+        "otherwise": "No packet means no extraction card. Expression-to-parameter mapping is shown only for COMPILER_PARAMETER_MAPPING; other cases state unavailable.",
+        "limits": "",
+        "sourceReferences": [
+          "ui-extraction"
+        ]
+      }
     },
     {
       "id": "gap-source-flow",
@@ -828,7 +1859,18 @@
       "status": "REAL_SOURCE_EXAMPLE",
       "renderer": "process_flow.rs + process_source_outline.rs",
       "repository": "Spring Petclinic REST",
-      "media": "examples/petclinic-java-flow/diagrams/scenario-petclinic-get-owner-process-outline-bf158bd39963d7f2.svg"
+      "media": "examples/petclinic-java-flow/diagrams/scenario-petclinic-get-owner-process-outline-bf158bd39963d7f2.svg",
+      "renderConditions": {
+        "mode": "publication",
+        "requiredInputs": "A retained processOutline with status STATIC_SOURCE_OUTLINE, plus a qualified causal source projection for a populated local flow example.",
+        "renderWhen": "The current qualified source route requires JAVAC_SOURCE_STRUCTURE with legacy missing schema or an identified Javac structure contract, and an admitted control envelope.",
+        "otherwise": "No outline means no card; changed/unqualified evidence shows a gap. causal=false may show a gap-only outline but is not populated control-flow coverage.",
+        "limits": "PlantUML/tree may be available without SVG; this source outline has no authored meaning-review guarantee.",
+        "sourceReferences": [
+          "source-flow",
+          "ui-flow"
+        ]
+      }
     },
     {
       "id": "gap-cfg",
@@ -842,7 +1884,18 @@
       "preview": "previews/gap-cfg.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-compiler-all/forecast-get-overview.html",
       "capturedHtmlDigest": "sha256:b9587898abf5a61c25180bc611d98d2af12c6515492d10dc4ba97ad811ceaedd",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "selection",
+        "requiredInputs": "The selected callable has a retained compiler control_flow graph with exact owner/scope and graph/evidence bindings.",
+        "renderWhen": "control_flow_panel renders provider and bindings; the full view adds retained node and outgoing-edge tables.",
+        "otherwise": "No control_flow means this panel is omitted; a syntax outline or call list is not a substitute.",
+        "limits": "Node IDs are identifiers, not execution order. Retained labels are not interpreted as branch truth.",
+        "sourceReferences": [
+          "native-cfg",
+          "projection"
+        ]
+      }
     },
     {
       "id": "gap-data-state",
@@ -856,7 +1909,19 @@
       "preview": "previews/gap-data-state.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-compiler-all/source-calls.html",
       "capturedHtmlDigest": "sha256:0ca32315820791f8e73b615affc53bf85bfdfffcaa505b125b9ef707f74084fa",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "selection",
+        "requiredInputs": "expandDataState=true on an admitted source projection with exact bodies/occurrence bindings; expansion capabilities must satisfy project_declarations.",
+        "renderWhen": "attach/attach_graph produces data-state records and expanded_sources renders guarded definitions, prerequisites and supported transformations.",
+        "otherwise": "Unsupported expressions remain opaque with gaps. Without admitted expansion/data-state records there are no populated transformation tables.",
+        "limits": "The current selector requires expandSourceCalls unless selected exact-call capability permits the separate data-state route.",
+        "sourceReferences": [
+          "projection",
+          "data-state",
+          "native-expanded"
+        ]
+      }
     },
     {
       "id": "gap-bindings",
@@ -870,7 +1935,19 @@
       "preview": "previews/gap-bindings.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-compiler-all/source-calls.html",
       "capturedHtmlDigest": "sha256:0ca32315820791f8e73b615affc53bf85bfdfffcaa505b125b9ef707f74084fa",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "selection",
+        "requiredInputs": "Admitted expanded source occurrences with actual argument/return transformation records and their compiler/source bindings.",
+        "renderWhen": "The transformation renderer displays the retained per-occurrence mappings; supporting exact-call rows are separate from semantic data-state transfer.",
+        "otherwise": "Call target resolution alone does not create argument identity, a receiver object or return-value propagation; unsupported transfers remain explicit gaps.",
+        "limits": "",
+        "sourceReferences": [
+          "data-state",
+          "native-expanded",
+          "native-arguments"
+        ]
+      }
     },
     {
       "id": "gap-handoff",
@@ -881,7 +1958,18 @@
       "action": "",
       "status": "NO_ADMISSIBLE_DEMO_YET",
       "renderer": "static_pages/source/handoff.rs",
-      "repository": "Public candidate search"
+      "repository": "Public candidate search",
+      "renderConditions": {
+        "mode": "selection",
+        "requiredInputs": "Explicit endpoint, worker and wiring compiler declarations in one scope; supported producer storage/constructor bindings and a local queue allocation.",
+        "renderWhen": "The proof must bind exactly one endpoint construction and one worker construction to the same local allocation/alias, with qualified queue operations and storage citations.",
+        "otherwise": "No wiring or incompatible evidence produces LOCAL_GAP; unequal/ambiguous allocations produce SHARED_QUEUE_OBJECT_UNPROVEN. No real admissible demo is currently in this catalogue.",
+        "limits": "The proof is source-declared shared-object wiring, not enqueue success, scheduling, delivery, runtime correlation or completion.",
+        "sourceReferences": [
+          "handoff",
+          "projection"
+        ]
+      }
     },
     {
       "id": "gap-authored",
@@ -895,7 +1983,17 @@
       "preview": "previews/gap-authored.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-maintained/dashboard-maintained-consumer-overview.html",
       "capturedHtmlDigest": "sha256:55e003c9eabf51e2a33699d328c1bbceb09fb3a3431e6a5e2d9643edb1c5057f",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "selection",
+        "requiredInputs": "An authoredParagraphs selector naming a frozen publication, operation and exact fragment with declared user authorship.",
+        "renderWhen": "The fragment must have an exact frozen binding and match the selected endpoint symbol/declaration/evidence context; then it is attached with authorship/context freshness.",
+        "otherwise": "Missing/ambiguous fragment, absent authorship or incompatible endpoint context rejects attachment. An ordinary generated summary does not qualify.",
+        "limits": "Declared authorship and exact context do not establish semantic review; protected prose is preserved.",
+        "sourceReferences": [
+          "authored"
+        ]
+      }
     },
     {
       "id": "gap-dsl",
@@ -906,7 +2004,19 @@
       "action": "",
       "status": "NO_ADMISSIBLE_DEMO_YET",
       "renderer": "flow_dsl/extract.rs",
-      "repository": "Public candidate search"
+      "repository": "Public candidate search",
+      "renderConditions": {
+        "mode": "dsl",
+        "requiredInputs": "A real retained Java DSL declaration plus an explicit profile for builder-chain or operation-queue.",
+        "renderWhen": "Builder-chain requires a single supported direct root initializer with method-reference arguments and admitted root .then chains. Operation-queue requires the selected queue construction and exact registry/operation bindings.",
+        "otherwise": "Unsupported/ambiguous AST constructions remain gaps or fail extraction; inline/nested builders cannot be assumed to satisfy the root initializer contract. No real admissible demo is currently linked.",
+        "limits": "",
+        "sourceReferences": [
+          "dsl",
+          "dsl-extract",
+          "dsl-publish"
+        ]
+      }
     },
     {
       "id": "gap-answer",
@@ -917,7 +2027,19 @@
       "action": "",
       "status": "REAL_SOURCE_EXAMPLE",
       "renderer": "operation_answer.rs",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "answer",
+        "requiredInputs": "An endpoint/process packet and a supported OperationAnswer; this example additionally selects a saved approved GET review.",
+        "renderWhen": "The answer validator admits the exact packet/evidence binding; the approved export gate loads the saved reviewed answer without a new authoring run.",
+        "otherwise": "Invalid references/bindings reject rendering. Without approval the plain-input route can still render an explicitly unreviewed draft, not this reviewed export.",
+        "limits": "",
+        "sourceReferences": [
+          "answer",
+          "answer-ui",
+          "approved"
+        ]
+      }
     },
     {
       "id": "gap-template",
@@ -928,7 +2050,18 @@
       "action": "",
       "status": "UNSUPPORTED_DEFERRED",
       "renderer": "deferred prototype",
-      "repository": "Codeclew source inventory"
+      "repository": "Codeclew source inventory",
+      "renderConditions": {
+        "mode": "unsupported",
+        "requiredInputs": "A renderer/profile selecting the exact private UpdateDeal presentation would be required.",
+        "renderWhen": "No such supported selector exists in the source revision used by this catalogue.",
+        "otherwise": "Remains Deferred. A generic OperationAnswer reader does not satisfy the exact-design comparison.",
+        "limits": "This is a negative support finding at 31a5598, not a promise about later source revisions.",
+        "sourceReferences": [
+          "native",
+          "answer-ui"
+        ]
+      }
     },
     {
       "id": "block-compiler-arguments",
@@ -939,7 +2072,17 @@
       "action": "",
       "status": "REAL_SOURCE_EXAMPLE",
       "renderer": "static_pages/publish.rs",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "selection",
+        "requiredInputs": "An exact call site with argument_bindings populated by the compiler adapter.",
+        "renderWhen": "argument_bindings_panel renders only when the optional bindings object is present, including retained argument/formal/expression status.",
+        "otherwise": "No bindings object means no panel; an exact target or argument spelling alone does not supply compiler parameter mapping.",
+        "limits": "",
+        "sourceReferences": [
+          "native-arguments"
+        ]
+      }
     },
     {
       "id": "block-property-accessors",
@@ -953,7 +2096,18 @@
       "preview": "previews/block-property-accessors.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/petclinic-accessors/source-calls.html",
       "capturedHtmlDigest": "sha256:1a6ffbbf04483e570267eb071bb9f815192c602d175704ac63fdef165f508e18",
-      "repository": "Spring Petclinic Kotlin"
+      "repository": "Spring Petclinic Kotlin",
+      "renderConditions": {
+        "mode": "selection",
+        "requiredInputs": "An admitted expanded source/data-state node with nonempty accessor_attempts.",
+        "renderWhen": "expanded_sources adds the retained accessor-attempt section when at least one attempt exists.",
+        "otherwise": "No attempts means no accessor section. Unsupported accessors keep their gap/status instead of an invented body.",
+        "limits": "",
+        "sourceReferences": [
+          "native-expanded",
+          "data-state"
+        ]
+      }
     },
     {
       "id": "block-operational-instructions",
@@ -967,7 +2121,18 @@
       "preview": "previews/block-operational-instructions.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-instructions/dashboard-readme-instructions-overview.html",
       "capturedHtmlDigest": "sha256:e2ecbb3de24652b9d3311d7fbbd800642717ba2b09071380ea4dc0c13b0ecb5c",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "selection",
+        "requiredInputs": "Selected noteIds in exact pinned captured inputs matching the Check input digest; valid captured association/digests/targets and nonblank metadata.author of at most 512 bytes.",
+        "renderWhen": "Every selected note must be CAPTURED, have retained original text and a supported target related to the selected service; the native publisher then shows the exact instructions with declared author.",
+        "otherwise": "Missing/duplicate/unrelated note, mismatched input identity/digest or absent author rejects the selected-note route. No noteIds means no instructions.",
+        "limits": "Imported instructions remain HUMAN_OR_IMPORTED_UNVERIFIED; their source claims remain UNASSESSED.",
+        "sourceReferences": [
+          "instructions",
+          "instructions-ui"
+        ]
+      }
     },
     {
       "id": "page-rich-answer",
@@ -978,7 +2143,18 @@
       "action": "",
       "status": "REAL_SOURCE_EXAMPLE",
       "renderer": "operation_answer.rs",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "answer",
+        "requiredInputs": "A valid rich OperationAnswer for the retained Weather refresh packet.",
+        "renderWhen": "The same OperationAnswer HTML renderer includes the rich sections supplied by this draft.",
+        "otherwise": "Missing optional rich fields omit their sections; schema/reference errors reject the answer.",
+        "limits": "This example is explicitly UNREVIEWED; richness of presentation is not approval.",
+        "sourceReferences": [
+          "answer",
+          "answer-ui"
+        ]
+      }
     },
     {
       "id": "block-answer-summary",
@@ -992,7 +2168,18 @@
       "preview": "previews/block-answer-summary.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-approved-reader/index.html",
       "capturedHtmlDigest": "sha256:13454dc2957b44067665fcefbdebeb9a9b78c41e3aad76beea240a4fb8115821",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "answer",
+        "requiredInputs": "A valid answer.summary claim with its declared evidence/checks.",
+        "renderWhen": "The reader always emits the summary section from the supplied summary claim.",
+        "otherwise": "An invalid/empty required summary fails validation rather than triggering generated replacement prose.",
+        "limits": "",
+        "sourceReferences": [
+          "answer",
+          "answer-ui"
+        ]
+      }
     },
     {
       "id": "block-answer-outline",
@@ -1006,7 +2193,18 @@
       "preview": "previews/block-answer-outline.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-refresh-reader/index.html",
       "capturedHtmlDigest": "sha256:e11d3560c8a2622c72b39fbf8ca36e2238373fa9e8ce77598147e1e65b889200",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "answer",
+        "requiredInputs": "Valid answer.steps and their nested branches.",
+        "renderWhen": "render_process_outline_html creates the compact ordered outline from the supplied step tree.",
+        "otherwise": "No independent process discovery occurs; unsupported/missing required step content is a contract validation issue.",
+        "limits": "",
+        "sourceReferences": [
+          "answer-outline",
+          "answer-ui"
+        ]
+      }
     },
     {
       "id": "block-answer-glossary",
@@ -1020,7 +2218,18 @@
       "preview": "previews/block-answer-glossary.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-refresh-reader/index.html",
       "capturedHtmlDigest": "sha256:1670d2203b1ff67bb80f9f6ee100b8b1cee2747dd030b361b729bcbf9518dfbd",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "answer",
+        "requiredInputs": "A nonempty glossary with unique semantic IDs, labels, definitions and valid packet subject/glossary references.",
+        "renderWhen": "render_glossary_html returns the term list only when glossary is nonempty; supplied technicalNames/subjectRefs populate carrier details.",
+        "otherwise": "An empty glossary omits the section. Invalid/duplicate or unresolved references reject the answer.",
+        "limits": "",
+        "sourceReferences": [
+          "answer-glossary",
+          "answer"
+        ]
+      }
     },
     {
       "id": "block-answer-pseudocode",
@@ -1034,7 +2243,18 @@
       "preview": "previews/block-answer-pseudocode.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-refresh-reader/index.html",
       "capturedHtmlDigest": "sha256:f1b2eccd9c9985585d0f55c4dcae8659888f78967f06a838ae4749c35aa6f647",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "answer",
+        "requiredInputs": "The validated answer.steps tree.",
+        "renderWhen": "The reader always renders authored-pseudocode by projecting the supplied steps and branch order.",
+        "otherwise": "It neither executes code nor fills unretained branches; invalid steps fail answer validation.",
+        "limits": "",
+        "sourceReferences": [
+          "answer-pseudocode",
+          "answer-ui"
+        ]
+      }
     },
     {
       "id": "block-answer-preparations",
@@ -1048,7 +2268,18 @@
       "preview": "previews/block-answer-preparations.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-refresh-reader/index.html",
       "capturedHtmlDigest": "sha256:9b45a3ba3eb9e3e84b8af35b1dca721f16bf6dea0a08f3a9220126fd0ef66b3d",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "answer",
+        "requiredInputs": "A nonempty answer.preparations array with valid IDs, summaries, steps and references.",
+        "renderWhen": "The preparation section and navigation link appear only if render_preparations_html returns content; preparationRefs link uses to the declared preparation.",
+        "otherwise": "An empty array omits the section. Unresolved/duplicate preparation references fail validation.",
+        "limits": "",
+        "sourceReferences": [
+          "answer-preparations",
+          "answer"
+        ]
+      }
     },
     {
       "id": "block-answer-behavior",
@@ -1062,7 +2293,18 @@
       "preview": "previews/block-answer-behavior.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-refresh-reader/index.html",
       "capturedHtmlDigest": "sha256:c66e94916bc51c281dfd228a2081a6dfb2cfa37580a0bbd3b8c9a46ecea2b6ce",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "answer",
+        "requiredInputs": "Valid ordered answer.steps with supported kinds, children/otherwise and evidence.",
+        "renderWhen": "The reader recursively renders the supplied steps and branches; eligible decision chains can use first-match presentation.",
+        "otherwise": "Missing/invalid IDs or references fail validation; unknown no-match results are not invented.",
+        "limits": "",
+        "sourceReferences": [
+          "answer-steps",
+          "answer"
+        ]
+      }
     },
     {
       "id": "block-answer-predicates",
@@ -1076,7 +2318,18 @@
       "preview": "previews/block-answer-predicates.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-refresh-reader/index.html",
       "capturedHtmlDigest": "sha256:00408175f90f809bc88b7e80ceb2fea3b06cf67304d6b6cb6a22b21113f9a303",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "answer",
+        "requiredInputs": "Nonempty answer.predicates with unique IDs, meaning, sourceCheck and evaluation claims; valid decision predicateRefs.",
+        "renderWhen": "The predicate details section appears when predicates are nonempty; semantic validation requires the declared predicates to be used by decisions.",
+        "otherwise": "An empty list omits this section. Unresolved or unused semantic predicate definitions fail validation.",
+        "limits": "",
+        "sourceReferences": [
+          "answer-predicates",
+          "answer"
+        ]
+      }
     },
     {
       "id": "block-answer-data-movement",
@@ -1090,7 +2343,18 @@
       "preview": "previews/block-answer-data-movement.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-refresh-reader/index.html",
       "capturedHtmlDigest": "sha256:67e1ce15a87a03994f6463c5f4979134c7dea3e11a91b5e32b4634b1e86b3978",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "answer",
+        "requiredInputs": "At least one answer step/preparation carrying data-movement metadata that yields a movement row.",
+        "renderWhen": "The reader collects declared movement rows and renders Data movement stated in steps only when rows are nonempty.",
+        "otherwise": "Without rows the table/navigation link is omitted; a method call does not automatically create a from/to mapping.",
+        "limits": "",
+        "sourceReferences": [
+          "answer-movement",
+          "answer-ui"
+        ]
+      }
     },
     {
       "id": "block-answer-citations",
@@ -1104,7 +2368,19 @@
       "preview": "previews/block-answer-citations.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-refresh-reader/index.html",
       "capturedHtmlDigest": "sha256:4a6d09cb4a4383014f7a1fc2140bc348a76b772ce709dd823df592e915d602c3",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "answer",
+        "requiredInputs": "Validated claim evidence labels resolving in the retained packet citation map.",
+        "renderWhen": "The cited-evidence index lists the labels actually used by the answer; retained packet facts are rendered from separate types/constants or process types/fields arrays.",
+        "otherwise": "Unresolved cited labels reject validation. Empty packet fact arrays omit those tables rather than creating DTO fields.",
+        "limits": "",
+        "sourceReferences": [
+          "answer-evidence",
+          "answer-facts",
+          "answer"
+        ]
+      }
     },
     {
       "id": "block-answer-sources",
@@ -1118,7 +2394,17 @@
       "preview": "previews/block-answer-sources.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-refresh-reader/index.html",
       "capturedHtmlDigest": "sha256:cfb9ff6e99c693e114f4ee54a4a95777bed9505f51ea8c00429080fdcc5b610a",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "answer",
+        "requiredInputs": "SourceNavigation entries pointing to retained source locations/fragments in the packet.",
+        "renderWhen": "The source appendix renders the actual retained source locations and links from evidence.",
+        "otherwise": "Unretained source cannot be expanded or fetched by prose; absent locations give no populated source-location section.",
+        "limits": "",
+        "sourceReferences": [
+          "answer-sources"
+        ]
+      }
     },
     {
       "id": "block-answer-uncertainties",
@@ -1129,7 +2415,18 @@
       "action": "",
       "status": "REAL_SOURCE_EXAMPLE",
       "renderer": "operation_answer.rs",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "answer",
+        "requiredInputs": "answer.uncertainties strings, together with optional claim-level uncertainty.",
+        "renderWhen": "The global Uncertainties section renders for a nonempty list; the answer validator rejects blank uncertainty strings.",
+        "otherwise": "An empty global list omits that section. Claim-level uncertainty remains with its claim rather than becoming a global assertion.",
+        "limits": "",
+        "sourceReferences": [
+          "answer-uncertainties",
+          "answer"
+        ]
+      }
     },
     {
       "id": "block-answer-evidence-map",
@@ -1143,7 +2440,17 @@
       "preview": "previews/block-answer-evidence-map.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-refresh-reader/index.html",
       "capturedHtmlDigest": "sha256:463ac281a17bad4b3462c7a4473ce5181e01463c19cc12f26b685bbbd8be144a",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "answer",
+        "requiredInputs": "A validated operation-answer/1.2 semantic answer.",
+        "renderWhen": "render_block_evidence_html emits the block-to-evidence table from that schema\u2019s summary, terms, predicates, preparations and step claims.",
+        "otherwise": "Earlier answer schemas omit this map even if ordinary evidence links are present.",
+        "limits": "",
+        "sourceReferences": [
+          "answer-blocks"
+        ]
+      }
     },
     {
       "id": "block-answer-review",
@@ -1158,7 +2465,19 @@
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-approved-reader/index.html",
       "capturedHtmlDigest": "sha256:d50353245ea8831dcf2bb8c4442610715e4c3cdfab002efaa2a8045be919e58f",
       "repository": "Weather",
-      "evidence": "examples/weather-approved-reader/review-provenance.json"
+      "evidence": "examples/weather-approved-reader/review-provenance.json",
+      "renderConditions": {
+        "mode": "answer",
+        "requiredInputs": "A saved review-run export with a bound provenance object from an eligible durable approved answer.",
+        "renderWhen": "render_html adds Saved model review: provenance and limitations only when provenance is supplied by the export route.",
+        "otherwise": "Plain input rendering has no saved-review provenance section; an ineligible/stale/mismatched saved review is rejected by the export gate.",
+        "limits": "Approval remains model-review provenance of this answer; service publication is a separate action.",
+        "sourceReferences": [
+          "approved",
+          "answer-review",
+          "answer-ui"
+        ]
+      }
     },
     {
       "id": "block-answer-outcomes",
@@ -1172,7 +2491,18 @@
       "preview": "previews/block-answer-outcomes.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-refresh-reader/index.html",
       "capturedHtmlDigest": "sha256:024ef4f284618f51e651ddc389140de72e00156094976368f09e2105c9e8b079",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "answer",
+        "requiredInputs": "A decision whose otherwise consists of exactly one next decision, forming a chain; retained branch children and any final otherwise outcome.",
+        "renderWhen": "first_match_table follows that chain and renders an inline table only when decision-branch count plus a nonempty final otherwise exceeds two. Outcome details retain each branch\u2019s steps.",
+        "otherwise": "A simple if/else or smaller chain stays ordinary nested behavior; no artificial third outcome is added.",
+        "limits": "This automatic answer projection is distinct from a typed visual decision-table and its explicit hitPolicy.",
+        "sourceReferences": [
+          "answer-outcomes",
+          "answer-steps"
+        ]
+      }
     },
     {
       "id": "page-places-answer",
@@ -1183,7 +2513,19 @@
       "action": "",
       "status": "REAL_SOURCE_EXAMPLE",
       "renderer": "operation_answer.rs",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "answer",
+        "requiredInputs": "A valid C# endpoint answer and its retained Places packet.",
+        "renderWhen": "The common answer renderer shows request/response interpretation and any actual types/fields supplied by that packet.",
+        "otherwise": "A packet without type facts can still render the reader, but cannot populate packet-fact tables.",
+        "limits": "This catalogue example remains UNREVIEWED; compiler type facts do not approve the business explanation.",
+        "sourceReferences": [
+          "answer",
+          "answer-ui",
+          "answer-facts"
+        ]
+      }
     },
     {
       "id": "block-answer-packet-facts",
@@ -1197,7 +2539,17 @@
       "preview": "previews/block-answer-packet-facts.html",
       "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-places-reader/index.html",
       "capturedHtmlDigest": "sha256:75302e58408ab9d7dae589854daf3e987e4ed309b747871f3ea8078d8f5d0a17",
-      "repository": "Weather"
+      "repository": "Weather",
+      "renderConditions": {
+        "mode": "answer",
+        "requiredInputs": "For process-graph-v1: retained types or fields. For other endpoint packets: retained types or constants (DTO fields are nested within types).",
+        "renderWhen": "The matching packet-fact renderer emits its section when at least one of the relevant arrays is nonempty; nested field rows use the retained type metadata.",
+        "otherwise": "Both relevant arrays empty means no section. A retained type with no fields gets an explicit no-fields row.",
+        "limits": "",
+        "sourceReferences": [
+          "answer-facts"
+        ]
+      }
     }
   ]
 }
