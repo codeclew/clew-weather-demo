@@ -1,0 +1,1983 @@
+# ForecastController.get response selection
+
+Static source interpretation. Declared interactions do not establish runtime routing.
+
+## forecast-read
+
+Documentation gap: Behavior is not yet authored. Load this entrypoint with clew docs context and supply a source-bound sequence.
+
+## process-overview
+
+Documentation gap: Behavior is not yet authored. Load this entrypoint with clew docs context and supply a source-bound sequence.
+
+
+## Saved process definition
+
+Explicit requested scope and outcomes; source support is assessed separately.
+
+Scope: ForecastController.get(id) and its retained source context.
+
+Trigger: A caller invokes ForecastController.get(id).
+
+participants:
+
+- forecasts
+
+objects:
+
+
+outcomes:
+
+- ResponseEntity.notFound().build()
+- ResponseEntity.ok().header().body()
+
+### Linked child views: captured versions
+
+
+## Extraction evidence packet
+
+```json
+{
+  "characteristics": {
+    "retainedCallSites": 9,
+    "retainedDecisionEvents": 1,
+    "retainedEvents": 17,
+    "retainedMethods": 2,
+    "retainedThrowEvents": 0,
+    "runtimeIoCount": "UNKNOWN",
+    "strictStateMachine": "NOT_ESTABLISHED",
+    "timeBounds": "UNKNOWN"
+  },
+  "contextDigest": "sha256:6dce60d4a88c7c8ebb0e26e9351bfa01e86685fdfec7827fca9c2b353e65ea06",
+  "edges": [
+    {
+      "callBindingId": "forecasts:call-relation:576cdda518ab1e3ef925c86c",
+      "dependencyIds": [
+        "forecasts:call-relation:576cdda518ab1e3ef925c86c"
+      ],
+      "eventId": null,
+      "fromMethodId": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+      "id": "edge:forecasts:call-relation:576cdda518ab1e3ef925c86c",
+      "kind": "CALL",
+      "relationId": "forecasts:call-relation:576cdda518ab1e3ef925c86c",
+      "relationshipAuthority": "RETAINED_K2_COMPILER_SELECTED_SYMBOL_NOT_RUNTIME_DISPATCH",
+      "resolution": "SAME_SCOPE_UNIQUE",
+      "sourceIds": [
+        "forecasts-576cdda518ab1e3ef925"
+      ],
+      "target": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;",
+      "targetMethodId": "forecasts:symbol:c22afad7006c4cb4eb9dc173"
+    },
+    {
+      "dependencyIds": [
+        "forecasts:flow:0f9a4a5f5a8c113e0ff35835"
+      ],
+      "eventId": "forecasts:flow:0f9a4a5f5a8c113e0ff35835",
+      "fromMethodId": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+      "id": "edge:forecasts:flow:0f9a4a5f5a8c113e0ff35835",
+      "kind": "CALL",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:9e511a06302d5c4cf07d6701"
+      ],
+      "possibleTargetMethodId": null,
+      "relationshipAuthority": "RETAINED_LOCAL_ASSOCIATION_NOT_RUNTIME_PROOF",
+      "resolution": "SAME_SCOPE_UNIQUE",
+      "sourceIds": [
+        "forecasts-0f9a4a5f5a8c113e0ff3"
+      ],
+      "target": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;",
+      "targetMethodId": "forecasts:symbol:c22afad7006c4cb4eb9dc173"
+    },
+    {
+      "dependencyIds": [
+        "forecasts:flow:8d106a65b463bdc381d92ef5"
+      ],
+      "eventId": "forecasts:flow:8d106a65b463bdc381d92ef5",
+      "fromMethodId": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+      "id": "edge:forecasts:flow:8d106a65b463bdc381d92ef5",
+      "kind": "CALL",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:9e511a06302d5c4cf07d6701"
+      ],
+      "possibleTargetMethodId": null,
+      "relationshipAuthority": "RETAINED_LOCAL_ASSOCIATION_NOT_RUNTIME_PROOF",
+      "resolution": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "sourceIds": [
+        "forecasts-8d106a65b463bdc381d9"
+      ],
+      "target": "callable:org/springframework/http/ResponseEntity.notFound#jvm:()Lorg/springframework/http/ResponseEntity$HeadersBuilder;",
+      "targetMethodId": null
+    },
+    {
+      "dependencyIds": [
+        "forecasts:flow:99cca1da6122d943de0556f9"
+      ],
+      "eventId": "forecasts:flow:99cca1da6122d943de0556f9",
+      "fromMethodId": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+      "id": "edge:forecasts:flow:99cca1da6122d943de0556f9",
+      "kind": "CALL",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:9e511a06302d5c4cf07d6701"
+      ],
+      "possibleTargetMethodId": null,
+      "relationshipAuthority": "RETAINED_LOCAL_ASSOCIATION_NOT_RUNTIME_PROOF",
+      "resolution": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "sourceIds": [
+        "forecasts-99cca1da6122d943de05"
+      ],
+      "target": "callable:org/springframework/http/ResponseEntity.HeadersBuilder.build#jvm:()Lorg/springframework/http/ResponseEntity;",
+      "targetMethodId": null
+    },
+    {
+      "dependencyIds": [
+        "forecasts:flow:4dd637efb0b995807c417a33"
+      ],
+      "eventId": "forecasts:flow:4dd637efb0b995807c417a33",
+      "fromMethodId": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+      "id": "edge:forecasts:flow:4dd637efb0b995807c417a33",
+      "kind": "CALL",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:9e511a06302d5c4cf07d6701"
+      ],
+      "possibleTargetMethodId": null,
+      "relationshipAuthority": "RETAINED_LOCAL_ASSOCIATION_NOT_RUNTIME_PROOF",
+      "resolution": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "sourceIds": [
+        "forecasts-4dd637efb0b995807c41"
+      ],
+      "target": "callable:org/springframework/http/ResponseEntity.ok#jvm:()Lorg/springframework/http/ResponseEntity$BodyBuilder;",
+      "targetMethodId": null
+    },
+    {
+      "dependencyIds": [
+        "forecasts:flow:bd46c88cbf40a68730d3c9c1"
+      ],
+      "eventId": "forecasts:flow:bd46c88cbf40a68730d3c9c1",
+      "fromMethodId": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+      "id": "edge:forecasts:flow:bd46c88cbf40a68730d3c9c1",
+      "kind": "CALL",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:9e511a06302d5c4cf07d6701"
+      ],
+      "possibleTargetMethodId": null,
+      "relationshipAuthority": "RETAINED_LOCAL_ASSOCIATION_NOT_RUNTIME_PROOF",
+      "resolution": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "sourceIds": [
+        "forecasts-bd46c88cbf40a68730d3"
+      ],
+      "target": "callable:org/springframework/http/ResponseEntity.BodyBuilder.header#jvm:(Ljava/lang/String;[Ljava/lang/String;)Lorg/springframework/http/ResponseEntity$BodyBuilder;",
+      "targetMethodId": null
+    },
+    {
+      "dependencyIds": [
+        "forecasts:flow:d47cd0d64c064e0fe662ccb5"
+      ],
+      "eventId": "forecasts:flow:d47cd0d64c064e0fe662ccb5",
+      "fromMethodId": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+      "id": "edge:forecasts:flow:d47cd0d64c064e0fe662ccb5",
+      "kind": "CALL",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:9e511a06302d5c4cf07d6701"
+      ],
+      "possibleTargetMethodId": null,
+      "relationshipAuthority": "RETAINED_LOCAL_ASSOCIATION_NOT_RUNTIME_PROOF",
+      "resolution": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "sourceIds": [
+        "forecasts-d47cd0d64c064e0fe662"
+      ],
+      "target": "callable:org/springframework/http/ResponseEntity.BodyBuilder.body#jvm:(Ljava/lang/Object;)Lorg/springframework/http/ResponseEntity;",
+      "targetMethodId": null
+    },
+    {
+      "dependencyIds": [
+        "forecasts:flow:2a8a8906001e21caa7d18da4"
+      ],
+      "eventId": "forecasts:flow:2a8a8906001e21caa7d18da4",
+      "fromMethodId": "forecasts:symbol:c22afad7006c4cb4eb9dc173",
+      "id": "edge:forecasts:flow:2a8a8906001e21caa7d18da4",
+      "kind": "CALL",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:c22afad7006c4cb4eb9dc173"
+      ],
+      "possibleTargetMethodId": null,
+      "relationshipAuthority": "RETAINED_LOCAL_ASSOCIATION_NOT_RUNTIME_PROOF",
+      "resolution": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "sourceIds": [
+        "forecasts-2a8a8906001e21caa7d1"
+      ],
+      "target": "callable:org/springframework/jdbc/core/JdbcTemplate.query#jvm:(Ljava/lang/String;Lorg/springframework/jdbc/core/RowMapper;[Ljava/lang/Object;)Ljava/util/List;",
+      "targetMethodId": null
+    },
+    {
+      "dependencyIds": [
+        "forecasts:flow:9caa71b5cc6193bd193598e2"
+      ],
+      "eventId": "forecasts:flow:9caa71b5cc6193bd193598e2",
+      "fromMethodId": "forecasts:symbol:c22afad7006c4cb4eb9dc173",
+      "id": "edge:forecasts:flow:9caa71b5cc6193bd193598e2",
+      "kind": "CALL",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:c22afad7006c4cb4eb9dc173"
+      ],
+      "possibleTargetMethodId": null,
+      "relationshipAuthority": "RETAINED_LOCAL_ASSOCIATION_NOT_RUNTIME_PROOF",
+      "resolution": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "sourceIds": [
+        "forecasts-9caa71b5cc6193bd1935"
+      ],
+      "target": "callable:java/sql/ResultSet.getString#jvm:(I)Ljava/lang/String;",
+      "targetMethodId": null
+    },
+    {
+      "dependencyIds": [
+        "forecasts:flow:519a159f786cc8233a4ef5af"
+      ],
+      "eventId": "forecasts:flow:519a159f786cc8233a4ef5af",
+      "fromMethodId": "forecasts:symbol:c22afad7006c4cb4eb9dc173",
+      "id": "edge:forecasts:flow:519a159f786cc8233a4ef5af",
+      "kind": "CALL",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:c22afad7006c4cb4eb9dc173"
+      ],
+      "possibleTargetMethodId": null,
+      "relationshipAuthority": "RETAINED_LOCAL_ASSOCIATION_NOT_RUNTIME_PROOF",
+      "resolution": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "sourceIds": [
+        "forecasts-519a159f786cc8233a4e"
+      ],
+      "target": "callable:kotlin/collections/firstOrNull#jvm:(Ljava/util/List;)Ljava/lang/Object;",
+      "targetMethodId": null
+    }
+  ],
+  "events": [
+    {
+      "detail": {
+        "kind": "CALL",
+        "ordinal": 0,
+        "outlineSite": {
+          "byteEnd": 512,
+          "byteStart": 495,
+          "endLine": 13,
+          "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+          "file": "src/main/kotlin/weather/ForecastController.kt",
+          "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+          "sourceDigest": "sha256:d4f153a916ec0b19f390d089836faddd41c4c1031deee5a7f008224ffcb82a9d",
+          "sourceId": "forecasts-0f9a4a5f5a8c113e0ff3",
+          "sourceStatus": "SOURCE_RETAINED",
+          "startLine": 13
+        },
+        "resolution": "COMPILER_EXACT",
+        "scope": ":/main",
+        "sourceSpan": {
+          "byteEnd": 512,
+          "byteStart": 495,
+          "compilationScope": ":/main",
+          "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+          "file": "src/main/kotlin/weather/ForecastController.kt",
+          "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+          "ordinal": 0,
+          "ownerByteEnd": 654,
+          "ownerByteStart": 378,
+          "ownerSymbolIdentity": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+          "schema": "codeclew-documentation-source-span/1.0"
+        },
+        "target": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;"
+      },
+      "factDigest": "sha256:ba66bfec7c0db27bcdfddf00749708b9846aec2e931bc36c89ac6eb8f093322c",
+      "id": "forecasts:flow:0f9a4a5f5a8c113e0ff35835",
+      "ownerSymbol": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+      "sourceIds": [
+        "forecasts-0f9a4a5f5a8c113e0ff3"
+      ]
+    },
+    {
+      "detail": {
+        "condition": "forecasts.get(id) is null",
+        "kind": "IF",
+        "ordinal": 1,
+        "outlineSite": {
+          "byteEnd": 556,
+          "byteStart": 495,
+          "endLine": 13,
+          "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+          "file": "src/main/kotlin/weather/ForecastController.kt",
+          "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+          "sourceDigest": "sha256:3a2ab3ab883f0c1ff96b6fb9e29f2049fdaeb62368942a5b59ca0323c02ea98e",
+          "sourceId": "forecasts-059b9d23921db86c729a",
+          "sourceStatus": "SOURCE_RETAINED",
+          "startLine": 13
+        },
+        "scope": ":/main",
+        "sourceSpan": {
+          "byteEnd": 556,
+          "byteStart": 495,
+          "compilationScope": ":/main",
+          "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+          "file": "src/main/kotlin/weather/ForecastController.kt",
+          "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+          "ordinal": 1,
+          "ownerByteEnd": 654,
+          "ownerByteStart": 378,
+          "ownerSymbolIdentity": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+          "schema": "codeclew-documentation-source-span/1.0"
+        }
+      },
+      "factDigest": "sha256:a2dc8f8b5558221b805ca92a80d45617fc48006e4a2604c365b85cdb7065ec51",
+      "id": "forecasts:flow:059b9d23921db86c729a57f9",
+      "ownerSymbol": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+      "sourceIds": [
+        "forecasts-059b9d23921db86c729a"
+      ]
+    },
+    {
+      "detail": {
+        "kind": "CALL",
+        "ordinal": 2,
+        "outlineSite": {
+          "byteEnd": 548,
+          "byteStart": 523,
+          "endLine": 13,
+          "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+          "file": "src/main/kotlin/weather/ForecastController.kt",
+          "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+          "sourceDigest": "sha256:045065aa6092be4b222ce029d1ad6c27d213d6abeb9a3c38485eea63abf3b1b0",
+          "sourceId": "forecasts-8d106a65b463bdc381d9",
+          "sourceStatus": "SOURCE_RETAINED",
+          "startLine": 13
+        },
+        "resolution": "COMPILER_EXACT",
+        "scope": ":/main",
+        "sourceSpan": {
+          "byteEnd": 548,
+          "byteStart": 523,
+          "compilationScope": ":/main",
+          "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+          "file": "src/main/kotlin/weather/ForecastController.kt",
+          "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+          "ordinal": 2,
+          "ownerByteEnd": 654,
+          "ownerByteStart": 378,
+          "ownerSymbolIdentity": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+          "schema": "codeclew-documentation-source-span/1.0"
+        },
+        "target": "callable:org/springframework/http/ResponseEntity.notFound#jvm:()Lorg/springframework/http/ResponseEntity$HeadersBuilder;"
+      },
+      "factDigest": "sha256:17c74ea66d2e9139e69c723eda21afd4fc9ca07e7cde37e46bc466b659fcb647",
+      "id": "forecasts:flow:8d106a65b463bdc381d92ef5",
+      "ownerSymbol": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+      "sourceIds": [
+        "forecasts-8d106a65b463bdc381d9"
+      ]
+    },
+    {
+      "detail": {
+        "kind": "CALL",
+        "ordinal": 3,
+        "outlineSite": {
+          "byteEnd": 556,
+          "byteStart": 523,
+          "endLine": 13,
+          "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+          "file": "src/main/kotlin/weather/ForecastController.kt",
+          "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+          "sourceDigest": "sha256:6181e60bc5f4a4555c581763e2be9f115fa571c548f789d97c70a253cdc33086",
+          "sourceId": "forecasts-99cca1da6122d943de05",
+          "sourceStatus": "SOURCE_RETAINED",
+          "startLine": 13
+        },
+        "resolution": "COMPILER_EXACT",
+        "scope": ":/main",
+        "sourceSpan": {
+          "byteEnd": 556,
+          "byteStart": 523,
+          "compilationScope": ":/main",
+          "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+          "file": "src/main/kotlin/weather/ForecastController.kt",
+          "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+          "ordinal": 3,
+          "ownerByteEnd": 654,
+          "ownerByteStart": 378,
+          "ownerSymbolIdentity": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+          "schema": "codeclew-documentation-source-span/1.0"
+        },
+        "target": "callable:org/springframework/http/ResponseEntity.HeadersBuilder.build#jvm:()Lorg/springframework/http/ResponseEntity;"
+      },
+      "factDigest": "sha256:a019beb450589294ca77141444c45e7d8d19c41162d4a7d5987f0e6280415060",
+      "id": "forecasts:flow:99cca1da6122d943de0556f9",
+      "ownerSymbol": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+      "sourceIds": [
+        "forecasts-99cca1da6122d943de05"
+      ]
+    },
+    {
+      "detail": {
+        "kind": "RETURN",
+        "ordinal": 4,
+        "outlineSite": {
+          "byteEnd": 556,
+          "byteStart": 516,
+          "endLine": 13,
+          "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+          "file": "src/main/kotlin/weather/ForecastController.kt",
+          "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+          "sourceDigest": "sha256:6c66301dae87c159b643b37d19eae5d6e8989cc6f8624e752ae2dd19e8e6ddd5",
+          "sourceId": "forecasts-53fc99c43b932bd8ca30",
+          "sourceStatus": "SOURCE_RETAINED",
+          "startLine": 13
+        },
+        "scope": ":/main",
+        "sourceSpan": {
+          "byteEnd": 556,
+          "byteStart": 516,
+          "compilationScope": ":/main",
+          "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+          "file": "src/main/kotlin/weather/ForecastController.kt",
+          "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+          "ordinal": 4,
+          "ownerByteEnd": 654,
+          "ownerByteStart": 378,
+          "ownerSymbolIdentity": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+          "schema": "codeclew-documentation-source-span/1.0"
+        }
+      },
+      "factDigest": "sha256:c7a96e77385dc892440555902e0222102fed4a9b4b79ad09406ba8db5391a441",
+      "id": "forecasts:flow:53fc99c43b932bd8ca303a9f",
+      "ownerSymbol": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+      "sourceIds": [
+        "forecasts-53fc99c43b932bd8ca30"
+      ]
+    },
+    {
+      "detail": {
+        "kind": "END",
+        "ordinal": 5,
+        "outlineSite": {
+          "byteEnd": 556,
+          "byteStart": 495,
+          "endLine": 13,
+          "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+          "file": "src/main/kotlin/weather/ForecastController.kt",
+          "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+          "sourceDigest": "sha256:3a2ab3ab883f0c1ff96b6fb9e29f2049fdaeb62368942a5b59ca0323c02ea98e",
+          "sourceId": "forecasts-7a16aa8f9da5f5915476",
+          "sourceStatus": "SOURCE_RETAINED",
+          "startLine": 13
+        },
+        "scope": ":/main",
+        "sourceSpan": {
+          "byteEnd": 556,
+          "byteStart": 495,
+          "compilationScope": ":/main",
+          "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+          "file": "src/main/kotlin/weather/ForecastController.kt",
+          "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+          "ordinal": 5,
+          "ownerByteEnd": 654,
+          "ownerByteStart": 378,
+          "ownerSymbolIdentity": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+          "schema": "codeclew-documentation-source-span/1.0"
+        }
+      },
+      "factDigest": "sha256:f5dea2d3f12f20a1917b5b8fa1709e01180b3f929d49126335f0260ca9827732",
+      "id": "forecasts:flow:7a16aa8f9da5f59154769c79",
+      "ownerSymbol": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+      "sourceIds": [
+        "forecasts-7a16aa8f9da5f5915476"
+      ]
+    },
+    {
+      "detail": {
+        "kind": "LOCAL",
+        "ordinal": 6,
+        "outlineSite": {
+          "byteEnd": 556,
+          "byteStart": 481,
+          "endLine": 13,
+          "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+          "file": "src/main/kotlin/weather/ForecastController.kt",
+          "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+          "sourceDigest": "sha256:3626c623b137fb3dea9e90f98268cfd74b21a99495f2075f607d50ea6df8aa14",
+          "sourceId": "forecasts-704d0189ac35d5f5a83a",
+          "sourceStatus": "SOURCE_RETAINED",
+          "startLine": 13
+        },
+        "scope": ":/main",
+        "sourceSpan": {
+          "byteEnd": 556,
+          "byteStart": 481,
+          "compilationScope": ":/main",
+          "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+          "file": "src/main/kotlin/weather/ForecastController.kt",
+          "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+          "ordinal": 6,
+          "ownerByteEnd": 654,
+          "ownerByteStart": 378,
+          "ownerSymbolIdentity": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+          "schema": "codeclew-documentation-source-span/1.0"
+        }
+      },
+      "factDigest": "sha256:713db4785fc9374869828333d92417dd97275e5fc36c50ee2845ad18728e1524",
+      "id": "forecasts:flow:704d0189ac35d5f5a83adbaa",
+      "ownerSymbol": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+      "sourceIds": [
+        "forecasts-704d0189ac35d5f5a83a"
+      ]
+    },
+    {
+      "detail": {
+        "kind": "CALL",
+        "ordinal": 7,
+        "outlineSite": {
+          "byteEnd": 591,
+          "byteStart": 572,
+          "endLine": 14,
+          "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+          "file": "src/main/kotlin/weather/ForecastController.kt",
+          "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+          "sourceDigest": "sha256:f2563e303ca97404bd0effb2646a0b442fda93ed66433cab4ecc67287ef469c0",
+          "sourceId": "forecasts-4dd637efb0b995807c41",
+          "sourceStatus": "SOURCE_RETAINED",
+          "startLine": 14
+        },
+        "resolution": "COMPILER_EXACT",
+        "scope": ":/main",
+        "sourceSpan": {
+          "byteEnd": 591,
+          "byteStart": 572,
+          "compilationScope": ":/main",
+          "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+          "file": "src/main/kotlin/weather/ForecastController.kt",
+          "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+          "ordinal": 7,
+          "ownerByteEnd": 654,
+          "ownerByteStart": 378,
+          "ownerSymbolIdentity": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+          "schema": "codeclew-documentation-source-span/1.0"
+        },
+        "target": "callable:org/springframework/http/ResponseEntity.ok#jvm:()Lorg/springframework/http/ResponseEntity$BodyBuilder;"
+      },
+      "factDigest": "sha256:571ac6a018a9a88f8a763df605acd78d7e5cec4e67af1bc775488b56aabd8522",
+      "id": "forecasts:flow:4dd637efb0b995807c417a33",
+      "ownerSymbol": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+      "sourceIds": [
+        "forecasts-4dd637efb0b995807c41"
+      ]
+    },
+    {
+      "detail": {
+        "kind": "CALL",
+        "ordinal": 8,
+        "outlineSite": {
+          "byteEnd": 634,
+          "byteStart": 572,
+          "endLine": 14,
+          "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+          "file": "src/main/kotlin/weather/ForecastController.kt",
+          "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+          "sourceDigest": "sha256:f55af026ab23048d6e52ba0064cf05cb8b0c8090007f2a4502cc85a3b7dd7a2e",
+          "sourceId": "forecasts-bd46c88cbf40a68730d3",
+          "sourceStatus": "SOURCE_RETAINED",
+          "startLine": 14
+        },
+        "resolution": "COMPILER_EXACT",
+        "scope": ":/main",
+        "sourceSpan": {
+          "byteEnd": 634,
+          "byteStart": 572,
+          "compilationScope": ":/main",
+          "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+          "file": "src/main/kotlin/weather/ForecastController.kt",
+          "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+          "ordinal": 8,
+          "ownerByteEnd": 654,
+          "ownerByteStart": 378,
+          "ownerSymbolIdentity": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+          "schema": "codeclew-documentation-source-span/1.0"
+        },
+        "target": "callable:org/springframework/http/ResponseEntity.BodyBuilder.header#jvm:(Ljava/lang/String;[Ljava/lang/String;)Lorg/springframework/http/ResponseEntity$BodyBuilder;"
+      },
+      "factDigest": "sha256:08343daf8eaf7275df001d5031c8e5f11da27bde19db53f555f794f1d319338c",
+      "id": "forecasts:flow:bd46c88cbf40a68730d3c9c1",
+      "ownerSymbol": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+      "sourceIds": [
+        "forecasts-bd46c88cbf40a68730d3"
+      ]
+    },
+    {
+      "detail": {
+        "kind": "CALL",
+        "ordinal": 9,
+        "outlineSite": {
+          "byteEnd": 648,
+          "byteStart": 572,
+          "endLine": 14,
+          "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+          "file": "src/main/kotlin/weather/ForecastController.kt",
+          "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+          "sourceDigest": "sha256:312b9b6ed8635367799161b3acfa67a41144805e86afc92f6e31945bac6b4d58",
+          "sourceId": "forecasts-d47cd0d64c064e0fe662",
+          "sourceStatus": "SOURCE_RETAINED",
+          "startLine": 14
+        },
+        "resolution": "COMPILER_EXACT",
+        "scope": ":/main",
+        "sourceSpan": {
+          "byteEnd": 648,
+          "byteStart": 572,
+          "compilationScope": ":/main",
+          "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+          "file": "src/main/kotlin/weather/ForecastController.kt",
+          "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+          "ordinal": 9,
+          "ownerByteEnd": 654,
+          "ownerByteStart": 378,
+          "ownerSymbolIdentity": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+          "schema": "codeclew-documentation-source-span/1.0"
+        },
+        "target": "callable:org/springframework/http/ResponseEntity.BodyBuilder.body#jvm:(Ljava/lang/Object;)Lorg/springframework/http/ResponseEntity;"
+      },
+      "factDigest": "sha256:0a8484e69b1852d465bcb77821c19bb6d2ef9bfc1846ef54b5404281d7f16692",
+      "id": "forecasts:flow:d47cd0d64c064e0fe662ccb5",
+      "ownerSymbol": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+      "sourceIds": [
+        "forecasts-d47cd0d64c064e0fe662"
+      ]
+    },
+    {
+      "detail": {
+        "kind": "RETURN",
+        "ordinal": 10,
+        "outlineSite": {
+          "byteEnd": 648,
+          "byteStart": 565,
+          "endLine": 14,
+          "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+          "file": "src/main/kotlin/weather/ForecastController.kt",
+          "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+          "sourceDigest": "sha256:823a5e1e73a087bc974b86aa0815299fa39556fc39bc8d0d28a75a5480afdb5e",
+          "sourceId": "forecasts-81f1bf462ab13a421c77",
+          "sourceStatus": "SOURCE_RETAINED",
+          "startLine": 14
+        },
+        "scope": ":/main",
+        "sourceSpan": {
+          "byteEnd": 648,
+          "byteStart": 565,
+          "compilationScope": ":/main",
+          "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+          "file": "src/main/kotlin/weather/ForecastController.kt",
+          "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+          "ordinal": 10,
+          "ownerByteEnd": 654,
+          "ownerByteStart": 378,
+          "ownerSymbolIdentity": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+          "schema": "codeclew-documentation-source-span/1.0"
+        }
+      },
+      "factDigest": "sha256:f6665514ea8b00d7da18e2fe20f0b71c38ba55a8ff3fc17dd6415c07bd555ac0",
+      "id": "forecasts:flow:81f1bf462ab13a421c77a2ff",
+      "ownerSymbol": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+      "sourceIds": [
+        "forecasts-81f1bf462ab13a421c77"
+      ]
+    },
+    {
+      "detail": {
+        "kind": "CALL",
+        "ordinal": 0,
+        "outlineSite": {
+          "byteEnd": 1727,
+          "byteStart": 1625,
+          "endLine": 36,
+          "evidenceDigest": "sha256:7e89f70cb50b800287ef23a3f6507604a32121ee60ab378ef0ef25c561aab574",
+          "file": "src/main/kotlin/weather/Forecasts.kt",
+          "fullCompilationSourceDigest": "sha256:6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+          "sourceDigest": "sha256:e0b26d827429171aed08b6d3658023800b2359611af7f8a4591a9f2fe601dff4",
+          "sourceId": "forecasts-2a8a8906001e21caa7d1",
+          "sourceStatus": "SOURCE_RETAINED",
+          "startLine": 36
+        },
+        "resolution": "COMPILER_EXACT",
+        "scope": ":/main",
+        "sourceSpan": {
+          "byteEnd": 1727,
+          "byteStart": 1625,
+          "compilationScope": ":/main",
+          "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+          "file": "src/main/kotlin/weather/Forecasts.kt",
+          "fullCompilationSourceDigest": "sha256:6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+          "ordinal": 0,
+          "ownerByteEnd": 1741,
+          "ownerByteStart": 1594,
+          "ownerSymbolIdentity": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;",
+          "schema": "codeclew-documentation-source-span/1.0"
+        },
+        "target": "callable:org/springframework/jdbc/core/JdbcTemplate.query#jvm:(Ljava/lang/String;Lorg/springframework/jdbc/core/RowMapper;[Ljava/lang/Object;)Ljava/util/List;"
+      },
+      "factDigest": "sha256:403a2791a9d38058b6a5e76752ab05a5c4224f8ff9cd1a7f2a91f2eb34636ce2",
+      "id": "forecasts:flow:2a8a8906001e21caa7d18da4",
+      "ownerSymbol": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;",
+      "sourceIds": [
+        "forecasts-2a8a8906001e21caa7d1"
+      ]
+    },
+    {
+      "detail": {
+        "condition": "If this callback is invoked",
+        "invocation": "NOT_ESTABLISHED",
+        "kind": "DEFERRED",
+        "ordinal": 1,
+        "outlineSite": {
+          "byteEnd": 1722,
+          "byteStart": 1692,
+          "endLine": 36,
+          "evidenceDigest": "sha256:7e89f70cb50b800287ef23a3f6507604a32121ee60ab378ef0ef25c561aab574",
+          "file": "src/main/kotlin/weather/Forecasts.kt",
+          "fullCompilationSourceDigest": "sha256:6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+          "sourceDigest": "sha256:d786f2f3115c317e9d58ffec79d660a2708427f88755d6e577b27d1504c0f23c",
+          "sourceId": "forecasts-ea600f8c812040ef3622",
+          "sourceStatus": "SOURCE_RETAINED",
+          "startLine": 36
+        },
+        "scope": ":/main",
+        "sourceSpan": {
+          "byteEnd": 1722,
+          "byteStart": 1692,
+          "compilationScope": ":/main",
+          "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+          "file": "src/main/kotlin/weather/Forecasts.kt",
+          "fullCompilationSourceDigest": "sha256:6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+          "ordinal": 1,
+          "ownerByteEnd": 1741,
+          "ownerByteStart": 1594,
+          "ownerSymbolIdentity": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;",
+          "schema": "codeclew-documentation-source-span/1.0"
+        }
+      },
+      "factDigest": "sha256:8840c985397b033e42d8a1a16f8daf4130ef4f99fcdaaa1d9797f8d0ca7f6988",
+      "id": "forecasts:flow:ea600f8c812040ef36229a8f",
+      "ownerSymbol": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;",
+      "sourceIds": [
+        "forecasts-ea600f8c812040ef3622"
+      ]
+    },
+    {
+      "detail": {
+        "kind": "CALL",
+        "ordinal": 2,
+        "outlineSite": {
+          "byteEnd": 1720,
+          "byteStart": 1704,
+          "endLine": 36,
+          "evidenceDigest": "sha256:7e89f70cb50b800287ef23a3f6507604a32121ee60ab378ef0ef25c561aab574",
+          "file": "src/main/kotlin/weather/Forecasts.kt",
+          "fullCompilationSourceDigest": "sha256:6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+          "sourceDigest": "sha256:2a126733df27e9b83e059125ef21c99a68b309f1aeded51ed05714eb25f9f917",
+          "sourceId": "forecasts-9caa71b5cc6193bd1935",
+          "sourceStatus": "SOURCE_RETAINED",
+          "startLine": 36
+        },
+        "resolution": "COMPILER_EXACT",
+        "scope": ":/main",
+        "sourceSpan": {
+          "byteEnd": 1720,
+          "byteStart": 1704,
+          "compilationScope": ":/main",
+          "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+          "file": "src/main/kotlin/weather/Forecasts.kt",
+          "fullCompilationSourceDigest": "sha256:6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+          "ordinal": 2,
+          "ownerByteEnd": 1741,
+          "ownerByteStart": 1594,
+          "ownerSymbolIdentity": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;",
+          "schema": "codeclew-documentation-source-span/1.0"
+        },
+        "target": "callable:java/sql/ResultSet.getString#jvm:(I)Ljava/lang/String;"
+      },
+      "factDigest": "sha256:9d03ab1aa87b9ed25a9af1e8107bd2354bc070e91ce6c66838d6a0ed46c1aefc",
+      "id": "forecasts:flow:9caa71b5cc6193bd193598e2",
+      "ownerSymbol": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;",
+      "sourceIds": [
+        "forecasts-9caa71b5cc6193bd1935"
+      ]
+    },
+    {
+      "detail": {
+        "kind": "END",
+        "ordinal": 3,
+        "outlineSite": {
+          "byteEnd": 1722,
+          "byteStart": 1692,
+          "endLine": 36,
+          "evidenceDigest": "sha256:7e89f70cb50b800287ef23a3f6507604a32121ee60ab378ef0ef25c561aab574",
+          "file": "src/main/kotlin/weather/Forecasts.kt",
+          "fullCompilationSourceDigest": "sha256:6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+          "sourceDigest": "sha256:d786f2f3115c317e9d58ffec79d660a2708427f88755d6e577b27d1504c0f23c",
+          "sourceId": "forecasts-88b2aca2d73f3054acdd",
+          "sourceStatus": "SOURCE_RETAINED",
+          "startLine": 36
+        },
+        "scope": ":/main",
+        "sourceSpan": {
+          "byteEnd": 1722,
+          "byteStart": 1692,
+          "compilationScope": ":/main",
+          "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+          "file": "src/main/kotlin/weather/Forecasts.kt",
+          "fullCompilationSourceDigest": "sha256:6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+          "ordinal": 3,
+          "ownerByteEnd": 1741,
+          "ownerByteStart": 1594,
+          "ownerSymbolIdentity": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;",
+          "schema": "codeclew-documentation-source-span/1.0"
+        }
+      },
+      "factDigest": "sha256:2a774ee65ccca1c3fd9dcad437f61d8fd59af8060db4f982116fe6b589c3d968",
+      "id": "forecasts:flow:88b2aca2d73f3054acddea15",
+      "ownerSymbol": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;",
+      "sourceIds": [
+        "forecasts-88b2aca2d73f3054acdd"
+      ]
+    },
+    {
+      "detail": {
+        "kind": "CALL",
+        "ordinal": 4,
+        "outlineSite": {
+          "byteEnd": 1741,
+          "byteStart": 1625,
+          "endLine": 36,
+          "evidenceDigest": "sha256:7e89f70cb50b800287ef23a3f6507604a32121ee60ab378ef0ef25c561aab574",
+          "file": "src/main/kotlin/weather/Forecasts.kt",
+          "fullCompilationSourceDigest": "sha256:6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+          "sourceDigest": "sha256:8968197abaf29bfb0b0a4af2062a4d56ff162831afac277870d850fae057e090",
+          "sourceId": "forecasts-519a159f786cc8233a4e",
+          "sourceStatus": "SOURCE_RETAINED",
+          "startLine": 36
+        },
+        "resolution": "COMPILER_EXACT",
+        "scope": ":/main",
+        "sourceSpan": {
+          "byteEnd": 1741,
+          "byteStart": 1625,
+          "compilationScope": ":/main",
+          "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+          "file": "src/main/kotlin/weather/Forecasts.kt",
+          "fullCompilationSourceDigest": "sha256:6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+          "ordinal": 4,
+          "ownerByteEnd": 1741,
+          "ownerByteStart": 1594,
+          "ownerSymbolIdentity": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;",
+          "schema": "codeclew-documentation-source-span/1.0"
+        },
+        "target": "callable:kotlin/collections/firstOrNull#jvm:(Ljava/util/List;)Ljava/lang/Object;"
+      },
+      "factDigest": "sha256:c90743725ac7cfaca1d6901aa72acfaa56d0f556e3723630b33787c8bf23f392",
+      "id": "forecasts:flow:519a159f786cc8233a4ef5af",
+      "ownerSymbol": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;",
+      "sourceIds": [
+        "forecasts-519a159f786cc8233a4e"
+      ]
+    },
+    {
+      "detail": {
+        "kind": "RETURN",
+        "ordinal": 5,
+        "outlineSite": {
+          "byteEnd": 1741,
+          "byteStart": 1625,
+          "endLine": 36,
+          "evidenceDigest": "sha256:7e89f70cb50b800287ef23a3f6507604a32121ee60ab378ef0ef25c561aab574",
+          "file": "src/main/kotlin/weather/Forecasts.kt",
+          "fullCompilationSourceDigest": "sha256:6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+          "sourceDigest": "sha256:8968197abaf29bfb0b0a4af2062a4d56ff162831afac277870d850fae057e090",
+          "sourceId": "forecasts-4f189b1488a2c220cc89",
+          "sourceStatus": "SOURCE_RETAINED",
+          "startLine": 36
+        },
+        "scope": ":/main",
+        "sourceSpan": {
+          "byteEnd": 1741,
+          "byteStart": 1625,
+          "compilationScope": ":/main",
+          "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+          "file": "src/main/kotlin/weather/Forecasts.kt",
+          "fullCompilationSourceDigest": "sha256:6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+          "ordinal": 5,
+          "ownerByteEnd": 1741,
+          "ownerByteStart": 1594,
+          "ownerSymbolIdentity": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;",
+          "schema": "codeclew-documentation-source-span/1.0"
+        }
+      },
+      "factDigest": "sha256:a7bc16d6c2a22460f33a1f64a2a62ac926f7ee7f61dcb1ed39d33db21e7a01d8",
+      "id": "forecasts:flow:4f189b1488a2c220cc89dd1b",
+      "ownerSymbol": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;",
+      "sourceIds": [
+        "forecasts-4f189b1488a2c220cc89"
+      ]
+    }
+  ],
+  "extractor": "codeclew-documentation-jvm/1.3",
+  "frontier": [
+    {
+      "category": "SEMANTIC",
+      "code": "CROSS_SERVICE_LINKS_REQUIRE_INDEPENDENT_RELATIONSHIP_AUTHORITY",
+      "kind": "SEMANTIC"
+    },
+    {
+      "category": "SEMANTIC",
+      "code": "DATA_EFFECT_ALIAS_AND_RUNTIME_CLOSURE_NOT_ESTABLISHED",
+      "kind": "SEMANTIC"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "CALLBACK_INVOCATION_ORDER_AND_COUNT_NOT_ESTABLISHED",
+      "kind": "METHOD_PROVIDER_BOUNDARY",
+      "methodId": "forecasts:symbol:c22afad7006c4cb4eb9dc173"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "CALLBACK_INVOCATION_ORDER_AND_COUNT_NOT_ESTABLISHED",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "DOCUMENTATION_CALL_TARGET_UNRESOLVED",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "EXCEPTION_TYPES_AND_DISPATCH_NOT_ESTABLISHED",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "EXTERNAL_OR_LOCAL_ARGUMENT_TARGET",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "IMPLICIT_OR_MISSING_RETURN_SOURCE",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "IMPLICIT_RETURN_UNSUPPORTED",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "KOTLIN_ANALYSIS_USES_DIFFERENT_COMPILER",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "KOTLIN_CALL_RELATION_PARTIAL",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "LOCAL_CFG_NORMALIZATION_FAILED",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "LOCAL_GENERATED_OR_UNRESOLVED_RETURN_VALUE",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "MAVEN_CLASSPATH_ARTIFACT_TO_COORDINATE_BIJECTION_UNAVAILABLE",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "MAVEN_TOOLCHAIN_SELECTION_USES_BUILD_JVM",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "MULTIPLE_OR_AMBIGUOUS_RETURN_VALUE_OCCURRENCES",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "NON_EXPLICIT_CALL_RECEIVER_UNSUPPORTED",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "NON_LINEAR_OR_MULTIPLE_RETURN_FLOW",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "NO_COMPILER_CALLABLE_ID",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "NO_SOURCE_FUNCTION",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "SAFE_CALL_POLICY_UNSUPPORTED",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "UNRESOLVED_CALLABLE_TARGET",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "UNRESOLVED_DESCRIPTOR_TYPE",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "UNRESOLVED_FALLBACK_OCCURRENCE",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "UNRESOLVED_NULLABLE_SOURCE_OCCURRENCE",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "UNRESOLVED_RELATION_TYPE",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "eventId": "forecasts:flow:2a8a8906001e21caa7d18da4",
+      "fromMethodId": "forecasts:symbol:c22afad7006c4cb4eb9dc173",
+      "kind": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:c22afad7006c4cb4eb9dc173"
+      ],
+      "possibleTargetMethodId": null,
+      "target": "callable:org/springframework/jdbc/core/JdbcTemplate.query#jvm:(Ljava/lang/String;Lorg/springframework/jdbc/core/RowMapper;[Ljava/lang/Object;)Ljava/util/List;"
+    },
+    {
+      "category": "SEMANTIC",
+      "eventId": "forecasts:flow:4dd637efb0b995807c417a33",
+      "fromMethodId": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+      "kind": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:9e511a06302d5c4cf07d6701"
+      ],
+      "possibleTargetMethodId": null,
+      "target": "callable:org/springframework/http/ResponseEntity.ok#jvm:()Lorg/springframework/http/ResponseEntity$BodyBuilder;"
+    },
+    {
+      "category": "SEMANTIC",
+      "eventId": "forecasts:flow:519a159f786cc8233a4ef5af",
+      "fromMethodId": "forecasts:symbol:c22afad7006c4cb4eb9dc173",
+      "kind": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:c22afad7006c4cb4eb9dc173"
+      ],
+      "possibleTargetMethodId": null,
+      "target": "callable:kotlin/collections/firstOrNull#jvm:(Ljava/util/List;)Ljava/lang/Object;"
+    },
+    {
+      "category": "SEMANTIC",
+      "eventId": "forecasts:flow:8d106a65b463bdc381d92ef5",
+      "fromMethodId": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+      "kind": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:9e511a06302d5c4cf07d6701"
+      ],
+      "possibleTargetMethodId": null,
+      "target": "callable:org/springframework/http/ResponseEntity.notFound#jvm:()Lorg/springframework/http/ResponseEntity$HeadersBuilder;"
+    },
+    {
+      "category": "SEMANTIC",
+      "eventId": "forecasts:flow:99cca1da6122d943de0556f9",
+      "fromMethodId": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+      "kind": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:9e511a06302d5c4cf07d6701"
+      ],
+      "possibleTargetMethodId": null,
+      "target": "callable:org/springframework/http/ResponseEntity.HeadersBuilder.build#jvm:()Lorg/springframework/http/ResponseEntity;"
+    },
+    {
+      "category": "SEMANTIC",
+      "eventId": "forecasts:flow:9caa71b5cc6193bd193598e2",
+      "fromMethodId": "forecasts:symbol:c22afad7006c4cb4eb9dc173",
+      "kind": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:c22afad7006c4cb4eb9dc173"
+      ],
+      "possibleTargetMethodId": null,
+      "target": "callable:java/sql/ResultSet.getString#jvm:(I)Ljava/lang/String;"
+    },
+    {
+      "category": "SEMANTIC",
+      "eventId": "forecasts:flow:bd46c88cbf40a68730d3c9c1",
+      "fromMethodId": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+      "kind": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:9e511a06302d5c4cf07d6701"
+      ],
+      "possibleTargetMethodId": null,
+      "target": "callable:org/springframework/http/ResponseEntity.BodyBuilder.header#jvm:(Ljava/lang/String;[Ljava/lang/String;)Lorg/springframework/http/ResponseEntity$BodyBuilder;"
+    },
+    {
+      "category": "SEMANTIC",
+      "eventId": "forecasts:flow:d47cd0d64c064e0fe662ccb5",
+      "fromMethodId": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+      "kind": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:9e511a06302d5c4cf07d6701"
+      ],
+      "possibleTargetMethodId": null,
+      "target": "callable:org/springframework/http/ResponseEntity.BodyBuilder.body#jvm:(Ljava/lang/Object;)Lorg/springframework/http/ResponseEntity;"
+    }
+  ],
+  "implementationDigest": "sha256:9d10ba59162f62a6ebc3c564b5b99aa1dc4f0e62952195bcfe157e6d000c52f3",
+  "inputDigest": "sha256:dfa24832733d91ef4ae1dc3f798bb7ad92a2c79fa52d737dec1b09f416faf1f0",
+  "interpretationPlan": {
+    "actualModelCalls": 0,
+    "duplicatedSourceBytes": 0,
+    "reason": "No independently closed relevance cuts; share one immutable packet",
+    "uniqueSourceBytes": 1402,
+    "workers": 1
+  },
+  "methods": [
+    {
+      "callBindings": [
+        {
+          "argumentStatus": "COMPILER_PARAMETER_MAPPING",
+          "arguments": [
+            {
+              "argumentEnd": 511,
+              "argumentStart": 509,
+              "argumentType": "kotlin/String",
+              "expression": "id",
+              "parameter": "id",
+              "parameterIndex": 0,
+              "parameterType": "kotlin/String",
+              "sourceId": "forecasts-576cdda518ab1e3ef925",
+              "valueKnowledge": "SOURCE_EXPRESSION_NOT_EVALUATED_VALUE"
+            }
+          ],
+          "callSite": {
+            "byteEnd": 512,
+            "byteStart": 495,
+            "endLine": 13,
+            "evidenceDigest": "sha256:c94ce12b1cc270047a35ef74aa925bf66fd63f74d3e615e273299969b4bbc3cf",
+            "file": "src/main/kotlin/weather/ForecastController.kt",
+            "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+            "sourceDigest": "sha256:d4f153a916ec0b19f390d089836faddd41c4c1031deee5a7f008224ffcb82a9d",
+            "sourceId": "forecasts-576cdda518ab1e3ef925",
+            "sourceStatus": "SOURCE_RETAINED",
+            "startLine": 13
+          },
+          "callerContinuation": "NOT_ESTABLISHED_BY_CALL_BINDING",
+          "callerMethodId": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+          "candidateTargetMethodIds": [
+            "forecasts:symbol:c22afad7006c4cb4eb9dc173"
+          ],
+          "defaultValues": "UNKNOWN",
+          "factDigest": "sha256:73987494263ef61eaf55c092854ebe2f81cc39beb18a419fd9eda9152e3f8dde",
+          "failureTransfer": {
+            "requiredEvidence": "QUALIFIED_EXCEPTION_AND_EFFECT_TRANSFER",
+            "status": "UNKNOWN"
+          },
+          "omittedDefaultParameterIndices": [],
+          "policy": "retained-k2-process-call-bindings/0.1",
+          "receiver": {
+            "objectIdentity": "UNKNOWN",
+            "selection": "EXPLICIT",
+            "type": "weather/Forecasts"
+          },
+          "relationId": "forecasts:call-relation:576cdda518ab1e3ef925c86c",
+          "returnTransfer": {
+            "declaredType": "kotlin/String?",
+            "requiredEvidence": "QUALIFIED_VALUE_RETURN_EQUATIONS_AND_CALLER_RESULT_BINDING",
+            "status": "UNKNOWN"
+          },
+          "schema": "codeclew-process-call-binding/0.1",
+          "sourceAuthority": "EXACT_SNAPSHOT_TEXT",
+          "sourceIds": [
+            "forecasts-576cdda518ab1e3ef925"
+          ],
+          "targetAuthority": "RETAINED_K2_COMPILER_SELECTED_SYMBOL_NOT_RUNTIME_DISPATCH",
+          "targetIdentity": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;",
+          "targetMethodId": "forecasts:symbol:c22afad7006c4cb4eb9dc173",
+          "targetStatus": "SAME_SCOPE_UNIQUE"
+        }
+      ],
+      "eventAssociation": "UNIQUE_METHOD_SYMBOL",
+      "eventIds": [
+        "forecasts:flow:0f9a4a5f5a8c113e0ff35835",
+        "forecasts:flow:059b9d23921db86c729a57f9",
+        "forecasts:flow:8d106a65b463bdc381d92ef5",
+        "forecasts:flow:99cca1da6122d943de0556f9",
+        "forecasts:flow:53fc99c43b932bd8ca303a9f",
+        "forecasts:flow:7a16aa8f9da5f59154769c79",
+        "forecasts:flow:704d0189ac35d5f5a83adbaa",
+        "forecasts:flow:4dd637efb0b995807c417a33",
+        "forecasts:flow:bd46c88cbf40a68730d3c9c1",
+        "forecasts:flow:d47cd0d64c064e0fe662ccb5",
+        "forecasts:flow:81f1bf462ab13a421c77a2ff"
+      ],
+      "id": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+      "onStructuralOutcomePath": false,
+      "providerSlots": [
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "forecasts:flow:0f9a4a5f5a8c113e0ff35835"
+          ],
+          "ordinal": 0,
+          "providerEvent": {
+            "kind": "CALL",
+            "resolution": "COMPILER_EXACT",
+            "sourceSpan": {
+              "byteEnd": 512,
+              "byteStart": 495,
+              "compilationScope": ":/main",
+              "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+              "file": "src/main/kotlin/weather/ForecastController.kt",
+              "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+              "ordinal": 0,
+              "ownerByteEnd": 654,
+              "ownerByteStart": 378,
+              "ownerSymbolIdentity": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+              "schema": "codeclew-documentation-source-span/1.0"
+            },
+            "target": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;"
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "forecasts:flow:059b9d23921db86c729a57f9"
+          ],
+          "ordinal": 1,
+          "providerEvent": {
+            "condition": "forecasts.get(id) is null",
+            "kind": "IF",
+            "sourceSpan": {
+              "byteEnd": 556,
+              "byteStart": 495,
+              "compilationScope": ":/main",
+              "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+              "file": "src/main/kotlin/weather/ForecastController.kt",
+              "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+              "ordinal": 1,
+              "ownerByteEnd": 654,
+              "ownerByteStart": 378,
+              "ownerSymbolIdentity": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+              "schema": "codeclew-documentation-source-span/1.0"
+            }
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "forecasts:flow:8d106a65b463bdc381d92ef5"
+          ],
+          "ordinal": 2,
+          "providerEvent": {
+            "kind": "CALL",
+            "resolution": "COMPILER_EXACT",
+            "sourceSpan": {
+              "byteEnd": 548,
+              "byteStart": 523,
+              "compilationScope": ":/main",
+              "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+              "file": "src/main/kotlin/weather/ForecastController.kt",
+              "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+              "ordinal": 2,
+              "ownerByteEnd": 654,
+              "ownerByteStart": 378,
+              "ownerSymbolIdentity": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+              "schema": "codeclew-documentation-source-span/1.0"
+            },
+            "target": "callable:org/springframework/http/ResponseEntity.notFound#jvm:()Lorg/springframework/http/ResponseEntity$HeadersBuilder;"
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "forecasts:flow:99cca1da6122d943de0556f9"
+          ],
+          "ordinal": 3,
+          "providerEvent": {
+            "kind": "CALL",
+            "resolution": "COMPILER_EXACT",
+            "sourceSpan": {
+              "byteEnd": 556,
+              "byteStart": 523,
+              "compilationScope": ":/main",
+              "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+              "file": "src/main/kotlin/weather/ForecastController.kt",
+              "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+              "ordinal": 3,
+              "ownerByteEnd": 654,
+              "ownerByteStart": 378,
+              "ownerSymbolIdentity": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+              "schema": "codeclew-documentation-source-span/1.0"
+            },
+            "target": "callable:org/springframework/http/ResponseEntity.HeadersBuilder.build#jvm:()Lorg/springframework/http/ResponseEntity;"
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "forecasts:flow:53fc99c43b932bd8ca303a9f"
+          ],
+          "ordinal": 4,
+          "providerEvent": {
+            "kind": "RETURN",
+            "sourceSpan": {
+              "byteEnd": 556,
+              "byteStart": 516,
+              "compilationScope": ":/main",
+              "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+              "file": "src/main/kotlin/weather/ForecastController.kt",
+              "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+              "ordinal": 4,
+              "ownerByteEnd": 654,
+              "ownerByteStart": 378,
+              "ownerSymbolIdentity": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+              "schema": "codeclew-documentation-source-span/1.0"
+            }
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "forecasts:flow:7a16aa8f9da5f59154769c79"
+          ],
+          "ordinal": 5,
+          "providerEvent": {
+            "kind": "END",
+            "sourceSpan": {
+              "byteEnd": 556,
+              "byteStart": 495,
+              "compilationScope": ":/main",
+              "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+              "file": "src/main/kotlin/weather/ForecastController.kt",
+              "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+              "ordinal": 5,
+              "ownerByteEnd": 654,
+              "ownerByteStart": 378,
+              "ownerSymbolIdentity": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+              "schema": "codeclew-documentation-source-span/1.0"
+            }
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "forecasts:flow:704d0189ac35d5f5a83adbaa"
+          ],
+          "ordinal": 6,
+          "providerEvent": {
+            "kind": "LOCAL",
+            "sourceSpan": {
+              "byteEnd": 556,
+              "byteStart": 481,
+              "compilationScope": ":/main",
+              "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+              "file": "src/main/kotlin/weather/ForecastController.kt",
+              "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+              "ordinal": 6,
+              "ownerByteEnd": 654,
+              "ownerByteStart": 378,
+              "ownerSymbolIdentity": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+              "schema": "codeclew-documentation-source-span/1.0"
+            }
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "forecasts:flow:4dd637efb0b995807c417a33"
+          ],
+          "ordinal": 7,
+          "providerEvent": {
+            "kind": "CALL",
+            "resolution": "COMPILER_EXACT",
+            "sourceSpan": {
+              "byteEnd": 591,
+              "byteStart": 572,
+              "compilationScope": ":/main",
+              "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+              "file": "src/main/kotlin/weather/ForecastController.kt",
+              "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+              "ordinal": 7,
+              "ownerByteEnd": 654,
+              "ownerByteStart": 378,
+              "ownerSymbolIdentity": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+              "schema": "codeclew-documentation-source-span/1.0"
+            },
+            "target": "callable:org/springframework/http/ResponseEntity.ok#jvm:()Lorg/springframework/http/ResponseEntity$BodyBuilder;"
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "forecasts:flow:bd46c88cbf40a68730d3c9c1"
+          ],
+          "ordinal": 8,
+          "providerEvent": {
+            "kind": "CALL",
+            "resolution": "COMPILER_EXACT",
+            "sourceSpan": {
+              "byteEnd": 634,
+              "byteStart": 572,
+              "compilationScope": ":/main",
+              "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+              "file": "src/main/kotlin/weather/ForecastController.kt",
+              "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+              "ordinal": 8,
+              "ownerByteEnd": 654,
+              "ownerByteStart": 378,
+              "ownerSymbolIdentity": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+              "schema": "codeclew-documentation-source-span/1.0"
+            },
+            "target": "callable:org/springframework/http/ResponseEntity.BodyBuilder.header#jvm:(Ljava/lang/String;[Ljava/lang/String;)Lorg/springframework/http/ResponseEntity$BodyBuilder;"
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "forecasts:flow:d47cd0d64c064e0fe662ccb5"
+          ],
+          "ordinal": 9,
+          "providerEvent": {
+            "kind": "CALL",
+            "resolution": "COMPILER_EXACT",
+            "sourceSpan": {
+              "byteEnd": 648,
+              "byteStart": 572,
+              "compilationScope": ":/main",
+              "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+              "file": "src/main/kotlin/weather/ForecastController.kt",
+              "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+              "ordinal": 9,
+              "ownerByteEnd": 654,
+              "ownerByteStart": 378,
+              "ownerSymbolIdentity": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+              "schema": "codeclew-documentation-source-span/1.0"
+            },
+            "target": "callable:org/springframework/http/ResponseEntity.BodyBuilder.body#jvm:(Ljava/lang/Object;)Lorg/springframework/http/ResponseEntity;"
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "forecasts:flow:81f1bf462ab13a421c77a2ff"
+          ],
+          "ordinal": 10,
+          "providerEvent": {
+            "kind": "RETURN",
+            "sourceSpan": {
+              "byteEnd": 648,
+              "byteStart": 565,
+              "compilationScope": ":/main",
+              "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+              "file": "src/main/kotlin/weather/ForecastController.kt",
+              "fullCompilationSourceDigest": "sha256:82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+              "ordinal": 10,
+              "ownerByteEnd": 654,
+              "ownerByteStart": 378,
+              "ownerSymbolIdentity": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+              "schema": "codeclew-documentation-source-span/1.0"
+            }
+          }
+        }
+      ],
+      "scope": ":/main",
+      "semanticClosure": "UNKNOWN",
+      "service": "forecasts",
+      "sourceIds": [
+        "forecasts-9e511a06302d5c4cf07d"
+      ],
+      "structuralOutcomeEventIds": [],
+      "symbol": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;"
+    },
+    {
+      "callBindings": [],
+      "eventAssociation": "UNIQUE_METHOD_SYMBOL",
+      "eventIds": [
+        "forecasts:flow:2a8a8906001e21caa7d18da4",
+        "forecasts:flow:ea600f8c812040ef36229a8f",
+        "forecasts:flow:9caa71b5cc6193bd193598e2",
+        "forecasts:flow:88b2aca2d73f3054acddea15",
+        "forecasts:flow:519a159f786cc8233a4ef5af",
+        "forecasts:flow:4f189b1488a2c220cc89dd1b"
+      ],
+      "id": "forecasts:symbol:c22afad7006c4cb4eb9dc173",
+      "onStructuralOutcomePath": false,
+      "providerSlots": [
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "forecasts:flow:2a8a8906001e21caa7d18da4"
+          ],
+          "ordinal": 0,
+          "providerEvent": {
+            "kind": "CALL",
+            "resolution": "COMPILER_EXACT",
+            "sourceSpan": {
+              "byteEnd": 1727,
+              "byteStart": 1625,
+              "compilationScope": ":/main",
+              "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+              "file": "src/main/kotlin/weather/Forecasts.kt",
+              "fullCompilationSourceDigest": "sha256:6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+              "ordinal": 0,
+              "ownerByteEnd": 1741,
+              "ownerByteStart": 1594,
+              "ownerSymbolIdentity": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;",
+              "schema": "codeclew-documentation-source-span/1.0"
+            },
+            "target": "callable:org/springframework/jdbc/core/JdbcTemplate.query#jvm:(Ljava/lang/String;Lorg/springframework/jdbc/core/RowMapper;[Ljava/lang/Object;)Ljava/util/List;"
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "forecasts:flow:ea600f8c812040ef36229a8f"
+          ],
+          "ordinal": 1,
+          "providerEvent": {
+            "condition": "If this callback is invoked",
+            "invocation": "NOT_ESTABLISHED",
+            "kind": "DEFERRED",
+            "sourceSpan": {
+              "byteEnd": 1722,
+              "byteStart": 1692,
+              "compilationScope": ":/main",
+              "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+              "file": "src/main/kotlin/weather/Forecasts.kt",
+              "fullCompilationSourceDigest": "sha256:6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+              "ordinal": 1,
+              "ownerByteEnd": 1741,
+              "ownerByteStart": 1594,
+              "ownerSymbolIdentity": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;",
+              "schema": "codeclew-documentation-source-span/1.0"
+            }
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "forecasts:flow:9caa71b5cc6193bd193598e2"
+          ],
+          "ordinal": 2,
+          "providerEvent": {
+            "kind": "CALL",
+            "resolution": "COMPILER_EXACT",
+            "sourceSpan": {
+              "byteEnd": 1720,
+              "byteStart": 1704,
+              "compilationScope": ":/main",
+              "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+              "file": "src/main/kotlin/weather/Forecasts.kt",
+              "fullCompilationSourceDigest": "sha256:6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+              "ordinal": 2,
+              "ownerByteEnd": 1741,
+              "ownerByteStart": 1594,
+              "ownerSymbolIdentity": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;",
+              "schema": "codeclew-documentation-source-span/1.0"
+            },
+            "target": "callable:java/sql/ResultSet.getString#jvm:(I)Ljava/lang/String;"
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "forecasts:flow:88b2aca2d73f3054acddea15"
+          ],
+          "ordinal": 3,
+          "providerEvent": {
+            "kind": "END",
+            "sourceSpan": {
+              "byteEnd": 1722,
+              "byteStart": 1692,
+              "compilationScope": ":/main",
+              "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+              "file": "src/main/kotlin/weather/Forecasts.kt",
+              "fullCompilationSourceDigest": "sha256:6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+              "ordinal": 3,
+              "ownerByteEnd": 1741,
+              "ownerByteStart": 1594,
+              "ownerSymbolIdentity": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;",
+              "schema": "codeclew-documentation-source-span/1.0"
+            }
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "forecasts:flow:519a159f786cc8233a4ef5af"
+          ],
+          "ordinal": 4,
+          "providerEvent": {
+            "kind": "CALL",
+            "resolution": "COMPILER_EXACT",
+            "sourceSpan": {
+              "byteEnd": 1741,
+              "byteStart": 1625,
+              "compilationScope": ":/main",
+              "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+              "file": "src/main/kotlin/weather/Forecasts.kt",
+              "fullCompilationSourceDigest": "sha256:6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+              "ordinal": 4,
+              "ownerByteEnd": 1741,
+              "ownerByteStart": 1594,
+              "ownerSymbolIdentity": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;",
+              "schema": "codeclew-documentation-source-span/1.0"
+            },
+            "target": "callable:kotlin/collections/firstOrNull#jvm:(Ljava/util/List;)Ljava/lang/Object;"
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "forecasts:flow:4f189b1488a2c220cc89dd1b"
+          ],
+          "ordinal": 5,
+          "providerEvent": {
+            "kind": "RETURN",
+            "sourceSpan": {
+              "byteEnd": 1741,
+              "byteStart": 1625,
+              "compilationScope": ":/main",
+              "coordinateDomain": "ORIGINAL_UTF8_BYTES",
+              "file": "src/main/kotlin/weather/Forecasts.kt",
+              "fullCompilationSourceDigest": "sha256:6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+              "ordinal": 5,
+              "ownerByteEnd": 1741,
+              "ownerByteStart": 1594,
+              "ownerSymbolIdentity": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;",
+              "schema": "codeclew-documentation-source-span/1.0"
+            }
+          }
+        }
+      ],
+      "scope": ":/main",
+      "semanticClosure": "UNKNOWN",
+      "service": "forecasts",
+      "sourceIds": [
+        "forecasts-c22afad7006c4cb4eb9d"
+      ],
+      "structuralOutcomeEventIds": [],
+      "symbol": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;"
+    }
+  ],
+  "outcomes": [],
+  "packetDigest": "sha256:2460241afeec44f6399b7c9c2508c5f55128af2b711bdfb7965c5b509c4e6452",
+  "policy": "retained-process-envelope/0.2",
+  "programSemanticClosure": false,
+  "query": {
+    "budgets": {
+      "maxEvents": 256,
+      "maxMethods": 32,
+      "maxSourceBytes": 262144
+    },
+    "configurationScope": ":/main",
+    "outcomeEventIds": [],
+    "purpose": "PROCESS",
+    "rootDeclaration": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+    "service": "forecasts"
+  },
+  "rootFactDigest": "sha256:a3cdd03f6b705f9fd9243d8c71da8b69ec4f7b78cbe04067c8064c738c5fbeaa",
+  "runtime": "UNKNOWN",
+  "runtimeMode": "RELEASE",
+  "schema": "codeclew-process-extraction-packet/0.1",
+  "serviceDigest": "sha256:a52948f5bde86508ac006d6faab3725dd3bd78525d2de86c2adb1d851626559f",
+  "snapshot": "sha256:55b1241b84060f2c00a4daff93ab8193ebc47a62c9266b7720616e8df9d6422f/22489",
+  "sourceRefs": {
+    "forecasts-059b9d23921db86c729a": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 61,
+      "endLine": 13,
+      "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+      "file": "src/main/kotlin/weather/ForecastController.kt",
+      "id": "forecasts-059b9d23921db86c729a",
+      "revision": "621170b612a668a46f5fbbefa1ef76a0c5c38444",
+      "service": "forecasts",
+      "startLine": 13,
+      "textDigest": "sha256:3a2ab3ab883f0c1ff96b6fb9e29f2049fdaeb62368942a5b59ca0323c02ea98e"
+    },
+    "forecasts-0f9a4a5f5a8c113e0ff3": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 17,
+      "endLine": 13,
+      "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+      "file": "src/main/kotlin/weather/ForecastController.kt",
+      "id": "forecasts-0f9a4a5f5a8c113e0ff3",
+      "revision": "621170b612a668a46f5fbbefa1ef76a0c5c38444",
+      "service": "forecasts",
+      "startLine": 13,
+      "textDigest": "sha256:d4f153a916ec0b19f390d089836faddd41c4c1031deee5a7f008224ffcb82a9d"
+    },
+    "forecasts-2a8a8906001e21caa7d1": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 102,
+      "endLine": 36,
+      "evidenceDigest": "sha256:7e89f70cb50b800287ef23a3f6507604a32121ee60ab378ef0ef25c561aab574",
+      "file": "src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-2a8a8906001e21caa7d1",
+      "revision": "621170b612a668a46f5fbbefa1ef76a0c5c38444",
+      "service": "forecasts",
+      "startLine": 36,
+      "textDigest": "sha256:e0b26d827429171aed08b6d3658023800b2359611af7f8a4591a9f2fe601dff4"
+    },
+    "forecasts-4dd637efb0b995807c41": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 19,
+      "endLine": 14,
+      "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+      "file": "src/main/kotlin/weather/ForecastController.kt",
+      "id": "forecasts-4dd637efb0b995807c41",
+      "revision": "621170b612a668a46f5fbbefa1ef76a0c5c38444",
+      "service": "forecasts",
+      "startLine": 14,
+      "textDigest": "sha256:f2563e303ca97404bd0effb2646a0b442fda93ed66433cab4ecc67287ef469c0"
+    },
+    "forecasts-4f189b1488a2c220cc89": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 116,
+      "endLine": 36,
+      "evidenceDigest": "sha256:7e89f70cb50b800287ef23a3f6507604a32121ee60ab378ef0ef25c561aab574",
+      "file": "src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-4f189b1488a2c220cc89",
+      "revision": "621170b612a668a46f5fbbefa1ef76a0c5c38444",
+      "service": "forecasts",
+      "startLine": 36,
+      "textDigest": "sha256:8968197abaf29bfb0b0a4af2062a4d56ff162831afac277870d850fae057e090"
+    },
+    "forecasts-519a159f786cc8233a4e": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 116,
+      "endLine": 36,
+      "evidenceDigest": "sha256:7e89f70cb50b800287ef23a3f6507604a32121ee60ab378ef0ef25c561aab574",
+      "file": "src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-519a159f786cc8233a4e",
+      "revision": "621170b612a668a46f5fbbefa1ef76a0c5c38444",
+      "service": "forecasts",
+      "startLine": 36,
+      "textDigest": "sha256:8968197abaf29bfb0b0a4af2062a4d56ff162831afac277870d850fae057e090"
+    },
+    "forecasts-53fc99c43b932bd8ca30": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 40,
+      "endLine": 13,
+      "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+      "file": "src/main/kotlin/weather/ForecastController.kt",
+      "id": "forecasts-53fc99c43b932bd8ca30",
+      "revision": "621170b612a668a46f5fbbefa1ef76a0c5c38444",
+      "service": "forecasts",
+      "startLine": 13,
+      "textDigest": "sha256:6c66301dae87c159b643b37d19eae5d6e8989cc6f8624e752ae2dd19e8e6ddd5"
+    },
+    "forecasts-576cdda518ab1e3ef925": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 17,
+      "endLine": 13,
+      "evidenceDigest": "sha256:c94ce12b1cc270047a35ef74aa925bf66fd63f74d3e615e273299969b4bbc3cf",
+      "file": "src/main/kotlin/weather/ForecastController.kt",
+      "id": "forecasts-576cdda518ab1e3ef925",
+      "revision": "621170b612a668a46f5fbbefa1ef76a0c5c38444",
+      "service": "forecasts",
+      "startLine": 13,
+      "textDigest": "sha256:d4f153a916ec0b19f390d089836faddd41c4c1031deee5a7f008224ffcb82a9d"
+    },
+    "forecasts-704d0189ac35d5f5a83a": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 75,
+      "endLine": 13,
+      "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+      "file": "src/main/kotlin/weather/ForecastController.kt",
+      "id": "forecasts-704d0189ac35d5f5a83a",
+      "revision": "621170b612a668a46f5fbbefa1ef76a0c5c38444",
+      "service": "forecasts",
+      "startLine": 13,
+      "textDigest": "sha256:3626c623b137fb3dea9e90f98268cfd74b21a99495f2075f607d50ea6df8aa14"
+    },
+    "forecasts-7a16aa8f9da5f5915476": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 61,
+      "endLine": 13,
+      "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+      "file": "src/main/kotlin/weather/ForecastController.kt",
+      "id": "forecasts-7a16aa8f9da5f5915476",
+      "revision": "621170b612a668a46f5fbbefa1ef76a0c5c38444",
+      "service": "forecasts",
+      "startLine": 13,
+      "textDigest": "sha256:3a2ab3ab883f0c1ff96b6fb9e29f2049fdaeb62368942a5b59ca0323c02ea98e"
+    },
+    "forecasts-81f1bf462ab13a421c77": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 83,
+      "endLine": 14,
+      "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+      "file": "src/main/kotlin/weather/ForecastController.kt",
+      "id": "forecasts-81f1bf462ab13a421c77",
+      "revision": "621170b612a668a46f5fbbefa1ef76a0c5c38444",
+      "service": "forecasts",
+      "startLine": 14,
+      "textDigest": "sha256:823a5e1e73a087bc974b86aa0815299fa39556fc39bc8d0d28a75a5480afdb5e"
+    },
+    "forecasts-88b2aca2d73f3054acdd": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 30,
+      "endLine": 36,
+      "evidenceDigest": "sha256:7e89f70cb50b800287ef23a3f6507604a32121ee60ab378ef0ef25c561aab574",
+      "file": "src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-88b2aca2d73f3054acdd",
+      "revision": "621170b612a668a46f5fbbefa1ef76a0c5c38444",
+      "service": "forecasts",
+      "startLine": 36,
+      "textDigest": "sha256:d786f2f3115c317e9d58ffec79d660a2708427f88755d6e577b27d1504c0f23c"
+    },
+    "forecasts-8d106a65b463bdc381d9": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 25,
+      "endLine": 13,
+      "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+      "file": "src/main/kotlin/weather/ForecastController.kt",
+      "id": "forecasts-8d106a65b463bdc381d9",
+      "revision": "621170b612a668a46f5fbbefa1ef76a0c5c38444",
+      "service": "forecasts",
+      "startLine": 13,
+      "textDigest": "sha256:045065aa6092be4b222ce029d1ad6c27d213d6abeb9a3c38485eea63abf3b1b0"
+    },
+    "forecasts-99cca1da6122d943de05": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 33,
+      "endLine": 13,
+      "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+      "file": "src/main/kotlin/weather/ForecastController.kt",
+      "id": "forecasts-99cca1da6122d943de05",
+      "revision": "621170b612a668a46f5fbbefa1ef76a0c5c38444",
+      "service": "forecasts",
+      "startLine": 13,
+      "textDigest": "sha256:6181e60bc5f4a4555c581763e2be9f115fa571c548f789d97c70a253cdc33086"
+    },
+    "forecasts-9caa71b5cc6193bd1935": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 16,
+      "endLine": 36,
+      "evidenceDigest": "sha256:7e89f70cb50b800287ef23a3f6507604a32121ee60ab378ef0ef25c561aab574",
+      "file": "src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-9caa71b5cc6193bd1935",
+      "revision": "621170b612a668a46f5fbbefa1ef76a0c5c38444",
+      "service": "forecasts",
+      "startLine": 36,
+      "textDigest": "sha256:2a126733df27e9b83e059125ef21c99a68b309f1aeded51ed05714eb25f9f917"
+    },
+    "forecasts-9e511a06302d5c4cf07d": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 276,
+      "endLine": 15,
+      "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+      "file": "src/main/kotlin/weather/ForecastController.kt",
+      "id": "forecasts-9e511a06302d5c4cf07d",
+      "revision": "621170b612a668a46f5fbbefa1ef76a0c5c38444",
+      "service": "forecasts",
+      "startLine": 11,
+      "textDigest": "sha256:27828cf2cb56c48d1202c9cac45816beab54ab10c791bcd815e7fb4471231167"
+    },
+    "forecasts-bd46c88cbf40a68730d3": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 62,
+      "endLine": 14,
+      "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+      "file": "src/main/kotlin/weather/ForecastController.kt",
+      "id": "forecasts-bd46c88cbf40a68730d3",
+      "revision": "621170b612a668a46f5fbbefa1ef76a0c5c38444",
+      "service": "forecasts",
+      "startLine": 14,
+      "textDigest": "sha256:f55af026ab23048d6e52ba0064cf05cb8b0c8090007f2a4502cc85a3b7dd7a2e"
+    },
+    "forecasts-c22afad7006c4cb4eb9d": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 147,
+      "endLine": 36,
+      "evidenceDigest": "sha256:7e89f70cb50b800287ef23a3f6507604a32121ee60ab378ef0ef25c561aab574",
+      "file": "src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-c22afad7006c4cb4eb9d",
+      "revision": "621170b612a668a46f5fbbefa1ef76a0c5c38444",
+      "service": "forecasts",
+      "startLine": 36,
+      "textDigest": "sha256:0aa7579134568df5c57c16d9d0e69cb3560d1a0ae00a3e8a32a1bc7311fe9bb9"
+    },
+    "forecasts-d47cd0d64c064e0fe662": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 76,
+      "endLine": 14,
+      "evidenceDigest": "sha256:d923498bc7c301f643cb1ee13bc968df7dcd968dc940113f7bfd444b669270eb",
+      "file": "src/main/kotlin/weather/ForecastController.kt",
+      "id": "forecasts-d47cd0d64c064e0fe662",
+      "revision": "621170b612a668a46f5fbbefa1ef76a0c5c38444",
+      "service": "forecasts",
+      "startLine": 14,
+      "textDigest": "sha256:312b9b6ed8635367799161b3acfa67a41144805e86afc92f6e31945bac6b4d58"
+    },
+    "forecasts-ea600f8c812040ef3622": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 30,
+      "endLine": 36,
+      "evidenceDigest": "sha256:7e89f70cb50b800287ef23a3f6507604a32121ee60ab378ef0ef25c561aab574",
+      "file": "src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-ea600f8c812040ef3622",
+      "revision": "621170b612a668a46f5fbbefa1ef76a0c5c38444",
+      "service": "forecasts",
+      "startLine": 36,
+      "textDigest": "sha256:d786f2f3115c317e9d58ffec79d660a2708427f88755d6e577b27d1504c0f23c"
+    }
+  },
+  "status": "COLLECTED_WITH_BOUNDARIES",
+  "unboundEvents": [],
+  "usage": "Source references remain in the retained Check. Absence or a budget cut never certifies irrelevance. Business labels and effect interpretations need a separate proposal and review."
+}
+```

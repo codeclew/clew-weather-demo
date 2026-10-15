@@ -1,0 +1,9 @@
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title forecasts-7113b27ca4694ebce3b6
+note as Evidence
+FLOW_AUTHORITY_NOT_QUALIFIED； EVIDENCE_BOUNDARIES:FLOW_AUTHORITY_NOT_QUALIFIED
+end note
+@enduml

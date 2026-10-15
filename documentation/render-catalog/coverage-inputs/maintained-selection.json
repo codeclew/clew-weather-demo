@@ -1,0 +1,15 @@
+[
+  {
+    "id": "dashboard-maintained-consumer",
+    "service": "dashboard",
+    "endpointDeclaration": "dashboard:symbol:a4627e5e868830287e83e0dc",
+    "workerDeclaration": "dashboard:symbol:a4627e5e868830287e83e0dc",
+    "authoredParagraphs": [
+      {
+        "bundle": "277c5abb80b2abfdfbe5f96220358bf1ceece0af9d263138e0d30ffb34ea91c0",
+        "operation": "dashboard-d527a6e620a1974b0e5a",
+        "fragment": "claim-a1492cfcfa17ec67d1e2"
+      }
+    ]
+  }
+]

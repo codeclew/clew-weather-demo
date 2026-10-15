@@ -1,0 +1,21 @@
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title petclinic-java-063ac2f85c3c4ccc9f30
+start
+:Entry: listOwners（lastName）;
+' evidence: method:class:org.springframework.samples.petclinic.rest.controller.v1.OwnerRestControllerV1#listOwners(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;
+:Collection&lt;Owner&gt; owners;
+if (lastName <U+0021><U+003D> null) then (C01)
+:owners = this.clinicService.findOwnerByLastName（...）;
+else (no)
+:owners = this.clinicService.findAllOwners（...）;
+endif
+if (owners.isEmpty<U+0028><U+0029>) then (C02)
+:return new ResponseEntity&lt;&gt;（HttpStatus.NOT_FOUND）;
+stop
+endif
+:return new ResponseEntity&lt;&gt;（ownerMapper.toOwnerDtoCollection（owners）, HttpStatus.OK）;
+stop
+@enduml

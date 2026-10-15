@@ -1,0 +1,17 @@
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title petclinic-java-f585065936ebf15c235a
+start
+:Entry: deletePet（petId）;
+' evidence: method:class:org.springframework.samples.petclinic.rest.controller.v1.PetRestControllerV1#deletePet(Ljava/lang/Integer;)Lorg/springframework/http/ResponseEntity;
+:pet = this.clinicService.findPetById（...）;
+if (pet <U+003D><U+003D> null) then (C01)
+:return new ResponseEntity&lt;&gt;（HttpStatus.NOT_FOUND）;
+stop
+endif
+:this.clinicService.deletePet（...）;
+:return new ResponseEntity&lt;&gt;（HttpStatus.NO_CONTENT）;
+stop
+@enduml

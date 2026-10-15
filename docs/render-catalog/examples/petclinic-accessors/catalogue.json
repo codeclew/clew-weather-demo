@@ -1,0 +1,46 @@
+{
+  "authority": "SELECTED_AND_EXAMINED_DOCUMENTATION_CONTEXT_NOT_RUNTIME_IMPACT",
+  "contextDigest": "sha256:d644f2130c08fb74067b8e0cd6942156d30971987d07b82be0eac8fe4e302db1",
+  "inputDigest": "sha256:5e5a95755eefbbf5a779f374cb44cef77d56c798e32d98f9ca347c6b7981a088",
+  "rows": [
+    {
+      "context": "petclinic · :/main",
+      "displayTitle": "org.springframework.samples.petclinic.owner.Owner.addPet",
+      "href": "source-calls.html#ref-b7f0d4b7a125d6ee081554e8ef66d1a780ed9ef3f03193be65bd51c0579b9cae",
+      "id": "callable-35803356a3ad747005e0ec469937940815f21b3fd5ed3c74d5a139e27be89627",
+      "kind": "Examined callable",
+      "relatedLinks": [
+        {
+          "href": "owner-add-pet-overview.html",
+          "title": "Examined by: owner-add-pet"
+        }
+      ],
+      "searchText": [
+        "petclinic",
+        ":/main",
+        "callable:org/springframework/samples/petclinic/owner/Owner.addPet#jvm:(Lorg/springframework/samples/petclinic/owner/Pet;)V",
+        "owner-add-pet"
+      ],
+      "summary": "Retained examined source body; reverse links are documentation context, not runtime impact. Call frontiers remain local gaps.",
+      "title": "callable:org/springframework/samples/petclinic/owner/Owner.addPet#jvm:(Lorg/springframework/samples/petclinic/owner/Pet;)V"
+    },
+    {
+      "context": "petclinic · :/main",
+      "href": "owner-add-pet-overview.html",
+      "id": "declarations-owner-add-pet",
+      "kind": "Selected declarations",
+      "relatedLinks": [],
+      "searchText": [
+        "petclinic",
+        ":/main",
+        "callable:org/springframework/samples/petclinic/owner/Owner.addPet#jvm:(Lorg/springframework/samples/petclinic/owner/Pet;)V",
+        "callable:org/springframework/samples/petclinic/owner/Owner.addPet#jvm:(Lorg/springframework/samples/petclinic/owner/Pet;)V"
+      ],
+      "summary": "Retained compiler-bound declarations and function-local control-flow graphs; inter-function relationships, execution order and runtime behavior are not inferred.",
+      "title": "Selected functions: callable:org/springframework/samples/petclinic/owner/Owner.addPet#jvm:(Lorg/springframework/samples/petclinic/owner/Pet;)V"
+    }
+  ],
+  "schema": "codeclew-native-catalogue/1.0",
+  "selectionDigest": "sha256:71f27fc5a6b6faac56597f0b2af80b5879cbd6cdb05b28f7c25fe65752bb2f3f",
+  "snapshot": "sha256:b964cb51d7a9681f6116dfa58bdd52b592857b5281c9f24fc4957e8c9ea9cb5b/13872"
+}

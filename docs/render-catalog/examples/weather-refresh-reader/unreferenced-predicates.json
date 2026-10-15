@@ -1,0 +1,100 @@
+[
+  {
+    "evaluation": {
+      "checks": [],
+      "evidence": [
+        "s7",
+        "s81"
+      ],
+      "glossaryRefs": [],
+      "text": "If true, the method reads `/app/fixtures/$id.json` into `raw`. If false, it evaluates the separate live-mode requirement before live acquisition.",
+      "uncertainty": null
+    },
+    "id": "fixture_mode",
+    "label": "Mode is fixture",
+    "meaning": {
+      "checks": [],
+      "evidence": [
+        "s7"
+      ],
+      "glossaryRefs": [],
+      "text": "The source tests `mode == \"fixture\"` to choose the fixture branch.",
+      "uncertainty": null
+    },
+    "sourceCheck": {
+      "checks": [],
+      "evidence": [
+        "s147"
+      ],
+      "glossaryRefs": [],
+      "text": "The retained branch reads the fixture file when `mode == \"fixture\"`; its `else` branch requires live mode.",
+      "uncertainty": null
+    }
+  },
+  {
+    "evaluation": {
+      "checks": [],
+      "evidence": [
+        "s212"
+      ],
+      "glossaryRefs": [],
+      "text": "True permits the live branch to continue. False makes `require` fail before live-path work; the resulting runtime exception type is not established here.",
+      "uncertainty": null
+    },
+    "id": "live_mode",
+    "label": "Mode is live",
+    "meaning": {
+      "checks": [],
+      "evidence": [
+        "s212"
+      ],
+      "glossaryRefs": [],
+      "text": "The live branch requires `mode == \"live\"`.",
+      "uncertainty": null
+    },
+    "sourceCheck": {
+      "checks": [],
+      "evidence": [
+        "s212"
+      ],
+      "glossaryRefs": [],
+      "text": "The source calls `require(mode == \"live\")` before reading the provider configuration or sending a request.",
+      "uncertainty": null
+    }
+  },
+  {
+    "evaluation": {
+      "checks": [],
+      "evidence": [
+        "s13",
+        "s80"
+      ],
+      "glossaryRefs": [],
+      "text": "The null-safe `isAfter` result is compared with `true`; a missing `nextAttempt[id]` therefore does not satisfy the guard. True raises `PROVIDER_BACKOFF`; false assigns `Instant.now().plusSeconds(60)` before request construction and send.",
+      "uncertainty": null
+    },
+    "id": "backoff_active",
+    "label": "Next attempt is in the future",
+    "meaning": {
+      "checks": [],
+      "evidence": [
+        "s13",
+        "s80"
+      ],
+      "glossaryRefs": [],
+      "text": "The guard is `nextAttempt[id]?.isAfter(Instant.now()) == true`.",
+      "uncertainty": null
+    },
+    "sourceCheck": {
+      "checks": [],
+      "evidence": [
+        "s13",
+        "s80",
+        "s225"
+      ],
+      "glossaryRefs": [],
+      "text": "The source raises `error(\"PROVIDER_BACKOFF\")` when the guard is true, and otherwise assigns a new next-attempt time.",
+      "uncertainty": null
+    }
+  }
+]

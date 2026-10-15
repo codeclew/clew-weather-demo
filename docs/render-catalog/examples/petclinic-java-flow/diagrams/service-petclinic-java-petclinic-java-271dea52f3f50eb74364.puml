@@ -1,0 +1,17 @@
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title petclinic-java-271dea52f3f50eb74364
+start
+:Entry: deleteOwner（ownerId）;
+' evidence: method:class:org.springframework.samples.petclinic.rest.controller.v1.OwnerRestControllerV1#deleteOwner(Ljava/lang/Integer;)Lorg/springframework/http/ResponseEntity;
+:owner = this.clinicService.findOwnerById（...）;
+if (owner <U+003D><U+003D> null) then (C01)
+:return new ResponseEntity&lt;&gt;（HttpStatus.NOT_FOUND）;
+stop
+endif
+:this.clinicService.deleteOwner（...）;
+:return new ResponseEntity&lt;&gt;（HttpStatus.NO_CONTENT）;
+stop
+@enduml

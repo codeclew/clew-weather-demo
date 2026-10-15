@@ -1,0 +1,7 @@
+{
+  "schema": "codeclew-documentation-work-request/1.0",
+  "audience": "Service maintainers comparing supported renderers. For consumeMessage and its retained applyEvent/validateEvent helpers, include one execution-flow, one dependency-map, one decision-table with a source-supported hit policy, and concrete static findings. Keep rejected input, duplicate event, DB and offset commits distinct. Request exact helper source when needed; deployed delivery is unknown.",
+  "entrypoint": "dashboard-d527a6e620a1974b0e5a",
+  "maxItems": 100,
+  "maxBytes": 49152
+}

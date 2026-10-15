@@ -1,0 +1,505 @@
+{
+  "schema": "weather-render-coverage-examples/1.0",
+  "items": [
+    {
+      "id": "gap-execution",
+      "category": "Diagrams",
+      "title": "Execution flow \u00b7 consumeMessage",
+      "path": "examples/weather-coverage/services/dashboard.html#dashboard-d527a6e620a1974b0e5a",
+      "description": "Accepted Luna Max visual of the actual Dashboard handler. Parsing, validation, rejection and applyEvent remain source interpretation.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "visuals.rs + app.js visualGraph"
+    },
+    {
+      "id": "gap-dependency",
+      "category": "Diagrams",
+      "title": "Dependency map \u00b7 Dashboard consumer",
+      "path": "examples/weather-coverage/services/dashboard.html#dashboard-d527a6e620a1974b0e5a",
+      "description": "Accepted typed map of the handler, validator, applyEvent and their source-bound dependencies. It does not prove deployed wiring.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "visuals.rs + app.js visualGraph"
+    },
+    {
+      "id": "gap-decision",
+      "category": "Blocks",
+      "title": "Decision table \u00b7 duplicate and forecast selection",
+      "path": "examples/weather-coverage/services/dashboard.html#dashboard-d527a6e620a1974b0e5a",
+      "description": "Accepted decision table for applyEvent with explicit hit policy, source citations and limitations.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "visuals.rs + app.js visualCard"
+    },
+    {
+      "id": "gap-state",
+      "category": "Diagrams",
+      "title": "Declared state diagram \u00b7 request_outbox.published",
+      "path": "examples/weather-coverage/scenarios/places-request-publisher.html",
+      "description": "The real C# publisher reads NOT published, produces the event, updates published=true and commits. These are declared SQL flag states, not observed delivery.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "media": "examples/weather-coverage/diagrams/scenario-places-request-publisher-states.svg",
+      "renderer": "render.rs + app.js PROCESS"
+    },
+    {
+      "id": "gap-transitions",
+      "category": "Diagrams",
+      "title": "Activity on lifecycle transitions \u00b7 PublishPending",
+      "path": "examples/weather-coverage/scenarios/places-request-publisher.html",
+      "description": "The same declared lifecycle selects the actual PublishPending source. Original operation source and state declarations remain available.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "media": "examples/weather-coverage/diagrams/scenario-places-request-publisher-activity-transitions.svg",
+      "renderer": "render.rs + app.js PROCESS"
+    },
+    {
+      "id": "gap-entity",
+      "category": "Blocks",
+      "title": "Domain identity and relation \u00b7 Place",
+      "path": "examples/weather-coverage/services/dashboard.html#section-entities",
+      "description": "Explicit Place identity and proposed stored-copy relations for event.place and weather_cards. Existing accepted entity prose is copied exactly; authoritative ownership remains unverified.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "entities.rs + app.js section-entities"
+    },
+    {
+      "id": "gap-dataflow",
+      "category": "Diagrams",
+      "title": "Entity dataflow \u00b7 Place in Dashboard",
+      "path": "examples/weather-coverage/scenarios/dashboard-place-lineage.html",
+      "description": "Real parsed payload, validation and weather_cards paths. Luna-authored graph with two mechanical identity/title corrections; native structure accepted, meaning UNASSESSED, linked process stale.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "dataflow.rs + app.js dataflowDiagram"
+    },
+    {
+      "id": "gap-findings",
+      "category": "Blocks",
+      "title": "Static finding \u00b7 captured consumer observation",
+      "path": "examples/weather-coverage/services/dashboard.html#dashboard-d527a6e620a1974b0e5a",
+      "description": "A finding card populated with an exact copy of the accepted consumer summary and its original source/dependency references. This is an authored static observation, not a new automated defect finding.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "render.rs + app.js findings"
+    },
+    {
+      "id": "gap-extraction",
+      "category": "Blocks",
+      "title": "Extracted evidence envelope and compiler bindings",
+      "path": "examples/weather-extraction/scenarios/forecast-read.html",
+      "description": "Native processExtraction for ForecastController.get: retained methods, events, call sites and exact compiler/source bindings. No runtime execution is inferred.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "process_extract.rs + app.js processExtractionCard"
+    },
+    {
+      "id": "gap-source-flow",
+      "category": "Diagrams",
+      "title": "Qualified source flow \u00b7 getOwner",
+      "path": "examples/petclinic-java-flow/scenarios/petclinic-get-owner.html",
+      "description": "Real OwnerRestControllerV1.getOwner from Spring Petclinic REST. Native source projection reports causal=true and JAVAC_SOURCE_STRUCTURE; Weather Kotlin is not admitted by this renderer.",
+      "repository": "Spring Petclinic REST",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "media": "examples/petclinic-java-flow/diagrams/scenario-petclinic-get-owner-process-outline-bf158bd39963d7f2.svg",
+      "renderer": "process_flow.rs + process_source_outline.rs"
+    },
+    {
+      "id": "gap-cfg",
+      "category": "Blocks",
+      "title": "Compiler local CFG \u00b7 ForecastController.get",
+      "path": "examples/weather-compiler-all/forecast-get-overview.html",
+      "description": "Actual Kotlin compiler CFG: 45 nodes and 47 edges. Other Weather selections retain their own normalization gaps.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "static_pages/publish.rs control_flow_panel",
+      "nativeCapture": {
+        "file": "examples/weather-compiler-all/forecast-get-overview.html",
+        "opening": "<section><h3>Compiler-provided local control flow",
+        "tag": "section",
+        "css": "examples/weather-compiler-all/style.css"
+      }
+    },
+    {
+      "id": "gap-data-state",
+      "category": "Blocks",
+      "title": "Guarded definitions and prerequisites \u00b7 Weather",
+      "path": "examples/weather-compiler-all/source-calls.html",
+      "description": "Ten real selected method contexts. refresh retains place/json/mode input definitions; health retains a post-ping interference boundary. Opaque expressions and unavailable runtime values remain explicit.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "static_pages/data_state.rs + publish.rs",
+      "nativeCapture": {
+        "file": "examples/weather-compiler-all/source-calls.html",
+        "opening": "<details id=\"[^\"]+-data\">",
+        "tag": "details",
+        "css": "examples/weather-compiler-all/style.css",
+        "scopeOpening": "<section id=\"[^\"]+\"><h2>weather.ForecastController.health</h2>"
+      }
+    },
+    {
+      "id": "gap-bindings",
+      "category": "Blocks",
+      "title": "Per-occurrence argument and return mappings \u00b7 Weather",
+      "path": "examples/weather-compiler-all/source-calls.html",
+      "description": "Native per-occurrence mapping panels from actual Forecasts source. Mapping authority and opaque/unavailable outcomes are preserved.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "static_pages/publish.rs",
+      "nativeCapture": {
+        "file": "examples/weather-compiler-all/source-calls.html",
+        "opening": "<details id=\"[^\"]+-data\">",
+        "tag": "details",
+        "css": "examples/weather-compiler-all/style.css",
+        "scopeOpening": "<section id=\"[^\"]+\"><h2>weather.ForecastController.health</h2>"
+      }
+    },
+    {
+      "id": "block-compiler-arguments",
+      "category": "Blocks",
+      "title": "Compiler argument bindings \u00b7 forecasts.get(id)",
+      "path": "examples/weather-compiler-all/forecast-get-overview.html",
+      "description": "Compiler-bound controller-to-helper argument occurrence, displayed beside the retained exact call site.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "static_pages/publish.rs"
+    },
+    {
+      "id": "block-property-accessors",
+      "category": "Blocks",
+      "title": "Property accessor attempts \u00b7 pet.isNew",
+      "path": "examples/petclinic-accessors/source-calls.html",
+      "description": "Real Owner.addPet reads BaseEntity.isNew. Authority is K2_RESOLVED_PROPERTY_SYMBOL_NOT_ACCESSOR_DISPATCH; dispatch and storage outcome remain UNKNOWN.",
+      "repository": "Spring Petclinic Kotlin",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "static_pages/publish.rs",
+      "nativeCapture": {
+        "file": "examples/petclinic-accessors/source-calls.html",
+        "opening": "<details id=\"[^\"]+-data\">",
+        "tag": "details",
+        "css": "examples/petclinic-accessors/style.css"
+      }
+    },
+    {
+      "id": "gap-authored",
+      "category": "Blocks",
+      "title": "Maintained paragraph with declared authorship",
+      "path": "examples/weather-maintained/dashboard-maintained-consumer-overview.html",
+      "description": "An accepted Luna Max explanation is preserved byte-for-byte and explicitly attributed to that model through a native retained edit. It remains unassessed maintained context.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "static_pages/authored.rs",
+      "nativeCapture": {
+        "file": "examples/weather-maintained/dashboard-maintained-consumer-overview.html",
+        "opening": "<section id=\"authored-paragraphs\">",
+        "tag": "section",
+        "css": "examples/weather-maintained/style.css"
+      }
+    },
+    {
+      "id": "block-operational-instructions",
+      "category": "Blocks",
+      "title": "Operational instructions \u00b7 exact Weather README",
+      "path": "examples/weather-instructions/dashboard-readme-instructions-overview.html",
+      "description": "The actual tracked README instructions are imported without rewriting, with source commit, author metadata and note association. Native authority remains HUMAN_OR_IMPORTED_UNVERIFIED.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "static_pages/project.rs + publish.rs",
+      "nativeCapture": {
+        "file": "examples/weather-instructions/dashboard-readme-instructions-overview.html",
+        "opening": "<section id=\"operational-instructions\">",
+        "tag": "section",
+        "css": "examples/weather-instructions/style.css"
+      }
+    },
+    {
+      "id": "gap-answer",
+      "category": "Pages",
+      "title": "OperationAnswer \u00b7 approved Weather GET reader",
+      "path": "examples/weather-approved-reader/index.html",
+      "description": "Real ForecastController.get and Forecasts.get, authored by Luna Max and independently approved by Sol High. Native answer, packet, audit, meaning review and review provenance are retained. This is an approved local draft, not a published service operation.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "operation_answer.rs"
+    },
+    {
+      "id": "page-rich-answer",
+      "category": "Pages",
+      "title": "OperationAnswer \u00b7 rich Weather refresh draft",
+      "path": "examples/weather-refresh-reader/index.html",
+      "description": "Real Forecasts.refresh with glossary, preparations and nested source interpretation. UNREVIEWED. Two duplicate IDs were renamed; three unused predicate records were moved to a sidecar. Original author answer is retained.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "operation_answer.rs"
+    },
+    {
+      "id": "block-answer-summary",
+      "category": "Blocks",
+      "title": "Business summary",
+      "path": "examples/weather-approved-reader/index.html#summary",
+      "description": "Source-bound summary from the approved GET answer.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "operation_answer.rs",
+      "nativeCapture": {
+        "file": "examples/weather-approved-reader/index.html",
+        "opening": "<details id=\"summary\"",
+        "tag": "details",
+        "embeddedCss": true
+      }
+    },
+    {
+      "id": "block-answer-outline",
+      "category": "Blocks",
+      "title": "Process outline",
+      "path": "examples/weather-refresh-reader/index.html#process-outline",
+      "description": "Linked outline of the actual nested refresh answer.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "operation_answer.rs",
+      "nativeCapture": {
+        "file": "examples/weather-refresh-reader/index.html",
+        "opening": "<section id=\"process-outline\">",
+        "tag": "section",
+        "embeddedCss": true
+      }
+    },
+    {
+      "id": "block-answer-glossary",
+      "category": "Blocks",
+      "title": "Glossary and technical carriers",
+      "path": "examples/weather-refresh-reader/index.html#glossary",
+      "description": "Real forecast payload and outbox event terms, with technical names and evidence.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "operation_answer.rs",
+      "nativeCapture": {
+        "file": "examples/weather-refresh-reader/index.html",
+        "opening": "<section id=\"glossary\">",
+        "tag": "section",
+        "embeddedCss": true
+      }
+    },
+    {
+      "id": "block-answer-pseudocode",
+      "category": "Blocks",
+      "title": "Authored pseudocode",
+      "path": "examples/weather-refresh-reader/index.html#authored-pseudocode",
+      "description": "Native pseudocode projection of the authored answer; separate from compiler flow.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "operation_answer.rs",
+      "nativeCapture": {
+        "file": "examples/weather-refresh-reader/index.html",
+        "opening": "<section id=\"authored-pseudocode\">",
+        "tag": "section",
+        "embeddedCss": true
+      }
+    },
+    {
+      "id": "block-answer-preparations",
+      "category": "Blocks",
+      "title": "Shared preparations",
+      "path": "examples/weather-refresh-reader/index.html#preparations",
+      "description": "Place key and cache candidate preparation, referenced by the nested decisions.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "operation_answer.rs",
+      "nativeCapture": {
+        "file": "examples/weather-refresh-reader/index.html",
+        "opening": "<section id=\"preparations\">",
+        "tag": "section",
+        "embeddedCss": true
+      }
+    },
+    {
+      "id": "block-answer-behavior",
+      "category": "Blocks",
+      "title": "Ordered and nested behavior",
+      "path": "examples/weather-refresh-reader/index.html#ordered-behavior",
+      "description": "Actual cache, acquisition, transformation and persistence-related source interpretation. UNREVIEWED.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "operation_answer.rs",
+      "nativeCapture": {
+        "file": "examples/weather-refresh-reader/index.html",
+        "opening": "<section id=\"ordered-behavior\">",
+        "tag": "section",
+        "embeddedCss": true
+      }
+    },
+    {
+      "id": "block-answer-predicates",
+      "category": "Blocks",
+      "title": "Semantic predicates and source checks",
+      "path": "examples/weather-refresh-reader/index.html#semantic-predicates",
+      "description": "Ten retained, referenced predicates with meanings, source checks and evaluation notes.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "operation_answer.rs",
+      "nativeCapture": {
+        "file": "examples/weather-refresh-reader/index.html",
+        "opening": "<section id=\"semantic-predicates\">",
+        "tag": "section",
+        "embeddedCss": true
+      }
+    },
+    {
+      "id": "block-answer-data-movement",
+      "category": "Blocks",
+      "title": "Data movement stated in steps",
+      "path": "examples/weather-refresh-reader/index.html#data-movement",
+      "description": "Real field/value movement declared by the refresh answer, with evidence and runtime limits.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "operation_answer.rs",
+      "nativeCapture": {
+        "file": "examples/weather-refresh-reader/index.html",
+        "opening": "<section id=\"data-movement\">",
+        "tag": "section",
+        "embeddedCss": true
+      }
+    },
+    {
+      "id": "block-answer-citations",
+      "category": "Blocks",
+      "title": "Cited evidence and packet facts",
+      "path": "examples/weather-refresh-reader/index.html#cited-evidence",
+      "description": "Native evidence index exposes retained packet facts, source links and scope limits.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "operation_answer.rs",
+      "nativeCapture": {
+        "file": "examples/weather-refresh-reader/index.html",
+        "opening": "<section id=\"cited-evidence\">",
+        "tag": "section",
+        "embeddedCss": true
+      }
+    },
+    {
+      "id": "block-answer-sources",
+      "category": "Blocks",
+      "title": "Retained source appendix",
+      "path": "examples/weather-refresh-reader/index.html#source-locations",
+      "description": "Exact retained Weather source excerpts and locations.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "operation_answer.rs",
+      "nativeCapture": {
+        "file": "examples/weather-refresh-reader/index.html",
+        "opening": "<section id=\"source-locations\">",
+        "tag": "section",
+        "embeddedCss": true
+      }
+    },
+    {
+      "id": "block-answer-uncertainties",
+      "category": "Blocks",
+      "title": "Uncertainties and interpretation limits",
+      "path": "examples/weather-refresh-reader/index.html",
+      "description": "Explicit unknown runtime values, external effects and execution boundaries.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "operation_answer.rs"
+    },
+    {
+      "id": "block-answer-evidence-map",
+      "category": "Blocks",
+      "title": "Evidence by block",
+      "path": "examples/weather-refresh-reader/index.html#cited-evidence",
+      "description": "The native map from individual answer blocks to their evidence references.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "operation_answer.rs",
+      "nativeCapture": {
+        "file": "examples/weather-refresh-reader/index.html",
+        "opening": "<section class=\"block-evidence-map\">",
+        "tag": "section",
+        "embeddedCss": true
+      }
+    },
+    {
+      "id": "block-answer-review",
+      "category": "Blocks",
+      "title": "Independent review provenance",
+      "path": "examples/weather-approved-reader/index.html",
+      "description": "Native APPROVED review metadata identifies the exact author answer, packet, reviewer, review run, assessed blocks and retained limitations.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "operation_answer.rs + operation_draft_review_context.rs",
+      "evidence": "examples/weather-approved-reader/review-provenance.json"
+    },
+    {
+      "id": "gap-handoff",
+      "category": "Coverage gaps",
+      "title": "Shared queue wiring and correlation",
+      "path": "",
+      "description": "Weather uses database outboxes and Kafka, not an in-process BlockingQueue. Public producer/consumer candidates inspected so far do not satisfy the current native proof: single queue operation, constructor-injected fields and one straight-line shared allocation. No populated example is claimed.",
+      "status": "NO_ADMISSIBLE_DEMO_YET",
+      "repository": "Public candidate search",
+      "renderer": "static_pages/source/handoff.rs"
+    },
+    {
+      "id": "gap-dsl",
+      "category": "Coverage gaps",
+      "title": "Java flow DSL \u00b7 builder-chain and operation-queue",
+      "path": "",
+      "description": "Weather has no Java flow DSL. Real VoltDB compound-procedure demos use inline newStageList(...).then(...), while this renderer requires a builder bound directly to a declared root variable. Other searched candidates also do not admit a populated projection. Both DSL families remain open; synthetic Codeclew fixtures are excluded.",
+      "status": "NO_ADMISSIBLE_DEMO_YET",
+      "repository": "Public candidate search",
+      "renderer": "flow_dsl/extract.rs"
+    },
+    {
+      "id": "gap-template",
+      "category": "Deferred",
+      "title": "Exact UpdateDeal presentation \u00b7 unsupported in this source",
+      "path": "",
+      "description": "The exact presentation is a deferred prototype, not a supported renderer in source 31a5598. Removed from the count of supported coverage gaps. Private UpdateDeal content and the rejected comparison are excluded.",
+      "status": "UNSUPPORTED_DEFERRED",
+      "repository": "Codeclew source inventory",
+      "renderer": "deferred prototype"
+    },
+    {
+      "id": "block-answer-outcomes",
+      "category": "Blocks",
+      "title": "First-match decision table and outcome details",
+      "path": "examples/weather-refresh-reader/index.html#ordered-behavior",
+      "description": "The actual refresh answer contains one native first-match table with three disclosed outcome branches. This remains part of the explicitly unreviewed draft.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "operation_answer.rs first_match_table",
+      "nativeCapture": {
+        "file": "examples/weather-refresh-reader/index.html",
+        "opening": "<div class=\"inline-decision\">",
+        "tag": "div",
+        "embeddedCss": true
+      }
+    },
+    {
+      "id": "page-places-answer",
+      "category": "Pages",
+      "title": "OperationAnswer \u00b7 Places request and response draft",
+      "path": "examples/weather-places-reader/index.html",
+      "description": "Real C# PlacesController.Save with its retained types, fields and branch source. Authored by Luna Max; native structure validated, meaning UNREVIEWED.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "operation_answer.rs"
+    },
+    {
+      "id": "block-answer-packet-facts",
+      "category": "Blocks",
+      "title": "Packet fact tables \u00b7 retained C# types and fields",
+      "path": "examples/weather-places-reader/index.html#packet-facts",
+      "description": "Native tables from the actual Places compiler packet: two retained types and one retained field. Names, declarations and evidence are preserved; absent generated record members are not invented.",
+      "repository": "Weather",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "renderer": "operation_answer.rs render_process_fact_tables_html",
+      "nativeCapture": {
+        "file": "examples/weather-places-reader/index.html",
+        "opening": "<section id=\"packet-facts\">",
+        "tag": "section",
+        "embeddedCss": true
+      }
+    }
+  ]
+}

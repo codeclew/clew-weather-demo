@@ -1,0 +1,22 @@
+{
+  "schema": "weather-render-public-source-privacy-review/1.0",
+  "disposition": "PUBLIC_UPSTREAM_LITERAL_NOT_PRIVATE_DATA",
+  "source": "https://github.com/spring-petclinic/spring-petclinic-rest/blob/afc8fc1d3b8ec8de69414482b3bd70a1da78cb95/src/main/java/org/springframework/samples/petclinic/config/SwaggerConfig.java#L57",
+  "reason": "The exact native retained source contains the upstream public OpenAPI contact email. The unchanged source bytes and their provenance are preserved. The generic checker has no public-source exception facility; this factual review applies only to the exact listed output hashes and email hash.",
+  "records": [
+    {
+      "path": "docs/render-catalog/examples/petclinic-java-flow/services/petclinic-java.html",
+      "blobSha256": "24e74572e25564ac5f69d847f80d2e9d054ee2c7930edf085594987644b79a65",
+      "rule": "non-placeholder-email",
+      "emailSha256": "ba1fafa533a832d1cdf4bcd06f38f516c5ac907ceae5e8867d870cd2de548451"
+    },
+    {
+      "path": "docs/render-catalog/examples/petclinic-java-flow/services/petclinic-java.json",
+      "blobSha256": "9a05e6952eafb808c13084cd24eb5be94b63f4426e4eaa5dea44fcf5376a5b65",
+      "rule": "non-placeholder-email",
+      "emailSha256": "ba1fafa533a832d1cdf4bcd06f38f516c5ac907ceae5e8867d870cd2de548451"
+    }
+  ],
+  "genericPrivacyCheckerResult": "Two non-placeholder-email findings; no other privacy findings.",
+  "policyChanged": false
+}

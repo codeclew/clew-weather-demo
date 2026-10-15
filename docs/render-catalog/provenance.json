@@ -5,8 +5,16 @@
   "snapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
   "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
   "nativeBundles": [
+    "examples/1cfe0c21f06a154cdd6e9fe5f183c4f3b032f1e4443a0b6b55d8db5e92e221fb/pages-manifest.json",
+    "examples/petclinic-java-flow/pages-manifest.json",
     "examples/weather/pages-manifest.json",
-    "examples/places-native/manifest.json"
+    "examples/weather-coverage/pages-manifest.json",
+    "examples/weather-extraction/pages-manifest.json",
+    "examples/petclinic-accessors/manifest.json",
+    "examples/places-native/manifest.json",
+    "examples/weather-compiler-all/manifest.json",
+    "examples/weather-instructions/manifest.json",
+    "examples/weather-maintained/manifest.json"
   ],
   "previewAuthority": "READ_ONLY_EXCERPTS_OF_REAL_NATIVE_OUTPUT_NOT_A_NEW_CLEW_TEMPLATE",
   "previewChanges": [
@@ -16,7 +24,9 @@
     "Make source panel static inside preview"
   ],
   "capturedUiAssetsMatchCurrentNativeOutput": true,
-  "businessProseAuthored": false,
+  "businessProseAuthored": true,
+  "newAuthoring": "Luna Max; accepted typed visuals, an unassessed dataflow, an approved GET answer and an explicitly unreviewed refresh draft. Existing accepted Weather prose is preserved.",
+  "coverageEvidence": "coverage-provenance.json",
   "fullReaderCommand": [
     "./clew",
     "docs",

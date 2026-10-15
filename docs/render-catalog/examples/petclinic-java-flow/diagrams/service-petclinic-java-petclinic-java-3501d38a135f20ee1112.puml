@@ -1,0 +1,19 @@
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title petclinic-java-3501d38a135f20ee1112
+start
+:Entry: addVet（vetDto）;
+' evidence: method:class:org.springframework.samples.petclinic.rest.controller.v1.VetRestControllerV1#addVet(Lorg/springframework/samples/petclinic/rest/dto/VetDto;)Lorg/springframework/http/ResponseEntity;
+:headers = new HttpHeaders（...）;
+:vet = vetMapper.toVet（...）;
+if (vet.getNrOfSpecialties<U+0028><U+0029> <U+003E> 0) then (C01)
+:vetSpecialities = this.clinicService.findSpecialtiesByNameIn（...）;
+:vet.setSpecialties（...）;
+endif
+:this.clinicService.saveVet（...）;
+:headers.setLocation（...）;
+:return new ResponseEntity&lt;&gt;（vetMapper.toVetDto（vet）, headers, HttpStatus.CREATED）;
+stop
+@enduml

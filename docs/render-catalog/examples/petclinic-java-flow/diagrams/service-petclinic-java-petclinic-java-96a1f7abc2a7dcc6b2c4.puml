@@ -1,0 +1,15 @@
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title petclinic-java-96a1f7abc2a7dcc6b2c4
+start
+:Entry: addPetType（petTypeFieldsDto）;
+' evidence: method:class:org.springframework.samples.petclinic.rest.controller.v1.PetTypeRestControllerV1#addPetType(Lorg/springframework/samples/petclinic/rest/dto/PetTypeFieldsDto;)Lorg/springframework/http/ResponseEntity;
+:headers = new HttpHeaders（...）;
+:type = petTypeMapper.toPetType（...）;
+:this.clinicService.savePetType（...）;
+:headers.setLocation（...）;
+:return new ResponseEntity&lt;&gt;（petTypeMapper.toPetTypeDto（type）, headers, HttpStatus.CREATED）;
+stop
+@enduml

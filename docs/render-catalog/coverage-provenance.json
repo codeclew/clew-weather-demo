@@ -1,0 +1,272 @@
+{
+  "schema": "weather-render-coverage-provenance/1.0",
+  "sourceLauncher": "./clew",
+  "sourceRevision": "31a559851b947d5eda90afc003f2bfb2b2c27130",
+  "originalGapResolution": {
+    "original": 18,
+    "withRealExamples": 15,
+    "open": 2,
+    "unsupportedDeferred": 1
+  },
+  "repositories": {
+    "Weather": {
+      "repository": "https://github.com/codeclew/clew-weather-demo",
+      "retainedDashboardRevision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+      "retainedPlacesRevision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "freshReadmeCaptureRevision": "6bceb663d27860e1edd8155f796cee6f696c0fdc",
+      "forecastSubtree": {
+        "schema": "weather-forecast-subtree-provenance/1.0",
+        "upstreamRepository": "https://github.com/codeclew/clew-weather-demo",
+        "upstreamCommit": "6bceb663d27860e1edd8155f796cee6f696c0fdc",
+        "upstreamPrefix": "services/forecasts",
+        "subtreeCommit": "621170b612a668a46f5fbbefa1ef76a0c5c38444",
+        "publishedBranch": "render/forecasts-compiler-source-20261015",
+        "applicationSourceChanged": false,
+        "files": [
+          {
+            "extractedPath": "Dockerfile",
+            "weatherPath": "services/forecasts/Dockerfile",
+            "sha256": "319881a5d98eadb646b8e79318a478b57ab09b86b5704b0148378e438f0c38ca",
+            "sameBytes": true
+          },
+          {
+            "extractedPath": "pom.xml",
+            "weatherPath": "services/forecasts/pom.xml",
+            "sha256": "db95dd794c596edc9a1a0cd93f80536b1c08df68c22450ac2c1533700c985e51",
+            "sameBytes": true
+          },
+          {
+            "extractedPath": "src/main/resources/application.properties",
+            "weatherPath": "services/forecasts/src/main/resources/application.properties",
+            "sha256": "97bb018b627d24427adae2e9b1c3dfe157a0bdd7d7f609c87a3d14696c00d84c",
+            "sameBytes": true
+          },
+          {
+            "extractedPath": "src/main/kotlin/weather/Application.kt",
+            "weatherPath": "services/forecasts/src/main/kotlin/weather/Application.kt",
+            "sha256": "589a382508fe5cb31ee0dcc500eb8d7fc0198a98064f79aefa2aedb15ab1d4df",
+            "sameBytes": true
+          },
+          {
+            "extractedPath": "src/main/kotlin/weather/KafkaConfiguration.kt",
+            "weatherPath": "services/forecasts/src/main/kotlin/weather/KafkaConfiguration.kt",
+            "sha256": "063f6579f63ec0c543ac6562a54dabfaabff0c818fd349fab9dc814ededfdd77",
+            "sameBytes": true
+          },
+          {
+            "extractedPath": "src/main/kotlin/weather/Forecasts.kt",
+            "weatherPath": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+            "sha256": "6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+            "sameBytes": true
+          },
+          {
+            "extractedPath": "src/main/kotlin/weather/ForecastController.kt",
+            "weatherPath": "services/forecasts/src/main/kotlin/weather/ForecastController.kt",
+            "sha256": "82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+            "sameBytes": true
+          }
+        ]
+      }
+    },
+    "Spring Petclinic Kotlin": {
+      "repository": "https://github.com/spring-petclinic/spring-petclinic-kotlin",
+      "revision": "c77f77ba5d43c2dbff7fa777c40be1d7ec321e40",
+      "selection": "Owner.addPet",
+      "license": "examples/petclinic-accessors/LICENSE.txt"
+    },
+    "Spring Petclinic REST": {
+      "repository": "https://github.com/spring-petclinic/spring-petclinic-rest",
+      "revision": "afc8fc1d3b8ec8de69414482b3bd70a1da78cb95",
+      "selection": "OwnerRestControllerV1.getOwner(Integer)",
+      "license": "examples/petclinic-java-flow/LICENSE.txt"
+    }
+  },
+  "nativeResults": {
+    "weather-coverage-pages-final": {
+      "schema": "codeclew-native-pages-full-manifest/1.0",
+      "status": "RENDERED",
+      "snapshot": "sha256:cd128dab5185ee06165da23afe31d75586b018ecdbe77d51b8c6bb3c178547b3/162173",
+      "inputDigest": "sha256:d222c16c3aa924499e7fdab1ad824e2c18c2a2571aac78c10ddf1614b1b11817",
+      "contextDigest": "sha256:f8678b7bab0fc73d39edd3d5cfec243caaaee10cc412572145d9f7427fce7c09",
+      "publication": "2e248f37031782a96c321846f1046fa141e6e7afb91c4a6f493762a170cd8f8d",
+      "proseAuthored": false,
+      "authority": "FROZEN_NARRATIVES_WITH_SEPARATE_SELECTED_SNAPSHOT_EVIDENCE"
+    },
+    "forecast-native-all": {
+      "schema": "codeclew-native-pages-render/1.0",
+      "status": "RENDERED",
+      "snapshot": "sha256:86a4ac77b715d392e02af1d52beda77c47253d7d6be96ed33912aeed7a9b84cc/5516",
+      "inputDigest": "sha256:79beb5af7b5bd3b3504bd518fca7651286e76147d3b21de6a45f8921973f6365",
+      "contextDigest": "sha256:25e6f73d55cfe6d50ae1a3595906e97e927e33fac1fc08af255874a0f2b5d345"
+    },
+    "process-pages-extraction": {
+      "schema": "codeclew-native-pages-full-manifest/1.0",
+      "status": "RENDERED",
+      "snapshot": "sha256:55b1241b84060f2c00a4daff93ab8193ebc47a62c9266b7720616e8df9d6422f/22489",
+      "inputDigest": "sha256:dfa24832733d91ef4ae1dc3f798bb7ad92a2c79fa52d737dec1b09f416faf1f0",
+      "contextDigest": "sha256:6dce60d4a88c7c8ebb0e26e9351bfa01e86685fdfec7827fca9c2b353e65ea06",
+      "publication": "78a7c5fe9641539047942f396680164ad756ffe5112ed9ed1ad1b94b784e014d",
+      "proseAuthored": false,
+      "authority": "FROZEN_NARRATIVES_WITH_SEPARATE_SELECTED_SNAPSHOT_EVIDENCE"
+    },
+    "maintained-native-pages": {
+      "schema": "codeclew-native-pages-render/1.0",
+      "status": "RENDERED",
+      "snapshot": "sha256:cd128dab5185ee06165da23afe31d75586b018ecdbe77d51b8c6bb3c178547b3/162173",
+      "inputDigest": "sha256:d222c16c3aa924499e7fdab1ad824e2c18c2a2571aac78c10ddf1614b1b11817",
+      "contextDigest": "sha256:f8678b7bab0fc73d39edd3d5cfec243caaaee10cc412572145d9f7427fce7c09"
+    },
+    "instructions-dashboard-pages": {
+      "schema": "codeclew-native-pages-render/1.0",
+      "status": "RENDERED",
+      "snapshot": "sha256:39962352888c1be28494378e3465e45f820c7ec8da792f1e749d5790be25e71e/11147",
+      "inputDigest": "sha256:df2bb637df86fb499f865ca0a3193c7d09572012f1aae2fc9d106b55e891406a",
+      "contextDigest": "sha256:56d7448b4d31a5ebc55a60c2fd4fe1309cf03774a0a060f8fab779ec12167215"
+    },
+    "petclinic-native-pages": {
+      "schema": "codeclew-native-pages-render/1.0",
+      "status": "RENDERED",
+      "snapshot": "sha256:b964cb51d7a9681f6116dfa58bdd52b592857b5281c9f24fc4957e8c9ea9cb5b/13872",
+      "inputDigest": "sha256:5e5a95755eefbbf5a779f374cb44cef77d56c798e32d98f9ca347c6b7981a088",
+      "contextDigest": "sha256:d644f2130c08fb74067b8e0cd6942156d30971987d07b82be0eac8fe4e302db1"
+    },
+    "java-rest-pages": {
+      "schema": "codeclew-native-pages-full-manifest/1.0",
+      "status": "RENDERED",
+      "snapshot": "sha256:d2d33a409e847014a1e015698c1539eea052a23a60304150c6fc9bb91820dc4b/33501",
+      "inputDigest": "sha256:387a46087a10ab178df626a8c9190270fe1a73ae81bddda0c7b3a6a809528560",
+      "contextDigest": "sha256:0be019f22bbbd321318b138fdc4feca1fd19f159f70773103ce02196f9b2a672",
+      "publication": "8da20f2b3af4472fff78fedf072331352d8d935e849095c36904624a37377348",
+      "proseAuthored": false,
+      "authority": "FROZEN_NARRATIVES_WITH_SEPARATE_SELECTED_SNAPSHOT_EVIDENCE"
+    },
+    "refresh-reader-structural-explain": {
+      "schema": "codeclew-documentation-operation-answer-draft/1.0",
+      "status": "DRAFT",
+      "publication": "NOT_PUBLISHED",
+      "work": "496a1c536dbdbd716a8a88308be17c9aa317e145d8e9fa28144818fcf88f4eb6",
+      "reviewStatus": "UNREVIEWED"
+    },
+    "get-approved-reader-export": {
+      "schema": "codeclew-documentation-reviewed-operation-answer-export/1.0",
+      "status": "DRAFT",
+      "snapshot": "sha256:55b1241b84060f2c00a4daff93ab8193ebc47a62c9266b7720616e8df9d6422f/22489",
+      "publication": "NOT_PUBLISHED",
+      "work": "9f0f1ce5f7d9b952944d7b103cd4d1505829ca90a4141b96760c59e45099562a",
+      "reviewStatus": "MODEL_APPROVED"
+    },
+    "places-reader-export": {
+      "publication": "NOT_PUBLISHED",
+      "reviewStatus": "UNREVIEWED",
+      "schema": "codeclew-documentation-operation-answer-draft/1.0",
+      "status": "DRAFT",
+      "work": "f66bb87d7d8abfc7fee71bd431eb2f46990e34ce5935ccc557b645cda521eabe"
+    }
+  },
+  "authoredExamples": {
+    "visuals": {
+      "author": "gpt-6-luna",
+      "reasoningEffort": "max",
+      "reviewer": "gpt-6.1-sol",
+      "reviewerReasoningEffort": "high",
+      "status": "ACCEPTED",
+      "proposal": "0207bece73cc690f1505f72196da3dde325df19c4e48461ba1cf58cc927ffca6"
+    },
+    "dataflow": {
+      "author": "gpt-6-luna",
+      "reasoningEffort": "max",
+      "mechanicalChanges": [
+        "domain.representation = entity:weather-place",
+        "domain.meaning.text = exact declared title Place"
+      ],
+      "status": "READY_WITH_LIMITATIONS",
+      "meaningReview": "UNASSESSED",
+      "proposal": "0c45ea146d28f864549dabc18e6312ddc66530548b65ef71e37253166334d0a0"
+    },
+    "finding": {
+      "operation": "dashboard-d527a6e620a1974b0e5a",
+      "method": "Exact accepted summary copied with unchanged source and dependency references into the native findings slot; protected maintained paragraph preserved.",
+      "meaningReview": "UNASSESSED_STATIC_OBSERVATION"
+    },
+    "approvedReader": "examples/weather-approved-reader/review-provenance.json",
+    "refreshReader": "examples/weather-refresh-reader/authoring-provenance.json",
+    "maintainedParagraph": {
+      "author": "gpt-6-luna (max); preserved accepted proposal text",
+      "method": "Native exact retained explanationText edit with identical expected and replacement text.",
+      "meaningReview": "UNASSESSED"
+    },
+    "placesReader": {
+      "author": "gpt-6-luna",
+      "reasoningEffort": "max",
+      "work": "f66bb87d7d8abfc7fee71bd431eb2f46990e34ce5935ccc557b645cda521eabe",
+      "sourceRun": "b079315f86c64eaab03fe99c20600f65",
+      "meaningReview": "UNREVIEWED",
+      "publication": "NOT_PUBLISHED",
+      "mechanicalChanges": []
+    },
+    "newAuthoringScope": "New research examples only; existing accepted Weather documentation is unchanged."
+  },
+  "preservation": {
+    "originalMainGuideChanged": false,
+    "originalAcceptedPublicationChanged": false,
+    "applicationSourceChanged": false,
+    "privateUpdateDealContentIncluded": false,
+    "syntheticCompilerFixturesIncluded": false
+  },
+  "openItems": [
+    "gap-handoff",
+    "gap-dsl"
+  ],
+  "deferred": [
+    "gap-template"
+  ],
+  "remainingResearch": [
+    {
+      "id": "gap-handoff",
+      "weatherReason": "Weather uses Kafka and database outboxes, not an in-process BlockingQueue.",
+      "rendererConstraints": [
+        "A single retained queue offer/put/add and poll/take per selected method",
+        "Constructor-bound instance fields",
+        "One shared allocation passed to both selected owners through straight-line wiring"
+      ],
+      "inspectedPublicCandidates": [
+        {
+          "url": "https://github.com/iluwatar/java-design-patterns/blob/master/producer-consumer/src/main/java/com/iluwatar/producer/consumer/Producer.java",
+          "limitation": "Producer uses an ItemQueue wrapper, not a direct BlockingQueue operation."
+        },
+        {
+          "url": "https://github.com/eugenp/tutorials/tree/master/core-java-modules/core-java-concurrency-collections/src/main/java/com/baeldung/concurrent/blocking/queue",
+          "limitation": "Producer and consumer operations occur in loops/try bodies, which this Java source projection does not admit as direct queue operations."
+        },
+        {
+          "url": "https://github.com/VelvetShiki-V/Java-Repo/blob/main/demo/_2024_6_12/src/com/vs/Thread/BlockingQueueTest.java",
+          "limitation": "Queue is initialized on an owner field rather than injected by the admitted shared-allocation wiring."
+        }
+      ],
+      "result": "No populated admissible example found; no synthetic replacement added."
+    },
+    {
+      "id": "gap-dsl",
+      "weatherReason": "Weather contains no Java flow DSL.",
+      "families": [
+        "builder-chain",
+        "operation-queue"
+      ],
+      "inspectedPublicCandidates": [
+        {
+          "url": "https://github.com/VoltDB/voltdb-examples/blob/master/compound-proc/src/OrderProc.java",
+          "limitation": "Real inline newStageList(this::getData).then(...).build() is not bound directly to a root variable as required by the current extractor."
+        },
+        {
+          "url": "https://github.com/VoltDB/voltdb-examples/blob/master/user-hits/src/server/HandleHit.java",
+          "limitation": "Same inline builder form; no admissible root-variable initialization."
+        },
+        {
+          "url": "https://github.com/CrissNamon/aide/blob/master/aide-all/src/main/java/tech/hiddenproject/aide/example/ConditionalExample.java",
+          "limitation": "Conditional/lambda construction differs from the admitted method-reference-only builder groups."
+        }
+      ],
+      "result": "Both Java DSL families remain open; native synthetic qualification fixtures are deliberately excluded."
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schema": "weather-forecast-subtree-provenance/1.0",
+  "upstreamRepository": "https://github.com/codeclew/clew-weather-demo",
+  "upstreamCommit": "6bceb663d27860e1edd8155f796cee6f696c0fdc",
+  "upstreamPrefix": "services/forecasts",
+  "subtreeCommit": "621170b612a668a46f5fbbefa1ef76a0c5c38444",
+  "publishedBranch": "render/forecasts-compiler-source-20261015",
+  "applicationSourceChanged": false,
+  "files": [
+    {
+      "extractedPath": "Dockerfile",
+      "weatherPath": "services/forecasts/Dockerfile",
+      "sha256": "319881a5d98eadb646b8e79318a478b57ab09b86b5704b0148378e438f0c38ca",
+      "sameBytes": true
+    },
+    {
+      "extractedPath": "pom.xml",
+      "weatherPath": "services/forecasts/pom.xml",
+      "sha256": "db95dd794c596edc9a1a0cd93f80536b1c08df68c22450ac2c1533700c985e51",
+      "sameBytes": true
+    },
+    {
+      "extractedPath": "src/main/resources/application.properties",
+      "weatherPath": "services/forecasts/src/main/resources/application.properties",
+      "sha256": "97bb018b627d24427adae2e9b1c3dfe157a0bdd7d7f609c87a3d14696c00d84c",
+      "sameBytes": true
+    },
+    {
+      "extractedPath": "src/main/kotlin/weather/Application.kt",
+      "weatherPath": "services/forecasts/src/main/kotlin/weather/Application.kt",
+      "sha256": "589a382508fe5cb31ee0dcc500eb8d7fc0198a98064f79aefa2aedb15ab1d4df",
+      "sameBytes": true
+    },
+    {
+      "extractedPath": "src/main/kotlin/weather/KafkaConfiguration.kt",
+      "weatherPath": "services/forecasts/src/main/kotlin/weather/KafkaConfiguration.kt",
+      "sha256": "063f6579f63ec0c543ac6562a54dabfaabff0c818fd349fab9dc814ededfdd77",
+      "sameBytes": true
+    },
+    {
+      "extractedPath": "src/main/kotlin/weather/Forecasts.kt",
+      "weatherPath": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "sha256": "6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+      "sameBytes": true
+    },
+    {
+      "extractedPath": "src/main/kotlin/weather/ForecastController.kt",
+      "weatherPath": "services/forecasts/src/main/kotlin/weather/ForecastController.kt",
+      "sha256": "82180d0d777cd309672696f541753af9c1ba22a531789eab6b34abdcd061df47",
+      "sameBytes": true
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "weather-native-answer-export-files/1.0",
+  "nativeCommand": "./clew docs work explain",
+  "nativeStatus": "DRAFT",
+  "nativeMeaningReview": "UNREVIEWED",
+  "work": "f66bb87d7d8abfc7fee71bd431eb2f46990e34ce5935ccc557b645cda521eabe",
+  "reviewRun": null,
+  "files": [
+    {
+      "path": "answer.json",
+      "digest": "sha256:4591531202daa6b0464b0dec7614cfdb3bf33dede3f3bfee3186fd29568d51fb"
+    },
+    {
+      "path": "index.html",
+      "digest": "sha256:7c1681484c2306a96909b213628f1d049bcef60c83384a566bee0144f4c0c62b"
+    },
+    {
+      "path": "operation.md",
+      "digest": "sha256:18a3727a089def488fd995e8b13a486cb42c25cd4c72ef3ed8e929796ff0623b"
+    },
+    {
+      "path": "process-flow.puml",
+      "digest": "sha256:9d6cfd57bfb6cf6110f8ee9c55572a6ad41e739cb4dbd2d3d1eeaf087784daca"
+    },
+    {
+      "path": "process-flow.svg",
+      "digest": "sha256:aba2b1c06f8c183a27eca31eb2fa6c3b5ab90c1e8073d8ed04c066c39b8554fd"
+    },
+    {
+      "path": "reader-packet-audit.json",
+      "digest": "sha256:e50949d681037d83659683ea1a52109e69d4623378e46597e485b21ba5489df7"
+    },
+    {
+      "path": "reader-packet.json",
+      "digest": "sha256:fa721e49c04654033455e751ca60bbfe90be96c64ad2073b7dacb4aa67d7db38"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title petclinic-java-91fac2b10a93ac5932a5
+start
+:Entry: getOwner（ownerId）;
+' evidence: method:class:org.springframework.samples.petclinic.rest.controller.v1.OwnerRestControllerV1#getOwner(Ljava/lang/Integer;)Lorg/springframework/http/ResponseEntity;
+:owner = this.clinicService.findOwnerById（...）;
+if (owner <U+003D><U+003D> null) then (C01)
+:return new ResponseEntity&lt;&gt;（HttpStatus.NOT_FOUND）;
+stop
+endif
+:return new ResponseEntity&lt;&gt;（ownerMapper.toOwnerDto（owner）, HttpStatus.OK）;
+stop
+@enduml

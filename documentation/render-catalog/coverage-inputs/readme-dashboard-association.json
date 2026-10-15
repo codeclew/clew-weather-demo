@@ -1,0 +1,21 @@
+{
+  "schema": "codeclew-documentation-note-association/1.0",
+  "id": "weather-readme-instructions",
+  "title": "Weather demo README operational instructions",
+  "service": "dashboard",
+  "path": "notes/weather-readme-instructions.md",
+  "targets": [
+    "service:dashboard/section-overview"
+  ],
+  "classification": "mixed",
+  "period": "source commit 6bceb663d27860e1edd8155f796cee6f696c0fdc",
+  "tags": [
+    "imported-context",
+    "render-catalog"
+  ],
+  "metadata": {
+    "author": "codeclew/clew-weather-demo README contributors (imported Git source)",
+    "sourceCommit": "6bceb663d27860e1edd8155f796cee6f696c0fdc",
+    "sourcePath": "README.md"
+  }
+}

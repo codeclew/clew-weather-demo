@@ -1,0 +1,30 @@
+{
+  "schema": "codeclew-documentation-entity/1.0",
+  "id": "weather-place",
+  "title": "Place",
+  "description": "The service validator checks an event id, version 1, and a place with id, name, latitude, and longitude. A weather.forecast-updated event must carry a forecast with updatedAt, fetchedAt, mode, and one to six periods; each period is checked for a timestamp, numeric temperature, null or nonnegative numeric precipitation, and a string symbol. The weather_cards upsert stores place fields, updated_at, and the forecast JSON. The inbox table is used for event-id duplicate handling, while rejected_messages records topic, partition, offset, and reason. These shapes come from code checks and SQL statements, not a fully interpreted shared JSON Schema.",
+  "relations": [
+    {
+      "service": "dashboard",
+      "kind": "stored-copy",
+      "origin": "agent-proposal",
+      "rationale": "The service validator checks an event id, version 1, and a place with id, name, latitude, and longitude. A weather.forecast-updated event must carry a forecast with updatedAt, fetchedAt, mode, and one to six periods; each period is checked for a timestamp, numeric temperature, null or nonnegative numeric precipitation, and a string symbol. The weather_cards upsert stores place fields, updated_at, and the forecast JSON. The inbox table is used for event-id duplicate handling, while rejected_messages records topic, partition, offset, and reason. These shapes come from code checks and SQL statements, not a fully interpreted shared JSON Schema.",
+      "confidence": "declared",
+      "representations": [
+        "weather_cards",
+        "event.place"
+      ],
+      "dependencyIds": [
+        "dashboard:symbol:021fcd0ff7baa53bd3c51930",
+        "dashboard:symbol:7d0d09a16ac25de86e5beb53",
+        "dashboard:symbol:a4627e5e868830287e83e0dc",
+        "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+      ]
+    }
+  ],
+  "relatedEntities": [],
+  "limitations": [
+    "Proposed documentation identity; source shapes do not prove domain ownership.",
+    "Runtime behavior remains unverified."
+  ]
+}

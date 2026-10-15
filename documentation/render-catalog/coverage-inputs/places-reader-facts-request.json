@@ -1,0 +1,10 @@
+{
+  "schema": "codeclew-documentation-work-request/1.0",
+  "audience": "Weather maintainers; source-bound Places.Save and its DTO declarations.",
+  "contextProfile": "process-graph-v1",
+  "rootDeclaration": "places:symbol:309961f88b197290c1b04e50",
+  "question": "How does PlacesController.Save use the request and Place fields and select its response?",
+  "authoringContract": "codeclew-operation-draft-authoring/1.6",
+  "maxItems": 100,
+  "maxBytes": 49152
+}

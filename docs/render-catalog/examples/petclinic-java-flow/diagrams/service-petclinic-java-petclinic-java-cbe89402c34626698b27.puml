@@ -1,0 +1,19 @@
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title petclinic-java-cbe89402c34626698b27
+start
+:Entry: updateVisit（visitId, visitDto）;
+' evidence: method:class:org.springframework.samples.petclinic.rest.controller.v1.VisitRestControllerV1#updateVisit(Ljava/lang/Integer;Lorg/springframework/samples/petclinic/rest/dto/VisitFieldsDto;)Lorg/springframework/http/ResponseEntity;
+:currentVisit = this.clinicService.findVisitById（...）;
+if (currentVisit <U+003D><U+003D> null) then (C01)
+:return new ResponseEntity&lt;&gt;（HttpStatus.NOT_FOUND）;
+stop
+endif
+:currentVisit.setDate（...）;
+:currentVisit.setDescription（...）;
+:this.clinicService.saveVisit（...）;
+:return new ResponseEntity&lt;&gt;（visitMapper.toVisitDto（currentVisit）, HttpStatus.NO_CONTENT）;
+stop
+@enduml

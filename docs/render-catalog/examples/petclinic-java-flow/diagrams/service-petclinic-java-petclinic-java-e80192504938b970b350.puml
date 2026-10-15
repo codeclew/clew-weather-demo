@@ -1,0 +1,23 @@
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title petclinic-java-e80192504938b970b350
+start
+:Entry: updateOwnersPet（ownerId, petId, petFieldsDto）;
+' evidence: method:class:org.springframework.samples.petclinic.rest.controller.v1.OwnerRestControllerV1#updateOwnersPet(Ljava/lang/Integer;Ljava/lang/Integer;Lorg/springframework/samples/petclinic/rest/dto/PetFieldsDto;)Lorg/springframework/http/ResponseEntity;
+:currentOwner = this.clinicService.findOwnerById（...）;
+if (currentOwner <U+0021><U+003D> null) then (C01)
+:currentPet = this.clinicService.findPetById（...）;
+if (currentPet <U+0021><U+003D> null) then (C02)
+:currentPet.setBirthDate（...）;
+:currentPet.setName（...）;
+:currentPet.setType（...）;
+:this.clinicService.savePet（...）;
+:return new ResponseEntity&lt;&gt;（HttpStatus.NO_CONTENT）;
+stop
+endif
+endif
+:return new ResponseEntity&lt;&gt;（HttpStatus.NOT_FOUND）;
+stop
+@enduml

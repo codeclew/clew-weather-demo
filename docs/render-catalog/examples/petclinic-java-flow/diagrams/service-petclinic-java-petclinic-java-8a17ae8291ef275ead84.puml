@@ -1,0 +1,18 @@
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title petclinic-java-8a17ae8291ef275ead84
+start
+:Entry: updatePetType（petTypeId, petTypeDto）;
+' evidence: method:class:org.springframework.samples.petclinic.rest.controller.v1.PetTypeRestControllerV1#updatePetType(Ljava/lang/Integer;Lorg/springframework/samples/petclinic/rest/dto/PetTypeDto;)Lorg/springframework/http/ResponseEntity;
+:currentPetType = this.clinicService.findPetTypeById（...）;
+if (currentPetType <U+003D><U+003D> null) then (C01)
+:return new ResponseEntity&lt;&gt;（HttpStatus.NOT_FOUND）;
+stop
+endif
+:currentPetType.setName（...）;
+:this.clinicService.savePetType（...）;
+:return new ResponseEntity&lt;&gt;（petTypeMapper.toPetTypeDto（currentPetType）, HttpStatus.NO_CONTENT）;
+stop
+@enduml

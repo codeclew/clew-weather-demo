@@ -1,0 +1,10 @@
+@startuml
+!theme plain
+!pragma layout smetana
+title request_outbox.published — declared SQL lifecycle — transition activities
+start
+if (operation) then (PublishPending: PublishPending)
+  :→ published (from unpublished);
+endif
+stop
+@enduml

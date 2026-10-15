@@ -1,0 +1,391 @@
+{
+  "authority": "FROZEN_NARRATIVES_WITH_SEPARATE_SELECTED_SNAPSHOT_EVIDENCE",
+  "contextDigest": "sha256:0be019f22bbbd321318b138fdc4feca1fd19f159f70773103ce02196f9b2a672",
+  "files": [
+    {
+      "digest": "sha256:674d423a9561cb3921415f2a4822d7270aa3981d64f40cf73b5e47ed975edc5f",
+      "path": "catalog.html"
+    },
+    {
+      "digest": "sha256:2d54114972ed8fca4d6e3ee0c08a12257a9ca290da7c600aa35104d424121a39",
+      "path": "diagrams/scenario-petclinic-get-owner-process-outline-bf158bd39963d7f2.puml"
+    },
+    {
+      "digest": "sha256:9ca6dc3c3f5d9b90512587919a520c3627035abd6806f3b573d97fc4f407aad2",
+      "path": "diagrams/scenario-petclinic-get-owner-process-outline-bf158bd39963d7f2.svg"
+    },
+    {
+      "digest": "sha256:6de6d421f4714cb7788168e5e35315cac5be236033059c608c65ad866399ffb1",
+      "path": "diagrams/service-petclinic-java-petclinic-java-00369b98138056b7653e.puml"
+    },
+    {
+      "digest": "sha256:2693e89ff71776a5b76b9b91ed25bd041a2046f5bd16f8aada8062f080c4fc5c",
+      "path": "diagrams/service-petclinic-java-petclinic-java-00369b98138056b7653e.svg"
+    },
+    {
+      "digest": "sha256:75681e4738bf46cad96c28a8ddd75c0596ac67b4016ae5f725543588fed2538f",
+      "path": "diagrams/service-petclinic-java-petclinic-java-024545cd0f09ba6b342a.puml"
+    },
+    {
+      "digest": "sha256:3e28cc188fdabcb32cdc13ffa78b0280b1bf6cb296b37596e8c9242dfe239a09",
+      "path": "diagrams/service-petclinic-java-petclinic-java-024545cd0f09ba6b342a.svg"
+    },
+    {
+      "digest": "sha256:57f3669c088b31baf87ba818ae6bf11840104f2c175af51aafa7e04d8462bda6",
+      "path": "diagrams/service-petclinic-java-petclinic-java-0373c1c82d6bdebe5f7a.puml"
+    },
+    {
+      "digest": "sha256:9cb0f91a216dd3be26c6ba1988180135b199eec9107be912676c4dfbd0b3151f",
+      "path": "diagrams/service-petclinic-java-petclinic-java-0373c1c82d6bdebe5f7a.svg"
+    },
+    {
+      "digest": "sha256:7977f3aa980eda64a655ece2f70c0e55db27008a6171eac840d26671ffc63cec",
+      "path": "diagrams/service-petclinic-java-petclinic-java-063ac2f85c3c4ccc9f30.puml"
+    },
+    {
+      "digest": "sha256:17920d4186c88faf35393160826f0fae49878872d099952333cbc5e0fb0a71b7",
+      "path": "diagrams/service-petclinic-java-petclinic-java-063ac2f85c3c4ccc9f30.svg"
+    },
+    {
+      "digest": "sha256:da199945cc45b3b79b60a0a6b65f638e6edde0e9db2e082dc39b52c2cedda01d",
+      "path": "diagrams/service-petclinic-java-petclinic-java-071ca6dc883b2f2da971.puml"
+    },
+    {
+      "digest": "sha256:d1b1f5fc6d80b49883d72a76570435b2595a596ec4a52fd0b863f68bce8858c0",
+      "path": "diagrams/service-petclinic-java-petclinic-java-071ca6dc883b2f2da971.svg"
+    },
+    {
+      "digest": "sha256:35542e7f4a6a0b5fed66bde178d19f9455ad9ad41b8994bda05099bf26e4b873",
+      "path": "diagrams/service-petclinic-java-petclinic-java-0c6939846e443de66f80.puml"
+    },
+    {
+      "digest": "sha256:b3da3c8febf291ff37ea152e1229d49d42f0c365847778efc0aa5da620e1df10",
+      "path": "diagrams/service-petclinic-java-petclinic-java-0c6939846e443de66f80.svg"
+    },
+    {
+      "digest": "sha256:04a1a1b64004b0a551736beab8ea2f6ec6cf728d26f672c2ee396fd675a554c4",
+      "path": "diagrams/service-petclinic-java-petclinic-java-0ef6bcb8f7105ba6b865.puml"
+    },
+    {
+      "digest": "sha256:c311be8230cea3215719f423e175ea4a530e113c731596033a3ee7c2814135fd",
+      "path": "diagrams/service-petclinic-java-petclinic-java-0ef6bcb8f7105ba6b865.svg"
+    },
+    {
+      "digest": "sha256:6b0350ed60f8713a4a29f0712418bdcccd5563647076668444838a79b44e2d22",
+      "path": "diagrams/service-petclinic-java-petclinic-java-115cfcef91a1fe9c320c.puml"
+    },
+    {
+      "digest": "sha256:25436c345fda09081c209524b3e4e2f864c9ac12319fc14cb53abac85129f104",
+      "path": "diagrams/service-petclinic-java-petclinic-java-115cfcef91a1fe9c320c.svg"
+    },
+    {
+      "digest": "sha256:bfe55a77376ba90c833477f7dad279faf61c5696b4b04016951e1fe7e894411d",
+      "path": "diagrams/service-petclinic-java-petclinic-java-1e2938e2ee8cc6f7af3f.puml"
+    },
+    {
+      "digest": "sha256:2a2b92aac69c6d6cb47cf03fe24b1a1a6489f7ec5c8ac18235575d0b88609081",
+      "path": "diagrams/service-petclinic-java-petclinic-java-1e2938e2ee8cc6f7af3f.svg"
+    },
+    {
+      "digest": "sha256:750fb95462475e40a383198e8682669db754a7f553b48a41e192b4c0b1a76388",
+      "path": "diagrams/service-petclinic-java-petclinic-java-271dea52f3f50eb74364.puml"
+    },
+    {
+      "digest": "sha256:9b8f5aa0fc95a5e71bbc15fec3cbdbfaa71e4f67f006ba4e1a1b727ce91a4770",
+      "path": "diagrams/service-petclinic-java-petclinic-java-271dea52f3f50eb74364.svg"
+    },
+    {
+      "digest": "sha256:9e2e0e3dc9f98ca1c865534770c5e0bade39f1eb2d698604b8cc4edffab82fab",
+      "path": "diagrams/service-petclinic-java-petclinic-java-2ed1f54a2871d91b8780.puml"
+    },
+    {
+      "digest": "sha256:53e963d865e6c52534d96c81702a958fbc01e6fe58b08cdcb0aee0c28afb07ee",
+      "path": "diagrams/service-petclinic-java-petclinic-java-2ed1f54a2871d91b8780.svg"
+    },
+    {
+      "digest": "sha256:002e82a8681875f26bef5de58e91225a7d1d6bb093451d48c2986616034ba179",
+      "path": "diagrams/service-petclinic-java-petclinic-java-3501d38a135f20ee1112.puml"
+    },
+    {
+      "digest": "sha256:d8419802d6d9bd230c28ab273b03954bac650fbe21360ae9068a49c53120aa27",
+      "path": "diagrams/service-petclinic-java-petclinic-java-3501d38a135f20ee1112.svg"
+    },
+    {
+      "digest": "sha256:bc45ff26e141c6681336a23c4e6ac76cf738a0dcd0213c3a02e38833dbdbac77",
+      "path": "diagrams/service-petclinic-java-petclinic-java-3acb25d7e1409e277abc.puml"
+    },
+    {
+      "digest": "sha256:3930f94e5587434bbfdb5a2b869c5605f0f04fdae6a2c1c4fd73808e17355649",
+      "path": "diagrams/service-petclinic-java-petclinic-java-3acb25d7e1409e277abc.svg"
+    },
+    {
+      "digest": "sha256:7df5980da443544db1feb30908ee2761da75f51afba5698ee063020655b116ac",
+      "path": "diagrams/service-petclinic-java-petclinic-java-3c6036c9f1e4d9bdc104.puml"
+    },
+    {
+      "digest": "sha256:6f8c799d0f2feef069c046868a0856f4245c968a6f4037fd4170293490d24720",
+      "path": "diagrams/service-petclinic-java-petclinic-java-3c6036c9f1e4d9bdc104.svg"
+    },
+    {
+      "digest": "sha256:21f003d87c2b507e820e4ee002deb8ed2e2e4b5e4a2397f477e29b1d6e7964d7",
+      "path": "diagrams/service-petclinic-java-petclinic-java-3d5a1d2dab50c34eb318.puml"
+    },
+    {
+      "digest": "sha256:3f8adc860857c3064642632bf00f13a13a37507faf532c07ebc35e7fe1c75b5a",
+      "path": "diagrams/service-petclinic-java-petclinic-java-3d5a1d2dab50c34eb318.svg"
+    },
+    {
+      "digest": "sha256:b452d5aec4dd9ccf26ea76767069be23963c7002e99f3cd35bc891e78dc7e9cc",
+      "path": "diagrams/service-petclinic-java-petclinic-java-47fb9c8e7c8d624489db.puml"
+    },
+    {
+      "digest": "sha256:4f125852bb56c433495827ac90302f30a228a1f3a55f4611c9c02e43b50cfd85",
+      "path": "diagrams/service-petclinic-java-petclinic-java-47fb9c8e7c8d624489db.svg"
+    },
+    {
+      "digest": "sha256:0e5eee0af60edf93480378f4e5057c00406a5d042cdfc70fe7c5f8f6fae746a6",
+      "path": "diagrams/service-petclinic-java-petclinic-java-52a23bfda4fbf75618a2.puml"
+    },
+    {
+      "digest": "sha256:7ecd9b11f2a3742d4729bcd0d0cd79867799b2069facdd950e66b95666a48aee",
+      "path": "diagrams/service-petclinic-java-petclinic-java-52a23bfda4fbf75618a2.svg"
+    },
+    {
+      "digest": "sha256:fbd3c7492f9cf3379b2fdc865421d0ea9f5d65d0d947bed63f87e19c265efda0",
+      "path": "diagrams/service-petclinic-java-petclinic-java-52a638af22658748a45c.puml"
+    },
+    {
+      "digest": "sha256:c31bb6108c91c85e36d8ce308cd74f2612d0dec42d34787b431a96a59d5bad2e",
+      "path": "diagrams/service-petclinic-java-petclinic-java-52a638af22658748a45c.svg"
+    },
+    {
+      "digest": "sha256:4f8075478ef4be4c853c75de2aa6917efd6ac5298c9d08cbfb115d22b0ae8be2",
+      "path": "diagrams/service-petclinic-java-petclinic-java-62d0df477ffe06ce61f5.puml"
+    },
+    {
+      "digest": "sha256:9598014aef8580291771bbea7bac2993ed50284491f80de4e0fe5c0f4fad4112",
+      "path": "diagrams/service-petclinic-java-petclinic-java-62d0df477ffe06ce61f5.svg"
+    },
+    {
+      "digest": "sha256:1ed7c20f2f963b60a12953adba8ab329d3d166de84092a619ac53fc3094a4975",
+      "path": "diagrams/service-petclinic-java-petclinic-java-6c54aacf4a8430225784.puml"
+    },
+    {
+      "digest": "sha256:acac82f33e8bb602d3c0e3d030ad986970f95f4a1cf1673587293d1cc4c1de6f",
+      "path": "diagrams/service-petclinic-java-petclinic-java-6c54aacf4a8430225784.svg"
+    },
+    {
+      "digest": "sha256:8cce9418d9524cd1799867bb0ce63c3625ad4bacd96171792425af79c474ef60",
+      "path": "diagrams/service-petclinic-java-petclinic-java-737a3a2a464d313b5d63.puml"
+    },
+    {
+      "digest": "sha256:6eee246d39a672848a3dcf3be79c90bb00dd2915ac1f21ea65123a86362d2c0d",
+      "path": "diagrams/service-petclinic-java-petclinic-java-737a3a2a464d313b5d63.svg"
+    },
+    {
+      "digest": "sha256:fc1399b3ae5777d3baf7960d194da71dc400b94168debee6933c9ed73b3b1f1f",
+      "path": "diagrams/service-petclinic-java-petclinic-java-75f6fcaf80cf69be6ce2.puml"
+    },
+    {
+      "digest": "sha256:38a0768d67f82c5c96625a4308c4c966757d2d60788ef7881a445a96d1fe89e5",
+      "path": "diagrams/service-petclinic-java-petclinic-java-75f6fcaf80cf69be6ce2.svg"
+    },
+    {
+      "digest": "sha256:6a21498162afdb47620e2c03c8462b49278e857e5b95f0edb68ab810380f4ba9",
+      "path": "diagrams/service-petclinic-java-petclinic-java-873d8f361ca42b92ec55.puml"
+    },
+    {
+      "digest": "sha256:b3e5ede921c45c71add0d44f8b293848f14a1146092f972538d837871071b59f",
+      "path": "diagrams/service-petclinic-java-petclinic-java-873d8f361ca42b92ec55.svg"
+    },
+    {
+      "digest": "sha256:30c9fa8d6c57247fa7087dcf92b67b7de44a59ec6afd266278bfd81c26d602c9",
+      "path": "diagrams/service-petclinic-java-petclinic-java-8a17ae8291ef275ead84.puml"
+    },
+    {
+      "digest": "sha256:b1cd39570c279aa3628ceb4166f730b08baa3cd90519203642c04c8fe1551b4f",
+      "path": "diagrams/service-petclinic-java-petclinic-java-8a17ae8291ef275ead84.svg"
+    },
+    {
+      "digest": "sha256:3ea31519693b522dcc9086b85be9677174e0534996e1c97d417dd46a61d7a27f",
+      "path": "diagrams/service-petclinic-java-petclinic-java-9044d2cd7d0108ae94c3.puml"
+    },
+    {
+      "digest": "sha256:b2febd055904341dce85a124c801763b296389effc028d9ae1b82cb1577a5926",
+      "path": "diagrams/service-petclinic-java-petclinic-java-9044d2cd7d0108ae94c3.svg"
+    },
+    {
+      "digest": "sha256:f94c6d958420740447752769450f7098de071ce53367c9e8e7bfad4f6ae5de89",
+      "path": "diagrams/service-petclinic-java-petclinic-java-91fac2b10a93ac5932a5.puml"
+    },
+    {
+      "digest": "sha256:187aef2b1328814af78f05cc3de8b8d0e4d6824f512b833b4e2b5df7211a96fe",
+      "path": "diagrams/service-petclinic-java-petclinic-java-91fac2b10a93ac5932a5.svg"
+    },
+    {
+      "digest": "sha256:bddc0368ae1bd87fdf69ef19b2290d2fc0571c5901eded724cf7292b4f78869e",
+      "path": "diagrams/service-petclinic-java-petclinic-java-96a1f7abc2a7dcc6b2c4.puml"
+    },
+    {
+      "digest": "sha256:01c9aea75b66ef258665db48be40e97c09ca81e9fc0c67b1851ec8391e2f9439",
+      "path": "diagrams/service-petclinic-java-petclinic-java-96a1f7abc2a7dcc6b2c4.svg"
+    },
+    {
+      "digest": "sha256:033465389a894c51c4e9adbf1199e128b34f0df2023cf0cec3869cc1ae4d7dd2",
+      "path": "diagrams/service-petclinic-java-petclinic-java-a7146bc50d79a47305e1.puml"
+    },
+    {
+      "digest": "sha256:419bd251c1988bf74ddcfa7ea50036a388305d3f15818c368769b99df0d04f57",
+      "path": "diagrams/service-petclinic-java-petclinic-java-a7146bc50d79a47305e1.svg"
+    },
+    {
+      "digest": "sha256:eb352f085ff5799fb4e67e1201e8456422b20f7a306203bef604c43e6606ec35",
+      "path": "diagrams/service-petclinic-java-petclinic-java-b382a1dfde84deaa39b6.puml"
+    },
+    {
+      "digest": "sha256:95ef8cabda8d3b16cd05a7ac5a8da57b2edeef28cfda7da79c389f5c7bd77de2",
+      "path": "diagrams/service-petclinic-java-petclinic-java-b382a1dfde84deaa39b6.svg"
+    },
+    {
+      "digest": "sha256:64f45ad368144a74fb72fa8871ef337eb34abb1f42d7ed1db25383b9d12ce24e",
+      "path": "diagrams/service-petclinic-java-petclinic-java-b536d12adf3f50b6a9e4.puml"
+    },
+    {
+      "digest": "sha256:22392f41bc8f76c55906cb5ef24cff7ee726ddf318dd053ba55ca90a22c2552e",
+      "path": "diagrams/service-petclinic-java-petclinic-java-b536d12adf3f50b6a9e4.svg"
+    },
+    {
+      "digest": "sha256:da3370dc7f6ce796077a907f224d681c54ae49e2132430438b60f58878f44b7b",
+      "path": "diagrams/service-petclinic-java-petclinic-java-cbe89402c34626698b27.puml"
+    },
+    {
+      "digest": "sha256:0165bb2a266a4c82afdafcfaa53e694965028a7d397db61def103353563c1310",
+      "path": "diagrams/service-petclinic-java-petclinic-java-cbe89402c34626698b27.svg"
+    },
+    {
+      "digest": "sha256:8395da35b62b0bae33e3c2238b2bdcf40c364d2abf5ac01422bed6bec16d3cf2",
+      "path": "diagrams/service-petclinic-java-petclinic-java-ce86fb772d7ce020d25a.puml"
+    },
+    {
+      "digest": "sha256:8b7065f9ac60ee2cc6025970025bdd7b689b458e9acfd1b51bc6b9f2500682e3",
+      "path": "diagrams/service-petclinic-java-petclinic-java-ce86fb772d7ce020d25a.svg"
+    },
+    {
+      "digest": "sha256:9c0403d25dd7f48049beeb0da5303e330f6c55e0214cceaf0e34fa5b5f94f2d4",
+      "path": "diagrams/service-petclinic-java-petclinic-java-e80192504938b970b350.puml"
+    },
+    {
+      "digest": "sha256:797f1c5037742e9d9913dee935d9d38170e9aa3faf27907f7f5519ca1fdc8b85",
+      "path": "diagrams/service-petclinic-java-petclinic-java-e80192504938b970b350.svg"
+    },
+    {
+      "digest": "sha256:73b6b4bedf6c39d071cdb38258ae6f9085a15c78d9778ead4546194c8412c05b",
+      "path": "diagrams/service-petclinic-java-petclinic-java-ea0657f93f3f61071fec.puml"
+    },
+    {
+      "digest": "sha256:182fc4100630cb2aa70e473a2396ee075276c46a4bd82f4c1b36f97002705bb0",
+      "path": "diagrams/service-petclinic-java-petclinic-java-ea0657f93f3f61071fec.svg"
+    },
+    {
+      "digest": "sha256:98a2ffbe35d6797bbe174fb2e679bbf025210f6fe29f1983d725981c751732ae",
+      "path": "diagrams/service-petclinic-java-petclinic-java-ee2a4f4b20429fb7621c.puml"
+    },
+    {
+      "digest": "sha256:17e2e531a37be6026ce1b223734cca55ccfe701d16eab8871d376163bc20c95a",
+      "path": "diagrams/service-petclinic-java-petclinic-java-ee2a4f4b20429fb7621c.svg"
+    },
+    {
+      "digest": "sha256:af15b3740d77aa6e248b1ec7e34f0b93f66aa637392215ff8b9b65549888c18c",
+      "path": "diagrams/service-petclinic-java-petclinic-java-f15099083fdfdea15dce.puml"
+    },
+    {
+      "digest": "sha256:c0b08ab1b2847d3f8d6895ee11645a611c232e6640f49d08d9f1abaefb93e39b",
+      "path": "diagrams/service-petclinic-java-petclinic-java-f15099083fdfdea15dce.svg"
+    },
+    {
+      "digest": "sha256:872f7094ec59be37539351c5942006681d06b8c8fefd9115c543a65fa017c01f",
+      "path": "diagrams/service-petclinic-java-petclinic-java-f585065936ebf15c235a.puml"
+    },
+    {
+      "digest": "sha256:c710fec25e9033bdaef61256a80a09faf444284650b5d8a5a25c2baccfe5a2dc",
+      "path": "diagrams/service-petclinic-java-petclinic-java-f585065936ebf15c235a.svg"
+    },
+    {
+      "digest": "sha256:525c2ea523dd80c20b00d02442c8d6e3f35ea1612aac57af3d3bcd952b7b1ede",
+      "path": "frozen-bindings.json"
+    },
+    {
+      "digest": "sha256:311313b0a1d643ad4bdcd8371f3adb07f5c92ee9cabe16a8246c1dccd837f328",
+      "path": "frozen-inputs.json"
+    },
+    {
+      "digest": "sha256:1d972a3276ce8c9d7b2c442062ebcaa35873624fe597dd702a65ece70603915a",
+      "path": "help.html"
+    },
+    {
+      "digest": "sha256:9356737d87e310b255f9a3f92105324d04f22a4ea0d985de7685e149ed379599",
+      "path": "history.html"
+    },
+    {
+      "digest": "sha256:c714d20bf8e87767c48e444c07b996abfc50e1f16a7b4305088f5342e6d77793",
+      "path": "index.html"
+    },
+    {
+      "digest": "sha256:c714d20bf8e87767c48e444c07b996abfc50e1f16a7b4305088f5342e6d77793",
+      "path": "overview.html"
+    },
+    {
+      "digest": "sha256:08c22eacd12ae6ea9884a3da33be52a3dde371da94eb0b6bc8747e5d008e5a3a",
+      "path": "runbooks.html"
+    },
+    {
+      "digest": "sha256:9005e8a9ee3259cb97470c381066050aa01cb9d528ce288035e38ba92bba8e06",
+      "path": "scenarios/petclinic-get-owner.html"
+    },
+    {
+      "digest": "sha256:65b0cc44d9ed13e37a098d4ec8d25998082687e578a0c95f7195a5f33eac4f4a",
+      "path": "scenarios/petclinic-get-owner.json"
+    },
+    {
+      "digest": "sha256:18a90d7a8f2ff856fafed1a6ec2c6d9f88f73eaaba0a9a77fb4f131b602197f2",
+      "path": "scenarios/petclinic-get-owner.md"
+    },
+    {
+      "digest": "sha256:24e74572e25564ac5f69d847f80d2e9d054ee2c7930edf085594987644b79a65",
+      "path": "services/petclinic-java.html"
+    },
+    {
+      "digest": "sha256:9a05e6952eafb808c13084cd24eb5be94b63f4426e4eaa5dea44fcf5376a5b65",
+      "path": "services/petclinic-java.json"
+    },
+    {
+      "digest": "sha256:9578c947080a423ce96ec0712b84601097e31bc9ac147213611e236d6887b13c",
+      "path": "services/petclinic-java.md"
+    },
+    {
+      "digest": "sha256:b75dd189b1c5b0afc388e89c12f5a7236fedca13aca1c30e724f2db839b90eb3",
+      "path": "status.json"
+    }
+  ],
+  "frozenBindingsDigest": "sha256:b46e5076a08e91be9c18163de1b157ef0856d2f2a4a90626db9c2eda82ce5b3c",
+  "index": "index.html",
+  "inputDigest": "sha256:387a46087a10ab178df626a8c9190270fe1a73ae81bddda0c7b3a6a809528560",
+  "output": "docs/render-catalog/examples/petclinic-java-flow",
+  "pages": [
+    {
+      "html": "scenarios/petclinic-get-owner.html",
+      "json": "scenarios/petclinic-get-owner.json",
+      "subject": "scenario:petclinic-get-owner"
+    },
+    {
+      "html": "services/petclinic-java.html",
+      "json": "services/petclinic-java.json",
+      "subject": "service:petclinic-java"
+    }
+  ],
+  "proseAuthored": false,
+  "publication": "8da20f2b3af4472fff78fedf072331352d8d935e849095c36904624a37377348",
+  "schema": "codeclew-native-pages-full-manifest/1.0",
+  "snapshot": "sha256:d2d33a409e847014a1e015698c1539eea052a23a60304150c6fc9bb91820dc4b/33501",
+  "status": "RENDERED"
+}

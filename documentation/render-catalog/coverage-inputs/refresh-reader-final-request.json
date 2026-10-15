@@ -1,0 +1,11 @@
+{
+  "schema": "codeclew-documentation-work-request/1.0",
+  "audience": "Weather service maintainers. Explain real inputs, checks, preparations, decisions, data movement and outcomes with source citations and glossary. Structural feedback from the previous rejected draft: every predicate must be referenced by at least one decision step; use the declared predicateRefs field, and do not leave an unused predicate. Include glossary or shared preparations only when the delivered real source supports them. Render this as an OperationAnswer DRAFT through the native context loop.",
+  "contextProfile": "process-graph-v1",
+  "rootDeclaration": "forecasts:symbol:d297c83907a5fc6e4d56887c",
+  "question": "How does Forecasts.refresh prepare a forecast from the actual place input, choose fixture versus live input, transform periods and write the forecast/outbox records? Explain source-supported preparations, predicates, glossary and data movement, preserving unknown runtime effects.",
+  "authoringContract": "codeclew-operation-draft-authoring/1.6",
+  "maxItems": 100,
+  "maxBytes": 49152,
+  "sourceDataContext": true
+}

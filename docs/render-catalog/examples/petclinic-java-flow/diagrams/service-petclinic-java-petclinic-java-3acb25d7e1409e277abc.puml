@@ -1,0 +1,16 @@
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title petclinic-java-3acb25d7e1409e277abc
+start
+:Entry: addOwner（ownerFieldsDto）;
+' evidence: method:class:org.springframework.samples.petclinic.rest.controller.v1.OwnerRestControllerV1#addOwner(Lorg/springframework/samples/petclinic/rest/dto/OwnerFieldsDto;)Lorg/springframework/http/ResponseEntity;
+:headers = new HttpHeaders（...）;
+:owner = ownerMapper.toOwner（...）;
+:this.clinicService.saveOwner（...）;
+:ownerDto = ownerMapper.toOwnerDto（...）;
+:headers.setLocation（...）;
+:return new ResponseEntity&lt;&gt;（ownerDto, headers, HttpStatus.CREATED）;
+stop
+@enduml

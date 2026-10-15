@@ -1,0 +1,22 @@
+{
+  "schema": "codeclew-documentation-process-states/1.0",
+  "id": "places-request-publisher",
+  "title": "request_outbox.published \u2014 declared SQL lifecycle",
+  "initial": "unpublished",
+  "final": [
+    "published"
+  ],
+  "states": {
+    "unpublished": "published=false",
+    "published": "published=true"
+  },
+  "transitions": [
+    {
+      "from": "unpublished",
+      "to": "published",
+      "label": "ProduceAsync; UPDATE published=true; CommitAsync",
+      "operation": "PublishPending",
+      "evidence": []
+    }
+  ]
+}

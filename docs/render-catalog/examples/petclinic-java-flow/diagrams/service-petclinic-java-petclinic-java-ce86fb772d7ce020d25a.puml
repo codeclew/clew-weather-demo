@@ -1,0 +1,16 @@
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title petclinic-java-ce86fb772d7ce020d25a
+start
+:Entry: addVisit（visitDto）;
+' evidence: method:class:org.springframework.samples.petclinic.rest.controller.v1.VisitRestControllerV1#addVisit(Lorg/springframework/samples/petclinic/rest/dto/VisitDto;)Lorg/springframework/http/ResponseEntity;
+:headers = new HttpHeaders（...）;
+:visit = visitMapper.toVisit（...）;
+:this.clinicService.saveVisit（...）;
+:visitDto = visitMapper.toVisitDto（...）;
+:headers.setLocation（...）;
+:return new ResponseEntity&lt;&gt;（visitDto, headers, HttpStatus.CREATED）;
+stop
+@enduml

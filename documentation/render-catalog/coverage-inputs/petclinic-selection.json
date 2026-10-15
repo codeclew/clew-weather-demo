@@ -1,0 +1,10 @@
+[
+  {
+    "id": "owner-add-pet",
+    "service": "petclinic",
+    "endpointDeclaration": "petclinic:symbol:26b952389b7cb1afb6fb0d89",
+    "workerDeclaration": "petclinic:symbol:26b952389b7cb1afb6fb0d89",
+    "expandSourceCalls": true,
+    "expandDataState": true
+  }
+]

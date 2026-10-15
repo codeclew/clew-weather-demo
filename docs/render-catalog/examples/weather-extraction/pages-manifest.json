@@ -1,0 +1,143 @@
+{
+  "authority": "FROZEN_NARRATIVES_WITH_SEPARATE_SELECTED_SNAPSHOT_EVIDENCE",
+  "contextDigest": "sha256:6dce60d4a88c7c8ebb0e26e9351bfa01e86685fdfec7827fca9c2b353e65ea06",
+  "files": [
+    {
+      "digest": "sha256:d1ac1e0686fec8411824443010f2d48ac8795360d27de21b4b1efe4ceeb21fb3",
+      "path": "catalog.html"
+    },
+    {
+      "digest": "sha256:f7b800ef33dcab5537735fef4befd00ebe0b512cf9dcc251d14c73307561d727",
+      "path": "diagrams/scenario-forecast-read-process-outline-3fa3b50a80323647.puml"
+    },
+    {
+      "digest": "sha256:3cad2085c7b4ea3005437222b286896389b16f2079fd1b70de30cbc0614c2562",
+      "path": "diagrams/scenario-forecast-read-process-outline-3fa3b50a80323647.svg"
+    },
+    {
+      "digest": "sha256:e129e62d094e1dd2bdd990e49a2f695a77b05b3fb988ffe81548de30b59fd334",
+      "path": "diagrams/service-forecasts-forecasts-0c9ad9b41ef8396ca0c5.puml"
+    },
+    {
+      "digest": "sha256:079e0e6bd39aaaf34d4a4eb9cbae73ae88a2a1c17fc5fb2455368850b5f8d2b6",
+      "path": "diagrams/service-forecasts-forecasts-0c9ad9b41ef8396ca0c5.svg"
+    },
+    {
+      "digest": "sha256:e7abd1e0a155685748ba555974fb8dec2c6da37f19d628cffe3e11cadaf90bb8",
+      "path": "diagrams/service-forecasts-forecasts-1d8f0215919097363654.puml"
+    },
+    {
+      "digest": "sha256:6ae49352b45f893e7bdb55fa8cc4eea52c69b1aa88dfdce4ba26519160a763c0",
+      "path": "diagrams/service-forecasts-forecasts-1d8f0215919097363654.svg"
+    },
+    {
+      "digest": "sha256:a050afff68df38fbc071b03c9e2c9d15e7165c64212be9833b246cb42223d518",
+      "path": "diagrams/service-forecasts-forecasts-51e835bc4bed4c9113be.puml"
+    },
+    {
+      "digest": "sha256:f1300da5f50a5f96362bad2ebdf01c10ccfc5e2f20d7c1e820408e93fdf39c3c",
+      "path": "diagrams/service-forecasts-forecasts-51e835bc4bed4c9113be.svg"
+    },
+    {
+      "digest": "sha256:e3d5706bcbebf40fa5c3c166d536327683e0ff4709fb7e809c584ecaf00ded05",
+      "path": "diagrams/service-forecasts-forecasts-8c76494d2d0a96f70034.puml"
+    },
+    {
+      "digest": "sha256:58ed59fd2c234ffd103d183221b62e5841d01577e5ac628a986bab54cc691a51",
+      "path": "diagrams/service-forecasts-forecasts-8c76494d2d0a96f70034.svg"
+    },
+    {
+      "digest": "sha256:868fc4e76d2e300e37ab44968c8305d066075e6cf42a8b97a33029e10b79bf7f",
+      "path": "diagrams/service-forecasts-forecasts-b882827ca5abd3340660.puml"
+    },
+    {
+      "digest": "sha256:81cb43798704da84a6faa419f11984374d10b2b64215163dc40801dc0ed49f0f",
+      "path": "diagrams/service-forecasts-forecasts-b882827ca5abd3340660.svg"
+    },
+    {
+      "digest": "sha256:91edc94e9198a0ec81ad7048167676a8c394b3ff900539251171d1cf70483e42",
+      "path": "diagrams/service-forecasts-forecasts-cc0842c3b34ddf24da2c.puml"
+    },
+    {
+      "digest": "sha256:bfb6c2ca448b78b6ec6ed068756bc4bd902c9b1e428e0aad287512bcd54f0cc5",
+      "path": "diagrams/service-forecasts-forecasts-cc0842c3b34ddf24da2c.svg"
+    },
+    {
+      "digest": "sha256:83935874208361ebd0701dc5e293d834019ae627751d7fdad39179686c6d00c6",
+      "path": "frozen-bindings.json"
+    },
+    {
+      "digest": "sha256:b8a9cd48374a2d8aef77b9765c78f5e173c004881df3b499ce0e4b728cb56525",
+      "path": "frozen-inputs.json"
+    },
+    {
+      "digest": "sha256:33e7191c2a517ec41799901064432439aeb6743b4bf8fd50b6fd2a2854e59bfd",
+      "path": "help.html"
+    },
+    {
+      "digest": "sha256:6f52a0b37ec2a3173d361c5936f3a29a2c187a9eb50759c7b30a7a78f74b8c0f",
+      "path": "history.html"
+    },
+    {
+      "digest": "sha256:cb652c16ddf27fcfad0899455907165d3ad05eecbf36979a693b3888ffeae749",
+      "path": "index.html"
+    },
+    {
+      "digest": "sha256:cb652c16ddf27fcfad0899455907165d3ad05eecbf36979a693b3888ffeae749",
+      "path": "overview.html"
+    },
+    {
+      "digest": "sha256:23836ed09e8f5b68c858bd2524bdefa22ec6ed22683d4ca76393aa5229aa8401",
+      "path": "runbooks.html"
+    },
+    {
+      "digest": "sha256:66f4a62938673b01beeeaeccd297e6e30dac470affc968b5620436732ad9d6af",
+      "path": "scenarios/forecast-read.html"
+    },
+    {
+      "digest": "sha256:f000f030ff87effbc792b99d643014bac9fafe4daac4ba8226f9b1a01ad397d6",
+      "path": "scenarios/forecast-read.json"
+    },
+    {
+      "digest": "sha256:645063bc62374ef615a574b5550a0e30b2c5e92eefb0beea9cc6d68d68852060",
+      "path": "scenarios/forecast-read.md"
+    },
+    {
+      "digest": "sha256:411bd26fbae585af3d83459ba54aac4b539efaa455dc846ff6e0f65caca3e963",
+      "path": "services/forecasts.html"
+    },
+    {
+      "digest": "sha256:0ea65e5788fe2514a2f0eccf94f511550ed6f6036302cbc695456a7b19b94933",
+      "path": "services/forecasts.json"
+    },
+    {
+      "digest": "sha256:8551f87dfe9e9469c7f5599b5e9d4f10a6e312d59f52960a3f4d31ca68dafc74",
+      "path": "services/forecasts.md"
+    },
+    {
+      "digest": "sha256:0a46f680f61aec22c399c544e0ab50a7832b9bedcc73f919685491443d831564",
+      "path": "status.json"
+    }
+  ],
+  "frozenBindingsDigest": "sha256:77229c44b2af3a3fb8e9c092ed2f255344ac67067727191d798394653dd9c3ea",
+  "index": "index.html",
+  "inputDigest": "sha256:dfa24832733d91ef4ae1dc3f798bb7ad92a2c79fa52d737dec1b09f416faf1f0",
+  "output": "docs/render-catalog/examples/weather-extraction",
+  "pages": [
+    {
+      "html": "scenarios/forecast-read.html",
+      "json": "scenarios/forecast-read.json",
+      "subject": "scenario:forecast-read"
+    },
+    {
+      "html": "services/forecasts.html",
+      "json": "services/forecasts.json",
+      "subject": "service:forecasts"
+    }
+  ],
+  "proseAuthored": false,
+  "publication": "78a7c5fe9641539047942f396680164ad756ffe5112ed9ed1ad1b94b784e014d",
+  "schema": "codeclew-native-pages-full-manifest/1.0",
+  "snapshot": "sha256:55b1241b84060f2c00a4daff93ab8193ebc47a62c9266b7720616e8df9d6422f/22489",
+  "status": "RENDERED"
+}

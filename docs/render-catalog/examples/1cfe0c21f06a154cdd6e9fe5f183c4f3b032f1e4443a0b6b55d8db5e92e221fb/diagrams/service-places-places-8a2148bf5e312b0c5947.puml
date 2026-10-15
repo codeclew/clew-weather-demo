@@ -1,0 +1,9 @@
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title places-8a2148bf5e312b0c5947
+note as Evidence
+FLOW_AUTHORITY_NOT_QUALIFIED； EVIDENCE_BOUNDARIES:FLOW_AUTHORITY_NOT_QUALIFIED
+end note
+@enduml

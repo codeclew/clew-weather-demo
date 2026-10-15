@@ -1,0 +1,15 @@
+' CODECLEW_STATUS=DRAFT/UNREVIEWED/NOT_PUBLISHED
+' ORIGIN=SOURCE_LOCAL_NOT_EXECUTION_EVIDENCE
+' PACKET_DIGEST=sha256:483c8d30c979db6894d72359ec7f58191ab55a2f38746df8e1c28318b2f5c0af
+' ROOT_METHOD_ID=m0
+' ROOT_SOURCE_REFERENCE=unavailable
+' ROOT_SOURCE_EXCERPT=unavailable
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title Source-local projection · Forecasts.refresh: select, transform, and store forecast data
+note as Evidence
+ROOT_SOURCE_REFERENCE_MISSING
+end note
+@enduml

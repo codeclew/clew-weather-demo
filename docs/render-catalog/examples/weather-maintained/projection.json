@@ -1,0 +1,1815 @@
+{
+  "schema": "codeclew-native-page-projection/1.1",
+  "inputDigest": "sha256:d222c16c3aa924499e7fdab1ad824e2c18c2a2571aac78c10ddf1614b1b11817",
+  "contextDigest": "sha256:f8678b7bab0fc73d39edd3d5cfec243caaaee10cc412572145d9f7427fce7c09",
+  "selectionDigest": "sha256:ae37de917063e97b071cd533897a23c44521c327d513066476d0c6bc74593d2d",
+  "pages": [
+    {
+      "id": "dashboard-maintained-consumer",
+      "title": "Selected functions: source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5",
+      "projectionKind": "DECLARATION_ONLY",
+      "selection": {
+        "id": "dashboard-maintained-consumer",
+        "service": "dashboard",
+        "endpointDeclaration": "dashboard:symbol:a4627e5e868830287e83e0dc",
+        "workerDeclaration": "dashboard:symbol:a4627e5e868830287e83e0dc",
+        "wiringDeclaration": null,
+        "question": null,
+        "authoredParagraphs": [
+          {
+            "bundle": "277c5abb80b2abfdfbe5f96220358bf1ceece0af9d263138e0d30ffb34ea91c0",
+            "operation": "dashboard-d527a6e620a1974b0e5a",
+            "fragment": "claim-a1492cfcfa17ec67d1e2"
+          }
+        ]
+      },
+      "serviceRevision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+      "serviceDigest": "sha256:8e592420448f9193f01c4e20acbad27b2cc6382d0c23f87d7db5fe83feea767f",
+      "endpoint": {
+        "declarationId": "dashboard:symbol:a4627e5e868830287e83e0dc",
+        "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5",
+        "authority": "SYNTAX_DECLARATION",
+        "citationId": "citation-695da6e40ab592ac20e6c2cf",
+        "sourceOutline": {
+          "authority": "SYNTAX_SOURCE_STRUCTURE",
+          "ownerKey": {
+            "service": "dashboard",
+            "scope": "",
+            "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5"
+          },
+          "events": [
+            {
+              "observationId": "dashboard:flow:a190efb9bca6603f1d2abc58",
+              "ordinal": 0,
+              "kind": "TRY",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 50,
+              "endLine": 57,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:c8cbcfdcd21d70080feb0bf404fb49971b78848478669542febba5ce5f048730",
+                "kind": "TRY",
+                "nestingDepth": 1,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 0,
+                "parentOrdinal": null,
+                "syntaxKind": "try_statement",
+                "targetStatus": "UNRESOLVED",
+                "text": "try {\n    event = validateEvent(JSON.parse(message.value?.toString() ?? ''), topic)\n  } catch {\n    await pool.query(`INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES($1,$2,$3,'INVALID_EVENT')\n      ON CONFLICT DO NOTHING`, [topic, partition, message.offset])\n    await consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])\n    return\n  }"
+              },
+              "citationId": "citation-a484c0c93aadd3c4af2f7ee6"
+            },
+            {
+              "observationId": "dashboard:flow:886390b176392fdbad06fc3a",
+              "ordinal": 1,
+              "kind": "CALL",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 51,
+              "endLine": 51,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:d3c8d3ff5c87e7c8fa30cf24e76ba34a1c025e6b6cd8d7094c8120fda95a8a23",
+                "kind": "CALL",
+                "nestingDepth": 5,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 1,
+                "parentOrdinal": 0,
+                "syntaxKind": "call_expression",
+                "targetStatus": "UNRESOLVED",
+                "text": "validateEvent(JSON.parse(message.value?.toString() ?? ''), topic)"
+              },
+              "citationId": "citation-d0eff92fb6a493f3316be523"
+            },
+            {
+              "observationId": "dashboard:flow:1198b0d44dde70fcd80329fc",
+              "ordinal": 2,
+              "kind": "CALL",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 51,
+              "endLine": 51,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:6dcf6a33b6c40ebdabf3058fbcf434236f5d02df9c99aaf8ddd5d233a0ddef79",
+                "kind": "CALL",
+                "nestingDepth": 7,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 2,
+                "parentOrdinal": 1,
+                "syntaxKind": "call_expression",
+                "targetStatus": "UNRESOLVED",
+                "text": "JSON.parse(message.value?.toString() ?? '')"
+              },
+              "citationId": "citation-c96342c0546efc14cc760fc2"
+            },
+            {
+              "observationId": "dashboard:flow:0c9e2425ea81d2e2e4f781a1",
+              "ordinal": 3,
+              "kind": "CALL",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 51,
+              "endLine": 51,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:3ec67f2254dee6401c74133e9074ca4130ebe9fb7b05574828b8e1aaae975c6c",
+                "kind": "CALL",
+                "nestingDepth": 10,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 3,
+                "parentOrdinal": 2,
+                "syntaxKind": "call_expression",
+                "targetStatus": "UNRESOLVED",
+                "text": "message.value?.toString()"
+              },
+              "citationId": "citation-bad4996edd04acf8270aabe8"
+            },
+            {
+              "observationId": "dashboard:flow:59f03a0653cc7a3798b8ceaf",
+              "ordinal": 4,
+              "kind": "CALL",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 53,
+              "endLine": 54,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:4687394dd2df3efd267dc4e97a5ade98c801631286d651b4f189af334de9ac82",
+                "kind": "CALL",
+                "nestingDepth": 6,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 4,
+                "parentOrdinal": 0,
+                "syntaxKind": "call_expression",
+                "targetStatus": "UNRESOLVED",
+                "text": "pool.query(`INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES($1,$2,$3,'INVALID_EVENT')\n      ON CONFLICT DO NOTHING`, [topic, partition, message.offset])"
+              },
+              "citationId": "citation-4c4f02bc4c7af4985ab82fd9"
+            },
+            {
+              "observationId": "dashboard:flow:654eeebd7e0618b0c6dd58f9",
+              "ordinal": 5,
+              "kind": "CALL",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 55,
+              "endLine": 55,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:20dc1895c797ced6d21175d9b023cc8b6283af2622c22d2091632e01d93d6b18",
+                "kind": "CALL",
+                "nestingDepth": 6,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 5,
+                "parentOrdinal": 0,
+                "syntaxKind": "call_expression",
+                "targetStatus": "UNRESOLVED",
+                "text": "consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])"
+              },
+              "citationId": "citation-ec4960c53b68d397c4530aa7"
+            },
+            {
+              "observationId": "dashboard:flow:667235490ded3f35c51f99f1",
+              "ordinal": 6,
+              "kind": "CALL",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 55,
+              "endLine": 55,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:afc806f1f7173d7d81e057c620206bfdf0117034a407cf2eb055048730059271",
+                "kind": "CALL",
+                "nestingDepth": 11,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 6,
+                "parentOrdinal": 5,
+                "syntaxKind": "call_expression",
+                "targetStatus": "UNRESOLVED",
+                "text": "(BigInt(message.offset) + 1n).toString()"
+              },
+              "citationId": "citation-e27521f2fa1b98a25dd59fb5"
+            },
+            {
+              "observationId": "dashboard:flow:5f3ddc5ec529c16f3f1143f8",
+              "ordinal": 7,
+              "kind": "CALL",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 55,
+              "endLine": 55,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:907a0f5fc79847d4fdb3b9d13768bad8d16cc748f1914e8a328b1aaa300a86d9",
+                "kind": "CALL",
+                "nestingDepth": 15,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 7,
+                "parentOrdinal": 6,
+                "syntaxKind": "call_expression",
+                "targetStatus": "UNRESOLVED",
+                "text": "BigInt(message.offset)"
+              },
+              "citationId": "citation-e6f92b289d1aa874c7ff7a81"
+            },
+            {
+              "observationId": "dashboard:flow:f4a336f51f8e91a3da04831a",
+              "ordinal": 8,
+              "kind": "RETURN",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 56,
+              "endLine": 56,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:855b7d3d50bcf02d899431a1a4a88446fbeecb21075ce37244e599c3d1c412a1",
+                "kind": "RETURN",
+                "nestingDepth": 4,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 8,
+                "parentOrdinal": 0,
+                "syntaxKind": "return_statement",
+                "targetStatus": "UNRESOLVED",
+                "text": "return"
+              },
+              "citationId": "citation-546fa452819b30a6b228e0bb"
+            },
+            {
+              "observationId": "dashboard:flow:37dec2bf70bc69d603cb8d4b",
+              "ordinal": 9,
+              "kind": "CALL",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 58,
+              "endLine": 58,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:c8826e1083110c773a6d0cb9b9fcd51d89154131c3bc661b35c9e2d054da52bb",
+                "kind": "CALL",
+                "nestingDepth": 3,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 9,
+                "parentOrdinal": null,
+                "syntaxKind": "call_expression",
+                "targetStatus": "UNRESOLVED",
+                "text": "applyEvent(event)"
+              },
+              "citationId": "citation-1ba862f1d32b36b70538640f"
+            },
+            {
+              "observationId": "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+              "ordinal": 10,
+              "kind": "CALL",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 59,
+              "endLine": 59,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:20dc1895c797ced6d21175d9b023cc8b6283af2622c22d2091632e01d93d6b18",
+                "kind": "CALL",
+                "nestingDepth": 3,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 10,
+                "parentOrdinal": null,
+                "syntaxKind": "call_expression",
+                "targetStatus": "UNRESOLVED",
+                "text": "consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])"
+              },
+              "citationId": "citation-c8744f253632433cffaa945e"
+            },
+            {
+              "observationId": "dashboard:flow:049a97e649d7feb212e6c67f",
+              "ordinal": 11,
+              "kind": "CALL",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 59,
+              "endLine": 59,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:afc806f1f7173d7d81e057c620206bfdf0117034a407cf2eb055048730059271",
+                "kind": "CALL",
+                "nestingDepth": 8,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 11,
+                "parentOrdinal": 10,
+                "syntaxKind": "call_expression",
+                "targetStatus": "UNRESOLVED",
+                "text": "(BigInt(message.offset) + 1n).toString()"
+              },
+              "citationId": "citation-3a3cf57abdf6bf3800a9fda3"
+            },
+            {
+              "observationId": "dashboard:flow:82ca6f23f0ad8605f0571692",
+              "ordinal": 12,
+              "kind": "CALL",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 59,
+              "endLine": 59,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:907a0f5fc79847d4fdb3b9d13768bad8d16cc748f1914e8a328b1aaa300a86d9",
+                "kind": "CALL",
+                "nestingDepth": 12,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 12,
+                "parentOrdinal": 11,
+                "syntaxKind": "call_expression",
+                "targetStatus": "UNRESOLVED",
+                "text": "BigInt(message.offset)"
+              },
+              "citationId": "citation-2754470401c5a59d2f1c1fee"
+            }
+          ],
+          "tree": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5 [lexical syntax; not execution order]\n  TRY try {\n    event = validateEvent(JSON.parse(message.value?.toString() ?? ''), topic)\n  } catch {\n    await pool.query(`INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES($1,$2,$3,'INVALID_EVENT')\n      ON CONFLICT DO NOTHING`, [topic, partition, message.offset])\n    await consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])\n    return\n  }\n    CALL validateEvent(JSON.parse(message.value?.toString() ?? ''), topic)\n      CALL JSON.parse(message.value?.toString() ?? '')\n        CALL message.value?.toString()\n    CALL pool.query(`INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES($1,$2,$3,'INVALID_EVENT')\n      ON CONFLICT DO NOTHING`, [topic, partition, message.offset])\n    CALL consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])\n      CALL (BigInt(message.offset) + 1n).toString()\n        CALL BigInt(message.offset)\n    RETURN return\n  CALL applyEvent(event)\n  CALL consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])\n    CALL (BigInt(message.offset) + 1n).toString()\n      CALL BigInt(message.offset)\n",
+          "gaps": [
+            {
+              "code": "SOURCE_SYNTAX_NOT_COMPILER_OR_RUNTIME_PROOF",
+              "detail": "Lexical events retain branches, calls and deferred bodies. Call targets, execution order, reachability, receiver identity and runtime effects remain unresolved.",
+              "citationId": "citation-695da6e40ab592ac20e6c2cf"
+            }
+          ]
+        },
+        "steps": [],
+        "state": [],
+        "gaps": [
+          {
+            "code": "SOURCE_SYNTAX_NOT_COMPILER_OR_RUNTIME_PROOF",
+            "detail": "Lexical events retain branches, calls and deferred bodies. Call targets, execution order, reachability, receiver identity and runtime effects remain unresolved.",
+            "citationId": "citation-695da6e40ab592ac20e6c2cf"
+          }
+        ]
+      },
+      "worker": {
+        "declarationId": "dashboard:symbol:a4627e5e868830287e83e0dc",
+        "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5",
+        "authority": "SYNTAX_DECLARATION",
+        "citationId": "citation-695da6e40ab592ac20e6c2cf",
+        "sourceOutline": {
+          "authority": "SYNTAX_SOURCE_STRUCTURE",
+          "ownerKey": {
+            "service": "dashboard",
+            "scope": "",
+            "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5"
+          },
+          "events": [
+            {
+              "observationId": "dashboard:flow:a190efb9bca6603f1d2abc58",
+              "ordinal": 0,
+              "kind": "TRY",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 50,
+              "endLine": 57,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:c8cbcfdcd21d70080feb0bf404fb49971b78848478669542febba5ce5f048730",
+                "kind": "TRY",
+                "nestingDepth": 1,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 0,
+                "parentOrdinal": null,
+                "syntaxKind": "try_statement",
+                "targetStatus": "UNRESOLVED",
+                "text": "try {\n    event = validateEvent(JSON.parse(message.value?.toString() ?? ''), topic)\n  } catch {\n    await pool.query(`INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES($1,$2,$3,'INVALID_EVENT')\n      ON CONFLICT DO NOTHING`, [topic, partition, message.offset])\n    await consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])\n    return\n  }"
+              },
+              "citationId": "citation-a484c0c93aadd3c4af2f7ee6"
+            },
+            {
+              "observationId": "dashboard:flow:886390b176392fdbad06fc3a",
+              "ordinal": 1,
+              "kind": "CALL",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 51,
+              "endLine": 51,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:d3c8d3ff5c87e7c8fa30cf24e76ba34a1c025e6b6cd8d7094c8120fda95a8a23",
+                "kind": "CALL",
+                "nestingDepth": 5,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 1,
+                "parentOrdinal": 0,
+                "syntaxKind": "call_expression",
+                "targetStatus": "UNRESOLVED",
+                "text": "validateEvent(JSON.parse(message.value?.toString() ?? ''), topic)"
+              },
+              "citationId": "citation-d0eff92fb6a493f3316be523"
+            },
+            {
+              "observationId": "dashboard:flow:1198b0d44dde70fcd80329fc",
+              "ordinal": 2,
+              "kind": "CALL",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 51,
+              "endLine": 51,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:6dcf6a33b6c40ebdabf3058fbcf434236f5d02df9c99aaf8ddd5d233a0ddef79",
+                "kind": "CALL",
+                "nestingDepth": 7,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 2,
+                "parentOrdinal": 1,
+                "syntaxKind": "call_expression",
+                "targetStatus": "UNRESOLVED",
+                "text": "JSON.parse(message.value?.toString() ?? '')"
+              },
+              "citationId": "citation-c96342c0546efc14cc760fc2"
+            },
+            {
+              "observationId": "dashboard:flow:0c9e2425ea81d2e2e4f781a1",
+              "ordinal": 3,
+              "kind": "CALL",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 51,
+              "endLine": 51,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:3ec67f2254dee6401c74133e9074ca4130ebe9fb7b05574828b8e1aaae975c6c",
+                "kind": "CALL",
+                "nestingDepth": 10,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 3,
+                "parentOrdinal": 2,
+                "syntaxKind": "call_expression",
+                "targetStatus": "UNRESOLVED",
+                "text": "message.value?.toString()"
+              },
+              "citationId": "citation-bad4996edd04acf8270aabe8"
+            },
+            {
+              "observationId": "dashboard:flow:59f03a0653cc7a3798b8ceaf",
+              "ordinal": 4,
+              "kind": "CALL",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 53,
+              "endLine": 54,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:4687394dd2df3efd267dc4e97a5ade98c801631286d651b4f189af334de9ac82",
+                "kind": "CALL",
+                "nestingDepth": 6,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 4,
+                "parentOrdinal": 0,
+                "syntaxKind": "call_expression",
+                "targetStatus": "UNRESOLVED",
+                "text": "pool.query(`INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES($1,$2,$3,'INVALID_EVENT')\n      ON CONFLICT DO NOTHING`, [topic, partition, message.offset])"
+              },
+              "citationId": "citation-4c4f02bc4c7af4985ab82fd9"
+            },
+            {
+              "observationId": "dashboard:flow:654eeebd7e0618b0c6dd58f9",
+              "ordinal": 5,
+              "kind": "CALL",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 55,
+              "endLine": 55,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:20dc1895c797ced6d21175d9b023cc8b6283af2622c22d2091632e01d93d6b18",
+                "kind": "CALL",
+                "nestingDepth": 6,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 5,
+                "parentOrdinal": 0,
+                "syntaxKind": "call_expression",
+                "targetStatus": "UNRESOLVED",
+                "text": "consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])"
+              },
+              "citationId": "citation-ec4960c53b68d397c4530aa7"
+            },
+            {
+              "observationId": "dashboard:flow:667235490ded3f35c51f99f1",
+              "ordinal": 6,
+              "kind": "CALL",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 55,
+              "endLine": 55,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:afc806f1f7173d7d81e057c620206bfdf0117034a407cf2eb055048730059271",
+                "kind": "CALL",
+                "nestingDepth": 11,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 6,
+                "parentOrdinal": 5,
+                "syntaxKind": "call_expression",
+                "targetStatus": "UNRESOLVED",
+                "text": "(BigInt(message.offset) + 1n).toString()"
+              },
+              "citationId": "citation-e27521f2fa1b98a25dd59fb5"
+            },
+            {
+              "observationId": "dashboard:flow:5f3ddc5ec529c16f3f1143f8",
+              "ordinal": 7,
+              "kind": "CALL",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 55,
+              "endLine": 55,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:907a0f5fc79847d4fdb3b9d13768bad8d16cc748f1914e8a328b1aaa300a86d9",
+                "kind": "CALL",
+                "nestingDepth": 15,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 7,
+                "parentOrdinal": 6,
+                "syntaxKind": "call_expression",
+                "targetStatus": "UNRESOLVED",
+                "text": "BigInt(message.offset)"
+              },
+              "citationId": "citation-e6f92b289d1aa874c7ff7a81"
+            },
+            {
+              "observationId": "dashboard:flow:f4a336f51f8e91a3da04831a",
+              "ordinal": 8,
+              "kind": "RETURN",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 56,
+              "endLine": 56,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:855b7d3d50bcf02d899431a1a4a88446fbeecb21075ce37244e599c3d1c412a1",
+                "kind": "RETURN",
+                "nestingDepth": 4,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 8,
+                "parentOrdinal": 0,
+                "syntaxKind": "return_statement",
+                "targetStatus": "UNRESOLVED",
+                "text": "return"
+              },
+              "citationId": "citation-546fa452819b30a6b228e0bb"
+            },
+            {
+              "observationId": "dashboard:flow:37dec2bf70bc69d603cb8d4b",
+              "ordinal": 9,
+              "kind": "CALL",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 58,
+              "endLine": 58,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:c8826e1083110c773a6d0cb9b9fcd51d89154131c3bc661b35c9e2d054da52bb",
+                "kind": "CALL",
+                "nestingDepth": 3,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 9,
+                "parentOrdinal": null,
+                "syntaxKind": "call_expression",
+                "targetStatus": "UNRESOLVED",
+                "text": "applyEvent(event)"
+              },
+              "citationId": "citation-1ba862f1d32b36b70538640f"
+            },
+            {
+              "observationId": "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+              "ordinal": 10,
+              "kind": "CALL",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 59,
+              "endLine": 59,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:20dc1895c797ced6d21175d9b023cc8b6283af2622c22d2091632e01d93d6b18",
+                "kind": "CALL",
+                "nestingDepth": 3,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 10,
+                "parentOrdinal": null,
+                "syntaxKind": "call_expression",
+                "targetStatus": "UNRESOLVED",
+                "text": "consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])"
+              },
+              "citationId": "citation-c8744f253632433cffaa945e"
+            },
+            {
+              "observationId": "dashboard:flow:049a97e649d7feb212e6c67f",
+              "ordinal": 11,
+              "kind": "CALL",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 59,
+              "endLine": 59,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:afc806f1f7173d7d81e057c620206bfdf0117034a407cf2eb055048730059271",
+                "kind": "CALL",
+                "nestingDepth": 8,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 11,
+                "parentOrdinal": 10,
+                "syntaxKind": "call_expression",
+                "targetStatus": "UNRESOLVED",
+                "text": "(BigInt(message.offset) + 1n).toString()"
+              },
+              "citationId": "citation-3a3cf57abdf6bf3800a9fda3"
+            },
+            {
+              "observationId": "dashboard:flow:82ca6f23f0ad8605f0571692",
+              "ordinal": 12,
+              "kind": "CALL",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 59,
+              "endLine": 59,
+              "event": {
+                "authority": "SYNTAX",
+                "fingerprint": "sha256:907a0f5fc79847d4fdb3b9d13768bad8d16cc748f1914e8a328b1aaa300a86d9",
+                "kind": "CALL",
+                "nestingDepth": 12,
+                "ordering": "LEXICAL_ONLY",
+                "ordinal": 12,
+                "parentOrdinal": 11,
+                "syntaxKind": "call_expression",
+                "targetStatus": "UNRESOLVED",
+                "text": "BigInt(message.offset)"
+              },
+              "citationId": "citation-2754470401c5a59d2f1c1fee"
+            }
+          ],
+          "tree": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5 [lexical syntax; not execution order]\n  TRY try {\n    event = validateEvent(JSON.parse(message.value?.toString() ?? ''), topic)\n  } catch {\n    await pool.query(`INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES($1,$2,$3,'INVALID_EVENT')\n      ON CONFLICT DO NOTHING`, [topic, partition, message.offset])\n    await consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])\n    return\n  }\n    CALL validateEvent(JSON.parse(message.value?.toString() ?? ''), topic)\n      CALL JSON.parse(message.value?.toString() ?? '')\n        CALL message.value?.toString()\n    CALL pool.query(`INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES($1,$2,$3,'INVALID_EVENT')\n      ON CONFLICT DO NOTHING`, [topic, partition, message.offset])\n    CALL consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])\n      CALL (BigInt(message.offset) + 1n).toString()\n        CALL BigInt(message.offset)\n    RETURN return\n  CALL applyEvent(event)\n  CALL consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])\n    CALL (BigInt(message.offset) + 1n).toString()\n      CALL BigInt(message.offset)\n",
+          "gaps": [
+            {
+              "code": "SOURCE_SYNTAX_NOT_COMPILER_OR_RUNTIME_PROOF",
+              "detail": "Lexical events retain branches, calls and deferred bodies. Call targets, execution order, reachability, receiver identity and runtime effects remain unresolved.",
+              "citationId": "citation-695da6e40ab592ac20e6c2cf"
+            }
+          ]
+        },
+        "steps": [],
+        "state": [],
+        "gaps": [
+          {
+            "code": "SOURCE_SYNTAX_NOT_COMPILER_OR_RUNTIME_PROOF",
+            "detail": "Lexical events retain branches, calls and deferred bodies. Call targets, execution order, reachability, receiver identity and runtime effects remain unresolved.",
+            "citationId": "citation-695da6e40ab592ac20e6c2cf"
+          }
+        ]
+      },
+      "wiring": null,
+      "handoff": {
+        "status": "DECLARATION_ONLY",
+        "queueAllocation": null,
+        "endpointField": null,
+        "workerField": null,
+        "citationIds": [],
+        "gaps": [
+          {
+            "code": "DECLARATION_ONLY_NO_RELATIONSHIP",
+            "detail": "Selected declarations do not establish a call, wiring, or runtime relationship.",
+            "citationId": null
+          }
+        ],
+        "limitation": "Declaration-only pages retain compiler declarations without proving source behavior, shared-object wiring, activation, delivery, or completion."
+      },
+      "diagnostics": [],
+      "citations": {
+        "citation-1ba862f1d32b36b70538640f": {
+          "id": "citation-1ba862f1d32b36b70538640f",
+          "sourceId": "dashboard-37dec2bf70bc69d603cb",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 58,
+          "endLine": 58,
+          "startByte": 0,
+          "endByte": 17,
+          "textDigest": "sha256:5a9e21219198f64c593a4675c74632a2dc5eef646a552e771cc6827242e4293b",
+          "evidenceDigest": "sha256:b6137bdfe323eea8913c3b0dcc481ebccc4e859330a4e24e0034da7c7c6f0f30",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L58-L58"
+        },
+        "citation-2754470401c5a59d2f1c1fee": {
+          "id": "citation-2754470401c5a59d2f1c1fee",
+          "sourceId": "dashboard-82ca6f23f0ad8605f057",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 59,
+          "endLine": 59,
+          "startByte": 0,
+          "endByte": 22,
+          "textDigest": "sha256:0597749c0a1c9866cbf7f6fe57d6c4c194963b3daf00996c330fec6d03e271e5",
+          "evidenceDigest": "sha256:a60431f3876a27562f9512b1e1d3f0f2e5ce5a517d260a4d84aa2e1d0b3e19ee",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L59-L59"
+        },
+        "citation-3a3cf57abdf6bf3800a9fda3": {
+          "id": "citation-3a3cf57abdf6bf3800a9fda3",
+          "sourceId": "dashboard-049a97e649d7feb212e6",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 59,
+          "endLine": 59,
+          "startByte": 0,
+          "endByte": 40,
+          "textDigest": "sha256:12a3cb9adde59367cdb64de3b3baabf8e08b6c95350d7c62c8b60c75aacb81a1",
+          "evidenceDigest": "sha256:08b4073f0bdd0d18153e10a27967dd3640fc5b1e000c02f289de4e487509e49b",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L59-L59"
+        },
+        "citation-4c4f02bc4c7af4985ab82fd9": {
+          "id": "citation-4c4f02bc4c7af4985ab82fd9",
+          "sourceId": "dashboard-59f03a0653cc7a3798b8",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 53,
+          "endLine": 54,
+          "startByte": 0,
+          "endByte": 178,
+          "textDigest": "sha256:db0908cc89ab5e14b48824ddc0145c7c82b67b5315d6014438691e0795b41a4b",
+          "evidenceDigest": "sha256:9d9f45a1341312df07b65604d0e8884f44a1f604b8e66bd2e3126a6c28459973",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L53-L54"
+        },
+        "citation-546fa452819b30a6b228e0bb": {
+          "id": "citation-546fa452819b30a6b228e0bb",
+          "sourceId": "dashboard-f4a336f51f8e91a3da04",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 56,
+          "endLine": 56,
+          "startByte": 0,
+          "endByte": 6,
+          "textDigest": "sha256:7187f0675eb3827939741acf7342ba78836ecec21a31ecf3f34a55309d3bee8a",
+          "evidenceDigest": "sha256:cae0bdb0f68eecaa0c11def3323d1dd0de9bad53ac5e58ea6135a69b65ab07a6",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L56-L56"
+        },
+        "citation-695da6e40ab592ac20e6c2cf": {
+          "id": "citation-695da6e40ab592ac20e6c2cf",
+          "sourceId": "dashboard-a4627e5e868830287e83",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 47,
+          "endLine": 60,
+          "startByte": 0,
+          "endByte": 677,
+          "textDigest": "sha256:e2ec368962cff169b81a5e04e5d2dbbf4ed970c39b3fa3a967106efa22e66840",
+          "evidenceDigest": "sha256:630c1f935d79cffa1a9f0dfda243aebf14a9495857abc3b2860c9b52dda17447",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L47-L60"
+        },
+        "citation-a484c0c93aadd3c4af2f7ee6": {
+          "id": "citation-a484c0c93aadd3c4af2f7ee6",
+          "sourceId": "dashboard-a190efb9bca6603f1d2a",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 50,
+          "endLine": 57,
+          "startByte": 0,
+          "endByte": 406,
+          "textDigest": "sha256:e476207f0df860c247defa08bc88050d5b17b483570a4d2cd9e6a3dd7d03c626",
+          "evidenceDigest": "sha256:5d2fb0c2fdc96197c05e0d4ed6881c5b763cb848f5f6836ecdf9e472025907ce",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L50-L57"
+        },
+        "citation-bad4996edd04acf8270aabe8": {
+          "id": "citation-bad4996edd04acf8270aabe8",
+          "sourceId": "dashboard-0c9e2425ea81d2e2e4f7",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 51,
+          "endLine": 51,
+          "startByte": 0,
+          "endByte": 25,
+          "textDigest": "sha256:fdd69b8ecb0210e15e48a65fe3fbf0e83fe6c5f0d8157bda58f7d31c9e0f4cd7",
+          "evidenceDigest": "sha256:2d7f12bb392eda1f80f39810c967050bc70b4e999e8aef459747343911794193",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L51-L51"
+        },
+        "citation-c8744f253632433cffaa945e": {
+          "id": "citation-c8744f253632433cffaa945e",
+          "sourceId": "dashboard-8a4f6855cb7f1a476a04",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 59,
+          "endLine": 59,
+          "startByte": 0,
+          "endByte": 96,
+          "textDigest": "sha256:10536e9489c17dea9b61b558fc1c7dbb7d42041d2dca3c572778ab91b00f1425",
+          "evidenceDigest": "sha256:ae2ad32d76b42a5da0426021e4a92fe197d52096478ca7dd976e3068da4145fc",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L59-L59"
+        },
+        "citation-c96342c0546efc14cc760fc2": {
+          "id": "citation-c96342c0546efc14cc760fc2",
+          "sourceId": "dashboard-1198b0d44dde70fcd803",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 51,
+          "endLine": 51,
+          "startByte": 0,
+          "endByte": 43,
+          "textDigest": "sha256:678544982252279931a6b927f98da6e8cf97175e4c51e9b6feb6c8338cb272e2",
+          "evidenceDigest": "sha256:e1f8a7c594cb7f12b78c54eb88a7cdde9ba4c63fe8907ce29e3194f857d66064",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L51-L51"
+        },
+        "citation-d0eff92fb6a493f3316be523": {
+          "id": "citation-d0eff92fb6a493f3316be523",
+          "sourceId": "dashboard-886390b176392fdbad06",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 51,
+          "endLine": 51,
+          "startByte": 0,
+          "endByte": 65,
+          "textDigest": "sha256:cad9be0e5a8abed0f9fa306de6be7a153b3616140e90dc7a8f4b804abf56160e",
+          "evidenceDigest": "sha256:1e283ab10b2b31e562691f7413840c13dd3f69663cad1e163d8293c6d57580d4",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L51-L51"
+        },
+        "citation-e27521f2fa1b98a25dd59fb5": {
+          "id": "citation-e27521f2fa1b98a25dd59fb5",
+          "sourceId": "dashboard-667235490ded3f35c51f",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 55,
+          "endLine": 55,
+          "startByte": 0,
+          "endByte": 40,
+          "textDigest": "sha256:12a3cb9adde59367cdb64de3b3baabf8e08b6c95350d7c62c8b60c75aacb81a1",
+          "evidenceDigest": "sha256:461b0d354c8cb969476c28b7a16f1c78164b053c7f7a4ebcf5d7aa1cd7a301ba",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L55-L55"
+        },
+        "citation-e6f92b289d1aa874c7ff7a81": {
+          "id": "citation-e6f92b289d1aa874c7ff7a81",
+          "sourceId": "dashboard-5f3ddc5ec529c16f3f11",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 55,
+          "endLine": 55,
+          "startByte": 0,
+          "endByte": 22,
+          "textDigest": "sha256:0597749c0a1c9866cbf7f6fe57d6c4c194963b3daf00996c330fec6d03e271e5",
+          "evidenceDigest": "sha256:4812bfc76d7bdebf779f39367a97a100ea16aa6ace50df38edcc20554c1f501e",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L55-L55"
+        },
+        "citation-ec4960c53b68d397c4530aa7": {
+          "id": "citation-ec4960c53b68d397c4530aa7",
+          "sourceId": "dashboard-654eeebd7e0618b0c6dd",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 55,
+          "endLine": 55,
+          "startByte": 0,
+          "endByte": 96,
+          "textDigest": "sha256:10536e9489c17dea9b61b558fc1c7dbb7d42041d2dca3c572778ab91b00f1425",
+          "evidenceDigest": "sha256:de860837491e4de9520a8ef0204f1d9f78c1169925f280641cf16a47d55b6414",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L55-L55"
+        }
+      },
+      "observations": {
+        "dashboard:flow:049a97e649d7feb212e6c67f": {
+          "id": "dashboard:flow:049a97e649d7feb212e6c67f",
+          "kind": "FLOW",
+          "service": "dashboard",
+          "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5",
+          "normalized": {
+            "authority": "SYNTAX",
+            "fingerprint": "sha256:afc806f1f7173d7d81e057c620206bfdf0117034a407cf2eb055048730059271",
+            "kind": "CALL",
+            "nestingDepth": 8,
+            "ordering": "LEXICAL_ONLY",
+            "ordinal": 11,
+            "parentOrdinal": 10,
+            "syntaxKind": "call_expression",
+            "targetStatus": "UNRESOLVED",
+            "text": "(BigInt(message.offset) + 1n).toString()"
+          },
+          "digest": "sha256:cfe67c0bbcb129975b0c049f98475213a1e194d52108f218b24a0f4f7885420d",
+          "sourceIds": [
+            "dashboard-049a97e649d7feb212e6"
+          ]
+        },
+        "dashboard:flow:0c9e2425ea81d2e2e4f781a1": {
+          "id": "dashboard:flow:0c9e2425ea81d2e2e4f781a1",
+          "kind": "FLOW",
+          "service": "dashboard",
+          "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5",
+          "normalized": {
+            "authority": "SYNTAX",
+            "fingerprint": "sha256:3ec67f2254dee6401c74133e9074ca4130ebe9fb7b05574828b8e1aaae975c6c",
+            "kind": "CALL",
+            "nestingDepth": 10,
+            "ordering": "LEXICAL_ONLY",
+            "ordinal": 3,
+            "parentOrdinal": 2,
+            "syntaxKind": "call_expression",
+            "targetStatus": "UNRESOLVED",
+            "text": "message.value?.toString()"
+          },
+          "digest": "sha256:59fa2212b7e7c3a9bb9c303e4ce94606b5642113ec6332b376f0102c89504e41",
+          "sourceIds": [
+            "dashboard-0c9e2425ea81d2e2e4f7"
+          ]
+        },
+        "dashboard:flow:1198b0d44dde70fcd80329fc": {
+          "id": "dashboard:flow:1198b0d44dde70fcd80329fc",
+          "kind": "FLOW",
+          "service": "dashboard",
+          "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5",
+          "normalized": {
+            "authority": "SYNTAX",
+            "fingerprint": "sha256:6dcf6a33b6c40ebdabf3058fbcf434236f5d02df9c99aaf8ddd5d233a0ddef79",
+            "kind": "CALL",
+            "nestingDepth": 7,
+            "ordering": "LEXICAL_ONLY",
+            "ordinal": 2,
+            "parentOrdinal": 1,
+            "syntaxKind": "call_expression",
+            "targetStatus": "UNRESOLVED",
+            "text": "JSON.parse(message.value?.toString() ?? '')"
+          },
+          "digest": "sha256:c232ef4ae0be5ff0942fb80c0863604109bc1e5cc80239b642ac0de42a4e3bf8",
+          "sourceIds": [
+            "dashboard-1198b0d44dde70fcd803"
+          ]
+        },
+        "dashboard:flow:37dec2bf70bc69d603cb8d4b": {
+          "id": "dashboard:flow:37dec2bf70bc69d603cb8d4b",
+          "kind": "FLOW",
+          "service": "dashboard",
+          "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5",
+          "normalized": {
+            "authority": "SYNTAX",
+            "fingerprint": "sha256:c8826e1083110c773a6d0cb9b9fcd51d89154131c3bc661b35c9e2d054da52bb",
+            "kind": "CALL",
+            "nestingDepth": 3,
+            "ordering": "LEXICAL_ONLY",
+            "ordinal": 9,
+            "parentOrdinal": null,
+            "syntaxKind": "call_expression",
+            "targetStatus": "UNRESOLVED",
+            "text": "applyEvent(event)"
+          },
+          "digest": "sha256:59247062fb450319130e393968e873669c62d146572704d1151f5f75624ce6fe",
+          "sourceIds": [
+            "dashboard-37dec2bf70bc69d603cb"
+          ]
+        },
+        "dashboard:flow:59f03a0653cc7a3798b8ceaf": {
+          "id": "dashboard:flow:59f03a0653cc7a3798b8ceaf",
+          "kind": "FLOW",
+          "service": "dashboard",
+          "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5",
+          "normalized": {
+            "authority": "SYNTAX",
+            "fingerprint": "sha256:4687394dd2df3efd267dc4e97a5ade98c801631286d651b4f189af334de9ac82",
+            "kind": "CALL",
+            "nestingDepth": 6,
+            "ordering": "LEXICAL_ONLY",
+            "ordinal": 4,
+            "parentOrdinal": 0,
+            "syntaxKind": "call_expression",
+            "targetStatus": "UNRESOLVED",
+            "text": "pool.query(`INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES($1,$2,$3,'INVALID_EVENT')\n      ON CONFLICT DO NOTHING`, [topic, partition, message.offset])"
+          },
+          "digest": "sha256:839ee1b0a27163abd8c9cfd203db835e2b3e3c31ed70cb4e5e9c5f97bd19b04d",
+          "sourceIds": [
+            "dashboard-59f03a0653cc7a3798b8"
+          ]
+        },
+        "dashboard:flow:5f3ddc5ec529c16f3f1143f8": {
+          "id": "dashboard:flow:5f3ddc5ec529c16f3f1143f8",
+          "kind": "FLOW",
+          "service": "dashboard",
+          "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5",
+          "normalized": {
+            "authority": "SYNTAX",
+            "fingerprint": "sha256:907a0f5fc79847d4fdb3b9d13768bad8d16cc748f1914e8a328b1aaa300a86d9",
+            "kind": "CALL",
+            "nestingDepth": 15,
+            "ordering": "LEXICAL_ONLY",
+            "ordinal": 7,
+            "parentOrdinal": 6,
+            "syntaxKind": "call_expression",
+            "targetStatus": "UNRESOLVED",
+            "text": "BigInt(message.offset)"
+          },
+          "digest": "sha256:787afe912626cf03fd992a11f84a9b4faa5cac88f1c709664976f6a2c89f6d66",
+          "sourceIds": [
+            "dashboard-5f3ddc5ec529c16f3f11"
+          ]
+        },
+        "dashboard:flow:654eeebd7e0618b0c6dd58f9": {
+          "id": "dashboard:flow:654eeebd7e0618b0c6dd58f9",
+          "kind": "FLOW",
+          "service": "dashboard",
+          "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5",
+          "normalized": {
+            "authority": "SYNTAX",
+            "fingerprint": "sha256:20dc1895c797ced6d21175d9b023cc8b6283af2622c22d2091632e01d93d6b18",
+            "kind": "CALL",
+            "nestingDepth": 6,
+            "ordering": "LEXICAL_ONLY",
+            "ordinal": 5,
+            "parentOrdinal": 0,
+            "syntaxKind": "call_expression",
+            "targetStatus": "UNRESOLVED",
+            "text": "consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])"
+          },
+          "digest": "sha256:56fdd7df41e3fcee68c0c1efe46de92aeaabc2761ef1a6309eff44c1ade07a4f",
+          "sourceIds": [
+            "dashboard-654eeebd7e0618b0c6dd"
+          ]
+        },
+        "dashboard:flow:667235490ded3f35c51f99f1": {
+          "id": "dashboard:flow:667235490ded3f35c51f99f1",
+          "kind": "FLOW",
+          "service": "dashboard",
+          "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5",
+          "normalized": {
+            "authority": "SYNTAX",
+            "fingerprint": "sha256:afc806f1f7173d7d81e057c620206bfdf0117034a407cf2eb055048730059271",
+            "kind": "CALL",
+            "nestingDepth": 11,
+            "ordering": "LEXICAL_ONLY",
+            "ordinal": 6,
+            "parentOrdinal": 5,
+            "syntaxKind": "call_expression",
+            "targetStatus": "UNRESOLVED",
+            "text": "(BigInt(message.offset) + 1n).toString()"
+          },
+          "digest": "sha256:01774fef62c874d21f55b0a7da80cad98530b1486728031361cb16ae7dddd60b",
+          "sourceIds": [
+            "dashboard-667235490ded3f35c51f"
+          ]
+        },
+        "dashboard:flow:82ca6f23f0ad8605f0571692": {
+          "id": "dashboard:flow:82ca6f23f0ad8605f0571692",
+          "kind": "FLOW",
+          "service": "dashboard",
+          "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5",
+          "normalized": {
+            "authority": "SYNTAX",
+            "fingerprint": "sha256:907a0f5fc79847d4fdb3b9d13768bad8d16cc748f1914e8a328b1aaa300a86d9",
+            "kind": "CALL",
+            "nestingDepth": 12,
+            "ordering": "LEXICAL_ONLY",
+            "ordinal": 12,
+            "parentOrdinal": 11,
+            "syntaxKind": "call_expression",
+            "targetStatus": "UNRESOLVED",
+            "text": "BigInt(message.offset)"
+          },
+          "digest": "sha256:5fa595c69aae651ca5cc1eeeda7f7bfd02f6100a30f5cb75c00149b7fd6e39bd",
+          "sourceIds": [
+            "dashboard-82ca6f23f0ad8605f057"
+          ]
+        },
+        "dashboard:flow:886390b176392fdbad06fc3a": {
+          "id": "dashboard:flow:886390b176392fdbad06fc3a",
+          "kind": "FLOW",
+          "service": "dashboard",
+          "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5",
+          "normalized": {
+            "authority": "SYNTAX",
+            "fingerprint": "sha256:d3c8d3ff5c87e7c8fa30cf24e76ba34a1c025e6b6cd8d7094c8120fda95a8a23",
+            "kind": "CALL",
+            "nestingDepth": 5,
+            "ordering": "LEXICAL_ONLY",
+            "ordinal": 1,
+            "parentOrdinal": 0,
+            "syntaxKind": "call_expression",
+            "targetStatus": "UNRESOLVED",
+            "text": "validateEvent(JSON.parse(message.value?.toString() ?? ''), topic)"
+          },
+          "digest": "sha256:94979a8a3f6eedb29f9fe84d6a611f58fd1ac7992079241e8bd7560dcd55f543",
+          "sourceIds": [
+            "dashboard-886390b176392fdbad06"
+          ]
+        },
+        "dashboard:flow:8a4f6855cb7f1a476a0484e4": {
+          "id": "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+          "kind": "FLOW",
+          "service": "dashboard",
+          "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5",
+          "normalized": {
+            "authority": "SYNTAX",
+            "fingerprint": "sha256:20dc1895c797ced6d21175d9b023cc8b6283af2622c22d2091632e01d93d6b18",
+            "kind": "CALL",
+            "nestingDepth": 3,
+            "ordering": "LEXICAL_ONLY",
+            "ordinal": 10,
+            "parentOrdinal": null,
+            "syntaxKind": "call_expression",
+            "targetStatus": "UNRESOLVED",
+            "text": "consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])"
+          },
+          "digest": "sha256:1b6eebbb7a4a7885f803c9105b25c6e89f6f1ec6618a7c98a9b66e8bf2fca6d4",
+          "sourceIds": [
+            "dashboard-8a4f6855cb7f1a476a04"
+          ]
+        },
+        "dashboard:flow:a190efb9bca6603f1d2abc58": {
+          "id": "dashboard:flow:a190efb9bca6603f1d2abc58",
+          "kind": "FLOW",
+          "service": "dashboard",
+          "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5",
+          "normalized": {
+            "authority": "SYNTAX",
+            "fingerprint": "sha256:c8cbcfdcd21d70080feb0bf404fb49971b78848478669542febba5ce5f048730",
+            "kind": "TRY",
+            "nestingDepth": 1,
+            "ordering": "LEXICAL_ONLY",
+            "ordinal": 0,
+            "parentOrdinal": null,
+            "syntaxKind": "try_statement",
+            "targetStatus": "UNRESOLVED",
+            "text": "try {\n    event = validateEvent(JSON.parse(message.value?.toString() ?? ''), topic)\n  } catch {\n    await pool.query(`INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES($1,$2,$3,'INVALID_EVENT')\n      ON CONFLICT DO NOTHING`, [topic, partition, message.offset])\n    await consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])\n    return\n  }"
+          },
+          "digest": "sha256:26beec5ba5945d2a571e6391c0650048d7d71351ae4f325776c1b776916c284a",
+          "sourceIds": [
+            "dashboard-a190efb9bca6603f1d2a"
+          ]
+        },
+        "dashboard:flow:f4a336f51f8e91a3da04831a": {
+          "id": "dashboard:flow:f4a336f51f8e91a3da04831a",
+          "kind": "FLOW",
+          "service": "dashboard",
+          "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5",
+          "normalized": {
+            "authority": "SYNTAX",
+            "fingerprint": "sha256:855b7d3d50bcf02d899431a1a4a88446fbeecb21075ce37244e599c3d1c412a1",
+            "kind": "RETURN",
+            "nestingDepth": 4,
+            "ordering": "LEXICAL_ONLY",
+            "ordinal": 8,
+            "parentOrdinal": 0,
+            "syntaxKind": "return_statement",
+            "targetStatus": "UNRESOLVED",
+            "text": "return"
+          },
+          "digest": "sha256:75b44ec7509a6db35d8636e6afd068f0d4e381d17d35eedb09bca8ab2156321f",
+          "sourceIds": [
+            "dashboard-f4a336f51f8e91a3da04"
+          ]
+        },
+        "dashboard:symbol:a4627e5e868830287e83e0dc": {
+          "id": "dashboard:symbol:a4627e5e868830287e83e0dc",
+          "kind": "SYMBOL",
+          "service": "dashboard",
+          "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5",
+          "normalized": {
+            "authority": "SYNTAX",
+            "documentation": {
+              "boundaries": [
+                "CALL_TARGETS_UNRESOLVED",
+                "ORDER_LEXICAL_ONLY"
+              ],
+              "events": [
+                {
+                  "authority": "SYNTAX",
+                  "fingerprint": "sha256:c8cbcfdcd21d70080feb0bf404fb49971b78848478669542febba5ce5f048730",
+                  "kind": "TRY",
+                  "nestingDepth": 1,
+                  "ordering": "LEXICAL_ONLY",
+                  "ordinal": 0,
+                  "parentOrdinal": null,
+                  "syntaxKind": "try_statement",
+                  "targetStatus": "UNRESOLVED",
+                  "text": "try {\n    event = validateEvent(JSON.parse(message.value?.toString() ?? ''), topic)\n  } catch {\n    await pool.query(`INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES($1,$2,$3,'INVALID_EVENT')\n      ON CONFLICT DO NOTHING`, [topic, partition, message.offset])\n    await consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])\n    return\n  }"
+                },
+                {
+                  "authority": "SYNTAX",
+                  "fingerprint": "sha256:d3c8d3ff5c87e7c8fa30cf24e76ba34a1c025e6b6cd8d7094c8120fda95a8a23",
+                  "kind": "CALL",
+                  "nestingDepth": 5,
+                  "ordering": "LEXICAL_ONLY",
+                  "ordinal": 1,
+                  "parentOrdinal": 0,
+                  "syntaxKind": "call_expression",
+                  "targetStatus": "UNRESOLVED",
+                  "text": "validateEvent(JSON.parse(message.value?.toString() ?? ''), topic)"
+                },
+                {
+                  "authority": "SYNTAX",
+                  "fingerprint": "sha256:6dcf6a33b6c40ebdabf3058fbcf434236f5d02df9c99aaf8ddd5d233a0ddef79",
+                  "kind": "CALL",
+                  "nestingDepth": 7,
+                  "ordering": "LEXICAL_ONLY",
+                  "ordinal": 2,
+                  "parentOrdinal": 1,
+                  "syntaxKind": "call_expression",
+                  "targetStatus": "UNRESOLVED",
+                  "text": "JSON.parse(message.value?.toString() ?? '')"
+                },
+                {
+                  "authority": "SYNTAX",
+                  "fingerprint": "sha256:3ec67f2254dee6401c74133e9074ca4130ebe9fb7b05574828b8e1aaae975c6c",
+                  "kind": "CALL",
+                  "nestingDepth": 10,
+                  "ordering": "LEXICAL_ONLY",
+                  "ordinal": 3,
+                  "parentOrdinal": 2,
+                  "syntaxKind": "call_expression",
+                  "targetStatus": "UNRESOLVED",
+                  "text": "message.value?.toString()"
+                },
+                {
+                  "authority": "SYNTAX",
+                  "fingerprint": "sha256:4687394dd2df3efd267dc4e97a5ade98c801631286d651b4f189af334de9ac82",
+                  "kind": "CALL",
+                  "nestingDepth": 6,
+                  "ordering": "LEXICAL_ONLY",
+                  "ordinal": 4,
+                  "parentOrdinal": 0,
+                  "syntaxKind": "call_expression",
+                  "targetStatus": "UNRESOLVED",
+                  "text": "pool.query(`INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES($1,$2,$3,'INVALID_EVENT')\n      ON CONFLICT DO NOTHING`, [topic, partition, message.offset])"
+                },
+                {
+                  "authority": "SYNTAX",
+                  "fingerprint": "sha256:20dc1895c797ced6d21175d9b023cc8b6283af2622c22d2091632e01d93d6b18",
+                  "kind": "CALL",
+                  "nestingDepth": 6,
+                  "ordering": "LEXICAL_ONLY",
+                  "ordinal": 5,
+                  "parentOrdinal": 0,
+                  "syntaxKind": "call_expression",
+                  "targetStatus": "UNRESOLVED",
+                  "text": "consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])"
+                },
+                {
+                  "authority": "SYNTAX",
+                  "fingerprint": "sha256:afc806f1f7173d7d81e057c620206bfdf0117034a407cf2eb055048730059271",
+                  "kind": "CALL",
+                  "nestingDepth": 11,
+                  "ordering": "LEXICAL_ONLY",
+                  "ordinal": 6,
+                  "parentOrdinal": 5,
+                  "syntaxKind": "call_expression",
+                  "targetStatus": "UNRESOLVED",
+                  "text": "(BigInt(message.offset) + 1n).toString()"
+                },
+                {
+                  "authority": "SYNTAX",
+                  "fingerprint": "sha256:907a0f5fc79847d4fdb3b9d13768bad8d16cc748f1914e8a328b1aaa300a86d9",
+                  "kind": "CALL",
+                  "nestingDepth": 15,
+                  "ordering": "LEXICAL_ONLY",
+                  "ordinal": 7,
+                  "parentOrdinal": 6,
+                  "syntaxKind": "call_expression",
+                  "targetStatus": "UNRESOLVED",
+                  "text": "BigInt(message.offset)"
+                },
+                {
+                  "authority": "SYNTAX",
+                  "fingerprint": "sha256:855b7d3d50bcf02d899431a1a4a88446fbeecb21075ce37244e599c3d1c412a1",
+                  "kind": "RETURN",
+                  "nestingDepth": 4,
+                  "ordering": "LEXICAL_ONLY",
+                  "ordinal": 8,
+                  "parentOrdinal": 0,
+                  "syntaxKind": "return_statement",
+                  "targetStatus": "UNRESOLVED",
+                  "text": "return"
+                },
+                {
+                  "authority": "SYNTAX",
+                  "fingerprint": "sha256:c8826e1083110c773a6d0cb9b9fcd51d89154131c3bc661b35c9e2d054da52bb",
+                  "kind": "CALL",
+                  "nestingDepth": 3,
+                  "ordering": "LEXICAL_ONLY",
+                  "ordinal": 9,
+                  "parentOrdinal": null,
+                  "syntaxKind": "call_expression",
+                  "targetStatus": "UNRESOLVED",
+                  "text": "applyEvent(event)"
+                },
+                {
+                  "authority": "SYNTAX",
+                  "fingerprint": "sha256:20dc1895c797ced6d21175d9b023cc8b6283af2622c22d2091632e01d93d6b18",
+                  "kind": "CALL",
+                  "nestingDepth": 3,
+                  "ordering": "LEXICAL_ONLY",
+                  "ordinal": 10,
+                  "parentOrdinal": null,
+                  "syntaxKind": "call_expression",
+                  "targetStatus": "UNRESOLVED",
+                  "text": "consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])"
+                },
+                {
+                  "authority": "SYNTAX",
+                  "fingerprint": "sha256:afc806f1f7173d7d81e057c620206bfdf0117034a407cf2eb055048730059271",
+                  "kind": "CALL",
+                  "nestingDepth": 8,
+                  "ordering": "LEXICAL_ONLY",
+                  "ordinal": 11,
+                  "parentOrdinal": 10,
+                  "syntaxKind": "call_expression",
+                  "targetStatus": "UNRESOLVED",
+                  "text": "(BigInt(message.offset) + 1n).toString()"
+                },
+                {
+                  "authority": "SYNTAX",
+                  "fingerprint": "sha256:907a0f5fc79847d4fdb3b9d13768bad8d16cc748f1914e8a328b1aaa300a86d9",
+                  "kind": "CALL",
+                  "nestingDepth": 12,
+                  "ordering": "LEXICAL_ONLY",
+                  "ordinal": 12,
+                  "parentOrdinal": 11,
+                  "syntaxKind": "call_expression",
+                  "targetStatus": "UNRESOLVED",
+                  "text": "BigInt(message.offset)"
+                }
+              ],
+              "parameterTypes": [
+                ": EachMessagePayload"
+              ]
+            },
+            "fingerprint": "sha256:bffb9d27914d9de3f9e5a15c21fefae28e814d2b18a6d46f0bbed8f539878080",
+            "kind": "DECLARATION",
+            "name": "consumeMessage",
+            "ownerIdentity": "package:",
+            "symbolIdentity": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5",
+            "syntaxKind": "function_declaration"
+          },
+          "digest": "sha256:8bde561ef7592b43d690884334393a70a25e5179b2e3d4856f354b5346d1da15",
+          "sourceIds": [
+            "dashboard-a4627e5e868830287e83"
+          ]
+        }
+      },
+      "sources": {
+        "dashboard-049a97e649d7feb212e6": {
+          "id": "dashboard-049a97e649d7feb212e6",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 59,
+          "endLine": 59,
+          "text": "(BigInt(message.offset) + 1n).toString()",
+          "textDigest": "sha256:12a3cb9adde59367cdb64de3b3baabf8e08b6c95350d7c62c8b60c75aacb81a1",
+          "evidenceDigest": "sha256:08b4073f0bdd0d18153e10a27967dd3640fc5b1e000c02f289de4e487509e49b",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "occurrence": {
+            "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+            "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+            "startByte": 2868,
+            "endByte": 2908
+          },
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L59-L59"
+        },
+        "dashboard-0c9e2425ea81d2e2e4f7": {
+          "id": "dashboard-0c9e2425ea81d2e2e4f7",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 51,
+          "endLine": 51,
+          "text": "message.value?.toString()",
+          "textDigest": "sha256:fdd69b8ecb0210e15e48a65fe3fbf0e83fe6c5f0d8157bda58f7d31c9e0f4cd7",
+          "evidenceDigest": "sha256:2d7f12bb392eda1f80f39810c967050bc70b4e999e8aef459747343911794193",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "occurrence": {
+            "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+            "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+            "startByte": 2418,
+            "endByte": 2443
+          },
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L51-L51"
+        },
+        "dashboard-1198b0d44dde70fcd803": {
+          "id": "dashboard-1198b0d44dde70fcd803",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 51,
+          "endLine": 51,
+          "text": "JSON.parse(message.value?.toString() ?? '')",
+          "textDigest": "sha256:678544982252279931a6b927f98da6e8cf97175e4c51e9b6feb6c8338cb272e2",
+          "evidenceDigest": "sha256:e1f8a7c594cb7f12b78c54eb88a7cdde9ba4c63fe8907ce29e3194f857d66064",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "occurrence": {
+            "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+            "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+            "startByte": 2407,
+            "endByte": 2450
+          },
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L51-L51"
+        },
+        "dashboard-37dec2bf70bc69d603cb": {
+          "id": "dashboard-37dec2bf70bc69d603cb",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 58,
+          "endLine": 58,
+          "text": "applyEvent(event)",
+          "textDigest": "sha256:5a9e21219198f64c593a4675c74632a2dc5eef646a552e771cc6827242e4293b",
+          "evidenceDigest": "sha256:b6137bdfe323eea8913c3b0dcc481ebccc4e859330a4e24e0034da7c7c6f0f30",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "occurrence": {
+            "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+            "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+            "startByte": 2790,
+            "endByte": 2807
+          },
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L58-L58"
+        },
+        "dashboard-59f03a0653cc7a3798b8": {
+          "id": "dashboard-59f03a0653cc7a3798b8",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 53,
+          "endLine": 54,
+          "text": "pool.query(`INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES($1,$2,$3,'INVALID_EVENT')\n      ON CONFLICT DO NOTHING`, [topic, partition, message.offset])",
+          "textDigest": "sha256:db0908cc89ab5e14b48824ddc0145c7c82b67b5315d6014438691e0795b41a4b",
+          "evidenceDigest": "sha256:9d9f45a1341312df07b65604d0e8884f44a1f604b8e66bd2e3126a6c28459973",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "occurrence": {
+            "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+            "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+            "startByte": 2481,
+            "endByte": 2659
+          },
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L53-L54"
+        },
+        "dashboard-5f3ddc5ec529c16f3f11": {
+          "id": "dashboard-5f3ddc5ec529c16f3f11",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 55,
+          "endLine": 55,
+          "text": "BigInt(message.offset)",
+          "textDigest": "sha256:0597749c0a1c9866cbf7f6fe57d6c4c194963b3daf00996c330fec6d03e271e5",
+          "evidenceDigest": "sha256:4812bfc76d7bdebf779f39367a97a100ea16aa6ace50df38edcc20554c1f501e",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "occurrence": {
+            "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+            "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+            "startByte": 2723,
+            "endByte": 2745
+          },
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L55-L55"
+        },
+        "dashboard-654eeebd7e0618b0c6dd": {
+          "id": "dashboard-654eeebd7e0618b0c6dd",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 55,
+          "endLine": 55,
+          "text": "consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])",
+          "textDigest": "sha256:10536e9489c17dea9b61b558fc1c7dbb7d42041d2dca3c572778ab91b00f1425",
+          "evidenceDigest": "sha256:de860837491e4de9520a8ef0204f1d9f78c1169925f280641cf16a47d55b6414",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "occurrence": {
+            "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+            "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+            "startByte": 2670,
+            "endByte": 2766
+          },
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L55-L55"
+        },
+        "dashboard-667235490ded3f35c51f": {
+          "id": "dashboard-667235490ded3f35c51f",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 55,
+          "endLine": 55,
+          "text": "(BigInt(message.offset) + 1n).toString()",
+          "textDigest": "sha256:12a3cb9adde59367cdb64de3b3baabf8e08b6c95350d7c62c8b60c75aacb81a1",
+          "evidenceDigest": "sha256:461b0d354c8cb969476c28b7a16f1c78164b053c7f7a4ebcf5d7aa1cd7a301ba",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "occurrence": {
+            "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+            "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+            "startByte": 2722,
+            "endByte": 2762
+          },
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L55-L55"
+        },
+        "dashboard-82ca6f23f0ad8605f057": {
+          "id": "dashboard-82ca6f23f0ad8605f057",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 59,
+          "endLine": 59,
+          "text": "BigInt(message.offset)",
+          "textDigest": "sha256:0597749c0a1c9866cbf7f6fe57d6c4c194963b3daf00996c330fec6d03e271e5",
+          "evidenceDigest": "sha256:a60431f3876a27562f9512b1e1d3f0f2e5ce5a517d260a4d84aa2e1d0b3e19ee",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "occurrence": {
+            "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+            "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+            "startByte": 2869,
+            "endByte": 2891
+          },
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L59-L59"
+        },
+        "dashboard-886390b176392fdbad06": {
+          "id": "dashboard-886390b176392fdbad06",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 51,
+          "endLine": 51,
+          "text": "validateEvent(JSON.parse(message.value?.toString() ?? ''), topic)",
+          "textDigest": "sha256:cad9be0e5a8abed0f9fa306de6be7a153b3616140e90dc7a8f4b804abf56160e",
+          "evidenceDigest": "sha256:1e283ab10b2b31e562691f7413840c13dd3f69663cad1e163d8293c6d57580d4",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "occurrence": {
+            "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+            "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+            "startByte": 2393,
+            "endByte": 2458
+          },
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L51-L51"
+        },
+        "dashboard-8a4f6855cb7f1a476a04": {
+          "id": "dashboard-8a4f6855cb7f1a476a04",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 59,
+          "endLine": 59,
+          "text": "consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])",
+          "textDigest": "sha256:10536e9489c17dea9b61b558fc1c7dbb7d42041d2dca3c572778ab91b00f1425",
+          "evidenceDigest": "sha256:ae2ad32d76b42a5da0426021e4a92fe197d52096478ca7dd976e3068da4145fc",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "occurrence": {
+            "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+            "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+            "startByte": 2816,
+            "endByte": 2912
+          },
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L59-L59"
+        },
+        "dashboard-a190efb9bca6603f1d2a": {
+          "id": "dashboard-a190efb9bca6603f1d2a",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 50,
+          "endLine": 57,
+          "text": "try {\n    event = validateEvent(JSON.parse(message.value?.toString() ?? ''), topic)\n  } catch {\n    await pool.query(`INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES($1,$2,$3,'INVALID_EVENT')\n      ON CONFLICT DO NOTHING`, [topic, partition, message.offset])\n    await consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])\n    return\n  }",
+          "textDigest": "sha256:e476207f0df860c247defa08bc88050d5b17b483570a4d2cd9e6a3dd7d03c626",
+          "evidenceDigest": "sha256:5d2fb0c2fdc96197c05e0d4ed6881c5b763cb848f5f6836ecdf9e472025907ce",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "occurrence": {
+            "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+            "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+            "startByte": 2375,
+            "endByte": 2781
+          },
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L50-L57"
+        },
+        "dashboard-a4627e5e868830287e83": {
+          "id": "dashboard-a4627e5e868830287e83",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 47,
+          "endLine": 60,
+          "text": "async function consumeMessage(payload: EachMessagePayload): Promise<void> {\n  const { topic, partition, message } = payload\n  let event\n  try {\n    event = validateEvent(JSON.parse(message.value?.toString() ?? ''), topic)\n  } catch {\n    await pool.query(`INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES($1,$2,$3,'INVALID_EVENT')\n      ON CONFLICT DO NOTHING`, [topic, partition, message.offset])\n    await consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])\n    return\n  }\n  await applyEvent(event)\n  await consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])\n}",
+          "textDigest": "sha256:e2ec368962cff169b81a5e04e5d2dbbf4ed970c39b3fa3a967106efa22e66840",
+          "evidenceDigest": "sha256:630c1f935d79cffa1a9f0dfda243aebf14a9495857abc3b2860c9b52dda17447",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "occurrence": {
+            "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+            "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+            "startByte": 2237,
+            "endByte": 2914
+          },
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L47-L60"
+        },
+        "dashboard-f4a336f51f8e91a3da04": {
+          "id": "dashboard-f4a336f51f8e91a3da04",
+          "service": "dashboard",
+          "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+          "file": "services/dashboard/src/main.ts",
+          "startLine": 56,
+          "endLine": 56,
+          "text": "return",
+          "textDigest": "sha256:7187f0675eb3827939741acf7342ba78836ecec21a31ecf3f34a55309d3bee8a",
+          "evidenceDigest": "sha256:cae0bdb0f68eecaa0c11def3323d1dd0de9bad53ac5e58ea6135a69b65ab07a6",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "occurrence": {
+            "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+            "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+            "startByte": 2771,
+            "endByte": 2777
+          },
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L56-L56"
+        }
+      },
+      "limitations": [
+        {
+          "code": "RUNTIME_NOT_OBSERVED",
+          "detail": "Source declarations do not establish deployed activation, delivery, external success, or durable completion.",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "CALL_TARGETS_UNRESOLVED",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "FILE_ONLY:compose.yaml",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "FILE_ONLY:contracts/dashboard.openapi.json",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "FILE_ONLY:contracts/events.schema.json",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "FILE_ONLY:database/init.sql",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "FILE_ONLY:exercises/broker-outage.py",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "FILE_ONLY:exercises/replay.py",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "FILE_ONLY:exercises/validator-regression.mjs",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "FILE_ONLY:fixtures/helsinki.json",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "FILE_ONLY:fixtures/lisbon.json",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "FILE_ONLY:fixtures/oslo.json",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "FILE_ONLY:fixtures/provenance.json",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "FILE_ONLY:services/dashboard/Dockerfile",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "FILE_ONLY:services/dashboard/package-lock.json",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "FILE_ONLY:services/dashboard/package.json",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "FILE_ONLY:services/dashboard/public/index.html",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "FILE_ONLY:services/dashboard/tsconfig.json",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "ORDER_LEXICAL_ONLY",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "SCOPE_WATCH_CONSERVATIVE",
+          "citationId": null
+        },
+        {
+          "code": "DECLARATION_ONLY_NO_RELATIONSHIP",
+          "detail": "Selected declarations are retained without inferring behavior or a relationship between them.",
+          "citationId": null
+        }
+      ],
+      "authoredParagraphs": [
+        {
+          "selection": {
+            "bundle": "277c5abb80b2abfdfbe5f96220358bf1ceece0af9d263138e0d30ffb34ea91c0",
+            "operation": "dashboard-d527a6e620a1974b0e5a",
+            "fragment": "claim-a1492cfcfa17ec67d1e2"
+          },
+          "publicationDigest": "sha256:808b8d9b49594fad94dbd34e9d0d770a9a81a35640375ad8ae668c1d4768dc82",
+          "bindingsDigest": "sha256:04d8ca8dcc2dc26d1144a6ef4f004018887b62aa8244c785f011cf6e9850e207",
+          "operationDigest": "sha256:bb68cd2928c467ae28b4a1ad882b38480067534748f6d61beae38feeeb72448d",
+          "paragraphDigest": "sha256:a8bd750f73f71f5f05b4335931b85602d1d131446d71ab7919593e2c4441448c",
+          "paragraph": {
+            "id": "claim-a1492cfcfa17ec67d1e2",
+            "text": "Call the recorded consumeMessage entrypoint with an EachMessagePayload. The captured source does not establish its framework trigger or deployed delivery.",
+            "eventIds": [
+              "claim-ff3791dcc1ad16ce5481"
+            ],
+            "dependencyIds": [
+              "dashboard:symbol:a4627e5e868830287e83e0dc",
+              "entity:weather-place"
+            ],
+            "sourceIds": [
+              "dashboard-a4627e5e868830287e83"
+            ],
+            "detail": false,
+            "authorship": {
+              "authority": "USER_DOCUMENTATION",
+              "author": "gpt-6-luna (max); preserved accepted proposal text",
+              "meaningReview": "UNASSESSED",
+              "contextRole": "RETAINED_UNVERIFIED_CONTEXT",
+              "editDigest": "sha256:5237eabbe345152e52a75b183a889f380a1a6f5712417bc3959185b11216d534",
+              "sourceSnapshot": "sha256:cd128dab5185ee06165da23afe31d75586b018ecdbe77d51b8c6bb3c178547b3/162173",
+              "sourceRefs": {
+                "dashboard-a4627e5e868830287e83": "sha256:a1309fc56d3ec55fcb9abe7b352d73d89352efa68679cd27c7d31695b8397664"
+              },
+              "dependencyRefs": {
+                "dashboard:symbol:a4627e5e868830287e83e0dc": "sha256:3e85b211bf89d5c13842ec99f76c47fc103dbbfee6734c113d988d47022849ea",
+                "entity:weather-place": "sha256:e20ad692cd73c8e360f1725e48a6a20ca1fa1cb89d956bbb1ad008204f19255c"
+              }
+            }
+          },
+          "contextFreshness": "CURRENT",
+          "sourceRecords": {
+            "dashboard-a4627e5e868830287e83": {
+              "id": "dashboard-a4627e5e868830287e83",
+              "service": "dashboard",
+              "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+              "file": "services/dashboard/src/main.ts",
+              "startLine": 47,
+              "endLine": 60,
+              "text": "async function consumeMessage(payload: EachMessagePayload): Promise<void> {\n  const { topic, partition, message } = payload\n  let event\n  try {\n    event = validateEvent(JSON.parse(message.value?.toString() ?? ''), topic)\n  } catch {\n    await pool.query(`INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES($1,$2,$3,'INVALID_EVENT')\n      ON CONFLICT DO NOTHING`, [topic, partition, message.offset])\n    await consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])\n    return\n  }\n  await applyEvent(event)\n  await consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])\n}",
+              "textDigest": "sha256:e2ec368962cff169b81a5e04e5d2dbbf4ed970c39b3fa3a967106efa22e66840",
+              "evidenceDigest": "sha256:630c1f935d79cffa1a9f0dfda243aebf14a9495857abc3b2860c9b52dda17447",
+              "authority": "EXACT_SNAPSHOT_TEXT",
+              "occurrence": {
+                "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+                "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+                "startByte": 2237,
+                "endByte": 2914
+              },
+              "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L47-L60"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title petclinic-java-0c6939846e443de66f80
+start
+:Entry: redirectToSwagger（response）;
+' evidence: method:class:org.springframework.samples.petclinic.rest.controller.v1.RootRestControllerV1#redirectToSwagger(Ljakarta/servlet/http/HttpServletResponse;)V
+:response.sendRedirect（...）;
+stop
+@enduml

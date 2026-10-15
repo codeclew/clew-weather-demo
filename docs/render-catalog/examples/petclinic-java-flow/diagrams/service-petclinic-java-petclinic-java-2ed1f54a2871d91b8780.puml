@@ -1,0 +1,16 @@
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title petclinic-java-2ed1f54a2871d91b8780
+start
+:Entry: listVisits（）;
+' evidence: method:class:org.springframework.samples.petclinic.rest.controller.v1.VisitRestControllerV1#listVisits()Lorg/springframework/http/ResponseEntity;
+:visits = new ArrayList&lt;&gt;（...）;
+if (visits.isEmpty<U+0028><U+0029>) then (C01)
+:return new ResponseEntity&lt;&gt;（HttpStatus.NOT_FOUND）;
+stop
+endif
+:return new ResponseEntity&lt;&gt;（new ArrayList&lt;&gt;（visitMapper.toVisitsDto（visits））, HttpStatus.OK）;
+stop
+@enduml

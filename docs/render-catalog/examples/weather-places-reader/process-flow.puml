@@ -1,0 +1,23 @@
+' CODECLEW_STATUS=DRAFT/UNREVIEWED/NOT_PUBLISHED
+' ORIGIN=SOURCE_LOCAL_NOT_EXECUTION_EVIDENCE
+' PACKET_DIGEST=sha256:56d7dc60aa18c537255c479a8edb6a1e78c5eb22b81ded0d76eeedd8d3979efe
+' ROOT_METHOD_ID=m0
+' ROOT_SOURCE_REFERENCE=s921
+' ROOT_SOURCE_EXCERPT=index.html#source-5
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title Source-local projection · PlacesController.Save: lookup, save, and response
+start
+:Entry: Save（request, token）;
+' evidence: method:class:Weather.Places.PlacesController#Save(LWeather/Places/SavePlace;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;
+:city = PlacesRepository.City（...）;
+if (city is null) then (C01)
+:return BadRequest（new { error = ＂UNSUPPORTED_CITY＂ }）;
+stop
+endif
+:await repository.Save（...）;
+:return Ok（city）;
+stop
+@enduml

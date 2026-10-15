@@ -1,0 +1,24 @@
+%% Source freshness: STALE; meaning review: UNASSESSED
+sequenceDiagram
+    autonumber
+    %% Agent-interpreted static source; declared edges are not compiler calls.
+    participant caller as Caller
+    participant service-dashboard as dashboard
+    %% claim-ff3791dcc1ad16ce5481: dependencies dashboard:symbol:a4627e5e868830287e83e0dc, entity:weather-place
+    caller->>service-dashboard: Call the recorded consumeMessage entrypoint with an EachMessagePayload. The captured source does not establish its framework trigger or deployed delivery.
+    %% claim-a31383d61462fd30cbdd: dependencies dashboard:flow:1198b0d44dde70fcd80329fc, dashboard:flow:886390b176392fdbad06fc3a, dashboard:flow:a190efb9bca6603f1d2abc58, dashboard:symbol:021fcd0ff7baa53bd3c51930, dashboard:symbol:a4627e5e868830287e83e0dc, entity:weather-place
+    alt Inside the try, parse the message value, using an empty string when it is absent, then validate the parsed value with the topic. A parse or validation throw takes the rejection branch&#59; otherwise the validated event is applied.
+    %% claim-b677530698176aeef8a5: dependencies dashboard:flow:1198b0d44dde70fcd80329fc, dashboard:flow:37dec2bf70bc69d603cb8d4b, dashboard:flow:886390b176392fdbad06fc3a, dashboard:symbol:021fcd0ff7baa53bd3c51930, dashboard:symbol:a4627e5e868830287e83e0dc, dashboard:symbol:ac3aadb76be6fea3e790cb85, entity:weather-place
+    Note over caller: If parsing and validation complete without throwing, consumeMessage awaits applyEvent(event). The helper's database outcomes are shown in the linked decision table&#59; its returned status is ignored.
+    %% claim-251bb6edb4bdd3ee96c9: dependencies dashboard:flow:5f3ddc5ec529c16f3f1143f8, dashboard:flow:667235490ded3f35c51f99f1, dashboard:flow:8a4f6855cb7f1a476a0484e4, dashboard:symbol:a4627e5e868830287e83e0dc, entity:weather-place
+    Note over caller: After applyEvent resolves, await commitOffsets for the supplied topic and partition at the decimal offset plus one.
+    %% claim-5b5724ea963a95a69429: dependencies dashboard:flow:1198b0d44dde70fcd80329fc, dashboard:flow:886390b176392fdbad06fc3a, dashboard:flow:a190efb9bca6603f1d2abc58, dashboard:symbol:021fcd0ff7baa53bd3c51930, dashboard:symbol:a4627e5e868830287e83e0dc, entity:weather-place
+    else Otherwise
+    %% claim-4986ed8cb5304e1e2a6a: dependencies dashboard:flow:59f03a0653cc7a3798b8ceaf, dashboard:flow:a190efb9bca6603f1d2abc58
+    Note over caller: On a parse or validation throw, await the rejected_messages insert with the supplied topic, partition, and offset and generic reason INVALID_EVENT. The insert uses ON CONFLICT DO NOTHING.
+    %% claim-f97db6d914e0e2424fd3: dependencies dashboard:flow:654eeebd7e0618b0c6dd58f9, dashboard:flow:667235490ded3f35c51f99f1, dashboard:flow:a190efb9bca6603f1d2abc58
+    Note over caller: After that insert resolves, await commitOffsets at the supplied topic and partition and offset plus one.
+    %% claim-ab17c9c1c95d4e307f35: dependencies dashboard:flow:a190efb9bca6603f1d2abc58, dashboard:flow:f4a336f51f8e91a3da04831a, dashboard:symbol:a4627e5e868830287e83e0dc, entity:weather-place
+    service-dashboard-->>caller: Return early after the rejection insert and offset commit&#59; applyEvent is skipped.
+    %% claim-a5714df916ad8a958eb8: dependencies dashboard:flow:1198b0d44dde70fcd80329fc, dashboard:flow:886390b176392fdbad06fc3a, dashboard:flow:a190efb9bca6603f1d2abc58, dashboard:symbol:021fcd0ff7baa53bd3c51930, dashboard:symbol:a4627e5e868830287e83e0dc, entity:weather-place
+    end

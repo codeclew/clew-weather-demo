@@ -1,0 +1,15 @@
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title petclinic-java-a7146bc50d79a47305e1
+start
+:Entry: addSpecialty（specialtyDto）;
+' evidence: method:class:org.springframework.samples.petclinic.rest.controller.v1.SpecialtyRestControllerV1#addSpecialty(Lorg/springframework/samples/petclinic/rest/dto/SpecialtyDto;)Lorg/springframework/http/ResponseEntity;
+:headers = new HttpHeaders（...）;
+:specialty = specialtyMapper.toSpecialty（...）;
+:this.clinicService.saveSpecialty（...）;
+:headers.setLocation（...）;
+:return new ResponseEntity&lt;&gt;（specialtyMapper.toSpecialtyDto（specialty）, headers, HttpStatus.CREATED）;
+stop
+@enduml

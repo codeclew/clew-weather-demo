@@ -1,0 +1,1744 @@
+{
+  "glossary": [
+    {
+      "definition": {
+        "checks": [],
+        "evidence": [
+          "s224",
+          "s248",
+          "s321",
+          "s364",
+          "s68"
+        ],
+        "glossaryRefs": [
+          "forecast_payload"
+        ],
+        "text": "The `forecast` JSON object contains `updatedAt`, `fetchedAt`, `mode`, and `periods`; the method serializes it as `payload` for the forecasts SQL statement and also attaches it to the event.",
+        "uncertainty": null
+      },
+      "id": "forecast_payload",
+      "kind": "technical_carrier",
+      "label": "Forecast payload",
+      "subjectRefs": [
+        "d422"
+      ],
+      "technicalNames": [
+        "forecast",
+        "payload"
+      ]
+    },
+    {
+      "definition": {
+        "checks": [],
+        "evidence": [
+          "s155",
+          "s200",
+          "s210",
+          "s242",
+          "s285"
+        ],
+        "glossaryRefs": [
+          "outbox_event"
+        ],
+        "text": "The `event` object uses id `$id:$updatedAt`, type `forecast.updated`, version 1, and carries the input `place` and constructed `forecast`; the method serializes it for the `forecast_outbox` SQL statement.",
+        "uncertainty": null
+      },
+      "id": "outbox_event",
+      "kind": "technical_carrier",
+      "label": "Outbox event",
+      "subjectRefs": [
+        "d422"
+      ],
+      "technicalNames": [
+        "event",
+        "forecast_outbox"
+      ]
+    }
+  ],
+  "packetDigest": "sha256:483c8d30c979db6894d72359ec7f58191ab55a2f38746df8e1c28318b2f5c0af",
+  "predicates": [
+    {
+      "evaluation": {
+        "checks": [],
+        "evidence": [
+          "s28",
+          "s135"
+        ],
+        "glossaryRefs": [],
+        "text": "The `&&` checks `cached != null` first; only when true does it cast `expires_at` and compare it with `Instant.now()`. A true result returns early. A missing or expired cache entry continues to acquisition.",
+        "uncertainty": null
+      },
+      "id": "cache_fresh",
+      "label": "Cached entry is unexpired",
+      "meaning": {
+        "checks": [],
+        "evidence": [
+          "s28",
+          "s135"
+        ],
+        "glossaryRefs": [],
+        "text": "The source condition is `cached != null && (cached[\"expires_at\"] as java.sql.Timestamp).toInstant().isAfter(Instant.now())`.",
+        "uncertainty": null
+      },
+      "sourceCheck": {
+        "checks": [],
+        "evidence": [
+          "s122",
+          "s135"
+        ],
+        "glossaryRefs": [],
+        "text": "The method queries for a cache row before applying the freshness condition.",
+        "uncertainty": null
+      }
+    },
+    {
+      "evaluation": {
+        "checks": [],
+        "evidence": [
+          "s7",
+          "s81"
+        ],
+        "glossaryRefs": [],
+        "text": "If true, the method reads `/app/fixtures/$id.json` into `raw`. If false, it evaluates the separate live-mode requirement before live acquisition.",
+        "uncertainty": null
+      },
+      "id": "fixture_mode",
+      "label": "Mode is fixture",
+      "meaning": {
+        "checks": [],
+        "evidence": [
+          "s7"
+        ],
+        "glossaryRefs": [],
+        "text": "The source tests `mode == \"fixture\"` to choose the fixture branch.",
+        "uncertainty": null
+      },
+      "sourceCheck": {
+        "checks": [],
+        "evidence": [
+          "s147"
+        ],
+        "glossaryRefs": [],
+        "text": "The retained branch reads the fixture file when `mode == \"fixture\"`; its `else` branch requires live mode.",
+        "uncertainty": null
+      }
+    },
+    {
+      "evaluation": {
+        "checks": [],
+        "evidence": [
+          "s212"
+        ],
+        "glossaryRefs": [],
+        "text": "True permits the live branch to continue. False makes `require` fail before live-path work; the resulting runtime exception type is not established here.",
+        "uncertainty": null
+      },
+      "id": "live_mode",
+      "label": "Mode is live",
+      "meaning": {
+        "checks": [],
+        "evidence": [
+          "s212"
+        ],
+        "glossaryRefs": [],
+        "text": "The live branch requires `mode == \"live\"`.",
+        "uncertainty": null
+      },
+      "sourceCheck": {
+        "checks": [],
+        "evidence": [
+          "s212"
+        ],
+        "glossaryRefs": [],
+        "text": "The source calls `require(mode == \"live\")` before reading the provider configuration or sending a request.",
+        "uncertainty": null
+      }
+    },
+    {
+      "evaluation": {
+        "checks": [],
+        "evidence": [
+          "s9",
+          "s123",
+          "s132"
+        ],
+        "glossaryRefs": [],
+        "text": "A non-null, nonblank environment value is bound as `agent`. A null or blank value reaches `error(\"MET_USER_AGENT_REQUIRED\")` before backoff checking and the request.",
+        "uncertainty": null
+      },
+      "id": "agent_ready",
+      "label": "Provider user agent is nonblank",
+      "meaning": {
+        "checks": [],
+        "evidence": [
+          "s123",
+          "s132"
+        ],
+        "glossaryRefs": [],
+        "text": "`System.getenv(\"MET_USER_AGENT\")?.takeIf { it.isNotBlank() }` yields a value for `agent` only when the environment value is non-null and nonblank.",
+        "uncertainty": null
+      },
+      "sourceCheck": {
+        "checks": [],
+        "evidence": [
+          "s9",
+          "s132"
+        ],
+        "glossaryRefs": [],
+        "text": "The method applies the null-safe `takeIf` and uses `error(\"MET_USER_AGENT_REQUIRED\")` as the Elvis fallback.",
+        "uncertainty": null
+      }
+    },
+    {
+      "evaluation": {
+        "checks": [],
+        "evidence": [
+          "s13",
+          "s80"
+        ],
+        "glossaryRefs": [],
+        "text": "The null-safe `isAfter` result is compared with `true`; a missing `nextAttempt[id]` therefore does not satisfy the guard. True raises `PROVIDER_BACKOFF`; false assigns `Instant.now().plusSeconds(60)` before request construction and send.",
+        "uncertainty": null
+      },
+      "id": "backoff_active",
+      "label": "Next attempt is in the future",
+      "meaning": {
+        "checks": [],
+        "evidence": [
+          "s13",
+          "s80"
+        ],
+        "glossaryRefs": [],
+        "text": "The guard is `nextAttempt[id]?.isAfter(Instant.now()) == true`.",
+        "uncertainty": null
+      },
+      "sourceCheck": {
+        "checks": [],
+        "evidence": [
+          "s13",
+          "s80",
+          "s225"
+        ],
+        "glossaryRefs": [],
+        "text": "The source raises `error(\"PROVIDER_BACKOFF\")` when the guard is true, and otherwise assigns a new next-attempt time.",
+        "uncertainty": null
+      }
+    },
+    {
+      "evaluation": {
+        "checks": [],
+        "evidence": [
+          "s174",
+          "s203",
+          "s335"
+        ],
+        "glossaryRefs": [],
+        "text": "True adds the `If-Modified-Since` header with `modified`; false omits that header and continues building the request.",
+        "uncertainty": null
+      },
+      "id": "has_modified",
+      "label": "Cached Last-Modified value exists",
+      "meaning": {
+        "checks": [],
+        "evidence": [
+          "s174"
+        ],
+        "glossaryRefs": [],
+        "text": "The source tests `modified != null`.",
+        "uncertainty": null
+      },
+      "sourceCheck": {
+        "checks": [],
+        "evidence": [
+          "s203",
+          "s335"
+        ],
+        "glossaryRefs": [],
+        "text": "`modified` comes from the cached row's `last_modified` value, and the header is added only when it is non-null.",
+        "uncertainty": null
+      }
+    },
+    {
+      "evaluation": {
+        "checks": [],
+        "evidence": [
+          "s26",
+          "s71",
+          "s113",
+          "s201",
+          "s120"
+        ],
+        "glossaryRefs": [],
+        "text": "True reads `Retry-After`, uses `\"60\"` when absent, uses `60L` when parsing returns null, clamps the seconds to at least 60, then assigns the resulting time to `nextAttempt[id]`. False assigns `expires` to `nextAttempt[id]`.",
+        "uncertainty": null
+      },
+      "id": "status_429",
+      "label": "Response status is 429",
+      "meaning": {
+        "checks": [],
+        "evidence": [
+          "s201"
+        ],
+        "glossaryRefs": [],
+        "text": "The source tests `response.statusCode() == 429`.",
+        "uncertainty": null
+      },
+      "sourceCheck": {
+        "checks": [],
+        "evidence": [
+          "s26",
+          "s201"
+        ],
+        "glossaryRefs": [],
+        "text": "The status check selects between the Retry-After calculation and assigning `expires`.",
+        "uncertainty": null
+      }
+    },
+    {
+      "evaluation": {
+        "checks": [],
+        "evidence": [
+          "s111",
+          "s171",
+          "s271"
+        ],
+        "glossaryRefs": [],
+        "text": "The `&&` checks status 304 first and checks `cached != null` only when that status matches. True updates only `expires_at` for the place and returns. False continues to the accepted-status requirement; a 304 without a cached row therefore reaches that requirement.",
+        "uncertainty": null
+      },
+      "id": "not_modified_with_cache",
+      "label": "Response is 304 and a cache row exists",
+      "meaning": {
+        "checks": [],
+        "evidence": [
+          "s111",
+          "s171"
+        ],
+        "glossaryRefs": [],
+        "text": "The source condition is `response.statusCode() == 304 && cached != null`.",
+        "uncertainty": null
+      },
+      "sourceCheck": {
+        "checks": [],
+        "evidence": [
+          "s111",
+          "s271",
+          "s326"
+        ],
+        "glossaryRefs": [],
+        "text": "On the true branch, the source updates the cached row's expiry and returns before the later accepted-status check.",
+        "uncertainty": null
+      }
+    },
+    {
+      "evaluation": {
+        "checks": [],
+        "evidence": [
+          "s69",
+          "s288",
+          "s385"
+        ],
+        "glossaryRefs": [],
+        "text": "The `||` checks for status 200 first and checks for 203 only if the first comparison is false. True continues to read `Last-Modified` and the response body. False makes `require` fail with the source message `PROVIDER_HTTP_` followed by the status code.",
+        "uncertainty": null
+      },
+      "id": "accepted_status",
+      "label": "Response status is 200 or 203",
+      "meaning": {
+        "checks": [],
+        "evidence": [
+          "s69",
+          "s385"
+        ],
+        "glossaryRefs": [],
+        "text": "The source accepts `response.statusCode() == 200 || response.statusCode() == 203`.",
+        "uncertainty": null
+      },
+      "sourceCheck": {
+        "checks": [],
+        "evidence": [
+          "s288",
+          "s385"
+        ],
+        "glossaryRefs": [],
+        "text": "The accepted-status `require` follows the 304-with-cache return branch.",
+        "uncertainty": null
+      }
+    },
+    {
+      "evaluation": {
+        "checks": [],
+        "evidence": [
+          "s102",
+          "s353",
+          "s380"
+        ],
+        "glossaryRefs": [],
+        "text": "The header lookup defaults to an empty string. A case-insensitive match for `gzip` passes the response bytes through `GZIPInputStream` and a buffered reader's `readText`; otherwise the response bytes are converted with UTF-8.",
+        "uncertainty": null
+      },
+      "id": "gzip_encoding",
+      "label": "Content-Encoding is gzip",
+      "meaning": {
+        "checks": [],
+        "evidence": [
+          "s353",
+          "s380"
+        ],
+        "glossaryRefs": [],
+        "text": "The source compares the first `Content-Encoding` value, or an empty string, with `gzip` ignoring case.",
+        "uncertainty": null
+      },
+      "sourceCheck": {
+        "checks": [],
+        "evidence": [
+          "s102",
+          "s220",
+          "s233",
+          "s352",
+          "s353"
+        ],
+        "glossaryRefs": [],
+        "text": "The true and false branches respectively read through `GZIPInputStream` or convert the response body to a UTF-8 string.",
+        "uncertainty": null
+      }
+    },
+    {
+      "evaluation": {
+        "checks": [],
+        "evidence": [
+          "s5",
+          "s222",
+          "s362"
+        ],
+        "glossaryRefs": [],
+        "text": "The `&&` checks `temperature != null` first and reads `isNumber` only when non-null. True proceeds to form the period; false makes `require` fail before that point is added.",
+        "uncertainty": null
+      },
+      "id": "temperature_valid",
+      "label": "Temperature exists and is numeric",
+      "meaning": {
+        "checks": [],
+        "evidence": [
+          "s5",
+          "s222"
+        ],
+        "glossaryRefs": [],
+        "text": "The source requires `temperature != null && temperature.isNumber`.",
+        "uncertainty": null
+      },
+      "sourceCheck": {
+        "checks": [],
+        "evidence": [
+          "s117",
+          "s362"
+        ],
+        "glossaryRefs": [],
+        "text": "The numeric-temperature requirement is inside the loop and precedes period construction.",
+        "uncertainty": null
+      }
+    },
+    {
+      "evaluation": {
+        "checks": [],
+        "evidence": [
+          "s16",
+          "s30",
+          "s55"
+        ],
+        "glossaryRefs": [],
+        "text": "The `||` checks `rain == null` first and tests `!rain.isNumber` only when rain is non-null. True puts JSON null in `precipitationMm`; false converts rain with `asDouble()` and puts that value.",
+        "uncertainty": null
+      },
+      "id": "rain_missing_or_nonnumeric",
+      "label": "Rain is missing or nonnumeric",
+      "meaning": {
+        "checks": [],
+        "evidence": [
+          "s16",
+          "s30"
+        ],
+        "glossaryRefs": [],
+        "text": "The source condition is `rain == null || !rain.isNumber`.",
+        "uncertainty": null
+      },
+      "sourceCheck": {
+        "checks": [],
+        "evidence": [
+          "s55",
+          "s259",
+          "s273"
+        ],
+        "glossaryRefs": [],
+        "text": "The source writes JSON null for the true branch and `rain.asDouble()` for the false branch.",
+        "uncertainty": null
+      }
+    },
+    {
+      "evaluation": {
+        "checks": [],
+        "evidence": [
+          "s25",
+          "s176"
+        ],
+        "glossaryRefs": [],
+        "text": "True continues to extract and parse `updated_at`; false makes `require` fail before forecast construction and the SQL calls.",
+        "uncertainty": null
+      },
+      "id": "periods_nonempty",
+      "label": "At least one period was built",
+      "meaning": {
+        "checks": [],
+        "evidence": [
+          "s25"
+        ],
+        "glossaryRefs": [],
+        "text": "The source requires `periods.size() > 0`.",
+        "uncertainty": null
+      },
+      "sourceCheck": {
+        "checks": [],
+        "evidence": [
+          "s25",
+          "s192"
+        ],
+        "glossaryRefs": [],
+        "text": "The nonempty check follows creation and population of the periods array.",
+        "uncertainty": null
+      }
+    }
+  ],
+  "preparations": [
+    {
+      "id": "prep_inputs",
+      "steps": [
+        {
+          "children": [],
+          "from": "place: JsonNode parameter",
+          "glossaryRefs": [],
+          "id": "prep_place_id",
+          "interaction": null,
+          "kind": "action",
+          "meaning": {
+            "checks": [],
+            "evidence": [
+              "s320",
+              "s355"
+            ],
+            "glossaryRefs": [],
+            "text": "Read `place[\"id\"].asText()` into `id`.",
+            "uncertainty": null
+          },
+          "otherwise": [],
+          "preparationRefs": [],
+          "to": "id"
+        },
+        {
+          "children": [],
+          "from": "id",
+          "glossaryRefs": [],
+          "id": "prep_cache_query",
+          "interaction": null,
+          "kind": "action",
+          "meaning": {
+            "checks": [],
+            "evidence": [
+              "s122",
+              "s320",
+              "d334"
+            ],
+            "glossaryRefs": [],
+            "text": "Call the cache query for `payload::text,expires_at,last_modified` using `id`, then take `firstOrNull()` of its returned list. This selects the first nullable row; it does not filter the list for a fresh row or retry for another.",
+            "uncertainty": "The query result and runtime completion are unknown."
+          },
+          "otherwise": [],
+          "preparationRefs": [],
+          "to": "cached"
+        }
+      ],
+      "subjectReference": "d422",
+      "summary": {
+        "checks": [],
+        "evidence": [
+          "s320",
+          "s355",
+          "s122"
+        ],
+        "glossaryRefs": [],
+        "text": "The method takes `place` as a `JsonNode`, derives its id, and queries for a cache candidate before checking expiry.",
+        "uncertainty": "The actual input and query result are unknown."
+      },
+      "title": "Resolve the place key and cache candidate"
+    }
+  ],
+  "schema": "codeclew-operation-answer/1.2",
+  "steps": [
+    {
+      "children": [
+        {
+          "children": [],
+          "from": "cached",
+          "glossaryRefs": [],
+          "id": "return_fresh_cache",
+          "interaction": null,
+          "kind": "return",
+          "meaning": {
+            "checks": [],
+            "evidence": [
+              "s28",
+              "s135"
+            ],
+            "glossaryRefs": [],
+            "text": "When `cache_fresh` is true, return from `refresh` before source acquisition, transformation, or the later SQL calls.",
+            "uncertainty": null
+          },
+          "otherwise": [],
+          "preparationRefs": [],
+          "to": null
+        }
+      ],
+      "from": "cached",
+      "glossaryRefs": [],
+      "id": "check_cache_fresh",
+      "interaction": null,
+      "kind": "decision",
+      "meaning": {
+        "checks": [],
+        "evidence": [
+          "s28",
+          "s135"
+        ],
+        "glossaryRefs": [],
+        "text": "Check whether the selected cache row has an expiry after the current time.",
+        "uncertainty": null
+      },
+      "otherwise": [
+        {
+          "children": [],
+          "from": "current time",
+          "glossaryRefs": [],
+          "id": "initialize_defaults",
+          "interaction": null,
+          "kind": "action",
+          "meaning": {
+            "checks": [],
+            "evidence": [
+              "s327",
+              "s376"
+            ],
+            "glossaryRefs": [],
+            "text": "After the cache miss or expiry, initialize `expires` to now plus 3600 seconds and `lastModified` to null.",
+            "uncertainty": null
+          },
+          "otherwise": [],
+          "preparationRefs": [],
+          "to": "expires; lastModified"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "from": "id",
+              "glossaryRefs": [],
+              "id": "read_fixture",
+              "interaction": null,
+              "kind": "action",
+              "meaning": {
+                "checks": [],
+                "evidence": [
+                  "s7",
+                  "s81",
+                  "s371"
+                ],
+                "glossaryRefs": [],
+                "text": "Read `/app/fixtures/$id.json` into `raw`. The file contents are not present in this packet.",
+                "uncertainty": null
+              },
+              "otherwise": [],
+              "preparationRefs": [],
+              "to": "raw"
+            }
+          ],
+          "from": "mode",
+          "glossaryRefs": [],
+          "id": "choose_fixture",
+          "interaction": null,
+          "kind": "decision",
+          "meaning": {
+            "checks": [],
+            "evidence": [
+              "s7",
+              "s147"
+            ],
+            "glossaryRefs": [],
+            "text": "Choose the fixture source when `mode == \"fixture\"`; otherwise enter the branch that requires live mode.",
+            "uncertainty": null
+          },
+          "otherwise": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "from": "MET_USER_AGENT",
+                      "glossaryRefs": [],
+                      "id": "use_agent",
+                      "interaction": null,
+                      "kind": "action",
+                      "meaning": {
+                        "checks": [],
+                        "evidence": [
+                          "s9",
+                          "s123",
+                          "s132"
+                        ],
+                        "glossaryRefs": [],
+                        "text": "Bind the nonblank environment value as `agent` for the request.",
+                        "uncertainty": null
+                      },
+                      "otherwise": [],
+                      "preparationRefs": [],
+                      "to": "agent"
+                    }
+                  ],
+                  "from": "System.getenv(\"MET_USER_AGENT\")",
+                  "glossaryRefs": [],
+                  "id": "check_agent",
+                  "interaction": null,
+                  "kind": "decision",
+                  "meaning": {
+                    "checks": [],
+                    "evidence": [
+                      "s9",
+                      "s132"
+                    ],
+                    "glossaryRefs": [],
+                    "text": "Require a non-null, nonblank provider user-agent value.",
+                    "uncertainty": null
+                  },
+                  "otherwise": [
+                    {
+                      "children": [],
+                      "from": "environment lookup",
+                      "glossaryRefs": [],
+                      "id": "missing_agent",
+                      "interaction": null,
+                      "kind": "throw",
+                      "meaning": {
+                        "checks": [],
+                        "evidence": [
+                          "s9",
+                          "s132",
+                          "s265"
+                        ],
+                        "glossaryRefs": [],
+                        "text": "The source invokes `error(\"MET_USER_AGENT_REQUIRED\")`; the exception type and dispatch are not established.",
+                        "uncertainty": null
+                      },
+                      "otherwise": [],
+                      "preparationRefs": [],
+                      "to": null
+                    }
+                  ],
+                  "predicateRef": "agent_ready",
+                  "preparationRefs": [],
+                  "to": "agent or error"
+                },
+                {
+                  "children": [],
+                  "from": "nextAttempt[id]",
+                  "glossaryRefs": [],
+                  "id": "backoff_error",
+                  "interaction": null,
+                  "kind": "throw",
+                  "meaning": {
+                    "checks": [],
+                    "evidence": [
+                      "s13",
+                      "s80"
+                    ],
+                    "glossaryRefs": [],
+                    "text": "When the next-attempt instant is after now, the source invokes `error(\"PROVIDER_BACKOFF\")`.",
+                    "uncertainty": null
+                  },
+                  "otherwise": [],
+                  "preparationRefs": [],
+                  "to": null
+                }
+              ],
+              "from": "nextAttempt[id]",
+              "glossaryRefs": [],
+              "id": "check_backoff",
+              "interaction": null,
+              "kind": "decision",
+              "meaning": {
+                "checks": [],
+                "evidence": [
+                  "s13",
+                  "s80",
+                  "s225"
+                ],
+                "glossaryRefs": [],
+                "text": "Stop on an active backoff; otherwise assign a preliminary next-attempt time before building and sending the request.",
+                "uncertainty": null
+              },
+              "otherwise": [
+                {
+                  "children": [],
+                  "from": "current time",
+                  "glossaryRefs": [],
+                  "id": "seed_next_attempt",
+                  "interaction": null,
+                  "kind": "action",
+                  "meaning": {
+                    "checks": [],
+                    "evidence": [
+                      "s88",
+                      "s225"
+                    ],
+                    "glossaryRefs": [],
+                    "text": "Assign `nextAttempt[id] = Instant.now().plusSeconds(60)` before the HTTP send call.",
+                    "uncertainty": null
+                  },
+                  "otherwise": [],
+                  "preparationRefs": [],
+                  "to": "nextAttempt[id]"
+                },
+                {
+                  "children": [],
+                  "from": "place[\"latitude\"], place[\"longitude\"]",
+                  "glossaryRefs": [],
+                  "id": "format_coordinates",
+                  "interaction": null,
+                  "kind": "action",
+                  "meaning": {
+                    "checks": [],
+                    "evidence": [
+                      "s50",
+                      "s53",
+                      "s281",
+                      "s282",
+                      "s289",
+                      "s354"
+                    ],
+                    "glossaryRefs": [],
+                    "text": "Read latitude and longitude from `place`, convert each with `asDouble()`, then use `BigDecimal.valueOf(...).setScale(4, RoundingMode.DOWN).toPlainString()` for the request coordinates.",
+                    "uncertainty": null
+                  },
+                  "otherwise": [],
+                  "preparationRefs": [],
+                  "to": "lat, lon"
+                },
+                {
+                  "children": [],
+                  "from": "lat, lon, agent",
+                  "glossaryRefs": [],
+                  "id": "build_request",
+                  "interaction": null,
+                  "kind": "action",
+                  "meaning": {
+                    "checks": [],
+                    "evidence": [
+                      "s14",
+                      "s18",
+                      "s178",
+                      "s340",
+                      "s361"
+                    ],
+                    "glossaryRefs": [],
+                    "text": "Build a GET request for the met.no compact location forecast URL with those coordinates, a 20-second timeout, `User-Agent: agent`, and `Accept-Encoding: gzip`.",
+                    "uncertainty": null
+                  },
+                  "otherwise": [],
+                  "preparationRefs": [],
+                  "to": "HttpRequest.Builder"
+                },
+                {
+                  "children": [],
+                  "from": "cached[\"last_modified\"]",
+                  "glossaryRefs": [],
+                  "id": "read_modified",
+                  "interaction": null,
+                  "kind": "action",
+                  "meaning": {
+                    "checks": [],
+                    "evidence": [
+                      "s203",
+                      "s239",
+                      "s351"
+                    ],
+                    "glossaryRefs": [],
+                    "text": "Read the cached row's `last_modified` value as nullable `modified`.",
+                    "uncertainty": null
+                  },
+                  "otherwise": [],
+                  "preparationRefs": [],
+                  "to": "modified"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "from": "modified",
+                      "glossaryRefs": [],
+                      "id": "add_modified_header",
+                      "interaction": null,
+                      "kind": "action",
+                      "meaning": {
+                        "checks": [],
+                        "evidence": [
+                          "s87",
+                          "s174",
+                          "s335"
+                        ],
+                        "glossaryRefs": [],
+                        "text": "Add `If-Modified-Since` with `modified`.",
+                        "uncertainty": null
+                      },
+                      "otherwise": [],
+                      "preparationRefs": [],
+                      "to": "request builder"
+                    }
+                  ],
+                  "from": "modified",
+                  "glossaryRefs": [],
+                  "id": "conditional_header",
+                  "interaction": null,
+                  "kind": "decision",
+                  "meaning": {
+                    "checks": [],
+                    "evidence": [
+                      "s87",
+                      "s174"
+                    ],
+                    "glossaryRefs": [],
+                    "text": "Add the conditional request header only when the cached value is non-null.",
+                    "uncertainty": null
+                  },
+                  "otherwise": [
+                    {
+                      "children": [],
+                      "from": "modified",
+                      "glossaryRefs": [],
+                      "id": "omit_modified_header",
+                      "interaction": null,
+                      "kind": "action",
+                      "meaning": {
+                        "checks": [],
+                        "evidence": [
+                          "s87",
+                          "s174"
+                        ],
+                        "glossaryRefs": [],
+                        "text": "Leave `If-Modified-Since` off the request builder.",
+                        "uncertainty": null
+                      },
+                      "otherwise": [],
+                      "preparationRefs": [],
+                      "to": "request builder"
+                    }
+                  ],
+                  "predicateRef": "has_modified",
+                  "preparationRefs": [],
+                  "to": "request builder"
+                },
+                {
+                  "children": [],
+                  "from": "request builder",
+                  "glossaryRefs": [],
+                  "id": "send_request",
+                  "interaction": "HTTP request to the URL formed from the place coordinates",
+                  "kind": "action",
+                  "meaning": {
+                    "checks": [],
+                    "evidence": [
+                      "s12",
+                      "s193",
+                      "s306",
+                      "s359"
+                    ],
+                    "glossaryRefs": [],
+                    "text": "Call `http.send(builder.GET().build(), HttpResponse.BodyHandlers.ofByteArray())`. The request's runtime outcome is unknown.",
+                    "uncertainty": null
+                  },
+                  "otherwise": [],
+                  "preparationRefs": [],
+                  "to": "response"
+                },
+                {
+                  "children": [],
+                  "from": "response.headers().firstValue(\"Expires\")",
+                  "glossaryRefs": [],
+                  "id": "derive_expiry",
+                  "interaction": null,
+                  "kind": "action",
+                  "meaning": {
+                    "checks": [],
+                    "evidence": [
+                      "s150",
+                      "s167",
+                      "s276",
+                      "s398"
+                    ],
+                    "glossaryRefs": [],
+                    "text": "Set `expires` from an `Expires` header parsed with `RFC_1123_DATE_TIME` and converted to an instant; if the header is absent, use now plus 3600 seconds. A parse failure is not handled in this source path.",
+                    "uncertainty": null
+                  },
+                  "otherwise": [],
+                  "preparationRefs": [],
+                  "to": "expires"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "from": "response.headers().firstValue(\"Retry-After\")",
+                      "glossaryRefs": [],
+                      "id": "set_retry_delay",
+                      "interaction": null,
+                      "kind": "action",
+                      "meaning": {
+                        "checks": [],
+                        "evidence": [
+                          "s26",
+                          "s71",
+                          "s113",
+                          "s120",
+                          "s134",
+                          "s201"
+                        ],
+                        "glossaryRefs": [],
+                        "text": "Use the Retry-After value or `\"60\"`; if `toLongOrNull()` returns null use `60L`, clamp to at least `60L`, then assign now plus that many seconds to `nextAttempt[id]`.",
+                        "uncertainty": null
+                      },
+                      "otherwise": [],
+                      "preparationRefs": [],
+                      "to": "nextAttempt[id]"
+                    }
+                  ],
+                  "from": "response.statusCode()",
+                  "glossaryRefs": [],
+                  "id": "check_429",
+                  "interaction": null,
+                  "kind": "decision",
+                  "meaning": {
+                    "checks": [],
+                    "evidence": [
+                      "s26",
+                      "s78",
+                      "s201"
+                    ],
+                    "glossaryRefs": [],
+                    "text": "Set a minimum retry time for status 429; for other statuses, set the next attempt to `expires`.",
+                    "uncertainty": null
+                  },
+                  "otherwise": [
+                    {
+                      "children": [],
+                      "from": "expires",
+                      "glossaryRefs": [],
+                      "id": "set_expiry_retry",
+                      "interaction": null,
+                      "kind": "action",
+                      "meaning": {
+                        "checks": [],
+                        "evidence": [
+                          "s26",
+                          "s78"
+                        ],
+                        "glossaryRefs": [],
+                        "text": "Assign `expires` to `nextAttempt[id]`.",
+                        "uncertainty": null
+                      },
+                      "otherwise": [],
+                      "preparationRefs": [],
+                      "to": "nextAttempt[id]"
+                    }
+                  ],
+                  "predicateRef": "status_429",
+                  "preparationRefs": [],
+                  "to": "nextAttempt[id]"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "from": "response, cached, expires",
+                      "glossaryRefs": [],
+                      "id": "refresh_cached_expiry",
+                      "interaction": null,
+                      "kind": "action",
+                      "meaning": {
+                        "checks": [],
+                        "evidence": [
+                          "s111",
+                          "s271",
+                          "s326"
+                        ],
+                        "glossaryRefs": [],
+                        "text": "Call `jdbc.update(\"UPDATE forecasts SET expires_at=? WHERE place_id=?\", Timestamp.from(expires), id)`, then return from `refresh`. The source does not show the database outcome.",
+                        "uncertainty": null
+                      },
+                      "otherwise": [],
+                      "preparationRefs": [],
+                      "to": "return"
+                    }
+                  ],
+                  "from": "response.statusCode(), cached",
+                  "glossaryRefs": [],
+                  "id": "check_not_modified",
+                  "interaction": null,
+                  "kind": "decision",
+                  "meaning": {
+                    "checks": [],
+                    "evidence": [
+                      "s111",
+                      "s171",
+                      "s207"
+                    ],
+                    "glossaryRefs": [],
+                    "text": "On status 304 with a cached row, update only its expiry and return; otherwise check whether the response status is accepted.",
+                    "uncertainty": null
+                  },
+                  "otherwise": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "from": "response.headers().firstValue(\"Last-Modified\")",
+                              "glossaryRefs": [],
+                              "id": "read_last_modified",
+                              "interaction": null,
+                              "kind": "action",
+                              "meaning": {
+                                "checks": [],
+                                "evidence": [
+                                  "s4",
+                                  "s21",
+                                  "s63"
+                                ],
+                                "glossaryRefs": [],
+                                "text": "Set `lastModified` from the `Last-Modified` header, using null if absent.",
+                                "uncertainty": null
+                              },
+                              "otherwise": [],
+                              "preparationRefs": [],
+                              "to": "lastModified"
+                            }
+                          ],
+                          "from": "response.headers().firstValue(\"Content-Encoding\")",
+                          "glossaryRefs": [],
+                          "id": "check_gzip",
+                          "interaction": null,
+                          "kind": "decision",
+                          "meaning": {
+                            "checks": [],
+                            "evidence": [
+                              "s102",
+                              "s353",
+                              "s380"
+                            ],
+                            "glossaryRefs": [],
+                            "text": "Read `raw` from the response body using the gzip path when the content-encoding value matches gzip, or UTF-8 conversion otherwise.",
+                            "uncertainty": null
+                          },
+                          "otherwise": [
+                            {
+                              "children": [],
+                              "from": "response.body()",
+                              "glossaryRefs": [],
+                              "id": "decode_utf8",
+                              "interaction": null,
+                              "kind": "action",
+                              "meaning": {
+                                "checks": [],
+                                "evidence": [
+                                  "s102",
+                                  "s314",
+                                  "s352"
+                                ],
+                                "glossaryRefs": [],
+                                "text": "Convert the response body bytes to a string with UTF-8 and assign it to `raw`.",
+                                "uncertainty": null
+                              },
+                              "otherwise": [],
+                              "preparationRefs": [],
+                              "to": "raw"
+                            }
+                          ],
+                          "predicateRef": "gzip_encoding",
+                          "preparationRefs": [],
+                          "to": "raw"
+                        }
+                      ],
+                      "from": "response.statusCode()",
+                      "glossaryRefs": [],
+                      "id": "check_http_status",
+                      "interaction": null,
+                      "kind": "decision",
+                      "meaning": {
+                        "checks": [],
+                        "evidence": [
+                          "s69",
+                          "s288",
+                          "s385"
+                        ],
+                        "glossaryRefs": [],
+                        "text": "Only statuses 200 and 203 proceed to capture Last-Modified and read the response body.",
+                        "uncertainty": null
+                      },
+                      "otherwise": [
+                        {
+                          "children": [],
+                          "from": "response.statusCode()",
+                          "glossaryRefs": [],
+                          "id": "reject_http_status",
+                          "interaction": null,
+                          "kind": "throw",
+                          "meaning": {
+                            "checks": [],
+                            "evidence": [
+                              "s64",
+                              "s89",
+                              "s288"
+                            ],
+                            "glossaryRefs": [],
+                            "text": "The source's `require` failure message is `PROVIDER_HTTP_` plus the response status code; exception type and runtime dispatch are not established.",
+                            "uncertainty": null
+                          },
+                          "otherwise": [],
+                          "preparationRefs": [],
+                          "to": null
+                        }
+                      ],
+                      "predicateRef": "accepted_status",
+                      "preparationRefs": [],
+                      "to": "raw"
+                    }
+                  ],
+                  "predicateRef": "not_modified_with_cache",
+                  "preparationRefs": [],
+                  "to": "return or status check"
+                }
+              ],
+              "predicateRef": "status_429",
+              "preparationRefs": [],
+              "to": "nextAttempt[id]"
+            },
+            {
+              "children": [],
+              "from": "raw",
+              "glossaryRefs": [],
+              "id": "parse_document",
+              "interaction": null,
+              "kind": "action",
+              "meaning": {
+                "checks": [],
+                "evidence": [
+                  "s128",
+                  "s245"
+                ],
+                "glossaryRefs": [],
+                "text": "Parse `raw` with `json.readTree` into `document`.",
+                "uncertainty": null
+              },
+              "otherwise": [],
+              "preparationRefs": [],
+              "to": "document"
+            },
+            {
+              "children": [],
+              "from": "document",
+              "glossaryRefs": [],
+              "id": "create_periods",
+              "interaction": null,
+              "kind": "action",
+              "meaning": {
+                "checks": [],
+                "evidence": [
+                  "s192",
+                  "s286"
+                ],
+                "glossaryRefs": [],
+                "text": "Create an empty JSON array named `periods`.",
+                "uncertainty": null
+              },
+              "otherwise": [],
+              "preparationRefs": [],
+              "to": "periods"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "from": "point",
+                          "glossaryRefs": [],
+                          "id": "construct_period",
+                          "interaction": null,
+                          "kind": "action",
+                          "meaning": {
+                            "checks": [],
+                            "evidence": [
+                              "s33",
+                              "s43",
+                              "s117",
+                              "s194",
+                              "s235",
+                              "s307",
+                              "s350"
+                            ],
+                            "glossaryRefs": [],
+                            "text": "After the required temperature check, read `next` from `point[\"data\"][\"next_1_hours\"]` and create a period with `time` from `point[\"time\"].asText()`, `temperatureC` from `temperature.asDouble()`, and `symbol` from the optional summary symbol-code chain or `\"unknown\"`.",
+                            "uncertainty": null
+                          },
+                          "otherwise": [],
+                          "preparationRefs": [],
+                          "to": "period"
+                        }
+                      ],
+                      "from": "point[\"data\"][\"instant\"][\"details\"][\"air_temperature\"]",
+                      "glossaryRefs": [],
+                      "id": "check_temperature",
+                      "interaction": null,
+                      "kind": "decision",
+                      "meaning": {
+                        "checks": [],
+                        "evidence": [
+                          "s5",
+                          "s222",
+                          "s362"
+                        ],
+                        "glossaryRefs": [],
+                        "text": "Require each visited point to have a non-null numeric air temperature before constructing its period.",
+                        "uncertainty": null
+                      },
+                      "otherwise": [
+                        {
+                          "children": [],
+                          "from": "temperature",
+                          "glossaryRefs": [],
+                          "id": "reject_temperature",
+                          "interaction": null,
+                          "kind": "throw",
+                          "meaning": {
+                            "checks": [],
+                            "evidence": [
+                              "s5",
+                              "s362"
+                            ],
+                            "glossaryRefs": [],
+                            "text": "The source's `require(temperature != null && temperature.isNumber)` fails; the exception type is not established here.",
+                            "uncertainty": null
+                          },
+                          "otherwise": [],
+                          "preparationRefs": [],
+                          "to": null
+                        }
+                      ],
+                      "predicateRef": "temperature_valid",
+                      "preparationRefs": [],
+                      "to": "period or failure"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "from": "next[\"details\"][\"precipitation_amount\"]",
+                          "glossaryRefs": [],
+                          "id": "put_null_rain",
+                          "interaction": null,
+                          "kind": "action",
+                          "meaning": {
+                            "checks": [],
+                            "evidence": [
+                              "s16",
+                              "s55",
+                              "s259"
+                            ],
+                            "glossaryRefs": [],
+                            "text": "Set `period[\"precipitationMm\"]` to JSON null.",
+                            "uncertainty": null
+                          },
+                          "otherwise": [],
+                          "preparationRefs": [],
+                          "to": "period"
+                        }
+                      ],
+                      "from": "rain",
+                      "glossaryRefs": [],
+                      "id": "check_rain",
+                      "interaction": null,
+                      "kind": "decision",
+                      "meaning": {
+                        "checks": [],
+                        "evidence": [
+                          "s16",
+                          "s30",
+                          "s55"
+                        ],
+                        "glossaryRefs": [],
+                        "text": "Use JSON null when precipitation is missing or nonnumeric.",
+                        "uncertainty": null
+                      },
+                      "otherwise": [
+                        {
+                          "children": [],
+                          "from": "rain",
+                          "glossaryRefs": [],
+                          "id": "put_numeric_rain",
+                          "interaction": null,
+                          "kind": "action",
+                          "meaning": {
+                            "checks": [],
+                            "evidence": [
+                              "s48",
+                              "s55",
+                              "s273"
+                            ],
+                            "glossaryRefs": [],
+                            "text": "Set `period[\"precipitationMm\"]` from `rain.asDouble()`.",
+                            "uncertainty": null
+                          },
+                          "otherwise": [],
+                          "preparationRefs": [],
+                          "to": "period"
+                        }
+                      ],
+                      "predicateRef": "rain_missing_or_nonnumeric",
+                      "preparationRefs": [],
+                      "to": "period"
+                    },
+                    {
+                      "children": [],
+                      "from": "period",
+                      "glossaryRefs": [],
+                      "id": "append_period",
+                      "interaction": null,
+                      "kind": "action",
+                      "meaning": {
+                        "checks": [],
+                        "evidence": [
+                          "s117",
+                          "s277",
+                          "s365"
+                        ],
+                        "glossaryRefs": [],
+                        "text": "Append the completed period to `periods`.",
+                        "uncertainty": null
+                      },
+                      "otherwise": [],
+                      "preparationRefs": [],
+                      "to": "periods"
+                    }
+                  ],
+                  "from": "document[\"properties\"][\"timeseries\"]",
+                  "glossaryRefs": [],
+                  "id": "map_first_six_points",
+                  "interaction": null,
+                  "kind": "loop",
+                  "meaning": {
+                    "checks": [],
+                    "evidence": [
+                      "s47",
+                      "s117",
+                      "s365"
+                    ],
+                    "glossaryRefs": [],
+                    "text": "Visit `document[\"properties\"][\"timeseries\"].take(6)`, so the source builds periods from at most the first six points.",
+                    "uncertainty": null
+                  },
+                  "otherwise": [],
+                  "preparationRefs": [],
+                  "to": "periods"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "from": "document[\"properties\"][\"meta\"][\"updated_at\"]",
+                      "glossaryRefs": [
+                        "forecast_payload"
+                      ],
+                      "id": "parse_updated_at",
+                      "interaction": null,
+                      "kind": "action",
+                      "meaning": {
+                        "checks": [],
+                        "evidence": [
+                          "s105",
+                          "s187",
+                          "s261",
+                          "s317"
+                        ],
+                        "glossaryRefs": [
+                          "forecast_payload"
+                        ],
+                        "text": "Read `updated_at` as text into `updatedAt`, then call `Instant.parse(updatedAt)` before constructing the forecast.",
+                        "uncertainty": null
+                      },
+                      "otherwise": [],
+                      "preparationRefs": [],
+                      "to": "updatedAt"
+                    },
+                    {
+                      "children": [],
+                      "from": "updatedAt, periods, mode, current time",
+                      "glossaryRefs": [
+                        "forecast_payload"
+                      ],
+                      "id": "build_forecast",
+                      "interaction": null,
+                      "kind": "action",
+                      "meaning": {
+                        "checks": [],
+                        "evidence": [
+                          "s60",
+                          "s224",
+                          "s248"
+                        ],
+                        "glossaryRefs": [
+                          "forecast_payload"
+                        ],
+                        "text": "Construct `forecast` with `updatedAt`, `Instant.now().toString()` as `fetchedAt`, and `mode`; attach `periods` under `periods`.",
+                        "uncertainty": null
+                      },
+                      "otherwise": [],
+                      "preparationRefs": [],
+                      "to": "forecast"
+                    },
+                    {
+                      "children": [],
+                      "from": "forecast",
+                      "glossaryRefs": [
+                        "forecast_payload"
+                      ],
+                      "id": "serialize_forecast",
+                      "interaction": null,
+                      "kind": "action",
+                      "meaning": {
+                        "checks": [],
+                        "evidence": [
+                          "s127",
+                          "s321"
+                        ],
+                        "glossaryRefs": [
+                          "forecast_payload"
+                        ],
+                        "text": "Serialize `forecast` with `json.writeValueAsString` into `payload`.",
+                        "uncertainty": null
+                      },
+                      "otherwise": [],
+                      "preparationRefs": [],
+                      "to": "payload"
+                    },
+                    {
+                      "children": [],
+                      "from": "id, updatedAt, payload, expires, lastModified",
+                      "glossaryRefs": [
+                        "forecast_payload"
+                      ],
+                      "id": "upsert_forecast",
+                      "interaction": "JDBC update call",
+                      "kind": "action",
+                      "meaning": {
+                        "checks": [],
+                        "evidence": [
+                          "s364"
+                        ],
+                        "glossaryRefs": [
+                          "forecast_payload"
+                        ],
+                        "text": "Call the `forecasts` INSERT/ON CONFLICT statement with the place id, parsed update time, payload, expiry, and last-modified value. On a `place_id` conflict, its UPDATE clause is guarded by `EXCLUDED.updated_at>=forecasts.updated_at`. The source records the call, not the database result or transaction completion.",
+                        "uncertainty": null
+                      },
+                      "otherwise": [],
+                      "preparationRefs": [],
+                      "to": "forecasts row operation"
+                    },
+                    {
+                      "children": [],
+                      "from": "id, updatedAt, place, forecast",
+                      "glossaryRefs": [
+                        "forecast_payload",
+                        "outbox_event"
+                      ],
+                      "id": "build_event",
+                      "interaction": null,
+                      "kind": "action",
+                      "meaning": {
+                        "checks": [],
+                        "evidence": [
+                          "s155",
+                          "s200",
+                          "s210",
+                          "s242",
+                          "s296",
+                          "s68"
+                        ],
+                        "glossaryRefs": [
+                          "forecast_payload",
+                          "outbox_event"
+                        ],
+                        "text": "After the forecast update call, form `eventId` as `$id:$updatedAt`; create an event with that id, type `forecast.updated`, version 1, and set its `place` and `forecast` values.",
+                        "uncertainty": null
+                      },
+                      "otherwise": [],
+                      "preparationRefs": [],
+                      "to": "event"
+                    },
+                    {
+                      "children": [],
+                      "from": "event",
+                      "glossaryRefs": [
+                        "outbox_event"
+                      ],
+                      "id": "insert_outbox",
+                      "interaction": "JDBC update call",
+                      "kind": "action",
+                      "meaning": {
+                        "checks": [],
+                        "evidence": [
+                          "s285",
+                          "s368"
+                        ],
+                        "glossaryRefs": [
+                          "outbox_event"
+                        ],
+                        "text": "Serialize `event` and call the `forecast_outbox` INSERT statement with `ON CONFLICT DO NOTHING`. This source does not establish delivery, publication, or database completion.",
+                        "uncertainty": null
+                      },
+                      "otherwise": [],
+                      "preparationRefs": [],
+                      "to": "outbox row operation"
+                    }
+                  ],
+                  "from": "periods",
+                  "glossaryRefs": [],
+                  "id": "check_periods_nonempty",
+                  "interaction": null,
+                  "kind": "decision",
+                  "meaning": {
+                    "checks": [],
+                    "evidence": [
+                      "s25",
+                      "s176"
+                    ],
+                    "glossaryRefs": [],
+                    "text": "Require at least one period before reading and validating `updated_at` or making the forecast and outbox SQL calls.",
+                    "uncertainty": null
+                  },
+                  "otherwise": [
+                    {
+                      "children": [],
+                      "from": "periods",
+                      "glossaryRefs": [],
+                      "id": "reject_empty_periods",
+                      "interaction": null,
+                      "kind": "throw",
+                      "meaning": {
+                        "checks": [],
+                        "evidence": [
+                          "s25"
+                        ],
+                        "glossaryRefs": [],
+                        "text": "The source's `require(periods.size() > 0)` fails; the exception type is not established here.",
+                        "uncertainty": null
+                      },
+                      "otherwise": [],
+                      "preparationRefs": [],
+                      "to": null
+                    }
+                  ],
+                  "predicateRef": "periods_nonempty",
+                  "preparationRefs": [],
+                  "to": "forecast and outbox SQL calls"
+                }
+              ],
+              "from": "cached",
+              "glossaryRefs": [],
+              "id": "check_cache_fresh",
+              "interaction": null,
+              "kind": "decision",
+              "meaning": {
+                "checks": [],
+                "evidence": [
+                  "s28",
+                  "s135"
+                ],
+                "glossaryRefs": [],
+                "text": "Return on a fresh cache entry; otherwise continue in source order through acquisition, period construction, and the two SQL calls.",
+                "uncertainty": null
+              },
+              "otherwise": [
+                {
+                  "children": [],
+                  "from": "cached",
+                  "glossaryRefs": [],
+                  "id": "return_fresh_cache",
+                  "interaction": null,
+                  "kind": "return",
+                  "meaning": {
+                    "checks": [],
+                    "evidence": [
+                      "s28",
+                      "s135"
+                    ],
+                    "glossaryRefs": [],
+                    "text": "A fresh cache entry causes an early return before the later work in this method.",
+                    "uncertainty": null
+                  },
+                  "otherwise": [],
+                  "preparationRefs": [],
+                  "to": null
+                }
+              ],
+              "predicateRef": "cache_fresh",
+              "preparationRefs": [
+                "prep_inputs"
+              ],
+              "to": "return or acquisition"
+            }
+          ],
+          "predicateRef": "cache_fresh",
+          "preparationRefs": [
+            "prep_inputs"
+          ],
+          "to": "return or acquisition"
+        }
+      ],
+      "predicateRef": "cache_fresh",
+      "preparationRefs": [
+        "prep_inputs"
+      ],
+      "to": "return or acquisition"
+    }
+  ],
+  "summary": {
+    "checks": [],
+    "evidence": [
+      "d422",
+      "s320",
+      "s117",
+      "s364",
+      "s285"
+    ],
+    "glossaryRefs": [
+      "forecast_payload",
+      "outbox_event"
+    ],
+    "text": "In the retained `refresh(place)` source, the method derives a place id, selects the first cache query row, and returns early if it is unexpired. Otherwise it reads a fixture file or follows the guarded live-request path, maps at most six timeseries points into periods, and calls SQL statements for the forecast and outbox event. This describes source branches and calls, not a runtime trace or confirmed database outcome.",
+    "uncertainty": "The actual place, mode, cache contents, provider response, invocation, and completion of HTTP or database operations are unknown."
+  },
+  "title": "Forecasts.refresh: select, transform, and store forecast data",
+  "uncertainties": [
+    "The packet does not establish that `refresh` ran, the values of `place`, `mode`, `cached`, or provider configuration, or the HTTP response and body.",
+    "The retained source does not establish HTTP or JDBC implementation effects, transaction completion, database results, event delivery, or publication."
+  ]
+}

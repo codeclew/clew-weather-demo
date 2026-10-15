@@ -1,0 +1,837 @@
+# OwnerRestControllerV1.getOwner(Integer)
+
+Static source interpretation. Declared interactions do not establish runtime routing.
+
+## petclinic-get-owner
+
+Documentation gap: Behavior is not yet authored. Load this entrypoint with clew docs context and supply a source-bound sequence.
+
+## process-overview
+
+Documentation gap: Behavior is not yet authored. Load this entrypoint with clew docs context and supply a source-bound sequence.
+
+
+## Saved process definition
+
+Explicit requested scope and outcomes; source support is assessed separately.
+
+Scope: OwnerRestControllerV1.getOwner(Integer)
+
+Trigger: getOwner(Integer ownerId)
+
+participants:
+
+- petclinic-java
+
+objects:
+
+
+outcomes:
+
+- new ResponseEntity&lt;&gt;(HttpStatus.NOT_FOUND)
+- new ResponseEntity&lt;&gt;(ownerMapper.toOwnerDto(owner), HttpStatus.OK)
+
+### Linked child views: captured versions
+
+
+## Extraction evidence packet
+
+```json
+{
+  "characteristics": {
+    "retainedCallSites": 4,
+    "retainedDecisionEvents": 1,
+    "retainedEvents": 9,
+    "retainedMethods": 3,
+    "retainedThrowEvents": 0,
+    "runtimeIoCount": "UNKNOWN",
+    "strictStateMachine": "NOT_ESTABLISHED",
+    "timeBounds": "UNKNOWN"
+  },
+  "contextDigest": "sha256:0be019f22bbbd321318b138fdc4feca1fd19f159f70773103ce02196f9b2a672",
+  "edges": [
+    {
+      "dependencyIds": [
+        "petclinic-java:flow:cee1c35fd1c48b93e1c3601a"
+      ],
+      "eventId": "petclinic-java:flow:cee1c35fd1c48b93e1c3601a",
+      "fromMethodId": "petclinic-java:symbol:888110ad5215b7b855418389",
+      "id": "edge:petclinic-java:flow:cee1c35fd1c48b93e1c3601a",
+      "kind": "CALL",
+      "possibleFromMethodIds": [
+        "petclinic-java:symbol:888110ad5215b7b855418389"
+      ],
+      "possibleTargetMethodId": null,
+      "relationshipAuthority": "RETAINED_LOCAL_ASSOCIATION_NOT_RUNTIME_PROOF",
+      "resolution": "SAME_SCOPE_UNIQUE",
+      "sourceIds": [
+        "petclinic-java-cee1c35fd1c48b93e1c3"
+      ],
+      "target": "method:class:org.springframework.samples.petclinic.service.ClinicService#findOwnerById(I)Lorg/springframework/samples/petclinic/model/Owner;",
+      "targetMethodId": "petclinic-java:symbol:163b0f161cbf08ccc7939f94"
+    },
+    {
+      "dependencyIds": [
+        "petclinic-java:flow:435cc362e38852e90f4aa4bd"
+      ],
+      "eventId": "petclinic-java:flow:435cc362e38852e90f4aa4bd",
+      "fromMethodId": "petclinic-java:symbol:888110ad5215b7b855418389",
+      "id": "edge:petclinic-java:flow:435cc362e38852e90f4aa4bd",
+      "kind": "CONSTRUCT",
+      "possibleFromMethodIds": [
+        "petclinic-java:symbol:888110ad5215b7b855418389"
+      ],
+      "possibleTargetMethodId": null,
+      "relationshipAuthority": "RETAINED_LOCAL_ASSOCIATION_NOT_RUNTIME_PROOF",
+      "resolution": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "sourceIds": [
+        "petclinic-java-435cc362e38852e90f4a"
+      ],
+      "target": "method:class:org.springframework.http.ResponseEntity#<init>(Lorg/springframework/http/HttpStatusCode;)V",
+      "targetMethodId": null
+    },
+    {
+      "dependencyIds": [
+        "petclinic-java:flow:391d8cbf9c5eb9a4ecd700d7"
+      ],
+      "eventId": "petclinic-java:flow:391d8cbf9c5eb9a4ecd700d7",
+      "fromMethodId": "petclinic-java:symbol:888110ad5215b7b855418389",
+      "id": "edge:petclinic-java:flow:391d8cbf9c5eb9a4ecd700d7",
+      "kind": "CALL",
+      "possibleFromMethodIds": [
+        "petclinic-java:symbol:888110ad5215b7b855418389"
+      ],
+      "possibleTargetMethodId": null,
+      "relationshipAuthority": "RETAINED_LOCAL_ASSOCIATION_NOT_RUNTIME_PROOF",
+      "resolution": "SAME_SCOPE_UNIQUE",
+      "sourceIds": [
+        "petclinic-java-391d8cbf9c5eb9a4ecd7"
+      ],
+      "target": "method:class:org.springframework.samples.petclinic.mapper.OwnerMapper#toOwnerDto(Lorg/springframework/samples/petclinic/model/Owner;)Lorg/springframework/samples/petclinic/rest/dto/OwnerDto;",
+      "targetMethodId": "petclinic-java:symbol:0e18823a1ff53d585b8ec33d"
+    },
+    {
+      "dependencyIds": [
+        "petclinic-java:flow:6e38b337300cedb888387e0a"
+      ],
+      "eventId": "petclinic-java:flow:6e38b337300cedb888387e0a",
+      "fromMethodId": "petclinic-java:symbol:888110ad5215b7b855418389",
+      "id": "edge:petclinic-java:flow:6e38b337300cedb888387e0a",
+      "kind": "CONSTRUCT",
+      "possibleFromMethodIds": [
+        "petclinic-java:symbol:888110ad5215b7b855418389"
+      ],
+      "possibleTargetMethodId": null,
+      "relationshipAuthority": "RETAINED_LOCAL_ASSOCIATION_NOT_RUNTIME_PROOF",
+      "resolution": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "sourceIds": [
+        "petclinic-java-6e38b337300cedb88838"
+      ],
+      "target": "method:class:org.springframework.http.ResponseEntity#<init>(Ljava/lang/Object;Lorg/springframework/http/HttpStatusCode;)V",
+      "targetMethodId": null
+    }
+  ],
+  "events": [
+    {
+      "detail": {
+        "http": {},
+        "kind": "CALL",
+        "ordinal": 0,
+        "resolution": "COMPILER_EXACT",
+        "scope": ":/main",
+        "target": "method:class:org.springframework.samples.petclinic.service.ClinicService#findOwnerById(I)Lorg/springframework/samples/petclinic/model/Owner;"
+      },
+      "factDigest": "sha256:1d43b2b47f1d897925a59d58bdc9e95de7cd01797c7e2a5654c16d147e31fab7",
+      "id": "petclinic-java:flow:cee1c35fd1c48b93e1c3601a",
+      "ownerSymbol": "method:class:org.springframework.samples.petclinic.rest.controller.v1.OwnerRestControllerV1#getOwner(Ljava/lang/Integer;)Lorg/springframework/http/ResponseEntity;",
+      "sourceIds": [
+        "petclinic-java-cee1c35fd1c48b93e1c3"
+      ]
+    },
+    {
+      "detail": {
+        "kind": "LOCAL",
+        "ordinal": 1,
+        "scope": ":/main"
+      },
+      "factDigest": "sha256:ce5b211cb5681199896bd8df8754a3ae91b635e69d359ba5abc9f3357981f23f",
+      "id": "petclinic-java:flow:527dc28539c3384a30b05b47",
+      "ownerSymbol": "method:class:org.springframework.samples.petclinic.rest.controller.v1.OwnerRestControllerV1#getOwner(Ljava/lang/Integer;)Lorg/springframework/http/ResponseEntity;",
+      "sourceIds": [
+        "petclinic-java-527dc28539c3384a30b0"
+      ]
+    },
+    {
+      "detail": {
+        "condition": "(owner == null)",
+        "group": 1,
+        "kind": "IF",
+        "ordinal": 2,
+        "scope": ":/main"
+      },
+      "factDigest": "sha256:121f934d802968be9536ddd3014d9b8cb0a179887b2b9f0ba22e161f949caf56",
+      "id": "petclinic-java:flow:97b314f3dac04f2f2231c765",
+      "ownerSymbol": "method:class:org.springframework.samples.petclinic.rest.controller.v1.OwnerRestControllerV1#getOwner(Ljava/lang/Integer;)Lorg/springframework/http/ResponseEntity;",
+      "sourceIds": [
+        "petclinic-java-97b314f3dac04f2f2231"
+      ]
+    },
+    {
+      "detail": {
+        "kind": "CONSTRUCT",
+        "ordinal": 3,
+        "resolution": "COMPILER_EXACT",
+        "scope": ":/main",
+        "target": "method:class:org.springframework.http.ResponseEntity#<init>(Lorg/springframework/http/HttpStatusCode;)V"
+      },
+      "factDigest": "sha256:7688a8d5924f6972d2d16dad5f07cb570a4b2455b0815a6ee78a56f57cc51b3f",
+      "id": "petclinic-java:flow:435cc362e38852e90f4aa4bd",
+      "ownerSymbol": "method:class:org.springframework.samples.petclinic.rest.controller.v1.OwnerRestControllerV1#getOwner(Ljava/lang/Integer;)Lorg/springframework/http/ResponseEntity;",
+      "sourceIds": [
+        "petclinic-java-435cc362e38852e90f4a"
+      ]
+    },
+    {
+      "detail": {
+        "kind": "RETURN",
+        "ordinal": 4,
+        "scope": ":/main"
+      },
+      "factDigest": "sha256:888733672833d93b313c1da05398c0ed3ba9c603aca30af6f35221093e092b68",
+      "id": "petclinic-java:flow:a66cbbfd2898c904cf0f8e3f",
+      "ownerSymbol": "method:class:org.springframework.samples.petclinic.rest.controller.v1.OwnerRestControllerV1#getOwner(Ljava/lang/Integer;)Lorg/springframework/http/ResponseEntity;",
+      "sourceIds": [
+        "petclinic-java-a66cbbfd2898c904cf0f"
+      ]
+    },
+    {
+      "detail": {
+        "kind": "END",
+        "ordinal": 5,
+        "scope": ":/main"
+      },
+      "factDigest": "sha256:c7ed424550c7d0d772551426e1af0e17d08eea1a4f040faa639804efee0aad5b",
+      "id": "petclinic-java:flow:3e7197e713b673831c92c0cf",
+      "ownerSymbol": "method:class:org.springframework.samples.petclinic.rest.controller.v1.OwnerRestControllerV1#getOwner(Ljava/lang/Integer;)Lorg/springframework/http/ResponseEntity;",
+      "sourceIds": [
+        "petclinic-java-3e7197e713b673831c92"
+      ]
+    },
+    {
+      "detail": {
+        "http": {},
+        "kind": "CALL",
+        "ordinal": 6,
+        "resolution": "COMPILER_EXACT",
+        "scope": ":/main",
+        "target": "method:class:org.springframework.samples.petclinic.mapper.OwnerMapper#toOwnerDto(Lorg/springframework/samples/petclinic/model/Owner;)Lorg/springframework/samples/petclinic/rest/dto/OwnerDto;"
+      },
+      "factDigest": "sha256:c34ffe3e5cd989ddc9d4cca38c3c10478a0b1610dc34269f743f4243dc7c823f",
+      "id": "petclinic-java:flow:391d8cbf9c5eb9a4ecd700d7",
+      "ownerSymbol": "method:class:org.springframework.samples.petclinic.rest.controller.v1.OwnerRestControllerV1#getOwner(Ljava/lang/Integer;)Lorg/springframework/http/ResponseEntity;",
+      "sourceIds": [
+        "petclinic-java-391d8cbf9c5eb9a4ecd7"
+      ]
+    },
+    {
+      "detail": {
+        "kind": "CONSTRUCT",
+        "ordinal": 7,
+        "resolution": "COMPILER_EXACT",
+        "scope": ":/main",
+        "target": "method:class:org.springframework.http.ResponseEntity#<init>(Ljava/lang/Object;Lorg/springframework/http/HttpStatusCode;)V"
+      },
+      "factDigest": "sha256:ecb12b741d7a8fc5d155e496e62b24765ad6aeb839eb00f1774ff75950d6a1ca",
+      "id": "petclinic-java:flow:6e38b337300cedb888387e0a",
+      "ownerSymbol": "method:class:org.springframework.samples.petclinic.rest.controller.v1.OwnerRestControllerV1#getOwner(Ljava/lang/Integer;)Lorg/springframework/http/ResponseEntity;",
+      "sourceIds": [
+        "petclinic-java-6e38b337300cedb88838"
+      ]
+    },
+    {
+      "detail": {
+        "kind": "RETURN",
+        "ordinal": 8,
+        "scope": ":/main"
+      },
+      "factDigest": "sha256:73dfa9cadb64cf5b1f3983584029b7f254634723c701552dbf0461cb7020e477",
+      "id": "petclinic-java:flow:14f70011893b83a8284914ea",
+      "ownerSymbol": "method:class:org.springframework.samples.petclinic.rest.controller.v1.OwnerRestControllerV1#getOwner(Ljava/lang/Integer;)Lorg/springframework/http/ResponseEntity;",
+      "sourceIds": [
+        "petclinic-java-14f70011893b83a82849"
+      ]
+    }
+  ],
+  "extractor": "codeclew-documentation-jvm/1.3",
+  "frontier": [
+    {
+      "category": "SEMANTIC",
+      "code": "CROSS_SERVICE_LINKS_REQUIRE_INDEPENDENT_RELATIONSHIP_AUTHORITY",
+      "kind": "SEMANTIC"
+    },
+    {
+      "category": "SEMANTIC",
+      "code": "DATA_EFFECT_ALIAS_AND_RUNTIME_CLOSURE_NOT_ESTABLISHED",
+      "kind": "SEMANTIC"
+    },
+    {
+      "category": "SEMANTIC",
+      "dependencyIds": [
+        "petclinic-java:call-relation:4abe3c60ae36ab7016abed54"
+      ],
+      "kind": "CALL_BINDING_PROVIDER_UNSUPPORTED",
+      "methodId": "petclinic-java:symbol:888110ad5215b7b855418389",
+      "parameterMapping": "UNKNOWN",
+      "relationId": "petclinic-java:call-relation:4abe3c60ae36ab7016abed54",
+      "relationKind": "CALLS",
+      "sourceIds": [
+        "petclinic-java-4abe3c60ae36ab7016ab"
+      ]
+    },
+    {
+      "category": "SEMANTIC",
+      "dependencyIds": [
+        "petclinic-java:call-relation:9e4fcc6777905f38618d8486"
+      ],
+      "kind": "CALL_BINDING_PROVIDER_UNSUPPORTED",
+      "methodId": "petclinic-java:symbol:888110ad5215b7b855418389",
+      "parameterMapping": "UNKNOWN",
+      "relationId": "petclinic-java:call-relation:9e4fcc6777905f38618d8486",
+      "relationKind": "CALLS",
+      "sourceIds": [
+        "petclinic-java-9e4fcc6777905f38618d"
+      ]
+    },
+    {
+      "category": "SEMANTIC",
+      "dependencyIds": [
+        "petclinic-java:call-relation:bf2b853c1299c617065f5804"
+      ],
+      "kind": "CALL_BINDING_PROVIDER_UNSUPPORTED",
+      "methodId": "petclinic-java:symbol:888110ad5215b7b855418389",
+      "parameterMapping": "UNKNOWN",
+      "relationId": "petclinic-java:call-relation:bf2b853c1299c617065f5804",
+      "relationKind": "CONSTRUCTS",
+      "sourceIds": [
+        "petclinic-java-bf2b853c1299c617065f"
+      ]
+    },
+    {
+      "category": "SEMANTIC",
+      "dependencyIds": [
+        "petclinic-java:call-relation:c075547fe60c82790b6e2a30"
+      ],
+      "kind": "CALL_BINDING_PROVIDER_UNSUPPORTED",
+      "methodId": "petclinic-java:symbol:888110ad5215b7b855418389",
+      "parameterMapping": "UNKNOWN",
+      "relationId": "petclinic-java:call-relation:c075547fe60c82790b6e2a30",
+      "relationKind": "CONSTRUCTS",
+      "sourceIds": [
+        "petclinic-java-c075547fe60c82790b6e"
+      ]
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "JAVA_GENERATED_DECLARATIONS_NOT_INDEXED",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "JAVA_VARIABLE_KIND_UNSUPPORTED",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "JAVA_VARIABLE_LAMBDA_DEFERRED",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "JAVA_VARIABLE_LOCAL_CLASS_DEFERRED",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "LAMBDA_EXECUTION_NOT_EXPANDED",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "LOCAL_CLASS_BODY_NOT_EXPANDED",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "TERNARY_FLOW_REQUIRES_SOURCE_REVIEW",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "eventId": "petclinic-java:flow:435cc362e38852e90f4aa4bd",
+      "fromMethodId": "petclinic-java:symbol:888110ad5215b7b855418389",
+      "kind": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "possibleFromMethodIds": [
+        "petclinic-java:symbol:888110ad5215b7b855418389"
+      ],
+      "possibleTargetMethodId": null,
+      "target": "method:class:org.springframework.http.ResponseEntity#<init>(Lorg/springframework/http/HttpStatusCode;)V"
+    },
+    {
+      "category": "SEMANTIC",
+      "eventId": "petclinic-java:flow:6e38b337300cedb888387e0a",
+      "fromMethodId": "petclinic-java:symbol:888110ad5215b7b855418389",
+      "kind": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "possibleFromMethodIds": [
+        "petclinic-java:symbol:888110ad5215b7b855418389"
+      ],
+      "possibleTargetMethodId": null,
+      "target": "method:class:org.springframework.http.ResponseEntity#<init>(Ljava/lang/Object;Lorg/springframework/http/HttpStatusCode;)V"
+    },
+    {
+      "category": "SEMANTIC",
+      "kind": "PROVIDER_FLOW_SLOTS_UNAVAILABLE",
+      "methodId": "petclinic-java:symbol:0e18823a1ff53d585b8ec33d"
+    },
+    {
+      "category": "SEMANTIC",
+      "kind": "PROVIDER_FLOW_SLOTS_UNAVAILABLE",
+      "methodId": "petclinic-java:symbol:163b0f161cbf08ccc7939f94"
+    }
+  ],
+  "implementationDigest": "sha256:9d10ba59162f62a6ebc3c564b5b99aa1dc4f0e62952195bcfe157e6d000c52f3",
+  "inputDigest": "sha256:387a46087a10ab178df626a8c9190270fe1a73ae81bddda0c7b3a6a809528560",
+  "interpretationPlan": {
+    "actualModelCalls": 0,
+    "duplicatedSourceBytes": 0,
+    "reason": "No independently closed relevance cuts; share one immutable packet",
+    "uniqueSourceBytes": 1392,
+    "workers": 1
+  },
+  "methods": [
+    {
+      "callBindings": [],
+      "eventAssociation": "UNIQUE_METHOD_SYMBOL",
+      "eventIds": [
+        "petclinic-java:flow:cee1c35fd1c48b93e1c3601a",
+        "petclinic-java:flow:527dc28539c3384a30b05b47",
+        "petclinic-java:flow:97b314f3dac04f2f2231c765",
+        "petclinic-java:flow:435cc362e38852e90f4aa4bd",
+        "petclinic-java:flow:a66cbbfd2898c904cf0f8e3f",
+        "petclinic-java:flow:3e7197e713b673831c92c0cf",
+        "petclinic-java:flow:391d8cbf9c5eb9a4ecd700d7",
+        "petclinic-java:flow:6e38b337300cedb888387e0a",
+        "petclinic-java:flow:14f70011893b83a8284914ea"
+      ],
+      "id": "petclinic-java:symbol:888110ad5215b7b855418389",
+      "onStructuralOutcomePath": false,
+      "providerSlots": [
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "petclinic-java:flow:cee1c35fd1c48b93e1c3601a"
+          ],
+          "ordinal": 0,
+          "providerEvent": {
+            "http": {},
+            "kind": "CALL",
+            "resolution": "COMPILER_EXACT",
+            "target": "method:class:org.springframework.samples.petclinic.service.ClinicService#findOwnerById(I)Lorg/springframework/samples/petclinic/model/Owner;"
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "petclinic-java:flow:527dc28539c3384a30b05b47"
+          ],
+          "ordinal": 1,
+          "providerEvent": {
+            "kind": "LOCAL"
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "petclinic-java:flow:97b314f3dac04f2f2231c765"
+          ],
+          "ordinal": 2,
+          "providerEvent": {
+            "condition": "(owner == null)",
+            "group": 1,
+            "kind": "IF"
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "petclinic-java:flow:435cc362e38852e90f4aa4bd"
+          ],
+          "ordinal": 3,
+          "providerEvent": {
+            "kind": "CONSTRUCT",
+            "resolution": "COMPILER_EXACT",
+            "target": "method:class:org.springframework.http.ResponseEntity#<init>(Lorg/springframework/http/HttpStatusCode;)V"
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "petclinic-java:flow:a66cbbfd2898c904cf0f8e3f"
+          ],
+          "ordinal": 4,
+          "providerEvent": {
+            "kind": "RETURN"
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "petclinic-java:flow:3e7197e713b673831c92c0cf"
+          ],
+          "ordinal": 5,
+          "providerEvent": {
+            "kind": "END"
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "petclinic-java:flow:391d8cbf9c5eb9a4ecd700d7"
+          ],
+          "ordinal": 6,
+          "providerEvent": {
+            "http": {},
+            "kind": "CALL",
+            "resolution": "COMPILER_EXACT",
+            "target": "method:class:org.springframework.samples.petclinic.mapper.OwnerMapper#toOwnerDto(Lorg/springframework/samples/petclinic/model/Owner;)Lorg/springframework/samples/petclinic/rest/dto/OwnerDto;"
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "petclinic-java:flow:6e38b337300cedb888387e0a"
+          ],
+          "ordinal": 7,
+          "providerEvent": {
+            "kind": "CONSTRUCT",
+            "resolution": "COMPILER_EXACT",
+            "target": "method:class:org.springframework.http.ResponseEntity#<init>(Ljava/lang/Object;Lorg/springframework/http/HttpStatusCode;)V"
+          }
+        },
+        {
+          "evidence": {
+            "status": "OBSERVED"
+          },
+          "flowIds": [
+            "petclinic-java:flow:14f70011893b83a8284914ea"
+          ],
+          "ordinal": 8,
+          "providerEvent": {
+            "kind": "RETURN"
+          }
+        }
+      ],
+      "scope": ":/main",
+      "semanticClosure": "UNKNOWN",
+      "service": "petclinic-java",
+      "sourceIds": [
+        "petclinic-java-888110ad5215b7b85541"
+      ],
+      "structuralOutcomeEventIds": [],
+      "symbol": "method:class:org.springframework.samples.petclinic.rest.controller.v1.OwnerRestControllerV1#getOwner(Ljava/lang/Integer;)Lorg/springframework/http/ResponseEntity;"
+    },
+    {
+      "callBindings": [],
+      "eventAssociation": "UNIQUE_METHOD_SYMBOL",
+      "eventIds": [],
+      "id": "petclinic-java:symbol:163b0f161cbf08ccc7939f94",
+      "onStructuralOutcomePath": false,
+      "providerSlots": [
+        {
+          "frontier": {
+            "kind": "PROVIDER_FLOW_SLOTS_UNAVAILABLE",
+            "methodId": "petclinic-java:symbol:163b0f161cbf08ccc7939f94"
+          },
+          "status": "UNAVAILABLE"
+        }
+      ],
+      "scope": ":/main",
+      "semanticClosure": "UNKNOWN",
+      "service": "petclinic-java",
+      "sourceIds": [
+        "petclinic-java-163b0f161cbf08ccc793"
+      ],
+      "structuralOutcomeEventIds": [],
+      "symbol": "method:class:org.springframework.samples.petclinic.service.ClinicService#findOwnerById(I)Lorg/springframework/samples/petclinic/model/Owner;"
+    },
+    {
+      "callBindings": [],
+      "eventAssociation": "UNIQUE_METHOD_SYMBOL",
+      "eventIds": [],
+      "id": "petclinic-java:symbol:0e18823a1ff53d585b8ec33d",
+      "onStructuralOutcomePath": false,
+      "providerSlots": [
+        {
+          "frontier": {
+            "kind": "PROVIDER_FLOW_SLOTS_UNAVAILABLE",
+            "methodId": "petclinic-java:symbol:0e18823a1ff53d585b8ec33d"
+          },
+          "status": "UNAVAILABLE"
+        }
+      ],
+      "scope": ":/main",
+      "semanticClosure": "UNKNOWN",
+      "service": "petclinic-java",
+      "sourceIds": [
+        "petclinic-java-0e18823a1ff53d585b8e"
+      ],
+      "structuralOutcomeEventIds": [],
+      "symbol": "method:class:org.springframework.samples.petclinic.mapper.OwnerMapper#toOwnerDto(Lorg/springframework/samples/petclinic/model/Owner;)Lorg/springframework/samples/petclinic/rest/dto/OwnerDto;"
+    }
+  ],
+  "outcomes": [],
+  "packetDigest": "sha256:0548221b8e511154b481dee9c9828a14eced53e6b4ded4953e0d6439e9a20381",
+  "policy": "retained-process-envelope/0.2",
+  "programSemanticClosure": false,
+  "query": {
+    "budgets": {
+      "maxEvents": 256,
+      "maxMethods": 32,
+      "maxSourceBytes": 262144
+    },
+    "configurationScope": ":/main",
+    "outcomeEventIds": [],
+    "purpose": "PROCESS",
+    "rootDeclaration": "petclinic-java:symbol:888110ad5215b7b855418389",
+    "service": "petclinic-java"
+  },
+  "rootFactDigest": "sha256:52c9dadd262a66b07dba9802c49cef0e0667d52b0d62480a0894215eda41c37b",
+  "runtime": "UNKNOWN",
+  "runtimeMode": "RELEASE",
+  "schema": "codeclew-process-extraction-packet/0.1",
+  "serviceDigest": "sha256:6a6194078ab9f8eaa65ffd90b19f4a9eae0ee55cf01c0052ca48818d344820f7",
+  "snapshot": "sha256:d2d33a409e847014a1e015698c1539eea052a23a60304150c6fc9bb91820dc4b/33501",
+  "sourceRefs": {
+    "petclinic-java-0e18823a1ff53d585b8e": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 37,
+      "endLine": 21,
+      "evidenceDigest": "sha256:9831230dd8311820f6918239fcdbd9c3e98903067ff07d65235433bc9b7dde31",
+      "file": "src/main/java/org/springframework/samples/petclinic/mapper/OwnerMapper.java",
+      "id": "petclinic-java-0e18823a1ff53d585b8e",
+      "revision": "afc8fc1d3b8ec8de69414482b3bd70a1da78cb95",
+      "service": "petclinic-java",
+      "startLine": 21,
+      "textDigest": "sha256:91b6d876cb45613b82670aa4e24e93710593e80405350827e094db896de8d267"
+    },
+    "petclinic-java-14f70011893b83a82849": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 82,
+      "endLine": 96,
+      "evidenceDigest": "sha256:0155eadfdc7b1f07d06395e80a791faefb56d6273569e4e282cbc7923a43f23c",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/controller/v1/OwnerRestControllerV1.java",
+      "id": "petclinic-java-14f70011893b83a82849",
+      "revision": "afc8fc1d3b8ec8de69414482b3bd70a1da78cb95",
+      "service": "petclinic-java",
+      "startLine": 96,
+      "textDigest": "sha256:ed37b3e634549c21cad156ae260b0031a01be6e6720c4ff855eeba99cc3ecf48"
+    },
+    "petclinic-java-163b0f161cbf08ccc793": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 56,
+      "endLine": 56,
+      "evidenceDigest": "sha256:e3abd1e4a49a50f3167a042a4d6cbb53ebb4a0c38e6817ef855342fe3733d399",
+      "file": "src/main/java/org/springframework/samples/petclinic/service/ClinicService.java",
+      "id": "petclinic-java-163b0f161cbf08ccc793",
+      "revision": "afc8fc1d3b8ec8de69414482b3bd70a1da78cb95",
+      "service": "petclinic-java",
+      "startLine": 56,
+      "textDigest": "sha256:6e451f196128e7f5a27efd865e2e828910dcf91a0c355c7c091dc672ff7ddf2f"
+    },
+    "petclinic-java-391d8cbf9c5eb9a4ecd7": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 82,
+      "endLine": 96,
+      "evidenceDigest": "sha256:0155eadfdc7b1f07d06395e80a791faefb56d6273569e4e282cbc7923a43f23c",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/controller/v1/OwnerRestControllerV1.java",
+      "id": "petclinic-java-391d8cbf9c5eb9a4ecd7",
+      "revision": "afc8fc1d3b8ec8de69414482b3bd70a1da78cb95",
+      "service": "petclinic-java",
+      "startLine": 96,
+      "textDigest": "sha256:ed37b3e634549c21cad156ae260b0031a01be6e6720c4ff855eeba99cc3ecf48"
+    },
+    "petclinic-java-3e7197e713b673831c92": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 101,
+      "endLine": 95,
+      "evidenceDigest": "sha256:0155eadfdc7b1f07d06395e80a791faefb56d6273569e4e282cbc7923a43f23c",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/controller/v1/OwnerRestControllerV1.java",
+      "id": "petclinic-java-3e7197e713b673831c92",
+      "revision": "afc8fc1d3b8ec8de69414482b3bd70a1da78cb95",
+      "service": "petclinic-java",
+      "startLine": 93,
+      "textDigest": "sha256:9718f0bffb868f2bff0d52896895d91aa0936e680b202597b46b8a98542fce56"
+    },
+    "petclinic-java-435cc362e38852e90f4a": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 62,
+      "endLine": 94,
+      "evidenceDigest": "sha256:0155eadfdc7b1f07d06395e80a791faefb56d6273569e4e282cbc7923a43f23c",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/controller/v1/OwnerRestControllerV1.java",
+      "id": "petclinic-java-435cc362e38852e90f4a",
+      "revision": "afc8fc1d3b8ec8de69414482b3bd70a1da78cb95",
+      "service": "petclinic-java",
+      "startLine": 94,
+      "textDigest": "sha256:6a1f0719560a7f2ddb6db3affd5a3fdf60bb9ee5e33fb0ca05565d885d26eabd"
+    },
+    "petclinic-java-4abe3c60ae36ab7016ab": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 82,
+      "endLine": 96,
+      "evidenceDigest": "sha256:3d809364fb4c2c1bf24c944ca2c6af5e2c8e65886863fe0649690c7df6baea85",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/controller/v1/OwnerRestControllerV1.java",
+      "id": "petclinic-java-4abe3c60ae36ab7016ab",
+      "revision": "afc8fc1d3b8ec8de69414482b3bd70a1da78cb95",
+      "service": "petclinic-java",
+      "startLine": 96,
+      "textDigest": "sha256:ed37b3e634549c21cad156ae260b0031a01be6e6720c4ff855eeba99cc3ecf48"
+    },
+    "petclinic-java-527dc28539c3384a30b0": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 64,
+      "endLine": 92,
+      "evidenceDigest": "sha256:0155eadfdc7b1f07d06395e80a791faefb56d6273569e4e282cbc7923a43f23c",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/controller/v1/OwnerRestControllerV1.java",
+      "id": "petclinic-java-527dc28539c3384a30b0",
+      "revision": "afc8fc1d3b8ec8de69414482b3bd70a1da78cb95",
+      "service": "petclinic-java",
+      "startLine": 92,
+      "textDigest": "sha256:75e16d173cdde58687b0cf90395c2c6edde8b1a7c716fd97fa691b31eef9dd8d"
+    },
+    "petclinic-java-6e38b337300cedb88838": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 82,
+      "endLine": 96,
+      "evidenceDigest": "sha256:0155eadfdc7b1f07d06395e80a791faefb56d6273569e4e282cbc7923a43f23c",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/controller/v1/OwnerRestControllerV1.java",
+      "id": "petclinic-java-6e38b337300cedb88838",
+      "revision": "afc8fc1d3b8ec8de69414482b3bd70a1da78cb95",
+      "service": "petclinic-java",
+      "startLine": 96,
+      "textDigest": "sha256:ed37b3e634549c21cad156ae260b0031a01be6e6720c4ff855eeba99cc3ecf48"
+    },
+    "petclinic-java-888110ad5215b7b85541": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 382,
+      "endLine": 97,
+      "evidenceDigest": "sha256:0155eadfdc7b1f07d06395e80a791faefb56d6273569e4e282cbc7923a43f23c",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/controller/v1/OwnerRestControllerV1.java",
+      "id": "petclinic-java-888110ad5215b7b85541",
+      "revision": "afc8fc1d3b8ec8de69414482b3bd70a1da78cb95",
+      "service": "petclinic-java",
+      "startLine": 89,
+      "textDigest": "sha256:58978d2e4f025adcb18566e02835e75aed3f4abaf49405df73cdc1c3e65cf311"
+    },
+    "petclinic-java-97b314f3dac04f2f2231": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 28,
+      "endLine": 93,
+      "evidenceDigest": "sha256:0155eadfdc7b1f07d06395e80a791faefb56d6273569e4e282cbc7923a43f23c",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/controller/v1/OwnerRestControllerV1.java",
+      "id": "petclinic-java-97b314f3dac04f2f2231",
+      "revision": "afc8fc1d3b8ec8de69414482b3bd70a1da78cb95",
+      "service": "petclinic-java",
+      "startLine": 93,
+      "textDigest": "sha256:6d536a8d606cf36fb8518d5292ddabed147b28e67b4758d157a274a85f08ca2a"
+    },
+    "petclinic-java-9e4fcc6777905f38618d": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 64,
+      "endLine": 92,
+      "evidenceDigest": "sha256:ae78c7951591d06dd0dbad1781bbb5aa2e94d10c35e44be60738d16aa062fff7",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/controller/v1/OwnerRestControllerV1.java",
+      "id": "petclinic-java-9e4fcc6777905f38618d",
+      "revision": "afc8fc1d3b8ec8de69414482b3bd70a1da78cb95",
+      "service": "petclinic-java",
+      "startLine": 92,
+      "textDigest": "sha256:75e16d173cdde58687b0cf90395c2c6edde8b1a7c716fd97fa691b31eef9dd8d"
+    },
+    "petclinic-java-a66cbbfd2898c904cf0f": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 62,
+      "endLine": 94,
+      "evidenceDigest": "sha256:0155eadfdc7b1f07d06395e80a791faefb56d6273569e4e282cbc7923a43f23c",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/controller/v1/OwnerRestControllerV1.java",
+      "id": "petclinic-java-a66cbbfd2898c904cf0f",
+      "revision": "afc8fc1d3b8ec8de69414482b3bd70a1da78cb95",
+      "service": "petclinic-java",
+      "startLine": 94,
+      "textDigest": "sha256:6a1f0719560a7f2ddb6db3affd5a3fdf60bb9ee5e33fb0ca05565d885d26eabd"
+    },
+    "petclinic-java-bf2b853c1299c617065f": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 82,
+      "endLine": 96,
+      "evidenceDigest": "sha256:9edc62146755eb411012ed2a9d194a0cad78ec82c47ebf62fef461c3b113a7b8",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/controller/v1/OwnerRestControllerV1.java",
+      "id": "petclinic-java-bf2b853c1299c617065f",
+      "revision": "afc8fc1d3b8ec8de69414482b3bd70a1da78cb95",
+      "service": "petclinic-java",
+      "startLine": 96,
+      "textDigest": "sha256:ed37b3e634549c21cad156ae260b0031a01be6e6720c4ff855eeba99cc3ecf48"
+    },
+    "petclinic-java-c075547fe60c82790b6e": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 62,
+      "endLine": 94,
+      "evidenceDigest": "sha256:054e026828c8c479337c76b59e57b53363c0ced4fb0288062046cf20acd43d48",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/controller/v1/OwnerRestControllerV1.java",
+      "id": "petclinic-java-c075547fe60c82790b6e",
+      "revision": "afc8fc1d3b8ec8de69414482b3bd70a1da78cb95",
+      "service": "petclinic-java",
+      "startLine": 94,
+      "textDigest": "sha256:6a1f0719560a7f2ddb6db3affd5a3fdf60bb9ee5e33fb0ca05565d885d26eabd"
+    },
+    "petclinic-java-cee1c35fd1c48b93e1c3": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "bytes": 64,
+      "endLine": 92,
+      "evidenceDigest": "sha256:0155eadfdc7b1f07d06395e80a791faefb56d6273569e4e282cbc7923a43f23c",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/controller/v1/OwnerRestControllerV1.java",
+      "id": "petclinic-java-cee1c35fd1c48b93e1c3",
+      "revision": "afc8fc1d3b8ec8de69414482b3bd70a1da78cb95",
+      "service": "petclinic-java",
+      "startLine": 92,
+      "textDigest": "sha256:75e16d173cdde58687b0cf90395c2c6edde8b1a7c716fd97fa691b31eef9dd8d"
+    }
+  },
+  "status": "COLLECTED_WITH_BOUNDARIES",
+  "unboundEvents": [],
+  "usage": "Source references remain in the retained Check. Absence or a budget cut never certifies irrelevance. Business labels and effect interpretations need a separate proposal and review."
+}
+```

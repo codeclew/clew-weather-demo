@@ -1,0 +1,142 @@
+{
+  "contextDigest": "sha256:f8678b7bab0fc73d39edd3d5cfec243caaaee10cc412572145d9f7427fce7c09",
+  "files": [
+    {
+      "digest": "sha256:33f81cd9c25e6ff929f835dcec16524dc3d31a843c9f86cfda049ca34078dda5",
+      "path": "catalogue.json"
+    },
+    {
+      "digest": "sha256:cdc6644b13ac785d253105c2bd4071921b29e52053f0b171e7c5d0ab323201fe",
+      "path": "dashboard-maintained-consumer-diagnostic.html"
+    },
+    {
+      "digest": "sha256:bdadf7071023120cdb954ebeedf3d4709b1e4f0cf96ffe705472802b18d5a5e6",
+      "path": "dashboard-maintained-consumer-diagnostic.mdx"
+    },
+    {
+      "digest": "sha256:5d5f41ebaae6087ac16c353af40fa05e77dc25b07b52909c5178fcab6d94eee4",
+      "path": "dashboard-maintained-consumer-endpoint.html"
+    },
+    {
+      "digest": "sha256:871577c3eebd51f23521c694460a5def73c3d4c35d7a9726a47e7123d93e5f3a",
+      "path": "dashboard-maintained-consumer-endpoint.mdx"
+    },
+    {
+      "digest": "sha256:f01ab44cd1e756fe61a95c1bebc754768ac06c47320da751304080a43a0b83a5",
+      "path": "dashboard-maintained-consumer-fields-state.html"
+    },
+    {
+      "digest": "sha256:a06b459066d751424c6c90d0d88546cf432749827ba3a8a84fc05c61af8f8cf1",
+      "path": "dashboard-maintained-consumer-fields-state.mdx"
+    },
+    {
+      "digest": "sha256:b19552cb9c83a293665b007698ded2b58bbdfccc425a6f46ed8680cf0bfb734d",
+      "path": "dashboard-maintained-consumer-overview.html"
+    },
+    {
+      "digest": "sha256:f9236548c669fe2a88ef479a892eb5b00613d0f032dd3ad21b427893d1c4ceed",
+      "path": "dashboard-maintained-consumer-overview.mdx"
+    },
+    {
+      "digest": "sha256:6f8175ff42428ec94c7e8b9492e15b0fa08aba1406cb4347d92b43bad8d83f02",
+      "path": "dashboard-maintained-consumer-worker.html"
+    },
+    {
+      "digest": "sha256:587e5c14d80fc5a13e7cbadbf86a4b5214ca3a1abb33c72f1105b953db5ce843",
+      "path": "dashboard-maintained-consumer-worker.mdx"
+    },
+    {
+      "digest": "sha256:bcedd9482cd1a15dca2f97bcb40a83bc9e3f041d6da24be912b49d804234a71f",
+      "path": "index.html"
+    },
+    {
+      "digest": "sha256:5c07456db07552d811cb1adf6f98dbf800a773ba86a0572c66f903c0bac1b881",
+      "path": "index.mdx"
+    },
+    {
+      "digest": "sha256:ce9995c761f68342e490f9d6c96d481c6a93c8c706f3bd336513fedda3108425",
+      "path": "native-reader.js"
+    },
+    {
+      "digest": "sha256:baac065fed816ed0dc58a23346edd8b9799f6d8c0ff6241175e06e9cf9863951",
+      "path": "projection.json"
+    },
+    {
+      "digest": "sha256:677f4ba0d72cef16aad81fe4314cd651a9a4718bbb090e7251e25ba065624105",
+      "path": "sources.html"
+    },
+    {
+      "digest": "sha256:4d95f796ba93b704c048fce1a9ff1830911af98b5c176b8b21c06cf99615a3cc",
+      "path": "sources.mdx"
+    },
+    {
+      "digest": "sha256:30f2a7247d667d5fc0ae6992a7aff6761faeef34b00a391252bb295c15ee4109",
+      "path": "style.css"
+    }
+  ],
+  "inputDigest": "sha256:d222c16c3aa924499e7fdab1ad824e2c18c2a2571aac78c10ddf1614b1b11817",
+  "mdxProfile": "MDX 3; inert native JSX; no imports, executable expressions, scripts or network dependencies",
+  "pages": [
+    {
+      "contentDigest": "sha256:81ec3a689221d09df61e8194c341d407be49c2363b71e35d00a5c540c53088c1",
+      "html": "dashboard-maintained-consumer-diagnostic.html",
+      "id": "dashboard-maintained-consumer-diagnostic",
+      "mdx": "dashboard-maintained-consumer-diagnostic.mdx"
+    },
+    {
+      "contentDigest": "sha256:b31aa9fa810426bab2a8888de33c64672b3bbd5f1d82c9291fa48f65c142547f",
+      "html": "dashboard-maintained-consumer-endpoint.html",
+      "id": "dashboard-maintained-consumer-endpoint",
+      "mdx": "dashboard-maintained-consumer-endpoint.mdx"
+    },
+    {
+      "contentDigest": "sha256:be07403965c6356e4c9cf36067b6f7122efac1912d91c6550783b811db4808a5",
+      "html": "dashboard-maintained-consumer-fields-state.html",
+      "id": "dashboard-maintained-consumer-fields-state",
+      "mdx": "dashboard-maintained-consumer-fields-state.mdx"
+    },
+    {
+      "contentDigest": "sha256:94e979116b88d925a54d25e42b7b4d0eff9e1ba392873d832241927282ff6f65",
+      "html": "dashboard-maintained-consumer-overview.html",
+      "id": "dashboard-maintained-consumer-overview",
+      "mdx": "dashboard-maintained-consumer-overview.mdx"
+    },
+    {
+      "contentDigest": "sha256:f382596ca3379dad60374aecde9b30fec56c469b9368e33141c09f0c50d0735f",
+      "html": "dashboard-maintained-consumer-worker.html",
+      "id": "dashboard-maintained-consumer-worker",
+      "mdx": "dashboard-maintained-consumer-worker.mdx"
+    },
+    {
+      "contentDigest": "sha256:b59be3695e4220ece1ea0c911ed927d061b9c17991880f8ca575a2bb49a6d25b",
+      "html": "index.html",
+      "id": "index",
+      "mdx": "index.mdx"
+    },
+    {
+      "contentDigest": "sha256:96b1e5e04979a115566dd497aaa17944fb5d30c64893332eceb4e36a80eb4859",
+      "html": "sources.html",
+      "id": "sources",
+      "mdx": "sources.mdx"
+    }
+  ],
+  "projectionDigest": "sha256:aff1377f7a2dd61f91fa19d84968e1db7dcf64ecfd11adec3017fd6e9eaa0ba2",
+  "schema": "codeclew-native-pages-static-manifest/1.0",
+  "selectedAuthoredParagraphs": [
+    {
+      "bindingsDigest": "sha256:04d8ca8dcc2dc26d1144a6ef4f004018887b62aa8244c785f011cf6e9850e207",
+      "bundle": "277c5abb80b2abfdfbe5f96220358bf1ceece0af9d263138e0d30ffb34ea91c0",
+      "fragment": "claim-a1492cfcfa17ec67d1e2",
+      "html": "dashboard-maintained-consumer-overview.html",
+      "mdx": "dashboard-maintained-consumer-overview.mdx",
+      "operation": "dashboard-d527a6e620a1974b0e5a",
+      "operationDigest": "sha256:bb68cd2928c467ae28b4a1ad882b38480067534748f6d61beae38feeeb72448d",
+      "paragraphDigest": "sha256:a8bd750f73f71f5f05b4335931b85602d1d131446d71ab7919593e2c4441448c",
+      "processId": "dashboard-maintained-consumer",
+      "publicationDigest": "sha256:808b8d9b49594fad94dbd34e9d0d770a9a81a35640375ad8ae668c1d4768dc82",
+      "sourceSnapshot": "sha256:cd128dab5185ee06165da23afe31d75586b018ecdbe77d51b8c6bb3c178547b3/162173"
+    }
+  ],
+  "selectionDigest": "sha256:ae37de917063e97b071cd533897a23c44521c327d513066476d0c6bc74593d2d",
+  "snapshot": "sha256:cd128dab5185ee06165da23afe31d75586b018ecdbe77d51b8c6bb3c178547b3/162173"
+}

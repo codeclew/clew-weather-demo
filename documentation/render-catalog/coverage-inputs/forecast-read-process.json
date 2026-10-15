@@ -1,0 +1,40 @@
+{
+  "schema": "codeclew-documentation-process/1.0",
+  "id": "forecast-read",
+  "title": "ForecastController.get response selection",
+  "summary": "The captured controller source branches on whether forecasts.get(id) returns null: null selects ResponseEntity.notFound().build(); a non-null String is passed into an ok/header/body response.",
+  "root": {
+    "service": "forecasts",
+    "selector": {
+      "language": "kotlin",
+      "scope": ":/main",
+      "owner": "class:weather.ForecastController",
+      "name": "get",
+      "parameterTypes": [
+        "kotlin.String"
+      ]
+    }
+  },
+  "interactions": [],
+  "maxDepth": 3,
+  "maxNodes": 64,
+  "process": {
+    "scope": "ForecastController.get(id) and its retained source context.",
+    "participants": [
+      "forecasts"
+    ],
+    "objects": [],
+    "trigger": "A caller invokes ForecastController.get(id).",
+    "outcomes": [
+      "ResponseEntity.notFound().build()",
+      "ResponseEntity.ok().header().body()"
+    ],
+    "linkedSubviews": [],
+    "extraction": {
+      "purpose": "PROCESS",
+      "service": "forecasts",
+      "rootDeclaration": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+      "configurationScope": ":/main"
+    }
+  }
+}

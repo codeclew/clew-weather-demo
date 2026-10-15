@@ -1,0 +1,35 @@
+%% Source freshness: STALE; meaning review: UNASSESSED
+flowchart LR
+    %% Static entity data flow; not a runtime trace or universal taint analysis.
+    %% node place-domain: dependencies entity:weather-place
+    n0["domain: Place"]
+    %% node message-value: dependencies dashboard:symbol:a4627e5e868830287e83e0dc,entity:weather-place
+    n1["message: consumeMessage reads message.value from its payload before parsing it."]
+    %% node parsed-event: dependencies dashboard:flow:1198b0d44dde70fcd80329fc,dashboard:symbol:a4627e5e868830287e83e0dc,entity:weather-place
+    n2["message: The parsed JSON value is passed to validateEvent."]
+    %% node event-place: dependencies dashboard:symbol:021fcd0ff7baa53bd3c51930,entity:weather-place
+    n3["field: The validator reads event.place.id, name, latitude, and longitude."]
+    %% node validate-event: dependencies dashboard:symbol:021fcd0ff7baa53bd3c51930,dashboard:symbol:7d0d09a16ac25de86e5beb53,entity:weather-place
+    n4["function: validateEvent checks the event id and version, place fields, and topic-specific fields; unsupported topics throw."]
+    %% node validated-event: dependencies dashboard:symbol:021fcd0ff7baa53bd3c51930,entity:weather-place
+    n5["dto: validateEvent returns the event after its checks pass."]
+    %% node apply-event: dependencies dashboard:symbol:ac3aadb76be6fea3e790cb85,entity:weather-place
+    n6["function: applyEvent opens a transaction, skips the card write for duplicate event ids, and otherwise performs a card upsert."]
+    %% node weather-cards: dependencies dashboard:symbol:ac3aadb76be6fea3e790cb85,entity:weather-place
+    n7["table: The upserts map place id, name, latitude, and longitude to weather_cards; forecast updates also store updated_at and forecast JSON."]
+    %% edge domain-event-place: dependencies entity:weather-place
+    n0 -.->|"candidate / UNKNOWN: The declared entity record proposes event.place as a stored-copy representation of Place."| n3
+    %% edge domain-weather-cards: dependencies entity:weather-place
+    n0 -.->|"candidate / UNKNOWN: The declared entity record proposes weather_cards as a stored-copy representation of Place."| n7
+    %% edge parse-message: dependencies dashboard:flow:1198b0d44dde70fcd80329fc,dashboard:symbol:a4627e5e868830287e83e0dc,entity:weather-place
+    n1 -->|"transform / SOURCE_INTERPRETATION: consumeMessage converts message.value to a string, defaults a missing value to an empty string, and parses it as JSON."| n2
+    %% edge read-event-place: dependencies dashboard:symbol:021fcd0ff7baa53bd3c51930,entity:weather-place
+    n2 -->|"read / SOURCE_INTERPRETATION: validateEvent reads event.place and its id, name, latitude, and longitude fields."| n3
+    %% edge validate-place: dependencies dashboard:symbol:021fcd0ff7baa53bd3c51930,entity:weather-place
+    n3 -->|"read / SOURCE_INTERPRETATION: validateEvent requires a present place, a string id in oslo, helsinki, or lisbon, a string name, and finite latitude and longitude."| n4
+    %% edge return-validated-event: dependencies dashboard:symbol:021fcd0ff7baa53bd3c51930,dashboard:symbol:7d0d09a16ac25de86e5beb53,entity:weather-place
+    n4 -->|"transform / SOURCE_INTERPRETATION: validateEvent returns the event after its base and topic-specific checks pass. Forecast updates also require valid timestamps, an allowed mode, one to six periods, and valid period fields."| n5
+    %% edge pass-to-apply: dependencies dashboard:flow:37dec2bf70bc69d603cb8d4b,dashboard:symbol:a4627e5e868830287e83e0dc,entity:weather-place
+    n5 -->|"read / SOURCE_INTERPRETATION: After validation returns, consumeMessage calls applyEvent with the event."| n6
+    %% edge write-weather-cards: dependencies dashboard:symbol:ac3aadb76be6fea3e790cb85,entity:weather-place
+    n6 -->|"write / SOURCE_INTERPRETATION: For a nonduplicate event, applyEvent upserts place id, name, latitude, and longitude into weather_cards. Forecast updates also store updated_at and forecast JSON; an existing card is updated only when its stored updated_at is null or the incoming value is later. The other branch writes place fields only."| n7

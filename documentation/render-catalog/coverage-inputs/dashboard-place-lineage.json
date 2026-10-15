@@ -1,0 +1,43 @@
+{
+  "schema": "codeclew-documentation-view/1.0",
+  "id": "dashboard-place-lineage",
+  "title": "Place data in the Dashboard consumer",
+  "summary": "Dashboard event.place and weather_cards source representations.",
+  "root": {
+    "service": "dashboard",
+    "selector": {
+      "language": "typescript",
+      "owner": "package:",
+      "name": "consumeMessage",
+      "parameterTypes": [
+        ": EachMessagePayload"
+      ]
+    }
+  },
+  "interactions": [],
+  "maxDepth": 3,
+  "maxNodes": 64,
+  "view": {
+    "module": "entity-dataflow/1.0",
+    "inputObjects": [
+      "entity:weather-place"
+    ],
+    "services": [
+      "dashboard"
+    ],
+    "contracts": [],
+    "relatedProcesses": [
+      "dashboard-forecast-updated-consumer"
+    ],
+    "scope": "Dashboard.consumeMessage, validateEvent and applyEvent; event.place and weather_cards only.",
+    "human": {
+      "annotations": {},
+      "tags": [],
+      "metadata": {},
+      "layout": {}
+    },
+    "limitations": [
+      "Source-based representations and transformations; runtime lineage and domain ownership remain unverified."
+    ]
+  }
+}

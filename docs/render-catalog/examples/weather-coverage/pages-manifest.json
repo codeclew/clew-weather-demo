@@ -1,0 +1,479 @@
+{
+  "authority": "FROZEN_NARRATIVES_WITH_SEPARATE_SELECTED_SNAPSHOT_EVIDENCE",
+  "contextDigest": "sha256:f8678b7bab0fc73d39edd3d5cfec243caaaee10cc412572145d9f7427fce7c09",
+  "files": [
+    {
+      "digest": "sha256:34f999ceca2fac42d51ae9188be0320bd9d3604b31e989f3b145fe51fd0c6fc3",
+      "path": "catalog.html"
+    },
+    {
+      "digest": "sha256:e3efabf5277ca9aa1253579fe52575d3a5a4cb92f09cd0597e3d79c8e717a885",
+      "path": "diagrams/scenario-dashboard-forecast-updated-consumer-process-outline-405bd947c4b4b078.puml"
+    },
+    {
+      "digest": "sha256:48d809822335a6cdb2b146378435318afce1b770b57669a5c76fcfb9df609400",
+      "path": "diagrams/scenario-dashboard-forecast-updated-consumer-process-outline-405bd947c4b4b078.svg"
+    },
+    {
+      "digest": "sha256:6a03656d3c7084affc9ba9b5528aa683ef068c3c921bc6b35660f59ab0689a54",
+      "path": "diagrams/scenario-dashboard-place-lineage-entity-dataflow.mmd"
+    },
+    {
+      "digest": "sha256:c7321610fea39d82e64dedf5aab1a482ec56fd30bd7d7c6b4ea364468a648038",
+      "path": "diagrams/scenario-dashboard-place-requested-consumer-process-outline-5214f4a3784d4a9a.puml"
+    },
+    {
+      "digest": "sha256:1709ff3b1425883cc67d9706075364df940287b8f7fd14cf17e42a0a6994337d",
+      "path": "diagrams/scenario-dashboard-place-requested-consumer-process-outline-5214f4a3784d4a9a.svg"
+    },
+    {
+      "digest": "sha256:b52a28f55bee9848ab87952a8648f7fc39e85a01ab28da04af5f653704983475",
+      "path": "diagrams/scenario-forecasts-place-requested-consumer-process-outline-34c0d39227c959c7.puml"
+    },
+    {
+      "digest": "sha256:bd1fd2d78a8b82b245726a96999628adfa9d6ea147cfb184777196d3ca84cf63",
+      "path": "diagrams/scenario-forecasts-place-requested-consumer-process-outline-34c0d39227c959c7.svg"
+    },
+    {
+      "digest": "sha256:02552e1e5c08b5c2edb32b789e3f0a47dc0948d84491da63862f58d5a8b816a6",
+      "path": "diagrams/scenario-forecasts-publish-pending-process-outline-ce0ef4972f0de714.puml"
+    },
+    {
+      "digest": "sha256:4d4924750a1e62ac03d0aa6ca5f17c3ed47caccb0e7545ba2a6371bdc027995e",
+      "path": "diagrams/scenario-forecasts-publish-pending-process-outline-ce0ef4972f0de714.svg"
+    },
+    {
+      "digest": "sha256:e9fd6563306cb975e6c6be2466f30f29ac5937f5afd54ed47e5679f264b2bbaa",
+      "path": "diagrams/scenario-forecasts-refresh-scheduled-process-outline-980821141baf91ea.puml"
+    },
+    {
+      "digest": "sha256:32840a77bd72bd1e658225d33dfd4dfd192f37a5d8e505e1240d145ca5d56de7",
+      "path": "diagrams/scenario-forecasts-refresh-scheduled-process-outline-980821141baf91ea.svg"
+    },
+    {
+      "digest": "sha256:641120b10dd2bfd91563f3639c17eb0bc7ea16b7bc1bc2dfa5cfabb79d1ab853",
+      "path": "diagrams/scenario-places-request-publisher-activity-transitions.puml"
+    },
+    {
+      "digest": "sha256:2d394c0bc7b77632595d28ebe29bbb1a30a19a32fc45c68ac5b3b07f598a4e8b",
+      "path": "diagrams/scenario-places-request-publisher-activity-transitions.svg"
+    },
+    {
+      "digest": "sha256:33d7c174a8f9576f9b6191e538933c999a482991c31efa75d2fdffd95ed7f336",
+      "path": "diagrams/scenario-places-request-publisher-lifecycle-b2068f63f73456aa.puml"
+    },
+    {
+      "digest": "sha256:3989f24f90a8d911c26f7b0aeff9823393873905b379c9e719c73d32aaf99e0e",
+      "path": "diagrams/scenario-places-request-publisher-lifecycle-b2068f63f73456aa.svg"
+    },
+    {
+      "digest": "sha256:34691b0deee32daa7f10c2a605bcf2a0d9e1a90bb9fea64bb05d55bc7a3aec6b",
+      "path": "diagrams/scenario-places-request-publisher-process-outline-8b8d7322c1838b08.puml"
+    },
+    {
+      "digest": "sha256:0b5d2feb3f3d74689012b1ab43d5772501956999992619851c93437dae0a2999",
+      "path": "diagrams/scenario-places-request-publisher-process-outline-8b8d7322c1838b08.svg"
+    },
+    {
+      "digest": "sha256:cf3326fca862d690ed770a81dd4fc819a01846825bea8a6c8588d90c9ec77f7d",
+      "path": "diagrams/scenario-places-request-publisher-states.puml"
+    },
+    {
+      "digest": "sha256:21090b5e4c44c260dad4165a3098dc50eba3382a0c3ff0e66227579d279f81f3",
+      "path": "diagrams/scenario-places-request-publisher-states.svg"
+    },
+    {
+      "digest": "sha256:d43778e26384dc565f21202b1b896dc0c21b2a8f3c327ec194895f4a717464d0",
+      "path": "diagrams/service-dashboard-dashboard-1d4aa83e0d1825825971.puml"
+    },
+    {
+      "digest": "sha256:0883011cf71bf54b91818a088b8c072dd4e0cc70f8c5308145ed9ebe4fdbe756",
+      "path": "diagrams/service-dashboard-dashboard-1d4aa83e0d1825825971.svg"
+    },
+    {
+      "digest": "sha256:4b642f1674c7d82c19e38206af387d48c524e48daa804ca21123b4afe4852756",
+      "path": "diagrams/service-dashboard-dashboard-310371b6c91f276ad642.puml"
+    },
+    {
+      "digest": "sha256:8292d3cf42d56b8c990a2dff7facba8a10f08d086d0ae3c50bef78bfef33c81f",
+      "path": "diagrams/service-dashboard-dashboard-310371b6c91f276ad642.svg"
+    },
+    {
+      "digest": "sha256:baac93267cdf9ad15187a0ef4c3a7a300ccc0add6cf7e3dd11a8695719517777",
+      "path": "diagrams/service-dashboard-dashboard-32f3a8fe3000ac506a5a.puml"
+    },
+    {
+      "digest": "sha256:52a2a879c66dd2fa491192dc98c7978573ae6f5843454979e0dd11f2c5d6f4ab",
+      "path": "diagrams/service-dashboard-dashboard-32f3a8fe3000ac506a5a.svg"
+    },
+    {
+      "digest": "sha256:75e110d589a43880da745f8f553ba417bb3e7fb738fdadb62efe281b71b3bd8c",
+      "path": "diagrams/service-dashboard-dashboard-4301d0222c019e9d5339.puml"
+    },
+    {
+      "digest": "sha256:df5424f8638ce972a2e5923b148b61584a1679149bdb3df88bce5a1c205923f5",
+      "path": "diagrams/service-dashboard-dashboard-4301d0222c019e9d5339.svg"
+    },
+    {
+      "digest": "sha256:5f8a5ec4b5cdd706fcf0802cfa6b16538bfe7d8fe68ac8248e6da266326fac88",
+      "path": "diagrams/service-dashboard-dashboard-721012b8ddf1b26a39b9.puml"
+    },
+    {
+      "digest": "sha256:aa38c96d328e516734be739744caac22d36b4db4c89f2b51e31ce78503c41f3b",
+      "path": "diagrams/service-dashboard-dashboard-721012b8ddf1b26a39b9.svg"
+    },
+    {
+      "digest": "sha256:020f39235d3d60da2310d7013b9ae4720049b1199f7807af9592f0380e8bb6c6",
+      "path": "diagrams/service-dashboard-dashboard-8f0c2429af695539e6cd.puml"
+    },
+    {
+      "digest": "sha256:937c0a668692f38e1b5167c7dd9b78124ee10eb783afb6eead3b1f80d66791f3",
+      "path": "diagrams/service-dashboard-dashboard-8f0c2429af695539e6cd.svg"
+    },
+    {
+      "digest": "sha256:34b09b267c4828d691d46b4086e790de1a45fb69cba40163e1f05444d362d0eb",
+      "path": "diagrams/service-dashboard-dashboard-9e8af3ed64d9d5e72548.puml"
+    },
+    {
+      "digest": "sha256:cb8cf75b5a1b558efe794526845641b478be1338c9ac6afec71f790d16129d64",
+      "path": "diagrams/service-dashboard-dashboard-9e8af3ed64d9d5e72548.svg"
+    },
+    {
+      "digest": "sha256:cb22b1de3c372f64dbd68f23268a3c8494e2705c0f43e9386ce9a15cd0e52362",
+      "path": "diagrams/service-dashboard-dashboard-aa92fac55661297c8e9a.puml"
+    },
+    {
+      "digest": "sha256:ce0cf764c3e2d347619baf347cbee916c12333a69b88c17c91a2e751bdeb8400",
+      "path": "diagrams/service-dashboard-dashboard-aa92fac55661297c8e9a.svg"
+    },
+    {
+      "digest": "sha256:d806ff4394931cafd544a7065382966fdfc46d0c68c596ab578a92c311955433",
+      "path": "diagrams/service-dashboard-dashboard-ad968c2137fedea90215.puml"
+    },
+    {
+      "digest": "sha256:6a70ec8a297a9bfb3532071cf01bbf9c5809d3cb4322cf92ce4a3c2e98270fdf",
+      "path": "diagrams/service-dashboard-dashboard-ad968c2137fedea90215.svg"
+    },
+    {
+      "digest": "sha256:e412cbe8496dbe4574a6ae37aad496a8e9d38a7692521acadfe9c4ea8f0df0e1",
+      "path": "diagrams/service-dashboard-dashboard-d36957b096678dbe4785.puml"
+    },
+    {
+      "digest": "sha256:e7e98dd596fe4b239a8706c6ad798ae6b37ea23a65fbf75269f56b33aff9e1a0",
+      "path": "diagrams/service-dashboard-dashboard-d36957b096678dbe4785.svg"
+    },
+    {
+      "digest": "sha256:5579a1dbbd107cf6d964a585d51e05817e8f243d711d206d61bb9bbab82689de",
+      "path": "diagrams/service-dashboard-dashboard-d527a6e620a1974b0e5a.mmd"
+    },
+    {
+      "digest": "sha256:af640e5c2ccaa7757736ed4dbd29987416d8ef5964f6cb1e1da5e2c2f1f46ed9",
+      "path": "diagrams/service-dashboard-dashboard-f965de51f1f237949bc6.puml"
+    },
+    {
+      "digest": "sha256:8f162291ce966db5939d0587fb4972c188c8df76ab9871547378edb3184d3e82",
+      "path": "diagrams/service-dashboard-dashboard-f965de51f1f237949bc6.svg"
+    },
+    {
+      "digest": "sha256:97c7abd70dc579553748c15be521b416ebce2fdb5a2a6634ec73ae407a200114",
+      "path": "diagrams/service-forecasts-forecasts-23c1f84e75a5f47c4675.puml"
+    },
+    {
+      "digest": "sha256:15d3aa75c203b52237418b7a0f6cf467824ff64054357f5cd69d64063ae3e83c",
+      "path": "diagrams/service-forecasts-forecasts-23c1f84e75a5f47c4675.svg"
+    },
+    {
+      "digest": "sha256:f70b51890fa44a4f1f2b658e18742148bb50d40b27197b22570857d7b352e7d5",
+      "path": "diagrams/service-forecasts-forecasts-4e4e8e31400c498b7591.puml"
+    },
+    {
+      "digest": "sha256:8999ec5c2a4b9fa152c909b49be9c630b8f9be7ba8bb2baf1a4fb99abe5bb533",
+      "path": "diagrams/service-forecasts-forecasts-4e4e8e31400c498b7591.svg"
+    },
+    {
+      "digest": "sha256:3ead76f8d8d8a619594263a63bf21036f605f9929856816c4f8fee5e82969cf4",
+      "path": "diagrams/service-forecasts-forecasts-7113b27ca4694ebce3b6.puml"
+    },
+    {
+      "digest": "sha256:3603942f13fc64818eb94b01c56b9627382aa910b9115a102c034d37aa86eb3d",
+      "path": "diagrams/service-forecasts-forecasts-7113b27ca4694ebce3b6.svg"
+    },
+    {
+      "digest": "sha256:1692d91f606113486ae8f55b6e3ed91f1daa5101e7657b029fc8a325b61ef3ba",
+      "path": "diagrams/service-forecasts-forecasts-a2617f9567b7eac19bf2.puml"
+    },
+    {
+      "digest": "sha256:2b452411a1396ee5e6ca47df2070f9df56011510904114057841731d850cd6cd",
+      "path": "diagrams/service-forecasts-forecasts-a2617f9567b7eac19bf2.svg"
+    },
+    {
+      "digest": "sha256:4dcc4a63a2aefa717e48d003ffd9ff301363ce1c752e8a723e7b7d67f5b25184",
+      "path": "diagrams/service-forecasts-forecasts-bd578e14951373ddaddf.puml"
+    },
+    {
+      "digest": "sha256:5becfdf74e8d9209dbbabe9ad4b5f5ea5ac80151d9d8dd5fe61466d4bca9e78e",
+      "path": "diagrams/service-forecasts-forecasts-bd578e14951373ddaddf.svg"
+    },
+    {
+      "digest": "sha256:11c590a196833b4157fa125d60e62e91ccb89f63063430e2f675c19ea178b427",
+      "path": "diagrams/service-forecasts-forecasts-c91896e4eb5ce5155f3d.puml"
+    },
+    {
+      "digest": "sha256:a4405be2510b13fc14bf340d913a972311652be19edbb0b575b954b59cab311b",
+      "path": "diagrams/service-forecasts-forecasts-c91896e4eb5ce5155f3d.svg"
+    },
+    {
+      "digest": "sha256:160390ed884a96bdbf8bf87f58eb9a4140237a32e7bd3dcd0ded7db248688ace",
+      "path": "diagrams/service-places-places-3a33202464c8b4fff218.puml"
+    },
+    {
+      "digest": "sha256:abc0d099174bfcdd2859133458b0f267fb1ec41957d935c9f83cfd889b4d8741",
+      "path": "diagrams/service-places-places-3a33202464c8b4fff218.svg"
+    },
+    {
+      "digest": "sha256:b57c4590f1fa6b24c62789f6f7adacaedd718afa65f2206456f736b3527ad338",
+      "path": "diagrams/service-places-places-691b340ea61828b197b6.puml"
+    },
+    {
+      "digest": "sha256:a2b37f2a7cf528cb7ee8f1aeac0d5f1f6e75891f68b9a76fe34709e3a820ee9f",
+      "path": "diagrams/service-places-places-691b340ea61828b197b6.svg"
+    },
+    {
+      "digest": "sha256:d4de585212bc32fd32682779a82c08fbcf8c2b9e78ea7ffba7c1368a5c31ade2",
+      "path": "diagrams/service-places-places-8a2148bf5e312b0c5947.puml"
+    },
+    {
+      "digest": "sha256:1a1ed922e90b523a9c2a568ba7e61989ec1d8bce7ec427b76b7b291d472ce1ce",
+      "path": "diagrams/service-places-places-8a2148bf5e312b0c5947.svg"
+    },
+    {
+      "digest": "sha256:3c77984240405c91c91bbf4d8f0ac1cb8005461a3e34e6f46c6202e58d9e7eb1",
+      "path": "diagrams/service-places-places-de7d5796a632782443dc.puml"
+    },
+    {
+      "digest": "sha256:e02fe5e217f8d080ad3b75c16468f169e190f1ce3d6e7df8a15cde21d09f64af",
+      "path": "diagrams/service-places-places-de7d5796a632782443dc.svg"
+    },
+    {
+      "digest": "sha256:84701dabd714e831112e1f0a6509e0431cd527cbb40975c9461dfe3b84f95313",
+      "path": "diagrams/service-places-places-e06f41e67f62720ad106.puml"
+    },
+    {
+      "digest": "sha256:20874aa20831d024191bc8ef65a39d46c071a5e1829a4399e9cb676b5d9f4cd4",
+      "path": "diagrams/service-places-places-e06f41e67f62720ad106.svg"
+    },
+    {
+      "digest": "sha256:4d82a6f3c9b091e4cddf231bc5df82719fd64523926ee7793daaa7afa5a1f474",
+      "path": "frozen-bindings.json"
+    },
+    {
+      "digest": "sha256:06ae580ec1aac52eda0694b6743630870f175c18babd48619b6d2677e12aa895",
+      "path": "frozen-inputs.json"
+    },
+    {
+      "digest": "sha256:4d5fcf7b4b8a1f6e9aaa2d6ba61e3a0d7e8e5d982a9bfbc39c84f072c2ddc510",
+      "path": "help.html"
+    },
+    {
+      "digest": "sha256:630cb059b9da8409ee2487ce4ca199d4043da2adeb9dcd6b0947a8d72b58090d",
+      "path": "history.html"
+    },
+    {
+      "digest": "sha256:e5abb53a32bd3f950c454e2c4c2903cda6714f12ca89d25f978126b403758c16",
+      "path": "index.html"
+    },
+    {
+      "digest": "sha256:e5abb53a32bd3f950c454e2c4c2903cda6714f12ca89d25f978126b403758c16",
+      "path": "overview.html"
+    },
+    {
+      "digest": "sha256:f408f74de14d39ddaab47df4865f5e80ff489e3cbdec343be43d67f3b5ca63af",
+      "path": "runbooks.html"
+    },
+    {
+      "digest": "sha256:83be79915997586e5f02d30b32222abf2eb3c5ecdcd001f33ddd09a477f71cc4",
+      "path": "scenarios/dashboard-forecast-updated-consumer.html"
+    },
+    {
+      "digest": "sha256:8037cd090c91e1d08525c96c7258e8dd26fe0760859d6dd45167bfe2f08e1213",
+      "path": "scenarios/dashboard-forecast-updated-consumer.json"
+    },
+    {
+      "digest": "sha256:e647dc6e95b8dd1f18dd9943502c34b6f5480348907d815f08151fa1635485f3",
+      "path": "scenarios/dashboard-forecast-updated-consumer.md"
+    },
+    {
+      "digest": "sha256:449d3d68f5c69c4c43abea0ace921c498e601eb70cc28db7f9c2c5afd4a893b0",
+      "path": "scenarios/dashboard-place-lineage.html"
+    },
+    {
+      "digest": "sha256:72d73e70779674d4f23d54a07f7402bc61a2aedad4782ae678d3823684787488",
+      "path": "scenarios/dashboard-place-lineage.json"
+    },
+    {
+      "digest": "sha256:951bd93e295819705f37ffba119a1ac3db419a70384d95f954327cb50fee2c5c",
+      "path": "scenarios/dashboard-place-lineage.md"
+    },
+    {
+      "digest": "sha256:076eae4febdc95340bb89ecd2ec3a9a5ad52f0200d0ea010aa55d987820d0a62",
+      "path": "scenarios/dashboard-place-requested-consumer.html"
+    },
+    {
+      "digest": "sha256:d97735a16a3cb4aeae20bf3b18e73475d61bab41af433d26477d8c6fed2dca4a",
+      "path": "scenarios/dashboard-place-requested-consumer.json"
+    },
+    {
+      "digest": "sha256:72eb9a4c6d6be72d27571606f1d483c22678dfc7987c8a1d1a87adc5e830b139",
+      "path": "scenarios/dashboard-place-requested-consumer.md"
+    },
+    {
+      "digest": "sha256:a54089e7bc4a2f6397274178d60125b195e4062971b6a10ae29aaefaa3e83bd2",
+      "path": "scenarios/forecasts-place-requested-consumer.html"
+    },
+    {
+      "digest": "sha256:df59cbd5c76be4f6efec6acfdc3c1872c4e80295a49524ffb8ac9c0b423dc53b",
+      "path": "scenarios/forecasts-place-requested-consumer.json"
+    },
+    {
+      "digest": "sha256:05644f2b47a0ec324e872f38967f9a0da5c3e305cf8a51379121e31da551cfba",
+      "path": "scenarios/forecasts-place-requested-consumer.md"
+    },
+    {
+      "digest": "sha256:04cb9fde40031dfaaccdac343c6df15d3f5cc510f79eca64dfa35aa456c5f07d",
+      "path": "scenarios/forecasts-publish-pending.html"
+    },
+    {
+      "digest": "sha256:ae31b2c45abfba9b0546253266e2063c6fd3d48727a6e947d7c07b880737aa73",
+      "path": "scenarios/forecasts-publish-pending.json"
+    },
+    {
+      "digest": "sha256:640e9339dfba5a1d54093c9da3ab4767da06884f0e5d6799e05ae6c4ac3794ff",
+      "path": "scenarios/forecasts-publish-pending.md"
+    },
+    {
+      "digest": "sha256:b8167486652a8cd2957f1f8afd6c60a40819d436dcbc96bed53cba3414e55618",
+      "path": "scenarios/forecasts-refresh-scheduled.html"
+    },
+    {
+      "digest": "sha256:8e58c8833fa53657ef79184992a7b9c35d2281971c3583ec41fdda3296baf2ff",
+      "path": "scenarios/forecasts-refresh-scheduled.json"
+    },
+    {
+      "digest": "sha256:d00de7f7303f89bc844fc7ee5ca7f1bedb95c5429765051a6fff033e9db3751b",
+      "path": "scenarios/forecasts-refresh-scheduled.md"
+    },
+    {
+      "digest": "sha256:3677fa060cee4d6e81bb7e9ef671d48d7951ef27ee5759d78916553e55ebe799",
+      "path": "scenarios/places-request-publisher.html"
+    },
+    {
+      "digest": "sha256:97dbe9d20703f986ca0e0f073689bc8eb865dbc468fd1b7fd5d7ae83d02088f4",
+      "path": "scenarios/places-request-publisher.json"
+    },
+    {
+      "digest": "sha256:42b6f52b2da42e6473b52c6453bcebf1fd53799cfe2395c1708e9f46b294e277",
+      "path": "scenarios/places-request-publisher.md"
+    },
+    {
+      "digest": "sha256:f06443ee259ac5bcd3464f4fa859941d3e5986d310e71f23bc95994e0ee94de7",
+      "path": "services/dashboard.html"
+    },
+    {
+      "digest": "sha256:ce739000d4f511b0535a4a744b58d91696f56cbe8de580e92256d4abb72a4fd8",
+      "path": "services/dashboard.json"
+    },
+    {
+      "digest": "sha256:2cc7e0f22434cd6003b205c198807e829ccd5180b704b01c3c1576551ae92992",
+      "path": "services/dashboard.md"
+    },
+    {
+      "digest": "sha256:846d5d8711ec83fc1ed4624b632004f44bbdb7bba0d92acc82b3365b2c1ffac5",
+      "path": "services/forecasts.html"
+    },
+    {
+      "digest": "sha256:0b3e8317aa39a5607b2c393972780f21f24120aa456cf6a61bd84c4a5c61593a",
+      "path": "services/forecasts.json"
+    },
+    {
+      "digest": "sha256:3b7ab47017c2ec8904867f238462568d5eedcf52149aec77877a4fbe685bcbda",
+      "path": "services/forecasts.md"
+    },
+    {
+      "digest": "sha256:91d83e061310dfaabe28016baf8a307002562f796dc9e9e04b1da7c39934ee69",
+      "path": "services/places.html"
+    },
+    {
+      "digest": "sha256:66432d8acb173c2d927fe862bb852090645481b9703598cb108068d420c49483",
+      "path": "services/places.json"
+    },
+    {
+      "digest": "sha256:a0372528a9a7a18f7ca228871565f63592428604f6bda2e5861e889302c2e595",
+      "path": "services/places.md"
+    },
+    {
+      "digest": "sha256:a52c3d70b143377a45525908bd82dd22396a830a2dba6d976f623291728d6647",
+      "path": "status.json"
+    }
+  ],
+  "frozenBindingsDigest": "sha256:510b8b5e63280e591fd180153b7a60130782fa26a4164528b55e936f66aaeeeb",
+  "index": "index.html",
+  "inputDigest": "sha256:d222c16c3aa924499e7fdab1ad824e2c18c2a2571aac78c10ddf1614b1b11817",
+  "output": "docs/render-catalog/examples/weather-coverage",
+  "pages": [
+    {
+      "html": "scenarios/dashboard-forecast-updated-consumer.html",
+      "json": "scenarios/dashboard-forecast-updated-consumer.json",
+      "subject": "scenario:dashboard-forecast-updated-consumer"
+    },
+    {
+      "html": "scenarios/dashboard-place-lineage.html",
+      "json": "scenarios/dashboard-place-lineage.json",
+      "subject": "scenario:dashboard-place-lineage"
+    },
+    {
+      "html": "scenarios/dashboard-place-requested-consumer.html",
+      "json": "scenarios/dashboard-place-requested-consumer.json",
+      "subject": "scenario:dashboard-place-requested-consumer"
+    },
+    {
+      "html": "scenarios/forecasts-place-requested-consumer.html",
+      "json": "scenarios/forecasts-place-requested-consumer.json",
+      "subject": "scenario:forecasts-place-requested-consumer"
+    },
+    {
+      "html": "scenarios/forecasts-publish-pending.html",
+      "json": "scenarios/forecasts-publish-pending.json",
+      "subject": "scenario:forecasts-publish-pending"
+    },
+    {
+      "html": "scenarios/forecasts-refresh-scheduled.html",
+      "json": "scenarios/forecasts-refresh-scheduled.json",
+      "subject": "scenario:forecasts-refresh-scheduled"
+    },
+    {
+      "html": "scenarios/places-request-publisher.html",
+      "json": "scenarios/places-request-publisher.json",
+      "subject": "scenario:places-request-publisher"
+    },
+    {
+      "html": "services/dashboard.html",
+      "json": "services/dashboard.json",
+      "subject": "service:dashboard"
+    },
+    {
+      "html": "services/forecasts.html",
+      "json": "services/forecasts.json",
+      "subject": "service:forecasts"
+    },
+    {
+      "html": "services/places.html",
+      "json": "services/places.json",
+      "subject": "service:places"
+    }
+  ],
+  "proseAuthored": false,
+  "publication": "2e248f37031782a96c321846f1046fa141e6e7afb91c4a6f493762a170cd8f8d",
+  "schema": "codeclew-native-pages-full-manifest/1.0",
+  "snapshot": "sha256:cd128dab5185ee06165da23afe31d75586b018ecdbe77d51b8c6bb3c178547b3/162173",
+  "status": "RENDERED"
+}

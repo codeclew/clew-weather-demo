@@ -1,0 +1,50 @@
+[
+  {
+    "id": "forecast-refresh-expired",
+    "service": "forecasts",
+    "endpointDeclaration": "forecasts:symbol:a8e892aa0972155d61b9bc01",
+    "workerDeclaration": "forecasts:symbol:a8e892aa0972155d61b9bc01",
+    "expandSourceCalls": true,
+    "expandDataState": true
+  },
+  {
+    "id": "forecast-publish-pending",
+    "service": "forecasts",
+    "endpointDeclaration": "forecasts:symbol:bb8a2efa4951972025e6b05e",
+    "workerDeclaration": "forecasts:symbol:bb8a2efa4951972025e6b05e",
+    "expandSourceCalls": true,
+    "expandDataState": true
+  },
+  {
+    "id": "forecast-get",
+    "service": "forecasts",
+    "endpointDeclaration": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+    "workerDeclaration": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+    "expandSourceCalls": true,
+    "expandDataState": true
+  },
+  {
+    "id": "forecast-consume",
+    "service": "forecasts",
+    "endpointDeclaration": "forecasts:symbol:118abdf5848488027d552082",
+    "workerDeclaration": "forecasts:symbol:118abdf5848488027d552082",
+    "expandSourceCalls": true,
+    "expandDataState": true
+  },
+  {
+    "id": "forecast-health",
+    "service": "forecasts",
+    "endpointDeclaration": "forecasts:symbol:bb08127f614282381189b29a",
+    "workerDeclaration": "forecasts:symbol:bb08127f614282381189b29a",
+    "expandSourceCalls": true,
+    "expandDataState": true
+  },
+  {
+    "id": "forecast-open-api",
+    "service": "forecasts",
+    "endpointDeclaration": "forecasts:symbol:9c992851eb72e1e7a1dfe7b3",
+    "workerDeclaration": "forecasts:symbol:9c992851eb72e1e7a1dfe7b3",
+    "expandSourceCalls": true,
+    "expandDataState": true
+  }
+]

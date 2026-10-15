@@ -1,0 +1,30 @@
+{
+  "model": "gpt-6-luna",
+  "reasoningEffort": "max",
+  "authorInvocation": "adeda7b4e47b46afb41cfa0f6e84aa13",
+  "changes": [
+    {
+      "path": "/steps/0/otherwise/1/otherwise/3",
+      "before": "check_cache_fresh",
+      "after": "check_cache_fresh_repeated_source"
+    },
+    {
+      "path": "/steps/0/otherwise/1/otherwise/3/otherwise/0",
+      "before": "return_fresh_cache",
+      "after": "return_fresh_cache_repeated_source"
+    },
+    {
+      "action": "Move unused predicate dictionary entries to unreferenced-predicates.json",
+      "ids": [
+        "fixture_mode",
+        "live_mode",
+        "backoff_active"
+      ]
+    }
+  ],
+  "businessProseChanged": false,
+  "meaningReview": "UNREVIEWED",
+  "originalAnswer": "original-author-answer.json",
+  "originalNativeResult": "DRAFT_INVALID_ANSWER",
+  "callerRepairedNativeResult": "DRAFT / UNREVIEWED / NOT_PUBLISHED"
+}

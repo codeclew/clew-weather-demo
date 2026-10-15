@@ -1,0 +1,18 @@
+' CODECLEW_STATUS=DRAFT/MODEL_REVIEW_APPROVED/NOT_PUBLISHED
+' ORIGIN=SOURCE_LOCAL_NOT_EXECUTION_EVIDENCE
+' PACKET_DIGEST=sha256:d57dee57a979536d7b730bc110f0ef1348d4fa3fad7b39ca42d6bca230da82c1
+' ROOT_METHOD_ID=m0
+' ROOT_SOURCE_REFERENCE=unavailable
+' ROOT_SOURCE_EXCERPT=unavailable
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title Source-local projection · ForecastController.get: helper payload lookup and response branch
+note as Evidence
+ROOT_SOURCE_REFERENCE_MISSING
+end note
+@enduml
+
+' REVIEW_RESULT_DIGEST=sha256:3353d7afba1f9ae4c51ffe1c56b3ad4de6707c4b144ec1618011974269992f69
+' REVIEW_SNAPSHOT=sha256:55b1241b84060f2c00a4daff93ab8193ebc47a62c9266b7720616e8df9d6422f/22489

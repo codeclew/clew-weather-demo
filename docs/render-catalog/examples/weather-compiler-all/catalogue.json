@@ -1,0 +1,315 @@
+{
+  "authority": "SELECTED_AND_EXAMINED_DOCUMENTATION_CONTEXT_NOT_RUNTIME_IMPACT",
+  "contextDigest": "sha256:25e6f73d55cfe6d50ae1a3595906e97e927e33fac1fc08af255874a0f2b5d345",
+  "inputDigest": "sha256:79beb5af7b5bd3b3504bd518fca7651286e76147d3b21de6a45f8921973f6365",
+  "rows": [
+    {
+      "context": "forecasts · :/main",
+      "displayTitle": "weather.ForecastController.get",
+      "href": "source-calls.html#ref-b62f7931281a16f4b237b57905d5dae604b00f74acb5bb155fdbaf7140ca1ec8",
+      "id": "callable-bc9f188a31c9d60101d447b28d84ea7cd04a8033ccd0fe07091db36a60ecd61b",
+      "kind": "Examined callable",
+      "relatedLinks": [
+        {
+          "href": "forecast-get-overview.html",
+          "title": "Examined by: forecast-get"
+        }
+      ],
+      "searchText": [
+        "forecasts",
+        ":/main",
+        "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+        "forecast-get"
+      ],
+      "summary": "Retained examined source body; reverse links are documentation context, not runtime impact. Call frontiers remain local gaps.",
+      "title": "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;"
+    },
+    {
+      "context": "forecasts · :/main",
+      "displayTitle": "weather.ForecastController.health",
+      "href": "source-calls.html#ref-e9cb7be1de822e676b342841031ba2df14948ff2a3caf7b4fd79cd67943d4a07",
+      "id": "callable-e49228c7cd647f3a01662fa802e866f787c9183f552606cfe7f32fe1ff74412d",
+      "kind": "Examined callable",
+      "relatedLinks": [
+        {
+          "href": "forecast-health-overview.html",
+          "title": "Examined by: forecast-health"
+        }
+      ],
+      "searchText": [
+        "forecasts",
+        ":/main",
+        "callable:weather/ForecastController.health#jvm:()Ljava/util/Map;",
+        "forecast-health"
+      ],
+      "summary": "Retained examined source body; reverse links are documentation context, not runtime impact. Call frontiers remain local gaps.",
+      "title": "callable:weather/ForecastController.health#jvm:()Ljava/util/Map;"
+    },
+    {
+      "context": "forecasts · :/main",
+      "displayTitle": "weather.ForecastController.openApi",
+      "href": "source-calls.html#ref-35dcd7ddb8cfa309a0f7ee1a4ec41526312c7438df48590b352dd013abdd5f3d",
+      "id": "callable-b084c8d34f1662d91ff7179ea11f699a2de1365d6bfe2508281d83af3a140ec0",
+      "kind": "Examined callable",
+      "relatedLinks": [
+        {
+          "href": "forecast-open-api-overview.html",
+          "title": "Examined by: forecast-open-api"
+        }
+      ],
+      "searchText": [
+        "forecasts",
+        ":/main",
+        "callable:weather/ForecastController.openApi#jvm:()Lorg/springframework/http/ResponseEntity;",
+        "forecast-open-api"
+      ],
+      "summary": "Retained examined source body; reverse links are documentation context, not runtime impact. Call frontiers remain local gaps.",
+      "title": "callable:weather/ForecastController.openApi#jvm:()Lorg/springframework/http/ResponseEntity;"
+    },
+    {
+      "context": "forecasts · :/main",
+      "displayTitle": "weather.Forecasts.consume",
+      "href": "source-calls.html#ref-1d1ace1029a071cc59f92e4d22e2cb7cd68eb372b87054a9f18f7479e6baf2d0",
+      "id": "callable-58cc87377364d8b7c79b4e742332b02d866dc273db758402bbe68d8ec036ed4e",
+      "kind": "Examined callable",
+      "relatedLinks": [
+        {
+          "href": "forecast-consume-overview.html",
+          "title": "Examined by: forecast-consume"
+        }
+      ],
+      "searchText": [
+        "forecasts",
+        ":/main",
+        "callable:weather/Forecasts.consume#jvm:(Lorg/apache/kafka/clients/consumer/ConsumerRecord;Lorg/springframework/kafka/support/Acknowledgment;)V",
+        "forecast-consume"
+      ],
+      "summary": "Retained examined source body; reverse links are documentation context, not runtime impact. Call frontiers remain local gaps.",
+      "title": "callable:weather/Forecasts.consume#jvm:(Lorg/apache/kafka/clients/consumer/ConsumerRecord;Lorg/springframework/kafka/support/Acknowledgment;)V"
+    },
+    {
+      "context": "forecasts · :/main",
+      "displayTitle": "weather.Forecasts.get",
+      "href": "source-calls.html#ref-36e66cbb573962e8e31db91b000d8e1297e6c38c9f7e2c0d0f03b823abdbe332",
+      "id": "callable-e6514d30ffbea9443a22f5d211833500a5aadb383ef32fe025eee0b91bc15f2e",
+      "kind": "Examined callable",
+      "relatedLinks": [
+        {
+          "href": "forecast-get-overview.html",
+          "title": "Examined by: forecast-get"
+        }
+      ],
+      "searchText": [
+        "forecasts",
+        ":/main",
+        "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;",
+        "forecast-get"
+      ],
+      "summary": "Retained examined source body; reverse links are documentation context, not runtime impact. Call frontiers remain local gaps.",
+      "title": "callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;"
+    },
+    {
+      "context": "forecasts · :/main",
+      "displayTitle": "weather.Forecasts.ping",
+      "href": "source-calls.html#ref-125056649a287a3bc77864363e18a055dcde0a330a2b3359cc92df4260a2d8a9",
+      "id": "callable-bccf2c5e05362f29935a9d57d541f3dd3e3bb01b110558571d90f93a928c831e",
+      "kind": "Examined callable",
+      "relatedLinks": [
+        {
+          "href": "forecast-health-overview.html",
+          "title": "Examined by: forecast-health"
+        }
+      ],
+      "searchText": [
+        "forecasts",
+        ":/main",
+        "callable:weather/Forecasts.ping#jvm:()V",
+        "forecast-health"
+      ],
+      "summary": "Retained examined source body; reverse links are documentation context, not runtime impact. Call frontiers remain local gaps.",
+      "title": "callable:weather/Forecasts.ping#jvm:()V"
+    },
+    {
+      "context": "forecasts · :/main",
+      "displayTitle": "weather.Forecasts.publishPending",
+      "href": "source-calls.html#ref-32db094a4fbafa1b34b8fff87a3feeac41985c071ec406295583ddcb78b8b816",
+      "id": "callable-2b68d733efa3474e873e34337aef9ed11ca4297a1a9bdbac1be84a97272352eb",
+      "kind": "Examined callable",
+      "relatedLinks": [
+        {
+          "href": "forecast-publish-pending-overview.html",
+          "title": "Examined by: forecast-publish-pending"
+        }
+      ],
+      "searchText": [
+        "forecasts",
+        ":/main",
+        "callable:weather/Forecasts.publishPending#jvm:()V",
+        "forecast-publish-pending"
+      ],
+      "summary": "Retained examined source body; reverse links are documentation context, not runtime impact. Call frontiers remain local gaps.",
+      "title": "callable:weather/Forecasts.publishPending#jvm:()V"
+    },
+    {
+      "context": "forecasts · :/main",
+      "displayTitle": "weather.Forecasts.refresh",
+      "href": "source-calls.html#ref-6b8e75f833f0f342ab51c479e47b826735b0ceb26ca42fe32aa89c91970cec9e",
+      "id": "callable-3f9a8365abb37ee1de27cc0b5c1fea476499b6a7fbc28146d4ea92e6295163aa",
+      "kind": "Examined callable",
+      "relatedLinks": [
+        {
+          "href": "forecast-refresh-expired-overview.html",
+          "title": "Examined by: forecast-refresh-expired"
+        },
+        {
+          "href": "forecast-consume-overview.html",
+          "title": "Examined by: forecast-consume"
+        }
+      ],
+      "searchText": [
+        "forecasts",
+        ":/main",
+        "callable:weather/Forecasts.refresh#jvm:(Ltools/jackson/databind/JsonNode;)V",
+        "forecast-refresh-expired",
+        "forecast-consume"
+      ],
+      "summary": "Retained examined source body; reverse links are documentation context, not runtime impact. Call frontiers remain local gaps.",
+      "title": "callable:weather/Forecasts.refresh#jvm:(Ltools/jackson/databind/JsonNode;)V"
+    },
+    {
+      "context": "forecasts · :/main",
+      "displayTitle": "weather.Forecasts.refreshExpired",
+      "href": "source-calls.html#ref-4576737315d77b35b92bdb65a0094996b5374f120aa9bc3a41b26aa27f5bee9d",
+      "id": "callable-d7052d977941d251d3c94295013445110a20f10ef7e067fb008856c48b342022",
+      "kind": "Examined callable",
+      "relatedLinks": [
+        {
+          "href": "forecast-refresh-expired-overview.html",
+          "title": "Examined by: forecast-refresh-expired"
+        }
+      ],
+      "searchText": [
+        "forecasts",
+        ":/main",
+        "callable:weather/Forecasts.refreshExpired#jvm:()V",
+        "forecast-refresh-expired"
+      ],
+      "summary": "Retained examined source body; reverse links are documentation context, not runtime impact. Call frontiers remain local gaps.",
+      "title": "callable:weather/Forecasts.refreshExpired#jvm:()V"
+    },
+    {
+      "context": "forecasts · :/main",
+      "displayTitle": "weather.Forecasts.validatePlaceEvent",
+      "href": "source-calls.html#ref-645a709aaea158241883882a1a232a971277439da22ba965ed850cded6c7cdaf",
+      "id": "callable-ecf59781ac9f2ece2fd867b7fa31aef07f2d16ed3d4e6598982d7420063f57c2",
+      "kind": "Examined callable",
+      "relatedLinks": [
+        {
+          "href": "forecast-consume-overview.html",
+          "title": "Examined by: forecast-consume"
+        }
+      ],
+      "searchText": [
+        "forecasts",
+        ":/main",
+        "callable:weather/Forecasts.validatePlaceEvent#jvm:(Ltools/jackson/databind/JsonNode;)V",
+        "forecast-consume"
+      ],
+      "summary": "Retained examined source body; reverse links are documentation context, not runtime impact. Call frontiers remain local gaps.",
+      "title": "callable:weather/Forecasts.validatePlaceEvent#jvm:(Ltools/jackson/databind/JsonNode;)V"
+    },
+    {
+      "context": "forecasts · :/main",
+      "href": "forecast-get-overview.html",
+      "id": "declarations-forecast-get",
+      "kind": "Selected declarations",
+      "relatedLinks": [],
+      "searchText": [
+        "forecasts",
+        ":/main",
+        "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;",
+        "callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;"
+      ],
+      "summary": "Retained compiler-bound declarations and function-local control-flow graphs; inter-function relationships, execution order and runtime behavior are not inferred.",
+      "title": "Selected functions: callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;"
+    },
+    {
+      "context": "forecasts · :/main",
+      "href": "forecast-health-overview.html",
+      "id": "declarations-forecast-health",
+      "kind": "Selected declarations",
+      "relatedLinks": [],
+      "searchText": [
+        "forecasts",
+        ":/main",
+        "callable:weather/ForecastController.health#jvm:()Ljava/util/Map;",
+        "callable:weather/ForecastController.health#jvm:()Ljava/util/Map;"
+      ],
+      "summary": "Retained compiler-bound declarations and function-local control-flow graphs; inter-function relationships, execution order and runtime behavior are not inferred.",
+      "title": "Selected functions: callable:weather/ForecastController.health#jvm:()Ljava/util/Map;"
+    },
+    {
+      "context": "forecasts · :/main",
+      "href": "forecast-open-api-overview.html",
+      "id": "declarations-forecast-open-api",
+      "kind": "Selected declarations",
+      "relatedLinks": [],
+      "searchText": [
+        "forecasts",
+        ":/main",
+        "callable:weather/ForecastController.openApi#jvm:()Lorg/springframework/http/ResponseEntity;",
+        "callable:weather/ForecastController.openApi#jvm:()Lorg/springframework/http/ResponseEntity;"
+      ],
+      "summary": "Retained compiler-bound declarations and function-local control-flow graphs; inter-function relationships, execution order and runtime behavior are not inferred.",
+      "title": "Selected functions: callable:weather/ForecastController.openApi#jvm:()Lorg/springframework/http/ResponseEntity;"
+    },
+    {
+      "context": "forecasts · :/main",
+      "href": "forecast-consume-overview.html",
+      "id": "declarations-forecast-consume",
+      "kind": "Selected declarations",
+      "relatedLinks": [],
+      "searchText": [
+        "forecasts",
+        ":/main",
+        "callable:weather/Forecasts.consume#jvm:(Lorg/apache/kafka/clients/consumer/ConsumerRecord;Lorg/springframework/kafka/support/Acknowledgment;)V",
+        "callable:weather/Forecasts.consume#jvm:(Lorg/apache/kafka/clients/consumer/ConsumerRecord;Lorg/springframework/kafka/support/Acknowledgment;)V"
+      ],
+      "summary": "Retained compiler-bound declarations and source; behavior and relationships are not inferred.",
+      "title": "Selected functions: callable:weather/Forecasts.consume#jvm:(Lorg/apache/kafka/clients/consumer/ConsumerRecord;Lorg/springframework/kafka/support/Acknowledgment;)V"
+    },
+    {
+      "context": "forecasts · :/main",
+      "href": "forecast-publish-pending-overview.html",
+      "id": "declarations-forecast-publish-pending",
+      "kind": "Selected declarations",
+      "relatedLinks": [],
+      "searchText": [
+        "forecasts",
+        ":/main",
+        "callable:weather/Forecasts.publishPending#jvm:()V",
+        "callable:weather/Forecasts.publishPending#jvm:()V"
+      ],
+      "summary": "Retained compiler-bound declarations and source; behavior and relationships are not inferred.",
+      "title": "Selected functions: callable:weather/Forecasts.publishPending#jvm:()V"
+    },
+    {
+      "context": "forecasts · :/main",
+      "href": "forecast-refresh-expired-overview.html",
+      "id": "declarations-forecast-refresh-expired",
+      "kind": "Selected declarations",
+      "relatedLinks": [],
+      "searchText": [
+        "forecasts",
+        ":/main",
+        "callable:weather/Forecasts.refreshExpired#jvm:()V",
+        "callable:weather/Forecasts.refreshExpired#jvm:()V"
+      ],
+      "summary": "Retained compiler-bound declarations and source; behavior and relationships are not inferred.",
+      "title": "Selected functions: callable:weather/Forecasts.refreshExpired#jvm:()V"
+    }
+  ],
+  "schema": "codeclew-native-catalogue/1.0",
+  "selectionDigest": "sha256:38afdc6d819f5f0a9a666fc849de4807aef2a9c6749f2aca717f2faa06f3a035",
+  "snapshot": "sha256:86a4ac77b715d392e02af1d52beda77c47253d7d6be96ed33912aeed7a9b84cc/5516"
+}

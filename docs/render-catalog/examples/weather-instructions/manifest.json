@@ -1,0 +1,139 @@
+{
+  "contextDigest": "sha256:56d7448b4d31a5ebc55a60c2fd4fe1309cf03774a0a060f8fab779ec12167215",
+  "files": [
+    {
+      "digest": "sha256:0445264a6928aa78dce2945b099edc851d7e6baf085cb2bc2636e93f8a6b4e0e",
+      "path": "catalogue.json"
+    },
+    {
+      "digest": "sha256:c1a3fcf0c012dbd301ce8b476406438567adcfd5ce592d9e779228e0290957b8",
+      "path": "dashboard-readme-instructions-diagnostic.html"
+    },
+    {
+      "digest": "sha256:7a2d1c76f128581a8c7b6929662cae3256a01cb5cbd193b0f3bf12145ccc861a",
+      "path": "dashboard-readme-instructions-diagnostic.mdx"
+    },
+    {
+      "digest": "sha256:b0ec98040dda34d82e2ec8f6e7e183df81a45f2373299c65b6949ba4b2f3b3b6",
+      "path": "dashboard-readme-instructions-endpoint.html"
+    },
+    {
+      "digest": "sha256:df3ab04d8e71e0211dd1a11f320807682bc2d39f8b8a24b68bcaa4098b5aecf4",
+      "path": "dashboard-readme-instructions-endpoint.mdx"
+    },
+    {
+      "digest": "sha256:fa362f5f04562ca8566d032e2254b556acf0c731689aa4a23380772ca18a0633",
+      "path": "dashboard-readme-instructions-fields-state.html"
+    },
+    {
+      "digest": "sha256:866d78faf740531fc7d576dc1108bd4e07c3e1c16034f01eec6f55813681e5ff",
+      "path": "dashboard-readme-instructions-fields-state.mdx"
+    },
+    {
+      "digest": "sha256:e7c936d44dc8ff483f853cf600494b289a04cdfb87abce6d0536f42f3b9768dc",
+      "path": "dashboard-readme-instructions-overview.html"
+    },
+    {
+      "digest": "sha256:c1d9798931385fa05b68e3b5e03a12e8e7d497953a93d39d338e65a88b623ebb",
+      "path": "dashboard-readme-instructions-overview.mdx"
+    },
+    {
+      "digest": "sha256:7d1ad7d8913478f1f7b082c940f16647e40b9129f6e9d7d6ad438c1662ee4d10",
+      "path": "dashboard-readme-instructions-worker.html"
+    },
+    {
+      "digest": "sha256:0d13e5e3657b6890c47cd296955a5e20c85f363caee58d93f63c08845915a476",
+      "path": "dashboard-readme-instructions-worker.mdx"
+    },
+    {
+      "digest": "sha256:3a5335ce0cce24a82763e1496ecef10b315c88c20eef44bd6c21b274667cf760",
+      "path": "index.html"
+    },
+    {
+      "digest": "sha256:f52a05a19682937e882670722cead8d930232118d7800e1e2975eb15d7958b45",
+      "path": "index.mdx"
+    },
+    {
+      "digest": "sha256:ce9995c761f68342e490f9d6c96d481c6a93c8c706f3bd336513fedda3108425",
+      "path": "native-reader.js"
+    },
+    {
+      "digest": "sha256:8674f9b6b4441696e0431ddcdd37b17c65539c45f3cb1946629680caf6b4f9b2",
+      "path": "projection.json"
+    },
+    {
+      "digest": "sha256:dc98d3788f29df711cde9ea3887baf877c9dfa6229920cd9844aa1bc9359ed00",
+      "path": "sources.html"
+    },
+    {
+      "digest": "sha256:b41b8e49ff1ee541e59035c82d62f0c1dfe2e71bd11d7b4fab6471e93389d38b",
+      "path": "sources.mdx"
+    },
+    {
+      "digest": "sha256:30f2a7247d667d5fc0ae6992a7aff6761faeef34b00a391252bb295c15ee4109",
+      "path": "style.css"
+    }
+  ],
+  "inputDigest": "sha256:df2bb637df86fb499f865ca0a3193c7d09572012f1aae2fc9d106b55e891406a",
+  "mdxProfile": "MDX 3; inert native JSX; no imports, executable expressions, scripts or network dependencies",
+  "pages": [
+    {
+      "contentDigest": "sha256:184af39e66cd468b581bfb70289b3a5f386f49018044b3e8682ac8c66c45e61e",
+      "html": "dashboard-readme-instructions-diagnostic.html",
+      "id": "dashboard-readme-instructions-diagnostic",
+      "mdx": "dashboard-readme-instructions-diagnostic.mdx"
+    },
+    {
+      "contentDigest": "sha256:1e10ce6f061caa1378345910f919928d1d2a2196f2bd2454b1e09e3576030a84",
+      "html": "dashboard-readme-instructions-endpoint.html",
+      "id": "dashboard-readme-instructions-endpoint",
+      "mdx": "dashboard-readme-instructions-endpoint.mdx"
+    },
+    {
+      "contentDigest": "sha256:ea0a86723b34b967e113d389af984e37939bb642da974abdeef47444661c59f5",
+      "html": "dashboard-readme-instructions-fields-state.html",
+      "id": "dashboard-readme-instructions-fields-state",
+      "mdx": "dashboard-readme-instructions-fields-state.mdx"
+    },
+    {
+      "contentDigest": "sha256:5658b61659df289705f8cd2ae0cad7759d460060e8ad51d9cf8a0c4530b6dc24",
+      "html": "dashboard-readme-instructions-overview.html",
+      "id": "dashboard-readme-instructions-overview",
+      "mdx": "dashboard-readme-instructions-overview.mdx"
+    },
+    {
+      "contentDigest": "sha256:5b98aab79cb7ba1a1972b461ce864c8cc948ff8f0ec336480aef72634ae9470a",
+      "html": "dashboard-readme-instructions-worker.html",
+      "id": "dashboard-readme-instructions-worker",
+      "mdx": "dashboard-readme-instructions-worker.mdx"
+    },
+    {
+      "contentDigest": "sha256:45f5aef82eb0546a04661f7e8fc81657e333a3f444fb9a05b38fef66ff98bc3e",
+      "html": "index.html",
+      "id": "index",
+      "mdx": "index.mdx"
+    },
+    {
+      "contentDigest": "sha256:b5243296b04a1399db98fe518ba81d7c2ce058e66dc04cfbf2f9bdb08f74b807",
+      "html": "sources.html",
+      "id": "sources",
+      "mdx": "sources.mdx"
+    }
+  ],
+  "projectionDigest": "sha256:a93ac894463a429eef908d383a7ae231147ad6a89d759b6fdaf4b3e80fc94b4d",
+  "schema": "codeclew-native-pages-static-manifest/1.0",
+  "selectedNotes": [
+    {
+      "associationDigest": "sha256:b24ea0e701264e0b1fec7ce7808b763f1e43e9e80b305e648df50197399cd96d",
+      "contentDigest": "sha256:e1b732ca91581c61130381f61f65804cccd21fd8204846929f7be6d57263a905",
+      "html": "dashboard-readme-instructions-overview.html",
+      "mdx": "dashboard-readme-instructions-overview.mdx",
+      "noteId": "weather-readme-instructions",
+      "pageId": "dashboard-readme-instructions-overview",
+      "processId": "dashboard-readme-instructions",
+      "versionDigest": "sha256:c449ba2b2669606c52a4db6be3124e339445cb1df6ef111d8bb061e1060c94a3"
+    }
+  ],
+  "selectionDigest": "sha256:08b72951238935faa135dbe2c9424fe3b91c6e238d6e633fd85d281c144790b7",
+  "snapshot": "sha256:39962352888c1be28494378e3465e45f820c7ec8da792f1e749d5790be25e71e/11147"
+}

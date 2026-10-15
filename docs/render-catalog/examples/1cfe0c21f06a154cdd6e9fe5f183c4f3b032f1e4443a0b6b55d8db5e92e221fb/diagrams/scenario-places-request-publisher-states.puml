@@ -1,0 +1,11 @@
+@startuml
+!theme plain
+!pragma layout smetana
+title request_outbox.published — declared SQL lifecycle — states
+hide empty description
+state "published=true" as published
+state "published=false" as unpublished
+[*] --> unpublished : initial
+unpublished --> published : ProduceAsync； UPDATE published=true； CommitAsync ［PublishPending］
+published --> [*] : final
+@enduml

@@ -1,0 +1,40 @@
+{
+  "schema": "codeclew-documentation-process/1.0",
+  "id": "petclinic-get-owner",
+  "title": "OwnerRestControllerV1.getOwner(Integer)",
+  "summary": "Returns the pet owner or a 404 error.",
+  "root": {
+    "service": "petclinic-java",
+    "selector": {
+      "language": "java",
+      "scope": ":/main",
+      "owner": "class:org.springframework.samples.petclinic.rest.controller.v1.OwnerRestControllerV1",
+      "name": "getOwner",
+      "parameterTypes": [
+        "java.lang.Integer"
+      ]
+    }
+  },
+  "interactions": [],
+  "maxDepth": 3,
+  "maxNodes": 64,
+  "process": {
+    "scope": "OwnerRestControllerV1.getOwner(Integer)",
+    "participants": [
+      "petclinic-java"
+    ],
+    "objects": [],
+    "trigger": "getOwner(Integer ownerId)",
+    "outcomes": [
+      "new ResponseEntity<>(HttpStatus.NOT_FOUND)",
+      "new ResponseEntity<>(ownerMapper.toOwnerDto(owner), HttpStatus.OK)"
+    ],
+    "linkedSubviews": [],
+    "extraction": {
+      "purpose": "PROCESS",
+      "service": "petclinic-java",
+      "rootDeclaration": "petclinic-java:symbol:888110ad5215b7b855418389",
+      "configurationScope": ":/main"
+    }
+  }
+}

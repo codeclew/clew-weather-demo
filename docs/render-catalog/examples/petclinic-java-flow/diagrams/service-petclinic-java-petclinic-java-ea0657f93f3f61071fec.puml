@@ -1,0 +1,14 @@
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title petclinic-java-ea0657f93f3f61071fec
+start
+:Entry: addUser（userDto）;
+' evidence: method:class:org.springframework.samples.petclinic.rest.controller.v1.UserRestControllerV1#addUser(Lorg/springframework/samples/petclinic/rest/dto/UserDto;)Lorg/springframework/http/ResponseEntity;
+:headers = new HttpHeaders（...）;
+:user = userMapper.toUser（...）;
+:this.userService.saveUser（...）;
+:return new ResponseEntity&lt;&gt;（userMapper.toUserDto（user）, headers, HttpStatus.CREATED）;
+stop
+@enduml

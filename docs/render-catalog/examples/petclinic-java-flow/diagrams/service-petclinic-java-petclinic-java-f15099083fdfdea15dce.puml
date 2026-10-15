@@ -1,0 +1,18 @@
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title petclinic-java-f15099083fdfdea15dce
+start
+:Entry: updateSpecialty（specialtyId, specialtyDto）;
+' evidence: method:class:org.springframework.samples.petclinic.rest.controller.v1.SpecialtyRestControllerV1#updateSpecialty(Ljava/lang/Integer;Lorg/springframework/samples/petclinic/rest/dto/SpecialtyDto;)Lorg/springframework/http/ResponseEntity;
+:currentSpecialty = this.clinicService.findSpecialtyById（...）;
+if (currentSpecialty <U+003D><U+003D> null) then (C01)
+:return new ResponseEntity&lt;&gt;（HttpStatus.NOT_FOUND）;
+stop
+endif
+:currentSpecialty.setName（...）;
+:this.clinicService.saveSpecialty（...）;
+:return new ResponseEntity&lt;&gt;（specialtyMapper.toSpecialtyDto（currentSpecialty）, HttpStatus.NO_CONTENT）;
+stop
+@enduml

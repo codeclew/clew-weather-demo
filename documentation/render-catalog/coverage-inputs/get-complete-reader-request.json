@@ -1,0 +1,11 @@
+{
+  "schema": "codeclew-documentation-work-request/1.0",
+  "audience": "Weather maintainers. Read the actual retained Forecasts.get helper before the final answer. The prior independent review rejected a controller-only answer because it omitted the helper JDBC query, the id argument, the row mapper and firstOrNull; do not repeat that omission. Keep runtime effects unverified.",
+  "contextProfile": "process-graph-v1",
+  "rootDeclaration": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+  "question": "How does ForecastController.get(id), including the retained Forecasts.get helper, obtain the payload and select its HTTP response? Read the helper source through native expansion if needed; do not assume a PENDING branch.",
+  "authoringContract": "codeclew-operation-draft-authoring/1.6",
+  "maxItems": 100,
+  "maxBytes": 49152,
+  "sourceDataContext": true
+}

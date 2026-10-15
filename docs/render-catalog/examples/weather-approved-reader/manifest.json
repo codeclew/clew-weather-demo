@@ -1,0 +1,46 @@
+{
+  "schema": "weather-native-answer-export-files/1.0",
+  "nativeCommand": "./clew docs work explain",
+  "nativeStatus": "DRAFT",
+  "nativeMeaningReview": "MODEL_APPROVED",
+  "work": "9f0f1ce5f7d9b952944d7b103cd4d1505829ca90a4141b96760c59e45099562a",
+  "reviewRun": "f1cc66a428a44e6fa25369faf4ddeb69",
+  "files": [
+    {
+      "path": "answer.json",
+      "digest": "sha256:3c518dc9bab969fe2ca92aa6c805cdafa2ea6efdb6bee2388773a7c4cea9fe9b"
+    },
+    {
+      "path": "index.html",
+      "digest": "sha256:b071ee9e8aefcc83917e4bff4406a8cef886e1b0b68063e52391802edf60dba9"
+    },
+    {
+      "path": "meaning-review.json",
+      "digest": "sha256:7d3ded17c5fd749bf9dd58edbceaf5e5e97b402549ddbee1ad90fb230d6eda7c"
+    },
+    {
+      "path": "operation.md",
+      "digest": "sha256:afe326748a77241b88fd655ea04f854a8acece2ba86e0fb059d959fc07c36ce0"
+    },
+    {
+      "path": "process-flow.puml",
+      "digest": "sha256:b0dd78231188c3b655c8a54a97a57c112d299ddafd1c61f60660904e6b5fa61a"
+    },
+    {
+      "path": "process-flow.svg",
+      "digest": "sha256:1de243bd2fffb567a2e12e6974495c9664369d7cafd3677fedd16188a03f515f"
+    },
+    {
+      "path": "reader-packet-audit.json",
+      "digest": "sha256:a73d08e7cd315eb5dac03141b2fbea903c16bc91da2fd8b6bc8dd8346ccd3491"
+    },
+    {
+      "path": "reader-packet.json",
+      "digest": "sha256:ea5b64a3393593ccd45814e3dc765eac219d2841b6285d1ab8cbebf7cb1e241d"
+    },
+    {
+      "path": "review-provenance.json",
+      "digest": "sha256:474d2757e6252b32748d41f2aa7912aa7fb4f778930799ac05136506b4ec8477"
+    }
+  ]
+}

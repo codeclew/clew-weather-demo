@@ -1,0 +1,17 @@
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title petclinic-java-737a3a2a464d313b5d63
+start
+:Entry: listOwnersPage（lastName, page, size）;
+' evidence: method:class:org.springframework.samples.petclinic.rest.controller.v2.OwnerRestControllerV2#listOwnersPage(Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;)Lorg/springframework/http/ResponseEntity;
+note right
+  TERNARY_FLOW_REQUIRES_SOURCE_REVIEW (not established)
+end note
+:pageNumber = page == null ? 0 : page;
+:pageSize = size == null ? 20 : size;
+:owners = this.clinicService.findOwners（...）;
+:return new ResponseEntity&lt;&gt;（ownerMapper.toOwnerPageDto（owners）, HttpStatus.OK）;
+stop
+@enduml

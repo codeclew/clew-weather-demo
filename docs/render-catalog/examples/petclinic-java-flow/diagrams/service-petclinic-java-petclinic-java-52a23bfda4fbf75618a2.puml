@@ -1,0 +1,17 @@
+@startuml
+!theme plain
+!pragma layout smetana
+!pragma useVerticalIf on
+title petclinic-java-52a23bfda4fbf75618a2
+start
+:Entry: listPetsPage（page, size）;
+' evidence: method:class:org.springframework.samples.petclinic.rest.controller.v2.PetRestControllerV2#listPetsPage(Ljava/lang/Integer;Ljava/lang/Integer;)Lorg/springframework/http/ResponseEntity;
+note right
+  TERNARY_FLOW_REQUIRES_SOURCE_REVIEW (not established)
+end note
+:pageNumber = page == null ? 0 : page;
+:pageSize = size == null ? 20 : size;
+:pets = this.clinicService.findPets（...）;
+:return new ResponseEntity&lt;&gt;（petMapper.toPetPageDto（pets）, HttpStatus.OK）;
+stop
+@enduml
