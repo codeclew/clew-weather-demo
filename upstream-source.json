@@ -1,0 +1,27 @@
+{
+  "schema": "public-demo-source-capture/1.0",
+  "upstreamRepository": "https://github.com/mjedynak/concurrency-examples",
+  "upstreamCommit": "a94765fb450bd0f99b6dcabf5bd8f9a8b360be42",
+  "applicationSourceChanged": false,
+  "buildAdapter": "Java 17 Maven build over three exact upstream source files; not the original full-project build.",
+  "files": [
+    {
+      "path": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java",
+      "upstreamUrl": "https://github.com/mjedynak/concurrency-examples/blob/a94765fb450bd0f99b6dcabf5bd8f9a8b360be42/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java",
+      "sha256": "ed6497bb0a83ff58979c63c3cb2d8f968d6ecdef134ea745ed3567e26c02511b",
+      "sameBytes": true
+    },
+    {
+      "path": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java",
+      "upstreamUrl": "https://github.com/mjedynak/concurrency-examples/blob/a94765fb450bd0f99b6dcabf5bd8f9a8b360be42/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java",
+      "sha256": "6941f025a4d6d381367e52f5c809251e7e8a522dd7f46329e992f45eb92c508c",
+      "sameBytes": true
+    },
+    {
+      "path": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+      "upstreamUrl": "https://github.com/mjedynak/concurrency-examples/blob/a94765fb450bd0f99b6dcabf5bd8f9a8b360be42/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+      "sha256": "6748d7641896fb18f7a02686be8775d7f35a2c4d7035692b0223efbca333d27c",
+      "sameBytes": true
+    }
+  ]
+}
