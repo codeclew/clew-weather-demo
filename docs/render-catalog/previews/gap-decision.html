@@ -1,0 +1,104 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Decision table · duplicate and forecast selection</title><link rel="stylesheet" href="../preview.css"><style>body{display:block!important;margin:0!important;padding:20px!important;min-width:0!important}main{margin:0!important;padding:0!important;max-width:none!important}.preview-note{font:13px system-ui;color:#56665c;margin-bottom:18px}pre{max-width:100%;overflow:auto}</style><body><p class="preview-note">Read-only excerpt from real native output. Open the full example for source interactions and review status.</p><main><article class="visual-artifact" id="visual-64_61_73_68_62_6f_61_72_64_2d_64_35_32_37_61_36_65_36_32_30_61_31_39_37_34_62_30_65_35_61--61_70_70_6c_79_2d_73_65_6c_65_63_74_69_6f_6e"><div class="eyebrow">Decision table</div><h3>applyEvent database outcome selection</h3><p class="visual-status">Source freshness: <b>STALE</b> · Meaning review: <b>UNASSESSED</b></p><p><b>Why this view:</b> <span>Select applyEvent's database outcome after consumeMessage has validated and passed an event to it.</span> <button class="source-link" data-sources="dashboard-a4627e5e868830287e83 dashboard-ac3aadb76be6fea3e790" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></p><p><b>Scope:</b> <span>Covers the inbox duplicate check and weather_cards branches reached after validation.</span> <button class="source-link" data-sources="dashboard-021fcd0ff7baa53bd3c5 dashboard-a4627e5e868830287e83 dashboard-ac3aadb76be6fea3e790" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></p><p class="visual-parent">Used at <a href="https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-coverage/services/dashboard.html#visual-64_61_73_68_62_6f_61_72_64_2d_64_35_32_37_61_36_65_36_32_30_61_31_39_37_34_62_30_65_35_61--63_6f_6e_73_75_6d_65_2d_66_6c_6f_77" data-visual-target="visual-64_61_73_68_62_6f_61_72_64_2d_64_35_32_37_61_36_65_36_32_30_61_31_39_37_34_62_30_65_35_61--63_6f_6e_73_75_6d_65_2d_66_6c_6f_77" data-visual-node-target="visual-64_61_73_68_62_6f_61_72_64_2d_64_35_32_37_61_36_65_36_32_30_61_31_39_37_34_62_30_65_35_61--63_6f_6e_73_75_6d_65_2d_66_6c_6f_77-node-61_70_70_6c_79">Await applyEvent with the validated event.</a> in consumeMessage static execution flow.</p><p class="decision-policy">Choose the first matching row, top to bottom. Later matching rows do not contribute another result.</p><p><b>Policy interpretation:</b> <span>FIRST follows applyEvent's source order: the inbox duplicate early exit precedes the forecast if and its place else branch. The forecast SQL predicate then selects update or no-op within that branch. This is a source interpretation, not verified DMN execution.</span> <button class="source-link" data-sources="dashboard-021fcd0ff7baa53bd3c5 dashboard-ac3aadb76be6fea3e790" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></p><p class="flow-note">A row selects a result; this table does not establish when its resulting actions execute.</p><details open><summary>Decision notation</summary><p>Hit policy: <b>FIRST</b>. This is an authored policy interpretation, not a formally verified or executable DMN model.</p></details><div class="table-wrap"><table><thead><tr><th>Rule</th><th>Condition</th><th>Selected result</th></tr></thead><tbody><tr><td>1</td><td><span>The inbox insert returns rowCount zero because event_id already exists.</span> <button class="source-link" data-sources="dashboard-ac3aadb76be6fea3e790" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></td><td><span>Commit the helper transaction, return DUPLICATE, and skip weather_cards writes. If the helper resolves, consumeMessage still attempts its next-offset commit.</span> <button class="source-link" data-sources="dashboard-8a4f6855cb7f1a476a04 dashboard-a4627e5e868830287e83 dashboard-ac3aadb76be6fea3e790" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></td></tr><tr><td>2</td><td><span>A new inbox row is inserted for a validated forecast.updated event, and no weather_cards row exists for the place_id.</span> <button class="source-link" data-sources="dashboard-021fcd0ff7baa53bd3c5 dashboard-ac3aadb76be6fea3e790" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></td><td><span>The INSERT creates a card using the place fields; forecast.updatedAt supplies updated_at and JSON.stringify(event.forecast) supplies forecast. Commit, then map nonzero result.rowCount to APPLIED.</span> <button class="source-link" data-sources="dashboard-ac3aadb76be6fea3e790" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></td></tr><tr><td>3</td><td><span>A new forecast event conflicts on place_id and the stored weather_cards.updated_at is null, or incoming event.forecast.updatedAt is strictly greater than the stored updated_at.</span> <button class="source-link" data-sources="dashboard-ac3aadb76be6fea3e790" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></td><td><span>The SQL conflict update is allowed and sets name, latitude, longitude, updated_at, and forecast from the incoming event. Commit, then map nonzero result.rowCount to APPLIED.</span> <button class="source-link" data-sources="dashboard-ac3aadb76be6fea3e790" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></td></tr><tr><td>4</td><td><span>A new forecast event conflicts on place_id, stored updated_at is nonnull, and incoming event.forecast.updatedAt is equal to or earlier than the stored value.</span> <button class="source-link" data-sources="dashboard-ac3aadb76be6fea3e790" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></td><td><span>The strict greater-than WHERE predicate prevents the card update, leaving its fields unchanged. The inbox row is still committed; result.rowCount zero maps to OLDER_OR_EQUAL.</span> <button class="source-link" data-sources="dashboard-ac3aadb76be6fea3e790" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></td></tr><tr><td>5</td><td><span>A new inbox row is inserted for a validated place.requested event, taking the helper's else branch.</span> <button class="source-link" data-sources="dashboard-021fcd0ff7baa53bd3c5 dashboard-ac3aadb76be6fea3e790" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></td><td><span>Upsert place id, name, and coordinates. The conflict update list does not assign forecast. Commit; the helper maps result.rowCount zero to OLDER_OR_EQUAL and nonzero to APPLIED.</span> <button class="source-link" data-sources="dashboard-ac3aadb76be6fea3e790" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></td></tr></tbody></table></div><section class="visual-after-selection"><h4>After selection: execution and outcomes</h4><p><span>The rejection insert is awaited before its offset commit; if it rejects, that later commit is not reached. pool.connect occurs before applyEvent's try, so its rejection bypasses the helper rollback catch and release finally. Errors caught inside the helper try cause an awaited ROLLBACK attempt and rethrow if rollback resolves; the acquired client is released in finally. Because consumeMessage awaits applyEvent outside its parse and validation catch, a rejected helper prevents the later offset commit. The captured handler shows no local catch for commitOffsets failures.</span> <button class="source-link" data-sources="dashboard-59f03a0653cc7a3798b8 dashboard-654eeebd7e0618b0c6dd dashboard-8a4f6855cb7f1a476a04 dashboard-a190efb9bca6603f1d2a dashboard-a4627e5e868830287e83 dashboard-ac3aadb76be6fea3e790" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></p></section><div class="visual-limits"><h4>Limits of this view</h4><ul><li>FIRST interprets the helper's ordered duplicate check and forecast if/place else selection; it is not verified executable DMN.</li><li>This table starts after successful validation. Invalid input handling and offset commits are outside the selection.</li></ul></div><details class="technical-evidence" open><summary>Artifact binding and producer</summary><p>Accepted with consumeMessage event handling and commits (dashboard-d527a6e620a1974b0e5a). Freshness and meaning review belong to this containing accepted version.</p><pre>{
+  "schema": "codeclew-documentation-visual/1.0",
+  "generator": "typed-visual/1.0",
+  "artifact": "apply-selection",
+  "operation": "dashboard-d527a6e620a1974b0e5a",
+  "state": {
+    "contentRevisions": {
+      "dashboard": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "coverage": {
+      "dashboard": {
+        "boundaries": [
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/dashboard.openapi.json",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:exercises/broker-outage.py",
+          "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+          "FILE_ONLY:exercises/replay.py",
+          "FILE_ONLY:exercises/validator-regression.mjs",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/dashboard/Dockerfile",
+          "FILE_ONLY:services/dashboard/package-lock.json",
+          "FILE_ONLY:services/dashboard/package.json",
+          "FILE_ONLY:services/dashboard/public/index.html",
+          "FILE_ONLY:services/dashboard/tsconfig.json",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "SCOPE_WATCH_CONSERVATIVE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "forecasts": {
+        "boundaries": [
+          "ANNOTATION_DECLARATION_UNAVAILABLE",
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:contracts/forecasts.openapi.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/forecasts/Dockerfile",
+          "FILE_ONLY:services/forecasts/pom.xml",
+          "FILE_ONLY:services/forecasts/src/main/resources/application.properties",
+          "NO_BEAN_OWNER",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "RUNTIME_REGISTRATION_UNPROVEN",
+          "SCOPE_WATCH_CONSERVATIVE",
+          "SOURCE_NAMES_NOT_COMPILER_RESOLVED",
+          "UNRESOLVED_ANNOTATION_VALUE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "places": {
+        "boundaries": [
+          "CLR_SIGNATURE_PROJECTED_TO_JVM_DESCRIPTOR_GRAMMAR",
+          "CSHARP_SOURCE_GENERATED_DOCUMENTS_NOT_INDEXED",
+          "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+          "GENERATED_SOURCE_BODIES_NOT_INDEXED",
+          "LAMBDA_EXECUTION_NOT_EXPANDED",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+          "SWITCH_FLOW_REQUIRES_SOURCE_REVIEW"
+        ],
+        "coverage": "PARTIAL"
+      }
+    },
+    "freshness": "STALE",
+    "reasons": [
+      {
+        "reason": "INFLUENCE_SCOPE_UNAVAILABLE",
+        "scope": "sha256:c35c7b960b261b7887747f0ac9bb887ee9d7e773e13d0bffc4d3b85fff32d1ba"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:cd128dab5185ee06165da23afe31d75586b018ecdbe77d51b8c6bb3c178547b3/162173"
+      }
+    ],
+    "targetRevisions": {
+      "dashboard": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "verification": "UNASSESSED"
+  }
+}</pre></details></article></main></body></html>

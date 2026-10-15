@@ -1,0 +1,104 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dependency map · Dashboard consumer</title><link rel="stylesheet" href="../preview.css"><style>body{display:block!important;margin:0!important;padding:20px!important;min-width:0!important}main{margin:0!important;padding:0!important;max-width:none!important}.preview-note{font:13px system-ui;color:#56665c;margin-bottom:18px}pre{max-width:100%;overflow:auto}</style><body><p class="preview-note">Read-only excerpt from real native output. Open the full example for source interactions and review status.</p><main><article class="visual-artifact" id="visual-64_61_73_68_62_6f_61_72_64_2d_64_35_32_37_61_36_65_36_32_30_61_31_39_37_34_62_30_65_35_61--63_6f_6e_73_75_6d_65_2d_6d_61_70"><div class="eyebrow">Dependency map</div><h3>consumeMessage local dependencies</h3><p class="visual-status">Source freshness: <b>STALE</b> · Meaning review: <b>UNASSESSED</b></p><p><b>Why this view:</b> <span>Map the local handler, helper, input, SQL table, and offset-commit relationships visible in source.</span> <button class="source-link" data-sources="dashboard-021fcd0ff7baa53bd3c5 dashboard-59f03a0653cc7a3798b8 dashboard-8a4f6855cb7f1a476a04 dashboard-a4627e5e868830287e83 dashboard-ac3aadb76be6fea3e790" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></p><p><b>Scope:</b> <span>Relationships in the captured consumeMessage, validateEvent, and applyEvent source.</span> <button class="source-link" data-sources="dashboard-021fcd0ff7baa53bd3c5 dashboard-59f03a0653cc7a3798b8 dashboard-8a4f6855cb7f1a476a04 dashboard-a4627e5e868830287e83 dashboard-ac3aadb76be6fea3e790" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></p><div class="artifact-graph-scroll"><svg class="artifact-svg" viewBox="0 0 1420 916" style="min-width:900px" role="img" aria-label="Dependency map: consumeMessage local dependencies"><title>consumeMessage local dependencies</title><desc>Arrows carry the documented relationships. Node position alone does not establish order. A complete node and connection table follows.</desc><defs><marker id="visual-64_61_73_68_62_6f_61_72_64_2d_64_35_32_37_61_36_65_36_32_30_61_31_39_37_34_62_30_65_35_61--63_6f_6e_73_75_6d_65_2d_6d_61_70-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#376d83"></path></marker></defs><g><title>Handler receives topic, partition, and message fields.</title><path d="M710 112 V147 H710 V244" class="artifact-edge" marker-end="url(#visual-64_61_73_68_62_6f_61_72_64_2d_64_35_32_37_61_36_65_36_32_30_61_31_39_37_34_62_30_65_35_61--63_6f_6e_73_75_6d_65_2d_6d_61_70-arrow)"></path><text class="artifact-edge-label" x="720" y="162" text-anchor="start">1. Handler receives topic,</text><text class="artifact-edge-label" x="720" y="177" text-anchor="start">partition, and message fields.</text></g><g><title>Reads and parses message.value, then validates with the topic.</title><path d="M710 335 V392 H230 V467" class="artifact-edge" marker-end="url(#visual-64_61_73_68_62_6f_61_72_64_2d_64_35_32_37_61_36_65_36_32_30_61_31_39_37_34_62_30_65_35_61--63_6f_6e_73_75_6d_65_2d_6d_61_70-arrow)"></path><text class="artifact-edge-label" x="480" y="407" text-anchor="start">2. Reads and parses message.value,</text><text class="artifact-edge-label" x="480" y="422" text-anchor="start">then validates with the topic.</text></g><g><title>The parse and validation catch writes a rejection record.</title><path d="M710 335 V414 H550 V467" class="artifact-edge" marker-end="url(#visual-64_61_73_68_62_6f_61_72_64_2d_64_35_32_37_61_36_65_36_32_30_61_31_39_37_34_62_30_65_35_61--63_6f_6e_73_75_6d_65_2d_6d_61_70-arrow)"></path><text class="artifact-edge-label" x="640" y="429" text-anchor="start">3. The parse and validation catch</text><text class="artifact-edge-label" x="640" y="444" text-anchor="start">writes a rejection record.</text></g><g><title>Passes a validated event to applyEvent.</title><path d="M710 335 V370 H870 V467" class="artifact-edge" marker-end="url(#visual-64_61_73_68_62_6f_61_72_64_2d_64_35_32_37_61_36_65_36_32_30_61_31_39_37_34_62_30_65_35_61--63_6f_6e_73_75_6d_65_2d_6d_61_70-arrow)"></path><text class="artifact-edge-label" x="800" y="385" text-anchor="start">4. Passes a validated event to</text><text class="artifact-edge-label" x="800" y="400" text-anchor="start">applyEvent.</text></g><g><title>Inserts event_id into inbox with ON CONFLICT DO NOTHING.</title><path d="M870 558 V615 H550 V690" class="artifact-edge" marker-end="url(#visual-64_61_73_68_62_6f_61_72_64_2d_64_35_32_37_61_36_65_36_32_30_61_31_39_37_34_62_30_65_35_61--63_6f_6e_73_75_6d_65_2d_6d_61_70-arrow)"></path><text class="artifact-edge-label" x="720" y="630" text-anchor="start">5. Inserts event_id into inbox with</text><text class="artifact-edge-label" x="720" y="645" text-anchor="start">ON CONFLICT DO NOTHING.</text></g><g><title>Writes weather_cards through its forecast or place SQL branch.</title><path d="M870 558 V637 H870 V690" class="artifact-edge" marker-end="url(#visual-64_61_73_68_62_6f_61_72_64_2d_64_35_32_37_61_36_65_36_32_30_61_31_39_37_34_62_30_65_35_61--63_6f_6e_73_75_6d_65_2d_6d_61_70-arrow)"></path><text class="artifact-edge-label" x="880" y="652" text-anchor="start">6. Writes weather_cards through its</text><text class="artifact-edge-label" x="880" y="667" text-anchor="start">forecast or place SQL branch.</text></g><g><title>Calls commitOffsets after the rejection insert or after applyEvent resolves.</title><path d="M710 335 V370 H1190 V467" class="artifact-edge" marker-end="url(#visual-64_61_73_68_62_6f_61_72_64_2d_64_35_32_37_61_36_65_36_32_30_61_31_39_37_34_62_30_65_35_61--63_6f_6e_73_75_6d_65_2d_6d_61_70-arrow)"></path><text class="artifact-edge-label" x="960" y="385" text-anchor="start">7. Calls commitOffsets after the</text><text class="artifact-edge-label" x="960" y="400" text-anchor="start">rejection insert or after applyEvent</text><text class="artifact-edge-label" x="960" y="415" text-anchor="start">resolves.</text></g><g id="visual-64_61_73_68_62_6f_61_72_64_2d_64_35_32_37_61_36_65_36_32_30_61_31_39_37_34_62_30_65_35_61--63_6f_6e_73_75_6d_65_2d_6d_61_70-node-70_61_79_6c_6f_61_64" tabindex="-1"><title>EachMessagePayload input.</title><rect x="570" y="24" width="280" height="88" rx="9"></rect><text x="584" y="49">EachMessagePayload input.</text></g><g id="visual-64_61_73_68_62_6f_61_72_64_2d_64_35_32_37_61_36_65_36_32_30_61_31_39_37_34_62_30_65_35_61--63_6f_6e_73_75_6d_65_2d_6d_61_70-node-68_61_6e_64_6c_65_72" tabindex="-1"><title>Function consumeMessage.</title><rect x="570" y="247" width="280" height="88" rx="9"></rect><text x="584" y="272">Function consumeMessage.</text></g><g id="visual-64_61_73_68_62_6f_61_72_64_2d_64_35_32_37_61_36_65_36_32_30_61_31_39_37_34_62_30_65_35_61--63_6f_6e_73_75_6d_65_2d_6d_61_70-node-76_61_6c_69_64_61_74_6f_72" tabindex="-1"><title>Function validateEvent.</title><rect x="90" y="470" width="280" height="88" rx="9"></rect><text x="104" y="495">Function validateEvent.</text></g><g id="visual-64_61_73_68_62_6f_61_72_64_2d_64_35_32_37_61_36_65_36_32_30_61_31_39_37_34_62_30_65_35_61--63_6f_6e_73_75_6d_65_2d_6d_61_70-node-72_65_6a_65_63_74_65_64_4d_65_73_73_61_67_65_73" tabindex="-1"><title>Table named rejected_messages in the insert statement.</title><rect x="410" y="470" width="280" height="88" rx="9"></rect><text x="424" y="495">Table named rejected_messages in</text><text x="424" y="513">the insert statement.</text></g><g id="visual-64_61_73_68_62_6f_61_72_64_2d_64_35_32_37_61_36_65_36_32_30_61_31_39_37_34_62_30_65_35_61--63_6f_6e_73_75_6d_65_2d_6d_61_70-node-61_70_70_6c_79" tabindex="-1"><title>Function applyEvent.</title><rect x="730" y="470" width="280" height="88" rx="9"></rect><text x="744" y="495">Function applyEvent.</text></g><g id="visual-64_61_73_68_62_6f_61_72_64_2d_64_35_32_37_61_36_65_36_32_30_61_31_39_37_34_62_30_65_35_61--63_6f_6e_73_75_6d_65_2d_6d_61_70-node-69_6e_62_6f_78" tabindex="-1"><title>Table named inbox in the event_id insert.</title><rect x="410" y="693" width="280" height="88" rx="9"></rect><text x="424" y="718">Table named inbox in the</text><text x="424" y="736">event_id insert.</text></g><g id="visual-64_61_73_68_62_6f_61_72_64_2d_64_35_32_37_61_36_65_36_32_30_61_31_39_37_34_62_30_65_35_61--63_6f_6e_73_75_6d_65_2d_6d_61_70-node-77_65_61_74_68_65_72_43_61_72_64_73" tabindex="-1"><title>Table weather_cards in the forecast and place upserts.</title><rect x="730" y="693" width="280" height="88" rx="9"></rect><text x="744" y="718">Table weather_cards in the</text><text x="744" y="736">forecast and place upserts.</text></g><g id="visual-64_61_73_68_62_6f_61_72_64_2d_64_35_32_37_61_36_65_36_32_30_61_31_39_37_34_62_30_65_35_61--63_6f_6e_73_75_6d_65_2d_6d_61_70-node-6f_66_66_73_65_74_43_6f_6d_6d_69_74" tabindex="-1"><title>Call site consumer.commitOffsets.</title><rect x="1050" y="470" width="280" height="88" rx="9"></rect><text x="1064" y="495">Call site</text><text x="1064" y="513">consumer.commitOffsets.</text></g></svg></div><p class="flow-note">Arrows show dependencies, not execution order or runtime calls.</p><details class="artifact-text" open><summary>Complete diagram as text and supporting code</summary><h4>Nodes</h4><ul><li><span>EachMessagePayload input.</span> <button class="source-link" data-sources="dashboard-a4627e5e868830287e83" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></li><li><span>Function consumeMessage.</span> <button class="source-link" data-sources="dashboard-a4627e5e868830287e83" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></li><li><span>Function validateEvent.</span> <button class="source-link" data-sources="dashboard-021fcd0ff7baa53bd3c5 dashboard-886390b176392fdbad06" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></li><li><span>Table named rejected_messages in the insert statement.</span> <button class="source-link" data-sources="dashboard-59f03a0653cc7a3798b8" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></li><li><span>Function applyEvent.</span> <button class="source-link" data-sources="dashboard-37dec2bf70bc69d603cb dashboard-ac3aadb76be6fea3e790" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></li><li><span>Table named inbox in the event_id insert.</span> <button class="source-link" data-sources="dashboard-ac3aadb76be6fea3e790" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></li><li><span>Table weather_cards in the forecast and place upserts.</span> <button class="source-link" data-sources="dashboard-ac3aadb76be6fea3e790" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></li><li><span>Call site consumer.commitOffsets.</span> <button class="source-link" data-sources="dashboard-654eeebd7e0618b0c6dd dashboard-8a4f6855cb7f1a476a04" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></li></ul><h4>Directed connections</h4><ol><li><p><b>EachMessagePayload input. → Function consumeMessage.</b></p><span>Handler receives topic, partition, and message fields.</span> <button class="source-link" data-sources="dashboard-a4627e5e868830287e83" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></li><li><p><b>Function consumeMessage. → Function validateEvent.</b></p><span>Reads and parses message.value, then validates with the topic.</span> <button class="source-link" data-sources="dashboard-021fcd0ff7baa53bd3c5 dashboard-0c9e2425ea81d2e2e4f7 dashboard-1198b0d44dde70fcd803 dashboard-886390b176392fdbad06" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></li><li><p><b>Function consumeMessage. → Table named rejected_messages in the insert statement.</b></p><span>The parse and validation catch writes a rejection record.</span> <button class="source-link" data-sources="dashboard-59f03a0653cc7a3798b8 dashboard-a190efb9bca6603f1d2a" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></li><li><p><b>Function consumeMessage. → Function applyEvent.</b></p><span>Passes a validated event to applyEvent.</span> <button class="source-link" data-sources="dashboard-37dec2bf70bc69d603cb dashboard-a4627e5e868830287e83 dashboard-ac3aadb76be6fea3e790" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></li><li><p><b>Function applyEvent. → Table named inbox in the event_id insert.</b></p><span>Inserts event_id into inbox with ON CONFLICT DO NOTHING.</span> <button class="source-link" data-sources="dashboard-ac3aadb76be6fea3e790" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></li><li><p><b>Function applyEvent. → Table weather_cards in the forecast and place upserts.</b></p><span>Writes weather_cards through its forecast or place SQL branch.</span> <button class="source-link" data-sources="dashboard-ac3aadb76be6fea3e790" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></li><li><p><b>Function consumeMessage. → Call site consumer.commitOffsets.</b></p><span>Calls commitOffsets after the rejection insert or after applyEvent resolves.</span> <button class="source-link" data-sources="dashboard-654eeebd7e0618b0c6dd dashboard-8a4f6855cb7f1a476a04 dashboard-a4627e5e868830287e83" data-source-operation="dashboard-d527a6e620a1974b0e5a">Supporting code ↗</button></li></ol></details><div class="visual-limits"><h4>Limits of this view</h4><ul><li>These edges show local source relationships, not execution order; use the execution-flow view for ordering.</li><li>The pool and consumer runtime configuration and resolved targets are not shown.</li><li>No cross-service transfer is asserted.</li><li>The consumer target and configuration are not delivered.</li><li>The captured bodies do not show consumer configuration or its resolved runtime target.</li></ul></div><details class="technical-evidence" open><summary>Artifact binding and producer</summary><p>Accepted with consumeMessage event handling and commits (dashboard-d527a6e620a1974b0e5a). Freshness and meaning review belong to this containing accepted version.</p><pre>{
+  "schema": "codeclew-documentation-visual/1.0",
+  "generator": "typed-visual/1.0",
+  "artifact": "consume-map",
+  "operation": "dashboard-d527a6e620a1974b0e5a",
+  "state": {
+    "contentRevisions": {
+      "dashboard": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "coverage": {
+      "dashboard": {
+        "boundaries": [
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/dashboard.openapi.json",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:exercises/broker-outage.py",
+          "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+          "FILE_ONLY:exercises/replay.py",
+          "FILE_ONLY:exercises/validator-regression.mjs",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/dashboard/Dockerfile",
+          "FILE_ONLY:services/dashboard/package-lock.json",
+          "FILE_ONLY:services/dashboard/package.json",
+          "FILE_ONLY:services/dashboard/public/index.html",
+          "FILE_ONLY:services/dashboard/tsconfig.json",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "SCOPE_WATCH_CONSERVATIVE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "forecasts": {
+        "boundaries": [
+          "ANNOTATION_DECLARATION_UNAVAILABLE",
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:contracts/forecasts.openapi.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/forecasts/Dockerfile",
+          "FILE_ONLY:services/forecasts/pom.xml",
+          "FILE_ONLY:services/forecasts/src/main/resources/application.properties",
+          "NO_BEAN_OWNER",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "RUNTIME_REGISTRATION_UNPROVEN",
+          "SCOPE_WATCH_CONSERVATIVE",
+          "SOURCE_NAMES_NOT_COMPILER_RESOLVED",
+          "UNRESOLVED_ANNOTATION_VALUE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "places": {
+        "boundaries": [
+          "CLR_SIGNATURE_PROJECTED_TO_JVM_DESCRIPTOR_GRAMMAR",
+          "CSHARP_SOURCE_GENERATED_DOCUMENTS_NOT_INDEXED",
+          "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+          "GENERATED_SOURCE_BODIES_NOT_INDEXED",
+          "LAMBDA_EXECUTION_NOT_EXPANDED",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+          "SWITCH_FLOW_REQUIRES_SOURCE_REVIEW"
+        ],
+        "coverage": "PARTIAL"
+      }
+    },
+    "freshness": "STALE",
+    "reasons": [
+      {
+        "reason": "INFLUENCE_SCOPE_UNAVAILABLE",
+        "scope": "sha256:c35c7b960b261b7887747f0ac9bb887ee9d7e773e13d0bffc4d3b85fff32d1ba"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:cd128dab5185ee06165da23afe31d75586b018ecdbe77d51b8c6bb3c178547b3/162173"
+      }
+    ],
+    "targetRevisions": {
+      "dashboard": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "verification": "UNASSESSED"
+  }
+}</pre></details></article></main></body></html>

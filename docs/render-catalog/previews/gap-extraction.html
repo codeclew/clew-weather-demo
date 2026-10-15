@@ -1,0 +1,246 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Extracted evidence envelope and compiler bindings</title><link rel="stylesheet" href="../preview.css"><style>body{display:block!important;margin:0!important;padding:20px!important;min-width:0!important}main{margin:0!important;padding:0!important;max-width:none!important}.preview-note{font:13px system-ui;color:#56665c;margin-bottom:18px}pre{max-width:100%;overflow:auto}</style><body><p class="preview-note">Read-only excerpt from real native output. Open the full example for source interactions and review status.</p><main><section class="process-extraction"><h3>Extracted evidence envelope</h3><p>Potential static behavior; business intent and runtime effects are not established.</p><p>COLLECTED_WITH_BOUNDARIES · 2 retained method envelopes · 17 retained events</p><ul><li><strong>IF</strong> forecasts.get(id) is null <button class="source-link" data-current-sources="" data-sources="forecasts-059b9d23921db86c729a">Source ↗</button></li><li><strong>RETURN</strong> forecasts:flow:53fc99c43b932bd8ca303a9f <button class="source-link" data-current-sources="" data-sources="forecasts-53fc99c43b932bd8ca30">Source ↗</button></li><li><strong>RETURN</strong> forecasts:flow:81f1bf462ab13a421c77a2ff <button class="source-link" data-current-sources="" data-sources="forecasts-81f1bf462ab13a421c77">Source ↗</button></li><li><strong>RETURN</strong> forecasts:flow:4f189b1488a2c220cc89dd1b <button class="source-link" data-current-sources="" data-sources="forecasts-4f189b1488a2c220cc89">Source ↗</button></li></ul><details class="process-call-bindings" open><summary>Compiler-selected calls and parameter bindings (1)</summary><p>Argument expressions are not evaluated values.</p><article><h4>callable:weather/ForecastController.get#jvm:(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity; → callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String;</h4><p>Compiler-selected target: SAME_SCOPE_UNIQUE <button class="source-link" data-current-sources="" data-sources="forecasts-576cdda518ab1e3ef925">Source ↗</button></p><p>Receiving declaration: callable:weather/Forecasts.get#jvm:(Ljava/lang/String;)Ljava/lang/String; <button class="source-link" data-current-sources="" data-sources="forecasts-c22afad7006c4cb4eb9d">Source ↗</button></p><ul><li><code>id</code> → <code>id</code> [0]</li></ul><p>Receiver type: weather/Forecasts</p><p>Receiver object and runtime dispatch are unknown.</p><p>Declared return type: kotlin/String?</p><p>Return and exception transfer remain unproven.</p></article></details><details open><summary>Extraction frontiers and provenance (34)</summary><pre>{
+  "snapshot": "sha256:55b1241b84060f2c00a4daff93ab8193ebc47a62c9266b7720616e8df9d6422f/22489",
+  "packetDigest": "sha256:2460241afeec44f6399b7c9c2508c5f55128af2b711bdfb7965c5b509c4e6452",
+  "policy": "retained-process-envelope/0.2",
+  "query": {
+    "budgets": {
+      "maxEvents": 256,
+      "maxMethods": 32,
+      "maxSourceBytes": 262144
+    },
+    "configurationScope": ":/main",
+    "outcomeEventIds": [],
+    "purpose": "PROCESS",
+    "rootDeclaration": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+    "service": "forecasts"
+  },
+  "outcomes": [],
+  "frontier": [
+    {
+      "category": "SEMANTIC",
+      "code": "CROSS_SERVICE_LINKS_REQUIRE_INDEPENDENT_RELATIONSHIP_AUTHORITY",
+      "kind": "SEMANTIC"
+    },
+    {
+      "category": "SEMANTIC",
+      "code": "DATA_EFFECT_ALIAS_AND_RUNTIME_CLOSURE_NOT_ESTABLISHED",
+      "kind": "SEMANTIC"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "CALLBACK_INVOCATION_ORDER_AND_COUNT_NOT_ESTABLISHED",
+      "kind": "METHOD_PROVIDER_BOUNDARY",
+      "methodId": "forecasts:symbol:c22afad7006c4cb4eb9dc173"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "CALLBACK_INVOCATION_ORDER_AND_COUNT_NOT_ESTABLISHED",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "DOCUMENTATION_CALL_TARGET_UNRESOLVED",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "EXCEPTION_TYPES_AND_DISPATCH_NOT_ESTABLISHED",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "EXTERNAL_OR_LOCAL_ARGUMENT_TARGET",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "IMPLICIT_OR_MISSING_RETURN_SOURCE",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "IMPLICIT_RETURN_UNSUPPORTED",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "KOTLIN_ANALYSIS_USES_DIFFERENT_COMPILER",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "KOTLIN_CALL_RELATION_PARTIAL",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "LOCAL_CFG_NORMALIZATION_FAILED",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "LOCAL_GENERATED_OR_UNRESOLVED_RETURN_VALUE",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "MAVEN_CLASSPATH_ARTIFACT_TO_COORDINATE_BIJECTION_UNAVAILABLE",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "MAVEN_TOOLCHAIN_SELECTION_USES_BUILD_JVM",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "MULTIPLE_OR_AMBIGUOUS_RETURN_VALUE_OCCURRENCES",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "NON_EXPLICIT_CALL_RECEIVER_UNSUPPORTED",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "NON_LINEAR_OR_MULTIPLE_RETURN_FLOW",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "NO_COMPILER_CALLABLE_ID",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "NO_SOURCE_FUNCTION",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "SAFE_CALL_POLICY_UNSUPPORTED",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "UNRESOLVED_CALLABLE_TARGET",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "UNRESOLVED_DESCRIPTOR_TYPE",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "UNRESOLVED_FALLBACK_OCCURRENCE",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "UNRESOLVED_NULLABLE_SOURCE_OCCURRENCE",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "detail": "UNRESOLVED_RELATION_TYPE",
+      "kind": "SERVICE_PROVIDER_BOUNDARY"
+    },
+    {
+      "category": "SEMANTIC",
+      "eventId": "forecasts:flow:2a8a8906001e21caa7d18da4",
+      "fromMethodId": "forecasts:symbol:c22afad7006c4cb4eb9dc173",
+      "kind": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:c22afad7006c4cb4eb9dc173"
+      ],
+      "possibleTargetMethodId": null,
+      "target": "callable:org/springframework/jdbc/core/JdbcTemplate.query#jvm:(Ljava/lang/String;Lorg/springframework/jdbc/core/RowMapper;[Ljava/lang/Object;)Ljava/util/List;"
+    },
+    {
+      "category": "SEMANTIC",
+      "eventId": "forecasts:flow:4dd637efb0b995807c417a33",
+      "fromMethodId": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+      "kind": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:9e511a06302d5c4cf07d6701"
+      ],
+      "possibleTargetMethodId": null,
+      "target": "callable:org/springframework/http/ResponseEntity.ok#jvm:()Lorg/springframework/http/ResponseEntity$BodyBuilder;"
+    },
+    {
+      "category": "SEMANTIC",
+      "eventId": "forecasts:flow:519a159f786cc8233a4ef5af",
+      "fromMethodId": "forecasts:symbol:c22afad7006c4cb4eb9dc173",
+      "kind": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:c22afad7006c4cb4eb9dc173"
+      ],
+      "possibleTargetMethodId": null,
+      "target": "callable:kotlin/collections/firstOrNull#jvm:(Ljava/util/List;)Ljava/lang/Object;"
+    },
+    {
+      "category": "SEMANTIC",
+      "eventId": "forecasts:flow:8d106a65b463bdc381d92ef5",
+      "fromMethodId": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+      "kind": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:9e511a06302d5c4cf07d6701"
+      ],
+      "possibleTargetMethodId": null,
+      "target": "callable:org/springframework/http/ResponseEntity.notFound#jvm:()Lorg/springframework/http/ResponseEntity$HeadersBuilder;"
+    },
+    {
+      "category": "SEMANTIC",
+      "eventId": "forecasts:flow:99cca1da6122d943de0556f9",
+      "fromMethodId": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+      "kind": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:9e511a06302d5c4cf07d6701"
+      ],
+      "possibleTargetMethodId": null,
+      "target": "callable:org/springframework/http/ResponseEntity.HeadersBuilder.build#jvm:()Lorg/springframework/http/ResponseEntity;"
+    },
+    {
+      "category": "SEMANTIC",
+      "eventId": "forecasts:flow:9caa71b5cc6193bd193598e2",
+      "fromMethodId": "forecasts:symbol:c22afad7006c4cb4eb9dc173",
+      "kind": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:c22afad7006c4cb4eb9dc173"
+      ],
+      "possibleTargetMethodId": null,
+      "target": "callable:java/sql/ResultSet.getString#jvm:(I)Ljava/lang/String;"
+    },
+    {
+      "category": "SEMANTIC",
+      "eventId": "forecasts:flow:bd46c88cbf40a68730d3c9c1",
+      "fromMethodId": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+      "kind": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:9e511a06302d5c4cf07d6701"
+      ],
+      "possibleTargetMethodId": null,
+      "target": "callable:org/springframework/http/ResponseEntity.BodyBuilder.header#jvm:(Ljava/lang/String;[Ljava/lang/String;)Lorg/springframework/http/ResponseEntity$BodyBuilder;"
+    },
+    {
+      "category": "SEMANTIC",
+      "eventId": "forecasts:flow:d47cd0d64c064e0fe662ccb5",
+      "fromMethodId": "forecasts:symbol:9e511a06302d5c4cf07d6701",
+      "kind": "EXTERNAL_OR_UNRETAINED_TARGET",
+      "possibleFromMethodIds": [
+        "forecasts:symbol:9e511a06302d5c4cf07d6701"
+      ],
+      "possibleTargetMethodId": null,
+      "target": "callable:org/springframework/http/ResponseEntity.BodyBuilder.body#jvm:(Ljava/lang/Object;)Lorg/springframework/http/ResponseEntity;"
+    }
+  ],
+  "interpretationPlan": {
+    "actualModelCalls": 0,
+    "duplicatedSourceBytes": 0,
+    "reason": "No independently closed relevance cuts; share one immutable packet",
+    "uniqueSourceBytes": 1402,
+    "workers": 1
+  }
+}</pre></details></section></main></body></html>

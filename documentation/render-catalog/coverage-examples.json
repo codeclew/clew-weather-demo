@@ -6,30 +6,45 @@
       "category": "Diagrams",
       "title": "Execution flow \u00b7 consumeMessage",
       "path": "examples/weather-coverage/services/dashboard.html#dashboard-d527a6e620a1974b0e5a",
-      "description": "Accepted Luna Max visual of the actual Dashboard handler. Parsing, validation, rejection and applyEvent remain source interpretation.",
+      "description": "Luna Max visual of the actual Dashboard handler. Parsing, validation, rejection and applyEvent remain source interpretation.",
       "repository": "Weather",
       "status": "REAL_SOURCE_EXAMPLE",
-      "renderer": "visuals.rs + app.js visualGraph"
+      "renderer": "visuals.rs + app.js visualGraph",
+      "domCapture": [
+        "coverage-visuals",
+        "consumeMessage static execution flow"
+      ],
+      "action": "Original native author/reviewer run: ACCEPTED. This retained comparison publication displays STALE / UNASSESSED; it does not reapprove the visual."
     },
     {
       "id": "gap-dependency",
       "category": "Diagrams",
       "title": "Dependency map \u00b7 Dashboard consumer",
       "path": "examples/weather-coverage/services/dashboard.html#dashboard-d527a6e620a1974b0e5a",
-      "description": "Accepted typed map of the handler, validator, applyEvent and their source-bound dependencies. It does not prove deployed wiring.",
+      "description": "Typed Luna Max map of the handler, validator, applyEvent and their source-bound dependencies. It does not prove deployed wiring.",
       "repository": "Weather",
       "status": "REAL_SOURCE_EXAMPLE",
-      "renderer": "visuals.rs + app.js visualGraph"
+      "renderer": "visuals.rs + app.js visualGraph",
+      "domCapture": [
+        "coverage-visuals",
+        "consumeMessage local dependencies"
+      ],
+      "action": "Original native author/reviewer run: ACCEPTED. This retained comparison publication displays STALE / UNASSESSED; it does not reapprove the visual."
     },
     {
       "id": "gap-decision",
       "category": "Blocks",
       "title": "Decision table \u00b7 duplicate and forecast selection",
       "path": "examples/weather-coverage/services/dashboard.html#dashboard-d527a6e620a1974b0e5a",
-      "description": "Accepted decision table for applyEvent with explicit hit policy, source citations and limitations.",
+      "description": "Luna Max decision table for applyEvent with explicit hit policy, source citations and limitations.",
       "repository": "Weather",
       "status": "REAL_SOURCE_EXAMPLE",
-      "renderer": "visuals.rs + app.js visualCard"
+      "renderer": "visuals.rs + app.js visualCard",
+      "domCapture": [
+        "coverage-visuals",
+        "applyEvent database outcome selection"
+      ],
+      "action": "Original native author/reviewer run: ACCEPTED. This retained comparison publication displays STALE / UNASSESSED; it does not reapprove the visual."
     },
     {
       "id": "gap-state",
@@ -61,7 +76,11 @@
       "description": "Explicit Place identity and proposed stored-copy relations for event.place and weather_cards. Existing accepted entity prose is copied exactly; authoritative ownership remains unverified.",
       "repository": "Weather",
       "status": "REAL_SOURCE_EXAMPLE",
-      "renderer": "entities.rs + app.js section-entities"
+      "renderer": "entities.rs + app.js section-entities",
+      "domCapture": [
+        "coverage-entity",
+        "identity"
+      ]
     },
     {
       "id": "gap-dataflow",
@@ -71,7 +90,11 @@
       "description": "Real parsed payload, validation and weather_cards paths. Luna-authored graph with two mechanical identity/title corrections; native structure accepted, meaning UNASSESSED, linked process stale.",
       "repository": "Weather",
       "status": "REAL_SOURCE_EXAMPLE",
-      "renderer": "dataflow.rs + app.js dataflowDiagram"
+      "renderer": "dataflow.rs + app.js dataflowDiagram",
+      "domCapture": [
+        "coverage-dataflow",
+        "diagram"
+      ]
     },
     {
       "id": "gap-findings",
@@ -81,7 +104,11 @@
       "description": "A finding card populated with an exact copy of the accepted consumer summary and its original source/dependency references. This is an authored static observation, not a new automated defect finding.",
       "repository": "Weather",
       "status": "REAL_SOURCE_EXAMPLE",
-      "renderer": "render.rs + app.js findings"
+      "renderer": "render.rs + app.js findings",
+      "domCapture": [
+        "coverage-findings",
+        "finding"
+      ]
     },
     {
       "id": "gap-extraction",
@@ -91,7 +118,11 @@
       "description": "Native processExtraction for ForecastController.get: retained methods, events, call sites and exact compiler/source bindings. No runtime execution is inferred.",
       "repository": "Weather",
       "status": "REAL_SOURCE_EXAMPLE",
-      "renderer": "process_extract.rs + app.js processExtractionCard"
+      "renderer": "process_extract.rs + app.js processExtractionCard",
+      "domCapture": [
+        "coverage-extraction",
+        "envelope"
+      ]
     },
     {
       "id": "gap-source-flow",
@@ -422,12 +453,18 @@
       "id": "block-answer-review",
       "category": "Blocks",
       "title": "Independent review provenance",
-      "path": "examples/weather-approved-reader/index.html",
+      "path": "examples/weather-approved-reader/index.html#meaning-review",
       "description": "Native APPROVED review metadata identifies the exact author answer, packet, reviewer, review run, assessed blocks and retained limitations.",
       "repository": "Weather",
       "status": "REAL_SOURCE_EXAMPLE",
       "renderer": "operation_answer.rs + operation_draft_review_context.rs",
-      "evidence": "examples/weather-approved-reader/review-provenance.json"
+      "evidence": "examples/weather-approved-reader/review-provenance.json",
+      "nativeCapture": {
+        "file": "examples/weather-approved-reader/index.html",
+        "opening": "<section id=\"meaning-review\">",
+        "tag": "section",
+        "embeddedCss": true
+      }
     },
     {
       "id": "gap-handoff",

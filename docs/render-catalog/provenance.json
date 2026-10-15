@@ -12,9 +12,12 @@
     "examples/weather-extraction/pages-manifest.json",
     "examples/petclinic-accessors/manifest.json",
     "examples/places-native/manifest.json",
+    "examples/weather-approved-reader/manifest.json",
     "examples/weather-compiler-all/manifest.json",
     "examples/weather-instructions/manifest.json",
-    "examples/weather-maintained/manifest.json"
+    "examples/weather-maintained/manifest.json",
+    "examples/weather-places-reader/manifest.json",
+    "examples/weather-refresh-reader/manifest.json"
   ],
   "previewAuthority": "READ_ONLY_EXCERPTS_OF_REAL_NATIVE_OUTPUT_NOT_A_NEW_CLEW_TEMPLATE",
   "previewChanges": [
@@ -59,5 +62,6 @@
     "../render-provenance.json",
     "../guide-provenance.json"
   ],
-  "captureDigest": "sha256:b017690fbe3ef47631f575c4978f10369a0333f26702d6904be2a0ff070f3107"
+  "captureDigest": "sha256:b017690fbe3ef47631f575c4978f10369a0333f26702d6904be2a0ff070f3107",
+  "coverageCaptureDigest": "sha256:296ce5e74343df5100a21273aebbd7d5ad8d485173b54c47cd5edd6e0a895349"
 }

@@ -672,34 +672,55 @@
       "id": "gap-execution",
       "category": "Diagrams",
       "title": "Execution flow \u00b7 consumeMessage",
-      "description": "Accepted Luna Max visual of the actual Dashboard handler. Parsing, validation, rejection and applyEvent remain source interpretation.",
+      "description": "Luna Max visual of the actual Dashboard handler. Parsing, validation, rejection and applyEvent remain source interpretation.",
       "path": "examples/weather-coverage/services/dashboard.html#dashboard-d527a6e620a1974b0e5a",
-      "action": "",
+      "action": "Original native author/reviewer run: ACCEPTED. This retained comparison publication displays STALE / UNASSESSED; it does not reapprove the visual.",
       "status": "REAL_SOURCE_EXAMPLE",
       "renderer": "visuals.rs + app.js visualGraph",
-      "repository": "Weather"
+      "preview": "previews/gap-execution.html",
+      "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-coverage/services/dashboard.html#dashboard-d527a6e620a1974b0e5a",
+      "capturedHtmlDigest": "sha256:86b2e03fd7c52a0e11315efbf37419ae5b29dd845f35f4d39826e2817c79f808",
+      "repository": "Weather",
+      "domCapture": [
+        "coverage-visuals",
+        "consumeMessage static execution flow"
+      ]
     },
     {
       "id": "gap-dependency",
       "category": "Diagrams",
       "title": "Dependency map \u00b7 Dashboard consumer",
-      "description": "Accepted typed map of the handler, validator, applyEvent and their source-bound dependencies. It does not prove deployed wiring.",
+      "description": "Typed Luna Max map of the handler, validator, applyEvent and their source-bound dependencies. It does not prove deployed wiring.",
       "path": "examples/weather-coverage/services/dashboard.html#dashboard-d527a6e620a1974b0e5a",
-      "action": "",
+      "action": "Original native author/reviewer run: ACCEPTED. This retained comparison publication displays STALE / UNASSESSED; it does not reapprove the visual.",
       "status": "REAL_SOURCE_EXAMPLE",
       "renderer": "visuals.rs + app.js visualGraph",
-      "repository": "Weather"
+      "preview": "previews/gap-dependency.html",
+      "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-coverage/services/dashboard.html#dashboard-d527a6e620a1974b0e5a",
+      "capturedHtmlDigest": "sha256:56d73c58fddb38f7f3428f30118bfe596c54c1a06a4c0be15aa7b729cb0a1bea",
+      "repository": "Weather",
+      "domCapture": [
+        "coverage-visuals",
+        "consumeMessage local dependencies"
+      ]
     },
     {
       "id": "gap-decision",
       "category": "Blocks",
       "title": "Decision table \u00b7 duplicate and forecast selection",
-      "description": "Accepted decision table for applyEvent with explicit hit policy, source citations and limitations.",
+      "description": "Luna Max decision table for applyEvent with explicit hit policy, source citations and limitations.",
       "path": "examples/weather-coverage/services/dashboard.html#dashboard-d527a6e620a1974b0e5a",
-      "action": "",
+      "action": "Original native author/reviewer run: ACCEPTED. This retained comparison publication displays STALE / UNASSESSED; it does not reapprove the visual.",
       "status": "REAL_SOURCE_EXAMPLE",
       "renderer": "visuals.rs + app.js visualCard",
-      "repository": "Weather"
+      "preview": "previews/gap-decision.html",
+      "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-coverage/services/dashboard.html#dashboard-d527a6e620a1974b0e5a",
+      "capturedHtmlDigest": "sha256:e5ac603d04e8a9c441932659b359d94b80ba2307e570d35da61da41623e27b06",
+      "repository": "Weather",
+      "domCapture": [
+        "coverage-visuals",
+        "applyEvent database outcome selection"
+      ]
     },
     {
       "id": "gap-state",
@@ -734,7 +755,14 @@
       "action": "",
       "status": "REAL_SOURCE_EXAMPLE",
       "renderer": "entities.rs + app.js section-entities",
-      "repository": "Weather"
+      "preview": "previews/gap-entity.html",
+      "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-coverage/services/dashboard.html#section-entities",
+      "capturedHtmlDigest": "sha256:2ec45c2f7d76948f130860ca0d1d88c4fbe46db47c739812d2a759b005f199e9",
+      "repository": "Weather",
+      "domCapture": [
+        "coverage-entity",
+        "identity"
+      ]
     },
     {
       "id": "gap-dataflow",
@@ -745,7 +773,14 @@
       "action": "",
       "status": "REAL_SOURCE_EXAMPLE",
       "renderer": "dataflow.rs + app.js dataflowDiagram",
-      "repository": "Weather"
+      "preview": "previews/gap-dataflow.html",
+      "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-coverage/scenarios/dashboard-place-lineage.html#entity-dataflow",
+      "capturedHtmlDigest": "sha256:7ef4f1cbf59c6546c6c828109bb8f0e7010f6cbf2384ef65bc5ed5b487c0168c",
+      "repository": "Weather",
+      "domCapture": [
+        "coverage-dataflow",
+        "diagram"
+      ]
     },
     {
       "id": "gap-findings",
@@ -756,7 +791,14 @@
       "action": "",
       "status": "REAL_SOURCE_EXAMPLE",
       "renderer": "render.rs + app.js findings",
-      "repository": "Weather"
+      "preview": "previews/gap-findings.html",
+      "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-coverage/services/dashboard.html#dashboard-d527a6e620a1974b0e5a",
+      "capturedHtmlDigest": "sha256:7314f9404432a89afb898336942ae4828596aa4501e2336847f1e174678af7d3",
+      "repository": "Weather",
+      "domCapture": [
+        "coverage-findings",
+        "finding"
+      ]
     },
     {
       "id": "gap-extraction",
@@ -767,7 +809,14 @@
       "action": "",
       "status": "REAL_SOURCE_EXAMPLE",
       "renderer": "process_extract.rs + app.js processExtractionCard",
-      "repository": "Weather"
+      "preview": "previews/gap-extraction.html",
+      "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-extraction/scenarios/forecast-read.html#process-overview",
+      "capturedHtmlDigest": "sha256:f8d7e39736babeb7c038eb2974af57f0428016aa35fe09ce5f32e059b121955e",
+      "repository": "Weather",
+      "domCapture": [
+        "coverage-extraction",
+        "envelope"
+      ]
     },
     {
       "id": "gap-source-flow",
@@ -1101,10 +1150,13 @@
       "category": "Blocks",
       "title": "Independent review provenance",
       "description": "Native APPROVED review metadata identifies the exact author answer, packet, reviewer, review run, assessed blocks and retained limitations.",
-      "path": "examples/weather-approved-reader/index.html",
+      "path": "examples/weather-approved-reader/index.html#meaning-review",
       "action": "",
       "status": "REAL_SOURCE_EXAMPLE",
       "renderer": "operation_answer.rs + operation_draft_review_context.rs",
+      "preview": "previews/block-answer-review.html",
+      "captureUrl": "https://codeclew.github.io/clew-weather-demo/render-catalog/examples/weather-approved-reader/index.html",
+      "capturedHtmlDigest": "sha256:d50353245ea8831dcf2bb8c4442610715e4c3cdfab002efaa2a8045be919e58f",
       "repository": "Weather",
       "evidence": "examples/weather-approved-reader/review-provenance.json"
     },
