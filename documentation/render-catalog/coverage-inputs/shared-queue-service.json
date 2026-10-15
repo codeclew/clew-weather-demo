@@ -1,0 +1,13 @@
+{
+  "schema": "codeclew-documentation-service/1.0",
+  "id": "shared-queue-source",
+  "title": "Real shared-queue example (Java 17 capture build)",
+  "repositoryId": "clew-weather-demo-shared-queue-source",
+  "repository": "https://github.com/codeclew/clew-weather-demo",
+  "language": "java",
+  "profile": "java-17plus-maven-read-only",
+  "compilations": [
+    ":/main"
+  ],
+  "targetRef": "render/shared-queue-source-20261015"
+}

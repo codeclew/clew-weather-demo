@@ -1,0 +1,2752 @@
+{
+  "schema": "codeclew-native-page-projection/1.0",
+  "inputDigest": "sha256:f029f091510b148db386a06ce1d479c7a71d58532ddf4045a5ffc697405e4835",
+  "contextDigest": "sha256:b7381ae048f8650132f591b242257a41634c918e913b53cfc8c5712e998fbc30",
+  "selectionDigest": "sha256:604600abb5f79bbbcf239a6c7cc4a22e34c557fc04091c0a145ca48007a15d0e",
+  "pages": [
+    {
+      "id": "shared-queue",
+      "title": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#putOnQueue(Ljava/lang/String;)V → method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#takeFromQueue()V",
+      "selection": {
+        "id": "shared-queue",
+        "service": "shared-queue-source",
+        "endpointDeclaration": "shared-queue-source:symbol:bcde5e20707afc3779e3457a",
+        "workerDeclaration": "shared-queue-source:symbol:da500a45fd46cde65cf09e7e",
+        "wiringDeclaration": "shared-queue-source:symbol:2e9c47eb78fec504fc3e0842",
+        "question": "Which retained source proves that the producer and consumer fields refer to one shared queue allocation?"
+      },
+      "serviceRevision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+      "serviceDigest": "sha256:f56f2eb7bfa9e5a22e39acffa79838fd420fd53750430a1fa094e2ebbd87f872",
+      "endpoint": {
+        "declarationId": "shared-queue-source:symbol:bcde5e20707afc3779e3457a",
+        "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#putOnQueue(Ljava/lang/String;)V",
+        "authority": "COMPILER_DECLARATION",
+        "citationId": "citation-1e414d805bd46ce72e9c692e",
+        "steps": [
+          {
+            "id": "step-citation-a899bfb8b357d3b630d058bf",
+            "kind": "EXPRESSION",
+            "expression": "queue.add(message);",
+            "citationId": "citation-a899bfb8b357d3b630d058bf",
+            "conditions": [],
+            "reachable": true,
+            "children": [],
+            "alternative": [],
+            "calls": [
+              {
+                "expression": "queue.add(message)",
+                "receiver": "queue",
+                "name": "add",
+                "arguments": [
+                  "message"
+                ],
+                "target": "method:class:java.util.concurrent.BlockingQueue#add(Ljava/lang/Object;)Z",
+                "authority": "COMPILER_EXACT_CALL_RELATION",
+                "relationId": "shared-queue-source:call-relation:46e98f0a6464563e40f794c4",
+                "citationId": "citation-0d1ece8c7f346a47fd56ceb2",
+                "phase": "SUBMISSION_ATTEMPT",
+                "externalBoundary": null,
+                "gaps": [
+                  {
+                    "code": "TARGET_METADATA_UNAVAILABLE",
+                    "detail": "Exact call target has neither a retained repository declaration nor DEP-01 metadata; external source status is unknown.",
+                    "citationId": "citation-0d1ece8c7f346a47fd56ceb2"
+                  }
+                ]
+              }
+            ],
+            "gaps": []
+          }
+        ],
+        "state": [
+          {
+            "name": "queue",
+            "expression": "    private BlockingQueue<String> queue;",
+            "kind": "FIELD_DECLARATION",
+            "conditions": [],
+            "citationId": "citation-0e7612ee980c18455374fd45"
+          }
+        ],
+        "gaps": []
+      },
+      "worker": {
+        "declarationId": "shared-queue-source:symbol:da500a45fd46cde65cf09e7e",
+        "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#takeFromQueue()V",
+        "authority": "COMPILER_DECLARATION",
+        "citationId": "citation-6efbb7dcb28cd583543dd706",
+        "steps": [
+          {
+            "id": "step-citation-ffdf51fbb4241724fd8ee4c0",
+            "kind": "EXPRESSION",
+            "expression": "System.out.println(queue.take());",
+            "citationId": "citation-ffdf51fbb4241724fd8ee4c0",
+            "conditions": [],
+            "reachable": true,
+            "children": [],
+            "alternative": [],
+            "calls": [
+              {
+                "expression": "queue.take()",
+                "receiver": "queue",
+                "name": "take",
+                "arguments": [],
+                "target": "method:class:java.util.concurrent.BlockingQueue#take()Ljava/lang/Object;",
+                "authority": "COMPILER_EXACT_CALL_RELATION",
+                "relationId": "shared-queue-source:call-relation:74b2cc1b39e0df62c31582f1",
+                "citationId": "citation-32684cf7e1a64114c628c916",
+                "phase": "CONSUMPTION_ATTEMPT",
+                "externalBoundary": null,
+                "gaps": [
+                  {
+                    "code": "TARGET_METADATA_UNAVAILABLE",
+                    "detail": "Exact call target has neither a retained repository declaration nor DEP-01 metadata; external source status is unknown.",
+                    "citationId": "citation-32684cf7e1a64114c628c916"
+                  }
+                ]
+              },
+              {
+                "expression": "System.out.println(queue.take())",
+                "receiver": "System.out",
+                "name": "println",
+                "arguments": [
+                  "queue.take()"
+                ],
+                "target": "method:class:java.io.PrintStream#println(Ljava/lang/Object;)V",
+                "authority": "COMPILER_EXACT_CALL_RELATION",
+                "relationId": "shared-queue-source:call-relation:36d8b0f9ed870a4be7ecaf6e",
+                "citationId": "citation-bac0eeea0eb0f816b69cfbe6",
+                "phase": "CALL_ATTEMPT",
+                "externalBoundary": null,
+                "gaps": [
+                  {
+                    "code": "TARGET_METADATA_UNAVAILABLE",
+                    "detail": "Exact call target has neither a retained repository declaration nor DEP-01 metadata; external source status is unknown.",
+                    "citationId": "citation-bac0eeea0eb0f816b69cfbe6"
+                  }
+                ]
+              }
+            ],
+            "gaps": []
+          }
+        ],
+        "state": [
+          {
+            "name": "queue",
+            "expression": "    private BlockingQueue queue;",
+            "kind": "FIELD_DECLARATION",
+            "conditions": [],
+            "citationId": "citation-45294ff42831464254820816"
+          }
+        ],
+        "gaps": []
+      },
+      "wiring": {
+        "declarationId": "shared-queue-source:symbol:2e9c47eb78fec504fc3e0842",
+        "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+        "authority": "COMPILER_DECLARATION",
+        "citationId": "citation-e28f034ee963825a9f88eeac",
+        "steps": [
+          {
+            "id": "step-citation-1b91a434fcc29125bd521c6e",
+            "kind": "DECLARATION",
+            "expression": "BlockingQueue<String> queue = new LinkedBlockingQueue<String>();",
+            "citationId": "citation-1b91a434fcc29125bd521c6e",
+            "conditions": [],
+            "reachable": true,
+            "children": [],
+            "alternative": [],
+            "calls": [
+              {
+                "expression": "new LinkedBlockingQueue<String>()",
+                "receiver": null,
+                "name": "LinkedBlockingQueue<String>",
+                "arguments": [],
+                "target": "method:class:java.util.concurrent.LinkedBlockingQueue#<init>()V",
+                "authority": "COMPILER_EXACT_CALL_RELATION",
+                "relationId": "shared-queue-source:call-relation:40d9e714296ec8b04e17de7e",
+                "citationId": "citation-5c39d559bdef20df93097cfc",
+                "phase": "CREATION",
+                "externalBoundary": null,
+                "gaps": [
+                  {
+                    "code": "TARGET_METADATA_UNAVAILABLE",
+                    "detail": "Exact call target has neither a retained repository declaration nor DEP-01 metadata; external source status is unknown.",
+                    "citationId": "citation-5c39d559bdef20df93097cfc"
+                  }
+                ]
+              }
+            ],
+            "gaps": []
+          },
+          {
+            "id": "step-citation-d7b27b9a71b34fe1ae05a544",
+            "kind": "DECLARATION",
+            "expression": "final BlockingQueueConsumer consumer = new BlockingQueueConsumer(queue);",
+            "citationId": "citation-d7b27b9a71b34fe1ae05a544",
+            "conditions": [],
+            "reachable": true,
+            "children": [],
+            "alternative": [],
+            "calls": [
+              {
+                "expression": "new BlockingQueueConsumer(queue)",
+                "receiver": null,
+                "name": "BlockingQueueConsumer",
+                "arguments": [
+                  "queue"
+                ],
+                "target": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#<init>(Ljava/util/concurrent/BlockingQueue;)V",
+                "authority": "COMPILER_EXACT_CALL_RELATION",
+                "relationId": "shared-queue-source:call-relation:8725faf5d0585986c40c6d7a",
+                "citationId": "citation-20822214601a3037815938b5",
+                "phase": "CREATION",
+                "externalBoundary": null,
+                "gaps": []
+              }
+            ],
+            "gaps": []
+          },
+          {
+            "id": "step-citation-f9ca445ab7f6a051f65d8cff",
+            "kind": "DECLARATION",
+            "expression": "final BlockingQueueProducer producer = new BlockingQueueProducer(queue);",
+            "citationId": "citation-f9ca445ab7f6a051f65d8cff",
+            "conditions": [],
+            "reachable": true,
+            "children": [],
+            "alternative": [],
+            "calls": [
+              {
+                "expression": "new BlockingQueueProducer(queue)",
+                "receiver": null,
+                "name": "BlockingQueueProducer",
+                "arguments": [
+                  "queue"
+                ],
+                "target": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#<init>(Ljava/util/concurrent/BlockingQueue;)V",
+                "authority": "COMPILER_EXACT_CALL_RELATION",
+                "relationId": "shared-queue-source:call-relation:27d4ed1434c5aeabc9472b09",
+                "citationId": "citation-b3c03b66998e42b5861d114a",
+                "phase": "CREATION",
+                "externalBoundary": null,
+                "gaps": []
+              }
+            ],
+            "gaps": []
+          },
+          {
+            "id": "step-citation-d461bc3dd8e17cc23a7b88d4",
+            "kind": "EXPRESSION",
+            "expression": "Executors.newSingleThreadExecutor().submit(new Runnable() {\n            @Override\n            public void run() {\n                try {\n                    producer.produce();\n                } catch (InterruptedException e) {\n                }\n            }\n        });",
+            "citationId": "citation-d461bc3dd8e17cc23a7b88d4",
+            "conditions": [],
+            "reachable": true,
+            "children": [],
+            "alternative": [],
+            "calls": [
+              {
+                "expression": "Executors.newSingleThreadExecutor()",
+                "receiver": "Executors",
+                "name": "newSingleThreadExecutor",
+                "arguments": [],
+                "target": "method:class:java.util.concurrent.Executors#newSingleThreadExecutor()Ljava/util/concurrent/ExecutorService;",
+                "authority": "COMPILER_EXACT_CALL_RELATION",
+                "relationId": "shared-queue-source:call-relation:f5065537a111e06c6e3970d1",
+                "citationId": "citation-46da6d5d7c66dfc184532c61",
+                "phase": "CALL_ATTEMPT",
+                "externalBoundary": null,
+                "gaps": [
+                  {
+                    "code": "TARGET_METADATA_UNAVAILABLE",
+                    "detail": "Exact call target has neither a retained repository declaration nor DEP-01 metadata; external source status is unknown.",
+                    "citationId": "citation-46da6d5d7c66dfc184532c61"
+                  }
+                ]
+              },
+              {
+                "expression": "new Runnable() {\n            @Override\n            public void run() {\n                try {\n                    producer.produce();\n                } catch (InterruptedException e) {\n                }\n            }\n        }",
+                "receiver": null,
+                "name": "Runnable",
+                "arguments": [],
+                "target": null,
+                "authority": "SYNTAX_SOURCE",
+                "relationId": null,
+                "citationId": "citation-23580bbd2f7109c8aa25e1a0",
+                "phase": "CREATION",
+                "externalBoundary": null,
+                "gaps": [
+                  {
+                    "code": "EXACT_CALL_UNAVAILABLE",
+                    "detail": "Readable source call has no unique source-bound compiler relation in the selected declaration scope.",
+                    "citationId": "citation-23580bbd2f7109c8aa25e1a0"
+                  }
+                ]
+              },
+              {
+                "expression": "Executors.newSingleThreadExecutor().submit(new Runnable() {\n            @Override\n            public void run() {\n                try {\n                    producer.produce();\n                } catch (InterruptedException e) {\n                }\n            }\n        })",
+                "receiver": "Executors.newSingleThreadExecutor()",
+                "name": "submit",
+                "arguments": [
+                  "new Runnable() {\n            @Override\n            public void run() {\n                try {\n                    producer.produce();\n                } catch (InterruptedException e) {\n                }\n            }\n        }"
+                ],
+                "target": "method:class:java.util.concurrent.ExecutorService#submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;",
+                "authority": "COMPILER_EXACT_CALL_RELATION",
+                "relationId": "shared-queue-source:call-relation:08f007636e0585389bb9defe",
+                "citationId": "citation-0458fddb1be0cb227c5b07a0",
+                "phase": "CALL_ATTEMPT",
+                "externalBoundary": null,
+                "gaps": [
+                  {
+                    "code": "TARGET_METADATA_UNAVAILABLE",
+                    "detail": "Exact call target has neither a retained repository declaration nor DEP-01 metadata; external source status is unknown.",
+                    "citationId": "citation-0458fddb1be0cb227c5b07a0"
+                  }
+                ]
+              }
+            ],
+            "gaps": [
+              {
+                "code": "UNSUPPORTED_EXPRESSION",
+                "detail": "class_body is retained; conditional or deferred expression effects are not projected.",
+                "citationId": "citation-d461bc3dd8e17cc23a7b88d4"
+              }
+            ]
+          },
+          {
+            "id": "step-citation-dbc07555c699d6e95652e237",
+            "kind": "EXPRESSION",
+            "expression": "Executors.newSingleThreadExecutor().submit(new Runnable() {\n            @Override\n            public void run() {\n                try {\n                    consumer.consume();\n                } catch (InterruptedException e) {\n                }\n            }\n        });",
+            "citationId": "citation-dbc07555c699d6e95652e237",
+            "conditions": [],
+            "reachable": true,
+            "children": [],
+            "alternative": [],
+            "calls": [
+              {
+                "expression": "Executors.newSingleThreadExecutor()",
+                "receiver": "Executors",
+                "name": "newSingleThreadExecutor",
+                "arguments": [],
+                "target": "method:class:java.util.concurrent.Executors#newSingleThreadExecutor()Ljava/util/concurrent/ExecutorService;",
+                "authority": "COMPILER_EXACT_CALL_RELATION",
+                "relationId": "shared-queue-source:call-relation:2758dbb0c99ba8957ff38932",
+                "citationId": "citation-ebeec4d270310e9f30252522",
+                "phase": "CALL_ATTEMPT",
+                "externalBoundary": null,
+                "gaps": [
+                  {
+                    "code": "TARGET_METADATA_UNAVAILABLE",
+                    "detail": "Exact call target has neither a retained repository declaration nor DEP-01 metadata; external source status is unknown.",
+                    "citationId": "citation-ebeec4d270310e9f30252522"
+                  }
+                ]
+              },
+              {
+                "expression": "new Runnable() {\n            @Override\n            public void run() {\n                try {\n                    consumer.consume();\n                } catch (InterruptedException e) {\n                }\n            }\n        }",
+                "receiver": null,
+                "name": "Runnable",
+                "arguments": [],
+                "target": null,
+                "authority": "SYNTAX_SOURCE",
+                "relationId": null,
+                "citationId": "citation-bbf12532bf4f86c2bc4308cc",
+                "phase": "CREATION",
+                "externalBoundary": null,
+                "gaps": [
+                  {
+                    "code": "EXACT_CALL_UNAVAILABLE",
+                    "detail": "Readable source call has no unique source-bound compiler relation in the selected declaration scope.",
+                    "citationId": "citation-bbf12532bf4f86c2bc4308cc"
+                  }
+                ]
+              },
+              {
+                "expression": "Executors.newSingleThreadExecutor().submit(new Runnable() {\n            @Override\n            public void run() {\n                try {\n                    consumer.consume();\n                } catch (InterruptedException e) {\n                }\n            }\n        })",
+                "receiver": "Executors.newSingleThreadExecutor()",
+                "name": "submit",
+                "arguments": [
+                  "new Runnable() {\n            @Override\n            public void run() {\n                try {\n                    consumer.consume();\n                } catch (InterruptedException e) {\n                }\n            }\n        }"
+                ],
+                "target": "method:class:java.util.concurrent.ExecutorService#submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;",
+                "authority": "COMPILER_EXACT_CALL_RELATION",
+                "relationId": "shared-queue-source:call-relation:a1dcbecc2ea264ea6f1016b5",
+                "citationId": "citation-d5961e6dcf6eb42b8499b248",
+                "phase": "CALL_ATTEMPT",
+                "externalBoundary": null,
+                "gaps": [
+                  {
+                    "code": "TARGET_METADATA_UNAVAILABLE",
+                    "detail": "Exact call target has neither a retained repository declaration nor DEP-01 metadata; external source status is unknown.",
+                    "citationId": "citation-d5961e6dcf6eb42b8499b248"
+                  }
+                ]
+              }
+            ],
+            "gaps": [
+              {
+                "code": "UNSUPPORTED_EXPRESSION",
+                "detail": "class_body is retained; conditional or deferred expression effects are not projected.",
+                "citationId": "citation-dbc07555c699d6e95652e237"
+              }
+            ]
+          }
+        ],
+        "state": [
+          {
+            "name": "queue",
+            "expression": "new LinkedBlockingQueue<String>()",
+            "kind": "LOCAL_DECLARATION",
+            "conditions": [],
+            "citationId": "citation-1b91a434fcc29125bd521c6e"
+          },
+          {
+            "name": "consumer",
+            "expression": "new BlockingQueueConsumer(queue)",
+            "kind": "LOCAL_DECLARATION",
+            "conditions": [],
+            "citationId": "citation-d7b27b9a71b34fe1ae05a544"
+          },
+          {
+            "name": "producer",
+            "expression": "new BlockingQueueProducer(queue)",
+            "kind": "LOCAL_DECLARATION",
+            "conditions": [],
+            "citationId": "citation-f9ca445ab7f6a051f65d8cff"
+          }
+        ],
+        "gaps": []
+      },
+      "handoff": {
+        "status": "SOURCE_DECLARED_SHARED_QUEUE",
+        "queueAllocation": "shared-queue-source:symbol:2e9c47eb78fec504fc3e0842:citation-5c39d559bdef20df93097cfc",
+        "endpointField": "queue",
+        "workerField": "queue",
+        "citationIds": [
+          "citation-0d1ece8c7f346a47fd56ceb2",
+          "citation-20822214601a3037815938b5",
+          "citation-32684cf7e1a64114c628c916",
+          "citation-3ff94f252a00f18cb88fde5d",
+          "citation-5c39d559bdef20df93097cfc",
+          "citation-6793d34f705801611e0874a3",
+          "citation-b3c03b66998e42b5861d114a"
+        ],
+        "gaps": [],
+        "limitation": "Source-declared shared object wiring does not prove enqueue success, scheduling, deployed activation, delivery, or completion."
+      },
+      "diagnostics": [],
+      "citations": {
+        "citation-0458fddb1be0cb227c5b07a0": {
+          "id": "citation-0458fddb1be0cb227c5b07a0",
+          "sourceId": "shared-queue-source-2e9c47eb78fec504fc3e",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 14,
+          "endLine": 22,
+          "startByte": 289,
+          "endByte": 558,
+          "textDigest": "sha256:6ade7d7ad435f2a0e019110db1b0cca03fa4011c8dd433cc8828f2ad1b480a52",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L14-L22"
+        },
+        "citation-0d1ece8c7f346a47fd56ceb2": {
+          "id": "citation-0d1ece8c7f346a47fd56ceb2",
+          "sourceId": "shared-queue-source-bcde5e20707afc3779e3",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java",
+          "startLine": 23,
+          "endLine": 23,
+          "startByte": 54,
+          "endByte": 72,
+          "textDigest": "sha256:666c90295e7eedecc22586385370b25ba33a1ce66c155cb18acbc3778890b097",
+          "evidenceDigest": "sha256:0aa2ec604bb548dc8fda7b3f197ac43c51efcf4346fbe6ec59bb606a52f3e15c",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java#L23-L23"
+        },
+        "citation-0e7612ee980c18455374fd45": {
+          "id": "citation-0e7612ee980c18455374fd45",
+          "sourceId": "shared-queue-source-8805de2f739eb38ddeca",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java",
+          "startLine": 8,
+          "endLine": 8,
+          "startByte": 0,
+          "endByte": 40,
+          "textDigest": "sha256:2e73f673ba9bf61739001357eefa67a9023df75b43215effb10f34feb98a377e",
+          "evidenceDigest": "sha256:f6f544523bf0170ee0f41b2a089615a2341a5d267113839943b7c5d9e9054378",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java#L8-L8"
+        },
+        "citation-1b91a434fcc29125bd521c6e": {
+          "id": "citation-1b91a434fcc29125bd521c6e",
+          "sourceId": "shared-queue-source-2e9c47eb78fec504fc3e",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 10,
+          "endLine": 10,
+          "startByte": 53,
+          "endByte": 117,
+          "textDigest": "sha256:7e23f5cab07ba20b960d04fea8977bfab6ce24fa7919231dd63aa6a0ecbd3e88",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L10-L10"
+        },
+        "citation-1e414d805bd46ce72e9c692e": {
+          "id": "citation-1e414d805bd46ce72e9c692e",
+          "sourceId": "shared-queue-source-bcde5e20707afc3779e3",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java",
+          "startLine": 22,
+          "endLine": 24,
+          "startByte": 0,
+          "endByte": 79,
+          "textDigest": "sha256:14679a8476f2e06bd304b11dc6c631b29d332f7f65177ed2448d543a73cbee7f",
+          "evidenceDigest": "sha256:0aa2ec604bb548dc8fda7b3f197ac43c51efcf4346fbe6ec59bb606a52f3e15c",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java#L22-L24"
+        },
+        "citation-20822214601a3037815938b5": {
+          "id": "citation-20822214601a3037815938b5",
+          "sourceId": "shared-queue-source-2e9c47eb78fec504fc3e",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 11,
+          "endLine": 11,
+          "startByte": 165,
+          "endByte": 197,
+          "textDigest": "sha256:594abfc33c3870bf45966181067af39973716cd31b804aba9d07799d17b806d3",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L11-L11"
+        },
+        "citation-23580bbd2f7109c8aa25e1a0": {
+          "id": "citation-23580bbd2f7109c8aa25e1a0",
+          "sourceId": "shared-queue-source-2e9c47eb78fec504fc3e",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 14,
+          "endLine": 22,
+          "startByte": 332,
+          "endByte": 557,
+          "textDigest": "sha256:380c83da3c8bfe9de8dd194af8f60b447fc121f8abeb4aa9ea294eedce91b9a4",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L14-L22"
+        },
+        "citation-32684cf7e1a64114c628c916": {
+          "id": "citation-32684cf7e1a64114c628c916",
+          "sourceId": "shared-queue-source-da500a45fd46cde65cf0",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java",
+          "startLine": 19,
+          "endLine": 19,
+          "startByte": 90,
+          "endByte": 102,
+          "textDigest": "sha256:55cb405d824e9e2a950b4bce13a68faf7789bb2a15ea84379ff5c634c0808109",
+          "evidenceDigest": "sha256:9b8a71d2a1528973aa9d56c8eafe417a2f1a5ef93df908cf09dc20e7c9c6defd",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java#L19-L19"
+        },
+        "citation-3ff94f252a00f18cb88fde5d": {
+          "id": "citation-3ff94f252a00f18cb88fde5d",
+          "sourceId": "shared-queue-source-732b24863ce495eb9395",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java",
+          "startLine": 11,
+          "endLine": 11,
+          "startByte": 64,
+          "endByte": 83,
+          "textDigest": "sha256:1160081119d0d55a81a3be795c5eceb4c09ce6b230d152c488ca7cd01f0d3cd3",
+          "evidenceDigest": "sha256:b84086d361abd3a9ca6d90f8eccc73ca3d59c30dfcdc5c3749f4db5cf2946fdd",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java#L11-L11"
+        },
+        "citation-45294ff42831464254820816": {
+          "id": "citation-45294ff42831464254820816",
+          "sourceId": "shared-queue-source-963812fe3d9b8af29e3d",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java",
+          "startLine": 6,
+          "endLine": 6,
+          "startByte": 0,
+          "endByte": 32,
+          "textDigest": "sha256:d53aa9f0417f91798bdb5b98f2d79b36c43137a8ebe7c10f8fe24e66ec457618",
+          "evidenceDigest": "sha256:dce53381b08e15a32555e9a92d317a1997a2effa5e21761deaaff290240eb09c",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java#L6-L6"
+        },
+        "citation-46da6d5d7c66dfc184532c61": {
+          "id": "citation-46da6d5d7c66dfc184532c61",
+          "sourceId": "shared-queue-source-2e9c47eb78fec504fc3e",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 14,
+          "endLine": 14,
+          "startByte": 289,
+          "endByte": 324,
+          "textDigest": "sha256:9a16d4cb5bd27b99474e6b48ebdd8ed55e88524720755d7c101c2e4c282abf4e",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L14-L14"
+        },
+        "citation-5c39d559bdef20df93097cfc": {
+          "id": "citation-5c39d559bdef20df93097cfc",
+          "sourceId": "shared-queue-source-2e9c47eb78fec504fc3e",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 10,
+          "endLine": 10,
+          "startByte": 83,
+          "endByte": 116,
+          "textDigest": "sha256:36fffbb144fd7cc033e776db1e5f63734d8c96dfb34318b1bf264060d300883b",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L10-L10"
+        },
+        "citation-6793d34f705801611e0874a3": {
+          "id": "citation-6793d34f705801611e0874a3",
+          "sourceId": "shared-queue-source-73a38a2577d6ae88c062",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java",
+          "startLine": 9,
+          "endLine": 9,
+          "startByte": 64,
+          "endByte": 83,
+          "textDigest": "sha256:1160081119d0d55a81a3be795c5eceb4c09ce6b230d152c488ca7cd01f0d3cd3",
+          "evidenceDigest": "sha256:0cb840b505be5faa3fcbefc089e388eebbe29bb9a6c6ec7a5031b1f123102793",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java#L9-L9"
+        },
+        "citation-6efbb7dcb28cd583543dd706": {
+          "id": "citation-6efbb7dcb28cd583543dd706",
+          "sourceId": "shared-queue-source-da500a45fd46cde65cf0",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java",
+          "startLine": 18,
+          "endLine": 20,
+          "startByte": 0,
+          "endByte": 110,
+          "textDigest": "sha256:e01e8af4635492b6dfd431d7469d045f9e39ef43f335088bb72b78cae2acb337",
+          "evidenceDigest": "sha256:9b8a71d2a1528973aa9d56c8eafe417a2f1a5ef93df908cf09dc20e7c9c6defd",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java#L18-L20"
+        },
+        "citation-a899bfb8b357d3b630d058bf": {
+          "id": "citation-a899bfb8b357d3b630d058bf",
+          "sourceId": "shared-queue-source-bcde5e20707afc3779e3",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java",
+          "startLine": 23,
+          "endLine": 23,
+          "startByte": 54,
+          "endByte": 73,
+          "textDigest": "sha256:d63b45386c38912f7769a86bde245f8088ba96cc9340e804dc62311fafe03f03",
+          "evidenceDigest": "sha256:0aa2ec604bb548dc8fda7b3f197ac43c51efcf4346fbe6ec59bb606a52f3e15c",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java#L23-L23"
+        },
+        "citation-b3c03b66998e42b5861d114a": {
+          "id": "citation-b3c03b66998e42b5861d114a",
+          "sourceId": "shared-queue-source-2e9c47eb78fec504fc3e",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 12,
+          "endLine": 12,
+          "startByte": 246,
+          "endByte": 278,
+          "textDigest": "sha256:865a6bd180607f75f347b947f902a4748f645aec168c45ed7024ab23bb16d1dc",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L12-L12"
+        },
+        "citation-bac0eeea0eb0f816b69cfbe6": {
+          "id": "citation-bac0eeea0eb0f816b69cfbe6",
+          "sourceId": "shared-queue-source-da500a45fd46cde65cf0",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java",
+          "startLine": 19,
+          "endLine": 19,
+          "startByte": 71,
+          "endByte": 103,
+          "textDigest": "sha256:8a1fc80cc81809dab3328f6ff76e86bc78a1ab81f231b4e997ccfbbdb87ff236",
+          "evidenceDigest": "sha256:9b8a71d2a1528973aa9d56c8eafe417a2f1a5ef93df908cf09dc20e7c9c6defd",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java#L19-L19"
+        },
+        "citation-bbf12532bf4f86c2bc4308cc": {
+          "id": "citation-bbf12532bf4f86c2bc4308cc",
+          "sourceId": "shared-queue-source-2e9c47eb78fec504fc3e",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 23,
+          "endLine": 31,
+          "startByte": 611,
+          "endByte": 836,
+          "textDigest": "sha256:cb3394791a0b5dd4d287fe2aa7d4773588326e5708ce3871723a29f6047a956b",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L23-L31"
+        },
+        "citation-d461bc3dd8e17cc23a7b88d4": {
+          "id": "citation-d461bc3dd8e17cc23a7b88d4",
+          "sourceId": "shared-queue-source-2e9c47eb78fec504fc3e",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 14,
+          "endLine": 22,
+          "startByte": 289,
+          "endByte": 559,
+          "textDigest": "sha256:5746180e3b216ed676eff91e10fe1e807a96ae5b4725ce4148db4036225b29e1",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L14-L22"
+        },
+        "citation-d5961e6dcf6eb42b8499b248": {
+          "id": "citation-d5961e6dcf6eb42b8499b248",
+          "sourceId": "shared-queue-source-2e9c47eb78fec504fc3e",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 23,
+          "endLine": 31,
+          "startByte": 568,
+          "endByte": 837,
+          "textDigest": "sha256:32ed5ff7fd11529d8e453cc540be0df84afb904be2720f2d9d16521fa7027aa0",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L23-L31"
+        },
+        "citation-d7b27b9a71b34fe1ae05a544": {
+          "id": "citation-d7b27b9a71b34fe1ae05a544",
+          "sourceId": "shared-queue-source-2e9c47eb78fec504fc3e",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 11,
+          "endLine": 11,
+          "startByte": 126,
+          "endByte": 198,
+          "textDigest": "sha256:b3c3d5eb6158c084ee38c4b137e41df180eb6cf04d5842dc726847935b0b71bd",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L11-L11"
+        },
+        "citation-dbc07555c699d6e95652e237": {
+          "id": "citation-dbc07555c699d6e95652e237",
+          "sourceId": "shared-queue-source-2e9c47eb78fec504fc3e",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 23,
+          "endLine": 31,
+          "startByte": 568,
+          "endByte": 838,
+          "textDigest": "sha256:d9c14e5ef5b8ca3c77248447675b5a28eef80aca88a2e6ce43975cff08f8567e",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L23-L31"
+        },
+        "citation-e28f034ee963825a9f88eeac": {
+          "id": "citation-e28f034ee963825a9f88eeac",
+          "sourceId": "shared-queue-source-2e9c47eb78fec504fc3e",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 9,
+          "endLine": 32,
+          "startByte": 0,
+          "endByte": 844,
+          "textDigest": "sha256:34808751fbb21e7e5b2cac1baf5c0c40c0a1eb500cd8e470f79fbd5210fa490f",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L9-L32"
+        },
+        "citation-e4d257fb78efbb427b50f71c": {
+          "id": "citation-e4d257fb78efbb427b50f71c",
+          "sourceId": "shared-queue-source-732b24863ce495eb9395",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java",
+          "startLine": 10,
+          "endLine": 12,
+          "startByte": 0,
+          "endByte": 89,
+          "textDigest": "sha256:2bf5b0e9ee3156b129e01b611e8512b89db072edf11f05b69b8eb9fc77b06ff9",
+          "evidenceDigest": "sha256:b84086d361abd3a9ca6d90f8eccc73ca3d59c30dfcdc5c3749f4db5cf2946fdd",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java#L10-L12"
+        },
+        "citation-ebeec4d270310e9f30252522": {
+          "id": "citation-ebeec4d270310e9f30252522",
+          "sourceId": "shared-queue-source-2e9c47eb78fec504fc3e",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 23,
+          "endLine": 23,
+          "startByte": 568,
+          "endByte": 603,
+          "textDigest": "sha256:9a16d4cb5bd27b99474e6b48ebdd8ed55e88524720755d7c101c2e4c282abf4e",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L23-L23"
+        },
+        "citation-ee506406021a50680088c606": {
+          "id": "citation-ee506406021a50680088c606",
+          "sourceId": "shared-queue-source-73a38a2577d6ae88c062",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java",
+          "startLine": 8,
+          "endLine": 10,
+          "startByte": 0,
+          "endByte": 89,
+          "textDigest": "sha256:bbbb4262a043925172682d90b4b7063cc9c00e345255d0cbdb6826fee5821683",
+          "evidenceDigest": "sha256:0cb840b505be5faa3fcbefc089e388eebbe29bb9a6c6ec7a5031b1f123102793",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java#L8-L10"
+        },
+        "citation-f9ca445ab7f6a051f65d8cff": {
+          "id": "citation-f9ca445ab7f6a051f65d8cff",
+          "sourceId": "shared-queue-source-2e9c47eb78fec504fc3e",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 12,
+          "endLine": 12,
+          "startByte": 207,
+          "endByte": 279,
+          "textDigest": "sha256:13351969039e00881c894a1c3c6feab4a5daff49cf36bd902b0d8066c416f4b3",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L12-L12"
+        },
+        "citation-ffdf51fbb4241724fd8ee4c0": {
+          "id": "citation-ffdf51fbb4241724fd8ee4c0",
+          "sourceId": "shared-queue-source-da500a45fd46cde65cf0",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java",
+          "startLine": 19,
+          "endLine": 19,
+          "startByte": 71,
+          "endByte": 104,
+          "textDigest": "sha256:c7318a322cf032a101f61760b801835ffcfaf3593620ef2dda1ac0b1430bb334",
+          "evidenceDigest": "sha256:9b8a71d2a1528973aa9d56c8eafe417a2f1a5ef93df908cf09dc20e7c9c6defd",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java#L19-L19"
+        }
+      },
+      "observations": {
+        "shared-queue-source:call-relation:08f007636e0585389bb9defe": {
+          "id": "shared-queue-source:call-relation:08f007636e0585389bb9defe",
+          "kind": "CALL_RELATION",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+          "normalized": {
+            "callSite": {
+              "byteEnd": 779,
+              "byteStart": 510,
+              "endLine": 22,
+              "evidenceDigest": "sha256:d07057c64aa9abf0aa11362f506259f75a5de5fa9c3ae081ed7551750335cea2",
+              "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+              "ownerStatus": "SOURCE_OWNER_RETAINED",
+              "sourceDigest": "sha256:5bac37a2b682b0163ab9044adbb56070d1a137169463856383cd997e092446a0",
+              "sourceId": "shared-queue-source-08f007636e0585389bb9",
+              "sourceStatus": "SOURCE_RETAINED",
+              "startLine": 14
+            },
+            "kind": "RELATION",
+            "relationKind": "CALLS",
+            "resolution": "COMPILER_EXACT",
+            "schema": "codeclew-java-compiler-fact/1.0",
+            "scope": ":/main",
+            "sourceIdentity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+            "targetIdentity": "method:class:java.util.concurrent.ExecutorService#submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;"
+          },
+          "digest": "sha256:5a2d03c682576e5134de0d2cd9b992e9e772f3eff86525ae502eaa1c3b9ed1ca",
+          "sourceIds": [
+            "shared-queue-source-08f007636e0585389bb9"
+          ]
+        },
+        "shared-queue-source:call-relation:0dfde73583932770f7355fe0": {
+          "id": "shared-queue-source:call-relation:0dfde73583932770f7355fe0",
+          "kind": "CALL_RELATION",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+          "normalized": {
+            "callSite": {
+              "byteEnd": 1057,
+              "byteStart": 832,
+              "endLine": 31,
+              "evidenceDigest": "sha256:b0eeaf4afe28ef9ee931bbe6cce1bbd456002af7137f12e5f5c7f497151fe0e5",
+              "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+              "ownerStatus": "SOURCE_OWNER_RETAINED",
+              "sourceDigest": "sha256:342b2cd15d99e3d8db78e18f752ffc34d3e1d76aa4976c273caa2496621f42ad",
+              "sourceId": "shared-queue-source-0dfde73583932770f735",
+              "sourceStatus": "SOURCE_RETAINED",
+              "startLine": 23
+            },
+            "kind": "RELATION",
+            "relationKind": "CONSTRUCTS",
+            "resolution": "COMPILER_EXACT",
+            "schema": "codeclew-java-compiler-fact/1.0",
+            "scope": ":/main",
+            "sourceIdentity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+            "targetIdentity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp$2#<init>()V"
+          },
+          "digest": "sha256:ffeb98d1b7911d8df95881d62256882c52c280308cd39e977279d5653a8e30d7",
+          "sourceIds": [
+            "shared-queue-source-0dfde73583932770f735"
+          ]
+        },
+        "shared-queue-source:call-relation:2758dbb0c99ba8957ff38932": {
+          "id": "shared-queue-source:call-relation:2758dbb0c99ba8957ff38932",
+          "kind": "CALL_RELATION",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+          "normalized": {
+            "callSite": {
+              "byteEnd": 824,
+              "byteStart": 789,
+              "endLine": 23,
+              "evidenceDigest": "sha256:7b0cc3a5a280d1acf62bc92632e5930b89f1d2bdbb8ce04245f053ecfe86b697",
+              "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+              "ownerStatus": "SOURCE_OWNER_RETAINED",
+              "sourceDigest": "sha256:45f357ddb99b5d928c8c2063551bd2d328f973fd8a15a1af4599af1772dc2210",
+              "sourceId": "shared-queue-source-2758dbb0c99ba8957ff3",
+              "sourceStatus": "SOURCE_RETAINED",
+              "startLine": 23
+            },
+            "kind": "RELATION",
+            "relationKind": "CALLS",
+            "resolution": "COMPILER_EXACT",
+            "schema": "codeclew-java-compiler-fact/1.0",
+            "scope": ":/main",
+            "sourceIdentity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+            "targetIdentity": "method:class:java.util.concurrent.Executors#newSingleThreadExecutor()Ljava/util/concurrent/ExecutorService;"
+          },
+          "digest": "sha256:5d4b68faabbfaaab1efb0a3cbb5ce931bcc50bc1845f50593b5bf70d64b3f462",
+          "sourceIds": [
+            "shared-queue-source-2758dbb0c99ba8957ff3"
+          ]
+        },
+        "shared-queue-source:call-relation:27d4ed1434c5aeabc9472b09": {
+          "id": "shared-queue-source:call-relation:27d4ed1434c5aeabc9472b09",
+          "kind": "CALL_RELATION",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+          "normalized": {
+            "callSite": {
+              "byteEnd": 499,
+              "byteStart": 467,
+              "endLine": 12,
+              "evidenceDigest": "sha256:5b466eee09e666e71f51496341ddc6cfdc89bfaea58b219c4a756561f4e79105",
+              "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+              "ownerStatus": "SOURCE_OWNER_RETAINED",
+              "sourceDigest": "sha256:edfa186ceb9b8351eb2b5235779afc3c39c1c7429edf2326f0d98cfeb804a030",
+              "sourceId": "shared-queue-source-27d4ed1434c5aeabc947",
+              "sourceStatus": "SOURCE_RETAINED",
+              "startLine": 12
+            },
+            "kind": "RELATION",
+            "relationKind": "CONSTRUCTS",
+            "resolution": "COMPILER_EXACT",
+            "schema": "codeclew-java-compiler-fact/1.0",
+            "scope": ":/main",
+            "sourceIdentity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+            "targetIdentity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#<init>(Ljava/util/concurrent/BlockingQueue;)V"
+          },
+          "digest": "sha256:2d9804fd0ba199ec44d7b4780ad9f7acba95586af6e45a35b1644887a07b5b8a",
+          "sourceIds": [
+            "shared-queue-source-27d4ed1434c5aeabc947"
+          ]
+        },
+        "shared-queue-source:call-relation:36d8b0f9ed870a4be7ecaf6e": {
+          "id": "shared-queue-source:call-relation:36d8b0f9ed870a4be7ecaf6e",
+          "kind": "CALL_RELATION",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#takeFromQueue()V",
+          "normalized": {
+            "callSite": {
+              "byteEnd": 474,
+              "byteStart": 442,
+              "endLine": 19,
+              "evidenceDigest": "sha256:b0b02ac91b2103977d93832fd183d9f909b74782ea0dcdfd9000e1c767b92d62",
+              "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java",
+              "ownerStatus": "SOURCE_OWNER_RETAINED",
+              "sourceDigest": "sha256:40241e2e75225b97719532838ddf66d5f45924f7566cdeced63b3aff63b5199e",
+              "sourceId": "shared-queue-source-36d8b0f9ed870a4be7ec",
+              "sourceStatus": "SOURCE_RETAINED",
+              "startLine": 19
+            },
+            "kind": "RELATION",
+            "relationKind": "CALLS",
+            "resolution": "COMPILER_EXACT",
+            "schema": "codeclew-java-compiler-fact/1.0",
+            "scope": ":/main",
+            "sourceIdentity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#takeFromQueue()V",
+            "targetIdentity": "method:class:java.io.PrintStream#println(Ljava/lang/Object;)V"
+          },
+          "digest": "sha256:5b89128b8b0af7fe3dce28c6d985a8d264747c8a647f7d424bd1551e8500c3b5",
+          "sourceIds": [
+            "shared-queue-source-36d8b0f9ed870a4be7ec"
+          ]
+        },
+        "shared-queue-source:call-relation:40d9e714296ec8b04e17de7e": {
+          "id": "shared-queue-source:call-relation:40d9e714296ec8b04e17de7e",
+          "kind": "CALL_RELATION",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+          "normalized": {
+            "callSite": {
+              "byteEnd": 337,
+              "byteStart": 304,
+              "endLine": 10,
+              "evidenceDigest": "sha256:ed8b77bb0ed43838fe4e73e08963e2c1773f9648dcb7baee26461173e50e4415",
+              "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+              "ownerStatus": "SOURCE_OWNER_RETAINED",
+              "sourceDigest": "sha256:1c448c40dc3e137f90762547921c7a21ddcb635bf91c7b8c6c86abaa7942a081",
+              "sourceId": "shared-queue-source-40d9e714296ec8b04e17",
+              "sourceStatus": "SOURCE_RETAINED",
+              "startLine": 10
+            },
+            "kind": "RELATION",
+            "relationKind": "CONSTRUCTS",
+            "resolution": "COMPILER_EXACT",
+            "schema": "codeclew-java-compiler-fact/1.0",
+            "scope": ":/main",
+            "sourceIdentity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+            "targetIdentity": "method:class:java.util.concurrent.LinkedBlockingQueue#<init>()V"
+          },
+          "digest": "sha256:3caa824ac62197ebfccbb9a1028cd382d77d2ce8a3dcb661043eb7e78bfbb7ab",
+          "sourceIds": [
+            "shared-queue-source-40d9e714296ec8b04e17"
+          ]
+        },
+        "shared-queue-source:call-relation:46e98f0a6464563e40f794c4": {
+          "id": "shared-queue-source:call-relation:46e98f0a6464563e40f794c4",
+          "kind": "CALL_RELATION",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#putOnQueue(Ljava/lang/String;)V",
+          "normalized": {
+            "callSite": {
+              "byteEnd": 530,
+              "byteStart": 512,
+              "endLine": 23,
+              "evidenceDigest": "sha256:c5c1d0ebc3022f7825f44dbf5a1059d1cf9f249be881eff4f0f4ba64b13d8872",
+              "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java",
+              "ownerStatus": "SOURCE_OWNER_RETAINED",
+              "sourceDigest": "sha256:e59b37be5b07372850e0dd2508f1c442518e6b739e759d75685af0782802c1cf",
+              "sourceId": "shared-queue-source-46e98f0a6464563e40f7",
+              "sourceStatus": "SOURCE_RETAINED",
+              "startLine": 23
+            },
+            "kind": "RELATION",
+            "relationKind": "CALLS",
+            "resolution": "COMPILER_EXACT",
+            "schema": "codeclew-java-compiler-fact/1.0",
+            "scope": ":/main",
+            "sourceIdentity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#putOnQueue(Ljava/lang/String;)V",
+            "targetIdentity": "method:class:java.util.concurrent.BlockingQueue#add(Ljava/lang/Object;)Z"
+          },
+          "digest": "sha256:8eb8bae422ed550601797c8d75e8424d930596f924b9265594bf439ba93069c2",
+          "sourceIds": [
+            "shared-queue-source-46e98f0a6464563e40f7"
+          ]
+        },
+        "shared-queue-source:call-relation:5e2f6dd4dee1d6a9d0853fca": {
+          "id": "shared-queue-source:call-relation:5e2f6dd4dee1d6a9d0853fca",
+          "kind": "CALL_RELATION",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+          "normalized": {
+            "callSite": {
+              "byteEnd": 778,
+              "byteStart": 553,
+              "endLine": 22,
+              "evidenceDigest": "sha256:98862278f6304c1389018221ccc1b8513e4c6cbcd0aa985b418b038b4afdab13",
+              "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+              "ownerStatus": "SOURCE_OWNER_RETAINED",
+              "sourceDigest": "sha256:5bac37a2b682b0163ab9044adbb56070d1a137169463856383cd997e092446a0",
+              "sourceId": "shared-queue-source-5e2f6dd4dee1d6a9d085",
+              "sourceStatus": "SOURCE_RETAINED",
+              "startLine": 14
+            },
+            "kind": "RELATION",
+            "relationKind": "CONSTRUCTS",
+            "resolution": "COMPILER_EXACT",
+            "schema": "codeclew-java-compiler-fact/1.0",
+            "scope": ":/main",
+            "sourceIdentity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+            "targetIdentity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp$1#<init>()V"
+          },
+          "digest": "sha256:414f7e7a0ccb1944a1a9ab07b18632c6a52ad734edca6f226dd74478671a4475",
+          "sourceIds": [
+            "shared-queue-source-5e2f6dd4dee1d6a9d085"
+          ]
+        },
+        "shared-queue-source:call-relation:74b2cc1b39e0df62c31582f1": {
+          "id": "shared-queue-source:call-relation:74b2cc1b39e0df62c31582f1",
+          "kind": "CALL_RELATION",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#takeFromQueue()V",
+          "normalized": {
+            "callSite": {
+              "byteEnd": 473,
+              "byteStart": 461,
+              "endLine": 19,
+              "evidenceDigest": "sha256:d284eed5312df3d35186e929adb94374cecdd2c3a4b58119869d366c49b989d8",
+              "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java",
+              "ownerStatus": "SOURCE_OWNER_RETAINED",
+              "sourceDigest": "sha256:40241e2e75225b97719532838ddf66d5f45924f7566cdeced63b3aff63b5199e",
+              "sourceId": "shared-queue-source-74b2cc1b39e0df62c315",
+              "sourceStatus": "SOURCE_RETAINED",
+              "startLine": 19
+            },
+            "kind": "RELATION",
+            "relationKind": "CALLS",
+            "resolution": "COMPILER_EXACT",
+            "schema": "codeclew-java-compiler-fact/1.0",
+            "scope": ":/main",
+            "sourceIdentity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#takeFromQueue()V",
+            "targetIdentity": "method:class:java.util.concurrent.BlockingQueue#take()Ljava/lang/Object;"
+          },
+          "digest": "sha256:e325692d17f748f4ade3a470fd56d16431121228773d2483bd06c00dc1d33533",
+          "sourceIds": [
+            "shared-queue-source-74b2cc1b39e0df62c315"
+          ]
+        },
+        "shared-queue-source:call-relation:8725faf5d0585986c40c6d7a": {
+          "id": "shared-queue-source:call-relation:8725faf5d0585986c40c6d7a",
+          "kind": "CALL_RELATION",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+          "normalized": {
+            "callSite": {
+              "byteEnd": 418,
+              "byteStart": 386,
+              "endLine": 11,
+              "evidenceDigest": "sha256:f3755fbffa9e9382ccb9506e462aca093c9a6ec30bcb37c8bbf54bef459322c3",
+              "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+              "ownerStatus": "SOURCE_OWNER_RETAINED",
+              "sourceDigest": "sha256:33b373ebe8c69b5f5e7a52af2f3f550e326a1f71bb8de128647aba6b77d70d12",
+              "sourceId": "shared-queue-source-8725faf5d0585986c40c",
+              "sourceStatus": "SOURCE_RETAINED",
+              "startLine": 11
+            },
+            "kind": "RELATION",
+            "relationKind": "CONSTRUCTS",
+            "resolution": "COMPILER_EXACT",
+            "schema": "codeclew-java-compiler-fact/1.0",
+            "scope": ":/main",
+            "sourceIdentity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+            "targetIdentity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#<init>(Ljava/util/concurrent/BlockingQueue;)V"
+          },
+          "digest": "sha256:a2f06651e3fd14f1c21528287c560e4d2f5c79be9976fde728bbb9d858cc913f",
+          "sourceIds": [
+            "shared-queue-source-8725faf5d0585986c40c"
+          ]
+        },
+        "shared-queue-source:call-relation:a1dcbecc2ea264ea6f1016b5": {
+          "id": "shared-queue-source:call-relation:a1dcbecc2ea264ea6f1016b5",
+          "kind": "CALL_RELATION",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+          "normalized": {
+            "callSite": {
+              "byteEnd": 1058,
+              "byteStart": 789,
+              "endLine": 31,
+              "evidenceDigest": "sha256:0dfde3316cd946cc1427daea6d596b7a39213012ffa0ca16199b860a7cc80b7d",
+              "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+              "ownerStatus": "SOURCE_OWNER_RETAINED",
+              "sourceDigest": "sha256:342b2cd15d99e3d8db78e18f752ffc34d3e1d76aa4976c273caa2496621f42ad",
+              "sourceId": "shared-queue-source-a1dcbecc2ea264ea6f10",
+              "sourceStatus": "SOURCE_RETAINED",
+              "startLine": 23
+            },
+            "kind": "RELATION",
+            "relationKind": "CALLS",
+            "resolution": "COMPILER_EXACT",
+            "schema": "codeclew-java-compiler-fact/1.0",
+            "scope": ":/main",
+            "sourceIdentity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+            "targetIdentity": "method:class:java.util.concurrent.ExecutorService#submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;"
+          },
+          "digest": "sha256:4294a06a6f4e7b969fc1a80b072913bd34c0fb659559ef1ad3d2689a9e7bcfea",
+          "sourceIds": [
+            "shared-queue-source-a1dcbecc2ea264ea6f10"
+          ]
+        },
+        "shared-queue-source:call-relation:f5065537a111e06c6e3970d1": {
+          "id": "shared-queue-source:call-relation:f5065537a111e06c6e3970d1",
+          "kind": "CALL_RELATION",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+          "normalized": {
+            "callSite": {
+              "byteEnd": 545,
+              "byteStart": 510,
+              "endLine": 14,
+              "evidenceDigest": "sha256:5668b832700bf7dc6fa5f7715a5ee77334f9dee7c8f5f6ca965bf4c3e22dfe82",
+              "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+              "ownerStatus": "SOURCE_OWNER_RETAINED",
+              "sourceDigest": "sha256:45f357ddb99b5d928c8c2063551bd2d328f973fd8a15a1af4599af1772dc2210",
+              "sourceId": "shared-queue-source-f5065537a111e06c6e39",
+              "sourceStatus": "SOURCE_RETAINED",
+              "startLine": 14
+            },
+            "kind": "RELATION",
+            "relationKind": "CALLS",
+            "resolution": "COMPILER_EXACT",
+            "schema": "codeclew-java-compiler-fact/1.0",
+            "scope": ":/main",
+            "sourceIdentity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+            "targetIdentity": "method:class:java.util.concurrent.Executors#newSingleThreadExecutor()Ljava/util/concurrent/ExecutorService;"
+          },
+          "digest": "sha256:0369bec6eca06af18e15f7d37bb030eab74df6169ff5cced0f7f8834e74df84c",
+          "sourceIds": [
+            "shared-queue-source-f5065537a111e06c6e39"
+          ]
+        },
+        "shared-queue-source:flow:094daba907bdd1a290dfba79": {
+          "id": "shared-queue-source:flow:094daba907bdd1a290dfba79",
+          "kind": "FLOW",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+          "normalized": {
+            "http": {},
+            "kind": "CALL",
+            "ordinal": 8,
+            "resolution": "COMPILER_EXACT",
+            "scope": ":/main",
+            "target": "method:class:java.util.concurrent.ExecutorService#submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;"
+          },
+          "digest": "sha256:531c780e37d9ff87e030175b7fdb1cee21a5623893650dc12ca7ca38f97ad357",
+          "sourceIds": [
+            "shared-queue-source-094daba907bdd1a290df"
+          ]
+        },
+        "shared-queue-source:flow:0a19a67c1b62a7ec529310de": {
+          "id": "shared-queue-source:flow:0a19a67c1b62a7ec529310de",
+          "kind": "FLOW",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+          "normalized": {
+            "http": {},
+            "kind": "CALL",
+            "ordinal": 9,
+            "resolution": "COMPILER_EXACT",
+            "scope": ":/main",
+            "target": "method:class:java.util.concurrent.Executors#newSingleThreadExecutor()Ljava/util/concurrent/ExecutorService;"
+          },
+          "digest": "sha256:237b28ca8a39b4982e72a6cf170b97a8b6eb469ec493de8c089d63a884c8c346",
+          "sourceIds": [
+            "shared-queue-source-0a19a67c1b62a7ec5293"
+          ]
+        },
+        "shared-queue-source:flow:0a61331e9d9ef0ffd64c3085": {
+          "id": "shared-queue-source:flow:0a61331e9d9ef0ffd64c3085",
+          "kind": "FLOW",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+          "normalized": {
+            "kind": "LOCAL",
+            "ordinal": 3,
+            "scope": ":/main"
+          },
+          "digest": "sha256:da8c8e6cd9c27a2b187fae2e5cb4ed6ad2720f7ec3f11d3ef8ae68d0897d9f0d",
+          "sourceIds": [
+            "shared-queue-source-0a61331e9d9ef0ffd64c"
+          ]
+        },
+        "shared-queue-source:flow:2625f0f74c9b3c8cf07f7547": {
+          "id": "shared-queue-source:flow:2625f0f74c9b3c8cf07f7547",
+          "kind": "FLOW",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#<init>(Ljava/util/concurrent/BlockingQueue;)V",
+          "normalized": {
+            "http": {},
+            "kind": "CALL",
+            "ordinal": 0,
+            "resolution": "COMPILER_EXACT",
+            "scope": ":/main",
+            "target": "method:class:java.lang.Object#<init>()V"
+          },
+          "digest": "sha256:9d635cc2ac160b41988a5a9b2f16aa96b9c56e0873ae49d1b67107006cbbe262",
+          "sourceIds": []
+        },
+        "shared-queue-source:flow:45c7f0e8cb4d3545171c5d4b": {
+          "id": "shared-queue-source:flow:45c7f0e8cb4d3545171c5d4b",
+          "kind": "FLOW",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#putOnQueue(Ljava/lang/String;)V",
+          "normalized": {
+            "http": {},
+            "kind": "CALL",
+            "ordinal": 0,
+            "resolution": "COMPILER_EXACT",
+            "scope": ":/main",
+            "target": "method:class:java.util.concurrent.BlockingQueue#add(Ljava/lang/Object;)Z"
+          },
+          "digest": "sha256:0c0ccb8bb9b0d83b3b4b2f87f1ea4442025d55e2c1296a62113813434781ca4e",
+          "sourceIds": [
+            "shared-queue-source-45c7f0e8cb4d3545171c"
+          ]
+        },
+        "shared-queue-source:flow:489853113555c7f1f0b97b72": {
+          "id": "shared-queue-source:flow:489853113555c7f1f0b97b72",
+          "kind": "FLOW",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#<init>(Ljava/util/concurrent/BlockingQueue;)V",
+          "normalized": {
+            "kind": "STATEMENT",
+            "ordinal": 1,
+            "scope": ":/main"
+          },
+          "digest": "sha256:06f56032060d8ff17b3d23fab6223644db884521f0d9c45567797592f8197d60",
+          "sourceIds": [
+            "shared-queue-source-489853113555c7f1f0b9"
+          ]
+        },
+        "shared-queue-source:flow:48cb7db6692a0a865cab570c": {
+          "id": "shared-queue-source:flow:48cb7db6692a0a865cab570c",
+          "kind": "FLOW",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+          "normalized": {
+            "kind": "CONSTRUCT",
+            "ordinal": 4,
+            "resolution": "COMPILER_EXACT",
+            "scope": ":/main",
+            "target": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#<init>(Ljava/util/concurrent/BlockingQueue;)V"
+          },
+          "digest": "sha256:d7e648304af99d1f434220d7d2fc5703ee23a0885e82607da48dff089d16f9e0",
+          "sourceIds": [
+            "shared-queue-source-48cb7db6692a0a865cab"
+          ]
+        },
+        "shared-queue-source:flow:5f257fc4437b3d8e01fc6244": {
+          "id": "shared-queue-source:flow:5f257fc4437b3d8e01fc6244",
+          "kind": "FLOW",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#<init>(Ljava/util/concurrent/BlockingQueue;)V",
+          "normalized": {
+            "http": {},
+            "kind": "CALL",
+            "ordinal": 0,
+            "resolution": "COMPILER_EXACT",
+            "scope": ":/main",
+            "target": "method:class:java.lang.Object#<init>()V"
+          },
+          "digest": "sha256:9d635cc2ac160b41988a5a9b2f16aa96b9c56e0873ae49d1b67107006cbbe262",
+          "sourceIds": []
+        },
+        "shared-queue-source:flow:66eedde73b15e7923c2fa2d2": {
+          "id": "shared-queue-source:flow:66eedde73b15e7923c2fa2d2",
+          "kind": "FLOW",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+          "normalized": {
+            "kind": "LOCAL",
+            "ordinal": 5,
+            "scope": ":/main"
+          },
+          "digest": "sha256:d946ee21f843f36c52ff5e309abab3ccd2f4a3fc918da998f4f5f4448c18e9cf",
+          "sourceIds": [
+            "shared-queue-source-66eedde73b15e7923c2f"
+          ]
+        },
+        "shared-queue-source:flow:7ab4bc14c715d37ce889285a": {
+          "id": "shared-queue-source:flow:7ab4bc14c715d37ce889285a",
+          "kind": "FLOW",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#<init>(Ljava/util/concurrent/BlockingQueue;)V",
+          "normalized": {
+            "kind": "STATEMENT",
+            "ordinal": 1,
+            "scope": ":/main"
+          },
+          "digest": "sha256:06f56032060d8ff17b3d23fab6223644db884521f0d9c45567797592f8197d60",
+          "sourceIds": [
+            "shared-queue-source-7ab4bc14c715d37ce889"
+          ]
+        },
+        "shared-queue-source:flow:a24a4a388c1ec24eff487c8b": {
+          "id": "shared-queue-source:flow:a24a4a388c1ec24eff487c8b",
+          "kind": "FLOW",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+          "normalized": {
+            "kind": "CONSTRUCT",
+            "ordinal": 7,
+            "resolution": "COMPILER_EXACT",
+            "scope": ":/main",
+            "target": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp$1#<init>()V"
+          },
+          "digest": "sha256:b32a07e356c49430feb3ec36d4e8d56f1b3aa86bd889e43bdedf2f6beaa13247",
+          "sourceIds": [
+            "shared-queue-source-a24a4a388c1ec24eff48"
+          ]
+        },
+        "shared-queue-source:flow:ab52aaec85661e87068ebbe4": {
+          "id": "shared-queue-source:flow:ab52aaec85661e87068ebbe4",
+          "kind": "FLOW",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+          "normalized": {
+            "http": {},
+            "kind": "CALL",
+            "ordinal": 6,
+            "resolution": "COMPILER_EXACT",
+            "scope": ":/main",
+            "target": "method:class:java.util.concurrent.Executors#newSingleThreadExecutor()Ljava/util/concurrent/ExecutorService;"
+          },
+          "digest": "sha256:08936a1d503e3641ce0b8584615eea38f21defab1b4a2b178e2a1d13c0f38fb8",
+          "sourceIds": [
+            "shared-queue-source-ab52aaec85661e87068e"
+          ]
+        },
+        "shared-queue-source:flow:bc8528af13ff9f6b02c76a68": {
+          "id": "shared-queue-source:flow:bc8528af13ff9f6b02c76a68",
+          "kind": "FLOW",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#takeFromQueue()V",
+          "normalized": {
+            "http": {},
+            "kind": "CALL",
+            "ordinal": 0,
+            "resolution": "COMPILER_EXACT",
+            "scope": ":/main",
+            "target": "method:class:java.util.concurrent.BlockingQueue#take()Ljava/lang/Object;"
+          },
+          "digest": "sha256:f61a72c2a0aca586d9a2c4f8b547630f5782ff81b15e1daf9a919213c4f124c8",
+          "sourceIds": [
+            "shared-queue-source-bc8528af13ff9f6b02c7"
+          ]
+        },
+        "shared-queue-source:flow:bfd3f8a1470b710871b0fcfd": {
+          "id": "shared-queue-source:flow:bfd3f8a1470b710871b0fcfd",
+          "kind": "FLOW",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+          "normalized": {
+            "kind": "CONSTRUCT",
+            "ordinal": 10,
+            "resolution": "COMPILER_EXACT",
+            "scope": ":/main",
+            "target": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp$2#<init>()V"
+          },
+          "digest": "sha256:15d7cfe1660c08c1db3faca54723c7a2a0ed243bc693b79087f9d492dee61e94",
+          "sourceIds": [
+            "shared-queue-source-bfd3f8a1470b710871b0"
+          ]
+        },
+        "shared-queue-source:flow:c2991303e308b4c89dbefcba": {
+          "id": "shared-queue-source:flow:c2991303e308b4c89dbefcba",
+          "kind": "FLOW",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+          "normalized": {
+            "kind": "LOCAL",
+            "ordinal": 1,
+            "scope": ":/main"
+          },
+          "digest": "sha256:ce5b211cb5681199896bd8df8754a3ae91b635e69d359ba5abc9f3357981f23f",
+          "sourceIds": [
+            "shared-queue-source-c2991303e308b4c89dbe"
+          ]
+        },
+        "shared-queue-source:flow:cc3116ad136782ee35e3d359": {
+          "id": "shared-queue-source:flow:cc3116ad136782ee35e3d359",
+          "kind": "FLOW",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+          "normalized": {
+            "kind": "CONSTRUCT",
+            "ordinal": 2,
+            "resolution": "COMPILER_EXACT",
+            "scope": ":/main",
+            "target": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#<init>(Ljava/util/concurrent/BlockingQueue;)V"
+          },
+          "digest": "sha256:c2c46b9c1862045b30ddc5ec64f0a95b54c42edddbc05b2d9593447994246e45",
+          "sourceIds": [
+            "shared-queue-source-cc3116ad136782ee35e3"
+          ]
+        },
+        "shared-queue-source:flow:dc2455500db045e9006cd2bc": {
+          "id": "shared-queue-source:flow:dc2455500db045e9006cd2bc",
+          "kind": "FLOW",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+          "normalized": {
+            "kind": "CONSTRUCT",
+            "ordinal": 0,
+            "resolution": "COMPILER_EXACT",
+            "scope": ":/main",
+            "target": "method:class:java.util.concurrent.LinkedBlockingQueue#<init>()V"
+          },
+          "digest": "sha256:c8270945541e727322291619cbb04804027cb6a76c9a47e8ac239d9b07bf14f4",
+          "sourceIds": [
+            "shared-queue-source-dc2455500db045e9006c"
+          ]
+        },
+        "shared-queue-source:flow:e50ec30283ecc833a3ebcca7": {
+          "id": "shared-queue-source:flow:e50ec30283ecc833a3ebcca7",
+          "kind": "FLOW",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+          "normalized": {
+            "http": {},
+            "kind": "CALL",
+            "ordinal": 11,
+            "resolution": "COMPILER_EXACT",
+            "scope": ":/main",
+            "target": "method:class:java.util.concurrent.ExecutorService#submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;"
+          },
+          "digest": "sha256:7ea4d3bbccc123b3df2ad5d353d12d715dc955a174bfa6bfbabef5814c59bb5b",
+          "sourceIds": [
+            "shared-queue-source-e50ec30283ecc833a3eb"
+          ]
+        },
+        "shared-queue-source:flow:f885cfc5341df633ec027d89": {
+          "id": "shared-queue-source:flow:f885cfc5341df633ec027d89",
+          "kind": "FLOW",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#takeFromQueue()V",
+          "normalized": {
+            "http": {},
+            "kind": "CALL",
+            "ordinal": 1,
+            "resolution": "COMPILER_EXACT",
+            "scope": ":/main",
+            "target": "method:class:java.io.PrintStream#println(Ljava/lang/Object;)V"
+          },
+          "digest": "sha256:2d01abf5fbff3c294ae0dddb2d4490cecdf01b64916f42e0f0b162f33df2a74f",
+          "sourceIds": [
+            "shared-queue-source-f885cfc5341df633ec02"
+          ]
+        },
+        "shared-queue-source:symbol:2e9c47eb78fec504fc3e0842": {
+          "id": "shared-queue-source:symbol:2e9c47eb78fec504fc3e0842",
+          "kind": "SYMBOL",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+          "normalized": {
+            "annotations": [],
+            "declarationKind": "METHOD",
+            "documentation": {
+              "authority": "JAVAC_SOURCE_STRUCTURE",
+              "boundaries": [
+                "LOCAL_CLASS_BODY_NOT_EXPANDED"
+              ],
+              "events": [
+                {
+                  "kind": "CONSTRUCT",
+                  "resolution": "COMPILER_EXACT",
+                  "target": "method:class:java.util.concurrent.LinkedBlockingQueue#<init>()V"
+                },
+                {
+                  "kind": "LOCAL"
+                },
+                {
+                  "kind": "CONSTRUCT",
+                  "resolution": "COMPILER_EXACT",
+                  "target": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#<init>(Ljava/util/concurrent/BlockingQueue;)V"
+                },
+                {
+                  "kind": "LOCAL"
+                },
+                {
+                  "kind": "CONSTRUCT",
+                  "resolution": "COMPILER_EXACT",
+                  "target": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#<init>(Ljava/util/concurrent/BlockingQueue;)V"
+                },
+                {
+                  "kind": "LOCAL"
+                },
+                {
+                  "http": {},
+                  "kind": "CALL",
+                  "resolution": "COMPILER_EXACT",
+                  "target": "method:class:java.util.concurrent.Executors#newSingleThreadExecutor()Ljava/util/concurrent/ExecutorService;"
+                },
+                {
+                  "kind": "CONSTRUCT",
+                  "resolution": "COMPILER_EXACT",
+                  "target": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp$1#<init>()V"
+                },
+                {
+                  "http": {},
+                  "kind": "CALL",
+                  "resolution": "COMPILER_EXACT",
+                  "target": "method:class:java.util.concurrent.ExecutorService#submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;"
+                },
+                {
+                  "http": {},
+                  "kind": "CALL",
+                  "resolution": "COMPILER_EXACT",
+                  "target": "method:class:java.util.concurrent.Executors#newSingleThreadExecutor()Ljava/util/concurrent/ExecutorService;"
+                },
+                {
+                  "kind": "CONSTRUCT",
+                  "resolution": "COMPILER_EXACT",
+                  "target": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp$2#<init>()V"
+                },
+                {
+                  "http": {},
+                  "kind": "CALL",
+                  "resolution": "COMPILER_EXACT",
+                  "target": "method:class:java.util.concurrent.ExecutorService#submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;"
+                }
+              ],
+              "parameterTypes": [
+                "java.lang.String[]"
+              ],
+              "schema": "codeclew-java-documentation-flow/1.0"
+            },
+            "jvmAnnotations": {
+              "authority": "JAVAC_RESOLVED_ANNOTATIONS",
+              "boundaries": [],
+              "callables": [
+                {
+                  "abstractMethod": false,
+                  "beanClass": "class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp",
+                  "classes": [
+                    {
+                      "annotations": [],
+                      "directSupertypes": [
+                        "java.lang.Object"
+                      ],
+                      "identity": "class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp"
+                    },
+                    {
+                      "annotations": [],
+                      "directSupertypes": [],
+                      "identity": "class:java.lang.Object"
+                    }
+                  ],
+                  "implementationSource": true,
+                  "inherited": false,
+                  "method": {
+                    "annotations": [],
+                    "identity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+                    "overrides": []
+                  }
+                }
+              ],
+              "coverage": {
+                "scope": "REACHABLE_ANNOTATIONS_AND_HIERARCHY",
+                "status": "COMPLETE"
+              },
+              "declaration": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+              "definitions": {},
+              "schema": "jvm-annotation-facts/1.0",
+              "types": []
+            },
+            "jvmDescriptor": "([Ljava/lang/String;)V",
+            "kind": "DECLARATION",
+            "modifiers": [
+              "PUBLIC",
+              "STATIC"
+            ],
+            "name": "main",
+            "ownerIdentity": "class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp",
+            "resolution": "COMPILER_EXACT",
+            "schema": "codeclew-java-compiler-fact/1.0",
+            "scope": ":/main",
+            "sourceTokens": [
+              "public",
+              "static",
+              "void",
+              "main",
+              "(",
+              "String",
+              "[",
+              "]",
+              "args",
+              ")",
+              "{",
+              "BlockingQueue",
+              "<",
+              "String",
+              ">",
+              "queue",
+              "=",
+              "new",
+              "LinkedBlockingQueue",
+              "<",
+              "String",
+              ">",
+              "(",
+              ")",
+              ";",
+              "final",
+              "BlockingQueueConsumer",
+              "consumer",
+              "=",
+              "new",
+              "BlockingQueueConsumer",
+              "(",
+              "queue",
+              ")",
+              ";",
+              "final",
+              "BlockingQueueProducer",
+              "producer",
+              "=",
+              "new",
+              "BlockingQueueProducer",
+              "(",
+              "queue",
+              ")",
+              ";",
+              "Executors",
+              ".",
+              "newSingleThreadExecutor",
+              "(",
+              ")",
+              ".",
+              "submit",
+              "(",
+              "new",
+              "Runnable",
+              "(",
+              ")",
+              "{",
+              "@",
+              "Override",
+              "public",
+              "void",
+              "run",
+              "(",
+              ")",
+              "{",
+              "try",
+              "{",
+              "producer",
+              ".",
+              "produce",
+              "(",
+              ")",
+              ";",
+              "}",
+              "catch",
+              "(",
+              "InterruptedException",
+              "e",
+              ")",
+              "{",
+              "}",
+              "}",
+              "}",
+              ")",
+              ";",
+              "Executors",
+              ".",
+              "newSingleThreadExecutor",
+              "(",
+              ")",
+              ".",
+              "submit",
+              "(",
+              "new",
+              "Runnable",
+              "(",
+              ")",
+              "{",
+              "@",
+              "Override",
+              "public",
+              "void",
+              "run",
+              "(",
+              ")",
+              "{",
+              "try",
+              "{",
+              "consumer",
+              ".",
+              "consume",
+              "(",
+              ")",
+              ";",
+              "}",
+              "catch",
+              "(",
+              "InterruptedException",
+              "e",
+              ")",
+              "{",
+              "}",
+              "}",
+              "}",
+              ")",
+              ";",
+              "}"
+            ],
+            "symbolIdentity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+            "valueProjection": {
+              "globalBoundaries": [
+                "JAVA_VALUE_EFFECT_EXCEPTION_MODEL_UNAVAILABLE"
+              ],
+              "nodes": [
+                {
+                  "guards": [],
+                  "id": "result",
+                  "operation": {
+                    "boundary": "JAVA_VALUE_BODY_OR_BUDGET_UNSUPPORTED",
+                    "kind": "UNKNOWN"
+                  }
+                }
+              ],
+              "owner": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumerProducerApp#main([Ljava/lang/String;)V",
+              "schema": "javac-value-projection/0.1"
+            }
+          },
+          "digest": "sha256:e0ebb0ec29cf86a82f70347f9c990322a99a4b2d8b02056d846d188a98729ed3",
+          "sourceIds": [
+            "shared-queue-source-2e9c47eb78fec504fc3e"
+          ]
+        },
+        "shared-queue-source:symbol:732b24863ce495eb939554ab": {
+          "id": "shared-queue-source:symbol:732b24863ce495eb939554ab",
+          "kind": "SYMBOL",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#<init>(Ljava/util/concurrent/BlockingQueue;)V",
+          "normalized": {
+            "annotations": [],
+            "declarationKind": "CONSTRUCTOR",
+            "documentation": {
+              "authority": "JAVAC_SOURCE_STRUCTURE",
+              "boundaries": [],
+              "events": [
+                {
+                  "http": {},
+                  "kind": "CALL",
+                  "resolution": "COMPILER_EXACT",
+                  "target": "method:class:java.lang.Object#<init>()V"
+                },
+                {
+                  "kind": "STATEMENT"
+                }
+              ],
+              "parameterTypes": [
+                "java.util.concurrent.BlockingQueue"
+              ],
+              "schema": "codeclew-java-documentation-flow/1.0"
+            },
+            "jvmDescriptor": "(Ljava/util/concurrent/BlockingQueue;)V",
+            "kind": "DECLARATION",
+            "modifiers": [
+              "PUBLIC"
+            ],
+            "name": "<init>",
+            "ownerIdentity": "class:pl.mjedynak.concurrency.queue.BlockingQueueProducer",
+            "resolution": "COMPILER_EXACT",
+            "schema": "codeclew-java-compiler-fact/1.0",
+            "scope": ":/main",
+            "sourceTokens": [
+              "public",
+              "BlockingQueueProducer",
+              "(",
+              "BlockingQueue",
+              "queue",
+              ")",
+              "{",
+              "this",
+              ".",
+              "queue",
+              "=",
+              "queue",
+              ";",
+              "}"
+            ],
+            "symbolIdentity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#<init>(Ljava/util/concurrent/BlockingQueue;)V"
+          },
+          "digest": "sha256:03c97eb6b6b13d7a1bd7965b09b62aed98d3dd2d3e47240c63b346c5dc187c88",
+          "sourceIds": [
+            "shared-queue-source-732b24863ce495eb9395"
+          ]
+        },
+        "shared-queue-source:symbol:73a38a2577d6ae88c062a24a": {
+          "id": "shared-queue-source:symbol:73a38a2577d6ae88c062a24a",
+          "kind": "SYMBOL",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#<init>(Ljava/util/concurrent/BlockingQueue;)V",
+          "normalized": {
+            "annotations": [],
+            "declarationKind": "CONSTRUCTOR",
+            "documentation": {
+              "authority": "JAVAC_SOURCE_STRUCTURE",
+              "boundaries": [],
+              "events": [
+                {
+                  "http": {},
+                  "kind": "CALL",
+                  "resolution": "COMPILER_EXACT",
+                  "target": "method:class:java.lang.Object#<init>()V"
+                },
+                {
+                  "kind": "STATEMENT"
+                }
+              ],
+              "parameterTypes": [
+                "java.util.concurrent.BlockingQueue"
+              ],
+              "schema": "codeclew-java-documentation-flow/1.0"
+            },
+            "jvmDescriptor": "(Ljava/util/concurrent/BlockingQueue;)V",
+            "kind": "DECLARATION",
+            "modifiers": [
+              "PUBLIC"
+            ],
+            "name": "<init>",
+            "ownerIdentity": "class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer",
+            "resolution": "COMPILER_EXACT",
+            "schema": "codeclew-java-compiler-fact/1.0",
+            "scope": ":/main",
+            "sourceTokens": [
+              "public",
+              "BlockingQueueConsumer",
+              "(",
+              "BlockingQueue",
+              "queue",
+              ")",
+              "{",
+              "this",
+              ".",
+              "queue",
+              "=",
+              "queue",
+              ";",
+              "}"
+            ],
+            "symbolIdentity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#<init>(Ljava/util/concurrent/BlockingQueue;)V"
+          },
+          "digest": "sha256:4cbc3adc9909e6f9e8d3da25e2d4d9e54605546e416ae47a9bde9be1fe80e069",
+          "sourceIds": [
+            "shared-queue-source-73a38a2577d6ae88c062"
+          ]
+        },
+        "shared-queue-source:symbol:8805de2f739eb38ddeca5688": {
+          "id": "shared-queue-source:symbol:8805de2f739eb38ddeca5688",
+          "kind": "SYMBOL",
+          "service": "shared-queue-source",
+          "symbol": "field:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#queue:Ljava/util/concurrent/BlockingQueue;",
+          "normalized": {
+            "annotations": [],
+            "declarationKind": "FIELD",
+            "jvmDescriptor": "Ljava/util/concurrent/BlockingQueue;",
+            "kind": "DECLARATION",
+            "modifiers": [
+              "PRIVATE"
+            ],
+            "name": "queue",
+            "ownerIdentity": "class:pl.mjedynak.concurrency.queue.BlockingQueueProducer",
+            "resolution": "COMPILER_EXACT",
+            "schema": "codeclew-java-compiler-fact/1.0",
+            "scope": ":/main",
+            "sourceTokens": [
+              "private",
+              "BlockingQueue",
+              "<",
+              "String",
+              ">",
+              "queue",
+              ";"
+            ],
+            "symbolIdentity": "field:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#queue:Ljava/util/concurrent/BlockingQueue;"
+          },
+          "digest": "sha256:779f254411b82fc61a6dd6e47192b6ddab747592ddcd22eb2699cdffe839128a",
+          "sourceIds": [
+            "shared-queue-source-8805de2f739eb38ddeca"
+          ]
+        },
+        "shared-queue-source:symbol:963812fe3d9b8af29e3dc64d": {
+          "id": "shared-queue-source:symbol:963812fe3d9b8af29e3dc64d",
+          "kind": "SYMBOL",
+          "service": "shared-queue-source",
+          "symbol": "field:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#queue:Ljava/util/concurrent/BlockingQueue;",
+          "normalized": {
+            "annotations": [],
+            "declarationKind": "FIELD",
+            "jvmDescriptor": "Ljava/util/concurrent/BlockingQueue;",
+            "kind": "DECLARATION",
+            "modifiers": [
+              "PRIVATE"
+            ],
+            "name": "queue",
+            "ownerIdentity": "class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer",
+            "resolution": "COMPILER_EXACT",
+            "schema": "codeclew-java-compiler-fact/1.0",
+            "scope": ":/main",
+            "sourceTokens": [
+              "private",
+              "BlockingQueue",
+              "queue",
+              ";"
+            ],
+            "symbolIdentity": "field:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#queue:Ljava/util/concurrent/BlockingQueue;"
+          },
+          "digest": "sha256:8fe467407a24e196d6f3a8ea5c1b2358b694cf30ba0281c74d3124649b9cc02e",
+          "sourceIds": [
+            "shared-queue-source-963812fe3d9b8af29e3d"
+          ]
+        },
+        "shared-queue-source:symbol:bcde5e20707afc3779e3457a": {
+          "id": "shared-queue-source:symbol:bcde5e20707afc3779e3457a",
+          "kind": "SYMBOL",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#putOnQueue(Ljava/lang/String;)V",
+          "normalized": {
+            "annotations": [],
+            "declarationKind": "METHOD",
+            "documentation": {
+              "authority": "JAVAC_SOURCE_STRUCTURE",
+              "boundaries": [],
+              "events": [
+                {
+                  "http": {},
+                  "kind": "CALL",
+                  "resolution": "COMPILER_EXACT",
+                  "target": "method:class:java.util.concurrent.BlockingQueue#add(Ljava/lang/Object;)Z"
+                }
+              ],
+              "parameterTypes": [
+                "java.lang.String"
+              ],
+              "schema": "codeclew-java-documentation-flow/1.0"
+            },
+            "jvmAnnotations": {
+              "authority": "JAVAC_RESOLVED_ANNOTATIONS",
+              "boundaries": [],
+              "callables": [
+                {
+                  "abstractMethod": false,
+                  "beanClass": "class:pl.mjedynak.concurrency.queue.BlockingQueueProducer",
+                  "classes": [
+                    {
+                      "annotations": [],
+                      "directSupertypes": [
+                        "java.lang.Object"
+                      ],
+                      "identity": "class:pl.mjedynak.concurrency.queue.BlockingQueueProducer"
+                    },
+                    {
+                      "annotations": [],
+                      "directSupertypes": [],
+                      "identity": "class:java.lang.Object"
+                    }
+                  ],
+                  "implementationSource": true,
+                  "inherited": false,
+                  "method": {
+                    "annotations": [],
+                    "identity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#putOnQueue(Ljava/lang/String;)V",
+                    "overrides": []
+                  }
+                }
+              ],
+              "coverage": {
+                "scope": "REACHABLE_ANNOTATIONS_AND_HIERARCHY",
+                "status": "COMPLETE"
+              },
+              "declaration": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#putOnQueue(Ljava/lang/String;)V",
+              "definitions": {},
+              "schema": "jvm-annotation-facts/1.0",
+              "types": []
+            },
+            "jvmDescriptor": "(Ljava/lang/String;)V",
+            "kind": "DECLARATION",
+            "modifiers": [
+              "PRIVATE"
+            ],
+            "name": "putOnQueue",
+            "ownerIdentity": "class:pl.mjedynak.concurrency.queue.BlockingQueueProducer",
+            "resolution": "COMPILER_EXACT",
+            "schema": "codeclew-java-compiler-fact/1.0",
+            "scope": ":/main",
+            "sourceTokens": [
+              "private",
+              "void",
+              "putOnQueue",
+              "(",
+              "String",
+              "message",
+              ")",
+              "{",
+              "queue",
+              ".",
+              "add",
+              "(",
+              "message",
+              ")",
+              ";",
+              "}"
+            ],
+            "symbolIdentity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#putOnQueue(Ljava/lang/String;)V",
+            "valueProjection": {
+              "globalBoundaries": [
+                "JAVA_VALUE_EFFECT_EXCEPTION_MODEL_UNAVAILABLE"
+              ],
+              "nodes": [
+                {
+                  "guards": [],
+                  "id": "result",
+                  "operation": {
+                    "boundary": "JAVA_VALUE_BODY_OR_BUDGET_UNSUPPORTED",
+                    "kind": "UNKNOWN"
+                  }
+                }
+              ],
+              "owner": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#putOnQueue(Ljava/lang/String;)V",
+              "schema": "javac-value-projection/0.1"
+            }
+          },
+          "digest": "sha256:a43d3c98d04644426fcf0cfb20207ad4819a78235b687f2c2ee5a0e9095299d7",
+          "sourceIds": [
+            "shared-queue-source-bcde5e20707afc3779e3"
+          ]
+        },
+        "shared-queue-source:symbol:da500a45fd46cde65cf09e7e": {
+          "id": "shared-queue-source:symbol:da500a45fd46cde65cf09e7e",
+          "kind": "SYMBOL",
+          "service": "shared-queue-source",
+          "symbol": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#takeFromQueue()V",
+          "normalized": {
+            "annotations": [],
+            "declarationKind": "METHOD",
+            "documentation": {
+              "authority": "JAVAC_SOURCE_STRUCTURE",
+              "boundaries": [],
+              "events": [
+                {
+                  "http": {},
+                  "kind": "CALL",
+                  "resolution": "COMPILER_EXACT",
+                  "target": "method:class:java.util.concurrent.BlockingQueue#take()Ljava/lang/Object;"
+                },
+                {
+                  "http": {},
+                  "kind": "CALL",
+                  "resolution": "COMPILER_EXACT",
+                  "target": "method:class:java.io.PrintStream#println(Ljava/lang/Object;)V"
+                }
+              ],
+              "parameterTypes": [],
+              "schema": "codeclew-java-documentation-flow/1.0"
+            },
+            "jvmAnnotations": {
+              "authority": "JAVAC_RESOLVED_ANNOTATIONS",
+              "boundaries": [],
+              "callables": [
+                {
+                  "abstractMethod": false,
+                  "beanClass": "class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer",
+                  "classes": [
+                    {
+                      "annotations": [],
+                      "directSupertypes": [
+                        "java.lang.Object"
+                      ],
+                      "identity": "class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer"
+                    },
+                    {
+                      "annotations": [],
+                      "directSupertypes": [],
+                      "identity": "class:java.lang.Object"
+                    }
+                  ],
+                  "implementationSource": true,
+                  "inherited": false,
+                  "method": {
+                    "annotations": [],
+                    "identity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#takeFromQueue()V",
+                    "overrides": []
+                  }
+                }
+              ],
+              "coverage": {
+                "scope": "REACHABLE_ANNOTATIONS_AND_HIERARCHY",
+                "status": "COMPLETE"
+              },
+              "declaration": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#takeFromQueue()V",
+              "definitions": {},
+              "schema": "jvm-annotation-facts/1.0",
+              "types": []
+            },
+            "jvmDescriptor": "()V",
+            "kind": "DECLARATION",
+            "modifiers": [
+              "PRIVATE"
+            ],
+            "name": "takeFromQueue",
+            "ownerIdentity": "class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer",
+            "resolution": "COMPILER_EXACT",
+            "schema": "codeclew-java-compiler-fact/1.0",
+            "scope": ":/main",
+            "sourceTokens": [
+              "private",
+              "void",
+              "takeFromQueue",
+              "(",
+              ")",
+              "throws",
+              "InterruptedException",
+              "{",
+              "System",
+              ".",
+              "out",
+              ".",
+              "println",
+              "(",
+              "queue",
+              ".",
+              "take",
+              "(",
+              ")",
+              ")",
+              ";",
+              "}"
+            ],
+            "symbolIdentity": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#takeFromQueue()V",
+            "valueProjection": {
+              "globalBoundaries": [
+                "JAVA_VALUE_EFFECT_EXCEPTION_MODEL_UNAVAILABLE"
+              ],
+              "nodes": [
+                {
+                  "guards": [],
+                  "id": "result",
+                  "operation": {
+                    "boundary": "JAVA_VALUE_BODY_OR_BUDGET_UNSUPPORTED",
+                    "kind": "UNKNOWN"
+                  }
+                }
+              ],
+              "owner": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#takeFromQueue()V",
+              "schema": "javac-value-projection/0.1"
+            }
+          },
+          "digest": "sha256:ed5802ba62181cacf89b19c53ed240eec9a5d1c0e92c6d1a9ff1356a2d7a9707",
+          "sourceIds": [
+            "shared-queue-source-da500a45fd46cde65cf0"
+          ]
+        }
+      },
+      "sources": {
+        "shared-queue-source-08f007636e0585389bb9": {
+          "id": "shared-queue-source-08f007636e0585389bb9",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 14,
+          "endLine": 22,
+          "text": "        Executors.newSingleThreadExecutor().submit(new Runnable() {\n            @Override\n            public void run() {\n                try {\n                    producer.produce();\n                } catch (InterruptedException e) {\n                }\n            }\n        });",
+          "textDigest": "sha256:5bac37a2b682b0163ab9044adbb56070d1a137169463856383cd997e092446a0",
+          "evidenceDigest": "sha256:d07057c64aa9abf0aa11362f506259f75a5de5fa9c3ae081ed7551750335cea2",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L14-L22"
+        },
+        "shared-queue-source-094daba907bdd1a290df": {
+          "id": "shared-queue-source-094daba907bdd1a290df",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 14,
+          "endLine": 22,
+          "text": "        Executors.newSingleThreadExecutor().submit(new Runnable() {\n            @Override\n            public void run() {\n                try {\n                    producer.produce();\n                } catch (InterruptedException e) {\n                }\n            }\n        });",
+          "textDigest": "sha256:5bac37a2b682b0163ab9044adbb56070d1a137169463856383cd997e092446a0",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L14-L22"
+        },
+        "shared-queue-source-0a19a67c1b62a7ec5293": {
+          "id": "shared-queue-source-0a19a67c1b62a7ec5293",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 23,
+          "endLine": 23,
+          "text": "        Executors.newSingleThreadExecutor().submit(new Runnable() {",
+          "textDigest": "sha256:45f357ddb99b5d928c8c2063551bd2d328f973fd8a15a1af4599af1772dc2210",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L23-L23"
+        },
+        "shared-queue-source-0a61331e9d9ef0ffd64c": {
+          "id": "shared-queue-source-0a61331e9d9ef0ffd64c",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 11,
+          "endLine": 11,
+          "text": "        final BlockingQueueConsumer consumer = new BlockingQueueConsumer(queue);",
+          "textDigest": "sha256:33b373ebe8c69b5f5e7a52af2f3f550e326a1f71bb8de128647aba6b77d70d12",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L11-L11"
+        },
+        "shared-queue-source-0dfde73583932770f735": {
+          "id": "shared-queue-source-0dfde73583932770f735",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 23,
+          "endLine": 31,
+          "text": "        Executors.newSingleThreadExecutor().submit(new Runnable() {\n            @Override\n            public void run() {\n                try {\n                    consumer.consume();\n                } catch (InterruptedException e) {\n                }\n            }\n        });",
+          "textDigest": "sha256:342b2cd15d99e3d8db78e18f752ffc34d3e1d76aa4976c273caa2496621f42ad",
+          "evidenceDigest": "sha256:b0eeaf4afe28ef9ee931bbe6cce1bbd456002af7137f12e5f5c7f497151fe0e5",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L23-L31"
+        },
+        "shared-queue-source-2758dbb0c99ba8957ff3": {
+          "id": "shared-queue-source-2758dbb0c99ba8957ff3",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 23,
+          "endLine": 23,
+          "text": "        Executors.newSingleThreadExecutor().submit(new Runnable() {",
+          "textDigest": "sha256:45f357ddb99b5d928c8c2063551bd2d328f973fd8a15a1af4599af1772dc2210",
+          "evidenceDigest": "sha256:7b0cc3a5a280d1acf62bc92632e5930b89f1d2bdbb8ce04245f053ecfe86b697",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L23-L23"
+        },
+        "shared-queue-source-27d4ed1434c5aeabc947": {
+          "id": "shared-queue-source-27d4ed1434c5aeabc947",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 12,
+          "endLine": 12,
+          "text": "        final BlockingQueueProducer producer = new BlockingQueueProducer(queue);",
+          "textDigest": "sha256:edfa186ceb9b8351eb2b5235779afc3c39c1c7429edf2326f0d98cfeb804a030",
+          "evidenceDigest": "sha256:5b466eee09e666e71f51496341ddc6cfdc89bfaea58b219c4a756561f4e79105",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L12-L12"
+        },
+        "shared-queue-source-2e9c47eb78fec504fc3e": {
+          "id": "shared-queue-source-2e9c47eb78fec504fc3e",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 9,
+          "endLine": 32,
+          "text": "    public static void main(String[] args) {\n        BlockingQueue<String> queue = new LinkedBlockingQueue<String>();\n        final BlockingQueueConsumer consumer = new BlockingQueueConsumer(queue);\n        final BlockingQueueProducer producer = new BlockingQueueProducer(queue);\n\n        Executors.newSingleThreadExecutor().submit(new Runnable() {\n            @Override\n            public void run() {\n                try {\n                    producer.produce();\n                } catch (InterruptedException e) {\n                }\n            }\n        });\n        Executors.newSingleThreadExecutor().submit(new Runnable() {\n            @Override\n            public void run() {\n                try {\n                    consumer.consume();\n                } catch (InterruptedException e) {\n                }\n            }\n        });\n    }",
+          "textDigest": "sha256:34808751fbb21e7e5b2cac1baf5c0c40c0a1eb500cd8e470f79fbd5210fa490f",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L9-L32"
+        },
+        "shared-queue-source-36d8b0f9ed870a4be7ec": {
+          "id": "shared-queue-source-36d8b0f9ed870a4be7ec",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java",
+          "startLine": 19,
+          "endLine": 19,
+          "text": "        System.out.println(queue.take());",
+          "textDigest": "sha256:40241e2e75225b97719532838ddf66d5f45924f7566cdeced63b3aff63b5199e",
+          "evidenceDigest": "sha256:b0b02ac91b2103977d93832fd183d9f909b74782ea0dcdfd9000e1c767b92d62",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java#L19-L19"
+        },
+        "shared-queue-source-40d9e714296ec8b04e17": {
+          "id": "shared-queue-source-40d9e714296ec8b04e17",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 10,
+          "endLine": 10,
+          "text": "        BlockingQueue<String> queue = new LinkedBlockingQueue<String>();",
+          "textDigest": "sha256:1c448c40dc3e137f90762547921c7a21ddcb635bf91c7b8c6c86abaa7942a081",
+          "evidenceDigest": "sha256:ed8b77bb0ed43838fe4e73e08963e2c1773f9648dcb7baee26461173e50e4415",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L10-L10"
+        },
+        "shared-queue-source-45c7f0e8cb4d3545171c": {
+          "id": "shared-queue-source-45c7f0e8cb4d3545171c",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java",
+          "startLine": 23,
+          "endLine": 23,
+          "text": "        queue.add(message);",
+          "textDigest": "sha256:e59b37be5b07372850e0dd2508f1c442518e6b739e759d75685af0782802c1cf",
+          "evidenceDigest": "sha256:0aa2ec604bb548dc8fda7b3f197ac43c51efcf4346fbe6ec59bb606a52f3e15c",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java#L23-L23"
+        },
+        "shared-queue-source-46e98f0a6464563e40f7": {
+          "id": "shared-queue-source-46e98f0a6464563e40f7",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java",
+          "startLine": 23,
+          "endLine": 23,
+          "text": "        queue.add(message);",
+          "textDigest": "sha256:e59b37be5b07372850e0dd2508f1c442518e6b739e759d75685af0782802c1cf",
+          "evidenceDigest": "sha256:c5c1d0ebc3022f7825f44dbf5a1059d1cf9f249be881eff4f0f4ba64b13d8872",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java#L23-L23"
+        },
+        "shared-queue-source-489853113555c7f1f0b9": {
+          "id": "shared-queue-source-489853113555c7f1f0b9",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java",
+          "startLine": 9,
+          "endLine": 9,
+          "text": "        this.queue = queue;",
+          "textDigest": "sha256:3bd1406a8e75b6e126033bb0a9981da1c1785dc9141d72e21ae952af5197fc9d",
+          "evidenceDigest": "sha256:0cb840b505be5faa3fcbefc089e388eebbe29bb9a6c6ec7a5031b1f123102793",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java#L9-L9"
+        },
+        "shared-queue-source-48cb7db6692a0a865cab": {
+          "id": "shared-queue-source-48cb7db6692a0a865cab",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 12,
+          "endLine": 12,
+          "text": "        final BlockingQueueProducer producer = new BlockingQueueProducer(queue);",
+          "textDigest": "sha256:edfa186ceb9b8351eb2b5235779afc3c39c1c7429edf2326f0d98cfeb804a030",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L12-L12"
+        },
+        "shared-queue-source-5e2f6dd4dee1d6a9d085": {
+          "id": "shared-queue-source-5e2f6dd4dee1d6a9d085",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 14,
+          "endLine": 22,
+          "text": "        Executors.newSingleThreadExecutor().submit(new Runnable() {\n            @Override\n            public void run() {\n                try {\n                    producer.produce();\n                } catch (InterruptedException e) {\n                }\n            }\n        });",
+          "textDigest": "sha256:5bac37a2b682b0163ab9044adbb56070d1a137169463856383cd997e092446a0",
+          "evidenceDigest": "sha256:98862278f6304c1389018221ccc1b8513e4c6cbcd0aa985b418b038b4afdab13",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L14-L22"
+        },
+        "shared-queue-source-66eedde73b15e7923c2f": {
+          "id": "shared-queue-source-66eedde73b15e7923c2f",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 12,
+          "endLine": 12,
+          "text": "        final BlockingQueueProducer producer = new BlockingQueueProducer(queue);",
+          "textDigest": "sha256:edfa186ceb9b8351eb2b5235779afc3c39c1c7429edf2326f0d98cfeb804a030",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L12-L12"
+        },
+        "shared-queue-source-732b24863ce495eb9395": {
+          "id": "shared-queue-source-732b24863ce495eb9395",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java",
+          "startLine": 10,
+          "endLine": 12,
+          "text": "    public BlockingQueueProducer(BlockingQueue queue) {\n        this.queue = queue;\n    }",
+          "textDigest": "sha256:2bf5b0e9ee3156b129e01b611e8512b89db072edf11f05b69b8eb9fc77b06ff9",
+          "evidenceDigest": "sha256:b84086d361abd3a9ca6d90f8eccc73ca3d59c30dfcdc5c3749f4db5cf2946fdd",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java#L10-L12"
+        },
+        "shared-queue-source-73a38a2577d6ae88c062": {
+          "id": "shared-queue-source-73a38a2577d6ae88c062",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java",
+          "startLine": 8,
+          "endLine": 10,
+          "text": "    public BlockingQueueConsumer(BlockingQueue queue) {\n        this.queue = queue;\n    }",
+          "textDigest": "sha256:bbbb4262a043925172682d90b4b7063cc9c00e345255d0cbdb6826fee5821683",
+          "evidenceDigest": "sha256:0cb840b505be5faa3fcbefc089e388eebbe29bb9a6c6ec7a5031b1f123102793",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java#L8-L10"
+        },
+        "shared-queue-source-74b2cc1b39e0df62c315": {
+          "id": "shared-queue-source-74b2cc1b39e0df62c315",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java",
+          "startLine": 19,
+          "endLine": 19,
+          "text": "        System.out.println(queue.take());",
+          "textDigest": "sha256:40241e2e75225b97719532838ddf66d5f45924f7566cdeced63b3aff63b5199e",
+          "evidenceDigest": "sha256:d284eed5312df3d35186e929adb94374cecdd2c3a4b58119869d366c49b989d8",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java#L19-L19"
+        },
+        "shared-queue-source-7ab4bc14c715d37ce889": {
+          "id": "shared-queue-source-7ab4bc14c715d37ce889",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java",
+          "startLine": 11,
+          "endLine": 11,
+          "text": "        this.queue = queue;",
+          "textDigest": "sha256:3bd1406a8e75b6e126033bb0a9981da1c1785dc9141d72e21ae952af5197fc9d",
+          "evidenceDigest": "sha256:b84086d361abd3a9ca6d90f8eccc73ca3d59c30dfcdc5c3749f4db5cf2946fdd",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java#L11-L11"
+        },
+        "shared-queue-source-8725faf5d0585986c40c": {
+          "id": "shared-queue-source-8725faf5d0585986c40c",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 11,
+          "endLine": 11,
+          "text": "        final BlockingQueueConsumer consumer = new BlockingQueueConsumer(queue);",
+          "textDigest": "sha256:33b373ebe8c69b5f5e7a52af2f3f550e326a1f71bb8de128647aba6b77d70d12",
+          "evidenceDigest": "sha256:f3755fbffa9e9382ccb9506e462aca093c9a6ec30bcb37c8bbf54bef459322c3",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L11-L11"
+        },
+        "shared-queue-source-8805de2f739eb38ddeca": {
+          "id": "shared-queue-source-8805de2f739eb38ddeca",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java",
+          "startLine": 8,
+          "endLine": 8,
+          "text": "    private BlockingQueue<String> queue;",
+          "textDigest": "sha256:2e73f673ba9bf61739001357eefa67a9023df75b43215effb10f34feb98a377e",
+          "evidenceDigest": "sha256:f6f544523bf0170ee0f41b2a089615a2341a5d267113839943b7c5d9e9054378",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java#L8-L8"
+        },
+        "shared-queue-source-963812fe3d9b8af29e3d": {
+          "id": "shared-queue-source-963812fe3d9b8af29e3d",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java",
+          "startLine": 6,
+          "endLine": 6,
+          "text": "    private BlockingQueue queue;",
+          "textDigest": "sha256:d53aa9f0417f91798bdb5b98f2d79b36c43137a8ebe7c10f8fe24e66ec457618",
+          "evidenceDigest": "sha256:dce53381b08e15a32555e9a92d317a1997a2effa5e21761deaaff290240eb09c",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java#L6-L6"
+        },
+        "shared-queue-source-a1dcbecc2ea264ea6f10": {
+          "id": "shared-queue-source-a1dcbecc2ea264ea6f10",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 23,
+          "endLine": 31,
+          "text": "        Executors.newSingleThreadExecutor().submit(new Runnable() {\n            @Override\n            public void run() {\n                try {\n                    consumer.consume();\n                } catch (InterruptedException e) {\n                }\n            }\n        });",
+          "textDigest": "sha256:342b2cd15d99e3d8db78e18f752ffc34d3e1d76aa4976c273caa2496621f42ad",
+          "evidenceDigest": "sha256:0dfde3316cd946cc1427daea6d596b7a39213012ffa0ca16199b860a7cc80b7d",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L23-L31"
+        },
+        "shared-queue-source-a24a4a388c1ec24eff48": {
+          "id": "shared-queue-source-a24a4a388c1ec24eff48",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 14,
+          "endLine": 22,
+          "text": "        Executors.newSingleThreadExecutor().submit(new Runnable() {\n            @Override\n            public void run() {\n                try {\n                    producer.produce();\n                } catch (InterruptedException e) {\n                }\n            }\n        });",
+          "textDigest": "sha256:5bac37a2b682b0163ab9044adbb56070d1a137169463856383cd997e092446a0",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L14-L22"
+        },
+        "shared-queue-source-ab52aaec85661e87068e": {
+          "id": "shared-queue-source-ab52aaec85661e87068e",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 14,
+          "endLine": 14,
+          "text": "        Executors.newSingleThreadExecutor().submit(new Runnable() {",
+          "textDigest": "sha256:45f357ddb99b5d928c8c2063551bd2d328f973fd8a15a1af4599af1772dc2210",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L14-L14"
+        },
+        "shared-queue-source-bc8528af13ff9f6b02c7": {
+          "id": "shared-queue-source-bc8528af13ff9f6b02c7",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java",
+          "startLine": 19,
+          "endLine": 19,
+          "text": "        System.out.println(queue.take());",
+          "textDigest": "sha256:40241e2e75225b97719532838ddf66d5f45924f7566cdeced63b3aff63b5199e",
+          "evidenceDigest": "sha256:9b8a71d2a1528973aa9d56c8eafe417a2f1a5ef93df908cf09dc20e7c9c6defd",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java#L19-L19"
+        },
+        "shared-queue-source-bcde5e20707afc3779e3": {
+          "id": "shared-queue-source-bcde5e20707afc3779e3",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java",
+          "startLine": 22,
+          "endLine": 24,
+          "text": "    private void putOnQueue(String message) {\n        queue.add(message);\n    }",
+          "textDigest": "sha256:14679a8476f2e06bd304b11dc6c631b29d332f7f65177ed2448d543a73cbee7f",
+          "evidenceDigest": "sha256:0aa2ec604bb548dc8fda7b3f197ac43c51efcf4346fbe6ec59bb606a52f3e15c",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java#L22-L24"
+        },
+        "shared-queue-source-bfd3f8a1470b710871b0": {
+          "id": "shared-queue-source-bfd3f8a1470b710871b0",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 23,
+          "endLine": 31,
+          "text": "        Executors.newSingleThreadExecutor().submit(new Runnable() {\n            @Override\n            public void run() {\n                try {\n                    consumer.consume();\n                } catch (InterruptedException e) {\n                }\n            }\n        });",
+          "textDigest": "sha256:342b2cd15d99e3d8db78e18f752ffc34d3e1d76aa4976c273caa2496621f42ad",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L23-L31"
+        },
+        "shared-queue-source-c2991303e308b4c89dbe": {
+          "id": "shared-queue-source-c2991303e308b4c89dbe",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 10,
+          "endLine": 10,
+          "text": "        BlockingQueue<String> queue = new LinkedBlockingQueue<String>();",
+          "textDigest": "sha256:1c448c40dc3e137f90762547921c7a21ddcb635bf91c7b8c6c86abaa7942a081",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L10-L10"
+        },
+        "shared-queue-source-cc3116ad136782ee35e3": {
+          "id": "shared-queue-source-cc3116ad136782ee35e3",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 11,
+          "endLine": 11,
+          "text": "        final BlockingQueueConsumer consumer = new BlockingQueueConsumer(queue);",
+          "textDigest": "sha256:33b373ebe8c69b5f5e7a52af2f3f550e326a1f71bb8de128647aba6b77d70d12",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L11-L11"
+        },
+        "shared-queue-source-da500a45fd46cde65cf0": {
+          "id": "shared-queue-source-da500a45fd46cde65cf0",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java",
+          "startLine": 18,
+          "endLine": 20,
+          "text": "    private void takeFromQueue() throws InterruptedException {\n        System.out.println(queue.take());\n    }",
+          "textDigest": "sha256:e01e8af4635492b6dfd431d7469d045f9e39ef43f335088bb72b78cae2acb337",
+          "evidenceDigest": "sha256:9b8a71d2a1528973aa9d56c8eafe417a2f1a5ef93df908cf09dc20e7c9c6defd",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java#L18-L20"
+        },
+        "shared-queue-source-dc2455500db045e9006c": {
+          "id": "shared-queue-source-dc2455500db045e9006c",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 10,
+          "endLine": 10,
+          "text": "        BlockingQueue<String> queue = new LinkedBlockingQueue<String>();",
+          "textDigest": "sha256:1c448c40dc3e137f90762547921c7a21ddcb635bf91c7b8c6c86abaa7942a081",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L10-L10"
+        },
+        "shared-queue-source-e50ec30283ecc833a3eb": {
+          "id": "shared-queue-source-e50ec30283ecc833a3eb",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 23,
+          "endLine": 31,
+          "text": "        Executors.newSingleThreadExecutor().submit(new Runnable() {\n            @Override\n            public void run() {\n                try {\n                    consumer.consume();\n                } catch (InterruptedException e) {\n                }\n            }\n        });",
+          "textDigest": "sha256:342b2cd15d99e3d8db78e18f752ffc34d3e1d76aa4976c273caa2496621f42ad",
+          "evidenceDigest": "sha256:d9871ed6703d91a1a041d301549696be9fe7317cc35a062397f85e2d0869c7ea",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L23-L31"
+        },
+        "shared-queue-source-f5065537a111e06c6e39": {
+          "id": "shared-queue-source-f5065537a111e06c6e39",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+          "startLine": 14,
+          "endLine": 14,
+          "text": "        Executors.newSingleThreadExecutor().submit(new Runnable() {",
+          "textDigest": "sha256:45f357ddb99b5d928c8c2063551bd2d328f973fd8a15a1af4599af1772dc2210",
+          "evidenceDigest": "sha256:5668b832700bf7dc6fa5f7715a5ee77334f9dee7c8f5f6ca965bf4c3e22dfe82",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java#L14-L14"
+        },
+        "shared-queue-source-f885cfc5341df633ec02": {
+          "id": "shared-queue-source-f885cfc5341df633ec02",
+          "service": "shared-queue-source",
+          "revision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+          "file": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java",
+          "startLine": 19,
+          "endLine": 19,
+          "text": "        System.out.println(queue.take());",
+          "textDigest": "sha256:40241e2e75225b97719532838ddf66d5f45924f7566cdeced63b3aff63b5199e",
+          "evidenceDigest": "sha256:9b8a71d2a1528973aa9d56c8eafe417a2f1a5ef93df908cf09dc20e7c9c6defd",
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/37fd4b63084c94a852fe6cc99195c2255b24873f/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java#L19-L19"
+        }
+      },
+      "limitations": [
+        {
+          "code": "RUNTIME_NOT_OBSERVED",
+          "detail": "Source declarations do not establish deployed activation, delivery, external success, or durable completion.",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "JAVA_VARIABLE_LOCAL_CLASS_DEFERRED",
+          "citationId": null
+        },
+        {
+          "code": "RETAINED_SERVICE_BOUNDARY",
+          "detail": "LOCAL_CLASS_BODY_NOT_EXPANDED",
+          "citationId": null
+        }
+      ]
+    }
+  ]
+}

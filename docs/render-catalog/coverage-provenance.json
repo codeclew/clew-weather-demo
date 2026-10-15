@@ -4,8 +4,8 @@
   "sourceRevision": "31a559851b947d5eda90afc003f2bfb2b2c27130",
   "originalGapResolution": {
     "original": 18,
-    "withRealExamples": 15,
-    "open": 2,
+    "withRealExamples": 16,
+    "open": 1,
     "unsupportedDeferred": 1
   },
   "repositories": {
@@ -79,6 +79,11 @@
       "revision": "afc8fc1d3b8ec8de69414482b3bd70a1da78cb95",
       "selection": "OwnerRestControllerV1.getOwner(Integer)",
       "license": "examples/petclinic-java-flow/LICENSE.txt"
+    },
+    "Mjedynak concurrency examples": {
+      "repository": "https://github.com/mjedynak/concurrency-examples",
+      "revision": "a94765fb450bd0f99b6dcabf5bd8f9a8b360be42",
+      "captureProvenance": "shared-queue-provenance.json"
     }
   },
   "nativeResults": {
@@ -214,37 +219,12 @@
     "syntheticCompilerFixturesIncluded": false
   },
   "openItems": [
-    "gap-handoff",
     "gap-dsl"
   ],
   "deferred": [
     "gap-template"
   ],
   "remainingResearch": [
-    {
-      "id": "gap-handoff",
-      "weatherReason": "Weather uses Kafka and database outboxes, not an in-process BlockingQueue.",
-      "rendererConstraints": [
-        "A single retained queue offer/put/add and poll/take per selected method",
-        "Constructor-bound instance fields",
-        "One shared allocation passed to both selected owners through straight-line wiring"
-      ],
-      "inspectedPublicCandidates": [
-        {
-          "url": "https://github.com/iluwatar/java-design-patterns/blob/master/producer-consumer/src/main/java/com/iluwatar/producer/consumer/Producer.java",
-          "limitation": "Producer uses an ItemQueue wrapper, not a direct BlockingQueue operation."
-        },
-        {
-          "url": "https://github.com/eugenp/tutorials/tree/master/core-java-modules/core-java-concurrency-collections/src/main/java/com/baeldung/concurrent/blocking/queue",
-          "limitation": "Producer and consumer operations occur in loops/try bodies, which this Java source projection does not admit as direct queue operations."
-        },
-        {
-          "url": "https://github.com/VelvetShiki-V/Java-Repo/blob/main/demo/_2024_6_12/src/com/vs/Thread/BlockingQueueTest.java",
-          "limitation": "Queue is initialized on an owner field rather than injected by the admitted shared-allocation wiring."
-        }
-      ],
-      "result": "No populated admissible example found; no synthetic replacement added."
-    },
     {
       "id": "gap-dsl",
       "weatherReason": "Weather contains no Java flow DSL.",
@@ -268,5 +248,36 @@
       ],
       "result": "Both Java DSL families remain open; native synthetic qualification fixtures are deliberately excluded."
     }
-  ]
+  ],
+  "completedHandoffResearch": {
+    "id": "gap-handoff",
+    "nativeExample": "examples/shared-queue/shared-queue-overview.html",
+    "provenance": "shared-queue-provenance.json",
+    "status": "SOURCE_DECLARED_SHARED_QUEUE",
+    "applicationSourceChanged": false,
+    "priorResearch": {
+      "id": "gap-handoff",
+      "weatherReason": "Weather uses Kafka and database outboxes, not an in-process BlockingQueue.",
+      "rendererConstraints": [
+        "A single retained queue offer/put/add and poll/take per selected method",
+        "Constructor-bound instance fields",
+        "One shared allocation passed to both selected owners through straight-line wiring"
+      ],
+      "inspectedPublicCandidates": [
+        {
+          "url": "https://github.com/iluwatar/java-design-patterns/blob/master/producer-consumer/src/main/java/com/iluwatar/producer/consumer/Producer.java",
+          "limitation": "Producer uses an ItemQueue wrapper, not a direct BlockingQueue operation."
+        },
+        {
+          "url": "https://github.com/eugenp/tutorials/tree/master/core-java-modules/core-java-concurrency-collections/src/main/java/com/baeldung/concurrent/blocking/queue",
+          "limitation": "Producer and consumer operations occur in loops/try bodies, which this Java source projection does not admit as direct queue operations."
+        },
+        {
+          "url": "https://github.com/VelvetShiki-V/Java-Repo/blob/main/demo/_2024_6_12/src/com/vs/Thread/BlockingQueueTest.java",
+          "limitation": "Queue is initialized on an owner field rather than injected by the admitted shared-allocation wiring."
+        }
+      ],
+      "result": "No populated admissible example found; no synthetic replacement added."
+    }
+  }
 }

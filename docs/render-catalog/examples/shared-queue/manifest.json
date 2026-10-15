@@ -1,0 +1,127 @@
+{
+  "contextDigest": "sha256:b7381ae048f8650132f591b242257a41634c918e913b53cfc8c5712e998fbc30",
+  "files": [
+    {
+      "digest": "sha256:aff0e731e97825eca32d53629ee3fade3372de5e82f09fb2cdb101e3a0789112",
+      "path": "catalogue.json"
+    },
+    {
+      "digest": "sha256:a7cb66b67948d1429a88f2cfc87497c3f5f9660821df5d05a4acf070cd0ff8fd",
+      "path": "index.html"
+    },
+    {
+      "digest": "sha256:44cc3e82b4c33d93b28e0ca0428bdbe86abcd0dacc0d0206ccd2086b24cc2f6d",
+      "path": "index.mdx"
+    },
+    {
+      "digest": "sha256:ce9995c761f68342e490f9d6c96d481c6a93c8c706f3bd336513fedda3108425",
+      "path": "native-reader.js"
+    },
+    {
+      "digest": "sha256:6811d30dbf160bbe99413c4432068318caac8b9b6e6ae3a920a752e797423050",
+      "path": "projection.json"
+    },
+    {
+      "digest": "sha256:53cdabad69821403dbfe61f60f4cbcdd563829c10c9dfd846696ba4df0265b2a",
+      "path": "shared-queue-diagnostic.html"
+    },
+    {
+      "digest": "sha256:6c01b0e128c90af08404b408b4317c6a7b2992efa590c2677706b5d75fdcba93",
+      "path": "shared-queue-diagnostic.mdx"
+    },
+    {
+      "digest": "sha256:6ff87a68dcf13b4ae8bafd61729a96d990f926cb3f85750cac51484aefdab9fa",
+      "path": "shared-queue-endpoint.html"
+    },
+    {
+      "digest": "sha256:d8bdf0c52a3994b3cbe4262c47109c0e4232c763a541a4718d541429082875d7",
+      "path": "shared-queue-endpoint.mdx"
+    },
+    {
+      "digest": "sha256:2f9173e95be44d035693d5120d65f8766e28e9bde772606a7c2be7097a3644f8",
+      "path": "shared-queue-fields-state.html"
+    },
+    {
+      "digest": "sha256:c80662d5928b520b5602e44ee3da6e072fba21d9df2c3943cfe74677c5afb925",
+      "path": "shared-queue-fields-state.mdx"
+    },
+    {
+      "digest": "sha256:088ea6fe3875cfc4596fbcf10c51db2871a375131f25580e99d9ebc1054c1cd8",
+      "path": "shared-queue-overview.html"
+    },
+    {
+      "digest": "sha256:8b2b8ffd7dce37c9252d1febd8b1796eedc909f6dd7f0e5f3ba87daea8b4e29a",
+      "path": "shared-queue-overview.mdx"
+    },
+    {
+      "digest": "sha256:262cc803033709a642085690b6e0261ea42106120a1f70d41a97c0617b7146e1",
+      "path": "shared-queue-worker.html"
+    },
+    {
+      "digest": "sha256:452f603dc7f35379eb3b315dc5ce07efc43fa872a502cee727a4198d5c914ae5",
+      "path": "shared-queue-worker.mdx"
+    },
+    {
+      "digest": "sha256:2b8a3c9e413a7e2aba915cd8ea00bc870ab7d0915a4ac177393720261655ec71",
+      "path": "sources.html"
+    },
+    {
+      "digest": "sha256:a6e65a912399d31b6bd876d4ea623582a13e26106fe5f484bbdfc3ae6004e59d",
+      "path": "sources.mdx"
+    },
+    {
+      "digest": "sha256:30f2a7247d667d5fc0ae6992a7aff6761faeef34b00a391252bb295c15ee4109",
+      "path": "style.css"
+    }
+  ],
+  "inputDigest": "sha256:f029f091510b148db386a06ce1d479c7a71d58532ddf4045a5ffc697405e4835",
+  "mdxProfile": "MDX 3; inert native JSX; no imports, executable expressions, scripts or network dependencies",
+  "pages": [
+    {
+      "contentDigest": "sha256:3c8252059710c53bf2b7aca2b0610dc489e2f70ca9fbb65764b28669798c6ad0",
+      "html": "index.html",
+      "id": "index",
+      "mdx": "index.mdx"
+    },
+    {
+      "contentDigest": "sha256:f5f82b388f1e3bb510799b694bac5780edc4c32fb0ebae301e11e9515a5fd6c0",
+      "html": "shared-queue-diagnostic.html",
+      "id": "shared-queue-diagnostic",
+      "mdx": "shared-queue-diagnostic.mdx"
+    },
+    {
+      "contentDigest": "sha256:81b0d307ea5022178379e1ec4d7b8f411952e911fa94cfb32233750e68142b04",
+      "html": "shared-queue-endpoint.html",
+      "id": "shared-queue-endpoint",
+      "mdx": "shared-queue-endpoint.mdx"
+    },
+    {
+      "contentDigest": "sha256:c68c3c3083ed826a99c549010c3e2dbbfb8dbf46f075e147ac43adcbb8b17fb0",
+      "html": "shared-queue-fields-state.html",
+      "id": "shared-queue-fields-state",
+      "mdx": "shared-queue-fields-state.mdx"
+    },
+    {
+      "contentDigest": "sha256:c2f9c7a1733d72df82f68cb18d58f33fcd546266408dd1f36ae1aa615cb7282e",
+      "html": "shared-queue-overview.html",
+      "id": "shared-queue-overview",
+      "mdx": "shared-queue-overview.mdx"
+    },
+    {
+      "contentDigest": "sha256:e433e4efebbb1071b753a97bdfc5a90074e24115f0663e55f7b5320930117ae8",
+      "html": "shared-queue-worker.html",
+      "id": "shared-queue-worker",
+      "mdx": "shared-queue-worker.mdx"
+    },
+    {
+      "contentDigest": "sha256:0a211a475d6f38b8831142680c4fde5430b7d3945ee05ce642186c75a831b59b",
+      "html": "sources.html",
+      "id": "sources",
+      "mdx": "sources.mdx"
+    }
+  ],
+  "projectionDigest": "sha256:3f6a4ae764429f659b6664a8100ff9828593bf477a7e85c9be3d26c49359e827",
+  "schema": "codeclew-native-pages-static-manifest/1.0",
+  "selectionDigest": "sha256:604600abb5f79bbbcf239a6c7cc4a22e34c557fc04091c0a145ca48007a15d0e",
+  "snapshot": "sha256:7acaae01e2764eba3b8af8c37aeea7fef47abad3ab0b15dbb0682447dde50068/1789"
+}

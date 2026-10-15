@@ -1,0 +1,58 @@
+{
+  "schema": "public-demo-source-capture/1.0",
+  "upstreamRepository": "https://github.com/mjedynak/concurrency-examples",
+  "upstreamCommit": "a94765fb450bd0f99b6dcabf5bd8f9a8b360be42",
+  "applicationSourceChanged": false,
+  "buildAdapter": "Java 17 Maven build over three exact upstream source files; not the original full-project build.",
+  "files": [
+    {
+      "path": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java",
+      "upstreamUrl": "https://github.com/mjedynak/concurrency-examples/blob/a94765fb450bd0f99b6dcabf5bd8f9a8b360be42/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueProducer.java",
+      "sha256": "ed6497bb0a83ff58979c63c3cb2d8f968d6ecdef134ea745ed3567e26c02511b",
+      "sameBytes": true
+    },
+    {
+      "path": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java",
+      "upstreamUrl": "https://github.com/mjedynak/concurrency-examples/blob/a94765fb450bd0f99b6dcabf5bd8f9a8b360be42/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumer.java",
+      "sha256": "6941f025a4d6d381367e52f5c809251e7e8a522dd7f46329e992f45eb92c508c",
+      "sameBytes": true
+    },
+    {
+      "path": "src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+      "upstreamUrl": "https://github.com/mjedynak/concurrency-examples/blob/a94765fb450bd0f99b6dcabf5bd8f9a8b360be42/src/main/java/pl/mjedynak/concurrency/queue/BlockingQueueConsumerProducerApp.java",
+      "sha256": "6748d7641896fb18f7a02686be8775d7f35a2c4d7035692b0223efbca333d27c",
+      "sameBytes": true
+    }
+  ],
+  "sourceLauncher": "./clew",
+  "sourceRevision": "31a559851b947d5eda90afc003f2bfb2b2c27130",
+  "sourceVersion": "0.13.33",
+  "captureRepository": "https://github.com/codeclew/clew-weather-demo",
+  "captureBranch": "render/shared-queue-source-20261015",
+  "captureRevision": "37fd4b63084c94a852fe6cc99195c2255b24873f",
+  "snapshot": "sha256:7acaae01e2764eba3b8af8c37aeea7fef47abad3ab0b15dbb0682447dde50068/1789",
+  "selection": {
+    "repositoryPath": "documentation/render-catalog/coverage-inputs/shared-queue-selection.json",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/main/documentation/render-catalog/coverage-inputs/shared-queue-selection.json"
+  },
+  "nativeManifest": "examples/shared-queue/manifest.json",
+  "handoff": {
+    "status": "SOURCE_DECLARED_SHARED_QUEUE",
+    "queueAllocation": "shared-queue-source:symbol:2e9c47eb78fec504fc3e0842:citation-5c39d559bdef20df93097cfc",
+    "endpointField": "queue",
+    "workerField": "queue",
+    "citationIds": [
+      "citation-0d1ece8c7f346a47fd56ceb2",
+      "citation-20822214601a3037815938b5",
+      "citation-32684cf7e1a64114c628c916",
+      "citation-3ff94f252a00f18cb88fde5d",
+      "citation-5c39d559bdef20df93097cfc",
+      "citation-6793d34f705801611e0874a3",
+      "citation-b3c03b66998e42b5861d114a"
+    ],
+    "gaps": [],
+    "limitation": "Source-declared shared object wiring does not prove enqueue success, scheduling, deployed activation, delivery, or completion."
+  },
+  "runtimeObserved": false,
+  "modelCalls": 0
+}

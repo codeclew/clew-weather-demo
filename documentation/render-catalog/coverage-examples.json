@@ -468,13 +468,21 @@
     },
     {
       "id": "gap-handoff",
-      "category": "Coverage gaps",
-      "title": "Shared queue wiring and correlation",
-      "path": "",
-      "description": "Weather uses database outboxes and Kafka, not an in-process BlockingQueue. Public producer/consumer candidates inspected so far do not satisfy the current native proof: single queue operation, constructor-injected fields and one straight-line shared allocation. No populated example is claimed.",
-      "status": "NO_ADMISSIBLE_DEMO_YET",
-      "repository": "Public candidate search",
-      "renderer": "static_pages/source/handoff.rs"
+      "category": "Blocks",
+      "title": "Shared queue handoff \u00b7 real constructor wiring",
+      "path": "examples/shared-queue/shared-queue-overview.html",
+      "description": "The real Mjedynak producer/consumer example binds both queue fields to one LinkedBlockingQueue allocation. Native proof has seven citations and no handoff gaps. Three upstream Java files are unchanged; an explicit Java 17 capture build is recorded separately.",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "repository": "mjedynak/concurrency-examples",
+      "renderer": "static_pages/source/handoff.rs",
+      "evidence": "shared-queue-provenance.json",
+      "action": "Open the source appendix and Exact handoff identity. This proves source-declared shared-object wiring; scheduling, delivery, payload correlation and completion remain unverified.",
+      "nativeCapture": {
+        "file": "examples/shared-queue/shared-queue-overview.html",
+        "opening": "<details><summary>Exact handoff identity",
+        "tag": "details",
+        "css": "examples/shared-queue/style.css"
+      }
     },
     {
       "id": "gap-dsl",

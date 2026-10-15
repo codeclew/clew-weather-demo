@@ -1,0 +1,10 @@
+[
+  {
+    "id": "shared-queue",
+    "service": "shared-queue-source",
+    "endpointDeclaration": "shared-queue-source:symbol:bcde5e20707afc3779e3457a",
+    "workerDeclaration": "shared-queue-source:symbol:da500a45fd46cde65cf09e7e",
+    "wiringDeclaration": "shared-queue-source:symbol:2e9c47eb78fec504fc3e0842",
+    "question": "Which retained source proves that the producer and consumer fields refer to one shared queue allocation?"
+  }
+]

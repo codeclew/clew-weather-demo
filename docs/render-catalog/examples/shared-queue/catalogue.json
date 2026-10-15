@@ -1,0 +1,61 @@
+{
+  "authority": "SELECTED_AND_EXAMINED_DOCUMENTATION_CONTEXT_NOT_RUNTIME_IMPACT",
+  "contextDigest": "sha256:b7381ae048f8650132f591b242257a41634c918e913b53cfc8c5712e998fbc30",
+  "inputDigest": "sha256:f029f091510b148db386a06ce1d479c7a71d58532ddf4045a5ffc697405e4835",
+  "rows": [
+    {
+      "context": "shared-queue-source · :/main",
+      "href": "shared-queue-diagnostic.html",
+      "id": "diagnostic-shared-queue",
+      "kind": "Diagnostic question",
+      "relatedLinks": [],
+      "searchText": [
+        "shared-queue",
+        "shared-queue-source",
+        ":/main",
+        "method:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#putOnQueue(Ljava/lang/String;)V",
+        "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#takeFromQueue()V"
+      ],
+      "summary": "Supplied diagnostic question; source conditions describe possible reasons, not an approved answer or observed incident.",
+      "title": "Which retained source proves that the producer and consumer fields refer to one shared queue allocation?"
+    },
+    {
+      "context": "shared-queue-source · :/main",
+      "displayTitle": "pl.mjedynak.concurrency.queue.BlockingQueueProducer.putOnQueue",
+      "href": "shared-queue-endpoint.html",
+      "id": "endpoint-0cf120b1f0f21f6f2799318236eea3e072203ed6d40a0deaac525775b3b5acc0",
+      "kind": "Endpoint",
+      "relatedLinks": [
+        {
+          "href": "shared-queue-overview.html",
+          "title": "Selected process: shared-queue"
+        }
+      ],
+      "searchText": [
+        "shared-queue-source",
+        ":/main",
+        "method:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#putOnQueue(Ljava/lang/String;)V"
+      ],
+      "summary": "Explicitly selected compiler declaration; no inferred HTTP route or runtime activation.",
+      "title": "method:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#putOnQueue(Ljava/lang/String;)V"
+    },
+    {
+      "context": "shared-queue-source · :/main",
+      "href": "shared-queue-overview.html",
+      "id": "shared-queue",
+      "kind": "Process",
+      "relatedLinks": [],
+      "searchText": [
+        "shared-queue-source",
+        ":/main",
+        "method:class:pl.mjedynak.concurrency.queue.BlockingQueueProducer#putOnQueue(Ljava/lang/String;)V",
+        "method:class:pl.mjedynak.concurrency.queue.BlockingQueueConsumer#takeFromQueue()V"
+      ],
+      "summary": "Selected source process; runtime activation and business meaning unverified.",
+      "title": "pl.mjedynak.concurrency.queue.BlockingQueueProducer.putOnQueue → pl.mjedynak.concurrency.queue.BlockingQueueConsumer.takeFromQueue"
+    }
+  ],
+  "schema": "codeclew-native-catalogue/1.0",
+  "selectionDigest": "sha256:604600abb5f79bbbcf239a6c7cc4a22e34c557fc04091c0a145ca48007a15d0e",
+  "snapshot": "sha256:7acaae01e2764eba3b8af8c37aeea7fef47abad3ab0b15dbb0682447dde50068/1789"
+}

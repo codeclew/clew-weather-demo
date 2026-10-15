@@ -12,6 +12,7 @@
     "examples/weather-extraction/pages-manifest.json",
     "examples/petclinic-accessors/manifest.json",
     "examples/places-native/manifest.json",
+    "examples/shared-queue/manifest.json",
     "examples/weather-approved-reader/manifest.json",
     "examples/weather-compiler-all/manifest.json",
     "examples/weather-instructions/manifest.json",
@@ -69,6 +70,6 @@
     "sourceRevision": "31a559851b947d5eda90afc003f2bfb2b2c27130",
     "authority": "SOURCE_RESEARCH_NOT_NEW_NATIVE_OUTPUT_OR_MEANING_REVIEW",
     "itemCount": 93,
-    "digest": "sha256:7bc3f42d00798e50574e683356185169a44941fd1e3e8f5e987e268f0a19c2fa"
+    "digest": "sha256:6d4b98c1106ea4a924f857b5bab3fae4ef1553438b944fa2574033452263eb30"
   }
 }
