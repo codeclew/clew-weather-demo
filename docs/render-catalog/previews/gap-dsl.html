@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Java flow DSL · real VoltDB callback stages</title><link rel="stylesheet" href="../examples/voltdb-dsl/style.css"><style>body{display:block!important;margin:0!important;padding:20px!important;min-width:0!important}main{margin:0!important;padding:0!important;max-width:none!important}.preview-note{font:13px system-ui;color:#56665c;margin-bottom:18px}pre{max-width:100%;overflow:auto}</style><body><p class="preview-note">Read-only excerpt from real native output. Open the full example for source interactions and review status.</p><main><section id="stages">
+<h3>Declared callback stages</h3>
+<details id="step-1" open>
+<summary>Get data</summary>
+<p>Record kind: callback-group. Binding: DECLARED&#95;OWNER&#95;AST&#95;SYNTAX; call target: DECLARED&#95;RECEIVER&#95;AST&#95;SYNTAX. Semantic authority: source interpretation with declared profile.</p>
+<h4>Declared callbacks (group does not establish parallelism)</h4>
+<ul>
+<li>this::getData</li>
+</ul>
+<pre>newStageList(this::getData)</pre>
+<ul>
+<li>Declared chain group; scheduler, exceptions and parallelism remain unresolved</li>
+</ul>
+<p><a href="https://codeclew.github.io/clew-weather-demo/render-catalog/examples/voltdb-dsl/sources.html#source-1">Source: lines 57–57</a></p>
+</details>
+<details id="step-2" open>
+<summary>Process data</summary>
+<p>Record kind: callback-group. Binding: DECLARED&#95;OWNER&#95;AST&#95;SYNTAX; call target: DECLARED&#95;RECEIVER&#95;AST&#95;SYNTAX. Semantic authority: source interpretation with declared profile.</p>
+<h4>Declared callbacks (group does not establish parallelism)</h4>
+<ul>
+<li>this::processData</li>
+</ul>
+<pre>newStageList(this::getData)&#10;            .then(this::processData)</pre>
+<ul>
+<li>Declared chain group; scheduler, exceptions and parallelism remain unresolved</li>
+</ul>
+<p><a href="https://codeclew.github.io/clew-weather-demo/render-catalog/examples/voltdb-dsl/sources.html#source-1">Source: lines 57–58</a></p>
+</details>
+<details id="step-3" open>
+<summary>Confirm order</summary>
+<p>Record kind: callback-group. Binding: DECLARED&#95;OWNER&#95;AST&#95;SYNTAX; call target: DECLARED&#95;RECEIVER&#95;AST&#95;SYNTAX. Semantic authority: source interpretation with declared profile.</p>
+<h4>Declared callbacks (group does not establish parallelism)</h4>
+<ul>
+<li>this::confirmOrder</li>
+</ul>
+<pre>newStageList(this::getData)&#10;            .then(this::processData)&#10;            .then(this::confirmOrder)</pre>
+<ul>
+<li>Declared chain group; scheduler, exceptions and parallelism remain unresolved</li>
+</ul>
+<p><a href="https://codeclew.github.io/clew-weather-demo/render-catalog/examples/voltdb-dsl/sources.html#source-1">Source: lines 57–59</a></p>
+</details>
+</section></main></body></html>

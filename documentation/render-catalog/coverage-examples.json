@@ -486,13 +486,26 @@
     },
     {
       "id": "gap-dsl",
-      "category": "Coverage gaps",
-      "title": "Java flow DSL \u00b7 builder-chain and operation-queue",
-      "path": "",
-      "description": "Weather has no Java flow DSL. Real VoltDB compound-procedure demos use inline newStageList(...).then(...), while this renderer requires a builder bound directly to a declared root variable. Other searched candidates also do not admit a populated projection. Both DSL families remain open; synthetic Codeclew fixtures are excluded.",
-      "status": "NO_ADMISSIBLE_DEMO_YET",
-      "repository": "Public candidate search",
-      "renderer": "flow_dsl/extract.rs"
+      "category": "Pages",
+      "title": "Java flow DSL \u00b7 real VoltDB callback stages",
+      "path": "examples/voltdb-dsl/page.html#stages",
+      "description": "The untouched public VoltDB OrderProc.run declares getData, processData and confirmOrder in an inline builder chain. Native output retains all three callback groups with exact source ranges. This is a construction-only, syntax-authority example; no business narrative or runtime trace was invented.",
+      "status": "REAL_SOURCE_EXAMPLE",
+      "repository": "VoltDB/voltdb-examples",
+      "renderer": "flow_dsl/extract.rs inline_construction + flow_dsl/publish.rs",
+      "rendererSourceRevision": "ac55263474000924d489acfbbabb9e7adf8bf72a",
+      "evidence": "voltdb-dsl-provenance.json",
+      "action": "Renderer ac55263 adds the real standalone inline builder form. Open each callback stage and its retained source. The builder-chain family is demonstrated; operation-queue still has no admissible real example.",
+      "familyCoverage": {
+        "builder-chain": "REAL_SOURCE_EXAMPLE",
+        "operation-queue": "NO_REAL_EXAMPLE"
+      },
+      "nativeCapture": {
+        "file": "examples/voltdb-dsl/page.html",
+        "opening": "<section id=\"stages\">",
+        "tag": "section",
+        "css": "examples/voltdb-dsl/style.css"
+      }
     },
     {
       "id": "gap-template",

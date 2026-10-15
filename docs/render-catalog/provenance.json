@@ -13,6 +13,7 @@
     "examples/petclinic-accessors/manifest.json",
     "examples/places-native/manifest.json",
     "examples/shared-queue/manifest.json",
+    "examples/voltdb-dsl/manifest.json",
     "examples/weather-approved-reader/manifest.json",
     "examples/weather-compiler-all/manifest.json",
     "examples/weather-instructions/manifest.json",
@@ -70,6 +71,6 @@
     "sourceRevision": "31a559851b947d5eda90afc003f2bfb2b2c27130",
     "authority": "SOURCE_RESEARCH_NOT_NEW_NATIVE_OUTPUT_OR_MEANING_REVIEW",
     "itemCount": 93,
-    "digest": "sha256:6d4b98c1106ea4a924f857b5bab3fae4ef1553438b944fa2574033452263eb30"
+    "digest": "sha256:43696a3e0bedf494ab3eccd8aa061af9842857115d53664cda1ce1d154cf2aaa"
   }
 }

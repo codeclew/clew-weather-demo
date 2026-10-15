@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Retained source appendix</title><link rel="stylesheet" href="style.css"></head><body>
+<main><h1>Retained source appendix</h1><p><a href="page.html#sources">Return to process</a></p>
+<details id="source-1"><summary>compound-proc/src/OrderProc.java:52–63</summary>
+<p>Source authority: EXACT&#95;SNAPSHOT&#95;TEXT. Revision: c043973e766d56e918f90c4c72773a81cec52f57. Text digest: sha256:acbcaaa393c35a0309e83c7e97d4d6a520234bc8aa4089d4f419504fce52f94c. Exact retained source is distinct from DSL interpretation.</p>
+<pre>public long run(String customerName, String partName, int quantity) &#123;&#10;        this.customerName = customerName;&#10;        this.partName = partName;&#10;        this.quantity = quantity;&#10;&#10;        newStageList(this::getData)&#10;            .then(this::processData)&#10;            .then(this::confirmOrder)&#10;            .build();&#10;&#10;        return 0;&#10;    &#125;</pre></details>
+</main>
+</body></html>

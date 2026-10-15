@@ -1,0 +1,112 @@
+{
+  "schema": "codeclew-flow-dsl-projection/1.0",
+  "id": "voltdb-order-stages",
+  "title": "VoltDB OrderProc declared stages",
+  "service": "voltdb-compound-demo",
+  "revision": "c043973e766d56e918f90c4c72773a81cec52f57",
+  "snapshot": "sha256:1d395247949935d314dc4fa87d620d20b6ac1b08c27a7da4d109f87a942bec3c/8883",
+  "profileDigest": "sha256:7e265fdddd36c8ca8b377a0914d4954de241205866873c8e9e5e5269f83b8d7a",
+  "framework": "VoltDB compound procedure",
+  "engineVersion": null,
+  "authority": "SOURCE_INTERPRETATION_WITH_DECLARED_PROFILE_NOT_RUNTIME_TRACE",
+  "family": "builder-chain",
+  "items": [
+    {
+      "id": "step-1",
+      "kind": "callback-group",
+      "label": "Get data",
+      "expression": "newStageList(this::getData)",
+      "members": [
+        "this::getData"
+      ],
+      "conditions": [],
+      "reference": {
+        "sourceId": "voltdb-compound-demo-a69d6ec1808d4f8fdc51",
+        "startLine": 57,
+        "endLine": 57,
+        "bindingAuthority": "DECLARED_OWNER_AST_SYNTAX",
+        "callTargetAuthority": "DECLARED_RECEIVER_AST_SYNTAX"
+      },
+      "limitations": [
+        "Declared chain group; scheduler, exceptions and parallelism remain unresolved"
+      ]
+    },
+    {
+      "id": "step-2",
+      "kind": "callback-group",
+      "label": "Process data",
+      "expression": "newStageList(this::getData)\n            .then(this::processData)",
+      "members": [
+        "this::processData"
+      ],
+      "conditions": [],
+      "reference": {
+        "sourceId": "voltdb-compound-demo-a69d6ec1808d4f8fdc51",
+        "startLine": 57,
+        "endLine": 58,
+        "bindingAuthority": "DECLARED_OWNER_AST_SYNTAX",
+        "callTargetAuthority": "DECLARED_RECEIVER_AST_SYNTAX"
+      },
+      "limitations": [
+        "Declared chain group; scheduler, exceptions and parallelism remain unresolved"
+      ]
+    },
+    {
+      "id": "step-3",
+      "kind": "callback-group",
+      "label": "Confirm order",
+      "expression": "newStageList(this::getData)\n            .then(this::processData)\n            .then(this::confirmOrder)",
+      "members": [
+        "this::confirmOrder"
+      ],
+      "conditions": [],
+      "reference": {
+        "sourceId": "voltdb-compound-demo-a69d6ec1808d4f8fdc51",
+        "startLine": 57,
+        "endLine": 59,
+        "bindingAuthority": "DECLARED_OWNER_AST_SYNTAX",
+        "callTargetAuthority": "DECLARED_RECEIVER_AST_SYNTAX"
+      },
+      "limitations": [
+        "Declared chain group; scheduler, exceptions and parallelism remain unresolved"
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "stages",
+      "label": "Declared callback stages",
+      "itemIds": [
+        "step-1",
+        "step-2",
+        "step-3"
+      ]
+    }
+  ],
+  "limitations": [
+    "Overview phases are editorial groups; their order does not assert execution across categories",
+    "Engine version is profile-declared or unresolved; framework scheduling, runtime activation, retries, ordering and delivery require separate evidence",
+    "This static projection describes possible source structure, not incident causality or successful completion"
+  ],
+  "sources": {
+    "voltdb-compound-demo-a69d6ec1808d4f8fdc51": {
+      "id": "voltdb-compound-demo-a69d6ec1808d4f8fdc51",
+      "service": "voltdb-compound-demo",
+      "revision": "c043973e766d56e918f90c4c72773a81cec52f57",
+      "file": "compound-proc/src/OrderProc.java",
+      "startLine": 52,
+      "endLine": 63,
+      "text": "public long run(String customerName, String partName, int quantity) {\n        this.customerName = customerName;\n        this.partName = partName;\n        this.quantity = quantity;\n\n        newStageList(this::getData)\n            .then(this::processData)\n            .then(this::confirmOrder)\n            .build();\n\n        return 0;\n    }",
+      "textDigest": "sha256:acbcaaa393c35a0309e83c7e97d4d6a520234bc8aa4089d4f419504fce52f94c",
+      "evidenceDigest": "sha256:1dda9b45f8fdcdcd360b4ba5ffab2b3ba502bf687635911c8b74914581a8aff3",
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "occurrence": {
+        "snapshot": "sha256:b119fe787d8cea06877dec01429c02cac4d17843467d3b7a2f00260effda3455",
+        "blob": "c21798c88e950e4894c6f77a02bd38aa061de58d",
+        "startByte": 2145,
+        "endByte": 2483
+      },
+      "url": "https://github.com/VoltDB/voltdb-examples/blob/c043973e766d56e918f90c4c72773a81cec52f57/compound-proc/src/OrderProc.java#L52-L63"
+    }
+  }
+}

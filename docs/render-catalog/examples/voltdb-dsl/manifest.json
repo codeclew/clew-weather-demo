@@ -1,0 +1,32 @@
+{
+  "authority": "SOURCE_INTERPRETATION_WITH_DECLARED_PROFILE_NOT_RUNTIME_TRACE",
+  "contentDigest": "sha256:17937a6457cb43c449cf9019d8c165c287e976d854012396857515b9eb44cd65",
+  "files": [
+    {
+      "digest": "sha256:78bf88fd9a6c33ce16ae43fd3a1d1248bfac7ac6b15c3197f0bca73cab55b8d7",
+      "path": "page.html"
+    },
+    {
+      "digest": "sha256:8e823a14a4530d80ecfcf6bf206a1f212567451bf29c27204dbb1d434da17a92",
+      "path": "page.mdx"
+    },
+    {
+      "digest": "sha256:7696a3d5e247cd7cbc405a12e792a9cb1737da897dba3234113da5462985df60",
+      "path": "projection.json"
+    },
+    {
+      "digest": "sha256:fce5758b5c2c1e415c69102f175c2feb26adbc36871f7fa86ac3ffc4d894c2e3",
+      "path": "sources.html"
+    },
+    {
+      "digest": "sha256:ca1518316ea335f2d565696e6ba08c2ee239211fdda50ead1d7ccdc7f95f4bce",
+      "path": "style.css"
+    }
+  ],
+  "mdxProfile": "MDX 3; inert native JSX; no executable expressions or imports",
+  "pageId": "voltdb-order-stages",
+  "profileDigest": "sha256:7e265fdddd36c8ca8b377a0914d4954de241205866873c8e9e5e5269f83b8d7a",
+  "revision": "c043973e766d56e918f90c4c72773a81cec52f57",
+  "schema": "codeclew-flow-dsl-static-manifest/1.0",
+  "snapshot": "sha256:1d395247949935d314dc4fa87d620d20b6ac1b08c27a7da4d109f87a942bec3c/8883"
+}

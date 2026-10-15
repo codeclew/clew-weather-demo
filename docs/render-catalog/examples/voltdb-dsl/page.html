@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>VoltDB OrderProc declared stages</title><link rel="stylesheet" href="style.css"></head><body>
+<main>
+<h1>VoltDB OrderProc declared stages</h1>
+<p>Source interpretation with a declared profile. This is a static possible path, not a runtime trace or an incident diagnosis.</p>
+<p>Framework: VoltDB compound procedure. Engine version: unresolved (profile declaration). Service: voltdb-compound-demo.</p>
+<nav aria-label="Page sections"><a href="#overview">Overview</a> · <a href="#steps">Steps and decisions</a> · <a href="#sources">Sources and version</a></nav>
+<h2 id="overview">Overview</h2>
+<p>Phases group source declarations for reading. Open each phase for its full details; category order is not execution order.</p>
+<ol>
+<li><a href="#stages">Declared callback stages</a></li>
+</ol>
+<h2 id="steps">Steps and decisions</h2>
+<section id="stages">
+<h3>Declared callback stages</h3>
+<details id="step-1">
+<summary>Get data</summary>
+<p>Record kind: callback-group. Binding: DECLARED&#95;OWNER&#95;AST&#95;SYNTAX; call target: DECLARED&#95;RECEIVER&#95;AST&#95;SYNTAX. Semantic authority: source interpretation with declared profile.</p>
+<h4>Declared callbacks (group does not establish parallelism)</h4>
+<ul>
+<li>this::getData</li>
+</ul>
+<pre>newStageList(this::getData)</pre>
+<ul>
+<li>Declared chain group; scheduler, exceptions and parallelism remain unresolved</li>
+</ul>
+<p><a href="sources.html#source-1">Source: lines 57–57</a></p>
+</details>
+<details id="step-2">
+<summary>Process data</summary>
+<p>Record kind: callback-group. Binding: DECLARED&#95;OWNER&#95;AST&#95;SYNTAX; call target: DECLARED&#95;RECEIVER&#95;AST&#95;SYNTAX. Semantic authority: source interpretation with declared profile.</p>
+<h4>Declared callbacks (group does not establish parallelism)</h4>
+<ul>
+<li>this::processData</li>
+</ul>
+<pre>newStageList(this::getData)&#10;            .then(this::processData)</pre>
+<ul>
+<li>Declared chain group; scheduler, exceptions and parallelism remain unresolved</li>
+</ul>
+<p><a href="sources.html#source-1">Source: lines 57–58</a></p>
+</details>
+<details id="step-3">
+<summary>Confirm order</summary>
+<p>Record kind: callback-group. Binding: DECLARED&#95;OWNER&#95;AST&#95;SYNTAX; call target: DECLARED&#95;RECEIVER&#95;AST&#95;SYNTAX. Semantic authority: source interpretation with declared profile.</p>
+<h4>Declared callbacks (group does not establish parallelism)</h4>
+<ul>
+<li>this::confirmOrder</li>
+</ul>
+<pre>newStageList(this::getData)&#10;            .then(this::processData)&#10;            .then(this::confirmOrder)</pre>
+<ul>
+<li>Declared chain group; scheduler, exceptions and parallelism remain unresolved</li>
+</ul>
+<p><a href="sources.html#source-1">Source: lines 57–59</a></p>
+</details>
+</section>
+<details id="sources">
+<summary>Sources and version</summary>
+<p>Revision: c043973e766d56e918f90c4c72773a81cec52f57. Original snapshot: sha256:1d395247949935d314dc4fa87d620d20b6ac1b08c27a7da4d109f87a942bec3c/8883. Profile digest: sha256:7e265fdddd36c8ca8b377a0914d4954de241205866873c8e9e5e5269f83b8d7a.</p>
+<ul>
+<li>Overview phases are editorial groups; their order does not assert execution across categories</li>
+<li>Engine version is profile-declared or unresolved; framework scheduling, runtime activation, retries, ordering and delivery require separate evidence</li>
+<li>This static projection describes possible source structure, not incident causality or successful completion</li>
+</ul>
+<p><a href="sources.html">Retained source appendix</a> · <a href="projection.json">Typed projection JSON</a></p>
+</details>
+</main>
+</body></html>

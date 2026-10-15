@@ -4,9 +4,10 @@
   "sourceRevision": "31a559851b947d5eda90afc003f2bfb2b2c27130",
   "originalGapResolution": {
     "original": 18,
-    "withRealExamples": 16,
-    "open": 1,
-    "unsupportedDeferred": 1
+    "withRealExamples": 17,
+    "open": 0,
+    "unsupportedDeferred": 1,
+    "unit": "Original catalogue entry with at least one admissible real example, not every optional subtype or phase."
   },
   "repositories": {
     "Weather": {
@@ -84,6 +85,10 @@
       "repository": "https://github.com/mjedynak/concurrency-examples",
       "revision": "a94765fb450bd0f99b6dcabf5bd8f9a8b360be42",
       "captureProvenance": "shared-queue-provenance.json"
+    },
+    "VoltDB examples": {
+      "repository": "https://github.com/VoltDB/voltdb-examples",
+      "revision": "c043973e766d56e918f90c4c72773a81cec52f57"
     }
   },
   "nativeResults": {
@@ -218,37 +223,11 @@
     "privateUpdateDealContentIncluded": false,
     "syntheticCompilerFixturesIncluded": false
   },
-  "openItems": [
-    "gap-dsl"
-  ],
+  "openItems": [],
   "deferred": [
     "gap-template"
   ],
-  "remainingResearch": [
-    {
-      "id": "gap-dsl",
-      "weatherReason": "Weather contains no Java flow DSL.",
-      "families": [
-        "builder-chain",
-        "operation-queue"
-      ],
-      "inspectedPublicCandidates": [
-        {
-          "url": "https://github.com/VoltDB/voltdb-examples/blob/master/compound-proc/src/OrderProc.java",
-          "limitation": "Real inline newStageList(this::getData).then(...).build() is not bound directly to a root variable as required by the current extractor."
-        },
-        {
-          "url": "https://github.com/VoltDB/voltdb-examples/blob/master/user-hits/src/server/HandleHit.java",
-          "limitation": "Same inline builder form; no admissible root-variable initialization."
-        },
-        {
-          "url": "https://github.com/CrissNamon/aide/blob/master/aide-all/src/main/java/tech/hiddenproject/aide/example/ConditionalExample.java",
-          "limitation": "Conditional/lambda construction differs from the admitted method-reference-only builder groups."
-        }
-      ],
-      "result": "Both Java DSL families remain open; native synthetic qualification fixtures are deliberately excluded."
-    }
-  ],
+  "remainingResearch": [],
   "completedHandoffResearch": {
     "id": "gap-handoff",
     "nativeExample": "examples/shared-queue/shared-queue-overview.html",
@@ -279,5 +258,44 @@
       ],
       "result": "No populated admissible example found; no synthetic replacement added."
     }
-  }
+  },
+  "completedDslResearch": {
+    "id": "gap-dsl",
+    "nativeExample": "examples/voltdb-dsl/page.html#stages",
+    "provenance": "voltdb-dsl-provenance.json",
+    "rendererSourceRevision": "ac55263474000924d489acfbbabb9e7adf8bf72a",
+    "family": "builder-chain",
+    "applicationSourceChanged": false,
+    "priorResearch": {
+      "id": "gap-dsl",
+      "weatherReason": "Weather contains no Java flow DSL.",
+      "families": [
+        "builder-chain",
+        "operation-queue"
+      ],
+      "inspectedPublicCandidates": [
+        {
+          "url": "https://github.com/VoltDB/voltdb-examples/blob/master/compound-proc/src/OrderProc.java",
+          "limitation": "Real inline newStageList(this::getData).then(...).build() is not bound directly to a root variable as required by the current extractor."
+        },
+        {
+          "url": "https://github.com/VoltDB/voltdb-examples/blob/master/user-hits/src/server/HandleHit.java",
+          "limitation": "Same inline builder form; no admissible root-variable initialization."
+        },
+        {
+          "url": "https://github.com/CrissNamon/aide/blob/master/aide-all/src/main/java/tech/hiddenproject/aide/example/ConditionalExample.java",
+          "limitation": "Conditional/lambda construction differs from the admitted method-reference-only builder groups."
+        }
+      ],
+      "result": "Both Java DSL families remain open; native synthetic qualification fixtures are deliberately excluded."
+    }
+  },
+  "unrepresentedSubtypes": [
+    {
+      "parentEntry": "gap-dsl",
+      "family": "operation-queue",
+      "status": "NO_ADMISSIBLE_REAL_EXAMPLE",
+      "limitation": "The new real VoltDB example covers builder-chain construction; it does not demonstrate the separate operation-queue constructor/registry profile."
+    }
+  ]
 }

@@ -38,14 +38,15 @@
     },
     "dsl": {
       "title": "Explicit Java flow DSL projection",
-      "inputs": "An explicit codeclew-flow-dsl-profile/1.0 plus retained real Java methods; builder-chain or operation-queue family.",
-      "gate": "Validate exact method/file/owner/scope bindings and the selected DSL family. The extractor must recognize the bounded Java AST construction; the publisher writes only new files and refuses collisions.",
+      "inputs": "An explicit codeclew-flow-dsl-profile/1.0 plus retained real Java methods; builder-chain or operation-queue family. Inline builder support requires renderer ac55263 or later.",
+      "gate": "Validate exact method/file/owner/scope bindings and the selected DSL family. A named-root builder uses its existing direct initializer/chain rules. From ac55263, omitting rootVariable selects exactly one standalone inline builder(...).then(...).build() expression, with method-reference-only callback arguments; empty receiver explicitly selects an unqualified API call. The publisher writes only new files and refuses collisions.",
       "limits": "AST method references and declared operation queues are static declarations. They do not prove dispatch, execution, completion or deployed activation.",
       "sourceReferences": [
-        "dsl",
-        "dsl-extract",
+        "dsl-inline-profile",
+        "dsl-inline",
         "dsl-publish"
-      ]
+      ],
+      "sourceRevision": "ac55263474000924d489acfbbabb9e7adf8bf72a"
     },
     "unsupported": {
       "title": "No supported rendering route in the catalogue source",
@@ -353,6 +354,18 @@
       "path": "crates/clew/src/documentation/agent_jobs/operation_draft_review.rs",
       "line": 198,
       "symbol": "load_terminal_review"
+    },
+    "dsl-inline-profile": {
+      "path": "crates/clew/src/documentation/flow_dsl.rs",
+      "line": 152,
+      "symbol": "Profile::validate: builder API binding and optional rootVariable",
+      "sourceRevision": "ac55263474000924d489acfbbabb9e7adf8bf72a"
+    },
+    "dsl-inline": {
+      "path": "crates/clew/src/documentation/flow_dsl/extract.rs",
+      "line": 441,
+      "symbol": "inline_construction",
+      "sourceRevision": "ac55263474000924d489acfbbabb9e7adf8bf72a"
     }
   },
   "items": {
@@ -1103,15 +1116,16 @@
     },
     "gap-dsl": {
       "mode": "dsl",
-      "requiredInputs": "A real retained Java DSL declaration plus an explicit profile for builder-chain or operation-queue.",
-      "renderWhen": "Builder-chain requires a single supported direct root initializer with method-reference arguments and admitted root .then chains. Operation-queue requires the selected queue construction and exact registry/operation bindings.",
-      "otherwise": "Unsupported/ambiguous AST constructions remain gaps or fail extraction; inline/nested builders cannot be assumed to satisfy the root initializer contract. No real admissible demo is currently linked.",
-      "limits": "",
+      "requiredInputs": "Retained real Java source and an explicit DSL profile. The linked VoltDB profile selects OrderProc.run, builder newStageList with an empty (unqualified) receiver, and omits rootVariable.",
+      "renderWhen": "For the inline route there must be exactly one matching builder in the selected method body, an uninterrupted then chain and a standalone final build() with no arguments. Every group must contain nonempty method-reference-only callbacks. The whole chain validates before any callback-group items are emitted.",
+      "otherwise": "Missing/ambiguous builders, conditional or nested construction, unknown chain calls, missing build(), or unsupported callback expressions produce a gap instead of populated stages. The legacy named-root route remains available. The operation-queue family has separate constructor/registry requirements and no real example is claimed here.",
+      "limits": "This example covers builder-chain construction only. Declared callback grouping/order does not establish callback invocation, parallelism, scheduler behavior, exception flow, effects, delivery or completion.",
       "sourceReferences": [
-        "dsl",
-        "dsl-extract",
+        "dsl-inline-profile",
+        "dsl-inline",
         "dsl-publish"
-      ]
+      ],
+      "sourceRevision": "ac55263474000924d489acfbbabb9e7adf8bf72a"
     },
     "gap-answer": {
       "mode": "answer",

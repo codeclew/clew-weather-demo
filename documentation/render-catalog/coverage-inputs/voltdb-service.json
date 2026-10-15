@@ -1,0 +1,17 @@
+{
+  "schema": "codeclew-documentation-service/1.0",
+  "id": "voltdb-compound-demo",
+  "title": "VoltDB compound-procedure demo",
+  "repositoryId": "voltdb-examples",
+  "repository": "https://github.com/VoltDB/voltdb-examples",
+  "language": "java",
+  "profile": "source-syntax",
+  "targetRef": "main",
+  "source": {
+    "roots": [
+      "compound-proc/src/OrderProc.java",
+      "user-hits/src/server/HandleHit.java"
+    ],
+    "dialect": "17"
+  }
+}

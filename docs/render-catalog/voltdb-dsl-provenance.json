@@ -1,0 +1,40 @@
+{
+  "schema": "real-java-dsl-independent-acceptance/1.0",
+  "status": "PASSED",
+  "rendererSourceRevision": "ac55263474000924d489acfbbabb9e7adf8bf72a",
+  "upstreamRepository": "https://github.com/VoltDB/voltdb-examples",
+  "upstreamRevision": "c043973e766d56e918f90c4c72773a81cec52f57",
+  "sourcePath": "compound-proc/src/OrderProc.java",
+  "snapshot": "sha256:1d395247949935d314dc4fa87d620d20b6ac1b08c27a7da4d109f87a942bec3c/8883",
+  "service": "voltdb-compound-demo",
+  "profileDigest": "sha256:7e265fdddd36c8ca8b377a0914d4954de241205866873c8e9e5e5269f83b8d7a",
+  "nativeManifest": "examples/voltdb-dsl/manifest.json",
+  "family": "builder-chain",
+  "bindingAuthority": "DECLARED_OWNER_AST_SYNTAX",
+  "callbackGroups": [
+    [
+      "this::getData"
+    ],
+    [
+      "this::processData"
+    ],
+    [
+      "this::confirmOrder"
+    ]
+  ],
+  "gapItems": 0,
+  "sourceByteRangesAndBlobMatchUpstream": true,
+  "originalSourceChanged": false,
+  "nativeOutputByteIdenticalToCodingChatRender": true,
+  "modelCalls": 0,
+  "newCapturesDuringRender": 0,
+  "runtimeObserved": false,
+  "limits": [
+    "Construction-only profile: callback declarations and chain order, not callback execution, scheduler, exception flow, external calls or completion.",
+    "The operation-queue profile family is not demonstrated by this builder-chain example."
+  ],
+  "upstreamSourceUrl": "https://github.com/VoltDB/voltdb-examples/blob/c043973e766d56e918f90c4c72773a81cec52f57/compound-proc/src/OrderProc.java",
+  "sourceFileSha256": "b82d850ab4c2bd0ccdd4a07a02cb080ea7ed353286ee2584c25fa580a52330d7",
+  "upstreamNotice": "third-party/voltdb-orderproc-notice.txt",
+  "profileRecipe": "https://github.com/codeclew/clew-weather-demo/blob/main/documentation/render-catalog/coverage-inputs/voltdb-orderproc-profile.json"
+}
