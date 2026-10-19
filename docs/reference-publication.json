@@ -1,0 +1,23 @@
+{
+  "schema": "weather-reference-publication/1.0",
+  "mode": "accepted-source",
+  "renderer": {
+    "version": "0.13.39",
+    "sourceRevision": "7880663be0b8b8dcefd197768fbc1593f0dddb4b"
+  },
+  "acceptedFiles": "accepted-source-files.json",
+  "acceptedFilesSha256": "b1b623f45d682c2379d34c4f6a0793592b2d016d61e3574716b07ac622d1e406",
+  "siteFilesSha256": {
+    "render-details.html": "92418ee3d67479a3505b098b3b3bec94ca1b85e5c219d49ba2eb46bdea4a2a7d",
+    "reference-files.json": "b1b623f45d682c2379d34c4f6a0793592b2d016d61e3574716b07ac622d1e406",
+    "render-provenance.json": "4ffda313776a2582a2724c7ad38504d5d38f93c6f04b4b342e0485aaa1d43468",
+    "reference-history/before-7880663b/render-provenance.json": "3eccdd1ec9f08b708eba2480de8cdf55480a2cc12d6de2ce1bc6fe4afe9b5292",
+    "reference-history/before-7880663b/pages-manifest.json": "dd0ea4ec152e347c8b356170ea0c2fdf95f4e1d9750413742347d12a81a98dad"
+  },
+  "acceptance": {
+    "scope": "Bounded local native and production MDX artifact presentation, navigation and preservation; not runtime proof",
+    "analystReportSha256": "633572704a469e2605f5112fd996b3b9fcc70faafb382c15ca2bf2f52a0ddbe7",
+    "engineeringReportSha256": "67b0e63ebffe9a16df174b639e319b24dcd0c84b631e6b00c49db957467c017d"
+  },
+  "publicReleaseClaim": false
+}

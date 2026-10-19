@@ -1,4 +1,16 @@
-# Run the fixture and capture evidence
+# Weather reference documentation
+
+[Read the documentation](https://codeclew.github.io/clew-weather-demo/) ·
+[Inspect renderer and evidence provenance](https://codeclew.github.io/clew-weather-demo/render-details.html)
+
+The reference uses accepted renderer source `7880663be0b8b8dcefd197768fbc1593f0dddb4b`
+with build version `0.13.39`. This is an explicitly pinned source publication,
+not a claim that a Codeclew `0.13.39` binary release exists. Its 207 accepted
+artifact files are checked byte for byte, together with the original inputs,
+six models, 23 fields and both opted-in Data Flow readers. The publication policy
+and complete artifact hashes are linked from the provenance page.
+
+## Run the fixture and capture evidence
 
 The weather demo source repository is https://github.com/codeclew/clew-weather-demo. Native threaded documentation requires an official installed Codeclew release 0.13.29 or newer; full scenario bodies require 0.13.32 or newer. The weather documentation reader URL is https://codeclew.github.io/clew-weather-demo/index.html. Use a clean attached checkout, a fresh documentation root outside it with an existing parent, and fresh capture receipts. Restore services/places/Places.csproj with the .NET 10 SDK before capture; Kotlin and TypeScript declarations use source-syntax evidence. Capture does not author prose or import old cache.
 

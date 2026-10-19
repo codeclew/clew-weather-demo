@@ -1,0 +1,19 @@
+{
+  "dashboard": [
+    "save-city-request",
+    "place",
+    "forecast",
+    "period",
+    "weather-card"
+  ],
+  "places": [
+    "save-city-request",
+    "place",
+    "city-lookup"
+  ],
+  "forecasts": [
+    "place",
+    "forecast",
+    "period"
+  ]
+}

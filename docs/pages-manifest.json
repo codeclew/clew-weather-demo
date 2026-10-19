@@ -1,10 +1,88 @@
 {
+  "authoredTranslationComplete": true,
+  "authoredTranslationGaps": {},
   "authority": "FROZEN_NARRATIVES_WITH_SEPARATE_SELECTED_SNAPSHOT_EVIDENCE",
   "contextDigest": "sha256:9ccf913e21f2edd096b2e7a9858e543668cbd72211e2b1c54c15d52d2dd866dd",
+  "dataModelReadingProfile": true,
+  "declaredContractTranslationComplete": true,
+  "declaredContractTranslationGaps": {},
+  "documentationLanguage": "en",
   "files": [
     {
-      "digest": "sha256:093e32968397ea6134b3b780e6781d1444a8532a53e10eb781c016619891063a",
+      "digest": "sha256:d13035d9c7be3acd320869c324b72b6d5a5830ba11484ab0e839620d80c16ea2",
       "path": "catalog.html"
+    },
+    {
+      "digest": "sha256:8dff050b4e575788291fb4b9161fb2617a3985c33dd7592849765449622b38db",
+      "path": "contracts/forecast-updated.original.json"
+    },
+    {
+      "digest": "sha256:690fa2f8bb82b379a6392490b17037589d036208cdd23c1509f183451b8a4bb2",
+      "path": "contracts/place-requested.original.json"
+    },
+    {
+      "digest": "sha256:35dca983916faa15b49a4d19e5e5e0782d8997039d6193c3e41c6156d5191618",
+      "path": "contracts/save-city-request.original.json"
+    },
+    {
+      "digest": "sha256:35fef5994e7f03dd62040d729b8c453ddd16067fa3ab96b3b02e1a6bae2c61ae",
+      "path": "contracts/save-city-response.original.json"
+    },
+    {
+      "digest": "sha256:372032b594342a14a493e8d6e0b8fa8afa99bb18a7e79fa550574c18496f800a",
+      "path": "data-model.html"
+    },
+    {
+      "digest": "sha256:362663c284e058dfd22f254141202df263e363402ac18c47b197d08c3eaa7477",
+      "path": "data-model.json"
+    },
+    {
+      "digest": "sha256:7d1815647fd43bdef8ab876baa7db3b8ad61647e017e6cf75c6980a1a9e0baed",
+      "path": "data-model/city-lookup.html"
+    },
+    {
+      "digest": "sha256:6dd76220c5fa248a3eb8d368f6393e99f7f6137704c5b8af7ab01eb9d1cd2bac",
+      "path": "data-model/city-lookup.original.json"
+    },
+    {
+      "digest": "sha256:209b53a91cfbf06fbf56bf57cef4402067157446238ffd20588faebf3170227c",
+      "path": "data-model/forecast.html"
+    },
+    {
+      "digest": "sha256:b71cd17c25bc96da45035a42670258b3e695845e7ca7c6c64f06360fe018d747",
+      "path": "data-model/forecast.original.json"
+    },
+    {
+      "digest": "sha256:6474c2a662ab50b26d04bb11ad2cc5976382e99b1cf969f0963bbf415ada4e90",
+      "path": "data-model/period.html"
+    },
+    {
+      "digest": "sha256:0f89d2978969c9b03838e9b5e850a6c568a80b47c39126eb3d5a7c62d3014b75",
+      "path": "data-model/period.original.json"
+    },
+    {
+      "digest": "sha256:eca5211e8605131baf9299cab33e877552ac3eb4d143a863c139d72d94fb9b76",
+      "path": "data-model/place.html"
+    },
+    {
+      "digest": "sha256:5a8ab61edb96e41e749b39d04434ad7518f28163d0e46f148e2918142ef02e45",
+      "path": "data-model/place.original.json"
+    },
+    {
+      "digest": "sha256:0d7664daa87b4ae7c47c8327ca4f8693a565517e49a9b29fe1500e667c5abf0b",
+      "path": "data-model/save-city-request.html"
+    },
+    {
+      "digest": "sha256:17f69e883109f93309893871da8c51525ae5b157a92d9c3ca4e88d8f7cee984c",
+      "path": "data-model/save-city-request.original.json"
+    },
+    {
+      "digest": "sha256:51fe9eb7ea847b56fd7202da1e2eab9a9cff4e51480699463ad9e8dd93915d7c",
+      "path": "data-model/weather-card.html"
+    },
+    {
+      "digest": "sha256:a133e81e66d298c431cab2091592b3f36f00e15220664268e3625bcc8d551671",
+      "path": "data-model/weather-card.original.json"
     },
     {
       "digest": "sha256:d6a48375ff460c56ade0cd639aed5c41adb430b9bcdf84432e4f7ae9065eb489",
@@ -267,31 +345,43 @@
       "path": "frozen-inputs.json"
     },
     {
-      "digest": "sha256:513ff7892b836c3547207675f4b9f43c05dd94c3e059b33d0157fc7bc8f6f8f3",
+      "digest": "sha256:8e46f8ebc97193328b5e2fc7ac77c8513917a7170f7f91a2a00db0b5daf47b1f",
       "path": "help.html"
     },
     {
-      "digest": "sha256:bcaf8c0da7d7739334c402dbd0b59c14a90aecb2eb28d97fab6ef52e3e675e35",
+      "digest": "sha256:bf914bc72467584e88ece006fafeddececa3f856514ca90df38c2bc997883ea1",
       "path": "history.html"
     },
     {
-      "digest": "sha256:3291ee91e6bbdfcefb6ed830b76376e98422b53c8744b355cb9562586fbe27d4",
+      "digest": "sha256:5a0c949a9b6be97f419af5843e11d582c1db3e20374e1c809e58098aabf63ef1",
+      "path": "http-contract-comparison.json"
+    },
+    {
+      "digest": "sha256:00d3e9ef30341ef1c49b91614724291fa86c6f52dee5f44438cbed3e91987741",
       "path": "index.html"
     },
     {
-      "digest": "sha256:3291ee91e6bbdfcefb6ed830b76376e98422b53c8744b355cb9562586fbe27d4",
+      "digest": "sha256:00d3e9ef30341ef1c49b91614724291fa86c6f52dee5f44438cbed3e91987741",
       "path": "overview.html"
     },
     {
-      "digest": "sha256:4acde9ccc2b22857bf8d13a3531acf6ae409cd91af4f603f1db53f83fa202802",
+      "digest": "sha256:024b42ffdc172a130c980874e18ff840b8509dd61cb8511ecd78d3f014b94996",
+      "path": "retained-overview.html"
+    },
+    {
+      "digest": "sha256:95fb18e35060ce40215620971d34aa4ca7285a8288108edd11878a573992e997",
       "path": "runbooks.html"
     },
     {
-      "digest": "sha256:908f6a0d820b469000d49da72b74af0ad0b160163c48067690799ad70fc7240b",
+      "digest": "sha256:40fac4fc28756bdfffb17389cdc9853f6731bd83d3f1600bc29bfe0cd95f1e5b",
+      "path": "scenarios/dashboard-forecast-updated-consumer.data-flow.original.json"
+    },
+    {
+      "digest": "sha256:683653bf8ba0436059f45988912ba53d527608d61d992de007a17b9074812eb4",
       "path": "scenarios/dashboard-forecast-updated-consumer.html"
     },
     {
-      "digest": "sha256:99fb9db78c5fbe329df0bd8d83c420a7bb9faf5b6be8dabf5fa41757837fc398",
+      "digest": "sha256:8c454e7c13a5c0c6310de035035e703240bb11a62444094184ab6a946e4f474b",
       "path": "scenarios/dashboard-forecast-updated-consumer.json"
     },
     {
@@ -299,11 +389,23 @@
       "path": "scenarios/dashboard-forecast-updated-consumer.md"
     },
     {
-      "digest": "sha256:52a33808634aca95571b606e764b70499d6f6da29bccbf0c569a9eea62a0c266",
+      "digest": "sha256:443241be024412ab4a4f5cde97027c7b532cef6345dc80e139672427f04ed9e6",
+      "path": "scenarios/dashboard-forecast-updated-consumer.operation-dashboard-forecast-updated-consumer.original.json"
+    },
+    {
+      "digest": "sha256:cee6bf1852de781d9271c2762a8e648c3ac4fc6a45317a9965d9122566a960f3",
+      "path": "scenarios/dashboard-forecast-updated-consumer.operation-process-overview.original.json"
+    },
+    {
+      "digest": "sha256:decffe029d02c7f33e5d810b3dcc785cf82a33de0aa53633e09d9dce7ccdc655",
+      "path": "scenarios/dashboard-forecast-updated-consumer.reading-guide.original.json"
+    },
+    {
+      "digest": "sha256:7828621f6e47d1a3caaf025cf3252dc4cb45565567c45ed1450c6b931a2d22b0",
       "path": "scenarios/dashboard-place-requested-consumer.html"
     },
     {
-      "digest": "sha256:1aa1090c55c2eb3141a5a90f2c7361078a23e14501ada30b378dcb36f519ceb5",
+      "digest": "sha256:4074eeaa2b786ad3893f4726c025e3dc718676c372c5c61910fe853f952ad9a6",
       "path": "scenarios/dashboard-place-requested-consumer.json"
     },
     {
@@ -311,11 +413,23 @@
       "path": "scenarios/dashboard-place-requested-consumer.md"
     },
     {
-      "digest": "sha256:32f3b5a2546e86eb738567f129aecd2ffdbb0ef2c6d205f9b152755371e9d58a",
+      "digest": "sha256:268d2c7a108e2b96f691e9dc3fc0bb25bdf9d339dc9b69949f5c7e04ca311177",
+      "path": "scenarios/dashboard-place-requested-consumer.operation-dashboard-place-requested-consumer.original.json"
+    },
+    {
+      "digest": "sha256:2f61049bd2919f171e862b0d491d5172f86b334f11a1181bdb1857d8933229e9",
+      "path": "scenarios/dashboard-place-requested-consumer.operation-process-overview.original.json"
+    },
+    {
+      "digest": "sha256:329dbd38b9c4811859953289857fa06647dacaefb3eb69e033a27aad951aa830",
+      "path": "scenarios/dashboard-place-requested-consumer.reading-guide.original.json"
+    },
+    {
+      "digest": "sha256:46f6b68d1530e80c557f2f194959374f30a1364d2641eb3b08f23e4a2dbab0a3",
       "path": "scenarios/dashboard-refresh-request.html"
     },
     {
-      "digest": "sha256:4c0af75e45063d0b4a1e0b7bee26d65f6123d69809aee616a0b8633366ffb8e0",
+      "digest": "sha256:13ffbfb2710648c066fdf2f49507fb0daa4221fbcb05dfca2cb12209983cd7d3",
       "path": "scenarios/dashboard-refresh-request.json"
     },
     {
@@ -323,11 +437,27 @@
       "path": "scenarios/dashboard-refresh-request.md"
     },
     {
-      "digest": "sha256:325bb0ecd19fd6a0a956b96bf81367e54b4c7a6bcc754d63c655853b3d61d4c4",
+      "digest": "sha256:49632b2bdce9f9db5f7af83044d85080579a0d7fdd60e96761c1f4b165ec5c34",
+      "path": "scenarios/dashboard-refresh-request.operation-dashboard-refresh-request.original.json"
+    },
+    {
+      "digest": "sha256:fcac2c48c22dc30962432a7b1b0e84ad69da8c73922734ef43a277ba4e93391b",
+      "path": "scenarios/dashboard-refresh-request.operation-process-overview.original.json"
+    },
+    {
+      "digest": "sha256:23370925c54aec854fe020c8e1d74ae00524acb12d7f8029eaa902fe0e74043f",
+      "path": "scenarios/dashboard-refresh-request.reading-guide.original.json"
+    },
+    {
+      "digest": "sha256:df51653ba81c8d1d6e969feaaafe69f8a91f824399fe63bbd8c1ddbaf00629bc",
+      "path": "scenarios/dashboard-save-city.data-flow.original.json"
+    },
+    {
+      "digest": "sha256:d63c5a8db91182f0a45059954539f59eb7fe8a6a4e036e958931c07b2de2c66b",
       "path": "scenarios/dashboard-save-city.html"
     },
     {
-      "digest": "sha256:1eb51db9699e28704c914de96e55a5d70f8136aa02c8c9e3399d43cb8f70453c",
+      "digest": "sha256:37b3f32a22217973da111929634e8bfedf299cfbdedfea5d748d2aaecd27d4f2",
       "path": "scenarios/dashboard-save-city.json"
     },
     {
@@ -335,11 +465,23 @@
       "path": "scenarios/dashboard-save-city.md"
     },
     {
-      "digest": "sha256:487d4ed6eef8fc7be313d93ad1e1c671bde202be674090670256b9fd13d24760",
+      "digest": "sha256:683a19b1cd5ab9ee1d4270e4e960502a2d7c0d07d807b72365c02b1fd7d5929d",
+      "path": "scenarios/dashboard-save-city.operation-dashboard-save-city.original.json"
+    },
+    {
+      "digest": "sha256:6004960393ee279f74539c809f04d22b3a421db39c46758e15a1278c13580dd2",
+      "path": "scenarios/dashboard-save-city.operation-process-overview.original.json"
+    },
+    {
+      "digest": "sha256:1f13fcd48f60fe56322386e62735adb5a3dc8baa04200fcf6dd0b2edcecd9168",
+      "path": "scenarios/dashboard-save-city.reading-guide.original.json"
+    },
+    {
+      "digest": "sha256:cfea649f4c334b8928931a878d712083489de02ed572c460d4888aba68605be4",
       "path": "scenarios/forecasts-place-requested-consumer.html"
     },
     {
-      "digest": "sha256:be7bdcd5d84b0893eab1b85cd942f9edf45add9eb8fe8776fd24aa9b5983d54b",
+      "digest": "sha256:39ffa3f0d29a33c806100f2b7d9b1a801eb98b885d981a487b25424b800ec0cd",
       "path": "scenarios/forecasts-place-requested-consumer.json"
     },
     {
@@ -347,11 +489,23 @@
       "path": "scenarios/forecasts-place-requested-consumer.md"
     },
     {
-      "digest": "sha256:bbdda8e7313d3ff37a06f2fb0f9d849d4d26ea0f4f9fc151f916f97b721089c0",
+      "digest": "sha256:73220dbaa47b5d000308a636f853805495ce4d2b106c653bb522f7995edea354",
+      "path": "scenarios/forecasts-place-requested-consumer.operation-forecasts-place-requested-consumer.original.json"
+    },
+    {
+      "digest": "sha256:538165e7807fb95b396b1b09a78f0f27399843263cb91800890033cb6153fb3d",
+      "path": "scenarios/forecasts-place-requested-consumer.operation-process-overview.original.json"
+    },
+    {
+      "digest": "sha256:906f2c595b162d9b0086bb7b5cb13ec761bc670d35e909097c81b91db158e38a",
+      "path": "scenarios/forecasts-place-requested-consumer.reading-guide.original.json"
+    },
+    {
+      "digest": "sha256:98a62d79f7fbc5fa6057a6275b147efca2693dac58d8b64c2008f92d24289eca",
       "path": "scenarios/forecasts-publish-pending.html"
     },
     {
-      "digest": "sha256:e18e0384d017ece03cfe1107067902ddefaaaba4d3db664fe1b8867e659c5922",
+      "digest": "sha256:3223a2f7efc5b98fb46ebde2602e11151dc0466f550eddd61725d33d3dc8655c",
       "path": "scenarios/forecasts-publish-pending.json"
     },
     {
@@ -359,11 +513,23 @@
       "path": "scenarios/forecasts-publish-pending.md"
     },
     {
-      "digest": "sha256:b3c1eaf91b02a7571162b9a69ceedfc0c27bbe599380e52ff90df60e82c42e71",
+      "digest": "sha256:1b0daa5549ef21d08421c659392dbbd2aadb80632974b49a1d5b087dec6bd4a9",
+      "path": "scenarios/forecasts-publish-pending.operation-forecasts-publish-pending.original.json"
+    },
+    {
+      "digest": "sha256:3532ec8a902a73da5f4f71b9f75d52f5f2935381ccfe01a75329e2e2faab75de",
+      "path": "scenarios/forecasts-publish-pending.operation-process-overview.original.json"
+    },
+    {
+      "digest": "sha256:ce6541ba8730454656c14d58ed2738ff7e988d1547dae4eab3e9233d1533281c",
+      "path": "scenarios/forecasts-publish-pending.reading-guide.original.json"
+    },
+    {
+      "digest": "sha256:96a66ca55170b950ca5235182a85d3b4a216ed3f4cd15f159682b6be8a2df44c",
       "path": "scenarios/forecasts-refresh-scheduled.html"
     },
     {
-      "digest": "sha256:c7fd32b704780594b31640bd97699e53bc399db7ff7864bd7c86217cbd9856cb",
+      "digest": "sha256:0b878f32561db67ebb7fae9aa1bb8814ff156d3a9781ee1869acf1ea2076da05",
       "path": "scenarios/forecasts-refresh-scheduled.json"
     },
     {
@@ -371,11 +537,23 @@
       "path": "scenarios/forecasts-refresh-scheduled.md"
     },
     {
-      "digest": "sha256:4df188720c55e899270c9a1ace80e220d5fd14fd91fb433913299a33944b3331",
+      "digest": "sha256:d739404dd1fa89cec3252fcf9631c93405aa02f67a6cc5b70cbd2e14eda9f038",
+      "path": "scenarios/forecasts-refresh-scheduled.operation-forecasts-refresh-scheduled.original.json"
+    },
+    {
+      "digest": "sha256:7b634e9ddfa70c2413562760d39fa5c119e5d949156675d2bd88794cea2875ee",
+      "path": "scenarios/forecasts-refresh-scheduled.operation-process-overview.original.json"
+    },
+    {
+      "digest": "sha256:ac26b3bd8bbfd13547c6fc079096c691f2f5cfd86768b6a76ea08af42e93ff5a",
+      "path": "scenarios/forecasts-refresh-scheduled.reading-guide.original.json"
+    },
+    {
+      "digest": "sha256:37d4510d11203bb948e22872a04c1be8ed18cb17f92b84e5b5c6f18d178032c2",
       "path": "scenarios/places-request-publisher.html"
     },
     {
-      "digest": "sha256:1a0eee7863c6088fdfe529881f9a96e1b52e196f2896719bbeb4fd16382238b1",
+      "digest": "sha256:3219339bbe5914c053c4541f8cfb8a41493cbebb0c7f1353b05f119cceb3cc6f",
       "path": "scenarios/places-request-publisher.json"
     },
     {
@@ -383,11 +561,23 @@
       "path": "scenarios/places-request-publisher.md"
     },
     {
-      "digest": "sha256:dad1f892021ac2c5efd6f8a0cd7166ab2714d37ba9c37e62accc4d37691c6bb4",
+      "digest": "sha256:b70560ed2b71e2b5a2b47bac62abc8714893e9197faf052b64867fb135736c7f",
+      "path": "scenarios/places-request-publisher.operation-places-request-publisher.original.json"
+    },
+    {
+      "digest": "sha256:347ad696f03fbaa5151437bc9a00e914a3fa5bc85510d2f3e5d11311b88c22f9",
+      "path": "scenarios/places-request-publisher.operation-process-overview.original.json"
+    },
+    {
+      "digest": "sha256:b00569553d868aeacfebe0d5b8ab073a8453bf2baeae1be8080ae6543f4f519d",
+      "path": "scenarios/places-request-publisher.reading-guide.original.json"
+    },
+    {
+      "digest": "sha256:df1af30c55f8315db8489dc12dbba4e536c966d63a099f88c11d44e0a9ab652d",
       "path": "services/dashboard.html"
     },
     {
-      "digest": "sha256:606ae0ca0a29141dfe2075b0022f227f4de1bb3741ac5243309a1db971980daa",
+      "digest": "sha256:b757f2cfbdbb21cd6c7c71c4afb585255c70b339d4b27a14f0cecfc50e9c652c",
       "path": "services/dashboard.json"
     },
     {
@@ -395,11 +585,95 @@
       "path": "services/dashboard.md"
     },
     {
-      "digest": "sha256:f16091ec64c726473c0c610aab9dfc263aa9a28dc84bf0a7ee1f4b09068e6648",
+      "digest": "sha256:8603cd29c6d36cba6a5cd180f11d7a55ce8c8b50112136ff8977c782d779750a",
+      "path": "services/dashboard.note-runtime-kafka-replay.original.json"
+    },
+    {
+      "digest": "sha256:2485da188c0fd42431b1ecd2c09752b98d8918ba0cec22316758434f65d7a472",
+      "path": "services/dashboard.note-runtime-validator-node24.original.json"
+    },
+    {
+      "digest": "sha256:befebfdc51f9b848c2e939405f62d57f00d622df3410773349ffa61dcd0c5c49",
+      "path": "services/dashboard.operation-assessment-runtime-kafka-replay.original.json"
+    },
+    {
+      "digest": "sha256:fdd1a2a0ec3c104db3336a575e32999067a601b74e4c7263efcb3e1bfcb68b24",
+      "path": "services/dashboard.operation-assessment-runtime-validator-node24.original.json"
+    },
+    {
+      "digest": "sha256:eb51285d255b4003c7d1c6c1f9c0e235a469a498d1520195ef0251810db4174c",
+      "path": "services/dashboard.operation-dashboard-1d4aa83e0d1825825971.original.json"
+    },
+    {
+      "digest": "sha256:51f4142ca79c3214e3b98ea1d2a3fb60a8fad7100b4f11522135776ba8773e80",
+      "path": "services/dashboard.operation-dashboard-310371b6c91f276ad642.original.json"
+    },
+    {
+      "digest": "sha256:f3d00fc84c6f883d12243143ffefe7da4189d5801041d1111d6a76548dbfa606",
+      "path": "services/dashboard.operation-dashboard-32f3a8fe3000ac506a5a.original.json"
+    },
+    {
+      "digest": "sha256:4859b07d688538f99b8d5787295a668d4124025ef8d082f32e1268ce91ef13b2",
+      "path": "services/dashboard.operation-dashboard-4301d0222c019e9d5339.original.json"
+    },
+    {
+      "digest": "sha256:8621271be5d3db9abd10ec63dfe57cfda5650d9aa1a69a424bf2f48e92a52325",
+      "path": "services/dashboard.operation-dashboard-721012b8ddf1b26a39b9.original.json"
+    },
+    {
+      "digest": "sha256:3d628a4aff29a95c6b36c71524f16db6fb1e458ba55d7743ef4f4a922dcea232",
+      "path": "services/dashboard.operation-dashboard-8f0c2429af695539e6cd.original.json"
+    },
+    {
+      "digest": "sha256:8f7ac0706d5979e3ef0f3606e66748db51a363f28a4797e964102548eae444b6",
+      "path": "services/dashboard.operation-dashboard-9e8af3ed64d9d5e72548.original.json"
+    },
+    {
+      "digest": "sha256:a693025c25eed075b3248b0f9df6a2cb999373d21d5598df4b704e2d4c7f2631",
+      "path": "services/dashboard.operation-dashboard-aa92fac55661297c8e9a.original.json"
+    },
+    {
+      "digest": "sha256:1521348be86332e2fe171f0d845a4c102f0b8688881f51242b5ed235af500bb9",
+      "path": "services/dashboard.operation-dashboard-ad968c2137fedea90215.original.json"
+    },
+    {
+      "digest": "sha256:3304efef1a461498c541178603ee7fc561aeabae1698795089a5f1a4d855a085",
+      "path": "services/dashboard.operation-dashboard-d36957b096678dbe4785.original.json"
+    },
+    {
+      "digest": "sha256:2d36ac05ae8646f3b509fdb47c5453b45f011686e910e636fa2563a16e5411f3",
+      "path": "services/dashboard.operation-dashboard-d527a6e620a1974b0e5a.original.json"
+    },
+    {
+      "digest": "sha256:2b469bb218c72cd506b7d2ada19799b0f13c035adfbfb0a3b303b3b6b03f4347",
+      "path": "services/dashboard.operation-dashboard-f965de51f1f237949bc6.original.json"
+    },
+    {
+      "digest": "sha256:d5cf4a82eb5cf7b0c5cea92e358b9d94228bcc32967889d2124028bf05507b09",
+      "path": "services/dashboard.operation-section-egress.original.json"
+    },
+    {
+      "digest": "sha256:8ee7051e0eae7bf245c4373c6336d745d9b26aa1ae1be32db608c78a6a07af37",
+      "path": "services/dashboard.operation-section-entities.original.json"
+    },
+    {
+      "digest": "sha256:f3a060827ca82ea332a9fbbe72deed68d5e450e5e258bff0c29911d589083da8",
+      "path": "services/dashboard.operation-section-ingress.original.json"
+    },
+    {
+      "digest": "sha256:b8516288f59e267446b0a2a98fd33de5388e66a90f349ca9d1682ef7b6713203",
+      "path": "services/dashboard.operation-section-overview.original.json"
+    },
+    {
+      "digest": "sha256:b2a4557f07f1ccd2081538f8cd70c18407c52e8b7ae5a37a33250de69a9365dc",
+      "path": "services/dashboard.operation-section-responsibilities.original.json"
+    },
+    {
+      "digest": "sha256:4d3c1684901eeee528debf14da077058b55c111538490f30563dc0abb3ea5dde",
       "path": "services/forecasts.html"
     },
     {
-      "digest": "sha256:ea28b3132d092217aa8096e1da8413dcf6ef765d4fdb581277c3f91dddd33527",
+      "digest": "sha256:ec131242bcb56baf3b9529712ea7dbfa484ea4a87e3461b796b1861f9ad5042a",
       "path": "services/forecasts.json"
     },
     {
@@ -407,11 +681,59 @@
       "path": "services/forecasts.md"
     },
     {
-      "digest": "sha256:0447a9a110eb513ffc0054ec3e260bd092711938ed34b464ddc52e0c93220219",
+      "digest": "sha256:1925263cdf383ce144733780501e7bedbccff3ca38e08940da70927cb305e944",
+      "path": "services/forecasts.operation-forecasts-23c1f84e75a5f47c4675.original.json"
+    },
+    {
+      "digest": "sha256:8e21cdc78ae3eb4b6f3e5555a7d2f5d9b3ccd4b1a7e1e9f6d6a7017192fee95a",
+      "path": "services/forecasts.operation-forecasts-4e4e8e31400c498b7591.original.json"
+    },
+    {
+      "digest": "sha256:f5194aea77307e1eb8c8867e6b1c846804b5b2b21ebd62e4a387538134dd54f4",
+      "path": "services/forecasts.operation-forecasts-7113b27ca4694ebce3b6.original.json"
+    },
+    {
+      "digest": "sha256:52cc3225f9ba692fdb5e082df130f5cb20b7e19f24bea74f794c3b9f4bc96346",
+      "path": "services/forecasts.operation-forecasts-a2617f9567b7eac19bf2.original.json"
+    },
+    {
+      "digest": "sha256:26c468bed798a81761ce4cc7b6e3252d9d7a8e4ba56dc4057ce8703789fc1ccf",
+      "path": "services/forecasts.operation-forecasts-bd578e14951373ddaddf.original.json"
+    },
+    {
+      "digest": "sha256:edda728bbc7be1bf2b13faeceba60708640776792a9b36e17e67aa9038ec7df6",
+      "path": "services/forecasts.operation-forecasts-c91896e4eb5ce5155f3d.original.json"
+    },
+    {
+      "digest": "sha256:5a8bd57a15e75a6783ec285deb4026ac5d052b1e950a02b19a1d0ad74af31d47",
+      "path": "services/forecasts.operation-section-egress.original.json"
+    },
+    {
+      "digest": "sha256:88b57e4fcec063a626cee28c7be6b7937333f8599010848c7e9604e0e432ccd2",
+      "path": "services/forecasts.operation-section-entities.original.json"
+    },
+    {
+      "digest": "sha256:bb35fa3bc94d877fa18ff48e1420cd8015a1fb51cef1b96826c1b49735b3a327",
+      "path": "services/forecasts.operation-section-ingress.original.json"
+    },
+    {
+      "digest": "sha256:60df5ce256d482c697d5fb25a2679206c9a1786e34b79562d0e3439eaf8800c4",
+      "path": "services/forecasts.operation-section-overview.original.json"
+    },
+    {
+      "digest": "sha256:f11791e2daa2598f3e993944c7e704e5b0daedc195a4e7cc885ceccf9f480137",
+      "path": "services/forecasts.operation-section-responsibilities.original.json"
+    },
+    {
+      "digest": "sha256:5a0c949a9b6be97f419af5843e11d582c1db3e20374e1c809e58098aabf63ef1",
+      "path": "services/places.comparison.original.json"
+    },
+    {
+      "digest": "sha256:600630b8dfc3510b92c1b16cc49f718ea1b11a00f2f32f560cfef5edb9d53c7b",
       "path": "services/places.html"
     },
     {
-      "digest": "sha256:727eebcb3af8a0df9cbb02bb1cd63acecae454955fa786440f782b88821bedbe",
+      "digest": "sha256:07b7298e066e6c97dc62d8b26cf91e433b5c0fdeba1a977d8c2eef56ea65aa43",
       "path": "services/places.json"
     },
     {
@@ -419,14 +741,112 @@
       "path": "services/places.md"
     },
     {
+      "digest": "sha256:7838b66def78673c5e523065b03895c6b44327f66dde625924f675b9e2df9cb2",
+      "path": "services/places.note-runtime-broker-outage.original.json"
+    },
+    {
+      "digest": "sha256:39f055ae995ce4938323126110b4cce4a7c39a396354f9fb69ee7202ed2bafd0",
+      "path": "services/places.operation-assessment-runtime-broker-outage.original.json"
+    },
+    {
+      "digest": "sha256:9bd288c3939f7228cfe93a853c1c6a0bd3ea86d7ce5f8444e82b0c293008185d",
+      "path": "services/places.operation-places-3a33202464c8b4fff218.original.json"
+    },
+    {
+      "digest": "sha256:2f7f309016b1646e92e5da5aad695eb3e6344f7f387b02512e181f235d818b4b",
+      "path": "services/places.operation-places-691b340ea61828b197b6.original.json"
+    },
+    {
+      "digest": "sha256:df18b9e3fb074ac4b10f358bf9040dd58d9bcf95dc4882ddae0dcd610303a087",
+      "path": "services/places.operation-places-8a2148bf5e312b0c5947.original.json"
+    },
+    {
+      "digest": "sha256:9eca607c01ee60dd4affe67c5d9a780b4b0b49a77eb6c73e13e5378a37c32832",
+      "path": "services/places.operation-places-de7d5796a632782443dc.original.json"
+    },
+    {
+      "digest": "sha256:b2368f6a5f80e5b6aa4b44e32b1177a2edd876865f62a75e391d05550b219d68",
+      "path": "services/places.operation-places-e06f41e67f62720ad106.original.json"
+    },
+    {
+      "digest": "sha256:0ca6f2065ba6f41240195b5866df1c416b3d77a34b9eeacbe5bf08aa9ec390c3",
+      "path": "services/places.operation-section-egress.original.json"
+    },
+    {
+      "digest": "sha256:6509df31fd3a8af7731e3b9836dbbf2516569fd998b3fa8314e41377b15903da",
+      "path": "services/places.operation-section-entities.original.json"
+    },
+    {
+      "digest": "sha256:5ac14167abefff72defc0b5084bf133ec8618731da1883fc5b4178c696f53b45",
+      "path": "services/places.operation-section-ingress.original.json"
+    },
+    {
+      "digest": "sha256:238139ca6e160d021df062667e6d214b7d4e393b3df2587ad6d7dbe84fff8f18",
+      "path": "services/places.operation-section-overview.original.json"
+    },
+    {
+      "digest": "sha256:f28741cc350a7be72c6f7fce4ba8bf6585befa2dc38f4c7adbb1beda3dc570ab",
+      "path": "services/places.operation-section-responsibilities.original.json"
+    },
+    {
       "digest": "sha256:e5763dba1cfe92a1fda341f02ad84a7838b743865267693917c2013e8d7ffabb",
       "path": "status.json"
+    },
+    {
+      "digest": "sha256:9ca75b068633a8c344b9485ae34954b93bd9b28ffdb067fdbb8ebef59c8ea965",
+      "path": "system-reading-guide.json"
+    },
+    {
+      "digest": "sha256:9ca75b068633a8c344b9485ae34954b93bd9b28ffdb067fdbb8ebef59c8ea965",
+      "path": "system-reading-guide.original.json"
     }
   ],
   "frozenBindingsDigest": "sha256:7e3540de505d85c8eab70b5d97243eeb14ae601f433e5d4b8157fb790a2fa64b",
   "index": "index.html",
   "inputDigest": "sha256:e14f03b3255df5946625b6ed2995158404bf1c58ea789f1d4b63ca48dd739a20",
-  "output": "./full-pages-sequence-provenance-wrap-v1",
+  "modelTranslationComplete": true,
+  "modelTranslationGaps": {},
+  "narrativeTranslationComplete": false,
+  "narrativeTranslationCoverage": [
+    "OPERATIONS",
+    "SECTIONS",
+    "NOTE_ASSESSMENTS",
+    "NOTE_ORIGINALS"
+  ],
+  "narrativeTranslationGaps": {
+    "service:dashboard": {
+      "original-note-runtime-kafka-replay": {
+        "authority": "ORIGINAL_AUTHORED_DESCRIPTION_UNCHANGED",
+        "availableLanguage": null,
+        "kind": "NOTE_ORIGINAL_TRANSLATION",
+        "noteId": "runtime-kafka-replay",
+        "originalPath": "services/dashboard.note-runtime-kafka-replay.original.json",
+        "requestedLanguage": "en",
+        "title": "kafka-replay.json"
+      },
+      "original-note-runtime-validator-node24": {
+        "authority": "ORIGINAL_AUTHORED_DESCRIPTION_UNCHANGED",
+        "availableLanguage": null,
+        "kind": "NOTE_ORIGINAL_TRANSLATION",
+        "noteId": "runtime-validator-node24",
+        "originalPath": "services/dashboard.note-runtime-validator-node24.original.json",
+        "requestedLanguage": "en",
+        "title": "validator-node24.json"
+      }
+    },
+    "service:places": {
+      "original-note-runtime-broker-outage": {
+        "authority": "ORIGINAL_AUTHORED_DESCRIPTION_UNCHANGED",
+        "availableLanguage": null,
+        "kind": "NOTE_ORIGINAL_TRANSLATION",
+        "noteId": "runtime-broker-outage",
+        "originalPath": "services/places.note-runtime-broker-outage.original.json",
+        "requestedLanguage": "en",
+        "title": "broker-outage.json"
+      }
+    }
+  },
+  "output": "/Users/eugene/repo/research/experiments/weather-reference-correction-20261019/root-candidate04/.reference-render-7mxfz2rc/site",
   "pages": [
     {
       "html": "scenarios/dashboard-forecast-updated-consumer.html",
@@ -486,7 +906,11 @@
   ],
   "proseAuthored": false,
   "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+  "questionReadingProfile": true,
+  "readingGuideTranslationComplete": true,
+  "readingGuideTranslationGaps": {},
+  "requestedDocumentationLanguage": "en",
   "schema": "codeclew-native-pages-full-manifest/1.0",
   "snapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
-  "status": "RENDERED"
+  "status": "PARTIAL"
 }

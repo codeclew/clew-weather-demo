@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "generator": {
+    "version": "0.13.39",
+    "sourceRevision": "7880663be0b8b8dcefd197768fbc1593f0dddb4b",
+    "selection": "SOURCE_CANDIDATE"
+  },
+  "models": 6,
+  "fields": 23,
+  "processDataFlow": [
+    "dashboard-forecast-updated-consumer",
+    "dashboard-save-city"
+  ],
+  "scope": "Static artifact coverage and identity; interactive browser acceptance is separate."
+}

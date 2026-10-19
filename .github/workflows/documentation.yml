@@ -31,14 +31,28 @@ jobs:
           python-version: '3.12'
       - name: Test reference artifact checks
         run: python3 -I -S documentation/reference/test_verify.py
-      - name: Require the latest released renderer and complete reference coverage
+      - name: Validate pinned publication mode and complete reference coverage
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          release_tag=$(gh api repos/codeclew/codeclew/releases/latest --jq .tag_name)
-          release_commit=$(gh api "repos/codeclew/codeclew/commits/$release_tag" --jq .sha)
-          python3 -I -S documentation/reference/verify.py --root docs \
-            --expected-version "$release_tag" --expected-commit "$release_commit"
+          mode=$(python3 -c 'import json; print(json.load(open("documentation/reference/publication.json"))["mode"])')
+          case "$mode" in
+            accepted-source)
+              python3 -I -S documentation/reference/verify.py --root docs \
+                --publication-policy documentation/reference/publication.json
+              source_commit=$(python3 -c 'import json; print(json.load(open("documentation/reference/publication.json"))["renderer"]["sourceRevision"])')
+              resolved_commit=$(gh api "repos/codeclew/codeclew/commits/$source_commit" --jq .sha)
+              test "$resolved_commit" = "$source_commit"
+              ;;
+            latest-release)
+              release_tag=$(gh api repos/codeclew/codeclew/releases/latest --jq .tag_name)
+              release_commit=$(gh api "repos/codeclew/codeclew/commits/$release_tag" --jq .sha)
+              python3 -I -S documentation/reference/verify.py --root docs \
+                --publication-policy documentation/reference/publication.json \
+                --expected-version "$release_tag" --expected-commit "$release_commit"
+              ;;
+            *) printf '%s\n' 'Unsupported reference publication mode' >&2; exit 1 ;;
+          esac
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:

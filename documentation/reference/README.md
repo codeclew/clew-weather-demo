@@ -5,6 +5,19 @@ files are preserved byte for byte. `service-model-links.json` adds explicit
 navigation from service entities sections to canonical field tables; it changes
 no field description, evidence or domain ownership declaration.
 
+`publication.json` selects one explicit deployment mode. `latest-release` keeps
+the public release version/commit checks and requires an installed-release
+renderer. The currently authorized `accepted-source` mode pins the locally
+accepted renderer SHA and every byte of its accepted artifact through
+`accepted-source-files.json`; it does not claim a binary release exists. Both
+modes retain all input, evidence identity and coverage checks. There is no
+automatic fallback from a failed release check to source publication.
+
+The public `reference-publication.json` must match the checked policy exactly.
+`render-details.html` and the repository README expose the source mode and
+renderer/input identities. Previous render provenance remains in
+`reference-history/` without changing the historical catalogue.
+
 After each supported Codeclew release, regenerate this reference as a release
 completion step. Use the official installed launcher for the public candidate,
 the exact release commit and the retained documentation root recorded by the
