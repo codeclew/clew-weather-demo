@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'docs/**'
+      - 'documentation/reference/**'
       - '.github/workflows/documentation.yml'
   workflow_dispatch:
 
@@ -25,6 +26,19 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test reference artifact checks
+        run: python3 -I -S documentation/reference/test_verify.py
+      - name: Require the latest released renderer and complete reference coverage
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          release_tag=$(gh api repos/codeclew/codeclew/releases/latest --jq .tag_name)
+          release_commit=$(gh api "repos/codeclew/codeclew/commits/$release_tag" --jq .sha)
+          python3 -I -S documentation/reference/verify.py --root docs \
+            --expected-version "$release_tag" --expected-commit "$release_commit"
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
