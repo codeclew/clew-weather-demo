@@ -846,7 +846,7 @@
       }
     }
   },
-  "output": "/Users/eugene/repo/research/experiments/weather-reference-correction-20261019/root-candidate04/.reference-render-7mxfz2rc/site",
+  "output": "/Users/eugene/repo/research/experiments/ready-integration-20261019/release-01339/.reference-render-68kewb78/site",
   "pages": [
     {
       "html": "scenarios/dashboard-forecast-updated-consumer.html",

@@ -1,23 +1,27 @@
 {
   "schema": "weather-reference-publication/1.0",
-  "mode": "accepted-source",
+  "mode": "latest-release",
   "renderer": {
     "version": "0.13.39",
     "sourceRevision": "7880663be0b8b8dcefd197768fbc1593f0dddb4b"
   },
-  "acceptedFiles": "accepted-source-files.json",
-  "acceptedFilesSha256": "b1b623f45d682c2379d34c4f6a0793592b2d016d61e3574716b07ac622d1e406",
   "siteFilesSha256": {
-    "render-details.html": "92418ee3d67479a3505b098b3b3bec94ca1b85e5c219d49ba2eb46bdea4a2a7d",
-    "reference-files.json": "b1b623f45d682c2379d34c4f6a0793592b2d016d61e3574716b07ac622d1e406",
-    "render-provenance.json": "4ffda313776a2582a2724c7ad38504d5d38f93c6f04b4b342e0485aaa1d43468",
+    "render-details.html": "54a501ffafd256b139e63db47f468728d3adc76247abb7e7105b8cda34a0a670",
+    "reference-files.json": "d56bb63abe4e2e753a964149f62898cdca8df2b14f5989dada0a2a6de8049710",
+    "render-provenance.json": "6017438bf09bd9a91b456cf6ff28ca656ae1fb0f2a82a9581a228d27fe4720d2",
     "reference-history/before-7880663b/render-provenance.json": "3eccdd1ec9f08b708eba2480de8cdf55480a2cc12d6de2ce1bc6fe4afe9b5292",
-    "reference-history/before-7880663b/pages-manifest.json": "dd0ea4ec152e347c8b356170ea0c2fdf95f4e1d9750413742347d12a81a98dad"
+    "reference-history/before-7880663b/pages-manifest.json": "dd0ea4ec152e347c8b356170ea0c2fdf95f4e1d9750413742347d12a81a98dad",
+    "reference-history/accepted-source-7880663b/pages-manifest.json": "80704762366fe67a256677d773e92580a9a1aac62a3fd64b170c81ddaf95bdbd",
+    "reference-history/accepted-source-7880663b/reference-checks.json": "56cd87a4c1627b6e2d8b60f70170b481d49e70d178ae51949b9be45fdbce59df",
+    "reference-history/accepted-source-7880663b/reference-publication.json": "b53a5b6ce492f33af6c8340767d4adc81bbc73d236e018112a69bc3ed351e76f",
+    "reference-history/accepted-source-7880663b/reference-render.json": "ff741a8f4923283113bb6d74aed9522e8032baabf8f3804c2de8e4df68a82831",
+    "reference-history/accepted-source-7880663b/reference-files.json": "b1b623f45d682c2379d34c4f6a0793592b2d016d61e3574716b07ac622d1e406"
   },
   "acceptance": {
     "scope": "Bounded local native and production MDX artifact presentation, navigation and preservation; not runtime proof",
     "analystReportSha256": "633572704a469e2605f5112fd996b3b9fcc70faafb382c15ca2bf2f52a0ddbe7",
-    "engineeringReportSha256": "67b0e63ebffe9a16df174b639e319b24dcd0c84b631e6b00c49db957467c017d"
+    "engineeringReportSha256": "67b0e63ebffe9a16df174b639e319b24dcd0c84b631e6b00c49db957467c017d",
+    "preservation": "Official installed v0.13.39 renderer output pages, data and assets are byte-identical to the independently accepted source artifact. Only launcher identity and manifest staging path metadata differ."
   },
-  "publicReleaseClaim": false
+  "publicReleaseClaim": true
 }

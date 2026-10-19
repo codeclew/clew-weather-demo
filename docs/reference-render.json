@@ -3,7 +3,7 @@
   "generator": {
     "version": "0.13.39",
     "sourceRevision": "7880663be0b8b8dcefd197768fbc1593f0dddb4b",
-    "selection": "SOURCE_CANDIDATE"
+    "selection": "INSTALLED_RELEASE"
   },
   "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
   "snapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",

@@ -3,5 +3,6 @@
   "current": "reference-render.json",
   "publicationPolicy": "reference-publication.json",
   "details": "render-details.html",
-  "previous": "reference-history/before-7880663b/render-provenance.json"
+  "previous": "reference-history/before-7880663b/render-provenance.json",
+  "previousAcceptedSource": "reference-history/accepted-source-7880663b/reference-render.json"
 }
