@@ -25,10 +25,10 @@ class FieldMarkupTests(unittest.TestCase):
         self.assertEqual((parsed.tables, parsed.headers, parsed.fields), (0, 0, []))
 
     def test_real_field_table_retains_field_order_and_column_headers(self):
-        html = '<table class="dm-fields"><thead><tr>' + '<th scope="col">Heading</th>' * 4 + '</tr></thead><tbody>'
+        html = '<table class="dm-fields"><thead><tr>' + '<th scope="col">Heading</th>' * 2 + '</tr></thead><tbody>'
         html += ''.join('<tr><th scope="row"><a href="#field-' + field + '">' + field + '</a></th><td>Purpose</td></tr>' for field in ['id', 'name'])
         parsed = self.parse(html + '</tbody></table>')
-        self.assertEqual((parsed.tables, parsed.headers, parsed.fields), (1, 4, ['id', 'name']))
+        self.assertEqual((parsed.tables, parsed.headers, parsed.fields), (1, 2, ['id', 'name']))
 
     def test_unrelated_tables_do_not_count_as_entity_field_rows(self):
         parsed = self.parse('<table class="dm-records"><th scope="col">Field</th><a href="#field-other">Other</a></table>')

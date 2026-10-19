@@ -73,7 +73,7 @@ def verify(root, expected_version, expected_commit=None, inputs=HERE):
     for model_id, fields in config['expectedModels'].items():
         parser = FieldTables()
         parser.feed((root / 'data-model' / (model_id + '.html')).read_text())
-        checked(parser.tables == 1 and parser.headers == 4, 'field table missing headers: ' + model_id)
+        checked(parser.tables == 1 and parser.headers == 2, 'field table missing overview headers: ' + model_id)
         checked(parser.fields == fields, 'field table missing visible rows: ' + model_id)
     for scenario in config['expectedDataFlow']:
         payload = json.loads((root / 'scenarios' / (scenario + '.json')).read_text())
