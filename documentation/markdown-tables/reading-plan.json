@@ -1,0 +1,2627 @@
+{
+  "schema": "codeclew-question-reading-plans/1.0",
+  "plans": [
+    {
+      "schema": "codeclew-question-reading-plan/1.0",
+      "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+      "subject": "scenario:places-request-publisher",
+      "presentation": "SEQUENTIAL",
+      "language": "en",
+      "title": "Publish place requests",
+      "purpose": "Places publishes saved outbox requests and records completed sends.",
+      "sections": [
+        {
+          "id": "pending",
+          "title": "Places looks for a pending request",
+          "navTitle": "Pending work",
+          "number": 1,
+          "blocks": [
+            {
+              "title": "Find work",
+              "text": "The publishing loop attempts one eligible unpublished request at a time. If no row is selected, this pass sends nothing.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:places-request-publisher",
+                  "operation": "places-request-publisher",
+                  "fragmentId": "claim-5d184223c32ec68b480c",
+                  "textDigest": "sha256:48229a4a996dafb7d04a52e0cda3e8e1a2f5c1b45c1d091845a70716c9c06b14"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:places-request-publisher",
+                  "operation": "places-request-publisher",
+                  "fragmentId": "claim-6e445dad38c309bfb434",
+                  "textDigest": "sha256:e411fa3689206a6d39f594a19cffd54f359dff0e807997bd910136db84de9022"
+                }
+              ]
+            },
+            {
+              "title": "Selection and producer settings",
+              "text": "The query orders by created_at, selects at most one row and uses FOR UPDATE SKIP LOCKED. The producer uses KAFKA_BOOTSTRAP or kafka:9092, enables idempotence and configures a 10-second message timeout. Runtime hosting activation is not established.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:places-request-publisher",
+                  "operation": "places-request-publisher",
+                  "fragmentId": "claim-9a3b7c9fc0561319a1f3",
+                  "textDigest": "sha256:2cf0ee224053509062caa57f3eba8caf30cacbbfded2fe4bd66d698c42542618"
+                }
+              ],
+              "disclosure": "Selection and producer settings",
+              "preview": "One eligible row · created_at order · selected-source configuration"
+            }
+          ],
+          "icon": "database"
+        },
+        {
+          "id": "send",
+          "title": "Places sends the stored event",
+          "navTitle": "Send event",
+          "number": 2,
+          "blocks": [
+            {
+              "title": "Publish",
+              "text": "The selected payload is sent to `weather.place-requested`, using the place ID as its message key. The code awaits the send before changing the outbox row.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:places-request-publisher",
+                  "operation": "places-request-publisher",
+                  "fragmentId": "claim-02699e133726492dbc5b",
+                  "textDigest": "sha256:17fbcc820732e37afcb55522e58c85109a7a92c1db844018cb0911fd63415f04"
+                }
+              ]
+            },
+            {
+              "title": "If the attempt fails",
+              "text": "Other exceptions are logged as `PUBLISH_RETRY`. While the loop remains active, later passes can attempt pending work again.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:places-request-publisher",
+                  "operation": "places-request-publisher",
+                  "fragmentId": "claim-7f09695286f324c4f3f1",
+                  "textDigest": "sha256:b317a7df9e0cd019a1ffff42fcaf675d7341884e6a8ead2bd1ade22eadf98a8a"
+                }
+              ],
+              "id": "publish-error",
+              "navTitle": "Publish failure",
+              "tone": "ERROR"
+            }
+          ],
+          "icon": "arrow-right",
+          "route": "Topic: weather.place-requested"
+        },
+        {
+          "id": "record",
+          "title": "Places marks the request as published",
+          "navTitle": "Record send",
+          "number": 3,
+          "blocks": [
+            {
+              "title": "Record outcome",
+              "text": "After the send completes, the outbox row is marked published and the database transaction is committed.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:places-request-publisher",
+                  "operation": "places-request-publisher",
+                  "fragmentId": "claim-e18eff8054f84ba9972c",
+                  "textDigest": "sha256:0d91e28354a31224468dfad83a05457642261eda30d0bcce8425ca4392f53fdb"
+                }
+              ],
+              "links": [
+                {
+                  "subject": "service:places",
+                  "operation": "section-entities",
+                  "label": "Place · fields and context"
+                }
+              ]
+            },
+            {
+              "title": "If the process stops between send and commit",
+              "text": "A completed broker send followed by a crash or database-commit failure can leave the row pending. It may be sent again; producer idempotence does not make Kafka and the database one atomic transaction.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:places-request-publisher",
+                  "operation": "places-request-publisher",
+                  "fragmentId": "claim-f5798d4b4a45388d70ad",
+                  "textDigest": "sha256:1df4b5605b39360666891855f808d375604b6bdbdaeb14dce788d7d89f0de63f"
+                }
+              ],
+              "id": "replay-window",
+              "navTitle": "Send-before-commit window",
+              "tone": "WARNING"
+            }
+          ],
+          "icon": "database"
+        },
+        {
+          "id": "continue",
+          "title": "The loop continues or stops",
+          "navTitle": "Continue or stop",
+          "number": 4,
+          "blocks": [
+            {
+              "title": "Next attempt",
+              "text": "Normal completion and logged failures are followed by a one-second wait. Each pass attempts one pending row.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:places-request-publisher",
+                  "operation": "places-request-publisher",
+                  "fragmentId": "claim-5e4fb5b4a179d1c43e2b",
+                  "textDigest": "sha256:620c154f228c9c96aa54fbb799983159377552379ca86a191f28e94263c43a29"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:places-request-publisher",
+                  "operation": "places-request-publisher",
+                  "fragmentId": "claim-7f09695286f324c4f3f1",
+                  "textDigest": "sha256:b317a7df9e0cd019a1ffff42fcaf675d7341884e6a8ead2bd1ade22eadf98a8a"
+                }
+              ]
+            },
+            {
+              "title": "Cancellation",
+              "text": "Cancellation observed during the publish attempt exits the loop. Cancellation reaching the following delay can propagate from that await.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:places-request-publisher",
+                  "operation": "places-request-publisher",
+                  "fragmentId": "claim-36f270f7d835dff9dcca",
+                  "textDigest": "sha256:39cff361b6e57cb77e04ba479291c97317091fab67d1e7f32713056a582a48b8"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:places-request-publisher",
+                  "operation": "places-request-publisher",
+                  "fragmentId": "claim-7f09695286f324c4f3f1",
+                  "textDigest": "sha256:b317a7df9e0cd019a1ffff42fcaf675d7341884e6a8ead2bd1ade22eadf98a8a"
+                }
+              ],
+              "disclosure": "Cancellation details",
+              "preview": "Publish-attempt cancellation and delay cancellation take different paths"
+            }
+          ]
+        },
+        {
+          "id": "confidence",
+          "title": "Full description and sources",
+          "navTitle": "Sources and provenance",
+          "blocks": [
+            {
+              "title": "Evidence scope",
+              "text": "This is a pinned source interpretation with PARTIAL C# coverage. It does not establish worker activation, broker delivery or consumer execution. Related consumer accounts have their own sources and review state; their links do not prove execution order.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:places-request-publisher",
+                  "operation": "places-request-publisher",
+                  "fragmentId": "claim-9a3b7c9fc0561319a1f3",
+                  "textDigest": "sha256:2cf0ee224053509062caa57f3eba8caf30cacbbfded2fe4bd66d698c42542618"
+                }
+              ],
+              "links": [
+                {
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "operation": "process-overview",
+                  "label": "Related Forecasts consumer"
+                },
+                {
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "operation": "process-overview",
+                  "label": "Related Dashboard consumer"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "conclusion": {
+        "title": "Evidence scope",
+        "text": "This is a pinned source interpretation with PARTIAL C# coverage. It does not establish worker activation, broker delivery or consumer execution. Related consumer accounts have their own sources and review state; their links do not prove execution order.",
+        "evidence": [
+          {
+            "kind": "RETAINED",
+            "subject": "scenario:places-request-publisher",
+            "operation": "places-request-publisher",
+            "fragmentId": "claim-9a3b7c9fc0561319a1f3",
+            "textDigest": "sha256:2cf0ee224053509062caa57f3eba8caf30cacbbfded2fe4bd66d698c42542618"
+          }
+        ],
+        "links": [
+          {
+            "subject": "scenario:forecasts-place-requested-consumer",
+            "operation": "process-overview",
+            "label": "Related Forecasts consumer"
+          },
+          {
+            "subject": "scenario:dashboard-place-requested-consumer",
+            "operation": "process-overview",
+            "label": "Related Dashboard consumer"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "codeclew-question-reading-plan/1.0",
+      "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+      "subject": "scenario:dashboard-place-requested-consumer",
+      "presentation": "SEQUENTIAL",
+      "language": "en",
+      "title": "Add a place to Dashboard",
+      "purpose": "Dashboard validates the event, updates its card when appropriate and advances the Kafka offset.",
+      "sections": [
+        {
+          "id": "receive",
+          "title": "Dashboard receives the event",
+          "navTitle": "Receive event",
+          "number": 1,
+          "blocks": [
+            {
+              "title": "Declared input",
+              "text": "The saved process associates `weather.place-requested` with this Dashboard consumer. Runtime activation and message delivery are unverified.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "operation": "dashboard-place-requested-consumer",
+                  "fragmentId": "claim-3e43b9b76525d70d7296",
+                  "textDigest": "sha256:d2964be7b0dbea6ab070fa6e7c73d18dda943b4e63db66ba5f6314d9790dce66"
+                }
+              ]
+            },
+            {
+              "title": "Consumer configuration",
+              "text": "The source subscribes to both Weather topics from the beginning and starts the consumer with automatic offset commits disabled. This declaration does not prove runtime activation or delivery.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "operation": "dashboard-place-requested-consumer",
+                  "fragmentId": "claim-e115bfea282330298768",
+                  "textDigest": "sha256:a3cf32209c16f72f3370fcf11f87b9b055bd95498d2c8a6a8d2b2794e7c06e1d"
+                }
+              ],
+              "disclosure": "Consumer configuration and mapping",
+              "preview": "Declared topic mapping · manual offset handling · runtime unverified"
+            }
+          ],
+          "icon": "arrow-right",
+          "route": "Topic: weather.place-requested"
+        },
+        {
+          "id": "validate",
+          "title": "Dashboard checks the event",
+          "navTitle": "Validate event",
+          "number": 2,
+          "blocks": [
+            {
+              "title": "Validate input",
+              "text": "The handler parses the JSON and checks that the event has the expected shape before applying it.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "operation": "dashboard-place-requested-consumer",
+                  "fragmentId": "claim-43819f21ee5be6154fe6",
+                  "textDigest": "sha256:b5baa7d3d4d669b558906e57b173e35d9dff4e288817a78fd06761ed0310d87b"
+                }
+              ]
+            },
+            {
+              "title": "Validation rules",
+              "text": "A place.requested event needs a string ID, version 1, an allowed place ID, a string name and finite coordinates, with no forecast field. The forecast-updated topic has its own validator branch; an unrecognized topic throws UNKNOWN_TOPIC.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "operation": "dashboard-place-requested-consumer",
+                  "fragmentId": "claim-6ae7076a3f8d34076d34",
+                  "textDigest": "sha256:fcf6d56ed5c359a4bb6f454f54290894a6ada5ed3aeac131c055c711944b9086"
+                }
+              ],
+              "disclosure": "Validation details",
+              "preview": "Envelope, place fields and topic-specific payload checks"
+            },
+            {
+              "title": "If the event is invalid",
+              "text": "A parse or validation failure is recorded as `INVALID_EVENT`. After that rejection is saved, Dashboard advances the offset and returns. Failure to save the rejection or advance its offset propagates.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "operation": "dashboard-place-requested-consumer",
+                  "fragmentId": "claim-460e91322f99b692ca98",
+                  "textDigest": "sha256:2d43a3bbb85b590a627972385c7b23b56b7a81a6e1dc2822dd92ffb0bdf963c9"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "operation": "dashboard-place-requested-consumer",
+                  "fragmentId": "claim-01c6eb303d1b7e50ee1f",
+                  "textDigest": "sha256:13915eb0da7d079d155c6c8f9f91de0de569f60f114feff986327bfa567a46db"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "operation": "dashboard-place-requested-consumer",
+                  "fragmentId": "claim-c0730141fa3e6db6f8de",
+                  "textDigest": "sha256:1361a131bf39c787bfb6bab704aae9ba26a0b4692a5ae7dcbf2a1a6a1a84bb61"
+                }
+              ],
+              "id": "invalid-event",
+              "navTitle": "Invalid event",
+              "tone": "ERROR"
+            }
+          ]
+        },
+        {
+          "id": "apply",
+          "title": "Dashboard updates the card",
+          "navTitle": "Update card",
+          "number": 3,
+          "blocks": [
+            {
+              "title": "Apply a new event",
+              "text": "For a new event ID, Dashboard saves the place name and coordinates on the card. This branch preserves any stored forecast.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "operation": "dashboard-place-requested-consumer",
+                  "fragmentId": "claim-73a1b3dc808969fc8978",
+                  "textDigest": "sha256:85a03066bafda88334ed707ff8a384fe2db3ef2cd499281ab7cf2767fa748acf"
+                }
+              ],
+              "links": [
+                {
+                  "subject": "service:dashboard",
+                  "operation": "section-entities",
+                  "label": "Dashboard cards · service context"
+                }
+              ]
+            },
+            {
+              "title": "If this event ID was already handled",
+              "text": "If the event ID was already handled, Dashboard commits its database transaction and skips the card change. The consumer can still advance its offset.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "operation": "dashboard-place-requested-consumer",
+                  "fragmentId": "claim-243fd9bcfe4cb76cb450",
+                  "textDigest": "sha256:cf7f87d238e045392b5fe84ff941d36bcd33da5c4286bb90dc942e1305ec010e"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "operation": "dashboard-place-requested-consumer",
+                  "fragmentId": "claim-4d0f0aaeb7970b7060f1",
+                  "textDigest": "sha256:1bea2676b39f99bf7fcbc282818b233724f808285fa52a95be6a31df7d65d657"
+                }
+              ],
+              "tone": "INFO"
+            },
+            {
+              "title": "Forecast stays intact",
+              "text": "A place-requested event changes the place fields without replacing forecast data.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "operation": "dashboard-place-requested-consumer",
+                  "fragmentId": "claim-73a1b3dc808969fc8978",
+                  "textDigest": "sha256:85a03066bafda88334ed707ff8a384fe2db3ef2cd499281ab7cf2767fa748acf"
+                }
+              ],
+              "tone": "INFO"
+            },
+            {
+              "title": "If database work fails",
+              "text": "An error on the valid path stops normal processing before offset advancement. Errors after a connection is acquired attempt rollback and release the client; connection acquisition can fail before that cleanup scope.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "operation": "dashboard-place-requested-consumer",
+                  "fragmentId": "claim-c0730141fa3e6db6f8de",
+                  "textDigest": "sha256:1361a131bf39c787bfb6bab704aae9ba26a0b4692a5ae7dcbf2a1a6a1a84bb61"
+                }
+              ],
+              "id": "database-error",
+              "navTitle": "Database failure",
+              "tone": "ERROR"
+            }
+          ],
+          "icon": "database"
+        },
+        {
+          "id": "offset",
+          "title": "Dashboard advances the offset",
+          "navTitle": "Advance offset",
+          "number": 4,
+          "blocks": [
+            {
+              "title": "Record progress",
+              "text": "After the valid-event handler returns, Dashboard commits this partition’s next offset. The database change and offset commit are separate effects.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "operation": "dashboard-place-requested-consumer",
+                  "fragmentId": "claim-76046f36c07cb1e840a7",
+                  "textDigest": "sha256:8a4b5678b69d24e726576015763f815db1205a2b792c71a1722402cbcb5bc073"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "operation": "dashboard-place-requested-consumer",
+                  "fragmentId": "claim-4cc1da1d40cb9d296d9c",
+                  "textDigest": "sha256:aa51dbb27034cd38ef09a1f1d328b06353154d3b7d6735179c4cea4d8c6a9f92"
+                }
+              ]
+            },
+            {
+              "title": "If the final offset commit fails",
+              "text": "The database may already have committed. Kafka can replay the message; remembered event IDs prevent a second card update, but do not prevent duplicate delivery or establish exactly-once processing.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "operation": "dashboard-place-requested-consumer",
+                  "fragmentId": "claim-4cc1da1d40cb9d296d9c",
+                  "textDigest": "sha256:aa51dbb27034cd38ef09a1f1d328b06353154d3b7d6735179c4cea4d8c6a9f92"
+                }
+              ],
+              "id": "offset-error",
+              "navTitle": "Offset failure and replay",
+              "tone": "WARNING"
+            }
+          ]
+        },
+        {
+          "id": "confidence",
+          "title": "Full description and sources",
+          "navTitle": "Sources and provenance",
+          "blocks": [
+            {
+              "title": "Evidence scope",
+              "text": "Original source, event validation, database/offset ordering and review state remain attached below. This source interpretation does not prove runtime delivery. These two consumer topics have distinct payload checks and card-update rules.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "operation": "dashboard-place-requested-consumer",
+                  "fragmentId": "claim-be570953399e4ff10530",
+                  "textDigest": "sha256:1398fdbac2df04a37092bc88e6d94b1df26db1094b16171829f5fe1c35ae48eb"
+                }
+              ],
+              "links": [
+                {
+                  "subject": "scenario:places-request-publisher",
+                  "operation": "process-overview",
+                  "label": "Related place-request publisher"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "conclusion": {
+        "title": "Evidence scope",
+        "text": "Original source, event validation, database/offset ordering and review state remain attached below. This source interpretation does not prove runtime delivery. These two consumer topics have distinct payload checks and card-update rules.",
+        "evidence": [
+          {
+            "kind": "RETAINED",
+            "subject": "scenario:dashboard-place-requested-consumer",
+            "operation": "dashboard-place-requested-consumer",
+            "fragmentId": "claim-be570953399e4ff10530",
+            "textDigest": "sha256:1398fdbac2df04a37092bc88e6d94b1df26db1094b16171829f5fe1c35ae48eb"
+          }
+        ],
+        "links": [
+          {
+            "subject": "scenario:places-request-publisher",
+            "operation": "process-overview",
+            "label": "Related place-request publisher"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "codeclew-question-reading-plan/1.0",
+      "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+      "subject": "scenario:dashboard-forecast-updated-consumer",
+      "presentation": "SEQUENTIAL",
+      "language": "en",
+      "title": "Update a Dashboard forecast",
+      "purpose": "Dashboard validates the event, updates its card when appropriate and advances the Kafka offset.",
+      "sections": [
+        {
+          "id": "receive",
+          "title": "Dashboard receives the event",
+          "navTitle": "Receive event",
+          "number": 1,
+          "blocks": [
+            {
+              "title": "Declared input",
+              "text": "The saved process associates `weather.forecast-updated` with this Dashboard consumer. Runtime activation and message delivery are unverified.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "fragmentId": "claim-96d7f6d416c0fedd9aac",
+                  "textDigest": "sha256:2c061d9ffcb7bddac3765e81a44f95da418bc98bbfe7a13034f2b5b99731cb0e"
+                }
+              ]
+            },
+            {
+              "title": "Consumer configuration",
+              "text": "This account does not establish subscription configuration. The handler explicitly advances offsets after its valid or rejection paths; runtime activation and delivery remain unverified.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "fragmentId": "claim-96d7f6d416c0fedd9aac",
+                  "textDigest": "sha256:2c061d9ffcb7bddac3765e81a44f95da418bc98bbfe7a13034f2b5b99731cb0e"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "fragmentId": "claim-8485c4c6795cffd18c51",
+                  "textDigest": "sha256:7f110d1d92fc511d559f201156f170a19ef8a90dea45daa8112d51ab482590c2"
+                }
+              ],
+              "disclosure": "Consumer configuration and mapping",
+              "preview": "Declared topic mapping · manual offset handling · runtime unverified"
+            }
+          ],
+          "icon": "arrow-right",
+          "route": "Topic: weather.forecast-updated"
+        },
+        {
+          "id": "validate",
+          "title": "Dashboard checks the event",
+          "navTitle": "Validate event",
+          "number": 2,
+          "blocks": [
+            {
+              "title": "Validate input",
+              "text": "The handler parses the JSON and checks that the event has the expected shape before applying it.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "fragmentId": "claim-446e6c2329b37b7bc2e3",
+                  "textDigest": "sha256:6dc215209dd58bc9cb325d6a06805483819c4509df2744c65ce71dfa6f417863"
+                }
+              ]
+            },
+            {
+              "title": "Validation rules",
+              "text": "The envelope requires a string event ID, version 1, an allowed place ID, a string name and finite coordinates. A forecast.updated event also needs valid updatedAt/fetchedAt timestamps, fixture or live mode, and 1–6 periods with valid times, finite temperatures, null or finite nonnegative precipitation and string symbols.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "fragmentId": "claim-0e2d7ace81dc22974434",
+                  "textDigest": "sha256:e1b5363fd6ef60f31e11cfad913930feda92cb6e186e8d2ad75c8f0da1d124b1"
+                }
+              ],
+              "disclosure": "Validation details",
+              "preview": "Envelope, place fields and topic-specific payload checks"
+            },
+            {
+              "title": "If the event is invalid",
+              "text": "A parse or validation failure is recorded as `INVALID_EVENT`. After that rejection is saved, Dashboard advances the offset and returns. Failure to save the rejection or advance its offset propagates.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "fragmentId": "claim-0b1e97374ab832082b1d",
+                  "textDigest": "sha256:54a31775884b9e76c8f123566a492dfebe0de1b11ada8f8bb3c9a55eebe92f0e"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "fragmentId": "claim-2bc228fbe1d00118816c",
+                  "textDigest": "sha256:a01c7de3eb44cf65ff32876fd9986739f8e978b2c9bd2e582dc6078668c2b964"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "fragmentId": "claim-171b883d8fb946af3647",
+                  "textDigest": "sha256:44d0eec005359302703c94f957e7acc222e7ff06cb89c6ef89c5765342220e4c"
+                }
+              ],
+              "id": "invalid-event",
+              "navTitle": "Invalid event",
+              "tone": "ERROR"
+            }
+          ]
+        },
+        {
+          "id": "apply",
+          "title": "Dashboard updates the card",
+          "navTitle": "Update card",
+          "number": 3,
+          "blocks": [
+            {
+              "title": "Apply a new event",
+              "text": "A new forecast event can create its card directly from the place in the message. An existing card is updated only if its stored forecast timestamp is missing or the incoming forecast is strictly newer.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "fragmentId": "claim-ebeef3c264171b01cd39",
+                  "textDigest": "sha256:9a574d581b95a4aeabecef28ed128b28b3ee292f4aed51351c3e6c288a6e0b1f"
+                }
+              ],
+              "links": [
+                {
+                  "subject": "service:dashboard",
+                  "operation": "section-entities",
+                  "label": "Dashboard cards · service context"
+                }
+              ]
+            },
+            {
+              "title": "If this event ID was already handled",
+              "text": "If the event ID was already handled, Dashboard commits its database transaction and skips the card change. The consumer can still advance its offset.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "fragmentId": "claim-48972f4d4c6203f6ae51",
+                  "textDigest": "sha256:cb5f9101b6f437f7d0b0660e7bfd77938518fc5c9f4bc085e1e5b8f2324c44ee"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "fragmentId": "claim-c93fdad5457395f7b859",
+                  "textDigest": "sha256:26f1799f420e595d236b1d31b2227df84ff10066d8d17be23dcb5bd4e0978788"
+                }
+              ],
+              "tone": "INFO"
+            },
+            {
+              "title": "Older or equal forecast",
+              "text": "An equal or older incoming timestamp leaves an existing card unchanged. Creating a new card does not require a prior place-requested event.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "fragmentId": "claim-ebeef3c264171b01cd39",
+                  "textDigest": "sha256:9a574d581b95a4aeabecef28ed128b28b3ee292f4aed51351c3e6c288a6e0b1f"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "fragmentId": "claim-b438013a6e503a7046eb",
+                  "textDigest": "sha256:227192c9416c322889acf48820aa18138f39b082ae2054a63d4481a4d6ecb8ec"
+                }
+              ],
+              "tone": "INFO"
+            },
+            {
+              "title": "If database work fails",
+              "text": "An error on the valid path stops normal processing before offset advancement. Errors after a connection is acquired attempt rollback and release the client; connection acquisition can fail before that cleanup scope.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "fragmentId": "claim-b811b0fb9bbccaf5140e",
+                  "textDigest": "sha256:e1c0f1108c672e001221b0c4eb92941f991966b9f8327ebedb331394f1f93d17"
+                }
+              ],
+              "id": "database-error",
+              "navTitle": "Database failure",
+              "tone": "ERROR"
+            }
+          ],
+          "icon": "database"
+        },
+        {
+          "id": "offset",
+          "title": "Dashboard advances the offset",
+          "navTitle": "Advance offset",
+          "number": 4,
+          "blocks": [
+            {
+              "title": "Record progress",
+              "text": "After the valid-event handler returns, Dashboard commits this partition’s next offset. The database change and offset commit are separate effects.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "fragmentId": "claim-8485c4c6795cffd18c51",
+                  "textDigest": "sha256:7f110d1d92fc511d559f201156f170a19ef8a90dea45daa8112d51ab482590c2"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "fragmentId": "claim-b811b0fb9bbccaf5140e",
+                  "textDigest": "sha256:e1c0f1108c672e001221b0c4eb92941f991966b9f8327ebedb331394f1f93d17"
+                }
+              ]
+            },
+            {
+              "title": "If the final offset commit fails",
+              "text": "The database may already have committed. Kafka can replay the message; remembered event IDs prevent a second card update, but do not prevent duplicate delivery or establish exactly-once processing.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "fragmentId": "claim-b811b0fb9bbccaf5140e",
+                  "textDigest": "sha256:e1c0f1108c672e001221b0c4eb92941f991966b9f8327ebedb331394f1f93d17"
+                }
+              ],
+              "id": "offset-error",
+              "navTitle": "Offset failure and replay",
+              "tone": "WARNING"
+            }
+          ]
+        },
+        {
+          "id": "confidence",
+          "title": "Full description and sources",
+          "navTitle": "Sources and provenance",
+          "blocks": [
+            {
+              "title": "Evidence scope",
+              "text": "Original source, event validation, database/offset ordering and review state remain attached below. This source interpretation does not prove runtime delivery. These two consumer topics have distinct payload checks and card-update rules.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "fragmentId": "claim-ae8691dbe1fb32b2eeb1",
+                  "textDigest": "sha256:01d2090574f8beeb547a26d5dc93a80c44397484d0a9ded009faa1a379d18c66"
+                }
+              ],
+              "links": [
+                {
+                  "subject": "scenario:forecasts-publish-pending",
+                  "operation": "process-overview",
+                  "label": "Related forecast publisher"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "conclusion": {
+        "title": "Evidence scope",
+        "text": "Original source, event validation, database/offset ordering and review state remain attached below. This source interpretation does not prove runtime delivery. These two consumer topics have distinct payload checks and card-update rules.",
+        "evidence": [
+          {
+            "kind": "RETAINED",
+            "subject": "scenario:dashboard-forecast-updated-consumer",
+            "operation": "dashboard-forecast-updated-consumer",
+            "fragmentId": "claim-ae8691dbe1fb32b2eeb1",
+            "textDigest": "sha256:01d2090574f8beeb547a26d5dc93a80c44397484d0a9ded009faa1a379d18c66"
+          }
+        ],
+        "links": [
+          {
+            "subject": "scenario:forecasts-publish-pending",
+            "operation": "process-overview",
+            "label": "Related forecast publisher"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "codeclew-question-reading-plan/1.0",
+      "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+      "subject": "scenario:forecasts-place-requested-consumer",
+      "presentation": "SEQUENTIAL",
+      "language": "en",
+      "title": "Refresh a forecast after a place request",
+      "purpose": "Forecasts validates a place-requested event and prepares the place update and refresh.",
+      "sections": [
+        {
+          "id": "receive",
+          "title": "Forecasts receives a place request",
+          "navTitle": "Receive request",
+          "number": 1,
+          "blocks": [
+            {
+              "title": "Declared input",
+              "text": "The saved process proposes a mapping from the Places publisher to this consumer on `weather.place-requested`. Broker routing and delivery are not established.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "operation": "forecasts-place-requested-consumer",
+                  "fragmentId": "claim-16277baad799ac0ea5f1",
+                  "textDigest": "sha256:2a29fa49935690cb05b6af6c3252bacc52a1da68fab9b2e1f541e6c2f6ff39fe"
+                }
+              ]
+            }
+          ],
+          "icon": "arrow-right",
+          "route": "Declared topic: weather.place-requested"
+        },
+        {
+          "id": "validate",
+          "title": "Forecasts checks the event",
+          "navTitle": "Validate event",
+          "number": 2,
+          "blocks": [
+            {
+              "title": "Validate input",
+              "text": "The listener is written to parse and validate the event before preparing database work.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "operation": "forecasts-place-requested-consumer",
+                  "fragmentId": "claim-1c9bc983c30538bf0fa7",
+                  "textDigest": "sha256:b6212ae6c63fb479292c38a5901c4a2b9a5e4d7b32397d8040218602c521e25a"
+                }
+              ]
+            },
+            {
+              "title": "Validator and callback details",
+              "text": "The validator checks version 1, type place.requested, a nonblank event ID, an allowed place ID, a nonblank name and numeric coordinates. The syntax record shows validation in an also callback; it does not attest callback invocation.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "operation": "forecasts-place-requested-consumer",
+                  "fragmentId": "claim-d25513b48dac4388b4d0",
+                  "textDigest": "sha256:a2e03543d7ae4a5eba5c951f813fd947fbb9662609ac4be4e3e6e4a7fe50e0f2"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "operation": "forecasts-place-requested-consumer",
+                  "fragmentId": "claim-a6e7c5dc1f930d20d436",
+                  "textDigest": "sha256:7ffd048c854f2ce33113ef8acce80a5c47b92bc8a45eeed81a0140b6df7b458b"
+                }
+              ],
+              "disclosure": "Validation details",
+              "preview": "Required event and place fields · syntax-backed callback limits"
+            },
+            {
+              "title": "If parsing or validation fails",
+              "text": "The listener writes an `INVALID_EVENT` rejection, then acknowledges the record and returns. If writing the rejection fails, acknowledgement is not reached and the error propagates.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "operation": "forecasts-place-requested-consumer",
+                  "fragmentId": "claim-7d173d2dfd2989fec180",
+                  "textDigest": "sha256:967ca552929f602fdcb573bbf102311483ef20fcc2c4561091d263df06994dcc"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "operation": "forecasts-place-requested-consumer",
+                  "fragmentId": "claim-f25761458ddb5b334254",
+                  "textDigest": "sha256:eb7c90eee8a878533f5bbbbd5336694d7704ddd770782eb6334bbf537739aadf"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "operation": "forecasts-place-requested-consumer",
+                  "fragmentId": "claim-d960008f5e7cb1bb8abc",
+                  "textDigest": "sha256:25f2b87d9f499bcecd870291ec900e0b0b242b353b22e53a65af49e7cdd661d5"
+                }
+              ],
+              "id": "invalid-event",
+              "navTitle": "Invalid event",
+              "tone": "ERROR"
+            }
+          ]
+        },
+        {
+          "id": "update",
+          "title": "Forecasts prepares the place update",
+          "navTitle": "Update and refresh",
+          "number": 3,
+          "blocks": [
+            {
+              "title": "New event",
+              "text": "The supplied transaction callback remembers the event ID, updates the place and calls the shared forecast-refresh path. This snapshot does not prove callback execution or transaction commit.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "operation": "forecasts-place-requested-consumer",
+                  "fragmentId": "claim-88ee8ed1a55e7d160751",
+                  "textDigest": "sha256:86f3f8f50b5288d6818879dbb2ae54dde39561385c10b181970f31cb43226a8e"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "operation": "forecasts-place-requested-consumer",
+                  "fragmentId": "claim-62e3bf0be94ab18acda9",
+                  "textDigest": "sha256:7f9f4430185dae0f3f1a7b3b1756e5d9ab8655881228fc47c065ff4ff062ec3a"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "operation": "forecasts-place-requested-consumer",
+                  "fragmentId": "claim-5f38affd9fa4e69b97d9",
+                  "textDigest": "sha256:a55c18fb15eba6102809ac6f7ca9d9ff6ba71872b848a50414322afe2dcbc939"
+                }
+              ],
+              "links": [
+                {
+                  "subject": "service:forecasts",
+                  "operation": "section-entities",
+                  "label": "Forecast data · service context"
+                }
+              ]
+            },
+            {
+              "title": "If the event ID already exists",
+              "text": "If the event ID already exists, the callback returns before updating the place or calling refresh.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "operation": "forecasts-place-requested-consumer",
+                  "fragmentId": "claim-db0f2dc7e144f804eacf",
+                  "textDigest": "sha256:e8fb8e277104845ae3944dcaee4bd89cd173a2b6e645a412816d48d568d894f0"
+                }
+              ],
+              "tone": "INFO"
+            },
+            {
+              "title": "If transaction work fails",
+              "text": "An exception escaping the transaction call prevents the following acknowledgement. Rollback and delivery outcomes are not established by these source records.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "operation": "forecasts-place-requested-consumer",
+                  "fragmentId": "claim-7f7f4bd35f189e470f38",
+                  "textDigest": "sha256:1bcb898a171e74055d43f947f2fb62ecc9247cab63b1c3a76e06d1c540009c62"
+                }
+              ],
+              "id": "transaction-error",
+              "navTitle": "Transaction failure",
+              "tone": "ERROR"
+            }
+          ],
+          "icon": "database"
+        },
+        {
+          "id": "acknowledge",
+          "title": "Forecasts acknowledges the record",
+          "navTitle": "Acknowledge",
+          "number": 4,
+          "blocks": [
+            {
+              "title": "Record progress",
+              "text": "The listener calls acknowledgement after the transaction call returns. That call is not proof of an atomic database-and-Kafka commit or exactly-once delivery.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "operation": "forecasts-place-requested-consumer",
+                  "fragmentId": "claim-bfd0020370ecbe09d76d",
+                  "textDigest": "sha256:ca221fad065e25e7971dae0bfa038fa2d67e7db2669c575d2c7236f77a5c8e4d"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "operation": "forecasts-place-requested-consumer",
+                  "fragmentId": "claim-7f7f4bd35f189e470f38",
+                  "textDigest": "sha256:1bcb898a171e74055d43f947f2fb62ecc9247cab63b1c3a76e06d1c540009c62"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "confidence",
+          "title": "Full description and sources",
+          "navTitle": "Sources and provenance",
+          "blocks": [
+            {
+              "title": "Evidence scope",
+              "text": "The saved topic mapping is agent-proposed. Callback execution, transaction outcome and runtime delivery remain unverified. The shared refresh and pending-publisher views describe separate source scopes, not a proven execution sequence.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "operation": "forecasts-place-requested-consumer",
+                  "fragmentId": "claim-8fa111302cffa20fe9be",
+                  "textDigest": "sha256:7463e11d634cc19ded69d2d50516ee199caa0133b2238319bfa294afaf11bd90"
+                }
+              ],
+              "links": [
+                {
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "process-overview",
+                  "label": "Shared forecast refresh path"
+                },
+                {
+                  "subject": "scenario:forecasts-publish-pending",
+                  "operation": "process-overview",
+                  "label": "Related forecast publisher"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "conclusion": {
+        "title": "Evidence scope",
+        "text": "The saved topic mapping is agent-proposed. Callback execution, transaction outcome and runtime delivery remain unverified. The shared refresh and pending-publisher views describe separate source scopes, not a proven execution sequence.",
+        "evidence": [
+          {
+            "kind": "RETAINED",
+            "subject": "scenario:forecasts-place-requested-consumer",
+            "operation": "forecasts-place-requested-consumer",
+            "fragmentId": "claim-8fa111302cffa20fe9be",
+            "textDigest": "sha256:7463e11d634cc19ded69d2d50516ee199caa0133b2238319bfa294afaf11bd90"
+          }
+        ],
+        "links": [
+          {
+            "subject": "scenario:forecasts-refresh-scheduled",
+            "operation": "process-overview",
+            "label": "Shared forecast refresh path"
+          },
+          {
+            "subject": "scenario:forecasts-publish-pending",
+            "operation": "process-overview",
+            "label": "Related forecast publisher"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "codeclew-question-reading-plan/1.0",
+      "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+      "subject": "scenario:forecasts-refresh-scheduled",
+      "presentation": "SEQUENTIAL",
+      "language": "en",
+      "title": "Refresh forecasts for expired places",
+      "purpose": "Forecasts selects expired places, reads fixture or provider data and prepares an update event.",
+      "sections": [
+        {
+          "id": "choose",
+          "title": "Forecasts selects places to refresh",
+          "navTitle": "Select places",
+          "number": 1,
+          "blocks": [
+            {
+              "title": "Choose work",
+              "text": "Forecasts selects places with no forecast expiry or an expiry before now, ordered by place ID. Each selected place has its own refresh attempt.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-be7f796c6aa7ea2742b4",
+                  "textDigest": "sha256:aa4ea78cc7dc10b2efcfbcdb93fa8b1d34015be6832fa5672e849957996bfa03"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-ab640ccbee5fcb50994b",
+                  "textDigest": "sha256:d289d5c9280fbca0f676f8fa5ba16bfdfe9c9fb30699e1237f2c99369057a809"
+                }
+              ]
+            },
+            {
+              "title": "Schedule and per-place execution",
+              "text": "The annotation declares a 60-second default fixed delay. Each place is passed to transaction.executeWithoutResult as a refresh callback inside a per-place try/catch. This syntax snapshot does not establish scheduler activation, callback execution or transaction commit/rollback.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-daadb1fd97fbd7cfc50e",
+                  "textDigest": "sha256:fa862074f4806b142a8dc1e1d5c87d7dd1993e92c1ec73172785ec4f17ba5a69"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-7c08544d56f01a17f6e1",
+                  "textDigest": "sha256:6fd948fbf032347c92599fcd3a18b07313411a5867577c9355aff96e2ae264cc"
+                }
+              ],
+              "disclosure": "Schedule and execution scope",
+              "preview": "60-second declared delay · per-place callback · execution unverified"
+            }
+          ]
+        },
+        {
+          "id": "cache",
+          "title": "Forecasts checks the cached forecast",
+          "navTitle": "Check cache",
+          "number": 2,
+          "blocks": [
+            {
+              "title": "Reuse fresh data",
+              "text": "A forecast whose expiry is still in the future ends this refresh without contacting the provider or creating a new outbox event.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-e2da524eab4be8209a21",
+                  "textDigest": "sha256:56227d55be5519827a8169444e6c170efb782b29d07f1a2dc4ffefb4ac88b543"
+                }
+              ]
+            }
+          ],
+          "icon": "database"
+        },
+        {
+          "id": "read",
+          "title": "Forecasts reads forecast data",
+          "navTitle": "Read forecast",
+          "number": 3,
+          "blocks": [
+            {
+              "title": "Choose the input",
+              "text": "Fixture mode reads the place’s saved forecast file. Live mode requests the weather provider, subject to required configuration and a per-place waiting period.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-87e5b2df525f7a76b89f",
+                  "textDigest": "sha256:32021f86037ae941b72c3ab234e6d153f08e1381fbc78c4a6834e900c6252d2c"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-3db9883f08bdfcaf5b5c",
+                  "textDigest": "sha256:ecdc46804d8ad5314176a4665dafa1a9c8939feca1d4fb8ea5e6ea8a96c6c4dd"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-e79167d838f4e7d95822",
+                  "textDigest": "sha256:819b002f4c3b11a4b0f1769bf18638d6bd90ee26b9d457e2f337f3f7ca4cc183"
+                }
+              ]
+            },
+            {
+              "title": "Provider request and retry timing",
+              "text": "Live mode requires a nonblank MET_USER_AGENT. It stores nextAttempt in a private in-memory map keyed by place ID, checks it before the request and sets a 60-second deadline before sending. The GET uses coordinates truncated down to four decimal places, a 20-second timeout, User-Agent, gzip and an optional If-Modified-Since. Each response sets expiry from Expires or a one-hour fallback. For 429, numeric Retry-After sets the next attempt with a 60-second minimum; other statuses set it to expiry, before status handling. The lifetime of the runtime instance is not established.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-3db9883f08bdfcaf5b5c",
+                  "textDigest": "sha256:ecdc46804d8ad5314176a4665dafa1a9c8939feca1d4fb8ea5e6ea8a96c6c4dd"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-e79167d838f4e7d95822",
+                  "textDigest": "sha256:819b002f4c3b11a4b0f1769bf18638d6bd90ee26b9d457e2f337f3f7ca4cc183"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-667c70c9151b9422ff82",
+                  "textDigest": "sha256:68111442bdad9dd71411f4297a6a858431486554c7093a0893e1e51ca1e2ad27"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-ca44fb846a3ea5a91899",
+                  "textDigest": "sha256:0cc39938f394d0e8ed92b75024da4ba6d6547ffb15ef097314b8f511c12a12ab"
+                }
+              ],
+              "disclosure": "Provider request and retry timing",
+              "preview": "Required User-Agent · 20-second request timeout · per-place timing"
+            },
+            {
+              "title": "If the provider cannot supply an accepted response",
+              "text": "Missing live configuration, an active wait or an unaccepted provider status prevents normal refresh. Statuses 200 and 203 can proceed; a 304 needs an existing cache entry for the reuse branch.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-3db9883f08bdfcaf5b5c",
+                  "textDigest": "sha256:ecdc46804d8ad5314176a4665dafa1a9c8939feca1d4fb8ea5e6ea8a96c6c4dd"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-2a860053199aa59b247d",
+                  "textDigest": "sha256:e05b14fe09a4171211d58fd8376200f18fd0ef32a60216168b2e42e5300b5050"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-94a23a87ffeebe48a0d6",
+                  "textDigest": "sha256:52dc1206426f17bb1305f10ca601397d6993849f7a789f426b6a4b7aa6d59520"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-e79167d838f4e7d95822",
+                  "textDigest": "sha256:819b002f4c3b11a4b0f1769bf18638d6bd90ee26b9d457e2f337f3f7ca4cc183"
+                }
+              ],
+              "id": "provider-error",
+              "navTitle": "Provider or rate-limit failure",
+              "tone": "ERROR"
+            },
+            {
+              "title": "If the provider returns 304 with cached data",
+              "text": "If the provider returns 304 and cached data exists, only cached expiry is updated. The refresh returns without transforming a new payload or adding a forecast-update event.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-2cec843959af31d947c7",
+                  "textDigest": "sha256:654f47824ab8387afc547eac86e58626711829e1ed51d8ad36edbfb2cd539580"
+                }
+              ],
+              "tone": "INFO"
+            }
+          ],
+          "icon": "arrow-right"
+        },
+        {
+          "id": "transform",
+          "title": "Forecasts prepares the forecast periods",
+          "navTitle": "Prepare forecast",
+          "number": 4,
+          "blocks": [
+            {
+              "title": "Transform input",
+              "text": "Fixture input and accepted provider bodies use the same transformation. Up to six periods are prepared; temperature must be numeric and the result must not be empty.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-15dcd2c1043ae6b5fd59",
+                  "textDigest": "sha256:5835fbf18b85a8e124e937f4ecfa82f38c795f10ea4fc3f2ff9b05abf896d8ce"
+                }
+              ]
+            },
+            {
+              "title": "If forecast data is invalid",
+              "text": "Parsing or validation errors prevent the normal write path. Missing or nonnumeric rain becomes null and a missing symbol becomes unknown; missing numeric temperature or an empty forecast is rejected.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-15dcd2c1043ae6b5fd59",
+                  "textDigest": "sha256:5835fbf18b85a8e124e937f4ecfa82f38c795f10ea4fc3f2ff9b05abf896d8ce"
+                }
+              ],
+              "id": "forecast-invalid",
+              "navTitle": "Invalid forecast data",
+              "tone": "ERROR"
+            }
+          ]
+        },
+        {
+          "id": "save",
+          "title": "Forecasts prepares the forecast and update event",
+          "navTitle": "Save and enqueue",
+          "number": 5,
+          "blocks": [
+            {
+              "title": "Prepare writes",
+              "text": "The supplied callback attempts to save the forecast, then insert an update event for a separate publisher. A committed result is not established by this syntax snapshot.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-c9d954adf61cefc71f02",
+                  "textDigest": "sha256:33cc10c506848c30121c4a778cad6ef3cc04d6af2feacf31a06f88abb14458c0"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-7c08544d56f01a17f6e1",
+                  "textDigest": "sha256:6fd948fbf032347c92599fcd3a18b07313411a5867577c9355aff96e2ae264cc"
+                }
+              ],
+              "links": [
+                {
+                  "subject": "service:forecasts",
+                  "operation": "section-entities",
+                  "label": "Forecast data · service context"
+                }
+              ]
+            },
+            {
+              "title": "Timestamp and event rules",
+              "text": "The forecast upsert accepts an incoming updatedAt at least as new as the stored value. The following forecast.updated outbox insert uses placeId:updatedAt as its ID and ignores conflicts. That insert is still attempted when the upsert rejects an older forecast. These source calls do not establish callback execution or an atomic committed outcome.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-c9d954adf61cefc71f02",
+                  "textDigest": "sha256:33cc10c506848c30121c4a778cad6ef3cc04d6af2feacf31a06f88abb14458c0"
+                }
+              ],
+              "disclosure": "Timestamp and event rules",
+              "preview": "Monotonic forecast upsert · conflict-suppressed outbox insert"
+            },
+            {
+              "title": "If a per-place refresh fails",
+              "text": "The exception class is logged with `FORECAST_RETRY`, and processing continues to the next place. There is no immediate retry loop here; another attempt needs another invocation.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-a46a8902aa9055caa486",
+                  "textDigest": "sha256:af12525c12acabc67aacc1ffdf9771d27a4b0afc7815f6e4f8e9bf151bd26208"
+                }
+              ],
+              "id": "refresh-error",
+              "navTitle": "Refresh failure and later retry",
+              "tone": "WARNING"
+            }
+          ],
+          "icon": "database"
+        },
+        {
+          "id": "confidence",
+          "title": "Full description and sources",
+          "navTitle": "Sources and provenance",
+          "blocks": [
+            {
+              "title": "Evidence scope",
+              "text": "The 60-second schedule is a source declaration, not proof of activation. Provider behavior, deferred callback execution and transaction outcomes remain bounded by the retained evidence. A pending event is not proof of Kafka delivery or a completed Dashboard update.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "forecasts-refresh-scheduled",
+                  "fragmentId": "claim-86809f2595a1f7590a92",
+                  "textDigest": "sha256:0b837ea0aaf9b049aed4b30c3fb6184141c916f6f5d40b753b516c366af38290"
+                }
+              ],
+              "links": [
+                {
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "operation": "process-overview",
+                  "label": "Related place-request consumer"
+                },
+                {
+                  "subject": "scenario:forecasts-publish-pending",
+                  "operation": "process-overview",
+                  "label": "Pending forecast publisher"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "conclusion": {
+        "title": "Evidence scope",
+        "text": "The 60-second schedule is a source declaration, not proof of activation. Provider behavior, deferred callback execution and transaction outcomes remain bounded by the retained evidence. A pending event is not proof of Kafka delivery or a completed Dashboard update.",
+        "evidence": [
+          {
+            "kind": "RETAINED",
+            "subject": "scenario:forecasts-refresh-scheduled",
+            "operation": "forecasts-refresh-scheduled",
+            "fragmentId": "claim-86809f2595a1f7590a92",
+            "textDigest": "sha256:0b837ea0aaf9b049aed4b30c3fb6184141c916f6f5d40b753b516c366af38290"
+          }
+        ],
+        "links": [
+          {
+            "subject": "scenario:forecasts-place-requested-consumer",
+            "operation": "process-overview",
+            "label": "Related place-request consumer"
+          },
+          {
+            "subject": "scenario:forecasts-publish-pending",
+            "operation": "process-overview",
+            "label": "Pending forecast publisher"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "codeclew-question-reading-plan/1.0",
+      "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+      "subject": "scenario:forecasts-publish-pending",
+      "presentation": "SEQUENTIAL",
+      "language": "en",
+      "title": "Publish forecast updates",
+      "purpose": "Forecasts sends pending update events and marks completed sends in its transaction callback.",
+      "sections": [
+        {
+          "id": "pending",
+          "title": "Forecasts looks for a pending update",
+          "navTitle": "Pending update",
+          "number": 1,
+          "blocks": [
+            {
+              "title": "Choose work",
+              "text": "The source declares a periodic publishing pass. Inside its transaction callback, at most one unpublished outbox row is selected. No selected row means no Kafka send.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-publish-pending",
+                  "operation": "forecasts-publish-pending",
+                  "fragmentId": "claim-dba259f6648a88e0e4a3",
+                  "textDigest": "sha256:acde4199d68d27cc113588a1d5d96a2305074cbd3fd3c222f0b590054d9aaa00"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-publish-pending",
+                  "operation": "forecasts-publish-pending",
+                  "fragmentId": "claim-d6c754fa250b4090a31b",
+                  "textDigest": "sha256:ccc030d8ab68e5bc216ab47253d64aa9a17bbab111c551e93677db4affd6bd5a"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-publish-pending",
+                  "operation": "forecasts-publish-pending",
+                  "fragmentId": "claim-5af5c358e730bc7a526e",
+                  "textDigest": "sha256:45c9e09f4e0b9987e89dbae78274bb31cc455b112527eb56526347bea1570551"
+                }
+              ]
+            },
+            {
+              "title": "Schedule and selection rules",
+              "text": "The declared fixed delay defaults to one second. The query uses ORDER BY id LIMIT 1 FOR UPDATE SKIP LOCKED: identifier order is not event-time order. Scheduler activation, callback invocation and transaction outcomes remain unverified.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-publish-pending",
+                  "operation": "forecasts-publish-pending",
+                  "fragmentId": "claim-dba259f6648a88e0e4a3",
+                  "textDigest": "sha256:acde4199d68d27cc113588a1d5d96a2305074cbd3fd3c222f0b590054d9aaa00"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-publish-pending",
+                  "operation": "forecasts-publish-pending",
+                  "fragmentId": "claim-d6c754fa250b4090a31b",
+                  "textDigest": "sha256:ccc030d8ab68e5bc216ab47253d64aa9a17bbab111c551e93677db4affd6bd5a"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-publish-pending",
+                  "operation": "forecasts-publish-pending",
+                  "fragmentId": "claim-b7eeb47786471b8f5b9a",
+                  "textDigest": "sha256:f9d22a31c8a7aa98069827fdbd8931dd7b5d694725d9d5e65ae1fcfe3ad694ba"
+                }
+              ],
+              "disclosure": "Schedule and selection rules",
+              "preview": "One row · identifier order · declared one-second delay"
+            }
+          ],
+          "icon": "database"
+        },
+        {
+          "id": "send",
+          "title": "Forecasts sends the update event",
+          "navTitle": "Send update",
+          "number": 2,
+          "blocks": [
+            {
+              "title": "Publish",
+              "text": "The stored payload is sent to `weather.forecast-updated`, using the place ID as key. The method waits up to ten seconds for the send future.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-publish-pending",
+                  "operation": "forecasts-publish-pending",
+                  "fragmentId": "claim-4a7bbf8ed804a5ebe6e9",
+                  "textDigest": "sha256:6882eb113b9ab7354425a4f83e82af3bed59dbc10feade318927142b1e4a9f25"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-publish-pending",
+                  "operation": "forecasts-publish-pending",
+                  "fragmentId": "claim-2fc5f7c0ee5b3458eb8f",
+                  "textDigest": "sha256:9d1fc40e4fa3e00b3d2153b47d69b32004532a3ec05c9bc639ebf6ea15be9046"
+                }
+              ]
+            },
+            {
+              "title": "If the publish attempt fails",
+              "text": "An exception from the transaction path, send wait or database update is logged as `PUBLISH_RETRY` with its class. The method has no immediate retry loop; another attempt needs another invocation.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-publish-pending",
+                  "operation": "forecasts-publish-pending",
+                  "fragmentId": "claim-eb08b23cad64d49b0c2d",
+                  "textDigest": "sha256:90e222be250c671bc1b607038ce9b5d5b7478d09a4df2b8acb548b5fb9cee384"
+                }
+              ],
+              "id": "publish-error",
+              "navTitle": "Publish failure",
+              "tone": "ERROR"
+            }
+          ],
+          "icon": "arrow-right",
+          "route": "Topic: weather.forecast-updated"
+        },
+        {
+          "id": "record",
+          "title": "Forecasts marks the row as published",
+          "navTitle": "Record send",
+          "number": 3,
+          "blocks": [
+            {
+              "title": "Record outcome",
+              "text": "After the send future completes, the callback marks the selected row published. This statement alone does not prove that its database transaction committed.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-publish-pending",
+                  "operation": "forecasts-publish-pending",
+                  "fragmentId": "claim-7a62510d8fea3b9f7ca6",
+                  "textDigest": "sha256:b1969ab8c2b561b2c0ba8a797a36a575fd0e20146a02eb3e8b4d4427f421cfb5"
+                }
+              ],
+              "links": [
+                {
+                  "subject": "service:forecasts",
+                  "operation": "section-entities",
+                  "label": "Forecast data · service context"
+                }
+              ]
+            },
+            {
+              "title": "If send succeeds but commit does not",
+              "text": "The broker send and database commit are separate effects. A transaction failure or crash after sending can leave the row pending and cause a later duplicate send.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-publish-pending",
+                  "operation": "forecasts-publish-pending",
+                  "fragmentId": "claim-9b868ca3064d7d31c7aa",
+                  "textDigest": "sha256:88e22ad7e17a89772fd607c96aa93bd5803d315078fed04b338941fa6fe49b11"
+                }
+              ],
+              "id": "replay-window",
+              "navTitle": "Send-before-commit window",
+              "tone": "WARNING"
+            }
+          ],
+          "icon": "database"
+        },
+        {
+          "id": "confidence",
+          "title": "Full description and sources",
+          "navTitle": "Sources and provenance",
+          "blocks": [
+            {
+              "title": "Evidence scope",
+              "text": "The source declares one pending-row attempt per invocation, not a running scheduler or observed delivery. It does not establish an atomic Kafka/database transaction, exactly-once delivery or downstream consumer completion.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:forecasts-publish-pending",
+                  "operation": "forecasts-publish-pending",
+                  "fragmentId": "claim-bc5cd43172466216dd58",
+                  "textDigest": "sha256:d0255117b2cfb1c67fd095f411edcf9743b907e17589ff1cae064333e43ce8d4"
+                }
+              ],
+              "links": [
+                {
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "operation": "process-overview",
+                  "label": "Related Dashboard consumer"
+                },
+                {
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "process-overview",
+                  "label": "Related forecast refresh"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "conclusion": {
+        "title": "Evidence scope",
+        "text": "The source declares one pending-row attempt per invocation, not a running scheduler or observed delivery. It does not establish an atomic Kafka/database transaction, exactly-once delivery or downstream consumer completion.",
+        "evidence": [
+          {
+            "kind": "RETAINED",
+            "subject": "scenario:forecasts-publish-pending",
+            "operation": "forecasts-publish-pending",
+            "fragmentId": "claim-bc5cd43172466216dd58",
+            "textDigest": "sha256:d0255117b2cfb1c67fd095f411edcf9743b907e17589ff1cae064333e43ce8d4"
+          }
+        ],
+        "links": [
+          {
+            "subject": "scenario:dashboard-forecast-updated-consumer",
+            "operation": "process-overview",
+            "label": "Related Dashboard consumer"
+          },
+          {
+            "subject": "scenario:forecasts-refresh-scheduled",
+            "operation": "process-overview",
+            "label": "Related forecast refresh"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "codeclew-question-reading-plan/1.0",
+      "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+      "subject": "scenario:dashboard-save-city",
+      "presentation": "SEQUENTIAL",
+      "language": "en",
+      "title": "Save a city",
+      "purpose": "Dashboard sends the city to Places and returns the save result.",
+      "sections": [
+        {
+          "id": "request",
+          "title": "Dashboard sends the save request",
+          "number": 1,
+          "blocks": [
+            {
+              "title": "Request",
+              "text": "Dashboard receives a city ID and sends the save request to Places.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-ecf46452e0e2d4142ff4",
+                  "textDigest": "sha256:da23a1c796a1dbe4366984219079e06916ed953275c3f981e75e67757a48df47"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-acefd929067d5d7fd3f8",
+                  "textDigest": "sha256:5333b150393704364447c4093f49015f5b28110cc8e04ba30b67296ff6db5fa3"
+                },
+                {
+                  "kind": "SOURCE",
+                  "service": "dashboard",
+                  "sourceId": "dashboard-3e51b17ac52447614116",
+                  "textDigest": "sha256:24e65777311802d2204bc41eedf3b814e869f777c2e65cb74d5c8be8c4d47e6a",
+                  "startLine": 105,
+                  "endLine": 105
+                }
+              ]
+            },
+            {
+              "title": "Address and contracts",
+              "text": "The selected Compose config sets PLACES_URL to http://places:8080, also the source default. The example target is POST http://places:8080/places. Production address and actual receiver routing are unverified; the saved service mapping is agent-proposed.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-acefd929067d5d7fd3f8",
+                  "textDigest": "sha256:5333b150393704364447c4093f49015f5b28110cc8e04ba30b67296ff6db5fa3"
+                },
+                {
+                  "kind": "SOURCE",
+                  "service": "dashboard",
+                  "sourceId": "dashboard-3e51b17ac52447614116",
+                  "textDigest": "sha256:24e65777311802d2204bc41eedf3b814e869f777c2e65cb74d5c8be8c4d47e6a",
+                  "startLine": 10,
+                  "endLine": 10
+                },
+                {
+                  "kind": "SOURCE",
+                  "service": "dashboard",
+                  "sourceId": "dashboard-67fd8b5d5f69c5f96061",
+                  "textDigest": "sha256:76d5d8226d233a558b901a06887bcce216e4738778edff8462367d827169c167",
+                  "startLine": 77,
+                  "endLine": 77
+                }
+              ],
+              "disclosure": "Address and contracts",
+              "preview": "Compose: POST http://places:8080/places · production URL unknown.",
+              "links": [
+                {
+                  "subject": "service:dashboard",
+                  "operation": "dashboard-ad968c2137fedea90215",
+                  "label": "Dashboard entry and contract"
+                },
+                {
+                  "subject": "service:places",
+                  "operation": "places-691b340ea61828b197b6",
+                  "label": "Places handler and contract"
+                }
+              ]
+            },
+            {
+              "title": "If the exchange with Places fails",
+              "text": "Fetch, JSON decoding or the 10-second timeout can lead to `503 PLACES_UNAVAILABLE`.\nThe save may already have completed. Whether retry is safe is not established.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-cf37e81b84fb3c4f98a2",
+                  "textDigest": "sha256:5e9afd2e6bb0a768388940aa220e8c83d38dc3cb37bf58a6a248998d2652259b"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-9d18e4f6fd821425ecde",
+                  "textDigest": "sha256:beb74ce536265057c927cb281bd216abb7a18698389fdcf3842e930d61fb647f"
+                }
+              ],
+              "id": "exchange-error",
+              "tone": "ERROR",
+              "navTitle": "Exchange failure · 503"
+            }
+          ],
+          "navTitle": "Request",
+          "icon": "arrow-right",
+          "route": "POST /api/places    →    POST /places"
+        },
+        {
+          "id": "validation",
+          "title": "Places checks the city",
+          "number": 2,
+          "blocks": [
+            {
+              "title": "Supported cities",
+              "text": "The supported city IDs are `oslo`, `helsinki` and `lisbon`.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-ecf46452e0e2d4142ff4",
+                  "textDigest": "sha256:da23a1c796a1dbe4366984219079e06916ed953275c3f981e75e67757a48df47"
+                }
+              ]
+            },
+            {
+              "title": "If the city is unsupported",
+              "text": "`400 UNSUPPORTED_CITY`. This branch does not save the city.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-11333090ea53ac65e7fb",
+                  "textDigest": "sha256:ab669d1f5d0e51f483b5adbd62b4b52453d71a26131cceb0e65ed9ede64dc42d"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-4b59eebe6c237238c7c7",
+                  "textDigest": "sha256:e2433660b3cb7b73724963beca4433f456ca95558b7884860c614cb9fbbe0f5a"
+                }
+              ],
+              "id": "unsupported-city",
+              "tone": "WARNING",
+              "navTitle": "Unsupported city · 400"
+            }
+          ],
+          "navTitle": "Check city"
+        },
+        {
+          "id": "save",
+          "title": "Places saves the city",
+          "number": 3,
+          "blocks": [
+            {
+              "title": "New city",
+              "text": "A new Place and its request for later publication (outbox) are saved in one database transaction.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-29033dc7ad40b6e51146",
+                  "textDigest": "sha256:a57b348d53e06a02fb1dae653f687eb48e9168db7849fc0f0d7e3e8270c8dcb9"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-e8898297962cd3e5ede9",
+                  "textDigest": "sha256:1c8454f9ac88cd1d9e7bdfd1f32c0e1ac6f37cbb1eb9d7f5e11ae5fc1ed98acc"
+                }
+              ],
+              "links": [
+                {
+                  "subject": "service:places",
+                  "operation": "section-entities",
+                  "label": "Place · fields and context"
+                }
+              ]
+            },
+            {
+              "title": "If the city already exists",
+              "text": "An existing city creates neither a new Place nor a new outbox record.\nThe transaction commits in either case, and Places returns `200` with the city.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-d8d73624fb84cb42c190",
+                  "textDigest": "sha256:8e3eeeba28dfa387d3166350afb30fa2ba03bcee1017ff2e8c98bb76af14f917"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-8bb24d847af485cf881b",
+                  "textDigest": "sha256:4d537f5cbe90344cf03a195de020ed61d38bcfba562629f15684cb606046f520"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-85c6428d31b46191f479",
+                  "textDigest": "sha256:3b5e89988723b309efbe73c1f70aab2d73b975e2b46bca24dddf568f36a4247e"
+                }
+              ]
+            }
+          ],
+          "navTitle": "Save city",
+          "icon": "database"
+        },
+        {
+          "id": "result",
+          "title": "Dashboard returns the result",
+          "number": 4,
+          "blocks": [
+            {
+              "title": "Local response",
+              "text": "Places returns `200` with the city after saving. Dashboard forwards the status and parsed JSON to the client.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-85c6428d31b46191f479",
+                  "textDigest": "sha256:3b5e89988723b309efbe73c1f70aab2d73b975e2b46bca24dddf568f36a4247e"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-ed6ef06e7260780eb380",
+                  "textDigest": "sha256:bba97b40ab605d7c9aff36296c19832666543e52cf35e0d07200e4b9f9047d8d"
+                }
+              ]
+            },
+            {
+              "title": "What 200 means",
+              "text": "The `200` response describes the local save result. It does not confirm forecast readiness or completion of the whole message flow.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-1cd536e010d3cd375a7e",
+                  "textDigest": "sha256:a2e618b4fee4cf6a234b98d5141f36b6525b6728f236912c3671b8d4c7261533"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-3aeab4fe16dd2fe0b49e",
+                  "textDigest": "sha256:603c4d1a30edc9044e7308c8b424ba4d30912329a151a6a103126ff277bfdf80"
+                }
+              ],
+              "tone": "INFO"
+            }
+          ],
+          "navTitle": "Result"
+        },
+        {
+          "id": "input-table",
+          "title": "Save City request fields",
+          "navTitle": "Request fields",
+          "blocks": [
+            {
+              "title": "Request fields — Markdown table",
+              "text": "This additional reference table uses the retained request-field description. The original process steps are unchanged.\n\n| Original field | Readable name | Comment |\n| --- | --- | --- |\n| `cityId` | Selected city key | The selected city key sent by the browser. This request carries only cityId; Places derives the Place name and coordinates from its supported-city lookup. It is not an event ID, and it is not a client-supplied Place object. |\n\nThis is a source-bound description, not an observed HTTP run.",
+              "evidence": [
+                {
+                  "kind": "SOURCE",
+                  "service": "dashboard",
+                  "sourceId": "dashboard-21314369bd35a5f6a1c4",
+                  "textDigest": "sha256:f33bf2b36b9343a5e0e86d6501a03abc948e12032e43155b798ab23909dae948",
+                  "startLine": 3,
+                  "endLine": 9
+                },
+                {
+                  "kind": "SOURCE",
+                  "service": "places",
+                  "sourceId": "places-a3f9be5dab0dd63815f7",
+                  "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+                  "startLine": 7,
+                  "endLine": 13
+                },
+                {
+                  "kind": "SOURCE",
+                  "service": "places",
+                  "sourceId": "places-309961f88b197290c1b0",
+                  "textDigest": "sha256:b6a46a9557e67342266ccce88f28a634490cacba1ee8f705d71066775158f708",
+                  "startLine": 10,
+                  "endLine": 17
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "confidence",
+          "title": "Full description and sources",
+          "navTitle": "Sources and provenance",
+          "blocks": [
+            {
+              "title": "Object context",
+              "text": "Place contains Id, Name, Latitude and Longitude. SavePlace carries CityId; request_outbox holds a delivery record. Formal domain identity and ownership have not been declared in the saved evidence.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "service:places",
+                  "operation": "section-entities",
+                  "fragmentId": "claim-b4df91eec926f5311ba3",
+                  "textDigest": "sha256:210a03ea2fae06e4339930e231217be787d2ee38eb30cb299e23c90ed36ee27e"
+                }
+              ]
+            },
+            {
+              "title": "Story boundary",
+              "text": "An outbox record alone does not prove Kafka publication, delivery, processing or a forecast ready to display. Related accounts retain their own sources and limits; their links do not establish an observed execution sequence.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-1cd536e010d3cd375a7e",
+                  "textDigest": "sha256:a2e618b4fee4cf6a234b98d5141f36b6525b6728f236912c3671b8d4c7261533"
+                }
+              ],
+              "links": [
+                {
+                  "subject": "scenario:places-request-publisher",
+                  "operation": "process-overview",
+                  "label": "Related place-request publisher"
+                },
+                {
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "operation": "process-overview",
+                  "label": "Related Dashboard forecast consumer"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "conclusion": {
+        "title": "Local outcome",
+        "text": "A 200 response does not establish message delivery or forecast readiness.",
+        "evidence": [
+          {
+            "kind": "RETAINED",
+            "subject": "scenario:dashboard-save-city",
+            "operation": "dashboard-save-city",
+            "fragmentId": "claim-1cd536e010d3cd375a7e",
+            "textDigest": "sha256:a2e618b4fee4cf6a234b98d5141f36b6525b6728f236912c3671b8d4c7261533"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "codeclew-question-reading-plan/1.0",
+      "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+      "subject": "scenario:dashboard-refresh-request",
+      "presentation": "SEQUENTIAL",
+      "language": "en",
+      "title": "Request a forecast refresh",
+      "purpose": "Dashboard asks Places to queue a refresh and returns the request outcome.",
+      "sections": [
+        {
+          "id": "request",
+          "title": "Dashboard sends the refresh request",
+          "navTitle": "Request",
+          "number": 1,
+          "icon": "arrow-right",
+          "route": "POST /api/places/{id}/refresh  →  POST /places/{id}/refresh",
+          "blocks": [
+            {
+              "title": "Request",
+              "text": "Dashboard receives a place ID and asks Places to refresh its forecast.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-refresh-request",
+                  "operation": "dashboard-refresh-request",
+                  "fragmentId": "claim-200c312ea5553a634796",
+                  "textDigest": "sha256:36f82d60a02cf8d49f272ab52c48e8302ed1b8f82ed61ecf9e7cebd7134e8e8a"
+                },
+                {
+                  "kind": "SOURCE",
+                  "service": "dashboard",
+                  "sourceId": "dashboard-3e51b17ac52447614116",
+                  "textDigest": "sha256:24e65777311802d2204bc41eedf3b814e869f777c2e65cb74d5c8be8c4d47e6a",
+                  "startLine": 76,
+                  "endLine": 83
+                },
+                {
+                  "kind": "SOURCE",
+                  "service": "dashboard",
+                  "sourceId": "dashboard-3e51b17ac52447614116",
+                  "textDigest": "sha256:24e65777311802d2204bc41eedf3b814e869f777c2e65cb74d5c8be8c4d47e6a",
+                  "startLine": 106,
+                  "endLine": 106
+                }
+              ]
+            },
+            {
+              "title": "Address and contracts",
+              "text": "Dashboard sends a bodyless POST to /places/{id}/refresh, URL-encodes the ID and applies a 10-second timeout. The selected Compose config sets PLACES_URL to http://places:8080; the source uses the same default. The example target is POST http://places:8080/places/{id}/refresh. Production address and runtime receiver routing are unverified.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-refresh-request",
+                  "operation": "dashboard-refresh-request",
+                  "fragmentId": "claim-200c312ea5553a634796",
+                  "textDigest": "sha256:36f82d60a02cf8d49f272ab52c48e8302ed1b8f82ed61ecf9e7cebd7134e8e8a"
+                },
+                {
+                  "kind": "SOURCE",
+                  "service": "dashboard",
+                  "sourceId": "dashboard-3e51b17ac52447614116",
+                  "textDigest": "sha256:24e65777311802d2204bc41eedf3b814e869f777c2e65cb74d5c8be8c4d47e6a",
+                  "startLine": 10,
+                  "endLine": 10
+                },
+                {
+                  "kind": "SOURCE",
+                  "service": "dashboard",
+                  "sourceId": "dashboard-67fd8b5d5f69c5f96061",
+                  "textDigest": "sha256:76d5d8226d233a558b901a06887bcce216e4738778edff8462367d827169c167",
+                  "startLine": 77,
+                  "endLine": 77
+                }
+              ],
+              "disclosure": "Address and contracts",
+              "preview": "Compose: POST http://places:8080/places/{id}/refresh · production URL unknown.",
+              "links": [
+                {
+                  "subject": "service:dashboard",
+                  "operation": "dashboard-4301d0222c019e9d5339",
+                  "label": "Dashboard entry and contract"
+                },
+                {
+                  "subject": "service:places",
+                  "operation": "places-e06f41e67f62720ad106",
+                  "label": "Places handler and contract"
+                }
+              ]
+            },
+            {
+              "title": "If the exchange with Places fails",
+              "text": "Fetch, JSON decoding or the 10-second timeout can lead to `503 PLACES_UNAVAILABLE`.\nPlaces may already have committed. This response does not establish whether the request was recorded or whether retry is safe.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-refresh-request",
+                  "operation": "dashboard-refresh-request",
+                  "fragmentId": "claim-1f8c580b51da0a4a1831",
+                  "textDigest": "sha256:0f5f265aee697a871282d5248b4747a9bf02651f706306f3915f52b3675516c1"
+                },
+                {
+                  "kind": "SOURCE",
+                  "service": "dashboard",
+                  "sourceId": "dashboard-3e51b17ac52447614116",
+                  "textDigest": "sha256:24e65777311802d2204bc41eedf3b814e869f777c2e65cb74d5c8be8c4d47e6a",
+                  "startLine": 76,
+                  "endLine": 83
+                }
+              ],
+              "id": "exchange-error",
+              "navTitle": "Exchange failure · 503",
+              "tone": "ERROR"
+            }
+          ]
+        },
+        {
+          "id": "lookup",
+          "title": "Places looks up the place",
+          "navTitle": "Place lookup",
+          "number": 2,
+          "blocks": [
+            {
+              "title": "Lookup",
+              "text": "Places checks whether the requested place exists.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-refresh-request",
+                  "operation": "dashboard-refresh-request",
+                  "fragmentId": "claim-be2e6b692aac109c6242",
+                  "textDigest": "sha256:55c2ec01ae56bdaf58a8dee715cd5bd3a3d135714f5a307d526d849f32f09cd0"
+                },
+                {
+                  "kind": "SOURCE",
+                  "service": "places",
+                  "sourceId": "places-65de4bdfa04d114b73df",
+                  "textDigest": "sha256:15621e3458e3e37377113dbf343bd3621c520edd48affea91206c49bec8b238f",
+                  "startLine": 18,
+                  "endLine": 25
+                }
+              ]
+            },
+            {
+              "title": "If the place is not found",
+              "text": "`404 PLACE_NOT_FOUND`. No refresh request is recorded.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-refresh-request",
+                  "operation": "dashboard-refresh-request",
+                  "fragmentId": "claim-ac3adf09bf90577534a4",
+                  "textDigest": "sha256:c4c4559a1e452d3e2732d325609848cf84fc94064ba96fe63912f94ff270cbaf"
+                }
+              ],
+              "id": "place-not-found",
+              "navTitle": "Place not found · 404",
+              "tone": "WARNING"
+            }
+          ]
+        },
+        {
+          "id": "enqueue",
+          "title": "Places records a refresh request",
+          "navTitle": "Record the request",
+          "number": 3,
+          "icon": "database",
+          "blocks": [
+            {
+              "title": "Record for later publication",
+              "text": "For an existing place, Places saves a request for later publication (outbox) in a database transaction.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-refresh-request",
+                  "operation": "dashboard-refresh-request",
+                  "fragmentId": "claim-60cc4fa9d56726c50aff",
+                  "textDigest": "sha256:c50f4d01836a0ff53c2f72fbf88ed220ada73dd0544ea0e1f2a1955777f162a8"
+                },
+                {
+                  "kind": "SOURCE",
+                  "service": "places",
+                  "sourceId": "places-1223607978a77b621e14",
+                  "textDigest": "sha256:bc91c9d234edfb570e4206b621061eb47c44f1c58eb7711378bf468d0961c89b",
+                  "startLine": 45,
+                  "endLine": 60
+                }
+              ],
+              "links": [
+                {
+                  "subject": "service:places",
+                  "operation": "section-entities",
+                  "label": "Place · domain context"
+                }
+              ]
+            },
+            {
+              "title": "Transaction and event details",
+              "text": "Enqueue opens a connection, begins a transaction and calls InsertRequest. InsertRequest creates a new GUID and serializes a `place.requested` v1 event containing the Place into request_outbox. Enqueue then commits. This database write does not prove Kafka publication or delivery.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-refresh-request",
+                  "operation": "dashboard-refresh-request",
+                  "fragmentId": "claim-60cc4fa9d56726c50aff",
+                  "textDigest": "sha256:c50f4d01836a0ff53c2f72fbf88ed220ada73dd0544ea0e1f2a1955777f162a8"
+                },
+                {
+                  "kind": "SOURCE",
+                  "service": "places",
+                  "sourceId": "places-1223607978a77b621e14",
+                  "textDigest": "sha256:bc91c9d234edfb570e4206b621061eb47c44f1c58eb7711378bf468d0961c89b",
+                  "startLine": 45,
+                  "endLine": 60
+                }
+              ],
+              "disclosure": "Transaction and event details",
+              "preview": "request_outbox · place.requested v1 · commit before 202"
+            },
+            {
+              "title": "Repeated requests",
+              "text": "Repeating the request may record another refresh request. This path offers no repeat-request deduplication guarantee.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-refresh-request",
+                  "operation": "dashboard-refresh-request",
+                  "fragmentId": "claim-1b8d09a3b8ea78a6fd83",
+                  "textDigest": "sha256:7ef57a7d20b104efc558e10ac68c5c64b699d1e58408531ef55174d81db63521"
+                },
+                {
+                  "kind": "SOURCE",
+                  "service": "places",
+                  "sourceId": "places-1223607978a77b621e14",
+                  "textDigest": "sha256:bc91c9d234edfb570e4206b621061eb47c44f1c58eb7711378bf468d0961c89b",
+                  "startLine": 45,
+                  "endLine": 60
+                }
+              ],
+              "tone": "INFO"
+            },
+            {
+              "title": "If recording the request fails",
+              "text": "If saving the request fails, Places does not reach the `202` response. The captured code does not establish the HTTP response for a database failure.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-refresh-request",
+                  "operation": "dashboard-refresh-request",
+                  "fragmentId": "claim-14d8b7547eca33adf3e3",
+                  "textDigest": "sha256:b921f61c5db206a54171f0c03f60d1a4042d016004bcdc533d1425a5bfd06a80"
+                },
+                {
+                  "kind": "SOURCE",
+                  "service": "places",
+                  "sourceId": "places-65de4bdfa04d114b73df",
+                  "textDigest": "sha256:15621e3458e3e37377113dbf343bd3621c520edd48affea91206c49bec8b238f",
+                  "startLine": 18,
+                  "endLine": 25
+                }
+              ],
+              "id": "enqueue-error",
+              "navTitle": "Recording failure",
+              "tone": "WARNING"
+            }
+          ]
+        },
+        {
+          "id": "result",
+          "title": "Dashboard returns the result",
+          "navTitle": "Result",
+          "number": 4,
+          "blocks": [
+            {
+              "title": "Queued response",
+              "text": "After the request is recorded, Places returns `202 QUEUED` with the place ID. Dashboard forwards the status and JSON response, including `404` when the place is missing.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-refresh-request",
+                  "operation": "dashboard-refresh-request",
+                  "fragmentId": "claim-886463f628a8b0e2d764",
+                  "textDigest": "sha256:4c546e215934a93a49417a52385d8c337c55685462f4c29d98861e5e7df8452c"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-refresh-request",
+                  "operation": "dashboard-refresh-request",
+                  "fragmentId": "claim-8234b7c10edef661b73b",
+                  "textDigest": "sha256:886b25eef8d51e0d482c076ff30a72ee651c3cbcb52cfb40b328b04fd3c0e787"
+                }
+              ]
+            },
+            {
+              "title": "Queued is not forecast ready",
+              "text": "`202 QUEUED` describes the recorded refresh request. It does not confirm Kafka delivery, provider refresh or a forecast ready to display.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-refresh-request",
+                  "operation": "dashboard-refresh-request",
+                  "fragmentId": "claim-886463f628a8b0e2d764",
+                  "textDigest": "sha256:4c546e215934a93a49417a52385d8c337c55685462f4c29d98861e5e7df8452c"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-refresh-request",
+                  "operation": "process-overview",
+                  "fragmentId": "claim-c0eedab01870a67d1122",
+                  "textDigest": "sha256:0ba3217f4d5849e452ff2cc77348693701f4d928a779901038b2040c03449718"
+                }
+              ],
+              "tone": "INFO"
+            }
+          ]
+        },
+        {
+          "id": "confidence",
+          "title": "Full description and sources",
+          "navTitle": "Sources and provenance",
+          "blocks": [
+            {
+              "title": "Evidence scope",
+              "text": "This guide interprets pinned source. It does not prove runtime routing, Kafka publication, delivery or forecast completion. Retained Dashboard explanations and selected-source evidence keep their separate revision bindings. Related publisher and consumer views are separate accounts, not a proven execution sequence.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-refresh-request",
+                  "operation": "process-overview",
+                  "fragmentId": "claim-c0eedab01870a67d1122",
+                  "textDigest": "sha256:0ba3217f4d5849e452ff2cc77348693701f4d928a779901038b2040c03449718"
+                },
+                {
+                  "kind": "SOURCE",
+                  "service": "dashboard",
+                  "sourceId": "dashboard-3e51b17ac52447614116",
+                  "textDigest": "sha256:24e65777311802d2204bc41eedf3b814e869f777c2e65cb74d5c8be8c4d47e6a",
+                  "startLine": 76,
+                  "endLine": 83
+                }
+              ],
+              "links": [
+                {
+                  "subject": "scenario:places-request-publisher",
+                  "operation": "process-overview",
+                  "label": "Related request-publisher view"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "conclusion": {
+        "title": "Evidence scope",
+        "text": "This guide interprets pinned source. It does not prove runtime routing, Kafka publication, delivery or forecast completion. Retained Dashboard explanations and selected-source evidence keep their separate revision bindings. Related publisher and consumer views are separate accounts, not a proven execution sequence.",
+        "evidence": [
+          {
+            "kind": "RETAINED",
+            "subject": "scenario:dashboard-refresh-request",
+            "operation": "process-overview",
+            "fragmentId": "claim-c0eedab01870a67d1122",
+            "textDigest": "sha256:0ba3217f4d5849e452ff2cc77348693701f4d928a779901038b2040c03449718"
+          },
+          {
+            "kind": "SOURCE",
+            "service": "dashboard",
+            "sourceId": "dashboard-3e51b17ac52447614116",
+            "textDigest": "sha256:24e65777311802d2204bc41eedf3b814e869f777c2e65cb74d5c8be8c4d47e6a",
+            "startLine": 76,
+            "endLine": 83
+          }
+        ],
+        "links": [
+          {
+            "subject": "scenario:places-request-publisher",
+            "operation": "process-overview",
+            "label": "Related request-publisher view"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "codeclew-system-reading-plan/1.0",
+      "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+      "subject": "system:overview",
+      "language": "en",
+      "title": "Save places and follow their weather",
+      "purpose": "Weather connects saved places, stored forecasts and weather cards. Start with the user outcome, then follow the service and process descriptions behind it.",
+      "sections": [
+        {
+          "id": "outcomes",
+          "title": "What you can do",
+          "blocks": [
+            {
+              "title": "Save a supported city",
+              "text": "Ask Dashboard to save Oslo, Helsinki or Lisbon through Places. A new place also records a request for follow-on processing; saving it does not mean a fresh forecast is already displayed.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "service:places",
+                  "operation": "section-overview",
+                  "fragmentId": "claim-5285fd306cf620f4e823",
+                  "textDigest": "sha256:24f80295f5205d5e85cc05516d56923f96536e5754e1adbc3289041f4d18b74d"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "service:dashboard",
+                  "operation": "section-responsibilities",
+                  "fragmentId": "claim-e1c5915c2d853315462a",
+                  "textDigest": "sha256:b2508b1daa7b29f17ad6faf615f8bc784cc6ee42c75a557b954845a8c004961e"
+                }
+              ],
+              "links": [
+                {
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "process-overview",
+                  "label": "Follow saving a city"
+                }
+              ]
+            },
+            {
+              "title": "Request a forecast refresh",
+              "text": "Dashboard forwards a refresh request to Places. For an existing place, the retained handler describes recording a request and returning 202 QUEUED; provider work and an updated card are separate outcomes.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "service:places",
+                  "operation": "section-overview",
+                  "fragmentId": "claim-5285fd306cf620f4e823",
+                  "textDigest": "sha256:24f80295f5205d5e85cc05516d56923f96536e5754e1adbc3289041f4d18b74d"
+                }
+              ],
+              "links": [
+                {
+                  "subject": "scenario:dashboard-refresh-request",
+                  "operation": "process-overview",
+                  "label": "Follow a refresh request"
+                }
+              ]
+            },
+            {
+              "title": "Read saved weather cards",
+              "text": "Dashboard serves local saved-place cards and applies place and forecast events. Forecasts serves stored forecast payloads; the source does not guarantee immediate delivery to the displayed card.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "service:dashboard",
+                  "operation": "section-responsibilities",
+                  "fragmentId": "claim-e1c5915c2d853315462a",
+                  "textDigest": "sha256:b2508b1daa7b29f17ad6faf615f8bc784cc6ee42c75a557b954845a8c004961e"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "service:forecasts",
+                  "operation": "section-responsibilities",
+                  "fragmentId": "claim-494dc5c43cce06a75764",
+                  "textDigest": "sha256:b1620c815112d97bda4f22f3bf48e5ec66fd828c9ffea8aca63c929271a38ac0"
+                }
+              ],
+              "links": [
+                {
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "operation": "process-overview",
+                  "label": "Follow a forecast-card update"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "responsibilities",
+          "title": "How the services fit together",
+          "blocks": [
+            {
+              "title": "Dashboard",
+              "text": "Serves saved weather cards, forwards save and refresh requests, and consumes place and forecast events to update its local cards.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "service:dashboard",
+                  "operation": "section-responsibilities",
+                  "fragmentId": "claim-e1c5915c2d853315462a",
+                  "textDigest": "sha256:b2508b1daa7b29f17ad6faf615f8bc784cc6ee42c75a557b954845a8c004961e"
+                }
+              ],
+              "links": [
+                {
+                  "subject": "service:dashboard",
+                  "operation": "section-overview",
+                  "label": "Read Dashboard"
+                }
+              ]
+            },
+            {
+              "title": "Places",
+              "text": "Maps supported city IDs to Place records, stores places and durable request-outbox rows, and publishes pending place requests. This retained service view covers place storage and request publication; forecast computation and card updates are documented separately.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "service:places",
+                  "operation": "section-responsibilities",
+                  "fragmentId": "claim-1313d06106ce668eb860",
+                  "textDigest": "sha256:43a9f374a08a739db1d37846034e615f7e6f977306043842f0ea32e997d173fb"
+                }
+              ],
+              "links": [
+                {
+                  "subject": "service:places",
+                  "operation": "section-responsibilities",
+                  "label": "Read Places responsibilities"
+                }
+              ]
+            },
+            {
+              "title": "Forecasts",
+              "text": "Serves stored forecasts and consumes place requests. Its source describes cache-aware refresh from fixtures or MET, plus scheduled refresh and event-publication work; deployment activation is unverified.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "service:forecasts",
+                  "operation": "section-responsibilities",
+                  "fragmentId": "claim-494dc5c43cce06a75764",
+                  "textDigest": "sha256:b1620c815112d97bda4f22f3bf48e5ec66fd828c9ffea8aca63c929271a38ac0"
+                }
+              ],
+              "links": [
+                {
+                  "subject": "service:forecasts",
+                  "operation": "section-responsibilities",
+                  "label": "Read Forecasts responsibilities"
+                },
+                {
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "operation": "process-overview",
+                  "label": "Follow forecast refresh work"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "conclusion": {
+        "title": "Saving or queuing is not forecast completion",
+        "text": "These are source-based accounts, not an execution trace. A saved place or queued refresh does not establish a completed provider request or a newly displayed forecast. Runtime scheduling, database outcomes, Kafka delivery and deployed bindings remain unverified within their respective retained evidence scopes.",
+        "evidence": [
+          {
+            "kind": "RETAINED",
+            "subject": "service:places",
+            "operation": "section-overview",
+            "fragmentId": "claim-5285fd306cf620f4e823",
+            "textDigest": "sha256:24f80295f5205d5e85cc05516d56923f96536e5754e1adbc3289041f4d18b74d"
+          },
+          {
+            "kind": "RETAINED",
+            "subject": "service:forecasts",
+            "operation": "section-responsibilities",
+            "fragmentId": "claim-494dc5c43cce06a75764",
+            "textDigest": "sha256:b1620c815112d97bda4f22f3bf48e5ec66fd828c9ffea8aca63c929271a38ac0"
+          }
+        ],
+        "links": [
+          {
+            "subject": "scenario:dashboard-refresh-request",
+            "operation": "process-overview",
+            "label": "Inspect outcomes, errors and evidence"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "status": "AUTHORED_INPUTS_PREPARED_NOT_MEANING_APPROVAL",
+  "origin": "agent-proposal",
+  "originalPlanSha256": "40afa1f07b972f902186c69e63bcf14967b52c84f38d80a24fb7e9b39afdda83",
+  "originalReadingPlanSha256": "ac8e47e098005956b90b63a9c81e5dd118c4e10a09d3ec4060b20d9d81d624b0",
+  "fields": 23,
+  "models": 6,
+  "preservation": "All original field comments, paths, representations, evidence and process reading blocks remain exact. One new unnumbered reference section is additive.",
+  "storageFieldBinding": "weather-card/ordering explicitly displays updated_at; original path 'updated_at (stored only)' and its full comment are retained.",
+  "newClaims": "Readable labels condense retained comments and keep identical evidence arrays; they remain authored proposals, not compiler-derived meanings.",
+  "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+  "snapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956"
+}

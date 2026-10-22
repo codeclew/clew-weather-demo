@@ -1,0 +1,719 @@
+{
+  "status": "RESEARCH_PROPOSAL_NOT_APPLIED",
+  "language": "en",
+  "origin": "agent-proposal",
+  "sourcePlanSha256": "40afa1f07b972f902186c69e63bcf14967b52c84f38d80a24fb7e9b39afdda83",
+  "originalCommentAndEvidencePreserved": true,
+  "rows": [
+    {
+      "model": "save-city-request",
+      "field": "city-id",
+      "originalPath": "cityId",
+      "proposedReadableName": "Selected city key",
+      "comment": "The selected city key sent by the browser. This request carries only cityId; Places derives the Place name and coordinates from its supported-city lookup. It is not an event ID, and it is not a client-supplied Place object.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-21314369bd35a5f6a1c4",
+          "textDigest": "sha256:f33bf2b36b9343a5e0e86d6501a03abc948e12032e43155b798ab23909dae948",
+          "startLine": 3,
+          "endLine": 9
+        },
+        {
+          "kind": "SOURCE",
+          "service": "places",
+          "sourceId": "places-a3f9be5dab0dd63815f7",
+          "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+          "startLine": 7,
+          "endLine": 13
+        },
+        {
+          "kind": "SOURCE",
+          "service": "places",
+          "sourceId": "places-309961f88b197290c1b0",
+          "textDigest": "sha256:b6a46a9557e67342266ccce88f28a634490cacba1ee8f705d71066775158f708",
+          "startLine": 10,
+          "endLine": 17
+        }
+      ]
+    },
+    {
+      "model": "place",
+      "field": "id",
+      "originalPath": "id",
+      "proposedReadableName": "Place identifier (city key)",
+      "comment": "A supported city key used to identify the place and route refreshes. It is distinct from an event ID.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "places",
+          "sourceId": "places-a3f9be5dab0dd63815f7",
+          "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+          "startLine": 7,
+          "endLine": 13
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-882d369dd68d5e2e428f",
+          "textDigest": "sha256:a17702c69c12855a10f629ed89938eba6b4492e1b84efa9faf0e02f251ce2a2b",
+          "startLine": 1,
+          "endLine": 4
+        }
+      ]
+    },
+    {
+      "model": "place",
+      "field": "name",
+      "originalPath": "name",
+      "proposedReadableName": "City name",
+      "comment": "The human-readable city name shown on a weather card.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "places",
+          "sourceId": "places-a3f9be5dab0dd63815f7",
+          "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+          "startLine": 7,
+          "endLine": 13
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-882d369dd68d5e2e428f",
+          "textDigest": "sha256:a17702c69c12855a10f629ed89938eba6b4492e1b84efa9faf0e02f251ce2a2b",
+          "startLine": 1,
+          "endLine": 4
+        }
+      ]
+    },
+    {
+      "model": "place",
+      "field": "latitude",
+      "originalPath": "latitude",
+      "proposedReadableName": "Latitude",
+      "comment": "The latitude coordinate stored with the place and forwarded in events. MET query use is live-only.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "places",
+          "sourceId": "places-a3f9be5dab0dd63815f7",
+          "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+          "startLine": 7,
+          "endLine": 13
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-882d369dd68d5e2e428f",
+          "textDigest": "sha256:a17702c69c12855a10f629ed89938eba6b4492e1b84efa9faf0e02f251ce2a2b",
+          "startLine": 1,
+          "endLine": 4
+        }
+      ]
+    },
+    {
+      "model": "place",
+      "field": "longitude",
+      "originalPath": "longitude",
+      "proposedReadableName": "Longitude",
+      "comment": "The longitude coordinate stored with the place and forwarded in events. MET query use is live-only.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "places",
+          "sourceId": "places-a3f9be5dab0dd63815f7",
+          "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+          "startLine": 7,
+          "endLine": 13
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-882d369dd68d5e2e428f",
+          "textDigest": "sha256:a17702c69c12855a10f629ed89938eba6b4492e1b84efa9faf0e02f251ce2a2b",
+          "startLine": 1,
+          "endLine": 4
+        }
+      ]
+    },
+    {
+      "model": "forecast",
+      "field": "updatedat",
+      "originalPath": "updatedAt",
+      "proposedReadableName": "Provider update time",
+      "comment": "Provider document update timestamp. Dashboard compares this value against the stored card ordering timestamp before accepting a forecast.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "forecasts",
+          "sourceId": "forecasts-04bc0feeea5752d3f197",
+          "textDigest": "sha256:5b529dac9719b7091155ea47958087ec0bd9b5e3c5230c6a19931343432e6112",
+          "startLine": 102,
+          "endLine": 124
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-854efdf0a86011aa192f",
+          "textDigest": "sha256:c58785263d4113901f5cbc3d6f894eaccd35dc8574a846745ae82272c8cd1965",
+          "startLine": 25,
+          "endLine": 35
+        }
+      ]
+    },
+    {
+      "model": "forecast",
+      "field": "fetchedat",
+      "originalPath": "fetchedAt",
+      "proposedReadableName": "Forecast normalization time",
+      "comment": "Time the Forecasts service constructs the normalized forecast after reading provider or fixture data. It is required in the event, retained and returned, but not directly displayed by the inspected browser update function.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "forecasts",
+          "sourceId": "forecasts-04bc0feeea5752d3f197",
+          "textDigest": "sha256:5b529dac9719b7091155ea47958087ec0bd9b5e3c5230c6a19931343432e6112",
+          "startLine": 102,
+          "endLine": 124
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-854efdf0a86011aa192f",
+          "textDigest": "sha256:c58785263d4113901f5cbc3d6f894eaccd35dc8574a846745ae82272c8cd1965",
+          "startLine": 25,
+          "endLine": 35
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-21314369bd35a5f6a1c4",
+          "textDigest": "sha256:f33bf2b36b9343a5e0e86d6501a03abc948e12032e43155b798ab23909dae948",
+          "startLine": 8,
+          "endLine": 8
+        }
+      ]
+    },
+    {
+      "model": "forecast",
+      "field": "mode",
+      "originalPath": "mode",
+      "proposedReadableName": "Forecast source mode",
+      "comment": "Whether the forecast was normalized from the fixture branch or the live MET provider branch.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "forecasts",
+          "sourceId": "forecasts-04bc0feeea5752d3f197",
+          "textDigest": "sha256:5b529dac9719b7091155ea47958087ec0bd9b5e3c5230c6a19931343432e6112",
+          "startLine": 102,
+          "endLine": 124
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-854efdf0a86011aa192f",
+          "textDigest": "sha256:c58785263d4113901f5cbc3d6f894eaccd35dc8574a846745ae82272c8cd1965",
+          "startLine": 25,
+          "endLine": 35
+        }
+      ]
+    },
+    {
+      "model": "forecast",
+      "field": "periods",
+      "originalPath": "periods[]",
+      "proposedReadableName": "Forecast periods",
+      "comment": "Up to six provider time points normalized into embedded Period values. This is not an independently stored entity.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "forecasts",
+          "sourceId": "forecasts-04bc0feeea5752d3f197",
+          "textDigest": "sha256:5b529dac9719b7091155ea47958087ec0bd9b5e3c5230c6a19931343432e6112",
+          "startLine": 102,
+          "endLine": 124
+        }
+      ]
+    },
+    {
+      "model": "period",
+      "field": "time",
+      "originalPath": "time",
+      "proposedReadableName": "Forecast time",
+      "comment": "Time represented by this provider period; checked as a timestamp at Dashboard ingestion.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "forecasts",
+          "sourceId": "forecasts-42e2cee4691a4df13fb5",
+          "textDigest": "sha256:2fd089e67783cb8f1fe86871c0eea3e308b658d62e7ec13bb840c8dbc3b7677b",
+          "startLine": 104,
+          "endLine": 111
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-cb18ba8c0e515e1a650f",
+          "textDigest": "sha256:4e230e0b760038316fc613c6a1cca165b5fff4b845eb6fe0e46d11eaac357016",
+          "startLine": 20,
+          "endLine": 25
+        }
+      ]
+    },
+    {
+      "model": "period",
+      "field": "temperature",
+      "originalPath": "temperatureC",
+      "proposedReadableName": "Air temperature",
+      "comment": "Air temperature copied from air_temperature into the numeric temperatureC field.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "forecasts",
+          "sourceId": "forecasts-42e2cee4691a4df13fb5",
+          "textDigest": "sha256:2fd089e67783cb8f1fe86871c0eea3e308b658d62e7ec13bb840c8dbc3b7677b",
+          "startLine": 104,
+          "endLine": 111
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-cb18ba8c0e515e1a650f",
+          "textDigest": "sha256:4e230e0b760038316fc613c6a1cca165b5fff4b845eb6fe0e46d11eaac357016",
+          "startLine": 20,
+          "endLine": 25
+        }
+      ]
+    },
+    {
+      "model": "period",
+      "field": "precipitation",
+      "originalPath": "precipitationMm",
+      "proposedReadableName": "Precipitation amount",
+      "comment": "Precipitation amount from next_1_hours. A missing or nonnumeric provider amount is emitted as explicit null. The event property remains required.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "forecasts",
+          "sourceId": "forecasts-42e2cee4691a4df13fb5",
+          "textDigest": "sha256:2fd089e67783cb8f1fe86871c0eea3e308b658d62e7ec13bb840c8dbc3b7677b",
+          "startLine": 104,
+          "endLine": 111
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-cb18ba8c0e515e1a650f",
+          "textDigest": "sha256:4e230e0b760038316fc613c6a1cca165b5fff4b845eb6fe0e46d11eaac357016",
+          "startLine": 20,
+          "endLine": 25
+        }
+      ]
+    },
+    {
+      "model": "period",
+      "field": "symbol",
+      "originalPath": "symbol",
+      "proposedReadableName": "Weather symbol code",
+      "comment": "Provider symbol_code, or the producer fallback \"unknown\". It is validated, stored, returned and part of browser whole-response comparison; the inspected update function does not directly display it.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "forecasts",
+          "sourceId": "forecasts-42e2cee4691a4df13fb5",
+          "textDigest": "sha256:2fd089e67783cb8f1fe86871c0eea3e308b658d62e7ec13bb840c8dbc3b7677b",
+          "startLine": 104,
+          "endLine": 111
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-cb18ba8c0e515e1a650f",
+          "textDigest": "sha256:4e230e0b760038316fc613c6a1cca165b5fff4b845eb6fe0e46d11eaac357016",
+          "startLine": 20,
+          "endLine": 25
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-21314369bd35a5f6a1c4",
+          "textDigest": "sha256:f33bf2b36b9343a5e0e86d6501a03abc948e12032e43155b798ab23909dae948",
+          "startLine": 8,
+          "endLine": 8
+        }
+      ]
+    },
+    {
+      "model": "weather-card",
+      "field": "place-id",
+      "originalPath": "id",
+      "proposedReadableName": "Place identifier",
+      "comment": "The location key returned as card id by the API.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-cf87224657914cc333f2",
+          "textDigest": "sha256:c888c357d74a2e37512309e826d90fc689be0c348fb3e1cbfe635ce5a46f879f",
+          "startLine": 5,
+          "endLine": 14
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-854efdf0a86011aa192f",
+          "textDigest": "sha256:c58785263d4113901f5cbc3d6f894eaccd35dc8574a846745ae82272c8cd1965",
+          "startLine": 25,
+          "endLine": 35
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-f3bcad13842060db4065",
+          "textDigest": "sha256:def65fe4282006875ba05f755ba7f85def1fe647fa6a53822d6e546e4988b57c",
+          "startLine": 62,
+          "endLine": 65
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-21314369bd35a5f6a1c4",
+          "textDigest": "sha256:f33bf2b36b9343a5e0e86d6501a03abc948e12032e43155b798ab23909dae948",
+          "startLine": 8,
+          "endLine": 8
+        }
+      ]
+    },
+    {
+      "model": "weather-card",
+      "field": "name",
+      "originalPath": "name",
+      "proposedReadableName": "Location name",
+      "comment": "Location name shown in the card.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-cf87224657914cc333f2",
+          "textDigest": "sha256:c888c357d74a2e37512309e826d90fc689be0c348fb3e1cbfe635ce5a46f879f",
+          "startLine": 5,
+          "endLine": 14
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-854efdf0a86011aa192f",
+          "textDigest": "sha256:c58785263d4113901f5cbc3d6f894eaccd35dc8574a846745ae82272c8cd1965",
+          "startLine": 25,
+          "endLine": 35
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-f3bcad13842060db4065",
+          "textDigest": "sha256:def65fe4282006875ba05f755ba7f85def1fe647fa6a53822d6e546e4988b57c",
+          "startLine": 62,
+          "endLine": 65
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-21314369bd35a5f6a1c4",
+          "textDigest": "sha256:f33bf2b36b9343a5e0e86d6501a03abc948e12032e43155b798ab23909dae948",
+          "startLine": 8,
+          "endLine": 8
+        }
+      ]
+    },
+    {
+      "model": "weather-card",
+      "field": "latitude",
+      "originalPath": "latitude",
+      "proposedReadableName": "Latitude",
+      "comment": "Location latitude returned with the card.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-cf87224657914cc333f2",
+          "textDigest": "sha256:c888c357d74a2e37512309e826d90fc689be0c348fb3e1cbfe635ce5a46f879f",
+          "startLine": 5,
+          "endLine": 14
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-854efdf0a86011aa192f",
+          "textDigest": "sha256:c58785263d4113901f5cbc3d6f894eaccd35dc8574a846745ae82272c8cd1965",
+          "startLine": 25,
+          "endLine": 35
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-f3bcad13842060db4065",
+          "textDigest": "sha256:def65fe4282006875ba05f755ba7f85def1fe647fa6a53822d6e546e4988b57c",
+          "startLine": 62,
+          "endLine": 65
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-21314369bd35a5f6a1c4",
+          "textDigest": "sha256:f33bf2b36b9343a5e0e86d6501a03abc948e12032e43155b798ab23909dae948",
+          "startLine": 8,
+          "endLine": 8
+        }
+      ]
+    },
+    {
+      "model": "weather-card",
+      "field": "longitude",
+      "originalPath": "longitude",
+      "proposedReadableName": "Longitude",
+      "comment": "Location longitude returned with the card.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-cf87224657914cc333f2",
+          "textDigest": "sha256:c888c357d74a2e37512309e826d90fc689be0c348fb3e1cbfe635ce5a46f879f",
+          "startLine": 5,
+          "endLine": 14
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-854efdf0a86011aa192f",
+          "textDigest": "sha256:c58785263d4113901f5cbc3d6f894eaccd35dc8574a846745ae82272c8cd1965",
+          "startLine": 25,
+          "endLine": 35
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-f3bcad13842060db4065",
+          "textDigest": "sha256:def65fe4282006875ba05f755ba7f85def1fe647fa6a53822d6e546e4988b57c",
+          "startLine": 62,
+          "endLine": 65
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-21314369bd35a5f6a1c4",
+          "textDigest": "sha256:f33bf2b36b9343a5e0e86d6501a03abc948e12032e43155b798ab23909dae948",
+          "startLine": 8,
+          "endLine": 8
+        }
+      ]
+    },
+    {
+      "model": "weather-card",
+      "field": "forecast",
+      "originalPath": "forecast",
+      "proposedReadableName": "Last accepted forecast",
+      "comment": "The last accepted forecast JSON, or no forecast yet while the card is pending.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-cf87224657914cc333f2",
+          "textDigest": "sha256:c888c357d74a2e37512309e826d90fc689be0c348fb3e1cbfe635ce5a46f879f",
+          "startLine": 5,
+          "endLine": 14
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-854efdf0a86011aa192f",
+          "textDigest": "sha256:c58785263d4113901f5cbc3d6f894eaccd35dc8574a846745ae82272c8cd1965",
+          "startLine": 25,
+          "endLine": 35
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-f3bcad13842060db4065",
+          "textDigest": "sha256:def65fe4282006875ba05f755ba7f85def1fe647fa6a53822d6e546e4988b57c",
+          "startLine": 62,
+          "endLine": 65
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-21314369bd35a5f6a1c4",
+          "textDigest": "sha256:f33bf2b36b9343a5e0e86d6501a03abc948e12032e43155b798ab23909dae948",
+          "startLine": 8,
+          "endLine": 8
+        }
+      ]
+    },
+    {
+      "model": "weather-card",
+      "field": "ordering",
+      "originalPath": "updated_at (stored only)",
+      "proposedReadableName": "Forecast ordering timestamp",
+      "comment": "Relational timestamp used to accept only a strictly newer forecast. It is not separately selected by GET /api/weather.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-cf87224657914cc333f2",
+          "textDigest": "sha256:c888c357d74a2e37512309e826d90fc689be0c348fb3e1cbfe635ce5a46f879f",
+          "startLine": 5,
+          "endLine": 14
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-854efdf0a86011aa192f",
+          "textDigest": "sha256:c58785263d4113901f5cbc3d6f894eaccd35dc8574a846745ae82272c8cd1965",
+          "startLine": 25,
+          "endLine": 35
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-f3bcad13842060db4065",
+          "textDigest": "sha256:def65fe4282006875ba05f755ba7f85def1fe647fa6a53822d6e546e4988b57c",
+          "startLine": 62,
+          "endLine": 65
+        },
+        {
+          "kind": "SOURCE",
+          "service": "dashboard",
+          "sourceId": "dashboard-21314369bd35a5f6a1c4",
+          "textDigest": "sha256:f33bf2b36b9343a5e0e86d6501a03abc948e12032e43155b798ab23909dae948",
+          "startLine": 8,
+          "endLine": 8
+        }
+      ]
+    },
+    {
+      "model": "city-lookup",
+      "field": "id",
+      "originalPath": "id",
+      "proposedReadableName": "City key",
+      "comment": "The city selector and returned record key. Source property: Place.Id, C# string.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "places",
+          "sourceId": "places-d9cadcac8ec9a824bbdf",
+          "textDigest": "sha256:9470cec616b6be42e1d89013d3d4474b0776bee8cd189dfb1ebac7b8261ab010",
+          "startLine": 3,
+          "endLine": 3
+        },
+        {
+          "kind": "SOURCE",
+          "service": "places",
+          "sourceId": "places-a3f9be5dab0dd63815f7",
+          "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+          "startLine": 7,
+          "endLine": 13
+        }
+      ]
+    },
+    {
+      "model": "city-lookup",
+      "field": "name",
+      "originalPath": "name",
+      "proposedReadableName": "City name",
+      "comment": "The display name stored in the selected literal record. Source property: Place.Name, C# string.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "places",
+          "sourceId": "places-d9cadcac8ec9a824bbdf",
+          "textDigest": "sha256:9470cec616b6be42e1d89013d3d4474b0776bee8cd189dfb1ebac7b8261ab010",
+          "startLine": 3,
+          "endLine": 3
+        },
+        {
+          "kind": "SOURCE",
+          "service": "places",
+          "sourceId": "places-a3f9be5dab0dd63815f7",
+          "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+          "startLine": 7,
+          "endLine": 13
+        }
+      ]
+    },
+    {
+      "model": "city-lookup",
+      "field": "latitude",
+      "originalPath": "latitude",
+      "proposedReadableName": "Latitude",
+      "comment": "The latitude literal in the selected record; this lookup does not calculate it. Source property: Place.Latitude, C# double.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "places",
+          "sourceId": "places-d9cadcac8ec9a824bbdf",
+          "textDigest": "sha256:9470cec616b6be42e1d89013d3d4474b0776bee8cd189dfb1ebac7b8261ab010",
+          "startLine": 3,
+          "endLine": 3
+        },
+        {
+          "kind": "SOURCE",
+          "service": "places",
+          "sourceId": "places-a3f9be5dab0dd63815f7",
+          "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+          "startLine": 7,
+          "endLine": 13
+        }
+      ]
+    },
+    {
+      "model": "city-lookup",
+      "field": "longitude",
+      "originalPath": "longitude",
+      "proposedReadableName": "Longitude",
+      "comment": "The longitude literal in the selected record; this lookup does not calculate it. Source property: Place.Longitude, C# double.",
+      "basis": "Condensed label from the unchanged retained field meaning, not a new source fact.",
+      "evidence": [
+        {
+          "kind": "SOURCE",
+          "service": "places",
+          "sourceId": "places-d9cadcac8ec9a824bbdf",
+          "textDigest": "sha256:9470cec616b6be42e1d89013d3d4474b0776bee8cd189dfb1ebac7b8261ab010",
+          "startLine": 3,
+          "endLine": 3
+        },
+        {
+          "kind": "SOURCE",
+          "service": "places",
+          "sourceId": "places-a3f9be5dab0dd63815f7",
+          "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+          "startLine": 7,
+          "endLine": 13
+        }
+      ]
+    }
+  ]
+}
