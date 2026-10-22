@@ -1,0 +1,19 @@
+{
+  "schema": "weather-renderer-provenance-gaps/1.0",
+  "scope": "Producer identities are retained; an unavailable public implementation is not replaced with a different revision.",
+  "unavailablePublicCommits": [
+    {
+      "revision": "ac55263474000924d489acfbbabb9e7adf8bf72a",
+      "version": "0.13.33 source candidate",
+      "evidence": "Historical VoltDB builder-chain provenance and exact output are retained in the catalogue.",
+      "publicApiObservation": "GitHub commit lookup returned422; implementation source is not publicly reachable at this recorded revision."
+    },
+    {
+      "revision": "6f52d11fc780c243b4b79adece3db76905c2db6e",
+      "version": "0.13.32 source candidate",
+      "evidence": "Historical source-syntax example retains this producer identity.",
+      "publicApiObservation": "GitHub commit lookup returned422; no producer implementation link is invented."
+    }
+  ],
+  "actualDocusaurusImplementation": "Frozen ClewReaders.jsx is public in Weather commitff017959d968235bf3e5ef31dcd25f0770745d41; it is distinct from the current0.13.48 support contract."
+}

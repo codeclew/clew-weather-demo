@@ -36,6 +36,9 @@ def doc(path):
 
 
 def source(path, revision=CURRENT, line=None):
+    if revision in {'ac55263474000924d489acfbbabb9e7adf8bf72a', '6f52d11fc780c243b4b79adece3db76905c2db6e'}:
+        return {'label': path + ' · producer ' + revision[:8] + ' source not publicly available (provenance retained)',
+                'href': SHOW + 'source/renderer-provenance-gaps.json'}
     return {'label': path + (':' + str(line) if line else ''),
             'href': PRODUCT + '/blob/' + revision + '/' + path + ('#L' + str(line) if line else '')}
 
@@ -97,6 +100,7 @@ def build(output):
     historical_inputs = [input_link('documentation/render-catalog/render-conditions.json'),
                          input_link('documentation/render-catalog/coverage-examples.json')]
     source_dir.joinpath('build.py.txt').write_text(Path(__file__).read_text())
+    shutil.copy2(HERE / 'renderer-provenance-gaps.json', source_dir / 'renderer-provenance-gaps.json')
 
     common = {'Source repository': WEATHER, 'Snapshot': snapshot, 'Publication': publication,
               'Capture boundary': 'Retained historical capture; no recapture or runtime replay for this showcase.'}
@@ -119,7 +123,9 @@ def build(output):
                           'availability': placeholder, 'inputs': supplied_inputs if supplied_inputs is not None else reference_inputs + [generation_source, freeze_source],
                           'outputs': outputs or [export_manifest,
                                                  {'label': 'Docusaurus identity', 'href': BASE + 'docusaurus/variant-identity.json'}],
-                          'source': sources or [source('crates/clew/src/documentation/static_pages.rs', CURRENT, 200)],
+                          'source': sources or [
+                              {'label': 'Current0.13.48 CLI support contract (not the historical producer)', 'href': PRODUCT + '/blob/' + CURRENT + '/crates/clew/src/documentation/static_pages.rs#L200'},
+                              {'label': 'Actual frozen Docusaurus reader implementation', 'href': WEATHER + '/blob/' + BASELINE + '/documentation/docusaurus/project/src/components/ClewReaders.jsx'}],
                           'limits': limits or 'Retained source and authored interpretation do not prove live execution. Historical review labels and gaps remain those of the example.'}}
         rows.append(row)
         return row
@@ -309,6 +315,7 @@ def build(output):
                  supplied_inputs=[{'label': 'Authored HTML source', 'href': SHOW + 'source/custom-save-city.html.txt'}, {'label': 'Per-claim evidence mapping', 'href': SHOW + 'source/custom-map.json'}, generation_source],
                  outputs=[{'label': 'Showcase manifest', 'href': SHOW + 'manifest.json'}, {'label': 'Retained City model author input', 'href': doc('data-model/city-lookup.original.json')}],
                  limits='This is demo-owned metadata, not clew registration, freshness checking, semantic validation, meaning approval or runtime proof. Arbitrary CUSTOM_HTML is not an accepted reading-plan presentation.')
+    custom['recipe']['source'] = [{'label': 'Actual authored HTML source', 'href': SHOW + 'source/custom-save-city.html.txt'}, {'label': 'Actual site composition source', 'href': SHOW + 'source/build.py.txt'}]
     custom['recipe']['availability'] = 'Replay the additive composition from the public Weather repository with Python 3.11+ and the frozen Docusaurus production build. No analyzer, model authoring or Codeclew upgrade is required.'
     custom_map = read(HERE / 'custom-map.json')
     for reference in custom_map['sources']:
