@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:a212a4c4792220e8928cf1083985e3eb2df0017658dd9b2dde24045329e4c02a",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "observed-static-use",
+    "claim": {
+      "$clewRef": "sha256:a23273f40b760d1de457c7ce6ff0b620102c28d1306ee9a84752a34d1c183130"
+    },
+    "condition": "A new outbox event ID is inserted and a pending saved row is selected. An existing event ID preserves its previous payload.",
+    "consumer": "weather.forecast-updated Kafka topic",
+    "contract": "forecast-updated",
+    "coveredScope": "Forecast publication",
+    "kinds": [
+      "forward",
+      "whole-object-serialization-or-comparison"
+    ],
+    "processes": [],
+    "producer": "Forecasts outbox / publishPending",
+    "representation": "forecast_outbox.payload.forecast.periods[].precipitationMm",
+    "stage": "Forecast publication",
+    "unresolved": "Static send and database statements only. Send/transaction failure logs PUBLISH_RETRY; runtime broker delivery and exactly-once processing are not established."
+  }
+}

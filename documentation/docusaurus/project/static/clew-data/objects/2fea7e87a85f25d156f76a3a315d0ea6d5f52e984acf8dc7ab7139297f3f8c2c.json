@@ -1,0 +1,19 @@
+{
+  "identity": "sha256:2fea7e87a85f25d156f76a3a315d0ea6d5f52e984acf8dc7ab7139297f3f8c2c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "claim": {
+      "$clewRef": "sha256:142ffb8ee1e8ed27bc1f263f961f601eb419d436a1a726ebf33d8e3954876345"
+    },
+    "fields": [
+      {
+        "field": "id",
+        "model": "place"
+      }
+    ],
+    "stages": [
+      "Places transaction and outbox",
+      "HTTP save result"
+    ]
+  }
+}

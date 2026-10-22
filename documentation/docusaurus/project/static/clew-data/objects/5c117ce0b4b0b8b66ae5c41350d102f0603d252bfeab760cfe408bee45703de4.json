@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:5c117ce0b4b0b8b66ae5c41350d102f0603d252bfeab760cfe408bee45703de4",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:ba2d6311a6e883cdef8b27c663b65439905cf808644df35545a360b610d888b5"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "CityId selects a literal Place from City(). Place.id is the supported city key, while name, latitude and longitude come from the lookup constants. No request name or coordinate is forwarded into those values.",
+    "title": "Save a city: source interpretation",
+    "tone": null
+  }
+}

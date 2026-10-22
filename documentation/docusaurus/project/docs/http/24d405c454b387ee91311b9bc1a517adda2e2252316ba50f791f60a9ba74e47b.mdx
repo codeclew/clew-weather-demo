@@ -1,0 +1,186 @@
+---
+title: "GET /health"
+slug: "/http/24d405c454b387ee91311b9bc1a517adda2e2252316ba50f791f60a9ba74e47b"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# GET /health
+
+<ClewPageContext />
+
+Declared interface · DECLARED\_OPENAPI. Runtime enforcement and full specification validation are not established by this bounded record.
+
+<ClewContextLink path="/services/dashboard#entry-dashboard-d36957b096678dbe4785">Service and input context · Dashboard</ClewContextLink>
+
+<details>
+<summary>Declaration source and provenance</summary>
+
+- [contracts/dashboard.openapi.json:1–462 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/758b14633a310b5737d8b2d5aad8edeb162cca03fbe13ec6ac73e53b97c243c6.mdx)
+
+</details>
+
+## Parameters {#parameters}
+
+No parameters declared.
+
+## Request body {#request-body}
+
+No request body is recorded in this declaration.
+
+## Declared responses {#declared-responses}
+
+### 200
+
+200
+
+<details open>
+<summary>Response media and body schema</summary>
+
+**Media:** application/json
+
+<p className="clew-schema-scope">object</p>  <div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Required</th><th scope="col">Declared constraints / description</th></tr></thead><tbody> <tr><td data-label="Field"><code>database</code></td><td data-label="Type">Not declared</td><td data-label="Required">Optional</td><td data-label="Declared constraints / description">const: READY<br/></td></tr> <tr><td data-label="Field"><code>kafka</code></td><td data-label="Type">Not declared</td><td data-label="Required">Optional</td><td data-label="Declared constraints / description">const: READY<br/></td></tr> </tbody></table></div>  
+
+<details>
+<summary>Exact retained media schema and examples</summary>
+
+```json
+{
+  "schema": {
+    "properties": {
+      "database": {
+        "const": "READY"
+      },
+      "kafka": {
+        "const": "READY"
+      }
+    },
+    "type": "object"
+  }
+}
+```
+
+
+</details>
+
+
+</details>
+
+### 500
+
+500
+
+<details>
+<summary>Response media and body schema</summary>
+
+**Media:** application/json
+
+<p className="clew-schema-scope">object · additionalProperties: true</p>  <div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Required</th><th scope="col">Declared constraints / description</th></tr></thead><tbody> <tr><td data-label="Field"><code>error</code></td><td data-label="Type">string</td><td data-label="Required">Optional</td><td data-label="Declared constraints / description"></td></tr> </tbody></table></div>  
+
+<details>
+<summary>Exact retained media schema and examples</summary>
+
+```json
+{
+  "schema": {
+    "additionalProperties": true,
+    "properties": {
+      "error": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  }
+}
+```
+
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Complete retained operation contract</summary>
+
+```json
+{
+  "operationId": "dashboard_get_health",
+  "responses": {
+    "200": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "properties": {
+              "database": {
+                "const": "READY"
+              },
+              "kafka": {
+                "const": "READY"
+              }
+            },
+            "type": "object"
+          }
+        }
+      },
+      "description": "200"
+    },
+    "500": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "additionalProperties": true,
+            "properties": {
+              "error": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        }
+      },
+      "description": "500"
+    }
+  }
+}
+```
+
+
+</details>
+
+<details>
+<summary>Declaration reader and source context</summary>
+
+```json
+{
+  "authority": "DECLARED_OPENAPI",
+  "boundaries": [
+    "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED"
+  ],
+  "declaredSource": "contracts/dashboard.openapi.json",
+  "entrypoint": "dashboard-d36957b096678dbe4785",
+  "method": "GET",
+  "openapi": "3.1.0",
+  "parameters": [],
+  "path": "/health",
+  "readerSelection": {
+    "compatibilityAnchor": "3.1",
+    "fullSpecificationValidation": false,
+    "outsideAdvertisedRange": false,
+    "reader": "BOUNDED_OPENAPI_PATH_OPERATION_READER",
+    "selectionMode": "DECLARED_COMPATIBILITY_PROFILE",
+    "supportedVersionRange": "OPENAPI_THROUGH_3_X"
+  },
+  "runtimeEnforcement": "UNVERIFIED",
+  "schema": "codeclew-documentation-contract-facts/1.0",
+  "security": null,
+  "securitySchemes": null,
+  "servers": null,
+  "sourceMapping": "SOURCE_ROUTE_MATCH_ONLY"
+}
+```
+
+
+</details>
+

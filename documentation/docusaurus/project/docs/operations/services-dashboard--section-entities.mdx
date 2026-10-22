@@ -1,0 +1,57 @@
+---
+title: "Dashboard domain entities"
+slug: "/operations/services-dashboard--section-entities"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Dashboard domain entities
+
+<ClewPageContext />
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+The service validator checks an event id, version 1, and a place with id, name, latitude, and longitude. A weather.forecast-updated event must carry a forecast with updatedAt, fetchedAt, mode, and one to six periods; each period is checked for a timestamp, numeric temperature, null or nonnegative numeric precipitation, and a string symbol. The weather\_cards upsert stores place fields, updated\_at, and the forecast JSON. The inbox table is used for event-id duplicate handling, while rejected\_messages records topic, partition, offset, and reason. These shapes come from code checks and SQL statements, not a fully interpreted shared JSON Schema.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/dashboard/src/events.ts:10–29 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/afddedfc8054e8c5495b73e95e3924f7b15f90f9b73caf09d7c1b7cdda664830.mdx)
+- [services/dashboard/src/events.ts:6–8 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/f595401e33ffe1c87198d3297a901422e3d449fe00dd98adddc17aaca283d70e.mdx)
+- [services/dashboard/src/main.ts:47–60 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233.mdx)
+- [services/dashboard/src/main.ts:15–45 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/bf524d202ba882540036918136ea088912da8bc6f340ab23d8a90bfb0aacab71.mdx)
+
+</details>
+
+<details>
+<summary>Apply a new event · retained process documentation</summary>
+
+A new forecast event can create its card directly from the place in the message. An existing card is updated only if its stored forecast timestamp is missing or the incoming forecast is strictly newer.
+
+EDITORIAL\_READING\_GUIDE\_NOT\_ACCEPTED\_PROSE. This context does not change the interaction declaration or establish runtime binding.
+
+[Process step and source evidence](../scenarios/dashboard-forecast-updated-consumer.mdx#question-apply)
+
+
+</details>
+
+<details>
+<summary>Apply a new event · retained process documentation</summary>
+
+For a new event ID, Dashboard saves the place name and coordinates on the card. This branch preserves any stored forecast.
+
+EDITORIAL\_READING\_GUIDE\_NOT\_ACCEPTED\_PROSE. This context does not change the interaction declaration or establish runtime binding.
+
+[Process step and source evidence](../scenarios/dashboard-place-requested-consumer.mdx#question-apply)
+
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- This proposal documents four service sections from source-level TypeScript and the captured OpenAPI declaration. It does not establish runtime route or listener activation, deployed settings, database outcomes, or broker delivery and offset-commit guarantees. The OpenAPI document is read as source text; JSON Schema semantics are not fully interpreted.
+
+</details>
+

@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:f5e071d1a91e127fd568d40ec2c7e1cec3410af274774d60bbeadc63779d1192",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 19,
+    "evidenceDigest": "sha256:41092516749c45b3cc3ebb0915dfe5890301cdbee1d9d961a879f1fa84e72d88",
+    "file": "services/forecasts/src/main/kotlin/weather/ForecastController.kt",
+    "id": "forecasts-c0b9aa485ebf80a7fcc5",
+    "occurrence": {
+      "blob": "d47ffdb98963d778367a656d920d2f938da883ed",
+      "endByte": 990,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 782
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 18,
+    "text": "@GetMapping(\"/openapi.json\")\n    fun openApi(): ResponseEntity<String> = ResponseEntity.ok().header(\"Content-Type\", \"application/json\").body(Files.readString(Path.of(\"/app/contracts/forecasts.openapi.json\")))",
+    "textDigest": "sha256:eb9132ba4ad595c35dee0eae14dfdf3fc767fda641f515dc17b4312fa0c132c0",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/ForecastController.kt#L18-L19"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:1993b7bc26e649fb7efec52b4dcd84a006d380837ef678b8d8880cd5e91bc94c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:d11f364eb4efdbd51a5e3d097139378848127ce5db0059d96c2106b673045976"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The normalized forecast is serialized as a whole and stored in forecasts.payload. updatedAt also supplies updated_at and participates in the >= storage predicate; other child fields are not individually read by this SQL binding.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

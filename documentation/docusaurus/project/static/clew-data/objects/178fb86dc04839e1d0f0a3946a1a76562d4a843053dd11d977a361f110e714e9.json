@@ -1,0 +1,35 @@
+{
+  "identity": "sha256:178fb86dc04839e1d0f0a3946a1a76562d4a843053dd11d977a361f110e714e9",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "artifactBindings": {
+      "$clewRef": "sha256:6fe8927ea6c43fffa47e56d330eae9023b1ba37c93c3fd3fc40649371180ad44"
+    },
+    "artifacts": {
+      "$clewRef": "sha256:d75fb8fe44179b3d36270dd0cdc465c8774ae74ce3300230611dd14eb69f2cb9"
+    },
+    "assessmentArtifact": "schema-assessment",
+    "authority": "EXTERNAL_RECORDED_LOCAL_PROBE",
+    "bindingStatus": "MATCHES_PINNED_SELECTED_SNAPSHOT",
+    "documentationLanguage": "en",
+    "entries": {
+      "$clewRef": "sha256:aca8ddbd12dad32442216a165aafa3ee2e0ee0d93e718928b3a3c1aaaf71ed5c"
+    },
+    "limitations": {
+      "$clewRef": "sha256:d4b7325fba00684062c055d2c815918b2aecd5d5158ca13fb39312a34bb428ce"
+    },
+    "packetDigest": "sha256:94e4b2e1fb9907085e7f3ce906f53be93ddb13b0cd6c2a594f920b8c592a1f76",
+    "probeArtifact": "http-probe",
+    "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "schema": "codeclew-http-comparison-view/1.0",
+    "schemaValidation": "RETAINED_EXTERNAL_ASSESSMENT_NOT_REEXECUTED",
+    "scope": "Local .NET 10 HTTP reproduction, exact pinned controller and Program. Repository and hosted publisher are substituted. No PostgreSQL/Kafka/deployed runtime conformance claim.",
+    "service": "places",
+    "snapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
+    "sources": {
+      "$clewRef": "sha256:f7f2fc4b40b367dbd871d63f778e7772ba8d7650685402f45287da9cb6b8e148"
+    },
+    "validator": "jsonschema 4.25.1 / Draft202012Validator"
+  }
+}

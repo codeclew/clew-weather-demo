@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:1c0a12eb54a8ab0a377f03b9d93aed3802fab48b2e4354cafe00ab32f8710858",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "observed-static-use",
+    "claim": {
+      "$clewRef": "sha256:a3077516ee7173e35c0a9f605868787b41bdd36c8d641f3a24a2c93c4aef9599"
+    },
+    "condition": "Forecast-present card, except Place name/id also available while pending",
+    "consumer": "Dashboard browser update()",
+    "contract": "forecast-updated",
+    "coveredScope": "Complete retained update() function",
+    "kinds": [
+      "display",
+      "calculate-or-decide"
+    ],
+    "processes": [],
+    "producer": "Weather API response",
+    "representation": "row.forecast.periods[].precipitationMm",
+    "stage": "Direct UI display",
+    "unresolved": "Static source interpretation; runtime execution and delivery are not established."
+  }
+}

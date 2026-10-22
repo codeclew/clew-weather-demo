@@ -1,0 +1,20 @@
+{
+  "identity": "sha256:6861266f1956377433f88f0e97fa2df8d43d7baa197f6346b1287b20042454d6",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "C# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted."
+    ],
+    "documentationLanguage": "en",
+    "events": [],
+    "explanation": [],
+    "findings": [],
+    "id": "section-egress",
+    "interfaceContracts": [],
+    "participants": [],
+    "summary": {
+      "$clewRef": "sha256:d64e812626c775ebe8e113427fcdd991ed6847a165bd0c30db0f435d1c41fd20"
+    },
+    "title": "Places egress contracts"
+  }
+}

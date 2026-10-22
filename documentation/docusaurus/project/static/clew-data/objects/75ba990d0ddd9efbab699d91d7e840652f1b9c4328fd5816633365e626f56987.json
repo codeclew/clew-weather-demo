@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:75ba990d0ddd9efbab699d91d7e840652f1b9c4328fd5816633365e626f56987",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+      "places:symbol:51d94b76d870001475fd2c51",
+      "places:symbol:d3b23b700626394c74b7ef9e",
+      "scenario:dashboard-save-city"
+    ],
+    "detail": false,
+    "eventIds": [
+      "claim-097b234b1c456213cf3d"
+    ],
+    "id": "claim-9d18e4f6fd821425ecde",
+    "sourceIds": [
+      "dashboard-7970ac3e2a8cf3f45b4a",
+      "places-51d94b76d870001475fd",
+      "places-d3b23b700626394c74b7"
+    ],
+    "text": "The exception may occur before or after Places commits, so this 503 is not a database outcome. The handler has no retry branch. A later call can follow the no-outbox conflict path whenever the place INSERT returns null, including for a preexisting city or another request; the source does not identify which request caused that state."
+  }
+}

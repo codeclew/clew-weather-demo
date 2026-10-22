@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:fb862998cdf5875496b55d5cf175f0ae3b941ee2425fd3b586d8972f8a790ba7",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:6f8c803b099588ceb6efe0a0c7d0f2ced47bc3ae085c7c6df06964d6c8573411"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Provider document update timestamp. Dashboard compares this value against the stored card ordering timestamp before accepting a forecast.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

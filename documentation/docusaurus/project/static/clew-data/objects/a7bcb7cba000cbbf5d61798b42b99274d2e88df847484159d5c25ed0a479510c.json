@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:a7bcb7cba000cbbf5d61798b42b99274d2e88df847484159d5c25ed0a479510c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 46,
+    "evidenceDigest": "sha256:21e95992206c214f733841db36a3027cb08bae6fe5fdcd79f14e0ce579ff448c",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "id": "forecasts-8437237940bc2e908ccb",
+    "occurrence": {
+      "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+      "endByte": 2444,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 2347
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 46,
+    "text": "jdbc.update(\"INSERT INTO inbox(event_id) VALUES(?) ON CONFLICT DO NOTHING\", event[\"id\"].asText())",
+    "textDigest": "sha256:1b672248684e1a552a7751d2a0af083706c9adc5e754af25cc5f4d81b636e779",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L46-L46"
+  }
+}

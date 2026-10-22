@@ -1,0 +1,25 @@
+{
+  "identity": "sha256:6eba077c3de4c14456644961dd159f22aace0156a6d58166c52fb1a40ec780a0",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "dashboard:flow:37dec2bf70bc69d603cb8d4b",
+      "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+      "dashboard:flow:a190efb9bca6603f1d2abc58",
+      "dashboard:flow:f4a336f51f8e91a3da04831a",
+      "dashboard:symbol:a4627e5e868830287e83e0dc",
+      "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+    ],
+    "id": "claim-c0730141fa3e6db6f8de",
+    "kind": "note",
+    "sourceIds": [
+      "dashboard-37dec2bf70bc69d603cb",
+      "dashboard-8a4f6855cb7f1a476a04",
+      "dashboard-a190efb9bca6603f1d2a",
+      "dashboard-a4627e5e868830287e83",
+      "dashboard-ac3aadb76be6fea3e790",
+      "dashboard-f4a336f51f8e91a3da04"
+    ],
+    "text": "A failure writing the rejection row or committing the rejection-path offset propagates. On the valid path, if pool.connect succeeds, an error inside applyEvent’s try attempts ROLLBACK, rethrows, and releases the client in finally. If pool.connect fails, that happens before the try, so no transaction rollback or client release runs. Either applyEvent error prevents consumeMessage from reaching the offset commit."
+  }
+}

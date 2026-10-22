@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:d73afafa2bb2a7d0546f6b20e1ee0c1c1bbaed818820ad93c5def9de04c0f693",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contract": null,
+    "field": null,
+    "label": "C# Place.Latitude",
+    "mapping": {
+      "$clewRef": "sha256:5dd62e39cd7bd618e38a4a3a2c1a09418ced8070c86504fe1996bc10c7c07216"
+    },
+    "nullability": "Non-nullable value type.",
+    "relatedModel": null,
+    "requiredness": "Supplied as a constructor argument in every supported literal branch.",
+    "typeLabel": "double"
+  }
+}

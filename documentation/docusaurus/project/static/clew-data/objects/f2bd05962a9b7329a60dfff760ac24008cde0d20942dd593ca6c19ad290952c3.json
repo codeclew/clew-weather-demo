@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:f2bd05962a9b7329a60dfff760ac24008cde0d20942dd593ca6c19ad290952c3",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "observed-static-use",
+    "claim": {
+      "$clewRef": "sha256:8f7381fc4b3f72307d1f15008925232f22bb6ac092d5c94f612070aee4504e68"
+    },
+    "condition": "Forecast-present card read; a pending/null card has no Forecast payload.",
+    "consumer": "GET /api/weather",
+    "contract": "forecast-updated",
+    "coveredScope": "Weather API",
+    "kinds": [
+      "forward",
+      "whole-object-serialization-or-comparison"
+    ],
+    "processes": [],
+    "producer": "weather_cards",
+    "representation": "rows[].forecast.periods[].time",
+    "stage": "Weather API",
+    "unresolved": "Static source interpretation; runtime execution and delivery are not established."
+  }
+}

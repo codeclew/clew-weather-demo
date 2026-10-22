@@ -1,0 +1,78 @@
+{
+  "identity": "sha256:b1332329a3f4b30acc3ffaf392bcd42ed603cd5a4f1722b7c4f2a65d3d8534bc",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "DECLARED_OPENAPI",
+    "boundaries": [],
+    "declaredSource": "contracts/places.openapi.json",
+    "entrypoint": "places-8a2148bf5e312b0c5947",
+    "method": "GET",
+    "openapi": "3.1.0",
+    "operation": {
+      "operationId": "places_get_places",
+      "responses": {
+        "200": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "enum": [
+                        "oslo",
+                        "helsinki",
+                        "lisbon"
+                      ],
+                      "type": "string"
+                    },
+                    "latitude": {
+                      "maximum": 90,
+                      "minimum": -90,
+                      "type": "number"
+                    },
+                    "longitude": {
+                      "maximum": 180,
+                      "minimum": -180,
+                      "type": "number"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "latitude",
+                    "longitude"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            }
+          },
+          "description": "200"
+        },
+        "500": {
+          "description": "500"
+        }
+      }
+    },
+    "parameters": [],
+    "path": "/places",
+    "readerSelection": {
+      "compatibilityAnchor": "3.1",
+      "fullSpecificationValidation": false,
+      "outsideAdvertisedRange": false,
+      "reader": "BOUNDED_OPENAPI_PATH_OPERATION_READER",
+      "selectionMode": "DECLARED_COMPATIBILITY_PROFILE",
+      "supportedVersionRange": "OPENAPI_THROUGH_3_X"
+    },
+    "runtimeEnforcement": "UNVERIFIED",
+    "schema": "codeclew-documentation-contract-facts/1.0",
+    "security": null,
+    "securitySchemes": null,
+    "servers": null,
+    "sourceMapping": "SOURCE_ROUTE_MATCH_ONLY"
+  }
+}

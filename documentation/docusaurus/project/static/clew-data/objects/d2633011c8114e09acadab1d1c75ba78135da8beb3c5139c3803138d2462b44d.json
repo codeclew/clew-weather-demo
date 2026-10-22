@@ -1,0 +1,40 @@
+{
+  "identity": "sha256:d2633011c8114e09acadab1d1c75ba78135da8beb3c5139c3803138d2462b44d",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "AGENT_PROPOSAL",
+    "contracts": {
+      "$clewRef": "sha256:1ca4f892c4a4405151bacc5f50c60247c1c1a52f9298ff7bb45fd8f72e86c0d9"
+    },
+    "models": {
+      "$clewRef": "sha256:bc0ed6a0aaf069b894b00a649f1e95c16a1e08841a862d0888b0cedb778ec3bf"
+    },
+    "relatedModels": [
+      {
+        "documentationLanguage": "en",
+        "id": "place",
+        "title": "Place"
+      },
+      {
+        "documentationLanguage": "en",
+        "id": "forecast",
+        "title": "Forecast"
+      },
+      {
+        "documentationLanguage": "en",
+        "id": "period",
+        "title": "Period"
+      },
+      {
+        "documentationLanguage": "en",
+        "id": "weather-card",
+        "title": "Weather card"
+      }
+    ],
+    "request": {
+      "$clewRef": "sha256:d74aaa7a37139ebc54f3f1847ad0620f08ac391208c64490b6d751c5bf82b7f1"
+    },
+    "review": "UNASSESSED",
+    "scope": "Fields of directly referenced models and contract leaves. Only explicitly selected process fields and consumer stages are investigated here; omitted fields remain outside investigated scope. Static interpretation, not observed runtime transfer."
+  }
+}

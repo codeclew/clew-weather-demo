@@ -1,0 +1,23 @@
+---
+title: "services/forecasts/src/main/kotlin/weather/Forecasts.kt:72–72"
+slug: "/sources/de122c28e0b1fbed2c4d60f5dddeb52d93a878409242b87c4c25028fa9c6eac2"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/forecasts/src/main/kotlin/weather/Forecasts.kt:72–72
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: c289b28be4819eddf29d59a7c12f178559ec5229
+
+Text digest: sha256:9cdaeb9468f4772eeaed0247d47372447872a9aa3231bd8c64b5381721aa1790
+
+## Retained text {#retained-text}
+
+```text
+val cached = jdbc.queryForList("SELECT payload::text,expires_at,last_modified FROM forecasts WHERE place_id=?", id).firstOrNull()
+```
+
+<ClewDownload path="/clew-data/objects/de122c28e0b1fbed2c4d60f5dddeb52d93a878409242b87c4c25028fa9c6eac2.json">Complete original source binding</ClewDownload>

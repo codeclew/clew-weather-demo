@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:80e8f957b3f737750ef8e36cc3c94e4cf5048ddd924bc8ef7c17655e3ab02dbf",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contract": null,
+    "field": null,
+    "label": "Normalized JSON / TypeScript Forecast",
+    "mapping": {
+      "$clewRef": "sha256:23667bd241e7892d6004e366f4ec1a5693793dcd7042d4daff43f51f0acbbad1"
+    },
+    "nullability": "Not nullable",
+    "relatedModel": null,
+    "requiredness": "Present in the normalized Forecast",
+    "typeLabel": "'fixture' | 'live'"
+  }
+}

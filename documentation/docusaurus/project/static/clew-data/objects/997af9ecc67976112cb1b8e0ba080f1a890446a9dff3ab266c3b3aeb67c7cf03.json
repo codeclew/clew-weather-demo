@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:997af9ecc67976112cb1b8e0ba080f1a890446a9dff3ab266c3b3aeb67c7cf03",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:674d100f019e91ec3e8e41621d2c358a1ef0675ca8aa71e62eff219a9ae1c368"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The selected Place values are bound to explicit INSERT/UPDATE columns, and the Place is serialized into the request outbox payload.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

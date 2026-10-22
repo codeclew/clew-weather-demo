@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:443921237f5507689b10de3d589f0eacfe57312bec802c6e14eea6c88ecf7cbe",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 15,
+    "evidenceDigest": "sha256:5004bd6c3d76f547831648dfba07abf2a0284d03db22e9d721ea97932156d412",
+    "file": "exercises/unchecked-place-forecast.ts",
+    "id": "dashboard-aa3168f1d50baf01de96",
+    "occurrence": {
+      "blob": "6f2194a87f69be18be06c36b2e922debcbff3273",
+      "endByte": 1342,
+      "snapshot": "sha256:550435c6f8e16951bd815f9f7b54eda07bff8ad73a80a6df524ab2af077f4f6f",
+      "startByte": 947
+    },
+    "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+    "service": "dashboard",
+    "startLine": 13,
+    "text": "if (event.type !== 'forecast.updated' || !event.forecast || !Number.isFinite(Date.parse(event.forecast.updatedAt))\n        || !Number.isFinite(Date.parse(event.forecast.fetchedAt)) || !['fixture', 'live'].includes(event.forecast.mode)\n        || !Array.isArray(event.forecast.periods) || event.forecast.periods.length < 1 || event.forecast.periods.length > 6) throw new Error('INVALID_FORECAST')",
+    "textDigest": "sha256:0a0d5a5874755b7f99db619f1f5f8419da50d299cc053b6ec533a09be5760ed9",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/e635069293d58cb0d4f28c8211e748b8d58e6b37/exercises/unchecked-place-forecast.ts#L13-L15"
+  }
+}

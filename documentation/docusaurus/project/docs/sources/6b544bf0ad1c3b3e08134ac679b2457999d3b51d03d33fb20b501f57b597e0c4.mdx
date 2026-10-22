@@ -1,0 +1,26 @@
+---
+title: "services/dashboard/src/main.ts:62–65"
+slug: "/sources/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/dashboard/src/main.ts:62–65
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6
+
+Text digest: sha256:def65fe4282006875ba05f755ba7f85def1fe647fa6a53822d6e546e4988b57c
+
+## Retained text {#retained-text}
+
+```text
+async function getWeather(): Promise<unknown[]> {
+  const result = await pool.query('SELECT place_id AS id,name,latitude,longitude,forecast FROM weather_cards ORDER BY name')
+  return result.rows
+}
+```
+
+<ClewDownload path="/clew-data/objects/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4.json">Complete original source binding</ClewDownload>

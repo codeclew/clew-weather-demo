@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:ff5bfe7347b4fdd9e46abff42d1a1e79fa7c6e8d87a899369481d3d7af140ac2",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "digest": "sha256:1bebc7c7f2e5efb30de0842d84d05ac194c7d3a3562e45bc46fa5de722884d1c",
+    "id": "dashboard:contract-operation:f2a55cb383d259206638d57a",
+    "kind": "CONTRACT_OPERATION",
+    "normalized": {
+      "$clewRef": "sha256:1bebc7c7f2e5efb30de0842d84d05ac194c7d3a3562e45bc46fa5de722884d1c"
+    },
+    "service": "dashboard",
+    "sourceIds": [
+      "dashboard-1d4380bd7760bcafc13d"
+    ],
+    "symbol": "get /api/weather"
+  }
+}

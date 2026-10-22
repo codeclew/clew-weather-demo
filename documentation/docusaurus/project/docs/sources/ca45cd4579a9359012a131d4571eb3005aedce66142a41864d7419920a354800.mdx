@@ -1,0 +1,25 @@
+---
+title: "services/dashboard/src/main.ts:33–35"
+slug: "/sources/ca45cd4579a9359012a131d4571eb3005aedce66142a41864d7419920a354800"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/dashboard/src/main.ts:33–35
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6
+
+Text digest: sha256:cdff3034a69a461f9303eb9823451e5eccf37546644947cc0f1ab23cdafde9c5
+
+## Retained text {#retained-text}
+
+```text
+client.query(`INSERT INTO weather_cards(place_id,name,latitude,longitude) VALUES($1,$2,$3,$4)
+        ON CONFLICT(place_id) DO UPDATE SET name=EXCLUDED.name,latitude=EXCLUDED.latitude,longitude=EXCLUDED.longitude`,
+      [event.place.id, event.place.name, event.place.latitude, event.place.longitude])
+```
+
+<ClewDownload path="/clew-data/objects/ca45cd4579a9359012a131d4571eb3005aedce66142a41864d7419920a354800.json">Complete original source binding</ClewDownload>

@@ -1,0 +1,33 @@
+{
+  "identity": "sha256:1cd5339c05538704af054242244bf181cdbc2b758b32e316424962c28661bb90",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "fragment": {
+      "dependencyIds": [
+        "forecasts:source_annotations:3d7b217355f2e6a34064e800",
+        "forecasts:symbol:3d7b217355f2e6a34064e800",
+        "process-scope:forecasts-publish-pending",
+        "process:forecasts-publish-pending"
+      ],
+      "id": "claim-dba259f6648a88e0e4a3",
+      "kind": "note",
+      "sourceIds": [
+        "forecasts-3d7b217355f2e6a34064"
+      ],
+      "text": "The source annotation sets a fixed delay from PUBLISH_INTERVAL_MS, default 1000 ms. Runtime scheduler registration and activation are unverified."
+    },
+    "kind": "RETAINED_CLAIM",
+    "operation": "forecasts-publish-pending",
+    "sourceContext": {
+      "$clewRef": "sha256:5fb6e96cc0ea34d2e2444f45c0be31e55906dad5440252ff975867164d915b9c"
+    },
+    "sources": {
+      "$clewRef": "sha256:e26b9a47df83a6f592c265dce737ba956d1c7df01bf18ee0202de397c02808e1"
+    },
+    "state": {
+      "$clewRef": "sha256:762764a54456cc5ae0daa0b83a1d9e177129d2eeafdc77ed710d87a41aaef72e"
+    },
+    "subject": "scenario:forecasts-publish-pending",
+    "title": "Publish pending forecast updates"
+  }
+}

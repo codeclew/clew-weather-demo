@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:ea52ccc88516380a39ed7cec2f15e144bfbfd82da2dcffb55d1db17b24416883",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+    "forecasts:source_annotations:1571fff289ff6226f149c918",
+    "forecasts:source_annotations:1ea53b95922ad5791d930533",
+    "forecasts:source_annotations:3b271aa33f7bd944bb5ab6a5",
+    "forecasts:source_annotations:3d7b217355f2e6a34064e800",
+    "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+    "forecasts:source_annotations:cc58d8643f3d17e4b6911d22",
+    "forecasts:symbol:04bc0feeea5752d3f1979c56",
+    "forecasts:symbol:1ea53b95922ad5791d930533",
+    "forecasts:syntax_detail:e98a76fbed8be126547f33ea",
+    "process-scope:forecasts-refresh-scheduled",
+    "process:forecasts-refresh-scheduled"
+  ]
+}

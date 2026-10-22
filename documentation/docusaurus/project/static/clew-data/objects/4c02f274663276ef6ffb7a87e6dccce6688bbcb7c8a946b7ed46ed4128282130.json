@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:4c02f274663276ef6ffb7a87e6dccce6688bbcb7c8a946b7ed46ed4128282130",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 11,
+    "evidenceDigest": "sha256:9b59d382a6eb9e4e6f51775a3fefc9b84201c393c7f398a16674d71d08aba61b",
+    "file": "exercises/unchecked-place-forecast.ts",
+    "id": "dashboard-70d916800072dfb17217",
+    "occurrence": {
+      "blob": "6f2194a87f69be18be06c36b2e922debcbff3273",
+      "endByte": 896,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 556
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 9,
+    "text": "if (typeof event.id !== 'string' || event.version !== 1 || !event.place || typeof event.place.id !== 'string'\n      || !['oslo', 'helsinki', 'lisbon'].includes(event.place.id) || typeof event.place.name !== 'string'\n      || !Number.isFinite(event.place.latitude) || !Number.isFinite(event.place.longitude)) throw new Error('INVALID_EVENT')",
+    "textDigest": "sha256:23e9ee0dc489275bc794296084be562932d227ffb7a69e3d63adfd74888e909d",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/exercises/unchecked-place-forecast.ts#L9-L11"
+  }
+}

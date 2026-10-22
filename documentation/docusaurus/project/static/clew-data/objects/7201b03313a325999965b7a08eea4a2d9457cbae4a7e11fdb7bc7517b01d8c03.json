@@ -1,0 +1,35 @@
+{
+  "identity": "sha256:7201b03313a325999965b7a08eea4a2d9457cbae4a7e11fdb7bc7517b01d8c03",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contentRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "coverage": {
+      "$clewRef": "sha256:ae323201db21c1eb285e5964eef9fa0015c0895fe39dd884e787b57b67c04d4a"
+    },
+    "freshness": "UNVERIFIED",
+    "reasons": [
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:2670b888a7260cb79c4fea9ba99055838dd5fb9c0b6424324a66f731b76cf345/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:504b0babac4b6086256f5881975f96e395c4752c57a841887f5d7d19f8399f14/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:b57016f8fd0621d202cb2ee1e96f17cd3ba84d6a935e64660e40ac3d60be0ca4/164667"
+      }
+    ],
+    "targetRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "verification": "UNASSESSED"
+  }
+}

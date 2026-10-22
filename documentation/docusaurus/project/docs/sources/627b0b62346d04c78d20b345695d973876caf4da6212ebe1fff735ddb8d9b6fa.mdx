@@ -1,0 +1,25 @@
+---
+title: "exercises/unchecked-place-forecast.ts:13–15"
+slug: "/sources/627b0b62346d04c78d20b345695d973876caf4da6212ebe1fff735ddb8d9b6fa"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# exercises/unchecked-place-forecast.ts:13–15
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6
+
+Text digest: sha256:0a0d5a5874755b7f99db619f1f5f8419da50d299cc053b6ec533a09be5760ed9
+
+## Retained text {#retained-text}
+
+```text
+if (event.type !== 'forecast.updated' || !event.forecast || !Number.isFinite(Date.parse(event.forecast.updatedAt))
+        || !Number.isFinite(Date.parse(event.forecast.fetchedAt)) || !['fixture', 'live'].includes(event.forecast.mode)
+        || !Array.isArray(event.forecast.periods) || event.forecast.periods.length < 1 || event.forecast.periods.length > 6) throw new Error('INVALID_FORECAST')
+```
+
+<ClewDownload path="/clew-data/objects/627b0b62346d04c78d20b345695d973876caf4da6212ebe1fff735ddb8d9b6fa.json">Complete original source binding</ClewDownload>

@@ -1,0 +1,14 @@
+{
+  "identity": "sha256:1f514c0285f248674acc604ee5b907b3011ade4df252809c83fe2244268ebca8",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "SOURCE_INTERPRETATION",
+    "claim": {
+      "$clewRef": "sha256:48284d46adcb2151e979945e5b6fa17c8f9b72ca6113853d68221726ff67cb29"
+    },
+    "condition": "Validation returns normally; applyEvent receives the returned Event. Validation failure takes the rejection/offset path instead.",
+    "from": "Dashboard validation",
+    "kind": "transfer",
+    "to": "Dashboard transaction"
+  }
+}

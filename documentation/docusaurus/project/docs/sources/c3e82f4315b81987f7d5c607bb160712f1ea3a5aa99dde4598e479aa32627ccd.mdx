@@ -1,0 +1,25 @@
+---
+title: "services/dashboard/src/events.ts:21–23"
+slug: "/sources/c3e82f4315b81987f7d5c607bb160712f1ea3a5aa99dde4598e479aa32627ccd"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/dashboard/src/events.ts:21–23
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: e635069293d58cb0d4f28c8211e748b8d58e6b37
+
+Text digest: sha256:32ccb3350d4f71f35e1d4abe3ff25e0a93057fcf846b27b4d6c43d783e88488c
+
+## Retained text {#retained-text}
+
+```text
+if (!isTimestamp(period.time) || !Number.isFinite(period.temperatureC)
+          || !(period.precipitationMm === null || (Number.isFinite(period.precipitationMm) && period.precipitationMm >= 0))
+          || typeof period.symbol !== 'string') throw new Error('INVALID_PERIOD')
+```
+
+<ClewDownload path="/clew-data/objects/c3e82f4315b81987f7d5c607bb160712f1ea3a5aa99dde4598e479aa32627ccd.json">Complete original source binding</ClewDownload>

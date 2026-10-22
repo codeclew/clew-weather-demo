@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:142ffb8ee1e8ed27bc1f263f961f601eb419d436a1a726ebf33d8e3954876345",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:f4ae26f177d8d75b7cd1836f51f8be8d0f81388bcb478843d98204d3d39a7fd8"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Only a newly stored city creates the outbox record. Existing cities leave the Place and outbox unchanged; HTTP success does not establish event delivery.",
+    "title": "Source-bound reading summary",
+    "tone": null
+  }
+}

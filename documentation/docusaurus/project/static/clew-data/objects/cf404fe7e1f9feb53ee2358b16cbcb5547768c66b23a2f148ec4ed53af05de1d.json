@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:cf404fe7e1f9feb53ee2358b16cbcb5547768c66b23a2f148ec4ed53af05de1d",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:58a23a8b46d9f6cbd78e14a0f10ebc1a25958a432dc436e6b904dd2a04dfb2a2"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "next_1_hours.summary.symbol_code becomes Period.symbol. If no symbol code is available, the producer emits the string \"unknown\".",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "identity": "sha256:aa4eae61c636e70ae5e04ea39f8f41f0f546df16334dac80a8cde7f6132aacb4",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "observed-static-use",
+    "claim": {
+      "$clewRef": "sha256:ccee0dc5cd368f97ff6abb6c9b8a7d508a672d39f73a0e833c5752e3bc591fdd"
+    },
+    "condition": "Supported city; new-row success persists these values and creates outbox. A conflict skips both new inserts.",
+    "consumer": "places row / request_outbox transaction",
+    "contract": "place-requested",
+    "coveredScope": "Captured Save a city source ranges only; no publisher or forecast consumer expansion",
+    "kinds": [
+      "persist",
+      "whole-object-serialization-or-comparison"
+    ],
+    "processes": [
+      "scenario:dashboard-save-city"
+    ],
+    "producer": "PlacesController.Save(city)",
+    "representation": "places.longitude / request_outbox.payload.place.longitude",
+    "stage": "Places transaction and outbox",
+    "unresolved": "Database outcome after a disconnected/aborted HTTP exchange is not established. Outbox insertion does not prove publisher activation, Kafka delivery or downstream processing."
+  }
+}

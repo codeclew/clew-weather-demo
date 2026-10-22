@@ -1,0 +1,25 @@
+{
+  "identity": "sha256:52ca42064fa744e087b0be9c98acaf153d4e50408dffe027346b24ae05a82f69",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "observed-static-use",
+    "claim": {
+      "$clewRef": "sha256:3a11b631d78c024e37e7fe3f49ab9d3416ba4cce12d217241bcbafa6a5385570"
+    },
+    "condition": "Successful source path after awaited Save; the 200 JSON schema is the declared contract. Dashboard must parse the upstream body to forward it.",
+    "consumer": "Dashboard response forwarding; browser HTTP status only",
+    "contract": "save-city-response",
+    "coveredScope": "Captured Save a city source ranges only; no publisher or forecast consumer expansion",
+    "kinds": [
+      "forward",
+      "whole-object-serialization-or-comparison"
+    ],
+    "processes": [
+      "scenario:dashboard-save-city"
+    ],
+    "producer": "Places Ok(city) response",
+    "representation": "Place.Name → response JSON.name",
+    "stage": "HTTP save result",
+    "unresolved": "Declared schema and static mapping only; wire conformance and runtime execution are unverified. Whole-body forwarding is not a named browser field read. A 503 does not establish rollback or safe retry."
+  }
+}

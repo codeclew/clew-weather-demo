@@ -1,0 +1,10 @@
+{
+  "identity": "sha256:74c336341ddccdf17c182b403008c90df191879b404d872b2f6cbac3718611f0",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "arms": {
+      "$clewRef": "sha256:67d55574476a81659dbf11ea75fbebf445bd872e81f3f14e6e825f7943f5eac4"
+    },
+    "mode": "IF_ELSE"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:5dd62e39cd7bd618e38a4a3a2c1a09418ced8070c86504fe1996bc10c7c07216",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:ee08091f8cdfdb752dd34c82ab2574874bb5d54f7f3dc9f529fab7443b4068b4"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The lowercase reference label latitude denotes the C# property Latitude. This table does not rename source properties or establish JSON serialization casing.",
+    "title": "City lookup: source interpretation",
+    "tone": null
+  }
+}

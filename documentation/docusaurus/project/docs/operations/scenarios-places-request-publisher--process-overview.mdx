@@ -1,0 +1,37 @@
+---
+title: "Publish pending place requests"
+slug: "/operations/scenarios-places-request-publisher--process-overview"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Publish pending place requests
+
+<ClewPageContext />
+
+Retained account · STALE · UNASSESSED. Runtime behavior is not established by this export.
+
+ExecuteAsync creates a producer and repeatedly calls PublishPending until cancellation, logging other exceptions as PUBLISH\_RETRY and waiting one second between attempts. Each publish opens a database transaction and selects one eligible unpublished row in created\_at order with FOR UPDATE SKIP LOCKED; no row returns without sending. Otherwise it extracts the place ID from the payload, awaits a keyed send to weather.place-requested, marks the row published, and commits. A broker send followed by a transaction failure or crash can leave the row eligible for replay. The Dashboard and Forecasts topic mappings are agent-proposed; subscription, downstream processing and hosted-service activation remain unverified.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/places/RequestPublisher.cs:18–34 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/728b9ba12f04391993430660fb0e4a022375568be05cd19f8e9d4aca115e990d.mdx)
+- [services/places/RequestPublisher.cs:7–17 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/b970c6d235f9c5eb2f4e16bc78eda2a4ee3a68751103a8811054e9802c535d97.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- DECLARED\_TRANSITION\_NOT\_REACHED:places-place-requested-to-dashboard
+- DECLARED\_TRANSITION\_NOT\_REACHED:places-place-requested-to-forecasts
+- EXCEPTION\_FLOW\_REQUIRES\_SOURCE\_REVIEW
+- EXTERNAL\_CALL\_BODY\_NOT\_EXPANDED
+- SHORT\_CIRCUIT\_FLOW\_REQUIRES\_SOURCE\_REVIEW
+- LINKED\_PROCESS\_UNASSESSED:dashboard-place-requested-consumer
+- LINKED\_PROCESS\_UNASSESSED:forecasts-place-requested-consumer
+
+</details>
+

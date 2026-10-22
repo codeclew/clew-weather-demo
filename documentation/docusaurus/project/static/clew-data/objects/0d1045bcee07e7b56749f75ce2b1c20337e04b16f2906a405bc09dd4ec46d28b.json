@@ -1,0 +1,39 @@
+{
+  "identity": "sha256:0d1045bcee07e7b56749f75ce2b1c20337e04b16f2906a405bc09dd4ec46d28b",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "documentationLanguage": "en",
+    "fields": {
+      "$clewRef": "sha256:bdf0d40c7f7132802f27a4f67fe92d0db8e06c08cc3386b28af1dc9ad5a24208"
+    },
+    "id": "save-city-request",
+    "identity": {
+      "$clewRef": "sha256:8e32459ab41f9a48d8a91e6d68502b96f16d832d5d62c817ed41a0709c33c9ad"
+    },
+    "kind": "VALUE_OBJECT",
+    "processLinks": [
+      {
+        "anchor": "question-request",
+        "label": "Save a city — request and local save",
+        "subject": "scenario:dashboard-save-city"
+      },
+      {
+        "anchor": "section-entities",
+        "label": "dashboard: field descriptions",
+        "subject": "service:dashboard"
+      },
+      {
+        "anchor": "section-entities",
+        "label": "places: field descriptions",
+        "subject": "service:places"
+      }
+    ],
+    "purpose": {
+      "$clewRef": "sha256:3f6229f06e48723988c86a7ff7c0d777c30bb8c2b8e049acadbabcabc6594581"
+    },
+    "relatedModels": [
+      "place"
+    ],
+    "title": "Save city request"
+  }
+}

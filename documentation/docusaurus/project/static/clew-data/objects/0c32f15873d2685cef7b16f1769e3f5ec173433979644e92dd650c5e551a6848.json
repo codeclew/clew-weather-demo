@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:0c32f15873d2685cef7b16f1769e3f5ec173433979644e92dd650c5e551a6848",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "gap": "PROCESS_EVIDENCE_CHANGED_REVIEW_REQUIRED",
+    "pumlAvailable": false,
+    "root": {
+      "$clewRef": "sha256:a9495fa3091e22519dddc493b389659270216535a9f6c46e9d4d34c250026986"
+    },
+    "sourceIds": [
+      "dashboard-a4627e5e868830287e83"
+    ],
+    "status": "GAP",
+    "svgAvailable": false
+  }
+}

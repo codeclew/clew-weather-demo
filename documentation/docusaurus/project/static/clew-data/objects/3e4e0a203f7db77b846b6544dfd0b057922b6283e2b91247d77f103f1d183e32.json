@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:3e4e0a203f7db77b846b6544dfd0b057922b6283e2b91247d77f103f1d183e32",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "fragment": {
+      "$clewRef": "sha256:80b90d85e011415bc7bc2dba42515dff032ee5c960b792e3088eed2593f9549a"
+    },
+    "kind": "RETAINED_CLAIM",
+    "operation": "dashboard-save-city",
+    "sourceContext": {
+      "$clewRef": "sha256:2500520baf99b1d310b6288dd07e56c5fb4474fc6d95aae8ba0d0ca371a5f557"
+    },
+    "sources": {
+      "$clewRef": "sha256:120c108f607307369dc4e8cff21513c710462e9c964c8692e9ad18bb6f97382f"
+    },
+    "state": {
+      "$clewRef": "sha256:1ade2833affd21c2594b8a65814dd40a3662f96f5ab0b85edb71e877a81945d9"
+    },
+    "subject": "scenario:dashboard-save-city",
+    "title": "Save a city through Dashboard and record the outbox boundary"
+  }
+}

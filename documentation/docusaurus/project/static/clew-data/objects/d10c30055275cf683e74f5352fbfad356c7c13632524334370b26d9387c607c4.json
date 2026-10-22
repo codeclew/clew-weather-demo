@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:d10c30055275cf683e74f5352fbfad356c7c13632524334370b26d9387c607c4",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "observed-static-use",
+    "claim": {
+      "$clewRef": "sha256:a3077516ee7173e35c0a9f605868787b41bdd36c8d641f3a24a2c93c4aef9599"
+    },
+    "condition": "Forecast-present card, except Place name/id also available while pending",
+    "consumer": "Dashboard browser update()",
+    "contract": "forecast-updated",
+    "coveredScope": "Complete retained update() function",
+    "kinds": [
+      "identify-or-route"
+    ],
+    "processes": [],
+    "producer": "Weather API response",
+    "representation": "row.id",
+    "stage": "Direct UI display",
+    "unresolved": "Static source interpretation; runtime execution and delivery are not established."
+  }
+}

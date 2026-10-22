@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:81938e4713f57e815ce1dd8d5a016d0fbbec76f25a16a12989d23e10b9c08195",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:e0055ac492ba74d35b06c0fcc00a2ed046e045c025ba1982d06d86b07659dff3"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Each Period.temperatureC must be finite.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

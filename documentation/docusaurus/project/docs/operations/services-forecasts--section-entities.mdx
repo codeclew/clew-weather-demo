@@ -1,0 +1,73 @@
+---
+title: "Forecasts domain entities"
+slug: "/operations/services-forecasts--section-entities"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Forecasts domain entities
+
+<ClewPageContext />
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+The Forecasts source assembles JSON rather than declaring a separate forecast DTO in the captured implementation. A forecast object contains updatedAt, fetchedAt, mode, and periods. Each period contains time, temperatureC, symbol, and precipitationMm; the source writes null precipitation when the provider omits a numeric amount. A forecast.updated event carries an id formed from place id and updatedAt, type, version 1, place, and forecast. The event schema and OpenAPI document declare one to six periods and date-time strings; their JSON Schema keywords are not fully interpreted here.
+
+The Forecasts database schema stores places, a forecasts row keyed by place\_id with updated\_at, JSON payload, expires\_at, and last\_modified, inbox event IDs, forecast\_outbox payloads with a published flag, and rejected message coordinates keyed by topic, partition, and offset. These are persistence and delivery records, distinct from the JSON forecast and event shapes.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:29–140 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/4690abc33b226f3841e5eaaf90ce58e0cd06f7a69c28f21647e0f14c2e20e5ab.mdx)
+- [contracts/events.schema.json:1–173 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/02aca9b5de2e5fecc6239e85b2f8203c7f42eabce144a6c852ec3faed9d1a218.mdx)
+- [contracts/forecasts.openapi.json:1–191 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/8eaaa1dd5f23912e1bf1ff8c9cfd22b8801da3458df6ea963a0714e4316b27f5.mdx)
+- [database/init.sql:1–16 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/6c81c74b2345ce780cb749bc5fd0e843fc65ce33af41498bf0a3bd3aa572b6cf.mdx)
+
+</details>
+
+<details>
+<summary>New event · retained process documentation</summary>
+
+The supplied transaction callback remembers the event ID, updates the place and calls the shared forecast-refresh path. This snapshot does not prove callback execution or transaction commit.
+
+EDITORIAL\_READING\_GUIDE\_NOT\_ACCEPTED\_PROSE. This context does not change the interaction declaration or establish runtime binding.
+
+[Process step and source evidence](../scenarios/forecasts-place-requested-consumer.mdx#question-update)
+
+
+</details>
+
+<details>
+<summary>Record outcome · retained process documentation</summary>
+
+After the send future completes, the callback marks the selected row published. This statement alone does not prove that its database transaction committed.
+
+EDITORIAL\_READING\_GUIDE\_NOT\_ACCEPTED\_PROSE. This context does not change the interaction declaration or establish runtime binding.
+
+[Process step and source evidence](../scenarios/forecasts-publish-pending.mdx#question-record)
+
+
+</details>
+
+<details>
+<summary>Prepare writes · retained process documentation</summary>
+
+The supplied callback attempts to save the forecast, then insert an update event for a separate publisher. A committed result is not established by this syntax snapshot.
+
+EDITORIAL\_READING\_GUIDE\_NOT\_ACCEPTED\_PROSE. This context does not change the interaction declaration or establish runtime binding.
+
+[Process step and source evidence](../scenarios/forecasts-refresh-scheduled.mdx#question-save)
+
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- Kotlin and Spring source evidence does not establish runtime listener or scheduler registration, callback invocation, or database transaction commit and rollback behavior. Captured application configuration is source text, not proof of deployed settings.
+- OpenAPI and event JSON Schema are read as source text; JSON Schema keywords, unions, and null types are not fully interpreted.
+
+</details>
+

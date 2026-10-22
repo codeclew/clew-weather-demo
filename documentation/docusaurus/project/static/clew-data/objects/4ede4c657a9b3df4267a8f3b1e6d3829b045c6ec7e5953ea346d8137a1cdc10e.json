@@ -1,0 +1,39 @@
+{
+  "identity": "sha256:4ede4c657a9b3df4267a8f3b1e6d3829b045c6ec7e5953ea346d8137a1cdc10e",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "cases": [
+      {
+        "bodyAssessment": "matches-selected-schema",
+        "bodyErrors": [],
+        "comparedSchemaMedia": "application/json",
+        "declaredMedia": [
+          "application/json"
+        ],
+        "id": "health",
+        "mediaAssessment": "declared",
+        "request": {
+          "body": null,
+          "contentType": null,
+          "method": "GET",
+          "path": "/health"
+        },
+        "requestAssessment": "no-body-declared",
+        "requestErrors": null,
+        "response": {
+          "body": "{\"database\":\"READY\"}",
+          "contentType": "application/json; charset=utf-8",
+          "status": 200
+        },
+        "statusDeclared": true
+      }
+    ],
+    "contractDigest": "sha256:14e0311af7bc78a8290539edd6ed922ce4c14c237a01713f4b8c157fe0b35fcc",
+    "contractId": "places:contract-operation:08d1b9df6781b2953a038bc2",
+    "coverage": "Observed 200 with declared media and schema-valid JSON. The kafka field is optional. Failure paths and a real database were not tested.",
+    "entrypoint": "places-3a33202464c8b4fff218",
+    "findings": [],
+    "method": "GET",
+    "path": "/health"
+  }
+}

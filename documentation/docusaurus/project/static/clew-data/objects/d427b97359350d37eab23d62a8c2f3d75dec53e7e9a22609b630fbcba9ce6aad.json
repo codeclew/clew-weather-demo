@@ -1,0 +1,24 @@
+{
+  "identity": "sha256:d427b97359350d37eab23d62a8c2f3d75dec53e7e9a22609b630fbcba9ce6aad",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contentRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "coverage": {
+      "$clewRef": "sha256:ae323201db21c1eb285e5964eef9fa0015c0895fe39dd884e787b57b67c04d4a"
+    },
+    "freshness": "UNVERIFIED",
+    "reasons": {
+      "$clewRef": "sha256:739baa2aa1a07715489da4a352d35068d3e737a84e61a3293b0de6949f0d7679"
+    },
+    "targetRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "verification": "UNASSESSED"
+  }
+}

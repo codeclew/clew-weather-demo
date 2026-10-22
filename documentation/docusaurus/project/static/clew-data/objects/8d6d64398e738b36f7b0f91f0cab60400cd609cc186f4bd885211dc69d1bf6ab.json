@@ -1,0 +1,25 @@
+{
+  "identity": "sha256:8d6d64398e738b36f7b0f91f0cab60400cd609cc186f4bd885211dc69d1bf6ab",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "observed-static-use",
+    "claim": {
+      "$clewRef": "sha256:3ed1a40a058287a76c789e51038678890acaf114227abc84a8085dc13a4c8c15"
+    },
+    "condition": "Dashboard savePlace runs; the URL is selected by PLACES_URL or its fallback",
+    "consumer": "Declared Places POST /places target",
+    "contract": "save-city-request",
+    "coveredScope": "Captured Save a city source ranges only; no publisher or forecast consumer expansion",
+    "kinds": [
+      "forward",
+      "whole-object-serialization-or-comparison"
+    ],
+    "processes": [
+      "scenario:dashboard-save-city"
+    ],
+    "producer": "Dashboard.savePlace",
+    "representation": "JSON.stringify(request.body) containing cityId",
+    "stage": "Dashboard HTTP request",
+    "unresolved": "Actual deployment routing, request binding, receiver completion and timeout outcome are unverified. Whole-object forwarding does not prove validation."
+  }
+}

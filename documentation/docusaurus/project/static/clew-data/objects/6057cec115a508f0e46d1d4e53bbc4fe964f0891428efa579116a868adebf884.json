@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:6057cec115a508f0e46d1d4e53bbc4fe964f0891428efa579116a868adebf884",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:97532737f5348fef3af2908acd8d48c804e060f450db0be7ce055e872601ce36"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Live mode truncates the coordinate toward zero to four decimal places and supplies it as lat/lon to https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=$lat&lon=$lon. Fixture mode reads /app/fixtures/{place.id}.json instead. For the supported Oslo coordinates, the constructed URL is https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=59.9300&lon=10.7200 (static example, not an observed request).",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

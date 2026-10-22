@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:c95ca34af909bc9e428a756a372dc03d938813c5590850cac525926eddf34991",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:122cba8ae4504834ce7200983ed4376d49ba24c8cd07993900940718b707a395"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "No direct display of this field was found in the complete inspected update() function. It still participates in whole-response comparison, validation, persistence and forwarding; this is not evidence that the field is unused or safe to remove.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

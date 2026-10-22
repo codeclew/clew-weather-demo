@@ -1,0 +1,20 @@
+{
+  "identity": "sha256:0457f54932ab8655d9e385cd579b948f9f9c36f9d0872f1827af5819c4f063f8",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "forecasts:flow:44c1216c3e37f45f4ff9ceca",
+      "forecasts:source_annotations:3d7b217355f2e6a34064e800",
+      "forecasts:symbol:3d7b217355f2e6a34064e800"
+    ],
+    "from": "service-forecasts",
+    "id": "claim-d6c754fa250b4090a31b",
+    "kind": "message",
+    "sourceIds": [
+      "forecasts-3d7b217355f2e6a34064",
+      "forecasts-44c1216c3e37f45f4ff9"
+    ],
+    "text": "Inside transaction.executeWithoutResult, select at most one unpublished outbox row with ORDER BY id LIMIT 1 FOR UPDATE SKIP LOCKED. The source orders by identifier; it does not establish a globally oldest event.",
+    "to": "forecast-db"
+  }
+}

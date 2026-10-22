@@ -1,0 +1,51 @@
+{
+  "identity": "sha256:c8c576cffc101dd88bc1952b583a6c4734cf0eef5a23878a9a89b362a836c906",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    {
+      "field": "id",
+      "nullable": false,
+      "pointer": "/paths/~1places/post/responses/200/content/application~1json/schema/properties/id",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "enum": [
+          "oslo",
+          "helsinki",
+          "lisbon"
+        ],
+        "type": "string"
+      }
+    },
+    {
+      "field": "latitude",
+      "nullable": false,
+      "pointer": "/paths/~1places/post/responses/200/content/application~1json/schema/properties/latitude",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "maximum": 90,
+        "minimum": -90,
+        "type": "number"
+      }
+    },
+    {
+      "field": "longitude",
+      "nullable": false,
+      "pointer": "/paths/~1places/post/responses/200/content/application~1json/schema/properties/longitude",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "maximum": 180,
+        "minimum": -180,
+        "type": "number"
+      }
+    },
+    {
+      "field": "name",
+      "nullable": false,
+      "pointer": "/paths/~1places/post/responses/200/content/application~1json/schema/properties/name",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "type": "string"
+      }
+    }
+  ]
+}

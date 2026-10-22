@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:66f9a748b635c9110f0c316515c081d53f1c314f571c5ef54577715036d26f7b",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "linkedSubviews": [
+      "dashboard-place-requested-consumer",
+      "forecasts-place-requested-consumer"
+    ],
+    "objects": [],
+    "outcomes": [
+      "If an unpublished request row is selected, send its payload to weather.place-requested and then mark that outbox row published in the database transaction.",
+      "If no unpublished row is available, the publish operation returns without sending a message.",
+      "Other observed failures are logged for retry; the source alone does not establish that the hosted service is activated at runtime."
+    ],
+    "participants": [
+      "places",
+      "forecasts",
+      "dashboard"
+    ],
+    "scope": "RequestPublisher.ExecuteAsync and its source-level outbox publishing operation.",
+    "trigger": "ExecuteAsync receives a cancellation token and enters its publisher loop."
+  }
+}

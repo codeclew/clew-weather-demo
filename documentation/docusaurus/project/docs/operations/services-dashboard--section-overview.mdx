@@ -1,0 +1,43 @@
+---
+title: "Dashboard overview"
+slug: "/operations/services-dashboard--section-overview"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Dashboard overview
+
+<ClewPageContext />
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+Dashboard serves saved place cards and accepts save and forecast-refresh requests for Places. It also consumes weather.place-requested and weather.forecast-updated events to maintain local cards. Six HTTP roots are GET /, GET /api/weather, POST /api/places, POST /api/places/&#123;id&#125;/refresh, GET /health, and GET /openapi.json. Source start connects Kafka, subscribes from the beginning to both topics, starts the shared consumer with autoCommit false, registers those routes, then listens; this source sequence does not establish runtime activation. The consumer validates recognized topic/event pairs and applies valid events transactionally. Parse or validation failures are persisted before offset plus one is committed; persistence failure prevents the commit, while an unknown topic throws UNKNOWN\_TOPIC. The event schema and OpenAPI file are declarations, not proof of runtime enforcement. The capture uses TypeScript source syntax with declared dialect 7.0.2 and file-only browser, contract, schema, and database inputs; runtime and compiler validation remain UNKNOWN. See GET / for browser behavior and each HTTP operation for its declared contract.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/dashboard/src/events.ts:10–29 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/afddedfc8054e8c5495b73e95e3924f7b15f90f9b73caf09d7c1b7cdda664830.mdx)
+- [services/dashboard/src/main.ts:76–83 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b41ac7155eba29b1e6a9dfe10348b626c22e19654978c7d35379a71fff4526a1.mdx)
+- [services/dashboard/src/main.ts:85–89 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/f2538d01a5740ce1abfc03ae7e7a7b2d8cd5252bbf39b4aa3f59a797afd655ae.mdx)
+- [services/dashboard/public/index.html:1–11 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/e2aefa0ef5b60c47780df39c33c065727314abc97f9d4dee8776810ca9ea58a9.mdx)
+- [services/dashboard/src/main.ts:67–74 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ab8df8a5fe7536b2fc32d2257bed77e48c54ce422b10c3afba79f26ac88b67a8.mdx)
+- [services/dashboard/src/events.ts:6–8 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/f595401e33ffe1c87198d3297a901422e3d449fe00dd98adddc17aaca283d70e.mdx)
+- [contracts/events.schema.json:1–173 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/dec95b6c15be91b214b5461a9c4a4de2c6778f4dc08926144af59dd3b4127499.mdx)
+- [services/dashboard/src/main.ts:91–93 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/9dfc47272109627664d48b7bdfc7a9f5e84c42965146d7a0196095441dd45229.mdx)
+- [services/dashboard/src/main.ts:95–97 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/115f097e979ebca0d7af8b4670f23623a3cdcd8fe24627d5867e6a072e81272d.mdx)
+- [services/dashboard/src/main.ts:47–60 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233.mdx)
+- [contracts/dashboard.openapi.json:1–462 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/a185cd3784485dfc3e136c62c34e70b819c1cf87d46b4c0a36781e0c808d35ec.mdx)
+- [services/dashboard/src/main.ts:15–45 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/bf524d202ba882540036918136ea088912da8bc6f340ab23d8a90bfb0aacab71.mdx)
+- [services/dashboard/src/main.ts:99–111 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b8c6b94020ae709e61177a744a5a5315fccb0813ac9f4e37ca6a0be5140d129c.mdx)
+- [database/init.sql:1–16 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3ad6c48ca9955bf3294e416633c41e7189d10ff1260271efaf018e87b0c15e97.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+
+</details>
+

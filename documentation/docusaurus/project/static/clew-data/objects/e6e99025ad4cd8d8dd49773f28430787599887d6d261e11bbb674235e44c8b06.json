@@ -1,0 +1,27 @@
+{
+  "identity": "sha256:e6e99025ad4cd8d8dd49773f28430787599887d6d261e11bbb674235e44c8b06",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "documentationLanguage": "en",
+    "fields": {
+      "$clewRef": "sha256:41726c6e2be5ca73e83bf392beaf59708d0415aa2df0fa136d869342357bfb3e"
+    },
+    "id": "forecast",
+    "identity": {
+      "$clewRef": "sha256:f060f49598bac2275e4ddc08abd1ef362760b07530c4df7793db9e9d4450fe2b"
+    },
+    "kind": "ENTITY",
+    "processLinks": {
+      "$clewRef": "sha256:9890a63fd9cf4073b2559b30892b14f34faa25ed4bd71177ff10fdfbf4678cb2"
+    },
+    "purpose": {
+      "$clewRef": "sha256:6115e1bd04ee62def6d4dea44724f79dead0a78117f91f11bc1a5cffa4d7e438"
+    },
+    "relatedModels": [
+      "place",
+      "period",
+      "weather-card"
+    ],
+    "title": "Forecast"
+  }
+}

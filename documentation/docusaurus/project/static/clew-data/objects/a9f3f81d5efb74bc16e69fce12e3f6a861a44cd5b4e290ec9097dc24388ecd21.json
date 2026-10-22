@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:a9f3f81d5efb74bc16e69fce12e3f6a861a44cd5b4e290ec9097dc24388ecd21",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "observed-static-use",
+    "claim": {
+      "$clewRef": "sha256:935d945dfd4bf09dcf3bde3fa06584f7220b459a372cc18cf6fe35585eac0ee5"
+    },
+    "condition": "Refresh does not return a fresh cache or HTTP 304; fixture data or a 200/203 live response reaches normalization.",
+    "consumer": "Normalized forecast JSON",
+    "contract": "forecast-updated",
+    "coveredScope": "Forecast normalization",
+    "kinds": [
+      "calculate-or-decide"
+    ],
+    "processes": [],
+    "producer": "Forecasts.refresh",
+    "representation": "forecast.periods[].precipitationMm",
+    "stage": "Forecast normalization",
+    "unresolved": "Static source interpretation; runtime execution and delivery are not established."
+  }
+}

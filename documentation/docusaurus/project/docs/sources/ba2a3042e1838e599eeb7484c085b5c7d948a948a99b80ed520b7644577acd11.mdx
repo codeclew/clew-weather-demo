@@ -1,0 +1,23 @@
+---
+title: "services/forecasts/src/main/kotlin/weather/Forecasts.kt:89–89"
+slug: "/sources/ba2a3042e1838e599eeb7484c085b5c7d948a948a99b80ed520b7644577acd11"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/forecasts/src/main/kotlin/weather/Forecasts.kt:89–89
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: c289b28be4819eddf29d59a7c12f178559ec5229
+
+Text digest: sha256:8d2084bb252d7ac169666da6ae0a10f5367c820fcc9c2b3b521a89f911693c44
+
+## Retained text {#retained-text}
+
+```text
+response.headers().firstValue("Expires").map { ZonedDateTime.parse(it, DateTimeFormatter.RFC_1123_DATE_TIME).toInstant() }.orElse(Instant.now().plusSeconds(3600))
+```
+
+<ClewDownload path="/clew-data/objects/ba2a3042e1838e599eeb7484c085b5c7d948a948a99b80ed520b7644577acd11.json">Complete original source binding</ClewDownload>

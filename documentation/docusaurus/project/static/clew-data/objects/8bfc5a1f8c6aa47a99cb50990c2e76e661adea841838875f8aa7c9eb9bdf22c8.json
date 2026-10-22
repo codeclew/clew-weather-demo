@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:8bfc5a1f8c6aa47a99cb50990c2e76e661adea841838875f8aa7c9eb9bdf22c8",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 85,
+    "evidenceDigest": "sha256:c77b934282fc2cf8f84b25fbd3ec20f0cceca6feb4c8b32e041d0f52f1b38b1c",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "id": "forecasts-3216bac825e577b9cfe8",
+    "occurrence": {
+      "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+      "endByte": 5297,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 5175
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 85,
+    "text": "HttpRequest.newBuilder(URI.create(\"https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=$lat&lon=$lon\")).timeout",
+    "textDigest": "sha256:9037ffdd873f9b6c3ff16bab2421b7584ad3c262ffa4abd7960188b5a88dac8b",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L85-L85"
+  }
+}

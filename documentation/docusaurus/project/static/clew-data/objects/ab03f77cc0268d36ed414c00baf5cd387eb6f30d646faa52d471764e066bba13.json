@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:ab03f77cc0268d36ed414c00baf5cd387eb6f30d646faa52d471764e066bba13",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+      "forecasts:symbol:04bc0feeea5752d3f1979c56"
+    ],
+    "from": "service-forecasts",
+    "id": "claim-c9d954adf61cefc71f02",
+    "kind": "message",
+    "sourceIds": [
+      "forecasts-04bc0feeea5752d3f197"
+    ],
+    "text": "Parse updatedAt as an Instant and upsert the forecast row only when incoming updatedAt is at least the stored value. Then attempt a forecast.updated event insert with id placeId:updatedAt, version 1, place and forecast data, using ON CONFLICT DO NOTHING. The outbox attempt follows the upsert call even when the SQL predicate rejects an older value.",
+    "to": "forecast-db"
+  }
+}

@@ -1,0 +1,196 @@
+---
+title: "contracts/events.schema.json:1–173"
+slug: "/sources/4f5e368172c056412420d76a096c229f94968d52746b28b1a0c0b7b6faa971dc"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# contracts/events.schema.json:1–173
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6
+
+Text digest: sha256:cc9eba8df22972a4e017629c1da8a2062c63c2d0a2c242ce1dc4a698176429c5
+
+## Retained text {#retained-text}
+
+```text
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "version",
+        "place"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "const": "place.requested"
+        },
+        "version": {
+          "const": 1
+        },
+        "place": {
+          "type": "object",
+          "required": [
+            "id",
+            "name",
+            "latitude",
+            "longitude"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "enum": [
+                "oslo",
+                "helsinki",
+                "lisbon"
+              ]
+            },
+            "name": {
+              "type": "string"
+            },
+            "latitude": {
+              "type": "number",
+              "minimum": -90,
+              "maximum": 90
+            },
+            "longitude": {
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "version",
+        "place",
+        "forecast"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "const": "forecast.updated"
+        },
+        "version": {
+          "const": 1
+        },
+        "place": {
+          "type": "object",
+          "required": [
+            "id",
+            "name",
+            "latitude",
+            "longitude"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "enum": [
+                "oslo",
+                "helsinki",
+                "lisbon"
+              ]
+            },
+            "name": {
+              "type": "string"
+            },
+            "latitude": {
+              "type": "number",
+              "minimum": -90,
+              "maximum": 90
+            },
+            "longitude": {
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180
+            }
+          }
+        },
+        "forecast": {
+          "type": "object",
+          "required": [
+            "updatedAt",
+            "fetchedAt",
+            "mode",
+            "periods"
+          ],
+          "properties": {
+            "updatedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "fetchedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "mode": {
+              "type": "string",
+              "enum": [
+                "fixture",
+                "live"
+              ]
+            },
+            "periods": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 6,
+              "items": {
+                "type": "object",
+                "required": [
+                  "time",
+                  "temperatureC",
+                  "precipitationMm",
+                  "symbol"
+                ],
+                "properties": {
+                  "time": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "temperatureC": {
+                    "type": "number"
+                  },
+                  "precipitationMm": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0
+                  },
+                  "symbol": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
+
+```
+
+<ClewDownload path="/clew-data/objects/4f5e368172c056412420d76a096c229f94968d52746b28b1a0c0b7b6faa971dc.json">Complete original source binding</ClewDownload>

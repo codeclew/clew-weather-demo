@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:d30ec29796d1b9d048d767f207ee90ee8c63bd03221a7782d1daed679333d338",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": {
+      "$clewRef": "sha256:9b193185868799fad01dbab8743ba9afbce0616043f5c9c00fa53d077139b938"
+    },
+    "id": "claim-00ed4c0993a4c0033000",
+    "sourceIds": [
+      "dashboard-1612e17d589cb9d0fa4a",
+      "dashboard-1d4380bd7760bcafc13d",
+      "dashboard-1db17a7767cbf1b12d50",
+      "dashboard-7970ac3e2a8cf3f45b4a",
+      "dashboard-812cb9b6c2878af12cf9",
+      "dashboard-8e13fe1feb2708d5e5bd",
+      "dashboard-a4627e5e868830287e83",
+      "dashboard-bc57152944dfa54c072b",
+      "dashboard-f3bcad13842060db4065"
+    ],
+    "text": "The captured OpenAPI declaration lists GET /, GET /api/weather, GET /health, GET /openapi.json, POST /api/places, and POST /api/places/{id}/refresh. It marks the place-save JSON body as required and declares response sets for the save and refresh routes; the source handler forwards the Places response status and JSON body, or maps a caught failure to 503. The refresh handler encodes the id in a bodyless POST. The weather handler selects saved cards ordered by name; the health handler runs SELECT 1 and rejects a false consumerReady flag. Startup source subscribes to weather.place-requested and weather.forecast-updated with fromBeginning true and passes eachMessage to consumeMessage with autoCommit false. The route and topic declarations are source evidence only."
+  }
+}

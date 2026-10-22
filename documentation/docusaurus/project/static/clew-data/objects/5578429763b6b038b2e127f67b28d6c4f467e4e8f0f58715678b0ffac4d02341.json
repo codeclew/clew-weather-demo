@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:5578429763b6b038b2e127f67b28d6c4f467e4e8f0f58715678b0ffac4d02341",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "digest": "sha256:28fe2f71e0d6f090a55ab53d1fed173a9ba3d544a0532a96423ebd01f98af481",
+    "id": "dashboard:contract-operation:a134218675bfd8d39281c02d",
+    "kind": "CONTRACT_OPERATION",
+    "normalized": {
+      "$clewRef": "sha256:28fe2f71e0d6f090a55ab53d1fed173a9ba3d544a0532a96423ebd01f98af481"
+    },
+    "service": "dashboard",
+    "sourceIds": [
+      "dashboard-1d4380bd7760bcafc13d"
+    ],
+    "symbol": "get /"
+  }
+}

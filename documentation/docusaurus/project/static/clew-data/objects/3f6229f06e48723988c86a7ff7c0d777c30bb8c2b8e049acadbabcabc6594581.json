@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:3f6229f06e48723988c86a7ff7c0d777c30bb8c2b8e049acadbabcabc6594581",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:2325909e8fdd0e37a4868256ad3cc5d3bfdc2d156d9596a30d9974bcc2bc4d78"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "A request to save one supported city. It carries a city selector, not a complete Place; the HTTP save result is separate from later message delivery.",
+    "title": "Save a city: source interpretation",
+    "tone": null
+  }
+}

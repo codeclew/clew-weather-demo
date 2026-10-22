@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:42b446dab1b0cb9dde251da118a406fff9071ab45142ff2e9e4a6c7c31c241f6",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:70ac5b3f564ff9e19f1877aa07073d10e032713c77a848def3ba79d5cdaa9c32"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Provider names are mapped explicitly: air_temperature → temperatureC; precipitation_amount → precipitationMm; symbol_code → symbol. The period is nested inside the forecast payload.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

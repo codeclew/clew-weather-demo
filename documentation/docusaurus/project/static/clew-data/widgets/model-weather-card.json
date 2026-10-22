@@ -1,0 +1,13 @@
+{
+  "schema": "codeclew-normalized-data/1.0",
+  "value": {
+    "authority": "AGENT_PROPOSAL",
+    "contracts": [],
+    "models": [
+      {
+        "$clewRef": "sha256:c23f34d5459dcf7d01f4835ef528cd9198c206bf6be45e0ce09fff267df7f5ae"
+      }
+    ],
+    "review": "UNASSESSED"
+  }
+}

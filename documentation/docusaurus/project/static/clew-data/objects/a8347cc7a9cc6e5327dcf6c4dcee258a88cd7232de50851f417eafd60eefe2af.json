@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:a8347cc7a9cc6e5327dcf6c4dcee258a88cd7232de50851f417eafd60eefe2af",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "observed-static-use",
+    "claim": {
+      "$clewRef": "sha256:997af9ecc67976112cb1b8e0ba080f1a890446a9dff3ab266c3b3aeb67c7cf03"
+    },
+    "condition": "Supported city accepted or refresh requested",
+    "consumer": "places / request_outbox",
+    "contract": "place-requested",
+    "coveredScope": "Places persistence",
+    "kinds": [
+      "persist"
+    ],
+    "processes": [],
+    "producer": "PlacesRepository",
+    "representation": "places.name / request_outbox.payload.place.name",
+    "stage": "Places persistence",
+    "unresolved": "Static source interpretation; runtime execution and delivery are not established."
+  }
+}

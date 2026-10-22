@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:49893623e495a72223ffd14fe3593282605b20d65ef95bea375548542ec2d3d3",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:58a23a8b46d9f6cbd78e14a0f10ebc1a25958a432dc436e6b904dd2a04dfb2a2"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The producer copies its configured fixture/live mode into forecast.mode. The configuration variable selected the fixture or live request branch earlier.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

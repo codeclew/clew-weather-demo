@@ -1,0 +1,59 @@
+{
+  "identity": "sha256:28fe2f71e0d6f090a55ab53d1fed173a9ba3d544a0532a96423ebd01f98af481",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "DECLARED_OPENAPI",
+    "boundaries": [],
+    "declaredSource": "contracts/dashboard.openapi.json",
+    "entrypoint": null,
+    "method": "GET",
+    "openapi": "3.1.0",
+    "operation": {
+      "operationId": "dashboard_get_",
+      "responses": {
+        "200": {
+          "content": {
+            "text/html": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          },
+          "description": "200"
+        },
+        "500": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": true,
+                "properties": {
+                  "error": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "description": "500"
+        }
+      }
+    },
+    "parameters": [],
+    "path": "/",
+    "readerSelection": {
+      "compatibilityAnchor": "3.1",
+      "fullSpecificationValidation": false,
+      "outsideAdvertisedRange": false,
+      "reader": "BOUNDED_OPENAPI_PATH_OPERATION_READER",
+      "selectionMode": "DECLARED_COMPATIBILITY_PROFILE",
+      "supportedVersionRange": "OPENAPI_THROUGH_3_X"
+    },
+    "runtimeEnforcement": "UNVERIFIED",
+    "schema": "codeclew-documentation-contract-facts/1.0",
+    "security": null,
+    "securitySchemes": null,
+    "servers": null,
+    "sourceMapping": "NO_SOURCE_ROUTE_MATCH"
+  }
+}

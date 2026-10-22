@@ -1,0 +1,55 @@
+---
+title: "A hidden forecast slips through an unchecked exercise"
+slug: "/operations/services-dashboard--assessment-runtime-validator-node24"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# A hidden forecast slips through an unchecked exercise
+
+<ClewPageContext />
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+An unchecked place-event exercise accepts a place.requested event carrying arbitrary forecast data. On the production weather.place-requested path, validateEvent rejects that shape as INVALID\_PLACE\_EVENT because forecast must be absent. This difference is the contract gap the case is designed to expose.
+
+From the repository root, run node exercises/validator-regression.mjs. The imported Node v24.21.0 observation records six passing assertions: the exercise accepts that shape; production rejects it; a valid place event returns unchanged; an unknown topic yields UNKNOWN\_TOPIC; a forecast with 0°C and null precipitation returns unchanged; and numeric updatedAt=0 yields INVALID\_FORECAST. Production forecast validation checks updatedAt, fetchedAt and every period.time with isTimestamp: a UTC-shaped string with optional fractional seconds and a trailing Z must also parse to a finite date. Temperatures may be any finite value, including zero; precipitation may be null or finite and nonnegative.
+
+A bounded Codeclew Work places the exercise, production validator, timestamp helper and imported note in one recorded context with exact source text, making this comparison inspectable. The note records Node v24.21.0, an official-checksum-matched Node asset and repository revision 8d69f2b1d4a6d9770f87c720cd665dab30081815; the captured source excerpts are from revision e635069293d58cb0d4f28c8211e748b8d58e6b37. This is imported historical evidence, not a fresh Node or compiler run. The six assertions omit null-period input; the excerpts do not establish every branch, universal calendar validity, automatic runtime discovery or a general runtime guarantee.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/dashboard/src/events.ts:10–29 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/afddedfc8054e8c5495b73e95e3924f7b15f90f9b73caf09d7c1b7cdda664830.mdx)
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [services/dashboard/src/events.ts:6–8 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/f595401e33ffe1c87198d3297a901422e3d449fe00dd98adddc17aaca283d70e.mdx)
+
+</details>
+
+## Declared interface schemas
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/475242e2ef07721c45d26c563b5cd15b52b47fb16494eab9b22738cd80b35c25">GET /openapi.json</ClewContextLink>
+
+<ClewContextLink path="/http/5e9ce2f78105d5d9215b07ddf87c8025176e932f11403c3b248ee8f2f77a9989">POST /api/places</ClewContextLink>
+
+<ClewContextLink path="/http/ed3ea26055386f7e8904ff37c1c9931e4943602283a96c6067a31ac32aa24dac">POST /api/places/&#123;id&#125;/refresh</ClewContextLink>
+
+<ClewContextLink path="/http/d3d56f55618a4d6b12c611f5055d16e80668439f39a23e30eb42437d1be85294">GET /</ClewContextLink>
+
+<ClewContextLink path="/http/589bef5f2c1640933430afb73226fc910c4cdb435b53197fdaef848d460a716b">GET /health</ClewContextLink>
+
+<ClewContextLink path="/http/5fda6cc4b385e34a2f5c5b6539f9420f1a95661ef0c3656b18ef951b4f2fe516">GET /api/weather</ClewContextLink>
+
+</div>
+
+
+<details>
+<summary>Retained boundaries</summary>
+
+- This compares a finite historical Node observation with exact captured source text; it does not attest to a fresh execution, compiler result, every branch or universal timestamp validity.
+
+</details>
+

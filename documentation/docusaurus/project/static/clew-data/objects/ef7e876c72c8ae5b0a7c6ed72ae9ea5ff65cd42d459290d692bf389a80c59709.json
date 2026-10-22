@@ -1,0 +1,47 @@
+{
+  "identity": "sha256:ef7e876c72c8ae5b0a7c6ed72ae9ea5ff65cd42d459290d692bf389a80c59709",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "DECLARED_OPENAPI",
+    "boundaries": [
+      "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED"
+    ],
+    "declaredSource": "contracts/dashboard.openapi.json",
+    "entrypoint": null,
+    "method": "POST",
+    "openapi": "3.1.0",
+    "operation": {
+      "$clewRef": "sha256:2d3e078f888208d3fc2a950e9a3bdbbc6149b9ab4b3e6e6abb5bf72d91719ab2"
+    },
+    "parameters": [
+      {
+        "in": "path",
+        "name": "id",
+        "required": true,
+        "schema": {
+          "enum": [
+            "oslo",
+            "helsinki",
+            "lisbon"
+          ],
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/api/places/{id}/refresh",
+    "readerSelection": {
+      "compatibilityAnchor": "3.1",
+      "fullSpecificationValidation": false,
+      "outsideAdvertisedRange": false,
+      "reader": "BOUNDED_OPENAPI_PATH_OPERATION_READER",
+      "selectionMode": "DECLARED_COMPATIBILITY_PROFILE",
+      "supportedVersionRange": "OPENAPI_THROUGH_3_X"
+    },
+    "runtimeEnforcement": "UNVERIFIED",
+    "schema": "codeclew-documentation-contract-facts/1.0",
+    "security": null,
+    "securitySchemes": null,
+    "servers": null,
+    "sourceMapping": "NO_SOURCE_ROUTE_MATCH"
+  }
+}

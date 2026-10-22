@@ -1,0 +1,21 @@
+{
+  "identity": "sha256:329125501edb69ea31a95a07049020ca2595bbdaae3570b83ede7657b98a838d",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "Kotlin and Spring source evidence does not establish runtime listener or scheduler registration, callback invocation, or database transaction commit and rollback behavior. Captured application configuration is source text, not proof of deployed settings.",
+      "OpenAPI and event JSON Schema are read as source text; JSON Schema keywords, unions, and null types are not fully interpreted."
+    ],
+    "documentationLanguage": "en",
+    "events": [],
+    "explanation": [],
+    "findings": [],
+    "id": "section-responsibilities",
+    "interfaceContracts": [],
+    "participants": [],
+    "summary": {
+      "$clewRef": "sha256:b9c693ca2e99e02c869c2cf631b117a20057bdb80d83bb38fb0d535ad12f3365"
+    },
+    "title": "Forecasts responsibilities"
+  }
+}

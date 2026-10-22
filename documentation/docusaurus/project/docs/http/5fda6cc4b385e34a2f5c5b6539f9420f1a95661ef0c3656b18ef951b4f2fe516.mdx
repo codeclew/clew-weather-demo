@@ -1,0 +1,371 @@
+---
+title: "GET /api/weather"
+slug: "/http/5fda6cc4b385e34a2f5c5b6539f9420f1a95661ef0c3656b18ef951b4f2fe516"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# GET /api/weather
+
+<ClewPageContext />
+
+Declared interface · DECLARED\_OPENAPI. Runtime enforcement and full specification validation are not established by this bounded record.
+
+<ClewContextLink path="/services/dashboard#section-ingress">Service and input context · Dashboard</ClewContextLink>
+
+<details>
+<summary>Declaration source and provenance</summary>
+
+- [contracts/dashboard.openapi.json:1–462 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/2cf069499a8284aa81909007590ed57f8b987703681fef870962f36c0681f13b.mdx)
+
+</details>
+
+## Parameters {#parameters}
+
+No parameters declared.
+
+## Request body {#request-body}
+
+No request body is recorded in this declaration.
+
+## Declared responses {#declared-responses}
+
+### 200
+
+200
+
+<details open>
+<summary>Response media and body schema</summary>
+
+**Media:** application/json
+
+<p className="clew-schema-scope">array&lt;object&gt;</p>
+
+<p className="clew-schema-scope">object</p>  <div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Required</th><th scope="col">Declared constraints / description</th></tr></thead><tbody> <tr><td data-label="Field"><code>forecast</code></td><td data-label="Type">oneOf<details> <summary>Nested fields</summary>  <p>oneOf composition · branches remain separate; this reader does not merge their validation rules.</p>  <details> <summary>oneOf branch 1</summary>  <p className="clew-schema-scope">object</p>  <div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Required</th><th scope="col">Declared constraints / description</th></tr></thead><tbody> <tr><td data-label="Field"><code>fetchedAt</code></td><td data-label="Type">string · date-time</td><td data-label="Required">Required</td><td data-label="Declared constraints / description">format: date-time<br/></td></tr> <tr><td data-label="Field"><code>mode</code></td><td data-label="Type">string</td><td data-label="Required">Required</td><td data-label="Declared constraints / description">enum: [&quot;fixture&quot;,&quot;live&quot;]<br/></td></tr> <tr><td data-label="Field"><code>periods</code></td><td data-label="Type">array&lt;object&gt;<details> <summary>Nested fields</summary>  <p className="clew-schema-scope">array&lt;object&gt; · minItems: 1; maxItems: 6</p>  <p className="clew-schema-scope">object</p>  <div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Required</th><th scope="col">Declared constraints / description</th></tr></thead><tbody> <tr><td data-label="Field"><code>precipitationMm</code></td><td data-label="Type">[&quot;number&quot;,&quot;null&quot;]</td><td data-label="Required">Required</td><td data-label="Declared constraints / description">minimum: 0<br/></td></tr> <tr><td data-label="Field"><code>symbol</code></td><td data-label="Type">string</td><td data-label="Required">Required</td><td data-label="Declared constraints / description"></td></tr> <tr><td data-label="Field"><code>temperatureC</code></td><td data-label="Type">number</td><td data-label="Required">Required</td><td data-label="Declared constraints / description"></td></tr> <tr><td data-label="Field"><code>time</code></td><td data-label="Type">string · date-time</td><td data-label="Required">Required</td><td data-label="Declared constraints / description">format: date-time<br/></td></tr> </tbody></table></div>     </details>  </td><td data-label="Required">Required</td><td data-label="Declared constraints / description">minItems: 1; maxItems: 6<br/></td></tr> <tr><td data-label="Field"><code>updatedAt</code></td><td data-label="Type">string · date-time</td><td data-label="Required">Required</td><td data-label="Declared constraints / description">format: date-time<br/></td></tr> </tbody></table></div>     </details>  <details> <summary>oneOf branch 2</summary>  <p className="clew-schema-scope">null</p>     </details>  <p className="clew-schema-scope">oneOf</p>     </details>  </td><td data-label="Required">Required</td><td data-label="Declared constraints / description"></td></tr> <tr><td data-label="Field"><code>id</code></td><td data-label="Type">string</td><td data-label="Required">Required</td><td data-label="Declared constraints / description">enum: [&quot;oslo&quot;,&quot;helsinki&quot;,&quot;lisbon&quot;]<br/></td></tr> <tr><td data-label="Field"><code>latitude</code></td><td data-label="Type">number</td><td data-label="Required">Required</td><td data-label="Declared constraints / description">minimum: -90; maximum: 90<br/></td></tr> <tr><td data-label="Field"><code>longitude</code></td><td data-label="Type">number</td><td data-label="Required">Required</td><td data-label="Declared constraints / description">minimum: -180; maximum: 180<br/></td></tr> <tr><td data-label="Field"><code>name</code></td><td data-label="Type">string</td><td data-label="Required">Required</td><td data-label="Declared constraints / description"></td></tr> </tbody></table></div>  
+
+<details>
+<summary>Exact retained media schema and examples</summary>
+
+```json
+{
+  "schema": {
+    "items": {
+      "properties": {
+        "forecast": {
+          "oneOf": [
+            {
+              "properties": {
+                "fetchedAt": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "mode": {
+                  "enum": [
+                    "fixture",
+                    "live"
+                  ],
+                  "type": "string"
+                },
+                "periods": {
+                  "items": {
+                    "properties": {
+                      "precipitationMm": {
+                        "minimum": 0,
+                        "type": [
+                          "number",
+                          "null"
+                        ]
+                      },
+                      "symbol": {
+                        "type": "string"
+                      },
+                      "temperatureC": {
+                        "type": "number"
+                      },
+                      "time": {
+                        "format": "date-time",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "time",
+                      "temperatureC",
+                      "precipitationMm",
+                      "symbol"
+                    ],
+                    "type": "object"
+                  },
+                  "maxItems": 6,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "updatedAt": {
+                  "format": "date-time",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "updatedAt",
+                "fetchedAt",
+                "mode",
+                "periods"
+              ],
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "enum": [
+            "oslo",
+            "helsinki",
+            "lisbon"
+          ],
+          "type": "string"
+        },
+        "latitude": {
+          "maximum": 90,
+          "minimum": -90,
+          "type": "number"
+        },
+        "longitude": {
+          "maximum": 180,
+          "minimum": -180,
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "latitude",
+        "longitude",
+        "forecast"
+      ],
+      "type": "object"
+    },
+    "type": "array"
+  }
+}
+```
+
+
+</details>
+
+
+</details>
+
+### 500
+
+500
+
+<details>
+<summary>Response media and body schema</summary>
+
+**Media:** application/json
+
+<p className="clew-schema-scope">object · additionalProperties: true</p>  <div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Required</th><th scope="col">Declared constraints / description</th></tr></thead><tbody> <tr><td data-label="Field"><code>error</code></td><td data-label="Type">string</td><td data-label="Required">Optional</td><td data-label="Declared constraints / description"></td></tr> </tbody></table></div>  
+
+<details>
+<summary>Exact retained media schema and examples</summary>
+
+```json
+{
+  "schema": {
+    "additionalProperties": true,
+    "properties": {
+      "error": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  }
+}
+```
+
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Complete retained operation contract</summary>
+
+```json
+{
+  "operationId": "dashboard_get_api_weather",
+  "responses": {
+    "200": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "items": {
+              "properties": {
+                "forecast": {
+                  "oneOf": [
+                    {
+                      "properties": {
+                        "fetchedAt": {
+                          "format": "date-time",
+                          "type": "string"
+                        },
+                        "mode": {
+                          "enum": [
+                            "fixture",
+                            "live"
+                          ],
+                          "type": "string"
+                        },
+                        "periods": {
+                          "items": {
+                            "properties": {
+                              "precipitationMm": {
+                                "minimum": 0,
+                                "type": [
+                                  "number",
+                                  "null"
+                                ]
+                              },
+                              "symbol": {
+                                "type": "string"
+                              },
+                              "temperatureC": {
+                                "type": "number"
+                              },
+                              "time": {
+                                "format": "date-time",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "time",
+                              "temperatureC",
+                              "precipitationMm",
+                              "symbol"
+                            ],
+                            "type": "object"
+                          },
+                          "maxItems": 6,
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "updatedAt": {
+                          "format": "date-time",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "updatedAt",
+                        "fetchedAt",
+                        "mode",
+                        "periods"
+                      ],
+                      "type": "object"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "id": {
+                  "enum": [
+                    "oslo",
+                    "helsinki",
+                    "lisbon"
+                  ],
+                  "type": "string"
+                },
+                "latitude": {
+                  "maximum": 90,
+                  "minimum": -90,
+                  "type": "number"
+                },
+                "longitude": {
+                  "maximum": 180,
+                  "minimum": -180,
+                  "type": "number"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "latitude",
+                "longitude",
+                "forecast"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        }
+      },
+      "description": "200"
+    },
+    "500": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "additionalProperties": true,
+            "properties": {
+              "error": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        }
+      },
+      "description": "500"
+    }
+  }
+}
+```
+
+
+</details>
+
+<details>
+<summary>Declaration reader and source context</summary>
+
+```json
+{
+  "authority": "DECLARED_OPENAPI",
+  "boundaries": [
+    "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+    "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED"
+  ],
+  "declaredSource": "contracts/dashboard.openapi.json",
+  "entrypoint": null,
+  "method": "GET",
+  "openapi": "3.1.0",
+  "parameters": [],
+  "path": "/api/weather",
+  "readerSelection": {
+    "compatibilityAnchor": "3.1",
+    "fullSpecificationValidation": false,
+    "outsideAdvertisedRange": false,
+    "reader": "BOUNDED_OPENAPI_PATH_OPERATION_READER",
+    "selectionMode": "DECLARED_COMPATIBILITY_PROFILE",
+    "supportedVersionRange": "OPENAPI_THROUGH_3_X"
+  },
+  "runtimeEnforcement": "UNVERIFIED",
+  "schema": "codeclew-documentation-contract-facts/1.0",
+  "security": null,
+  "securitySchemes": null,
+  "servers": null,
+  "sourceMapping": "NO_SOURCE_ROUTE_MATCH"
+}
+```
+
+
+</details>
+

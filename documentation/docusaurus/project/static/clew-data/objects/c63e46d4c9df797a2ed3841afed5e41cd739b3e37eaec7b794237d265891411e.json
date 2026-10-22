@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:c63e46d4c9df797a2ed3841afed5e41cd739b3e37eaec7b794237d265891411e",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 63,
+    "evidenceDigest": "sha256:9ddb25bdea58b339918f08cd8709a196f0397fc4fec39c38320f10baaf406078",
+    "file": "services/dashboard/src/main.ts",
+    "id": "dashboard-fe4a04d5c5b60afe170e",
+    "occurrence": {
+      "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+      "endByte": 3097,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 2996
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 63,
+    "text": "pool.query('SELECT place_id AS id,name,latitude,longitude,forecast FROM weather_cards ORDER BY name')",
+    "textDigest": "sha256:da4f3b990b0954916307bf2c6415f9b983c91293c6d862dd2a8fc88a1af8e921",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L63-L63"
+  }
+}

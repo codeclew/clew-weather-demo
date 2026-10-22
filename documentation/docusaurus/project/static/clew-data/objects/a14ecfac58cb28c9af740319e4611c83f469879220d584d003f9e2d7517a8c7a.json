@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:a14ecfac58cb28c9af740319e4611c83f469879220d584d003f9e2d7517a8c7a",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "id": "precipitation",
+    "meaning": {
+      "$clewRef": "sha256:b37b224d6eaa70b2bd68c24433bbc43eb308f9cbfc6069af729475371deb7bcc"
+    },
+    "path": "precipitationMm",
+    "representations": {
+      "$clewRef": "sha256:072621785e6db4f22f9eab5bb35217e5761fe487d9268fc16e16e95043ad363b"
+    },
+    "usage": {
+      "$clewRef": "sha256:3627da22d5f332a5268ee4ad062437918024be281666ebe93ba4be7c3f0ac2d1"
+    }
+  }
+}

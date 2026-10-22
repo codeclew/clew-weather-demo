@@ -1,0 +1,53 @@
+---
+title: "services/dashboard/src/events.ts:1–30"
+slug: "/sources/e315f42d31e792e7aa347f9f1a24237c1af90d82a71f4fcc4ddb87e219ce6b80"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/dashboard/src/events.ts:1–30
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6
+
+Text digest: sha256:a17702c69c12855a10f629ed89938eba6b4492e1b84efa9faf0e02f251ce2a2b
+
+## Retained text {#retained-text}
+
+```text
+export type Place = { id: string; name: string; latitude: number; longitude: number }
+export type Period = { time: string; temperatureC: number; precipitationMm: number | null; symbol: string }
+export type Forecast = { updatedAt: string; fetchedAt: string; mode: 'fixture' | 'live'; periods: Period[] }
+export type Event = { id: string; type: string; version: number; place: Place; forecast?: Forecast }
+
+export function isTimestamp(value: unknown): value is string {
+  return typeof value === 'string' && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/.test(value) && Number.isFinite(Date.parse(value))
+}
+
+export function validateEvent(value: unknown, topic: string): Event {
+  if (!value || typeof value !== 'object') throw new Error('INVALID_EVENT')
+  const event = value as Event
+  if (typeof event.id !== 'string' || event.version !== 1 || !event.place || typeof event.place.id !== 'string'
+      || !['oslo', 'helsinki', 'lisbon'].includes(event.place.id) || typeof event.place.name !== 'string'
+      || !Number.isFinite(event.place.latitude) || !Number.isFinite(event.place.longitude)) throw new Error('INVALID_EVENT')
+  if (topic === 'weather.forecast-updated') {
+    if (event.type !== 'forecast.updated' || !event.forecast || !isTimestamp(event.forecast.updatedAt)
+        || !isTimestamp(event.forecast.fetchedAt) || !['fixture', 'live'].includes(event.forecast.mode)
+        || !Array.isArray(event.forecast.periods) || event.forecast.periods.length < 1 || event.forecast.periods.length > 6) throw new Error('INVALID_FORECAST')
+    for (const period of event.forecast.periods) {
+      if (!isTimestamp(period.time) || !Number.isFinite(period.temperatureC)
+          || !(period.precipitationMm === null || (Number.isFinite(period.precipitationMm) && period.precipitationMm >= 0))
+          || typeof period.symbol !== 'string') throw new Error('INVALID_PERIOD')
+    }
+  } else if (topic === 'weather.place-requested') {
+    if (event.type !== 'place.requested' || event.forecast !== undefined) throw new Error('INVALID_PLACE_EVENT')
+  } else throw new Error('UNKNOWN_TOPIC')
+  return event
+}
+
+
+```
+
+<ClewDownload path="/clew-data/objects/e315f42d31e792e7aa347f9f1a24237c1af90d82a71f4fcc4ddb87e219ce6b80.json">Complete original source binding</ClewDownload>

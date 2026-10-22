@@ -1,0 +1,109 @@
+{
+  "identity": "sha256:6e4730373affdcc11f36db84d22f061b28aa2a81f5b1f75232912aaa1bebe1e7",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "applicability": null,
+    "boundaries": [
+      "RUNTIME_DESTINATION_AND_ACTIVATION_UNKNOWN",
+      "WIRE_SERIALIZATION_NOT_ASSESSED",
+      "MESSAGE_DELIVERY_ORDER_RETRY_AND_CONSUMER_ACTIVATION_UNKNOWN",
+      "ENVIRONMENT_SCOPE_UNSPECIFIED",
+      "CLIENT_PATTERN_UNSUPPORTED_OR_AMBIGUOUS",
+      "UNACCEPTED_AGENT_PROPOSAL"
+    ],
+    "callSite": {
+      "candidates": [
+        "places:flow:941152b2ec99892568c9e40a"
+      ],
+      "details": [
+        {
+          "id": "places:flow:941152b2ec99892568c9e40a",
+          "selectedOrdinal": 0,
+          "sourceIds": [
+            "places-941152b2ec99892568c9"
+          ],
+          "target": "method:class:Confluent.Kafka.IProducer`2#ProduceAsync(LSystem/String;LConfluent/Kafka/Message`2;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;",
+          "transport": null
+        }
+      ],
+      "sourceIds": [
+        "places-941152b2ec99892568c9"
+      ],
+      "status": "RESOLVED"
+    },
+    "contractStatus": "NOT_ASSESSED",
+    "declaration": {
+      "$clewRef": "sha256:f99b328ff02e501a2a7a9c8b2b18bb41f4a198ea9ffc5d05000d4e2b89ddaeb0"
+    },
+    "declarationDigest": "sha256:f99b328ff02e501a2a7a9c8b2b18bb41f4a198ea9ffc5d05000d4e2b89ddaeb0",
+    "destination": {
+      "declared": null,
+      "observed": [],
+      "status": "UNRESOLVED"
+    },
+    "from": {
+      "$clewRef": "sha256:87913634370bd1505476f4915a60bb67c1d635a9ee4aaecaedb0267e35a48e4e"
+    },
+    "id": "places-place-requested-to-dashboard",
+    "method": {
+      "caller": {
+        "declared": null,
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": null,
+        "observed": [],
+        "status": "UNRESOLVED"
+      }
+    },
+    "origin": "agent-proposal",
+    "path": {
+      "caller": {
+        "declared": null,
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": null,
+        "observed": [],
+        "status": "UNRESOLVED"
+      }
+    },
+    "runtime": "UNKNOWN",
+    "to": {
+      "candidates": [
+        "dashboard:symbol:a4627e5e868830287e83e0dc"
+      ],
+      "details": [
+        {
+          "descriptor": null,
+          "id": "dashboard:symbol:a4627e5e868830287e83e0dc",
+          "parameterTypes": [
+            ": EachMessagePayload"
+          ],
+          "sourceIds": [
+            "dashboard-a4627e5e868830287e83"
+          ],
+          "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5"
+        }
+      ],
+      "sourceIds": [
+        "dashboard-a4627e5e868830287e83"
+      ],
+      "status": "SOURCE_MATCH"
+    },
+    "topic": {
+      "caller": {
+        "declared": "weather.place-requested",
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": "weather.place-requested",
+        "observed": [],
+        "status": "UNRESOLVED"
+      }
+    }
+  }
+}

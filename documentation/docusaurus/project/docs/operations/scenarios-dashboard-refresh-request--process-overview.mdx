@@ -1,0 +1,42 @@
+---
+title: "Dashboard refresh-request thread"
+slug: "/operations/scenarios-dashboard-refresh-request--process-overview"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Dashboard refresh-request thread
+
+<ClewPageContext />
+
+Retained account · STALE · UNASSESSED. Runtime behavior is not established by this export.
+
+Dashboard.requestRefresh URL-encodes the place ID and sends POST /places/&#123;id&#125;/refresh, waiting up to ten seconds before forwarding the response status and JSON body. A fetch or JSON-decoding error returns 503 PLACES\_UNAVAILABLE. The saved process links this call to Places.Refresh and the request-publisher/consumer views, but the HTTP target binding is an agent proposal. The links do not establish execution order, response outcome, provider refresh or Kafka delivery; runtime routing remains unknown.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/dashboard/src/main.ts:76–83 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b41ac7155eba29b1e6a9dfe10348b626c22e19654978c7d35379a71fff4526a1.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- CALL\_TARGETS\_UNRESOLVED
+- DECLARED\_TRANSITION\_NOT\_REACHED:dashboard-request-refresh-to-places
+- DECLARED\_TRANSITION\_NOT\_REACHED:forecasts-forecast-updated-to-dashboard
+- DECLARED\_TRANSITION\_NOT\_REACHED:forecasts-refresh-to-external-met
+- DECLARED\_TRANSITION\_NOT\_REACHED:places-place-requested-to-dashboard
+- DECLARED\_TRANSITION\_NOT\_REACHED:places-place-requested-to-forecasts
+- ORDER\_LEXICAL\_ONLY
+- UNACCEPTED\_AGENT\_PROPOSAL
+- LINKED\_PROCESS\_UNASSESSED:places-request-publisher
+- LINKED\_PROCESS\_UNASSESSED:forecasts-place-requested-consumer
+- LINKED\_PROCESS\_UNASSESSED:forecasts-publish-pending
+- LINKED\_PROCESS\_UNASSESSED:dashboard-place-requested-consumer
+- LINKED\_PROCESS\_UNASSESSED:dashboard-forecast-updated-consumer
+
+</details>
+

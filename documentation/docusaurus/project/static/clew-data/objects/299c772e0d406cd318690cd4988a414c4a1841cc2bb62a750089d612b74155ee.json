@@ -1,0 +1,38 @@
+{
+  "identity": "sha256:299c772e0d406cd318690cd4988a414c4a1841cc2bb62a750089d612b74155ee",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [],
+    "dependencyIds": [
+      "places:symbol:edfd73109baec00e38bd9ff0",
+      "places:entrypoint:60965d356edea224ffadd0f9"
+    ],
+    "id": "places-3a33202464c8b4fff218",
+    "kind": "HTTP_ENDPOINT",
+    "service": "places",
+    "sourceIds": [
+      "places-edfd73109baec00e38bd"
+    ],
+    "symbol": "method:class:Weather.Places.PlacesController#Health(LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;",
+    "trigger": {
+      "apiVersions": [],
+      "authority": "ASPNETCORE_ROUTING_RULES",
+      "conditions": {
+        "authorization": {
+          "allowAnonymous": false,
+          "authorize": []
+        },
+        "consumes": [],
+        "produces": []
+      },
+      "methods": [
+        "GET"
+      ],
+      "pathResolution": "DERIVED",
+      "paths": [
+        "/health"
+      ],
+      "versionedPaths": null
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:e32371149d0cd3ef9d7db244ee94ebbe618f4d12b1c80503364c61a7947dc83a",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "dashboard:flow:37dec2bf70bc69d603cb8d4b",
+      "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+      "dashboard:flow:a190efb9bca6603f1d2abc58",
+      "dashboard:symbol:a4627e5e868830287e83e0dc",
+      "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+    ],
+    "id": "claim-b811b0fb9bbccaf5140e",
+    "kind": "note",
+    "sourceIds": [
+      "dashboard-37dec2bf70bc69d603cb",
+      "dashboard-8a4f6855cb7f1a476a04",
+      "dashboard-a190efb9bca6603f1d2a",
+      "dashboard-a4627e5e868830287e83",
+      "dashboard-ac3aadb76be6fea3e790"
+    ],
+    "text": "pool.connect runs before applyEvent's try. If it fails, there is no transaction rollback or client release. Once connected, errors inside the try attempt ROLLBACK, rethrow, and release the client in finally; either error prevents consumeMessage from reaching its valid-path offset commit. The DB transaction commits before the offset commit, so an offset failure can replay the message; the inbox duplicate check prevents a second card update, but does not establish exactly-once delivery."
+  }
+}

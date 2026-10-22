@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:16fde630e3ac4100f793b6d1f8655cc815438917428222fc0d5f387d7430e386",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:f677f7caa029c76cb7c93f15395a92efc0f78608f7288cc859df5018b17a63cd"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The query returns the forecast JSONB value as forecast. SQL NULL is returned when no forecast has been stored; a present object is linked to the proposed Forecast shape.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

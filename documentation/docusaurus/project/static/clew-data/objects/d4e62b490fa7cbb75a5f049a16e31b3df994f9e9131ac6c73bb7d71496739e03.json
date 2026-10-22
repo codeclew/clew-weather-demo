@@ -1,0 +1,28 @@
+{
+  "identity": "sha256:d4e62b490fa7cbb75a5f049a16e31b3df994f9e9131ac6c73bb7d71496739e03",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "ANNOTATION_DECLARATION_UNAVAILABLE",
+      "CALL_TARGETS_UNRESOLVED",
+      "NO_BEAN_OWNER",
+      "RUNTIME_REGISTRATION_UNPROVEN",
+      "SOURCE_NAMES_NOT_COMPILER_RESOLVED",
+      "UNRESOLVED_ANNOTATION_VALUE"
+    ],
+    "dependencyIds": [
+      "forecasts:symbol:3d7b217355f2e6a34064e800",
+      "forecasts:source_annotations:3d7b217355f2e6a34064e800"
+    ],
+    "id": "forecasts-23c1f84e75a5f47c4675",
+    "kind": "SCHEDULED_JOB",
+    "service": "forecasts",
+    "sourceIds": [
+      "forecasts-3d7b217355f2e6a34064"
+    ],
+    "symbol": "source:services/forecasts/src/main/kotlin/weather/Forecasts.kt/class:weather.Forecasts/publishPending/db0508abb6d728a6b0f2",
+    "trigger": {
+      "$clewRef": "sha256:1d8f29a2e650c48d95d1eb9a9d81d35b4dafd67d7af54c638897f6a44f7cfb93"
+    }
+  }
+}

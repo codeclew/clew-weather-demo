@@ -1,0 +1,46 @@
+{
+  "identity": "sha256:45a96921809dcd664e48fb89cbd561f0062c8c31659a229ffba748d2d6eb4c7e",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    {
+      "dependencyIds": [
+        "places:symbol:9b1977404f23eec4b384ba0d"
+      ],
+      "id": "places:symbol:9b1977404f23eec4b384ba0d",
+      "name": "City",
+      "owner": "class:Weather.Places.PlacesRepository",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "publicBoundary": false,
+      "scope": "csproj:services/places/Places.csproj@net10.0",
+      "service": "places",
+      "sourceIds": [
+        "places-9b1977404f23eec4b384"
+      ],
+      "status": "RECORDED",
+      "symbol": "method:class:Weather.Places.PlacesRepository#City(LSystem/String;)LWeather/Places/Place;"
+    },
+    {
+      "$clewRef": "sha256:26ad5eaac57a588e70d9ab83c4924ea6e6474de61ca9c0233dbce5e54b147b49"
+    },
+    {
+      "$clewRef": "sha256:39230e2d5184803d7c9fc8efe739d87b32113151867d97cbf4d4b3650f0f3344"
+    },
+    {
+      "$clewRef": "sha256:8b34f725e390169418e8306e53638e9aa11b2551825b11450a8c32409394f91b"
+    },
+    {
+      "$clewRef": "sha256:968cf07dcdf81d57e3ac59be2cc3f388f7920cd5e2465512e443329d97ab854c"
+    },
+    {
+      "$clewRef": "sha256:81730432768cbc4ede126147cd5d8d22e7bb4642703d2ee6c82ba970f03577cf"
+    },
+    {
+      "$clewRef": "sha256:f1bac6ac845d2ca1d3839714bd60021468abcd920abb696108eb620401792bbf"
+    },
+    {
+      "$clewRef": "sha256:f56c0579dbdfb21da31c5bca5d970c44699c15f7f99ad5ad7f57d230702850aa"
+    }
+  ]
+}

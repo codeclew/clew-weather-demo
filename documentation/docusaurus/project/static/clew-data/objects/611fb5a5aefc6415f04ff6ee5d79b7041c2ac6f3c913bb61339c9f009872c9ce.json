@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:611fb5a5aefc6415f04ff6ee5d79b7041c2ac6f3c913bb61339c9f009872c9ce",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": {
+      "$clewRef": "sha256:a12763c5b4a6deb7efe557c6f4c84973c3261fad1967af26683cc2ba47a3c519"
+    },
+    "id": "claim-ae8691dbe1fb32b2eeb1",
+    "sourceIds": [
+      "dashboard-021fcd0ff7baa53bd3c5",
+      "dashboard-049a97e649d7feb212e6",
+      "dashboard-37dec2bf70bc69d603cb",
+      "dashboard-59f03a0653cc7a3798b8",
+      "dashboard-654eeebd7e0618b0c6dd",
+      "dashboard-7d0d09a16ac25de86e5b",
+      "dashboard-8a4f6855cb7f1a476a04",
+      "dashboard-a190efb9bca6603f1d2a",
+      "dashboard-a4627e5e868830287e83",
+      "dashboard-ac3aadb76be6fea3e790"
+    ],
+    "text": "The saved process declaration proposes a weather.forecast-updated mapping to Dashboard.consumeMessage; subscription settings and runtime delivery remain unverified. For that topic, validateEvent requires a string id, version 1, an allowed place id (oslo, helsinki, lisbon), string name, finite coordinates, type forecast.updated, valid updatedAt/fetchedAt timestamps, fixture or live mode, and 1–6 periods. Each period needs a valid time, finite temperature, null or finite nonnegative precipitation, and a string symbol. Parse or validation failures, including UNKNOWN_TOPIC, are caught, recorded as INVALID_EVENT, and followed by offset plus one; reject-write or offset-commit errors propagate. On valid input, applyEvent inserts the id into inbox in a transaction. A duplicate commits and returns DUPLICATE without changing the card. A new forecast can insert its card directly from event.place, without a prior place-requested event; an existing card updates only when its stored timestamp is null or older, while equal or older timestamps leave it unchanged and return OLDER_OR_EQUAL. Connected-client transaction errors attempt rollback and release in finally; connection errors occur before the try, and either failure prevents the offset commit. The DB transaction commits before the offset, so a later offset failure can replay the message; inbox suppresses a second card update, not duplicate delivery. Runtime remains unverified."
+  }
+}

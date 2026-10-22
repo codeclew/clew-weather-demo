@@ -1,0 +1,19 @@
+{
+  "identity": "sha256:eb4eba7e8a929a065eafc70ec20975a2db6490149d04554901ae0161e97c1bf2",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+      "dashboard:symbol:a4627e5e868830287e83e0dc",
+      "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+    ],
+    "id": "claim-4cc1da1d40cb9d296d9c",
+    "kind": "note",
+    "sourceIds": [
+      "dashboard-8a4f6855cb7f1a476a04",
+      "dashboard-a4627e5e868830287e83",
+      "dashboard-ac3aadb76be6fea3e790"
+    ],
+    "text": "On a valid event, applyEvent commits its database transaction before consumeMessage commits offset plus one. If that later offset commit fails, the event can be replayed; the inbox duplicate check suppresses a second card update, but does not establish exactly-once delivery."
+  }
+}

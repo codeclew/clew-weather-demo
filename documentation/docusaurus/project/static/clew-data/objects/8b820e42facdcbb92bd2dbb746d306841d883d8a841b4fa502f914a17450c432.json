@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:8b820e42facdcbb92bd2dbb746d306841d883d8a841b4fa502f914a17450c432",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:ed850650be3156ac625369adcc701431eb9fae15bac8278a246c21471a3dc79c"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The forecast branch requires fetchedAt to pass isTimestamp; absence, null and invalid timestamp values are rejected.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

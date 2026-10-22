@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:76de97f85acc8510d6490488d56bf10e37d06f182da7a2fceac7970ffa7ba266",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:58a470c9d9b4c0801355ebeca6b5be81a3eae832cc19917de061b18fde2961c4"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "If the Places Save handler runs, it passes request.CityId to City(). Only oslo, helsinki and lisbon map to a Place; a null lookup result returns 400 UNSUPPORTED_CITY without calling Save. The returned name and coordinates are lookup-derived, not request fields.",
+    "title": "Save a city: source interpretation",
+    "tone": null
+  }
+}

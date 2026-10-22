@@ -1,0 +1,20 @@
+{
+  "identity": "sha256:aa3179795407fce3eecf8f2a2d29b8473ec96b3318cf6b54ddcc8fad08a2fcfa",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "C# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted."
+    ],
+    "documentationLanguage": "en",
+    "events": [],
+    "explanation": [],
+    "findings": [],
+    "id": "section-entities",
+    "interfaceContracts": [],
+    "participants": [],
+    "summary": {
+      "$clewRef": "sha256:521f5abd20171a14ec7a3df487b5cb4c0807fecd8bd414f0f8f3ba692c4a64b0"
+    },
+    "title": "Places domain entities"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "identity": "sha256:37917416392cfc68e354e8ec93c9443def5dca0ce16b041ca5e8cf273faab0f4",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": {
+      "$clewRef": "sha256:72009282418592b6eee1cf2eaf368deaaf0983972ee44d031a499dddf3cf014d"
+    },
+    "id": "claim-3aeab4fe16dd2fe0b49e",
+    "sourceIds": [
+      "dashboard-7970ac3e2a8cf3f45b4a",
+      "places-309961f88b197290c1b0",
+      "places-51d94b76d870001475fd",
+      "places-6c7321d96988c6277e32",
+      "places-770e53d99edf681987e1",
+      "places-d3b23b700626394c74b7"
+    ],
+    "text": "A caller submits a cityId to Dashboard.savePlace. The handler serializes the body and sends POST /places with a 10-second abort signal; the declared OpenAPI request is an object containing only cityId, with oslo, helsinki, and lisbon as allowed values. The saved Dashboard-to-Places mapping is agent-proposed, so runtime target binding is not established. Places returns 400 UNSUPPORTED_CITY when its city mapping fails; otherwise it awaits repository.Save and returns 200. Save inserts the place in a database transaction, inserts a place.requested version 1 outbox record only when the place insert returns a new id, and commits. A conflict skips the outbox insert but still commits. Dashboard forwards a parsed upstream status/body, while a fetch or JSON parse exception returns 503 PLACES_UNAVAILABLE; the wrapper has no retry and that response does not say whether the Places transaction committed. The no-outbox path is tied to the place INSERT returning null on conflict; that can reflect an existing city or another request, so it is not a retry guarantee for the timed-out caller. The saved process links publisher and consumer views separately; an outbox row is not proof of Kafka publication or consumption."
+  }
+}

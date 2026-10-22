@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:4e79263abf80fbf833432043cb6b74035cf46f395ad731ee204419fb513afed2",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 23,
+    "evidenceDigest": "sha256:02a92ac5dc2f2d8a02881bb365ff844b2a10f4f71da9ccf6b0a387c5344c71a0",
+    "file": "exercises/validator-regression.mjs",
+    "id": "dashboard-36f8054e24747b2aa529",
+    "occurrence": {
+      "blob": "a4c777a5c3db66181196236eb4aa48cb3bddaf0f",
+      "endByte": 1365,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 0
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 1,
+    "text": "import assert from 'node:assert/strict'\nimport { validateEvent as original } from './unchecked-place-forecast.ts'\nimport { validateEvent as corrected } from '../services/dashboard/src/events.ts'\n\nconst place = { id: 'oslo', name: 'Oslo', latitude: 59.91, longitude: 10.75 }\nconst request = { id: 'validator-regression', type: 'place.requested', version: 1, place }\nconst unchecked = { ...request, forecast: { arbitrary: 'unchecked' } }\nassert.equal(original(unchecked, 'weather.place-requested'), unchecked)\nassert.throws(() => corrected(unchecked, 'weather.place-requested'), /INVALID_PLACE_EVENT/)\nassert.equal(corrected(request, 'weather.place-requested'), request)\nassert.throws(() => corrected(request, 'unknown-topic'), /UNKNOWN_TOPIC/)\n\nconst timestamp = '2026-10-12T12:00:00Z'\nconst forecast = {\n  id: 'forecast-regression', type: 'forecast.updated', version: 1, place,\n  forecast: { updatedAt: timestamp, fetchedAt: timestamp, mode: 'fixture', periods: [\n    { time: timestamp, temperatureC: 0, precipitationMm: null, symbol: 'cloudy' }\n  ] }\n}\nassert.equal(corrected(forecast, 'weather.forecast-updated'), forecast)\nassert.throws(() => corrected({ ...forecast, forecast: { ...forecast.forecast, updatedAt: 0 } },\n  'weather.forecast-updated'), /INVALID_FORECAST/)\nconsole.log(JSON.stringify({ status: 'PASSED', assertions: 6, runtime: process.version }))\n",
+    "textDigest": "sha256:36125adc79657a5eff8653df8917e71536dd17589608d907cf20764e791c014d",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/exercises/validator-regression.mjs#L1-L23"
+  }
+}

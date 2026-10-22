@@ -1,0 +1,19 @@
+{
+  "identity": "sha256:2e87ad33ae961927853656ac737818dcfe8ac42a9af52ddaeefa40f8f062591c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "forecasts:flow:84ab2c89d2ea612342339614",
+      "forecasts:source_annotations:1ea53b95922ad5791d930533",
+      "forecasts:symbol:1ea53b95922ad5791d930533",
+      "process-scope:forecasts-refresh-scheduled"
+    ],
+    "id": "claim-ab640ccbee5fcb50994b",
+    "kind": "loop",
+    "sourceIds": [
+      "forecasts-1ea53b95922ad5791d93",
+      "forecasts-84ab2c89d2ea61234233"
+    ],
+    "text": "Process each selected place separately. The source passes refresh(place) to transaction.executeWithoutResult; transaction commit, rollback, and callback timing are not established by this syntax capture."
+  }
+}

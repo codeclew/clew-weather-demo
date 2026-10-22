@@ -1,0 +1,39 @@
+---
+title: "Forecasts responsibilities"
+slug: "/operations/services-forecasts--section-responsibilities"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Forecasts responsibilities
+
+<ClewPageContext />
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+Forecasts serves stored forecast payloads by place id, reports database readiness, and serves the checked-in OpenAPI document. Its Kafka listener consumes weather.place-requested events. Invalid JSON or place.requested v1 validation throws enter the reject branch, which inserts a rejected\_messages row and acknowledges the record before returning; the valid branch places inbox insertion, place upsert, and refresh in a transaction callback, then reaches acknowledgment afterward. Callback timing, commit, rollback, and runtime delivery remain unverified.
+
+The service refreshes only when a cached forecast is expired or absent. Its fixture branch reads a place-specific fixture; its live branch calls MET. It builds a forecast payload, attempts an upsert that accepts equal or newer updatedAt values, then attempts a forecast.updated outbox insert. Two source declarations use scheduled annotations: refreshExpired scans expired or missing forecasts, and publishPending sends outbox records. Source syntax and configuration do not establish that either schedule or listener runs in deployment.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:62–68 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ee1c73490c4cd4a1f4efaf310e65a12cc2a3c6bbb15ab76a4eb246cf1533dc35.mdx)
+- [services/forecasts/src/main/resources/application.properties:1–16 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/7dc31ff2f89df6313b31ccd5e53de88f58ca342c20783e2f8e34d13d0d872b55.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:127–139 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/1bd07596f6d98195ae25427eb2eb0175e2e0db2969f1b348800d52ddabc630ab.mdx)
+- [services/forecasts/src/main/kotlin/weather/ForecastController.kt:9–20 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ffa1bcd654fb053b7268bd37f4d7f3bab953ed7333d711728cffd5034606ae82.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:38–53 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/fabcf790d6359bad92930830b294197d73c440e51b6a010808853eccb900f2e6.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:55–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/9233bcae5aa5673c061ebdb857c39ce75ee4724473f2f75c21b7387f0fc94e1b.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- Kotlin and Spring source evidence does not establish runtime listener or scheduler registration, callback invocation, or database transaction commit and rollback behavior. Captured application configuration is source text, not proof of deployed settings.
+- OpenAPI and event JSON Schema are read as source text; JSON Schema keywords, unions, and null types are not fully interpreted.
+
+</details>
+

@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:05280f6fc70be10d15c33fa2fbe530afbdbeb1db6f60a141a4cac3994e960a0c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contract": null,
+    "field": null,
+    "label": "Embedded Forecast JSON / TypeScript Period",
+    "mapping": {
+      "$clewRef": "sha256:42b446dab1b0cb9dde251da118a406fff9071ab45142ff2e9e4a6c7c31c241f6"
+    },
+    "nullability": "Nullable only for precipitationMm",
+    "relatedModel": null,
+    "requiredness": "Present on each Period",
+    "typeLabel": "string"
+  }
+}

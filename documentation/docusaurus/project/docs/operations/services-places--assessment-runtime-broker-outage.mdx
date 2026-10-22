@@ -1,0 +1,57 @@
+---
+title: "A broker outage leaves a saved place waiting in the outbox"
+slug: "/operations/services-places--assessment-runtime-broker-outage"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# A broker outage leaves a saved place waiting in the outbox
+
+<ClewPageContext />
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+During a broker outage, POST /places can still save a supported city: the controller awaits PlacesRepository.Save and returns 200. Save inserts the place and, only for a new row, writes a place.requested message to request\_outbox in the same database transaction; a duplicate creates no second request. The publisher selects the oldest pending row, sends it to weather.place-requested, then marks it published and commits. A failed send leaves it pending; ExecuteAsync logs PUBLISH\_RETRY and waits one second before retrying. The producer uses a 10-second message timeout and enables idempotence. GET /health checks SELECT 1 only, so database READY does not attest to broker health.
+
+The imported GitHub Actions run reports seven passing checks: the dashboard began empty; save returned 200 while the broker was down; one outbox row remained unpublished; health still returned database READY; a duplicate save kept one row; a retry marker appeared; and after broker recovery the row was published and a dashboard card contained a forecast. The run is https://github.com/codeclew/clew-weather-demo/actions/runs/38363357256 at revision d135990a1c8770928d3c7be2274ff60e7f5d75d3. Its five saved hashes matched compose.yaml, RequestPublisher.cs, PlacesRepository.cs, Forecasts.kt and Dashboard main.ts. This is imported historical evidence, not a fresh compiler or runtime run. It does not prove exactly-once delivery: a crash after broker delivery but before the database mark can permit a repeat.
+
+Checkout root: python3 -I -S -B exercises/broker-outage.py --output PASTE\_NEW\_DIRECTORY\_OUTSIDE\_CHECKOUT. Use a new output directory outside the checkout, not its ancestor. Requires Python 3, Git, Docker and Compose supporting \!override; free loopback ports 19080–19082 or three distinct ports via --dashboard-port, --places-port, --forecasts-port. The script creates a unique project, forces fixture mode, runs Compose up --build -d, stops/restarts Kafka, then Compose down --volumes --remove-orphans for that project only. Do not prestart a stack.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/places/PlacesController.cs:10–17 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0.mdx)
+- [services/places/PlacesRepository.cs:52–59 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/89387464df117dd1f2cfdbd8113d90c803728d4fe220f507529703bd597dbf8e.mdx)
+- [services/places/PlacesRepository.cs:14–19 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ac9cd70dddf6c07f241fea3e24665fbe31c3ebcace3aebc051cc81679106cb7c.mdx)
+- [services/places/RequestPublisher.cs:18–34 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/728b9ba12f04391993430660fb0e4a022375568be05cd19f8e9d4aca115e990d.mdx)
+- [services/places/RequestPublisher.cs:7–17 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/b970c6d235f9c5eb2f4e16bc78eda2a4ee3a68751103a8811054e9802c535d97.mdx)
+- [services/places/PlacesRepository.cs:36–44 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/379c0b710ffb354ec36825644e1d5c73ec611814e26c938687bac753bdb832c6.mdx)
+- [services/places/PlacesController.cs:26–31 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/efc0c91d8075be6474d60ff2dfdc8deccb39e21ff00789cc4a20f6b4f07406d2.mdx)
+
+</details>
+
+## Declared interface schemas
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/87bdfe805b90ff664e9fc182216739d849835c6c30af7a07a61f2e924a3ac715">GET /health</ClewContextLink>
+
+<ClewContextLink path="/http/21f85a173ea2df11931c2a8c3d4c8953ac99f281ef337c409d8436421d347b61">GET /places</ClewContextLink>
+
+<ClewContextLink path="/http/323c07ab1fab7684d72321edf709e7e56345afa1fed70fa7e429deef72d255dc">POST /places/&#123;id&#125;/refresh</ClewContextLink>
+
+<ClewContextLink path="/http/d3ee0d34d91fd8813ea24869ec083fb1661ae843ae68a8370d87dd837a061341">GET /openapi.json</ClewContextLink>
+
+<ClewContextLink path="/http/4faae4a057439031a1013fae51fc548d28f7ae661a688f8923ca2d1474e2a60a">POST /places</ClewContextLink>
+
+</div>
+
+
+<details>
+<summary>Retained boundaries</summary>
+
+- The outage result and five file-hash matches are imported historical observations. The recorded source excerpts describe Places behavior but do not constitute a fresh compiler or runtime run, establish broker health through the health endpoint, or prove exactly-once delivery.
+
+</details>
+

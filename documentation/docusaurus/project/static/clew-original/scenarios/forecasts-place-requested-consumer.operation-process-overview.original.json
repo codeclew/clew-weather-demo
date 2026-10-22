@@ -1,0 +1,533 @@
+{
+  "contracts": [],
+  "externalCalls": [],
+  "operation": {
+    "boundaries": [
+      "Source annotations do not prove Spring listener activation, broker delivery, transaction atomicity, or runtime acknowledgment timing.",
+      "CALL_TARGETS_UNRESOLVED",
+      "DECLARED_TRANSITION_NOT_REACHED:places-place-requested-to-forecasts",
+      "ORDER_LEXICAL_ONLY",
+      "LINKED_PROCESS_UNASSESSED:forecasts-refresh-scheduled",
+      "LINKED_PROCESS_UNASSESSED:forecasts-publish-pending"
+    ],
+    "documentationLanguage": "en",
+    "events": [],
+    "explanation": [],
+    "findings": [],
+    "id": "process-overview",
+    "interfaceContracts": [],
+    "participants": [],
+    "summary": {
+      "dependencyIds": [
+        "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+        "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+        "process-component:forecasts-place-requested-consumer:forecasts-publish-pending",
+        "process-component:forecasts-place-requested-consumer:forecasts-refresh-scheduled",
+        "process-scope:forecasts-place-requested-consumer",
+        "process:forecasts-place-requested-consumer"
+      ],
+      "id": "claim-f3628eb43a6a42414560",
+      "sourceIds": [
+        "forecasts-ad28a606f0881dfe7cfc"
+      ],
+      "text": "Forecasts.consume is the source-declared listener for weather.place-requested; the handler parses and validates each record, then follows the separately accepted Forecasts.consume operation for rejection, inbox, upsert, refresh, and acknowledgment details. This overview links forecasts-refresh-scheduled and forecasts-publish-pending as related views. The saved process definition says those links establish neither cross-process order, shared transaction atomicity, acknowledgment timing, nor delivery. The process scope includes Forecasts only; Spring listener activation and runtime delivery remain unverified."
+    },
+    "title": "Forecasts place-requested process overview"
+  },
+  "sectionState": {
+    "contentRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "coverage": {
+      "dashboard": {
+        "boundaries": [
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/dashboard.openapi.json",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+          "FILE_ONLY:exercises/replay.py",
+          "FILE_ONLY:exercises/validator-regression.mjs",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/dashboard/Dockerfile",
+          "FILE_ONLY:services/dashboard/package-lock.json",
+          "FILE_ONLY:services/dashboard/package.json",
+          "FILE_ONLY:services/dashboard/public/index.html",
+          "FILE_ONLY:services/dashboard/tsconfig.json",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "SCOPE_WATCH_CONSERVATIVE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "forecasts": {
+        "boundaries": [
+          "ANNOTATION_DECLARATION_UNAVAILABLE",
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:contracts/forecasts.openapi.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/forecasts/Dockerfile",
+          "FILE_ONLY:services/forecasts/pom.xml",
+          "FILE_ONLY:services/forecasts/src/main/resources/application.properties",
+          "NO_BEAN_OWNER",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "RUNTIME_REGISTRATION_UNPROVEN",
+          "SCOPE_WATCH_CONSERVATIVE",
+          "SOURCE_NAMES_NOT_COMPILER_RESOLVED",
+          "UNRESOLVED_ANNOTATION_VALUE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "places": {
+        "boundaries": [
+          "CLR_SIGNATURE_PROJECTED_TO_JVM_DESCRIPTOR_GRAMMAR",
+          "CSHARP_SOURCE_GENERATED_DOCUMENTS_NOT_INDEXED",
+          "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+          "GENERATED_SOURCE_BODIES_NOT_INDEXED",
+          "LAMBDA_EXECUTION_NOT_EXPANDED",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+          "SWITCH_FLOW_REQUIRES_SOURCE_REVIEW"
+        ],
+        "coverage": "PARTIAL"
+      }
+    },
+    "freshness": "STALE",
+    "reasons": [
+      {
+        "after": "sha256:0963521b4ed1f85ab4680772b6a50fe7cbe788b298475434f3fe39fc37747a53",
+        "before": "sha256:3c4e6159a380e6fed6bffd10dabd2c6f173c09d87cb599eac8135c28603230b4",
+        "dependency": "process-component:forecasts-place-requested-consumer:forecasts-publish-pending",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:1b5f23cacf432a775fe22273fe53f9bb2abb1b7ff999910e15d1407181d123d9",
+        "before": "sha256:e3b4940ede42d2eec9d7fa36ad414d15386a51bc4526deebc02be7129635df8d",
+        "dependency": "process-component:forecasts-publish-pending:dashboard-forecast-updated-consumer",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:1d156761e8889b4827f48fc763696cb872479af3922679fcf5d751f3cd188f61",
+        "before": "sha256:ea0d101ab9e54e3b7d92116edac71f1b5d0605552fd0ca5169764b6d04e55afc",
+        "dependency": "process-component:forecasts-refresh-scheduled:forecasts-publish-pending",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:39acb7c9061bc46ca2cf3cb0466dd43e9bc6ee014a1f8f8ec1b3ddf60ee2ac9c",
+        "before": "sha256:5df83ce79a1a4a94bb7eb957bbde39d7f437a886373d5590bf1228b9f683def0",
+        "dependency": "process-component:forecasts-place-requested-consumer:forecasts-refresh-scheduled",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "reason": "INFLUENCE_SCOPE_CHANGED",
+        "scope": "sha256:a49418962d4d96255acbdb2ea78b118a9a29b83cf5663035753af3171e77ebb2"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:b57016f8fd0621d202cb2ee1e96f17cd3ba84d6a935e64660e40ac3d60be0ca4/164667"
+      }
+    ],
+    "targetRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "verification": "UNASSESSED"
+  },
+  "sources": {
+    "forecasts-5bda17b9322e1d09244c": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 47,
+      "evidenceDigest": "sha256:03a7547950ff9d83f68f7f9ec1a25a1ec54ee5c6e05bd5b125efb15d953564c7",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-5bda17b9322e1d09244c",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 2503,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 2457
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 47,
+      "text": "if (inserted == 0) return@executeWithoutResult",
+      "textDigest": "sha256:10231815283171f5cd920a27f2f053d4e732a9051bba3a48d340ac22b11c5412",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L47-L47"
+    },
+    "forecasts-5c0f3b18ff82fe4d8110": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 40,
+      "evidenceDigest": "sha256:7a18d45f2d690f6c56e3e0cf203a0ca3bd405255def9363322ba76da8e3968ec",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-5c0f3b18ff82fe4d8110",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 1977,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 1951
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 40,
+      "text": "{ validatePlaceEvent(it) }",
+      "textDigest": "sha256:151cea50ab1822535e45cf412651cf77ee6f5d708b3043b34a5fc8c717ae8b8f",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L40-L40"
+    },
+    "forecasts-6197b7e7ffd42134c675": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 43,
+      "evidenceDigest": "sha256:dfca91a30c4bb1057cac4f02ea727202dd703eae5d058fcb53b736286ea38c84",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-6197b7e7ffd42134c675",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 2266,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 2260
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 43,
+      "text": "return",
+      "textDigest": "sha256:7187f0675eb3827939741acf7342ba78836ecec21a31ecf3f34a55309d3bee8a",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L43-L43"
+    },
+    "forecasts-a38d386449227ba051cf": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 44,
+      "evidenceDigest": "sha256:549db20c4e393bada4a55b5fdaf097e6e8be5ebbec4cb4424a1a1aae6f487ca4",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-a38d386449227ba051cf",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 2276,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 1910
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 40,
+      "text": "try { json.readTree(record.value()).also { validatePlaceEvent(it) } } catch (error: Exception) {\n            jdbc.update(\"INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES(?,?,?,'INVALID_EVENT') ON CONFLICT DO NOTHING\", record.topic(), record.partition(), record.offset())\n            acknowledgment.acknowledge()\n            return\n        }",
+      "textDigest": "sha256:708eb568aaff8463dc4a2d41b20c261ab450dc22a4a6daaa319843c40bd9da7a",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L40-L44"
+    },
+    "forecasts-ad28a606f0881dfe7cfc": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 53,
+      "evidenceDigest": "sha256:75f28391188e016f4cd19d7e61a08699a7eaaa64d58b43b44c4b71414feec28d",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-ad28a606f0881dfe7cfc",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 2924,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 1747
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 38,
+      "text": "@KafkaListener(topics = [\"weather.place-requested\"])\n    fun consume(record: ConsumerRecord<String, String>, acknowledgment: Acknowledgment) {\n        val event = try { json.readTree(record.value()).also { validatePlaceEvent(it) } } catch (error: Exception) {\n            jdbc.update(\"INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES(?,?,?,'INVALID_EVENT') ON CONFLICT DO NOTHING\", record.topic(), record.partition(), record.offset())\n            acknowledgment.acknowledge()\n            return\n        }\n        transaction.executeWithoutResult {\n            val inserted = jdbc.update(\"INSERT INTO inbox(event_id) VALUES(?) ON CONFLICT DO NOTHING\", event[\"id\"].asText())\n            if (inserted == 0) return@executeWithoutResult\n            val place = event[\"place\"]\n            jdbc.update(\"INSERT INTO places(id,name,latitude,longitude) VALUES(?,?,?,?) ON CONFLICT(id) DO UPDATE SET name=EXCLUDED.name,latitude=EXCLUDED.latitude,longitude=EXCLUDED.longitude\", place[\"id\"].asText(), place[\"name\"].asText(), place[\"latitude\"].asDouble(), place[\"longitude\"].asDouble())\n            refresh(place)\n        }\n        acknowledgment.acknowledge()\n    }",
+      "textDigest": "sha256:f6e86f56f6858e6c825ad010e8b1d1cd4816fc6beaba9bda5daa3a855915c37f",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L38-L53"
+    },
+    "forecasts-b7a8f5b7842c514f7f59": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 51,
+      "evidenceDigest": "sha256:a884ef80db214b344f8266c535c149957d60b069b26c13665086f121186ac935",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-b7a8f5b7842c514f7f59",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 2881,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 2318
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 45,
+      "text": "{\n            val inserted = jdbc.update(\"INSERT INTO inbox(event_id) VALUES(?) ON CONFLICT DO NOTHING\", event[\"id\"].asText())\n            if (inserted == 0) return@executeWithoutResult\n            val place = event[\"place\"]\n            jdbc.update(\"INSERT INTO places(id,name,latitude,longitude) VALUES(?,?,?,?) ON CONFLICT(id) DO UPDATE SET name=EXCLUDED.name,latitude=EXCLUDED.latitude,longitude=EXCLUDED.longitude\", place[\"id\"].asText(), place[\"name\"].asText(), place[\"latitude\"].asDouble(), place[\"longitude\"].asDouble())\n            refresh(place)\n        }",
+      "textDigest": "sha256:e0e1cd6cf020be2d85f8c3c988b16e98abcd37a9fdf54e12110ae6ff2d1b7b82",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L45-L51"
+    },
+    "forecasts-cbe0a836e93f909f2825": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 47,
+      "evidenceDigest": "sha256:b4117591a89dd5d5be2d80996ddbf4fada6bdebe6979bc1d95eb8ad44e603e2c",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-cbe0a836e93f909f2825",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 2503,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 2476
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 47,
+      "text": "return@executeWithoutResult",
+      "textDigest": "sha256:c3d89e90ed6f85f06558a602baf6f22dc860196be1624385cca5d0d41ad9e216",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L47-L47"
+    },
+    "forecasts-cc58d8643f3d17e4b691": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 60,
+      "evidenceDigest": "sha256:4d62c9e1450dd4343277ea2192b17af525dc4d5e219e330b924caa2405a15322",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-cc58d8643f3d17e4b691",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 3383,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 2930
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 55,
+      "text": "fun validatePlaceEvent(event: JsonNode) {\n        val place = event[\"place\"]\n        require(event[\"version\"]?.asInt() == 1 && event[\"type\"]?.asText() == \"place.requested\" && !event[\"id\"]?.asText().isNullOrBlank())\n        require(place != null && place[\"id\"]?.asText() in listOf(\"oslo\", \"helsinki\", \"lisbon\") && !place[\"name\"]?.asText().isNullOrBlank())\n        require(place[\"latitude\"]?.isNumber == true && place[\"longitude\"]?.isNumber == true)\n    }",
+      "textDigest": "sha256:eeaf405e527d587a183f4fa5fada82a30adb0c22a13668e03402daff10986e04",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L55-L60"
+    }
+  },
+  "state": {
+    "contentRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "coverage": {
+      "dashboard": {
+        "boundaries": [
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/dashboard.openapi.json",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+          "FILE_ONLY:exercises/replay.py",
+          "FILE_ONLY:exercises/validator-regression.mjs",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/dashboard/Dockerfile",
+          "FILE_ONLY:services/dashboard/package-lock.json",
+          "FILE_ONLY:services/dashboard/package.json",
+          "FILE_ONLY:services/dashboard/public/index.html",
+          "FILE_ONLY:services/dashboard/tsconfig.json",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "SCOPE_WATCH_CONSERVATIVE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "forecasts": {
+        "boundaries": [
+          "ANNOTATION_DECLARATION_UNAVAILABLE",
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:contracts/forecasts.openapi.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/forecasts/Dockerfile",
+          "FILE_ONLY:services/forecasts/pom.xml",
+          "FILE_ONLY:services/forecasts/src/main/resources/application.properties",
+          "NO_BEAN_OWNER",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "RUNTIME_REGISTRATION_UNPROVEN",
+          "SCOPE_WATCH_CONSERVATIVE",
+          "SOURCE_NAMES_NOT_COMPILER_RESOLVED",
+          "UNRESOLVED_ANNOTATION_VALUE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "places": {
+        "boundaries": [
+          "CLR_SIGNATURE_PROJECTED_TO_JVM_DESCRIPTOR_GRAMMAR",
+          "CSHARP_SOURCE_GENERATED_DOCUMENTS_NOT_INDEXED",
+          "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+          "GENERATED_SOURCE_BODIES_NOT_INDEXED",
+          "LAMBDA_EXECUTION_NOT_EXPANDED",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+          "SWITCH_FLOW_REQUIRES_SOURCE_REVIEW"
+        ],
+        "coverage": "PARTIAL"
+      }
+    },
+    "freshness": "STALE",
+    "reasons": [
+      {
+        "after": "sha256:0963521b4ed1f85ab4680772b6a50fe7cbe788b298475434f3fe39fc37747a53",
+        "before": "sha256:3c4e6159a380e6fed6bffd10dabd2c6f173c09d87cb599eac8135c28603230b4",
+        "dependency": "process-component:forecasts-place-requested-consumer:forecasts-publish-pending",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:1b5f23cacf432a775fe22273fe53f9bb2abb1b7ff999910e15d1407181d123d9",
+        "before": "sha256:e3b4940ede42d2eec9d7fa36ad414d15386a51bc4526deebc02be7129635df8d",
+        "dependency": "process-component:forecasts-publish-pending:dashboard-forecast-updated-consumer",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:1d156761e8889b4827f48fc763696cb872479af3922679fcf5d751f3cd188f61",
+        "before": "sha256:ea0d101ab9e54e3b7d92116edac71f1b5d0605552fd0ca5169764b6d04e55afc",
+        "dependency": "process-component:forecasts-refresh-scheduled:forecasts-publish-pending",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:39acb7c9061bc46ca2cf3cb0466dd43e9bc6ee014a1f8f8ec1b3ddf60ee2ac9c",
+        "before": "sha256:5df83ce79a1a4a94bb7eb957bbde39d7f437a886373d5590bf1228b9f683def0",
+        "dependency": "process-component:forecasts-place-requested-consumer:forecasts-refresh-scheduled",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "reason": "INFLUENCE_SCOPE_CHANGED",
+        "scope": "sha256:a49418962d4d96255acbdb2ea78b118a9a29b83cf5663035753af3171e77ebb2"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:075eaf91a32efa41fabb141466eef5f868bab2be3a330c91f6459ad3fbf6d4f4/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:1a4acebe796911a46a9e52eca80ae1d5d73922c3b192aad0340dd6d985253a2c/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:2670b888a7260cb79c4fea9ba99055838dd5fb9c0b6424324a66f731b76cf345/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:2a1f34950abf28bda91fdc0c865172ee0e480303a094267c6753f4d938cc2308/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:3a9b90284e7e55aad6d289e1492ede1cf10d03888f64c9f6497197b6b7d5f5c6/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:4113ccc4ec0d866b29203388408c0cd6990dc051aedeb2828d5b747e72f5f4c5/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:42dd9707f70452cf8ddb5aa195f79648caa42306df373512cd045007fad38e6d/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:504b0babac4b6086256f5881975f96e395c4752c57a841887f5d7d19f8399f14/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:5b15e56bdf420ed673b509e7784fbc455f416e2d91022910249d0e90b2e971a0/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:62f3a247fafb6c0cf327e9240a30672f840692a306df3c518be5e550b58c72e4/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:8231c762b267ded34757547c03abe0b2be76ab7d0ec20c004cd52a1afb89b86a/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:82acdb08ffb6fb86bb3081263a5ac8f5c33072aad214beec0dc556efb70a78f1/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:8cfa6609f990481eaff2383c5863cbd1f6d71d851f0fb8331d98ed21ec16122a/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:9d7396f3571d9e6903b744f17b28fbc3f6eeaa23340800217f19e6f1c3fb3a48/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:a83f5e37b1f441e91da6cfecbe89c9c46a23b9a98503e929c18ec3060f65fd96/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:a89632e1e09a12549ee8b46b7ad66049f0180801d91c29ddd8a2549101591572/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:aa1752174458377b64788add727011c17393569a55474c2c707efb4184a9462d/164746"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:ae691e7e59e2b379be5d0e43d43be4a7d515c01beaf94b3d4fefde740f13d0fe/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:bbb46b335e7ad79b79887f1fae0a272b899b1f23744493e8c0ca95fd521e151b/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:c56218dbae51569a92fad8e73c36ed07994846170d98761570ea66ef6ebac8c8/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:d9360cb3f6bbc523c0931347691b2618fecd1c94d7378865168a95cf05ff45c5/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:dc696444abfd17803a99e40cab6476bc78a7a2dc05b37bca1f98f1dc1b9ffe4d/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:eff84b20a6320ab207fd84b1bd2c586668bd6a194526191f933e5ca35d0e02a4/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:f9320dacc7fb65a75d47abe97bde64f17495db3abd5759532e053b6bd562b148/164667"
+      },
+      {
+        "reason": "SERVICE_REMOVED",
+        "service": "external-met"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:b57016f8fd0621d202cb2ee1e96f17cd3ba84d6a935e64660e40ac3d60be0ca4/164667"
+      }
+    ],
+    "targetRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "verification": "UNASSESSED"
+  }
+}

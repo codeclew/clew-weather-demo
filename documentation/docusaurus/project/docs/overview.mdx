@@ -1,0 +1,318 @@
+---
+title: "Save places and follow their weather"
+slug: "/"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Save places and follow their weather
+
+<ClewStatus />
+
+Follow a process, inspect its contracts and data, and return to the source evidence when needed.
+
+Weather connects saved places, stored forecasts and weather cards. Start with the user outcome, then follow the service and process descriptions behind it.
+
+## What you can do
+
+<article className="clew-outcome">
+
+### Save a supported city
+
+Ask Dashboard to save Oslo, Helsinki or Lisbon through Places. A new place also records a request for follow-on processing; saving it does not mean a fresh forecast is already displayed.
+
+<div className="clew-context-links">
+
+[Follow saving a city](scenarios/dashboard-save-city.mdx#process-overview)
+
+</div>
+
+<details>
+<summary>Evidence and scope</summary>
+
+**Places service** · UNVERIFIED · UNASSESSED
+
+Six Places roots in the selected source revision c289b28be4819eddf29d59a7c12f178559ec5229: five HTTP actions and RequestPublisher.ExecuteAsync. Partial C\# source coverage; runtime activation and cross-service outcomes are unverified.
+
+GET /places calls List, which reads rows ordered by name; failed database open disposes the connection and rethrows. GET /health runs SELECT 1, then returns 200 database READY. It checks the database, not Kafka.
+
+POST /places maps cityId oslo, helsinki, and lisbon to places; others return 400 UNSUPPORTED\_CITY. Supported IDs call Save and return 200. Save inserts with ON CONFLICT DO NOTHING RETURNING id in a transaction; only a new row creates a request\_outbox event, so duplicates return 200 without a new request. The event is a new GUID with web-serialized place.requested v1 payload in that transaction.
+
+POST /places/&#123;id&#125;/refresh finds by loading the list; missing IDs return 404 PLACE\_NOT\_FOUND. A found place is enqueued with a new event ID and returns 202 QUEUED without waiting for forecast recomputation. GET /openapi.json reads /app/contracts/places.openapi.json with no fallback. The contract declares GET /places 200/500, POST /places 200/400/415/500, refresh 202/404/500, and health and OpenAPI retrieval 200/500; its save body requires cityId. JSON Schema semantics are not fully interpreted, and file-read failure is not a successful 200 response.
+
+The publisher selects one eligible unpublished row in created\_at order with FOR UPDATE SKIP LOCKED; empty selection returns. It awaits ProduceAsync to weather.place-requested using place ID as key, then marks the database row published and commits. A crash between send completion and database commit can replay the event; producer idempotence does not make the two stores atomic. The producer uses idempotence, KAFKA\_BOOTSTRAP or kafka:9092, and a 10-second message timeout. The loop logs other failures as PUBLISH\_RETRY, waits one second, and retries; cancellation exits or can propagate from the delay.
+
+- [services/places/PlacesRepository.cs:4–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d.mdx)
+- [contracts/places.openapi.json:1–263 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959.mdx)
+- [services/places/PlacesController.cs:5–34 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/351979e24a417de4797960a50c6bb0b27e90fbe64ebb5f7b32f302f1907e995c.mdx)
+- [services/places/RequestPublisher.cs:5–35 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/8365477e69b3327301c9058498f870922953982db968768e71a60cf8d2df982d.mdx)
+**Dashboard responsibilities** · UNVERIFIED · UNASSESSED
+
+The captured Dashboard source serves a home page and saved weather-card JSON, forwards place-save and refresh requests to Places, and subscribes to weather.place-requested and weather.forecast-updated. The consumer dispatches each message to validation and event handling. In a transaction, applyEvent first inserts the event id into inbox; a duplicate commits and returns before any weather\_cards upsert. A new place request updates place details. A forecast event inserts a missing card, or updates a conflicting card only when its stored updated\_at is null or the incoming updatedAt is strictly newer; an older or equal event can commit its inbox row without changing the card. The health handler probes PostgreSQL and checks a local consumerReady flag. These statements describe source paths and declared registrations, not runtime activation.
+
+- [services/dashboard/src/main.ts:76–83 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/b41ac7155eba29b1e6a9dfe10348b626c22e19654978c7d35379a71fff4526a1.mdx)
+- [services/dashboard/src/main.ts:85–89 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/f2538d01a5740ce1abfc03ae7e7a7b2d8cd5252bbf39b4aa3f59a797afd655ae.mdx)
+- [services/dashboard/src/main.ts:67–74 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/ab8df8a5fe7536b2fc32d2257bed77e48c54ce422b10c3afba79f26ac88b67a8.mdx)
+- [services/dashboard/src/main.ts:95–97 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/115f097e979ebca0d7af8b4670f23623a3cdcd8fe24627d5867e6a072e81272d.mdx)
+- [services/dashboard/src/main.ts:47–60 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233.mdx)
+- [services/dashboard/src/main.ts:15–45 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/bf524d202ba882540036918136ea088912da8bc6f340ab23d8a90bfb0aacab71.mdx)
+- [services/dashboard/src/main.ts:99–111 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/b8c6b94020ae709e61177a744a5a5315fccb0813ac9f4e37ca6a0be5140d129c.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+
+</details>
+
+</article>
+
+<article className="clew-outcome">
+
+### Request a forecast refresh
+
+Dashboard forwards a refresh request to Places. For an existing place, the retained handler describes recording a request and returning 202 QUEUED; provider work and an updated card are separate outcomes.
+
+<div className="clew-context-links">
+
+[Follow a refresh request](scenarios/dashboard-refresh-request.mdx#process-overview)
+
+</div>
+
+<details>
+<summary>Evidence and scope</summary>
+
+**Places service** · UNVERIFIED · UNASSESSED
+
+Six Places roots in the selected source revision c289b28be4819eddf29d59a7c12f178559ec5229: five HTTP actions and RequestPublisher.ExecuteAsync. Partial C\# source coverage; runtime activation and cross-service outcomes are unverified.
+
+GET /places calls List, which reads rows ordered by name; failed database open disposes the connection and rethrows. GET /health runs SELECT 1, then returns 200 database READY. It checks the database, not Kafka.
+
+POST /places maps cityId oslo, helsinki, and lisbon to places; others return 400 UNSUPPORTED\_CITY. Supported IDs call Save and return 200. Save inserts with ON CONFLICT DO NOTHING RETURNING id in a transaction; only a new row creates a request\_outbox event, so duplicates return 200 without a new request. The event is a new GUID with web-serialized place.requested v1 payload in that transaction.
+
+POST /places/&#123;id&#125;/refresh finds by loading the list; missing IDs return 404 PLACE\_NOT\_FOUND. A found place is enqueued with a new event ID and returns 202 QUEUED without waiting for forecast recomputation. GET /openapi.json reads /app/contracts/places.openapi.json with no fallback. The contract declares GET /places 200/500, POST /places 200/400/415/500, refresh 202/404/500, and health and OpenAPI retrieval 200/500; its save body requires cityId. JSON Schema semantics are not fully interpreted, and file-read failure is not a successful 200 response.
+
+The publisher selects one eligible unpublished row in created\_at order with FOR UPDATE SKIP LOCKED; empty selection returns. It awaits ProduceAsync to weather.place-requested using place ID as key, then marks the database row published and commits. A crash between send completion and database commit can replay the event; producer idempotence does not make the two stores atomic. The producer uses idempotence, KAFKA\_BOOTSTRAP or kafka:9092, and a 10-second message timeout. The loop logs other failures as PUBLISH\_RETRY, waits one second, and retries; cancellation exits or can propagate from the delay.
+
+- [services/places/PlacesRepository.cs:4–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d.mdx)
+- [contracts/places.openapi.json:1–263 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959.mdx)
+- [services/places/PlacesController.cs:5–34 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/351979e24a417de4797960a50c6bb0b27e90fbe64ebb5f7b32f302f1907e995c.mdx)
+- [services/places/RequestPublisher.cs:5–35 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/8365477e69b3327301c9058498f870922953982db968768e71a60cf8d2df982d.mdx)
+
+</details>
+
+</article>
+
+<article className="clew-outcome">
+
+### Read saved weather cards
+
+Dashboard serves local saved-place cards and applies place and forecast events. Forecasts serves stored forecast payloads; the source does not guarantee immediate delivery to the displayed card.
+
+<div className="clew-context-links">
+
+[Follow a forecast-card update](scenarios/dashboard-forecast-updated-consumer.mdx#process-overview)
+
+</div>
+
+<details>
+<summary>Evidence and scope</summary>
+
+**Dashboard responsibilities** · UNVERIFIED · UNASSESSED
+
+The captured Dashboard source serves a home page and saved weather-card JSON, forwards place-save and refresh requests to Places, and subscribes to weather.place-requested and weather.forecast-updated. The consumer dispatches each message to validation and event handling. In a transaction, applyEvent first inserts the event id into inbox; a duplicate commits and returns before any weather\_cards upsert. A new place request updates place details. A forecast event inserts a missing card, or updates a conflicting card only when its stored updated\_at is null or the incoming updatedAt is strictly newer; an older or equal event can commit its inbox row without changing the card. The health handler probes PostgreSQL and checks a local consumerReady flag. These statements describe source paths and declared registrations, not runtime activation.
+
+- [services/dashboard/src/main.ts:76–83 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/b41ac7155eba29b1e6a9dfe10348b626c22e19654978c7d35379a71fff4526a1.mdx)
+- [services/dashboard/src/main.ts:85–89 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/f2538d01a5740ce1abfc03ae7e7a7b2d8cd5252bbf39b4aa3f59a797afd655ae.mdx)
+- [services/dashboard/src/main.ts:67–74 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/ab8df8a5fe7536b2fc32d2257bed77e48c54ce422b10c3afba79f26ac88b67a8.mdx)
+- [services/dashboard/src/main.ts:95–97 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/115f097e979ebca0d7af8b4670f23623a3cdcd8fe24627d5867e6a072e81272d.mdx)
+- [services/dashboard/src/main.ts:47–60 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233.mdx)
+- [services/dashboard/src/main.ts:15–45 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/bf524d202ba882540036918136ea088912da8bc6f340ab23d8a90bfb0aacab71.mdx)
+- [services/dashboard/src/main.ts:99–111 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/b8c6b94020ae709e61177a744a5a5315fccb0813ac9f4e37ca6a0be5140d129c.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+**Forecasts responsibilities** · UNVERIFIED · UNASSESSED
+
+Forecasts serves stored forecast payloads by place id, reports database readiness, and serves the checked-in OpenAPI document. Its Kafka listener consumes weather.place-requested events. Invalid JSON or place.requested v1 validation throws enter the reject branch, which inserts a rejected\_messages row and acknowledges the record before returning; the valid branch places inbox insertion, place upsert, and refresh in a transaction callback, then reaches acknowledgment afterward. Callback timing, commit, rollback, and runtime delivery remain unverified.
+
+The service refreshes only when a cached forecast is expired or absent. Its fixture branch reads a place-specific fixture; its live branch calls MET. It builds a forecast payload, attempts an upsert that accepts equal or newer updatedAt values, then attempts a forecast.updated outbox insert. Two source declarations use scheduled annotations: refreshExpired scans expired or missing forecasts, and publishPending sends outbox records. Source syntax and configuration do not establish that either schedule or listener runs in deployment.
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:62–68 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/ee1c73490c4cd4a1f4efaf310e65a12cc2a3c6bbb15ab76a4eb246cf1533dc35.mdx)
+- [services/forecasts/src/main/resources/application.properties:1–16 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/7dc31ff2f89df6313b31ccd5e53de88f58ca342c20783e2f8e34d13d0d872b55.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:127–139 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/1bd07596f6d98195ae25427eb2eb0175e2e0db2969f1b348800d52ddabc630ab.mdx)
+- [services/forecasts/src/main/kotlin/weather/ForecastController.kt:9–20 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/ffa1bcd654fb053b7268bd37f4d7f3bab953ed7333d711728cffd5034606ae82.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:38–53 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/fabcf790d6359bad92930830b294197d73c440e51b6a010808853eccb900f2e6.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:55–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/9233bcae5aa5673c061ebdb857c39ce75ee4724473f2f75c21b7387f0fc94e1b.mdx)
+
+</details>
+
+</article>
+
+## How the services fit together
+
+<article className="clew-outcome">
+
+### Dashboard
+
+Serves saved weather cards, forwards save and refresh requests, and consumes place and forecast events to update its local cards.
+
+<div className="clew-context-links">
+
+[Read Dashboard](services/dashboard.mdx#section-overview)
+
+</div>
+
+<details>
+<summary>Evidence and scope</summary>
+
+**Dashboard responsibilities** · UNVERIFIED · UNASSESSED
+
+The captured Dashboard source serves a home page and saved weather-card JSON, forwards place-save and refresh requests to Places, and subscribes to weather.place-requested and weather.forecast-updated. The consumer dispatches each message to validation and event handling. In a transaction, applyEvent first inserts the event id into inbox; a duplicate commits and returns before any weather\_cards upsert. A new place request updates place details. A forecast event inserts a missing card, or updates a conflicting card only when its stored updated\_at is null or the incoming updatedAt is strictly newer; an older or equal event can commit its inbox row without changing the card. The health handler probes PostgreSQL and checks a local consumerReady flag. These statements describe source paths and declared registrations, not runtime activation.
+
+- [services/dashboard/src/main.ts:76–83 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/b41ac7155eba29b1e6a9dfe10348b626c22e19654978c7d35379a71fff4526a1.mdx)
+- [services/dashboard/src/main.ts:85–89 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/f2538d01a5740ce1abfc03ae7e7a7b2d8cd5252bbf39b4aa3f59a797afd655ae.mdx)
+- [services/dashboard/src/main.ts:67–74 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/ab8df8a5fe7536b2fc32d2257bed77e48c54ce422b10c3afba79f26ac88b67a8.mdx)
+- [services/dashboard/src/main.ts:95–97 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/115f097e979ebca0d7af8b4670f23623a3cdcd8fe24627d5867e6a072e81272d.mdx)
+- [services/dashboard/src/main.ts:47–60 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233.mdx)
+- [services/dashboard/src/main.ts:15–45 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/bf524d202ba882540036918136ea088912da8bc6f340ab23d8a90bfb0aacab71.mdx)
+- [services/dashboard/src/main.ts:99–111 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/b8c6b94020ae709e61177a744a5a5315fccb0813ac9f4e37ca6a0be5140d129c.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+
+</details>
+
+</article>
+
+<article className="clew-outcome">
+
+### Places
+
+Maps supported city IDs to Place records, stores places and durable request-outbox rows, and publishes pending place requests. This retained service view covers place storage and request publication; forecast computation and card updates are documented separately.
+
+<div className="clew-context-links">
+
+[Read Places responsibilities](services/places.mdx#section-responsibilities)
+
+</div>
+
+<details>
+<summary>Evidence and scope</summary>
+
+**Places responsibilities** · UNVERIFIED · UNASSESSED
+
+Places maps the supported IDs oslo, helsinki, and lisbon to canonical Place records for Oslo, Helsinki, and Lisbon, exposes HTTP actions for listing, saving, and requesting a refresh, and checks database readiness. The repository stores places and durable request\_outbox rows; RequestPublisher sends pending place.requested events to Kafka. This service source view does not document forecast recomputation or dashboard-card updates.
+
+- [services/places/PlacesRepository.cs:4–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d.mdx)
+- [services/places/PlacesController.cs:5–34 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/351979e24a417de4797960a50c6bb0b27e90fbe64ebb5f7b32f302f1907e995c.mdx)
+- [services/places/RequestPublisher.cs:5–35 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/8365477e69b3327301c9058498f870922953982db968768e71a60cf8d2df982d.mdx)
+
+</details>
+
+</article>
+
+<article className="clew-outcome">
+
+### Forecasts
+
+Serves stored forecasts and consumes place requests. Its source describes cache-aware refresh from fixtures or MET, plus scheduled refresh and event-publication work; deployment activation is unverified.
+
+<div className="clew-context-links">
+
+[Read Forecasts responsibilities](services/forecasts.mdx#section-responsibilities)
+
+[Follow forecast refresh work](scenarios/forecasts-refresh-scheduled.mdx#process-overview)
+
+</div>
+
+<details>
+<summary>Evidence and scope</summary>
+
+**Forecasts responsibilities** · UNVERIFIED · UNASSESSED
+
+Forecasts serves stored forecast payloads by place id, reports database readiness, and serves the checked-in OpenAPI document. Its Kafka listener consumes weather.place-requested events. Invalid JSON or place.requested v1 validation throws enter the reject branch, which inserts a rejected\_messages row and acknowledges the record before returning; the valid branch places inbox insertion, place upsert, and refresh in a transaction callback, then reaches acknowledgment afterward. Callback timing, commit, rollback, and runtime delivery remain unverified.
+
+The service refreshes only when a cached forecast is expired or absent. Its fixture branch reads a place-specific fixture; its live branch calls MET. It builds a forecast payload, attempts an upsert that accepts equal or newer updatedAt values, then attempts a forecast.updated outbox insert. Two source declarations use scheduled annotations: refreshExpired scans expired or missing forecasts, and publishPending sends outbox records. Source syntax and configuration do not establish that either schedule or listener runs in deployment.
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:62–68 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/ee1c73490c4cd4a1f4efaf310e65a12cc2a3c6bbb15ab76a4eb246cf1533dc35.mdx)
+- [services/forecasts/src/main/resources/application.properties:1–16 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/7dc31ff2f89df6313b31ccd5e53de88f58ca342c20783e2f8e34d13d0d872b55.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:127–139 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/1bd07596f6d98195ae25427eb2eb0175e2e0db2969f1b348800d52ddabc630ab.mdx)
+- [services/forecasts/src/main/kotlin/weather/ForecastController.kt:9–20 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/ffa1bcd654fb053b7268bd37f4d7f3bab953ed7333d711728cffd5034606ae82.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:38–53 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/fabcf790d6359bad92930830b294197d73c440e51b6a010808853eccb900f2e6.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:55–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/9233bcae5aa5673c061ebdb857c39ce75ee4724473f2f75c21b7387f0fc94e1b.mdx)
+
+</details>
+
+</article>
+
+<aside className="clew-completion-boundary">
+
+## Saving or queuing is not forecast completion
+
+These are source-based accounts, not an execution trace. A saved place or queued refresh does not establish a completed provider request or a newly displayed forecast. Runtime scheduling, database outcomes, Kafka delivery and deployed bindings remain unverified within their respective retained evidence scopes.
+
+<div className="clew-context-links">
+
+[Inspect outcomes, errors and evidence](scenarios/dashboard-refresh-request.mdx#process-overview)
+
+</div>
+
+<details>
+<summary>Evidence and scope</summary>
+
+**Places service** · UNVERIFIED · UNASSESSED
+
+Six Places roots in the selected source revision c289b28be4819eddf29d59a7c12f178559ec5229: five HTTP actions and RequestPublisher.ExecuteAsync. Partial C\# source coverage; runtime activation and cross-service outcomes are unverified.
+
+GET /places calls List, which reads rows ordered by name; failed database open disposes the connection and rethrows. GET /health runs SELECT 1, then returns 200 database READY. It checks the database, not Kafka.
+
+POST /places maps cityId oslo, helsinki, and lisbon to places; others return 400 UNSUPPORTED\_CITY. Supported IDs call Save and return 200. Save inserts with ON CONFLICT DO NOTHING RETURNING id in a transaction; only a new row creates a request\_outbox event, so duplicates return 200 without a new request. The event is a new GUID with web-serialized place.requested v1 payload in that transaction.
+
+POST /places/&#123;id&#125;/refresh finds by loading the list; missing IDs return 404 PLACE\_NOT\_FOUND. A found place is enqueued with a new event ID and returns 202 QUEUED without waiting for forecast recomputation. GET /openapi.json reads /app/contracts/places.openapi.json with no fallback. The contract declares GET /places 200/500, POST /places 200/400/415/500, refresh 202/404/500, and health and OpenAPI retrieval 200/500; its save body requires cityId. JSON Schema semantics are not fully interpreted, and file-read failure is not a successful 200 response.
+
+The publisher selects one eligible unpublished row in created\_at order with FOR UPDATE SKIP LOCKED; empty selection returns. It awaits ProduceAsync to weather.place-requested using place ID as key, then marks the database row published and commits. A crash between send completion and database commit can replay the event; producer idempotence does not make the two stores atomic. The producer uses idempotence, KAFKA\_BOOTSTRAP or kafka:9092, and a 10-second message timeout. The loop logs other failures as PUBLISH\_RETRY, waits one second, and retries; cancellation exits or can propagate from the delay.
+
+- [services/places/PlacesRepository.cs:4–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d.mdx)
+- [contracts/places.openapi.json:1–263 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959.mdx)
+- [services/places/PlacesController.cs:5–34 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/351979e24a417de4797960a50c6bb0b27e90fbe64ebb5f7b32f302f1907e995c.mdx)
+- [services/places/RequestPublisher.cs:5–35 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/8365477e69b3327301c9058498f870922953982db968768e71a60cf8d2df982d.mdx)
+**Forecasts responsibilities** · UNVERIFIED · UNASSESSED
+
+Forecasts serves stored forecast payloads by place id, reports database readiness, and serves the checked-in OpenAPI document. Its Kafka listener consumes weather.place-requested events. Invalid JSON or place.requested v1 validation throws enter the reject branch, which inserts a rejected\_messages row and acknowledges the record before returning; the valid branch places inbox insertion, place upsert, and refresh in a transaction callback, then reaches acknowledgment afterward. Callback timing, commit, rollback, and runtime delivery remain unverified.
+
+The service refreshes only when a cached forecast is expired or absent. Its fixture branch reads a place-specific fixture; its live branch calls MET. It builds a forecast payload, attempts an upsert that accepts equal or newer updatedAt values, then attempts a forecast.updated outbox insert. Two source declarations use scheduled annotations: refreshExpired scans expired or missing forecasts, and publishPending sends outbox records. Source syntax and configuration do not establish that either schedule or listener runs in deployment.
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:62–68 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/ee1c73490c4cd4a1f4efaf310e65a12cc2a3c6bbb15ab76a4eb246cf1533dc35.mdx)
+- [services/forecasts/src/main/resources/application.properties:1–16 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/7dc31ff2f89df6313b31ccd5e53de88f58ca342c20783e2f8e34d13d0d872b55.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:127–139 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/1bd07596f6d98195ae25427eb2eb0175e2e0db2969f1b348800d52ddabc630ab.mdx)
+- [services/forecasts/src/main/kotlin/weather/ForecastController.kt:9–20 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/ffa1bcd654fb053b7268bd37f4d7f3bab953ed7333d711728cffd5034606ae82.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:38–53 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/fabcf790d6359bad92930830b294197d73c440e51b6a010808853eccb900f2e6.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:55–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](sources/9233bcae5aa5673c061ebdb857c39ce75ee4724473f2f75c21b7387f0fc94e1b.mdx)
+
+</details>
+
+</aside>
+
+## Processes
+
+- [Update a Dashboard forecast](scenarios/dashboard-forecast-updated-consumer.mdx)
+- [Add a place to Dashboard](scenarios/dashboard-place-requested-consumer.mdx)
+- [Request a forecast refresh](scenarios/dashboard-refresh-request.mdx)
+- [Save a city](scenarios/dashboard-save-city.mdx)
+- [Refresh a forecast after a place request](scenarios/forecasts-place-requested-consumer.mdx)
+- [Publish forecast updates](scenarios/forecasts-publish-pending.mdx)
+- [Refresh forecasts for expired places](scenarios/forecasts-refresh-scheduled.mdx)
+- [Publish place requests](scenarios/places-request-publisher.mdx)
+
+## Data model
+
+- [Save city request](data-model/save-city-request.mdx)
+- [Place](data-model/place.mdx)
+- [Forecast](data-model/forecast.mdx)
+- [Period](data-model/period.mdx)
+- [Weather card](data-model/weather-card.mdx)
+- [City lookup](data-model/city-lookup.mdx)
+
+## Provenance
+
+Original claims, evidence and their independent review states remain in the reference archive. Source references include the original revision, digest and line range; no runtime guarantee is added by export.
+
+[Source fragments](sources/index.mdx)
+

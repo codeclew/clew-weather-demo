@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:f060f49598bac2275e4ddc08abd1ef362760b07530c4df7793db9e9d4450fe2b",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:e47ff08926b2d4743906d254772ebfa078aeea8ee4e54d21f6680b80986fa76c"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The forecasts table is keyed by place_id. There is no Forecast.id property. The outgoing event ID combines the place key and updatedAt; it identifies the event, not a separate Forecast.id.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

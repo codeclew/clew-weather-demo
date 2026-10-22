@@ -1,0 +1,19 @@
+{
+  "identity": "sha256:d921332066676bb3870bcbbd69f4a707a6768629df43c915de2dab3127acc0f5",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "forecasts:flow:ea6dd04c278f12f668b5cde7",
+      "forecasts:source_annotations:1ea53b95922ad5791d930533",
+      "forecasts:symbol:1ea53b95922ad5791d930533",
+      "process-scope:forecasts-refresh-scheduled"
+    ],
+    "id": "claim-a46a8902aa9055caa486",
+    "kind": "note",
+    "sourceIds": [
+      "forecasts-1ea53b95922ad5791d93",
+      "forecasts-ea6dd04c278f12f668b5"
+    ],
+    "text": "When the per-place transaction call throws an Exception, the source catches it, logs FORECAST_RETRY followed by the exception class, and continues to the next place. This method contains no explicit retry loop; another invocation is needed for another attempt, and runtime scheduling remains unverified."
+  }
+}

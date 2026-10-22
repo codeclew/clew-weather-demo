@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:6da6d82c1c2b26443b6f2ed48d3ebb89b74eff747c05d93b70f98c6914b97053",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:e0055ac492ba74d35b06c0fcc00a2ed046e045c025ba1982d06d86b07659dff3"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Each Period.symbol must be a string. This validation is independent of whether the UI directly displays it.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

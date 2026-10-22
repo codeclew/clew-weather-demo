@@ -1,0 +1,44 @@
+{
+  "identity": "sha256:11d3b3999a83f297d48cd3be93e78cc18781fa32a7bbb607eba5884e082fb283",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    {
+      "anchor": "question-apply",
+      "label": "dashboard forecast updated consumer",
+      "subject": "scenario:dashboard-forecast-updated-consumer"
+    },
+    {
+      "anchor": "question-record",
+      "label": "places request publisher",
+      "replacesServiceEntities": "places",
+      "subject": "scenario:places-request-publisher"
+    },
+    {
+      "anchor": "question-save",
+      "label": "dashboard save city",
+      "replacesServiceEntities": "places",
+      "subject": "scenario:dashboard-save-city"
+    },
+    {
+      "anchor": "question-enqueue",
+      "label": "dashboard refresh request",
+      "replacesServiceEntities": "places",
+      "subject": "scenario:dashboard-refresh-request"
+    },
+    {
+      "anchor": "section-entities",
+      "label": "dashboard: field descriptions",
+      "subject": "service:dashboard"
+    },
+    {
+      "anchor": "section-entities",
+      "label": "places: field descriptions",
+      "subject": "service:places"
+    },
+    {
+      "anchor": "section-entities",
+      "label": "forecasts: field descriptions",
+      "subject": "service:forecasts"
+    }
+  ]
+}

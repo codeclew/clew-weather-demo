@@ -1,0 +1,68 @@
+---
+title: "Places domain entities"
+slug: "/operations/services-places--section-entities"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Places domain entities
+
+<ClewPageContext />
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+Place is the service's domain record with Id, Name, Latitude, and Longitude. SavePlace is an HTTP request DTO containing CityId. The repository persists those place fields in the places table and stores JSON request payloads in request\_outbox; the outbox row is a delivery record rather than a domain entity. The static City mapping maps IDs oslo, helsinki, and lisbon to the names and coordinates for Oslo, Helsinki, and Lisbon.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/places/PlacesRepository.cs:4–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d.mdx)
+- [services/places/PlacesController.cs:4–4 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/5d0e0230101848f293cac0902245f465a92e8106f700b8853514a42687637309.mdx)
+- [services/places/PlacesController.cs:3–3 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/9e47d817ca1d51924aad0c9840dc01a49fa438ad4b7d03faf2c22fbca713adc4.mdx)
+
+</details>
+
+<details>
+<summary>Record for later publication · retained process documentation</summary>
+
+For an existing place, Places saves a request for later publication (outbox) in a database transaction.
+
+EDITORIAL\_READING\_GUIDE\_NOT\_ACCEPTED\_PROSE. This context does not change the interaction declaration or establish runtime binding.
+
+[Process step and source evidence](../scenarios/dashboard-refresh-request.mdx#question-enqueue)
+
+
+</details>
+
+<details>
+<summary>New city · retained process documentation</summary>
+
+A new Place and its request for later publication (outbox) are saved in one database transaction.
+
+EDITORIAL\_READING\_GUIDE\_NOT\_ACCEPTED\_PROSE. This context does not change the interaction declaration or establish runtime binding.
+
+[Process step and source evidence](../scenarios/dashboard-save-city.mdx#question-save)
+
+
+</details>
+
+<details>
+<summary>Record outcome · retained process documentation</summary>
+
+After the send completes, the outbox row is marked published and the database transaction is committed.
+
+EDITORIAL\_READING\_GUIDE\_NOT\_ACCEPTED\_PROSE. This context does not change the interaction declaration or establish runtime binding.
+
+[Process step and source evidence](../scenarios/places-request-publisher.mdx#question-record)
+
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- C\# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted.
+
+</details>
+

@@ -1,0 +1,28 @@
+---
+title: "services/places/PlacesController.cs:26–31"
+slug: "/sources/efc0c91d8075be6474d60ff2dfdc8deccb39e21ff00789cc4a20f6b4f07406d2"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/places/PlacesController.cs:26–31
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: c289b28be4819eddf29d59a7c12f178559ec5229
+
+Text digest: sha256:9f4627b31cb95cea42d48dd0f038a1cb90ca5f769cf07a7507d795c7cdac9040
+
+## Retained text {#retained-text}
+
+```text
+[HttpGet("/health")]
+    public async Task<IActionResult> Health(CancellationToken token)
+    {
+        await repository.Ping(token);
+        return Ok(new { database = "READY" });
+    }
+```
+
+<ClewDownload path="/clew-data/objects/efc0c91d8075be6474d60ff2dfdc8deccb39e21ff00789cc4a20f6b4f07406d2.json">Complete original source binding</ClewDownload>

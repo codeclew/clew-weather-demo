@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:bc80e7daa0c02fd834f853ed12862763e5d085b5ac44d87ba9780208373641cf",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:e5a912afa850ee0b9a8f2da2a875a1df03b186035f452b6423ba354ae43f5b7f"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "consumeMessage parses the message and passes the whole value to validateEvent; no named business read of this field is established by the wrapper alone.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

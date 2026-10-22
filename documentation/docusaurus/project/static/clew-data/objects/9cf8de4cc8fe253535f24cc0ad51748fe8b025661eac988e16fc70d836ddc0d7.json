@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:9cf8de4cc8fe253535f24cc0ad51748fe8b025661eac988e16fc70d836ddc0d7",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 9,
+    "evidenceDigest": "sha256:f4dad23762809fa77e208d0e620acf9826df2f3f401d64d2f047636b6b60ad08",
+    "file": "services/places/PlacesRepository.cs",
+    "id": "places-0d15bf2f30b91c571821",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "places",
+    "startLine": 9,
+    "text": "        \"oslo\" => new(\"oslo\", \"Oslo\", 59.93, 10.72),",
+    "textDigest": "sha256:f283f4897a06b44182826c4cd97af51c7b876462de92cacfd587680e699c56d1",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L9-L9"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:51cfd6aa9716779072c50f3cc1b6c92e6d4bd59123208fb59db9e319cf383e27",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "id": "place-id",
+    "meaning": {
+      "$clewRef": "sha256:a2380154fbc7d28889c1657febf31ac98641d06594e31a1ba66d7a08c5ae91bf"
+    },
+    "path": "id",
+    "representations": {
+      "$clewRef": "sha256:c1e4fb7f9f8f60020dffc5f829d9ae4700afd9364a305b0abdd0b8796930d76a"
+    },
+    "selectedProcessField": false,
+    "usage": []
+  }
+}

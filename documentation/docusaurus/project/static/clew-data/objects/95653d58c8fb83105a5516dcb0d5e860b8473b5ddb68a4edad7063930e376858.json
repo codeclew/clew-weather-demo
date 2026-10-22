@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:95653d58c8fb83105a5516dcb0d5e860b8473b5ddb68a4edad7063930e376858",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 97,
+    "evidenceDigest": "sha256:d54e2aa84cbedcd15f5f13e509e94c45c50a88324b6b875c78ab0343eb27a489",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "id": "forecasts-670569d8348c07f96fd3",
+    "occurrence": {
+      "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+      "endByte": 6312,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 6102
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 94,
+    "text": "if (response.statusCode() == 304 && cached != null) {\n                jdbc.update(\"UPDATE forecasts SET expires_at=? WHERE place_id=?\", java.sql.Timestamp.from(expires), id)\n                return\n            }",
+    "textDigest": "sha256:42559ec5ae21384ad5102847110b40895026a25dd24c8d1c289a6961d692edac",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L94-L97"
+  }
+}

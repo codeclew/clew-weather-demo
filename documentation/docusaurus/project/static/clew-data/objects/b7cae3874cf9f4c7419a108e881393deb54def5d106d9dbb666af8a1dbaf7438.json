@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:b7cae3874cf9f4c7419a108e881393deb54def5d106d9dbb666af8a1dbaf7438",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 35,
+    "evidenceDigest": "sha256:487584dbc384e0e338e2012a06945189bb9ec2319685c5372d7d46398361d779",
+    "file": "services/places/PlacesRepository.cs",
+    "id": "places-70548bfc22e8872d4a8d",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "places",
+    "startLine": 35,
+    "text": "(await List(token)).FirstOrDefault(place => place.Id == id)",
+    "textDigest": "sha256:443ea5906a4e8caf856f48e5135ab81e8e3e8c7e368bc4369fd2016dd1f34e36",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L35-L35"
+  }
+}

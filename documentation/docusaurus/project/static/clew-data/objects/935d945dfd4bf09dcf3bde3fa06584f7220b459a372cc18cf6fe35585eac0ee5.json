@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:935d945dfd4bf09dcf3bde3fa06584f7220b459a372cc18cf6fe35585eac0ee5",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:58a23a8b46d9f6cbd78e14a0f10ebc1a25958a432dc436e6b904dd2a04dfb2a2"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "next_1_hours.details.precipitation_amount becomes precipitationMm. A missing or nonnumeric provider amount becomes explicit null, while the event property stays required.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

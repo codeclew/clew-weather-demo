@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:120f90ee127405ea433e19892abc189d2dd7e8725da4fd4a3764ef2c65a668fb",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:85c6501495a122ddb7b788da1223a7fd85863e420783d8f5fb7a8a95520a68f6"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Same-named place columns receive the explicit place values; this is a source interpretation of the mapping.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

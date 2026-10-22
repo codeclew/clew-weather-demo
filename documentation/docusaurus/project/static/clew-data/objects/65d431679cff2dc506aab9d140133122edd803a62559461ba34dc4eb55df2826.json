@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:65d431679cff2dc506aab9d140133122edd803a62559461ba34dc4eb55df2826",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contract": "place-requested",
+    "field": "place.latitude",
+    "label": "Event v1 · place-requested",
+    "mapping": {
+      "$clewRef": "sha256:7b95b7ac8271945e1f014428798f25992d19921ab9cadbf4da0f04c16a7a759b"
+    },
+    "nullability": "Derived from schema",
+    "relatedModel": null,
+    "requiredness": "Branch-conditional",
+    "typeLabel": "Derived from exact JSON Schema"
+  }
+}

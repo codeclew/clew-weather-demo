@@ -1,0 +1,38 @@
+{
+  "identity": "sha256:cef9806a8041ddc2d14ca374e49c27cea84bd07bbb5855422b52ffa8439ecb67",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "FRAMEWORK_DERIVED_SOURCE",
+    "configuration": {
+      "fixedDelayString": null
+    },
+    "disabled": null,
+    "frameworkDeclarations": [
+      {
+        "controller": null,
+        "kind": "SCHEDULED_JOB",
+        "registration": "RUNTIME_CONDITIONAL",
+        "trigger": {
+          "authority": "SPRING_ANNOTATION_RULES",
+          "configuration": {
+            "fixedDelayString": null
+          },
+          "disabled": null,
+          "timeUnit": "MILLISECONDS"
+        }
+      }
+    ],
+    "frameworkDerivation": {
+      "coverage": "PARTIAL",
+      "implementationDigest": "sha256:afdbd2484f030da4d481e109d5a74a62a9885136cf7c6832ee1869318477c464",
+      "inputAuthority": "SOURCE_ANNOTATIONS",
+      "inputDigest": "sha256:52704ea485b16e4a44ca438f045ec1c04fa99c56f9cda243f3f5495fc5d79cda",
+      "inputSchema": "source-annotation-facts/1.0",
+      "moduleId": "spring",
+      "policyVersion": "spring-annotation-declarations/1.0"
+    },
+    "name": "refreshExpired",
+    "owner": "class:weather.Forecasts",
+    "timeUnit": "MILLISECONDS"
+  }
+}

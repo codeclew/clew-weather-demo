@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:6c81c74b2345ce780cb749bc5fd0e843fc65ce33af41498bf0a3bd3aa572b6cf",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 16,
+    "evidenceDigest": "sha256:506cc760d274014f2be47d05a52dff7856f2a316ee09d01a9eb2aeb7bc164923",
+    "file": "database/init.sql",
+    "id": "forecasts-cf87224657914cc333f2",
+    "occurrence": {
+      "blob": "d6a730f8bea7d8b47fe81d22063aa8a4e2ade4c4",
+      "endByte": 1583,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 0
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 1,
+    "text": "CREATE DATABASE places;\nCREATE DATABASE forecasts;\nCREATE DATABASE dashboard;\n\\connect places\nCREATE TABLE places (id text PRIMARY KEY, name text NOT NULL, latitude double precision NOT NULL, longitude double precision NOT NULL);\nCREATE TABLE request_outbox (id uuid PRIMARY KEY, payload jsonb NOT NULL, published boolean NOT NULL DEFAULT false, created_at timestamptz NOT NULL DEFAULT now());\n\\connect forecasts\nCREATE TABLE places (id text PRIMARY KEY, name text NOT NULL, latitude double precision NOT NULL, longitude double precision NOT NULL);\nCREATE TABLE forecasts (place_id text PRIMARY KEY, updated_at timestamptz NOT NULL, payload jsonb NOT NULL, expires_at timestamptz NOT NULL, last_modified text);\nCREATE TABLE inbox (event_id text PRIMARY KEY, consumed_at timestamptz NOT NULL DEFAULT now());\nCREATE TABLE forecast_outbox (id text PRIMARY KEY, payload jsonb NOT NULL, published boolean NOT NULL DEFAULT false);\nCREATE TABLE rejected_messages (topic text NOT NULL, partition_id integer NOT NULL, offset_id bigint NOT NULL, reason text NOT NULL, PRIMARY KEY(topic,partition_id,offset_id));\n\\connect dashboard\nCREATE TABLE weather_cards (place_id text PRIMARY KEY, name text NOT NULL, latitude double precision NOT NULL, longitude double precision NOT NULL, updated_at timestamptz, forecast jsonb);\nCREATE TABLE inbox (event_id text PRIMARY KEY, consumed_at timestamptz NOT NULL DEFAULT now());\nCREATE TABLE rejected_messages (topic text NOT NULL, partition_id integer NOT NULL, offset_id bigint NOT NULL, reason text NOT NULL, PRIMARY KEY(topic,partition_id,offset_id));\n",
+    "textDigest": "sha256:c888c357d74a2e37512309e826d90fc689be0c348fb3e1cbfe635ce5a46f879f",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/database/init.sql#L1-L16"
+  }
+}

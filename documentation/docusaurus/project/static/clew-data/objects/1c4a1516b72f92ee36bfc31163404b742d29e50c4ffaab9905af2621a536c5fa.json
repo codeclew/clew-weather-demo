@@ -1,0 +1,24 @@
+{
+  "identity": "sha256:1c4a1516b72f92ee36bfc31163404b742d29e50c4ffaab9905af2621a536c5fa",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "observed-static-use",
+    "claim": {
+      "$clewRef": "sha256:76d98c02be43d160c78d574f46cfd52034cf444e21943b967764332c4fe263b1"
+    },
+    "condition": "forecast.updated v1 branch",
+    "consumer": "weather_cards",
+    "contract": "Read model; forecast.updated or place.requested branch",
+    "coveredScope": "Dashboard transaction",
+    "kinds": [
+      "persist"
+    ],
+    "processes": [
+      "scenario:dashboard-forecast-updated-consumer"
+    ],
+    "producer": "Dashboard.applyEvent",
+    "representation": "latitude",
+    "stage": "Dashboard transaction",
+    "unresolved": "Static source interpretation; runtime execution and delivery are not established."
+  }
+}

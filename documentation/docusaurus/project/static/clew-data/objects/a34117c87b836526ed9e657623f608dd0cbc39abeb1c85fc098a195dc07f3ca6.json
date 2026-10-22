@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:a34117c87b836526ed9e657623f608dd0cbc39abeb1c85fc098a195dc07f3ca6",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 23,
+    "evidenceDigest": "sha256:a7990ad452ec2f62a696a186935d73f26a3410399e406981f00cc9b99e387b85",
+    "file": "services/dashboard/src/events.ts",
+    "id": "dashboard-2b5fd504b0e44e1aac6d",
+    "occurrence": {
+      "blob": "ddda5719da0d973028010984703f3ee5163090f5",
+      "endByte": 1877,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 1601
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 21,
+    "text": "if (!isTimestamp(period.time) || !Number.isFinite(period.temperatureC)\n          || !(period.precipitationMm === null || (Number.isFinite(period.precipitationMm) && period.precipitationMm >= 0))\n          || typeof period.symbol !== 'string') throw new Error('INVALID_PERIOD')",
+    "textDigest": "sha256:32ccb3350d4f71f35e1d4abe3ff25e0a93057fcf846b27b4d6c43d783e88488c",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/events.ts#L21-L23"
+  }
+}

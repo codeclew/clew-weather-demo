@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:fc29be417578628533f110f1f837a290f64a960d087799e070f64285f1d197d3",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": {
+      "$clewRef": "sha256:b31481beb0444a93e08fdb0d36b22f40fd0b7041bcc19b0efb6d8bc339292181"
+    },
+    "id": "claim-e79167d838f4e7d95822",
+    "kind": "note",
+    "sourceIds": [
+      "forecasts-04bc0feeea5752d3f197",
+      "forecasts-e98a76fbed8be126547f"
+    ],
+    "text": "The Forecasts source declares nextAttempt as a private in-memory ConcurrentHashMap field keyed by place id and storing Instant values. In live mode, reject the request when this place entry is later than now, then set it to now plus 60 seconds before sending. The capture does not establish how long a runtime instance is retained."
+  }
+}

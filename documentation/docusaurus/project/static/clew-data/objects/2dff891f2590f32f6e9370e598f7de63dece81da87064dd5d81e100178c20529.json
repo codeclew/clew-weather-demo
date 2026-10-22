@@ -1,0 +1,28 @@
+{
+  "identity": "sha256:2dff891f2590f32f6e9370e598f7de63dece81da87064dd5d81e100178c20529",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+      "dashboard:symbol:1db17a7767cbf1b12d50234a",
+      "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+      "dashboard:symbol:8e13fe1feb2708d5e5bd3c43",
+      "dashboard:symbol:a4627e5e868830287e83e0dc",
+      "dashboard:symbol:ac3aadb76be6fea3e790cb85",
+      "dashboard:symbol:bc57152944dfa54c072b94e5",
+      "dashboard:symbol:f3bcad13842060db4065d19b"
+    ],
+    "id": "claim-e1c5915c2d853315462a",
+    "sourceIds": [
+      "dashboard-1612e17d589cb9d0fa4a",
+      "dashboard-1db17a7767cbf1b12d50",
+      "dashboard-7970ac3e2a8cf3f45b4a",
+      "dashboard-8e13fe1feb2708d5e5bd",
+      "dashboard-a4627e5e868830287e83",
+      "dashboard-ac3aadb76be6fea3e790",
+      "dashboard-bc57152944dfa54c072b",
+      "dashboard-f3bcad13842060db4065"
+    ],
+    "text": "The captured Dashboard source serves a home page and saved weather-card JSON, forwards place-save and refresh requests to Places, and subscribes to weather.place-requested and weather.forecast-updated. The consumer dispatches each message to validation and event handling. In a transaction, applyEvent first inserts the event id into inbox; a duplicate commits and returns before any weather_cards upsert. A new place request updates place details. A forecast event inserts a missing card, or updates a conflicting card only when its stored updated_at is null or the incoming updatedAt is strictly newer; an older or equal event can commit its inbox row without changing the card. The health handler probes PostgreSQL and checks a local consumerReady flag. These statements describe source paths and declared registrations, not runtime activation."
+  }
+}

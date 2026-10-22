@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:85b77bf13fffa0bec9dbdd7e4f6311de62012d1a6ee7114cea42d060ef2849e5",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:6c1c934b28e298a6f204d3c1b6224687cea1db609b0d7498e6ac5928f11af8b5"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "event.forecast.updatedAt supplies this nullable timestamptz column. The update predicate accepts only a strictly greater timestamp.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

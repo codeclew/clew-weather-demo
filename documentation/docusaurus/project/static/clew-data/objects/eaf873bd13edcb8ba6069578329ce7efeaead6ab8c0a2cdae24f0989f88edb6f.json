@@ -1,0 +1,31 @@
+{
+  "identity": "sha256:eaf873bd13edcb8ba6069578329ce7efeaead6ab8c0a2cdae24f0989f88edb6f",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "cases": {
+      "$clewRef": "sha256:3fb5aaaa4c2c86dc55d699beaeab525d4ab37d08f6e4a496b6595f0078ef4d67"
+    },
+    "contractDigest": "sha256:9900361e3e545d6846284b0207c072664f270a5d373c79c0aa19e785a61d2145",
+    "contractId": "places:contract-operation:fa5644a96e01681d7c2b0445",
+    "coverage": "Observed 200, 400 and 415. Two differences are retained below; 415 has no declared body schema. The 500 path was not exercised.",
+    "entrypoint": "places-691b340ea61828b197b6",
+    "findings": [
+      {
+        "caseIds": [
+          "extra-property"
+        ],
+        "kind": "BROADER_REQUEST_ACCEPTANCE"
+      },
+      {
+        "caseIds": [
+          "missing-city",
+          "empty-body",
+          "invalid-city-type"
+        ],
+        "kind": "UNDECLARED_RESPONSE_MEDIA"
+      }
+    ],
+    "method": "POST",
+    "path": "/places"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:5fbb40a6690a2e0ec9028ef5c692d8e5c69289dd336644863c75e093b71181a4",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 107,
+    "evidenceDigest": "sha256:7256487ef2b935717fa91ef78c118638f742ba05b48bc735dae788133095f84d",
+    "file": "services/dashboard/src/main.ts",
+    "id": "dashboard-bd13763562f5c8fca4da",
+    "occurrence": {
+      "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+      "endByte": 5046,
+      "snapshot": "sha256:550435c6f8e16951bd815f9f7b54eda07bff8ad73a80a6df524ab2af077f4f6f",
+      "startByte": 5017
+    },
+    "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+    "service": "dashboard",
+    "startLine": 107,
+    "text": "app.get('/health', getHealth)",
+    "textDigest": "sha256:5c72ab6ece948a16118ba70d8bb38c5b1a27369b7f082bac89a38bc2e2688adb",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/e635069293d58cb0d4f28c8211e748b8d58e6b37/services/dashboard/src/main.ts#L107-L107"
+  }
+}

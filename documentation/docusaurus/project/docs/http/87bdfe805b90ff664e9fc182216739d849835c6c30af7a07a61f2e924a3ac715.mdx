@@ -1,0 +1,145 @@
+---
+title: "GET /health"
+slug: "/http/87bdfe805b90ff664e9fc182216739d849835c6c30af7a07a61f2e924a3ac715"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# GET /health
+
+<ClewPageContext />
+
+Declared interface · DECLARED\_OPENAPI. Runtime enforcement and full specification validation are not established by this bounded record.
+
+<ClewContextLink path="/services/places#entry-places-3a33202464c8b4fff218">Service and input context · Places</ClewContextLink>
+
+<details>
+<summary>Declaration source and provenance</summary>
+
+- [contracts/places.openapi.json:1–263 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959.mdx)
+
+</details>
+
+## Parameters {#parameters}
+
+No parameters declared.
+
+## Request body {#request-body}
+
+No request body is recorded in this declaration.
+
+## Declared responses {#declared-responses}
+
+### 200
+
+200
+
+<details open>
+<summary>Response media and body schema</summary>
+
+**Media:** application/json
+
+<p className="clew-schema-scope">object</p>  <div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Required</th><th scope="col">Declared constraints / description</th></tr></thead><tbody> <tr><td data-label="Field"><code>database</code></td><td data-label="Type">Not declared</td><td data-label="Required">Optional</td><td data-label="Declared constraints / description">const: READY<br/></td></tr> <tr><td data-label="Field"><code>kafka</code></td><td data-label="Type">Not declared</td><td data-label="Required">Optional</td><td data-label="Declared constraints / description">const: READY<br/></td></tr> </tbody></table></div>  
+
+<details>
+<summary>Exact retained media schema and examples</summary>
+
+```json
+{
+  "schema": {
+    "properties": {
+      "database": {
+        "const": "READY"
+      },
+      "kafka": {
+        "const": "READY"
+      }
+    },
+    "type": "object"
+  }
+}
+```
+
+
+</details>
+
+
+</details>
+
+### 500
+
+500
+
+No response media or body schema is recorded for this status in the retained declaration.
+
+<details>
+<summary>Complete retained operation contract</summary>
+
+```json
+{
+  "operationId": "places_get_health",
+  "responses": {
+    "200": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "properties": {
+              "database": {
+                "const": "READY"
+              },
+              "kafka": {
+                "const": "READY"
+              }
+            },
+            "type": "object"
+          }
+        }
+      },
+      "description": "200"
+    },
+    "500": {
+      "description": "500"
+    }
+  }
+}
+```
+
+
+</details>
+
+<details>
+<summary>Declaration reader and source context</summary>
+
+```json
+{
+  "authority": "DECLARED_OPENAPI",
+  "boundaries": [
+    "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED"
+  ],
+  "declaredSource": "contracts/places.openapi.json",
+  "entrypoint": "places-3a33202464c8b4fff218",
+  "method": "GET",
+  "openapi": "3.1.0",
+  "parameters": [],
+  "path": "/health",
+  "readerSelection": {
+    "compatibilityAnchor": "3.1",
+    "fullSpecificationValidation": false,
+    "outsideAdvertisedRange": false,
+    "reader": "BOUNDED_OPENAPI_PATH_OPERATION_READER",
+    "selectionMode": "DECLARED_COMPATIBILITY_PROFILE",
+    "supportedVersionRange": "OPENAPI_THROUGH_3_X"
+  },
+  "runtimeEnforcement": "UNVERIFIED",
+  "schema": "codeclew-documentation-contract-facts/1.0",
+  "security": null,
+  "securitySchemes": null,
+  "servers": null,
+  "sourceMapping": "SOURCE_ROUTE_MATCH_ONLY"
+}
+```
+
+
+</details>
+

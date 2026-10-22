@@ -1,0 +1,20 @@
+{
+  "identity": "sha256:60e2255aaf54a49872a1c446072824106250d7e7367365916206be9d10933abb",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "This proposal documents four service sections from source-level TypeScript and the captured OpenAPI declaration. It does not establish runtime route or listener activation, deployed settings, database outcomes, or broker delivery and offset-commit guarantees. The OpenAPI document is read as source text; JSON Schema semantics are not fully interpreted."
+    ],
+    "documentationLanguage": "en",
+    "events": [],
+    "explanation": [],
+    "findings": [],
+    "id": "section-responsibilities",
+    "interfaceContracts": [],
+    "participants": [],
+    "summary": {
+      "$clewRef": "sha256:2dff891f2590f32f6e9370e598f7de63dece81da87064dd5d81e100178c20529"
+    },
+    "title": "Dashboard responsibilities"
+  }
+}

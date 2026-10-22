@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:1b71a959a96dc27502d85cf954aafe2782fb81e5d0fd6bbae21419300ca8de50",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contract": "save-city-request",
+    "field": "cityId",
+    "label": "Declared Places save request",
+    "mapping": {
+      "$clewRef": "sha256:a446aa88b1d6085724f071cbdfbc0f3c5693b86d673a8eedf503b4752a19754a"
+    },
+    "nullability": "Derived from the schema",
+    "relatedModel": null,
+    "requiredness": "Declared required request property",
+    "typeLabel": "Derived from the request schema"
+  }
+}

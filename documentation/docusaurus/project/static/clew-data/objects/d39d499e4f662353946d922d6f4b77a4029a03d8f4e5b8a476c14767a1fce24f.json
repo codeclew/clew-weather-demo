@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:d39d499e4f662353946d922d6f4b77a4029a03d8f4e5b8a476c14767a1fce24f",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [],
+    "documentationLanguage": "en",
+    "events": [],
+    "explanation": [],
+    "findings": [],
+    "id": "section-overview",
+    "interfaceContracts": [],
+    "participants": [],
+    "summary": {
+      "$clewRef": "sha256:684afb3f4e18305f3347ef1de5e5a84382647267f640a80690a877755d6ff5ad"
+    },
+    "title": "Dashboard overview"
+  }
+}

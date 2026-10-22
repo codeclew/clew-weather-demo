@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:6de07cd9f16546a29a05ede987fec3e2caff78fa50361e62a5aa859211a3995d",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contract": null,
+    "field": null,
+    "label": "Stored column · weather_cards.forecast",
+    "mapping": {
+      "$clewRef": "sha256:a6d6abc53888c90083c098e233016fa56a2512f57ed8c27427bea4182cda371d"
+    },
+    "nullability": "Nullable",
+    "relatedModel": null,
+    "requiredness": "Column exists; may be omitted by the place-only INSERT",
+    "typeLabel": "jsonb"
+  }
+}

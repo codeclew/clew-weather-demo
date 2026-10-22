@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:a3077516ee7173e35c0a9f605868787b41bdd36c8d641f3a24a2c93c4aef9599",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:122cba8ae4504834ce7200983ed4376d49ba24c8cd07993900940718b707a395"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The browser uses Place.id for refresh-button identity, Place.name for the card title, mode for its badge, updatedAt for its update label, and Period time/temperature/precipitation for visible period cells. Null precipitation renders \"Rain unknown\"; values >= 0.2 receive the rain style.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

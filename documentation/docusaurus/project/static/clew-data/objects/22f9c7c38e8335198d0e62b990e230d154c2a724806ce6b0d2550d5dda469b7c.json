@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:22f9c7c38e8335198d0e62b990e230d154c2a724806ce6b0d2550d5dda469b7c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+      "forecasts:source_annotations:cc58d8643f3d17e4b6911d22",
+      "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+      "forecasts:symbol:cc58d8643f3d17e4b6911d22",
+      "interaction:places-place-requested-to-forecasts",
+      "process-component:forecasts-place-requested-consumer:forecasts-publish-pending",
+      "process-component:forecasts-place-requested-consumer:forecasts-refresh-scheduled",
+      "process-scope:forecasts-place-requested-consumer",
+      "process:forecasts-place-requested-consumer"
+    ],
+    "id": "claim-8fa111302cffa20fe9be",
+    "sourceIds": [
+      "forecasts-ad28a606f0881dfe7cfc",
+      "forecasts-cc58d8643f3d17e4b691"
+    ],
+    "text": "The saved process declares an agent-proposed mapping from Places.PublishPending to Forecasts.consume on weather.place-requested; it does not establish broker routing or runtime delivery. At source, the listener parses and validates the record before entering a transaction. A parse or validation exception enters the rejection branch: an INVALID_EVENT row is written and the record is acknowledged; if the rejection write fails, the acknowledgement is not reached. A valid event inserts its id into inbox. An existing id returns before the place upsert and refresh call; a new id upserts the place and calls refresh(place) inside the callback. The listener acknowledges after the transaction call returns, so an exception exiting that call prevents this source-level acknowledgement. The accepted Consume weather.place-requested service operation retains the detailed handler body; this page locates it in the declared Places-to-Forecasts path. Saved refresh and publisher views are links, not proof of order or atomicity. Runtime routing, delivery, and transaction outcomes remain unverified."
+  }
+}

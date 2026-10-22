@@ -1,0 +1,15 @@
+{
+  "identity": "sha256:ca9e4ab3cdcbe2cee291a0df9c86fe72afd4d98160313803db7f0417ab3e0e97",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "SELECTED_SNAPSHOT_NOT_RUNTIME_PROOF",
+    "revisions": {
+      "dashboard": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "services": {
+      "$clewRef": "sha256:ee651c2510f3c62cc41e1fc3ed87ea572eae1a8027284a1ab968fe5b2f8e8b10"
+    }
+  }
+}

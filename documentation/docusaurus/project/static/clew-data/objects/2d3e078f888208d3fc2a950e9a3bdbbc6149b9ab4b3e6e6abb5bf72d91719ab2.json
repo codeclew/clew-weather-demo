@@ -1,0 +1,25 @@
+{
+  "identity": "sha256:2d3e078f888208d3fc2a950e9a3bdbbc6149b9ab4b3e6e6abb5bf72d91719ab2",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "operationId": "dashboard_post_api_places_id_refresh",
+    "parameters": [
+      {
+        "in": "path",
+        "name": "id",
+        "required": true,
+        "schema": {
+          "enum": [
+            "oslo",
+            "helsinki",
+            "lisbon"
+          ],
+          "type": "string"
+        }
+      }
+    ],
+    "responses": {
+      "$clewRef": "sha256:70eae204b9f7a15dab044f07215b14fa17a8e6b000cd54dae5d904e6f0bed0b0"
+    }
+  }
+}

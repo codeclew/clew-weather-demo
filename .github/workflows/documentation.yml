@@ -6,6 +6,7 @@ on:
     paths:
       - 'docs/**'
       - 'documentation/reference/**'
+      - 'documentation/docusaurus/**'
       - '.github/workflows/documentation.yml'
   workflow_dispatch:
 
@@ -26,15 +27,33 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Test reference artifact checks
-        run: python3 -I -S documentation/reference/test_verify.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Test reference and additive-variant guards
+        run: |
+          python3 -I -S documentation/reference/test_verify.py
+          python3 -I -S documentation/docusaurus/test_variant.py
       - name: Validate pinned publication mode and complete reference coverage
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          native_mode=$(python3 -I -S documentation/docusaurus/variant.py native-mode)
+          if [ "$native_mode" = pinned ]; then
+            # Only the complete byte-identical published tree may retain its official release.
+            release_tag=v0.13.39
+            release_commit=$(gh api "repos/codeclew/codeclew/commits/$release_tag" --jq .sha)
+            test "$release_commit" = 7880663be0b8b8dcefd197768fbc1593f0dddb4b
+            python3 -I -S documentation/reference/verify.py --root docs \
+              --publication-policy documentation/reference/publication.json \
+              --expected-version "$release_tag" --expected-commit "$release_commit"
+            exit 0
+          fi
           mode=$(python3 -c 'import json; print(json.load(open("documentation/reference/publication.json"))["mode"])')
           case "$mode" in
             accepted-source)
@@ -53,9 +72,28 @@ jobs:
               ;;
             *) printf '%s\n' 'Unsupported reference publication mode' >&2; exit 1 ;;
           esac
+      - name: Verify frozen Docusaurus source and independent acceptance
+        run: python3 -I -S documentation/docusaurus/variant.py verify
+      - name: Build the separate Docusaurus version
+        working-directory: documentation/docusaurus/project
+        env:
+          CODECLEW_DOCS_URL: https://codeclew.github.io
+          CODECLEW_DOCS_BASE_URL: /clew-weather-demo/docusaurus/
+          CODECLEW_DOCS_REVIEW_INDEX: 'true'
+        run: |
+          export CODECLEW_DOCS_GENERATOR_REVISION="$(python3 -c 'import json; print(json.load(open("../publication.json"))["identity"]["renderer"]["sourceRevision"])')"
+          npm ci --no-audit --no-fund
+          npm run build
+      - name: Check deep deployment paths and assemble both versions
+        run: |
+          python3 -I -S documentation/docusaurus/variant.py verify-build
+          mkdir pages-output
+          cp -R docs/. pages-output/
+          mkdir pages-output/docusaurus
+          cp -R documentation/docusaurus/project/build/. pages-output/docusaurus/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
-          path: docs
+          path: pages-output
       - uses: actions/deploy-pages@v4
         id: deployment

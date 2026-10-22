@@ -1,0 +1,28 @@
+{
+  "identity": "sha256:fa658f2aa24b521aba29c0f07374f937d885ed2df69c23f786232180b428988e",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "bodyAssessment": "matches-selected-schema",
+    "bodyErrors": [],
+    "comparedSchemaMedia": "application/json",
+    "declaredMedia": [
+      "application/json"
+    ],
+    "id": "valid-save",
+    "mediaAssessment": "declared",
+    "request": {
+      "body": "{\"cityId\":\"oslo\"}",
+      "contentType": "application/json",
+      "method": "POST",
+      "path": "/places"
+    },
+    "requestAssessment": "within-schema",
+    "requestErrors": [],
+    "response": {
+      "body": "{\"id\":\"oslo\",\"name\":\"Oslo\",\"latitude\":59.93,\"longitude\":10.72}",
+      "contentType": "application/json; charset=utf-8",
+      "status": 200
+    },
+    "statusDeclared": true
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "identity": "sha256:26fa55ae07d67b923d69ce2172104ffb54ca0444a01105f8694fb8c3c965fe0c",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    {
+      "$clewRef": "sha256:07ff73917bce83e30efd79cc0fca2ef757883a88ed8c62369ede9352a9cb5084"
+    },
+    {
+      "$clewRef": "sha256:c341f8ae1628cd4bccc69c6461556850a495980f8d0deec5cf7d4ad737f5a8d8"
+    },
+    {
+      "$clewRef": "sha256:c3b5441fc527dc0ea16d2101c34511d698111166df83eb731f5d9c7d8b0927ba"
+    },
+    {
+      "$clewRef": "sha256:b6c4e0ddfe28d740b9e8c1aa17d0eb00659444c9a4f56e3ed039704cb867537e"
+    },
+    {
+      "$clewRef": "sha256:0ef1db9a50064429012af3ca42c0907124f60a31bcdde1d1ca63d3c8182adc96"
+    },
+    {
+      "$clewRef": "sha256:c4661d7904a3299d80f091331a0cedad2533b4a3670f5042bd5f584492d7c8b5"
+    },
+    {
+      "$clewRef": "sha256:f2bd05962a9b7329a60dfff760ac24008cde0d20942dd593ca6c19ad290952c3"
+    },
+    {
+      "$clewRef": "sha256:fd1765e8ec4806bb6363339eab6bcc00c2f1cedf27f85ca3013bce326f6831c1"
+    },
+    {
+      "$clewRef": "sha256:c7be3fab1a7057fff77c66c819aae7c816b74e4ac0abe04c0c3089189e7ce458"
+    }
+  ]
+}

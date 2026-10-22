@@ -1,0 +1,36 @@
+{
+  "identity": "sha256:1d8ae13ff022cc2baeac174e362edb0694f663be8e6cb4fa44ed54bea988c4a2",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dashboard-021fcd0ff7baa53bd3c5": {
+      "$clewRef": "sha256:afddedfc8054e8c5495b73e95e3924f7b15f90f9b73caf09d7c1b7cdda664830"
+    },
+    "dashboard-049a97e649d7feb212e6": {
+      "$clewRef": "sha256:fb056517f94476af3c7964b81f570f4579e6b57b469923f270bb1b5b7f3ec245"
+    },
+    "dashboard-37dec2bf70bc69d603cb": {
+      "$clewRef": "sha256:03b9efe6bc6d50d833e9a96c49365da011a0e4f6ed708994589122816819a21f"
+    },
+    "dashboard-59f03a0653cc7a3798b8": {
+      "$clewRef": "sha256:51eb13746a4ec715b7f498f982fc29c26b082e21cf20eed410ae88e3807a0f13"
+    },
+    "dashboard-654eeebd7e0618b0c6dd": {
+      "$clewRef": "sha256:04307c94ed8910824028310d5a54e4062e623b9b852e4e1ed79879721fe73f84"
+    },
+    "dashboard-7d0d09a16ac25de86e5b": {
+      "$clewRef": "sha256:f595401e33ffe1c87198d3297a901422e3d449fe00dd98adddc17aaca283d70e"
+    },
+    "dashboard-8a4f6855cb7f1a476a04": {
+      "$clewRef": "sha256:596449b04f878bf0394c5492523a6a54d943d9f3a2a63e24cba4e4ca8dce043a"
+    },
+    "dashboard-a190efb9bca6603f1d2a": {
+      "$clewRef": "sha256:cb1d1d3100a0984649d98da9a16956ac42fc63a19ea6841dad22f15a13784ba7"
+    },
+    "dashboard-a4627e5e868830287e83": {
+      "$clewRef": "sha256:c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233"
+    },
+    "dashboard-ac3aadb76be6fea3e790": {
+      "$clewRef": "sha256:bf524d202ba882540036918136ea088912da8bc6f340ab23d8a90bfb0aacab71"
+    }
+  }
+}

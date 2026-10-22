@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:cfaf44e6ed958d92b6a7a314dc3ea83ab32d341d48b0332bbb600ff8c2ad7fa1",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 16,
+    "evidenceDigest": "sha256:191c9b1f7790862a25fc1a408a34b85f698a022820e2fec3556fad8acf9086a8",
+    "file": "services/forecasts/pom.xml",
+    "id": "forecasts-5c10f9a1400189a3dda0",
+    "occurrence": {
+      "blob": "4db11ad5aa514ec71934e17b54855b82807abe30",
+      "endByte": 1914,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 0
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 1,
+    "text": "<project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\n<modelVersion>4.0.0</modelVersion><parent><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-parent</artifactId><version>4.1.1</version><relativePath/></parent>\n<groupId>weather</groupId><artifactId>forecasts</artifactId><version>0.1.0</version>\n<properties><java.version>21</java.version><kotlin.version>2.4.21</kotlin.version></properties>\n<dependencies>\n<dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-webmvc</artifactId></dependency>\n<dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-jdbc</artifactId></dependency>\n<dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-kafka</artifactId></dependency>\n<dependency><groupId>org.postgresql</groupId><artifactId>postgresql</artifactId><scope>runtime</scope></dependency>\n<dependency><groupId>org.jetbrains.kotlin</groupId><artifactId>kotlin-reflect</artifactId></dependency>\n<dependency><groupId>org.jetbrains.kotlin</groupId><artifactId>kotlin-stdlib</artifactId></dependency>\n</dependencies>\n<build><sourceDirectory>src/main/kotlin</sourceDirectory><plugins>\n<plugin><groupId>org.jetbrains.kotlin</groupId><artifactId>kotlin-maven-plugin</artifactId><version>${kotlin.version}</version><executions><execution><id>compile</id><phase>compile</phase><goals><goal>compile</goal></goals></execution></executions><configuration><jvmTarget>21</jvmTarget><javaParameters>true</javaParameters></configuration></plugin>\n<plugin><groupId>org.springframework.boot</groupId><artifactId>spring-boot-maven-plugin</artifactId><configuration><mainClass>weather.ApplicationKt</mainClass></configuration></plugin>\n</plugins></build></project>\n",
+    "textDigest": "sha256:db95dd794c596edc9a1a0cd93f80536b1c08df68c22450ac2c1533700c985e51",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/pom.xml#L1-L16"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:386a0fb720842fd6729fad0e4673aa0774f9f24664de5e364371d92b70561cf4",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 64,
+    "evidenceDigest": "sha256:351db63a935a5f5bbd17f54dfc67477bcfcb286d955079804c2de5c01ef73259",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "id": "forecasts-36b8291ca4c6946a852c",
+    "occurrence": {
+      "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+      "endByte": 3839,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 3500
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 64,
+    "text": "jdbc.query(\"SELECT p.id,p.name,p.latitude,p.longitude FROM places p LEFT JOIN forecasts f ON f.place_id=p.id WHERE f.expires_at IS NULL OR f.expires_at<now() ORDER BY p.id\", { row, _ -> json.createObjectNode().put(\"id\", row.getString(1)).put(\"name\", row.getString(2)).put(\"latitude\", row.getDouble(3)).put(\"longitude\", row.getDouble(4)) })",
+    "textDigest": "sha256:671ec1c14bd0b47b3c167d992e10f413a366fda3125265c51eb6133e7adef9d1",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L64-L64"
+  }
+}

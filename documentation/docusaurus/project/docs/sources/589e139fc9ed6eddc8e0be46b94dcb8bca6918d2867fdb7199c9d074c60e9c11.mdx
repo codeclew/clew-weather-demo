@@ -1,0 +1,26 @@
+---
+title: "services/forecasts/src/main/kotlin/weather/Forecasts.kt:90–93"
+slug: "/sources/589e139fc9ed6eddc8e0be46b94dcb8bca6918d2867fdb7199c9d074c60e9c11"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/forecasts/src/main/kotlin/weather/Forecasts.kt:90–93
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: c289b28be4819eddf29d59a7c12f178559ec5229
+
+Text digest: sha256:dea3c1a1efe331a5c6399e9807711c3d90c3db967d981e41a9249dce5eeafe00
+
+## Retained text {#retained-text}
+
+```text
+nextAttempt[id] = if (response.statusCode() == 429) {
+                val seconds = response.headers().firstValue("Retry-After").orElse("60").toLongOrNull() ?: 60L
+                Instant.now().plusSeconds(seconds.coerceAtLeast(60L))
+            } else expires
+```
+
+<ClewDownload path="/clew-data/objects/589e139fc9ed6eddc8e0be46b94dcb8bca6918d2867fdb7199c9d074c60e9c11.json">Complete original source binding</ClewDownload>

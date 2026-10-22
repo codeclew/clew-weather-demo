@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:4f838ff734baf4cd7f271e1596a13cb35789a569e778a39d442e0c20af7b967b",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 13,
+    "evidenceDigest": "sha256:4b99ef03680b375f3226f1fd892be0b01b299e639519794771383f494f60cad6",
+    "file": "services/dashboard/tsconfig.json",
+    "id": "dashboard-d6714932ad41a2152514",
+    "occurrence": {
+      "blob": "0754597fa15312d1c99fafeafffa3e64621d1715",
+      "endByte": 218,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 0
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 1,
+    "text": "{\n  \"compilerOptions\": {\n    \"target\": \"ES2022\",\n    \"module\": \"NodeNext\",\n    \"moduleResolution\": \"NodeNext\",\n    \"strict\": true,\n    \"outDir\": \"dist\",\n    \"rootDir\": \"src\"\n  },\n  \"include\": [\n    \"src/**/*.ts\"\n  ]\n}\n",
+    "textDigest": "sha256:6cf91df2deb65e0e60e73df2da2e1b264e11486e9fe25ad0c52c701617be12fb",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/tsconfig.json#L1-L13"
+  }
+}

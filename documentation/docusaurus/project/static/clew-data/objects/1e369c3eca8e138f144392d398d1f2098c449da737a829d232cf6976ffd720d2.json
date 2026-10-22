@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:1e369c3eca8e138f144392d398d1f2098c449da737a829d232cf6976ffd720d2",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:6f9debdf9a08e5e30cb456a0449d6fc0ef48ce8efe1fe84556bbb054e186ac82"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Provider symbol_code, or the producer fallback \"unknown\". It is validated, stored, returned and part of browser whole-response comparison; the inspected update function does not directly display it.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

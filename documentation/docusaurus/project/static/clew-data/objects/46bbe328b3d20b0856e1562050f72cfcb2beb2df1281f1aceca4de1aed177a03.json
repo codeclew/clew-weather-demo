@@ -1,0 +1,25 @@
+{
+  "identity": "sha256:46bbe328b3d20b0856e1562050f72cfcb2beb2df1281f1aceca4de1aed177a03",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:381bb4ac73cd1307b2bb37310825af44e7256257af08aa998f6bf84e571c08e1"
+    },
+    "id": null,
+    "links": [
+      {
+        "href": "../scenarios/forecasts-publish-pending.html#process-overview",
+        "label": "Related forecast publisher",
+        "operation": "process-overview",
+        "subject": "scenario:forecasts-publish-pending"
+      }
+    ],
+    "navTitle": null,
+    "preview": null,
+    "text": "Original source, event validation, database/offset ordering and review state remain attached below. This source interpretation does not prove runtime delivery. These two consumer topics have distinct payload checks and card-update rules.",
+    "title": "Evidence scope",
+    "tone": null
+  }
+}

@@ -1,0 +1,2156 @@
+{
+  "schema": "codeclew-normalized-data/1.0",
+  "value": {
+    "activityTransitions": null,
+    "activityTransitionsSvg": false,
+    "analysisEvidence": {
+      "places": {
+        "coverage": "PARTIAL",
+        "extractor": "codeclew-documentation-jvm/1.3",
+        "mappedSymbols": 0,
+        "provider": {
+          "status": "NATIVE_ANALYSIS"
+        },
+        "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+        "runtimeMode": "RELEASE",
+        "sampleFacts": []
+      }
+    },
+    "authoredTranslationGaps": [],
+    "boundaries": [
+      "CLR_SIGNATURE_PROJECTED_TO_JVM_DESCRIPTOR_GRAMMAR",
+      "CSHARP_SOURCE_GENERATED_DOCUMENTS_NOT_INDEXED",
+      "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+      "GENERATED_SOURCE_BODIES_NOT_INDEXED",
+      "LAMBDA_EXECUTION_NOT_EXPANDED",
+      "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+      "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+      "SWITCH_FLOW_REQUIRES_SOURCE_REVIEW",
+      "Static source interpretation; runtime activation and execution are not established."
+    ],
+    "boundaryInventory": {
+      "$clewRef": "sha256:30a3697d401c48c13390f917077ff7f23a446fb67acbabad34e85b988a41f926"
+    },
+    "catalogue": {
+      "$clewRef": "sha256:0fa7bc727c3fe49de559b8579136f956b74fa8cabec7c75f1ac17532c851b57f"
+    },
+    "contractComparison": {
+      "$clewRef": "sha256:178fb86dc04839e1d0f0a3946a1a76562d4a843053dd11d977a361f110e714e9"
+    },
+    "contracts": {
+      "$clewRef": "sha256:29378559b8bb2607934d118c90c8deb9221622f261cbac7c83adab1970d826fe"
+    },
+    "coverage": {
+      "places": "PARTIAL"
+    },
+    "entities": [],
+    "entryProcesses": {},
+    "extractor": "codeclew-documentation-jvm/1.3",
+    "frozenLanguageAvailability": {
+      "requestedDocumentationLanguage": "en",
+      "translationComplete": true,
+      "translationGaps": {}
+    },
+    "frozenPublication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+    "gaps": {},
+    "interactions": [
+      {
+        "$clewRef": "sha256:175f36d8d281e373a64786ea1e9ab5e2dab6b7af8b40058e3c151dc0923d83ad"
+      },
+      {
+        "$clewRef": "sha256:21b5ab89e9c33d4e0519ccd687c6787b117cf31099de95cdf5e536b3dc35cbea"
+      },
+      {
+        "$clewRef": "sha256:6e4730373affdcc11f36db84d22f061b28aa2a81f5b1f75232912aaa1bebe1e7"
+      },
+      {
+        "$clewRef": "sha256:5f7167f498dee5aa096ae428e3da0471313755e134840a2752e424e13ebf73ab"
+      }
+    ],
+    "language": "en",
+    "lifecycleOperations": [],
+    "linkedProcessDetails": {
+      "places-691b340ea61828b197b6": [
+        {
+          "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+          "href": "../scenarios/dashboard-save-city.html#question-request",
+          "language": "en",
+          "process": "dashboard-save-city",
+          "text": "The selected Compose config sets PLACES_URL to http://places:8080, also the source default. The example target is POST http://places:8080/places. Production address and actual receiver routing are unverified; the saved service mapping is agent-proposed.",
+          "title": "Address and contracts"
+        }
+      ],
+      "places-e06f41e67f62720ad106": {
+        "$clewRef": "sha256:bf588152fbbca94816f957da5d841361b3da2bdce85af95a65ec4e3498fa2759"
+      },
+      "section-entities": [
+        {
+          "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+          "href": "../scenarios/dashboard-refresh-request.html#question-enqueue",
+          "language": "en",
+          "process": "dashboard-refresh-request",
+          "text": "For an existing place, Places saves a request for later publication (outbox) in a database transaction.",
+          "title": "Record for later publication"
+        },
+        {
+          "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+          "href": "../scenarios/dashboard-save-city.html#question-save",
+          "language": "en",
+          "process": "dashboard-save-city",
+          "text": "A new Place and its request for later publication (outbox) are saved in one database transaction.",
+          "title": "New city"
+        },
+        {
+          "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+          "href": "../scenarios/places-request-publisher.html#question-record",
+          "language": "en",
+          "process": "places-request-publisher",
+          "text": "After the send completes, the outbox row is marked published and the database transaction is committed.",
+          "title": "Record outcome"
+        }
+      ]
+    },
+    "notes": [
+      {
+        "assessment": {
+          "$clewRef": "sha256:2f15b85e2e81faaf37da839a700500ff489e959b251b40b31efb6edb7d945739"
+        },
+        "assessmentSubject": "service:places",
+        "association": {
+          "classification": "mixed",
+          "id": "runtime-broker-outage",
+          "metadata": {
+            "compilerEvidence": false,
+            "sourceSha256": "e870c5d480cc89c45d5feeaf9154f7397402152b9131599b239c65fe2b810fbb"
+          },
+          "path": "notes/runtime-broker-outage-cloud-v1.md",
+          "period": "2026-10-13T07:33:08.044370+00:00",
+          "schema": "codeclew-documentation-note-association/1.0",
+          "service": "places",
+          "tags": [
+            "imported-context"
+          ],
+          "targets": [
+            "service:places/section-overview"
+          ],
+          "title": "broker-outage.json"
+        },
+        "associationDigest": "sha256:48e8e1c6bcb568332d6543c4e9875c114d7d4c4fb180940d4f03ccb48bcfe75d",
+        "authority": "HUMAN_OR_IMPORTED_UNVERIFIED",
+        "dependencyIds": [],
+        "id": "assessment-runtime-broker-outage",
+        "missingTargets": [],
+        "original": {
+          "$clewRef": "sha256:2b15d348ed07c43a5e6198a9790840acb1d0a3a19ad6d4995ac6825dcea24bca"
+        },
+        "snapshotLabel": "Original text captured at this publication; human/imported authority, not a verified fact"
+      }
+    ],
+    "operationContracts": {
+      "assessment-runtime-broker-outage": {
+        "$clewRef": "sha256:29378559b8bb2607934d118c90c8deb9221622f261cbac7c83adab1970d826fe"
+      },
+      "places-3a33202464c8b4fff218": {
+        "$clewRef": "sha256:29378559b8bb2607934d118c90c8deb9221622f261cbac7c83adab1970d826fe"
+      },
+      "places-691b340ea61828b197b6": {
+        "$clewRef": "sha256:29378559b8bb2607934d118c90c8deb9221622f261cbac7c83adab1970d826fe"
+      },
+      "places-8a2148bf5e312b0c5947": {
+        "$clewRef": "sha256:29378559b8bb2607934d118c90c8deb9221622f261cbac7c83adab1970d826fe"
+      },
+      "places-de7d5796a632782443dc": {
+        "$clewRef": "sha256:29378559b8bb2607934d118c90c8deb9221622f261cbac7c83adab1970d826fe"
+      },
+      "places-e06f41e67f62720ad106": {
+        "$clewRef": "sha256:29378559b8bb2607934d118c90c8deb9221622f261cbac7c83adab1970d826fe"
+      },
+      "section-egress": {
+        "$clewRef": "sha256:29378559b8bb2607934d118c90c8deb9221622f261cbac7c83adab1970d826fe"
+      },
+      "section-entities": {
+        "$clewRef": "sha256:29378559b8bb2607934d118c90c8deb9221622f261cbac7c83adab1970d826fe"
+      },
+      "section-ingress": {
+        "$clewRef": "sha256:29378559b8bb2607934d118c90c8deb9221622f261cbac7c83adab1970d826fe"
+      },
+      "section-overview": {
+        "$clewRef": "sha256:29378559b8bb2607934d118c90c8deb9221622f261cbac7c83adab1970d826fe"
+      },
+      "section-responsibilities": {
+        "$clewRef": "sha256:29378559b8bb2607934d118c90c8deb9221622f261cbac7c83adab1970d826fe"
+      }
+    },
+    "operationExternalCalls": {
+      "assessment-runtime-broker-outage": [],
+      "places-3a33202464c8b4fff218": [],
+      "places-691b340ea61828b197b6": [],
+      "places-8a2148bf5e312b0c5947": [],
+      "places-de7d5796a632782443dc": [],
+      "places-e06f41e67f62720ad106": [],
+      "section-egress": [],
+      "section-entities": [],
+      "section-ingress": [],
+      "section-overview": [],
+      "section-responsibilities": []
+    },
+    "operationSources": {
+      "assessment-runtime-broker-outage": {
+        "$clewRef": "sha256:6ad09aa2389cf4c3203b26212c92689975b1b49d16bb25047c2bf3294a4e2578"
+      },
+      "places-3a33202464c8b4fff218": {
+        "$clewRef": "sha256:6ad09aa2389cf4c3203b26212c92689975b1b49d16bb25047c2bf3294a4e2578"
+      },
+      "places-691b340ea61828b197b6": {
+        "$clewRef": "sha256:6ad09aa2389cf4c3203b26212c92689975b1b49d16bb25047c2bf3294a4e2578"
+      },
+      "places-8a2148bf5e312b0c5947": {
+        "$clewRef": "sha256:6ad09aa2389cf4c3203b26212c92689975b1b49d16bb25047c2bf3294a4e2578"
+      },
+      "places-de7d5796a632782443dc": {
+        "$clewRef": "sha256:6ad09aa2389cf4c3203b26212c92689975b1b49d16bb25047c2bf3294a4e2578"
+      },
+      "places-e06f41e67f62720ad106": {
+        "$clewRef": "sha256:6ad09aa2389cf4c3203b26212c92689975b1b49d16bb25047c2bf3294a4e2578"
+      },
+      "section-egress": {
+        "$clewRef": "sha256:6ad09aa2389cf4c3203b26212c92689975b1b49d16bb25047c2bf3294a4e2578"
+      },
+      "section-entities": {
+        "$clewRef": "sha256:6ad09aa2389cf4c3203b26212c92689975b1b49d16bb25047c2bf3294a4e2578"
+      },
+      "section-ingress": {
+        "$clewRef": "sha256:6ad09aa2389cf4c3203b26212c92689975b1b49d16bb25047c2bf3294a4e2578"
+      },
+      "section-overview": {
+        "$clewRef": "sha256:6ad09aa2389cf4c3203b26212c92689975b1b49d16bb25047c2bf3294a4e2578"
+      },
+      "section-responsibilities": {
+        "$clewRef": "sha256:6ad09aa2389cf4c3203b26212c92689975b1b49d16bb25047c2bf3294a4e2578"
+      }
+    },
+    "operationStates": {
+      "assessment-runtime-broker-outage": {
+        "$clewRef": "sha256:1287307dd215fe09e7d7fa52473028891a640f133e59b81eee9f42ed7050de68"
+      },
+      "places-3a33202464c8b4fff218": {
+        "$clewRef": "sha256:aeada3ad526ae8a35878f733a7a061cd57b1427be659d6e7d483123ea9963d1a"
+      },
+      "places-691b340ea61828b197b6": {
+        "$clewRef": "sha256:aeada3ad526ae8a35878f733a7a061cd57b1427be659d6e7d483123ea9963d1a"
+      },
+      "places-8a2148bf5e312b0c5947": {
+        "$clewRef": "sha256:aeada3ad526ae8a35878f733a7a061cd57b1427be659d6e7d483123ea9963d1a"
+      },
+      "places-de7d5796a632782443dc": {
+        "$clewRef": "sha256:aeada3ad526ae8a35878f733a7a061cd57b1427be659d6e7d483123ea9963d1a"
+      },
+      "places-e06f41e67f62720ad106": {
+        "$clewRef": "sha256:aeada3ad526ae8a35878f733a7a061cd57b1427be659d6e7d483123ea9963d1a"
+      },
+      "section-egress": {
+        "$clewRef": "sha256:7449d8aac6ed9736ab4f2ef7e21f8258b178915b39babe38cf3cc40fb100aac1"
+      },
+      "section-entities": {
+        "$clewRef": "sha256:7449d8aac6ed9736ab4f2ef7e21f8258b178915b39babe38cf3cc40fb100aac1"
+      },
+      "section-ingress": {
+        "$clewRef": "sha256:7449d8aac6ed9736ab4f2ef7e21f8258b178915b39babe38cf3cc40fb100aac1"
+      },
+      "section-overview": {
+        "$clewRef": "sha256:7449d8aac6ed9736ab4f2ef7e21f8258b178915b39babe38cf3cc40fb100aac1"
+      },
+      "section-responsibilities": {
+        "$clewRef": "sha256:7449d8aac6ed9736ab4f2ef7e21f8258b178915b39babe38cf3cc40fb100aac1"
+      }
+    },
+    "operations": [
+      {
+        "$clewRef": "sha256:2f15b85e2e81faaf37da839a700500ff489e959b251b40b31efb6edb7d945739"
+      },
+      {
+        "boundaries": {
+          "$clewRef": "sha256:38e5dd6f897aee659c79419cc504ed65c4f220099e0d73da5f2d3e3f6df3c23e"
+        },
+        "documentationLanguage": "en",
+        "events": [
+          {
+            "dependencyIds": [
+              "places:entrypoint:60965d356edea224ffadd0f9",
+              "places:symbol:edfd73109baec00e38bd9ff0"
+            ],
+            "from": "caller",
+            "id": "claim-9911cacfae536fa0314b",
+            "kind": "message",
+            "sourceIds": [
+              "places-edfd73109baec00e38bd"
+            ],
+            "text": "GET /health enters the health handler, which forwards the request cancellation token to Ping.",
+            "to": "service-places"
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:5b61c76fee491604ae120ab3",
+              "places:symbol:707eb762b8c1f4718a5b89e7"
+            ],
+            "from": "service-places",
+            "id": "claim-c457ab8b9e0682d45e3e",
+            "kind": "message",
+            "sourceIds": [
+              "places-5b61c76fee491604ae12",
+              "places-707eb762b8c1f4718a5b"
+            ],
+            "text": "Ping opens a database connection and executes SELECT 1.",
+            "to": "places-db"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:60965d356edea224ffadd0f9",
+              "places:flow:d563c7ecbbb7f4ab93d05d31",
+              "places:symbol:edfd73109baec00e38bd9ff0"
+            ],
+            "from": "service-places",
+            "id": "claim-5263a97f180bce575813",
+            "kind": "return",
+            "sourceIds": [
+              "places-d563c7ecbbb7f4ab93d0",
+              "places-edfd73109baec00e38bd"
+            ],
+            "text": "After Ping completes, the handler returns Ok with database READY.",
+            "to": "caller"
+          },
+          {
+            "dependencyIds": [
+              "places:contract-operation:08d1b9df6781b2953a038bc2",
+              "places:contract-operation:0f29e92a853c76a6ea564769",
+              "places:contract-operation:6b165729e2d309a9b2687873",
+              "places:contract-operation:6e713b9442ae5dfc4b99b133",
+              "places:contract-operation:fa5644a96e01681d7c2b0445",
+              "places:contract:91b280ed0ed0eda3e8e3231d",
+              "places:entrypoint:60965d356edea224ffadd0f9",
+              "places:symbol:edfd73109baec00e38bd9ff0"
+            ],
+            "id": "claim-947d8cc1b0be8a5a74e9",
+            "kind": "note",
+            "sourceIds": [
+              "places-770e53d99edf681987e1",
+              "places-edfd73109baec00e38bd"
+            ],
+            "text": "The OpenAPI 200 schema includes a kafka READY property; the handler returns only database and does not query Kafka. The spec property is not evidence that Kafka readiness is checked."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:60965d356edea224ffadd0f9",
+              "places:symbol:707eb762b8c1f4718a5b89e7",
+              "places:symbol:edfd73109baec00e38bd9ff0"
+            ],
+            "id": "claim-1273d337fa1287272fc5",
+            "kind": "note",
+            "sourceIds": [
+              "places-707eb762b8c1f4718a5b",
+              "places-edfd73109baec00e38bd"
+            ],
+            "text": "If opening the database connection fails, Open disposes it and rethrows; the handler has no catch for that failure."
+          }
+        ],
+        "explanation": [
+          {
+            "dependencyIds": [
+              "places:entrypoint:60965d356edea224ffadd0f9",
+              "places:symbol:edfd73109baec00e38bd9ff0"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-9911cacfae536fa0314b"
+            ],
+            "id": "claim-13d0fc6f4e4d15bb1f5a",
+            "sourceIds": [
+              "places-edfd73109baec00e38bd"
+            ],
+            "text": "GET /health enters the health handler, which forwards the request cancellation token to Ping."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:5b61c76fee491604ae120ab3",
+              "places:symbol:707eb762b8c1f4718a5b89e7"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-c457ab8b9e0682d45e3e"
+            ],
+            "id": "claim-b60483c1adb4a3ed556b",
+            "sourceIds": [
+              "places-5b61c76fee491604ae12",
+              "places-707eb762b8c1f4718a5b"
+            ],
+            "text": "Ping opens a database connection and executes SELECT 1."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:60965d356edea224ffadd0f9",
+              "places:flow:d563c7ecbbb7f4ab93d05d31",
+              "places:symbol:edfd73109baec00e38bd9ff0"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-5263a97f180bce575813"
+            ],
+            "id": "claim-95e98e755cec3f631421",
+            "sourceIds": [
+              "places-d563c7ecbbb7f4ab93d0",
+              "places-edfd73109baec00e38bd"
+            ],
+            "text": "After Ping completes, the handler returns Ok with database READY."
+          },
+          {
+            "dependencyIds": [
+              "places:contract-operation:08d1b9df6781b2953a038bc2",
+              "places:contract-operation:0f29e92a853c76a6ea564769",
+              "places:contract-operation:6b165729e2d309a9b2687873",
+              "places:contract-operation:6e713b9442ae5dfc4b99b133",
+              "places:contract-operation:fa5644a96e01681d7c2b0445",
+              "places:contract:91b280ed0ed0eda3e8e3231d",
+              "places:entrypoint:60965d356edea224ffadd0f9",
+              "places:symbol:edfd73109baec00e38bd9ff0"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-947d8cc1b0be8a5a74e9"
+            ],
+            "id": "claim-61e3f7fd6fab657176ab",
+            "sourceIds": [
+              "places-770e53d99edf681987e1",
+              "places-edfd73109baec00e38bd"
+            ],
+            "text": "The OpenAPI 200 schema includes a kafka READY property; the handler returns only database and does not query Kafka. The spec property is not evidence that Kafka readiness is checked."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:60965d356edea224ffadd0f9",
+              "places:symbol:707eb762b8c1f4718a5b89e7",
+              "places:symbol:edfd73109baec00e38bd9ff0"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-1273d337fa1287272fc5"
+            ],
+            "id": "claim-d163ce2841c1be333884",
+            "sourceIds": [
+              "places-707eb762b8c1f4718a5b",
+              "places-edfd73109baec00e38bd"
+            ],
+            "text": "If opening the database connection fails, Open disposes it and rethrows; the handler has no catch for that failure."
+          }
+        ],
+        "findings": [],
+        "id": "places-3a33202464c8b4fff218",
+        "interfaceContracts": [
+          {
+            "boundaries": [],
+            "id": "claim-49aab7a785fd1f8a51ca",
+            "kind": "http",
+            "rows": [
+              {
+                "dependencyIds": [
+                  "places:contract-operation:08d1b9df6781b2953a038bc2",
+                  "places:contract-operation:0f29e92a853c76a6ea564769",
+                  "places:contract-operation:6b165729e2d309a9b2687873",
+                  "places:contract-operation:6e713b9442ae5dfc4b99b133",
+                  "places:contract-operation:fa5644a96e01681d7c2b0445",
+                  "places:contract:91b280ed0ed0eda3e8e3231d"
+                ],
+                "id": "claim-8487a7e2dce961c1da25",
+                "label": "Declared responses",
+                "sourceIds": [
+                  "places-770e53d99edf681987e1"
+                ],
+                "value": "The contract declares 200 and 500 responses. The 200 schema defines database and kafka properties, each with const READY."
+              }
+            ],
+            "title": "OpenAPI: GET /health"
+          }
+        ],
+        "participants": [
+          {
+            "id": "caller",
+            "label": "Caller",
+            "service": null
+          },
+          {
+            "id": "service-places",
+            "label": "places",
+            "service": "places"
+          },
+          {
+            "id": "places-db",
+            "label": "Places PostgreSQL",
+            "service": null
+          }
+        ],
+        "summary": {
+          "dependencyIds": [
+            "places:contract-operation:08d1b9df6781b2953a038bc2",
+            "places:contract-operation:0f29e92a853c76a6ea564769",
+            "places:contract-operation:6b165729e2d309a9b2687873",
+            "places:contract-operation:6e713b9442ae5dfc4b99b133",
+            "places:contract-operation:fa5644a96e01681d7c2b0445",
+            "places:contract:91b280ed0ed0eda3e8e3231d",
+            "places:entrypoint:60965d356edea224ffadd0f9",
+            "places:symbol:5b61c76fee491604ae120ab3",
+            "places:symbol:707eb762b8c1f4718a5b89e7",
+            "places:symbol:edfd73109baec00e38bd9ff0"
+          ],
+          "id": "claim-1705360853eeaecb25a2",
+          "sourceIds": [
+            "places-5b61c76fee491604ae12",
+            "places-707eb762b8c1f4718a5b",
+            "places-770e53d99edf681987e1",
+            "places-edfd73109baec00e38bd"
+          ],
+          "text": "PlacesController.Health awaits PlacesRepository.Ping and then returns Ok with database READY. Ping opens a PostgreSQL connection and executes SELECT 1, so this source checks database reachability and does not check Kafka. If connection opening fails, Open disposes the connection and rethrows. The OpenAPI 200 schema also defines a kafka READY property, while this handler returns only database; the source does not show a Kafka readiness check."
+        },
+        "title": "GET /health"
+      },
+      {
+        "boundaries": {
+          "$clewRef": "sha256:38e5dd6f897aee659c79419cc504ed65c4f220099e0d73da5f2d3e3f6df3c23e"
+        },
+        "documentationLanguage": "en",
+        "events": [
+          {
+            "dependencyIds": [
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:symbol:309961f88b197290c1b04e50",
+              "places:symbol:9b1977404f23eec4b384ba0d"
+            ],
+            "from": "caller",
+            "id": "claim-95ded289d095338b5fd8",
+            "kind": "message",
+            "sourceIds": [
+              "places-309961f88b197290c1b0",
+              "places-9b1977404f23eec4b384"
+            ],
+            "text": "POST /places supplies a SavePlace body; the handler resolves its cityId before saving.",
+            "to": "service-places"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:flow:fb7eaacd787375afbd44cfad",
+              "places:symbol:309961f88b197290c1b04e50",
+              "places:symbol:9b1977404f23eec4b384ba0d"
+            ],
+            "id": "claim-1384810d5571386d554f",
+            "kind": "alt",
+            "sourceIds": [
+              "places-309961f88b197290c1b0",
+              "places-9b1977404f23eec4b384",
+              "places-fb7eaacd787375afbd44"
+            ],
+            "text": "If the city lookup returns null for an unsupported cityId, the handler returns an error response."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:flow:4ae3f1a41f6b7e53d1d6254d",
+              "places:symbol:309961f88b197290c1b04e50"
+            ],
+            "from": "service-places",
+            "id": "claim-126078d94912d5b8e32e",
+            "kind": "return",
+            "sourceIds": [
+              "places-309961f88b197290c1b0",
+              "places-4ae3f1a41f6b7e53d1d6"
+            ],
+            "text": "Return 400 Bad Request with error UNSUPPORTED_CITY.",
+            "to": "caller"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:flow:fb7eaacd787375afbd44cfad",
+              "places:symbol:309961f88b197290c1b04e50",
+              "places:symbol:9b1977404f23eec4b384ba0d"
+            ],
+            "id": "claim-3b91693bb2eacd60f74f",
+            "kind": "else",
+            "sourceIds": [
+              "places-309961f88b197290c1b0",
+              "places-9b1977404f23eec4b384",
+              "places-fb7eaacd787375afbd44"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:707eb762b8c1f4718a5b89e7",
+              "places:symbol:d3b23b700626394c74b7ef9e"
+            ],
+            "from": "service-places",
+            "id": "claim-be7729d4081cce6d2512",
+            "kind": "message",
+            "sourceIds": [
+              "places-707eb762b8c1f4718a5b",
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "Open the database connection, begin a transaction, and attempt the place insert with conflict suppression.",
+            "to": "places-db"
+          },
+          {
+            "dependencyIds": [
+              "places:flow:3e148dc4ec1c8e6777dab503",
+              "places:symbol:d3b23b700626394c74b7ef9e"
+            ],
+            "id": "claim-a262a0a9155992848168",
+            "kind": "alt",
+            "sourceIds": [
+              "places-3e148dc4ec1c8e6777da",
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "If the insert returns an id, the row was newly inserted and the repository creates an outbox event; a conflict returns no id."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:51d94b76d870001475fd2c51",
+              "places:symbol:d3b23b700626394c74b7ef9e"
+            ],
+            "from": "service-places",
+            "id": "claim-d4ec4175cbd5ea8578d9",
+            "kind": "message",
+            "sourceIds": [
+              "places-51d94b76d870001475fd",
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "Generate a new event GUID, serialize the place.requested v1 payload, and insert it into request_outbox in the same transaction.",
+            "to": "places-db"
+          },
+          {
+            "dependencyIds": [
+              "places:flow:3e148dc4ec1c8e6777dab503",
+              "places:symbol:d3b23b700626394c74b7ef9e"
+            ],
+            "id": "claim-8d8eb7157efc1d5d0064",
+            "kind": "else",
+            "sourceIds": [
+              "places-3e148dc4ec1c8e6777da",
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "dependencyIds": [
+              "places:flow:3e148dc4ec1c8e6777dab503",
+              "places:symbol:d3b23b700626394c74b7ef9e"
+            ],
+            "id": "claim-c19d1a6965a7cae5cb1a",
+            "kind": "note",
+            "sourceIds": [
+              "places-3e148dc4ec1c8e6777da",
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "When the insert returns no id, InsertRequest is skipped, so the duplicate save adds no request_outbox row."
+          },
+          {
+            "dependencyIds": [
+              "places:flow:3e148dc4ec1c8e6777dab503",
+              "places:symbol:d3b23b700626394c74b7ef9e"
+            ],
+            "id": "claim-66c737f724735730e2c6",
+            "kind": "end",
+            "sourceIds": [
+              "places-3e148dc4ec1c8e6777da",
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:d3b23b700626394c74b7ef9e"
+            ],
+            "from": "service-places",
+            "id": "claim-94f96c3f6acfdaf1dd68",
+            "kind": "message",
+            "sourceIds": [
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "Commit the transaction after the insert and any new-row outbox write.",
+            "to": "places-db"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:flow:6c58eb605998ee97db0f1bdd",
+              "places:symbol:309961f88b197290c1b04e50",
+              "places:symbol:d3b23b700626394c74b7ef9e"
+            ],
+            "from": "service-places",
+            "id": "claim-156e18add2a30e93a7e3",
+            "kind": "return",
+            "sourceIds": [
+              "places-309961f88b197290c1b0",
+              "places-6c58eb605998ee97db0f",
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "On the supported-city path, return 200 with the city, including when the insert conflicted with an existing row.",
+            "to": "caller"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:flow:fb7eaacd787375afbd44cfad",
+              "places:symbol:309961f88b197290c1b04e50",
+              "places:symbol:9b1977404f23eec4b384ba0d"
+            ],
+            "id": "claim-2a2e14444b75a2715cd6",
+            "kind": "end",
+            "sourceIds": [
+              "places-309961f88b197290c1b0",
+              "places-9b1977404f23eec4b384",
+              "places-fb7eaacd787375afbd44"
+            ],
+            "text": ""
+          }
+        ],
+        "explanation": [
+          {
+            "dependencyIds": [
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:symbol:309961f88b197290c1b04e50",
+              "places:symbol:9b1977404f23eec4b384ba0d"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-95ded289d095338b5fd8"
+            ],
+            "id": "claim-c8a779c88afd496df15f",
+            "sourceIds": [
+              "places-309961f88b197290c1b0",
+              "places-9b1977404f23eec4b384"
+            ],
+            "text": "POST /places supplies a SavePlace body; the handler resolves its cityId before saving."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:flow:fb7eaacd787375afbd44cfad",
+              "places:symbol:309961f88b197290c1b04e50",
+              "places:symbol:9b1977404f23eec4b384ba0d"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-1384810d5571386d554f"
+            ],
+            "id": "claim-131ec2f9902bd53f4907",
+            "sourceIds": [
+              "places-309961f88b197290c1b0",
+              "places-9b1977404f23eec4b384",
+              "places-fb7eaacd787375afbd44"
+            ],
+            "text": "If the city lookup returns null for an unsupported cityId, the handler returns an error response."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:flow:4ae3f1a41f6b7e53d1d6254d",
+              "places:symbol:309961f88b197290c1b04e50"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-126078d94912d5b8e32e"
+            ],
+            "id": "claim-aa9fd6735c694cd1b03a",
+            "sourceIds": [
+              "places-309961f88b197290c1b0",
+              "places-4ae3f1a41f6b7e53d1d6"
+            ],
+            "text": "Return 400 Bad Request with error UNSUPPORTED_CITY."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:flow:fb7eaacd787375afbd44cfad",
+              "places:symbol:309961f88b197290c1b04e50",
+              "places:symbol:9b1977404f23eec4b384ba0d"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-3b91693bb2eacd60f74f"
+            ],
+            "id": "claim-a1c6b9a7779933ca15c2",
+            "sourceIds": [
+              "places-309961f88b197290c1b0",
+              "places-9b1977404f23eec4b384",
+              "places-fb7eaacd787375afbd44"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:707eb762b8c1f4718a5b89e7",
+              "places:symbol:d3b23b700626394c74b7ef9e"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-be7729d4081cce6d2512"
+            ],
+            "id": "claim-92bfcf521823428cad01",
+            "sourceIds": [
+              "places-707eb762b8c1f4718a5b",
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "Open the database connection, begin a transaction, and attempt the place insert with conflict suppression."
+          },
+          {
+            "dependencyIds": [
+              "places:flow:3e148dc4ec1c8e6777dab503",
+              "places:symbol:d3b23b700626394c74b7ef9e"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-a262a0a9155992848168"
+            ],
+            "id": "claim-ff27cfdc2cc4bfe6679f",
+            "sourceIds": [
+              "places-3e148dc4ec1c8e6777da",
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "If the insert returns an id, the row was newly inserted and the repository creates an outbox event; a conflict returns no id."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:51d94b76d870001475fd2c51",
+              "places:symbol:d3b23b700626394c74b7ef9e"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-d4ec4175cbd5ea8578d9"
+            ],
+            "id": "claim-e324216f1d0f44b1d785",
+            "sourceIds": [
+              "places-51d94b76d870001475fd",
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "Generate a new event GUID, serialize the place.requested v1 payload, and insert it into request_outbox in the same transaction."
+          },
+          {
+            "dependencyIds": [
+              "places:flow:3e148dc4ec1c8e6777dab503",
+              "places:symbol:d3b23b700626394c74b7ef9e"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-8d8eb7157efc1d5d0064"
+            ],
+            "id": "claim-211edd2e391a6e7b8a1f",
+            "sourceIds": [
+              "places-3e148dc4ec1c8e6777da",
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "places:flow:3e148dc4ec1c8e6777dab503",
+              "places:symbol:d3b23b700626394c74b7ef9e"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-c19d1a6965a7cae5cb1a"
+            ],
+            "id": "claim-ce64b8d69f918f26da5b",
+            "sourceIds": [
+              "places-3e148dc4ec1c8e6777da",
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "When the insert returns no id, InsertRequest is skipped, so the duplicate save adds no request_outbox row."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:d3b23b700626394c74b7ef9e"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-94f96c3f6acfdaf1dd68"
+            ],
+            "id": "claim-95c88cafc384d269adc1",
+            "sourceIds": [
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "Commit the transaction after the insert and any new-row outbox write."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:flow:6c58eb605998ee97db0f1bdd",
+              "places:symbol:309961f88b197290c1b04e50",
+              "places:symbol:d3b23b700626394c74b7ef9e"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-156e18add2a30e93a7e3"
+            ],
+            "id": "claim-469a67ad663eb942cb5a",
+            "sourceIds": [
+              "places-309961f88b197290c1b0",
+              "places-6c58eb605998ee97db0f",
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "On the supported-city path, return 200 with the city, including when the insert conflicted with an existing row."
+          }
+        ],
+        "findings": [],
+        "id": "places-691b340ea61828b197b6",
+        "interfaceContracts": [
+          {
+            "boundaries": [],
+            "id": "claim-153e65d91496415b3e9a",
+            "kind": "http",
+            "rows": [
+              {
+                "dependencyIds": [
+                  "places:contract-operation:08d1b9df6781b2953a038bc2",
+                  "places:contract-operation:0f29e92a853c76a6ea564769",
+                  "places:contract-operation:6b165729e2d309a9b2687873",
+                  "places:contract-operation:6e713b9442ae5dfc4b99b133",
+                  "places:contract-operation:fa5644a96e01681d7c2b0445",
+                  "places:contract:91b280ed0ed0eda3e8e3231d"
+                ],
+                "id": "claim-f6ad0c76fca50010addc",
+                "label": "Request and responses",
+                "sourceIds": [
+                  "places-770e53d99edf681987e1"
+                ],
+                "value": "The contract requires a JSON body with only cityId, whose enum is oslo, helsinki, or lisbon; it declares 200, 400, 415, and 500 responses."
+              }
+            ],
+            "title": "OpenAPI: POST /places"
+          }
+        ],
+        "participants": [
+          {
+            "id": "caller",
+            "label": "Caller",
+            "service": null
+          },
+          {
+            "id": "service-places",
+            "label": "places",
+            "service": "places"
+          },
+          {
+            "id": "places-db",
+            "label": "Places PostgreSQL",
+            "service": null
+          }
+        ],
+        "summary": {
+          "dependencyIds": [
+            "places:contract-operation:08d1b9df6781b2953a038bc2",
+            "places:contract-operation:0f29e92a853c76a6ea564769",
+            "places:contract-operation:6b165729e2d309a9b2687873",
+            "places:contract-operation:6e713b9442ae5dfc4b99b133",
+            "places:contract-operation:fa5644a96e01681d7c2b0445",
+            "places:contract:91b280ed0ed0eda3e8e3231d",
+            "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+            "places:symbol:309961f88b197290c1b04e50",
+            "places:symbol:51d94b76d870001475fd2c51",
+            "places:symbol:707eb762b8c1f4718a5b89e7",
+            "places:symbol:9b1977404f23eec4b384ba0d",
+            "places:symbol:d3b23b700626394c74b7ef9e"
+          ],
+          "id": "claim-4d8d4eed3115daa9c8cc",
+          "sourceIds": [
+            "places-309961f88b197290c1b0",
+            "places-51d94b76d870001475fd",
+            "places-707eb762b8c1f4718a5b",
+            "places-770e53d99edf681987e1",
+            "places-9b1977404f23eec4b384",
+            "places-d3b23b700626394c74b7"
+          ],
+          "text": "Save maps cityId oslo, helsinki, or lisbon to a Place; an unknown ID returns 400 with UNSUPPORTED_CITY. For a supported city, Save opens the database, starts a transaction, and inserts with ON CONFLICT DO NOTHING RETURNING id. Only a new row causes InsertRequest to create a GUID and web-serialized place.requested v1 payload in request_outbox. Save commits after that conditional write, and the handler returns 200 with the city. A duplicate insert creates no new outbox event but still reaches the same 200 response. Open disposes and rethrows if connection opening fails. The OpenAPI contract requires cityId and declares 200, 400, 415, and 500 responses."
+        },
+        "title": "POST /places"
+      },
+      {
+        "boundaries": {
+          "$clewRef": "sha256:38e5dd6f897aee659c79419cc504ed65c4f220099e0d73da5f2d3e3f6df3c23e"
+        },
+        "documentationLanguage": "en",
+        "events": [
+          {
+            "dependencyIds": [
+              "places:entrypoint:a34d7257660a5d643c0d9c73",
+              "places:symbol:19e12857365e6c3ab8c199bd"
+            ],
+            "from": "caller",
+            "id": "claim-8709ff6b6b1d866b8b13",
+            "kind": "message",
+            "sourceIds": [
+              "places-19e12857365e6c3ab8c1"
+            ],
+            "text": "GET /places enters PlacesController.List, which forwards the request cancellation token to the repository.",
+            "to": "service-places"
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:93a350e119c095d258221cb9"
+            ],
+            "from": "service-places",
+            "id": "claim-6d6494bb61a8d693816f",
+            "kind": "message",
+            "sourceIds": [
+              "places-93a350e119c095d25822"
+            ],
+            "text": "The repository selects the place fields ordered by name.",
+            "to": "places-db"
+          },
+          {
+            "dependencyIds": [
+              "places:flow:19710e183d3cbefd518fe845",
+              "places:symbol:93a350e119c095d258221cb9"
+            ],
+            "id": "claim-5518a18df6908479ad8c",
+            "kind": "loop",
+            "sourceIds": [
+              "places-19710e183d3cbefd518f",
+              "places-93a350e119c095d25822"
+            ],
+            "text": "Read each database row and map its id, name, latitude, and longitude to a Place until the reader is exhausted."
+          },
+          {
+            "dependencyIds": [
+              "places:flow:19710e183d3cbefd518fe845",
+              "places:symbol:93a350e119c095d258221cb9"
+            ],
+            "id": "claim-37c5b7cb1d6a19188d5d",
+            "kind": "end",
+            "sourceIds": [
+              "places-19710e183d3cbefd518f",
+              "places-93a350e119c095d25822"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:a34d7257660a5d643c0d9c73",
+              "places:flow:5186c682af4611de338b774d",
+              "places:symbol:19e12857365e6c3ab8c199bd",
+              "places:symbol:93a350e119c095d258221cb9"
+            ],
+            "from": "service-places",
+            "id": "claim-99a3b0c384aa7d90c93e",
+            "kind": "return",
+            "sourceIds": [
+              "places-19e12857365e6c3ab8c1",
+              "places-5186c682af4611de338b",
+              "places-93a350e119c095d25822"
+            ],
+            "text": "On normal completion, the repository returns the materialized list and the handler returns it.",
+            "to": "caller"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:a34d7257660a5d643c0d9c73",
+              "places:symbol:19e12857365e6c3ab8c199bd",
+              "places:symbol:707eb762b8c1f4718a5b89e7"
+            ],
+            "id": "claim-b9718517ffd22ea01291",
+            "kind": "note",
+            "sourceIds": [
+              "places-19e12857365e6c3ab8c1",
+              "places-707eb762b8c1f4718a5b"
+            ],
+            "text": "If opening the database connection fails, Open disposes and rethrows; the handler does not catch it."
+          }
+        ],
+        "explanation": [
+          {
+            "dependencyIds": [
+              "places:entrypoint:a34d7257660a5d643c0d9c73",
+              "places:symbol:19e12857365e6c3ab8c199bd"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-8709ff6b6b1d866b8b13"
+            ],
+            "id": "claim-7e14af87a868bcf6d029",
+            "sourceIds": [
+              "places-19e12857365e6c3ab8c1"
+            ],
+            "text": "GET /places enters PlacesController.List, which forwards the request cancellation token to the repository."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:93a350e119c095d258221cb9"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-6d6494bb61a8d693816f"
+            ],
+            "id": "claim-5a3023339ce6dfe05099",
+            "sourceIds": [
+              "places-93a350e119c095d25822"
+            ],
+            "text": "The repository selects the place fields ordered by name."
+          },
+          {
+            "dependencyIds": [
+              "places:flow:19710e183d3cbefd518fe845",
+              "places:symbol:93a350e119c095d258221cb9"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-5518a18df6908479ad8c"
+            ],
+            "id": "claim-99d2016a5ed454330722",
+            "sourceIds": [
+              "places-19710e183d3cbefd518f",
+              "places-93a350e119c095d25822"
+            ],
+            "text": "Read each database row and map its id, name, latitude, and longitude to a Place until the reader is exhausted."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:a34d7257660a5d643c0d9c73",
+              "places:flow:5186c682af4611de338b774d",
+              "places:symbol:19e12857365e6c3ab8c199bd",
+              "places:symbol:93a350e119c095d258221cb9"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-99a3b0c384aa7d90c93e"
+            ],
+            "id": "claim-17826392e88f2a945f03",
+            "sourceIds": [
+              "places-19e12857365e6c3ab8c1",
+              "places-5186c682af4611de338b",
+              "places-93a350e119c095d25822"
+            ],
+            "text": "On normal completion, the repository returns the materialized list and the handler returns it."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:a34d7257660a5d643c0d9c73",
+              "places:symbol:19e12857365e6c3ab8c199bd",
+              "places:symbol:707eb762b8c1f4718a5b89e7"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-b9718517ffd22ea01291"
+            ],
+            "id": "claim-84a6d1f34a51285ec4ae",
+            "sourceIds": [
+              "places-19e12857365e6c3ab8c1",
+              "places-707eb762b8c1f4718a5b"
+            ],
+            "text": "If opening the database connection fails, Open disposes and rethrows; the handler does not catch it."
+          }
+        ],
+        "findings": [],
+        "id": "places-8a2148bf5e312b0c5947",
+        "interfaceContracts": [
+          {
+            "boundaries": [],
+            "id": "claim-51c1a7a8f84ac7d976bd",
+            "kind": "http",
+            "rows": [
+              {
+                "dependencyIds": [
+                  "places:contract-operation:08d1b9df6781b2953a038bc2",
+                  "places:contract-operation:0f29e92a853c76a6ea564769",
+                  "places:contract-operation:6b165729e2d309a9b2687873",
+                  "places:contract-operation:6e713b9442ae5dfc4b99b133",
+                  "places:contract-operation:fa5644a96e01681d7c2b0445",
+                  "places:contract:91b280ed0ed0eda3e8e3231d"
+                ],
+                "id": "claim-0ef92d14baa42713d438",
+                "label": "Declared response",
+                "sourceIds": [
+                  "places-770e53d99edf681987e1"
+                ],
+                "value": "The contract declares a 200 JSON array whose object items require id, name, latitude, and longitude, plus a 500 response."
+              }
+            ],
+            "title": "OpenAPI: GET /places"
+          }
+        ],
+        "participants": [
+          {
+            "id": "caller",
+            "label": "Caller",
+            "service": null
+          },
+          {
+            "id": "service-places",
+            "label": "places",
+            "service": "places"
+          },
+          {
+            "id": "places-db",
+            "label": "Places PostgreSQL",
+            "service": null
+          }
+        ],
+        "summary": {
+          "dependencyIds": [
+            "places:contract-operation:08d1b9df6781b2953a038bc2",
+            "places:contract-operation:0f29e92a853c76a6ea564769",
+            "places:contract-operation:6b165729e2d309a9b2687873",
+            "places:contract-operation:6e713b9442ae5dfc4b99b133",
+            "places:contract-operation:fa5644a96e01681d7c2b0445",
+            "places:contract:91b280ed0ed0eda3e8e3231d",
+            "places:entrypoint:a34d7257660a5d643c0d9c73",
+            "places:symbol:19e12857365e6c3ab8c199bd",
+            "places:symbol:707eb762b8c1f4718a5b89e7",
+            "places:symbol:93a350e119c095d258221cb9"
+          ],
+          "id": "claim-04874cb60dda611c7467",
+          "sourceIds": [
+            "places-19e12857365e6c3ab8c1",
+            "places-707eb762b8c1f4718a5b",
+            "places-770e53d99edf681987e1",
+            "places-93a350e119c095d25822"
+          ],
+          "text": "PlacesController.List awaits PlacesRepository.List with the request cancellation token. The repository opens PostgreSQL, selects id, name, latitude, and longitude ordered by name, reads all rows, and maps each row to a Place. If connection opening fails, Open disposes the connection and rethrows; the controller does not catch that failure. The OpenAPI contract declares a 200 JSON array and a 500 response."
+        },
+        "title": "GET /places"
+      },
+      {
+        "boundaries": {
+          "$clewRef": "sha256:38e5dd6f897aee659c79419cc504ed65c4f220099e0d73da5f2d3e3f6df3c23e"
+        },
+        "documentationLanguage": "en",
+        "events": [
+          {
+            "dependencyIds": [
+              "places:entrypoint:ebc7f56be0a61c52f682dcc7",
+              "places:symbol:980888b04e77862e073cbcc8"
+            ],
+            "from": "caller",
+            "id": "claim-2c10e8edf250b88956af",
+            "kind": "message",
+            "sourceIds": [
+              "places-980888b04e77862e073c"
+            ],
+            "text": "GET /openapi.json enters the contract-file handler.",
+            "to": "service-places"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:ebc7f56be0a61c52f682dcc7",
+              "places:symbol:980888b04e77862e073cbcc8"
+            ],
+            "from": "service-places",
+            "id": "claim-91ea58b23330724e1635",
+            "kind": "message",
+            "sourceIds": [
+              "places-980888b04e77862e073c"
+            ],
+            "text": "Read /app/contracts/places.openapi.json using the request cancellation token.",
+            "to": "places-openapi-file"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:ebc7f56be0a61c52f682dcc7",
+              "places:flow:03ca9c0afeb32ca6a28e4bd2",
+              "places:symbol:980888b04e77862e073cbcc8"
+            ],
+            "from": "service-places",
+            "id": "claim-7ad05f9136a50e352564",
+            "kind": "return",
+            "sourceIds": [
+              "places-03ca9c0afeb32ca6a28e",
+              "places-980888b04e77862e073c"
+            ],
+            "text": "If the file read completes, return its contents with application/json content type.",
+            "to": "caller"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:ebc7f56be0a61c52f682dcc7",
+              "places:symbol:980888b04e77862e073cbcc8"
+            ],
+            "id": "claim-43a34b790e0e90735714",
+            "kind": "note",
+            "sourceIds": [
+              "places-980888b04e77862e073c"
+            ],
+            "text": "The shown handler has no fallback or catch around file reading; do not infer a successful 200 if the file cannot be read."
+          }
+        ],
+        "explanation": [
+          {
+            "dependencyIds": [
+              "places:entrypoint:ebc7f56be0a61c52f682dcc7",
+              "places:symbol:980888b04e77862e073cbcc8"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-2c10e8edf250b88956af"
+            ],
+            "id": "claim-b64f2270e3b8c9ba9c35",
+            "sourceIds": [
+              "places-980888b04e77862e073c"
+            ],
+            "text": "GET /openapi.json enters the contract-file handler."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:ebc7f56be0a61c52f682dcc7",
+              "places:symbol:980888b04e77862e073cbcc8"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-91ea58b23330724e1635"
+            ],
+            "id": "claim-2a1e8dabec6e8ad00822",
+            "sourceIds": [
+              "places-980888b04e77862e073c"
+            ],
+            "text": "Read /app/contracts/places.openapi.json using the request cancellation token."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:ebc7f56be0a61c52f682dcc7",
+              "places:flow:03ca9c0afeb32ca6a28e4bd2",
+              "places:symbol:980888b04e77862e073cbcc8"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-7ad05f9136a50e352564"
+            ],
+            "id": "claim-a83c4cd6415acb76fdf8",
+            "sourceIds": [
+              "places-03ca9c0afeb32ca6a28e",
+              "places-980888b04e77862e073c"
+            ],
+            "text": "If the file read completes, return its contents with application/json content type."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:ebc7f56be0a61c52f682dcc7",
+              "places:symbol:980888b04e77862e073cbcc8"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-43a34b790e0e90735714"
+            ],
+            "id": "claim-dc7cadc5bbc3d63c6fc5",
+            "sourceIds": [
+              "places-980888b04e77862e073c"
+            ],
+            "text": "The shown handler has no fallback or catch around file reading; do not infer a successful 200 if the file cannot be read."
+          }
+        ],
+        "findings": [],
+        "id": "places-de7d5796a632782443dc",
+        "interfaceContracts": [
+          {
+            "boundaries": [],
+            "id": "claim-4d94becfd212ab4aab0c",
+            "kind": "http",
+            "rows": [
+              {
+                "dependencyIds": [
+                  "places:contract-operation:08d1b9df6781b2953a038bc2",
+                  "places:contract-operation:0f29e92a853c76a6ea564769",
+                  "places:contract-operation:6b165729e2d309a9b2687873",
+                  "places:contract-operation:6e713b9442ae5dfc4b99b133",
+                  "places:contract-operation:fa5644a96e01681d7c2b0445",
+                  "places:contract:91b280ed0ed0eda3e8e3231d"
+                ],
+                "id": "claim-ac29d437b50237fa4164",
+                "label": "Declared responses",
+                "sourceIds": [
+                  "places-770e53d99edf681987e1"
+                ],
+                "value": "The contract declares 200 application/json with an object schema and a 500 response."
+              }
+            ],
+            "title": "OpenAPI: GET /openapi.json"
+          }
+        ],
+        "participants": [
+          {
+            "id": "caller",
+            "label": "Caller",
+            "service": null
+          },
+          {
+            "id": "service-places",
+            "label": "places",
+            "service": "places"
+          },
+          {
+            "id": "places-openapi-file",
+            "label": "OpenAPI contract file",
+            "service": null
+          }
+        ],
+        "summary": {
+          "dependencyIds": [
+            "places:contract-operation:08d1b9df6781b2953a038bc2",
+            "places:contract-operation:0f29e92a853c76a6ea564769",
+            "places:contract-operation:6b165729e2d309a9b2687873",
+            "places:contract-operation:6e713b9442ae5dfc4b99b133",
+            "places:contract-operation:fa5644a96e01681d7c2b0445",
+            "places:contract:91b280ed0ed0eda3e8e3231d",
+            "places:entrypoint:ebc7f56be0a61c52f682dcc7",
+            "places:symbol:980888b04e77862e073cbcc8"
+          ],
+          "id": "claim-4cd8b57b84a1b3f27c8a",
+          "sourceIds": [
+            "places-770e53d99edf681987e1",
+            "places-980888b04e77862e073c"
+          ],
+          "text": "PlacesController.OpenApi reads /app/contracts/places.openapi.json and returns its contents as application/json. The source shows no fallback or catch for a file-read failure, so a successful 200 response is not guaranteed by this code. The OpenAPI file itself declares 200 application/json and 500 responses for this route. Runtime file deployment and HTTP behavior remain unverified."
+        },
+        "title": "GET /openapi.json"
+      },
+      {
+        "boundaries": {
+          "$clewRef": "sha256:38e5dd6f897aee659c79419cc504ed65c4f220099e0d73da5f2d3e3f6df3c23e"
+        },
+        "documentationLanguage": "en",
+        "events": [
+          {
+            "dependencyIds": [
+              "places:entrypoint:f471dd170980c48ef424033f",
+              "places:symbol:65de4bdfa04d114b73dffbc2"
+            ],
+            "from": "caller",
+            "id": "claim-862cf13e66efb12411ec",
+            "kind": "message",
+            "sourceIds": [
+              "places-65de4bdfa04d114b73df"
+            ],
+            "text": "POST /places/{id}/refresh passes the supplied path id to the repository lookup.",
+            "to": "service-places"
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:24afabf4ce6fb0dad4a762cb",
+              "places:symbol:93a350e119c095d258221cb9"
+            ],
+            "from": "service-places",
+            "id": "claim-eb87fd8d97539d058378",
+            "kind": "message",
+            "sourceIds": [
+              "places-24afabf4ce6fb0dad4a7",
+              "places-93a350e119c095d25822"
+            ],
+            "text": "Find loads the list and selects the first Place whose id matches the path value.",
+            "to": "places-db"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:f471dd170980c48ef424033f",
+              "places:flow:94d093f3220cad23f468d056",
+              "places:symbol:65de4bdfa04d114b73dffbc2"
+            ],
+            "id": "claim-a3a3a9e6489495e8b740",
+            "kind": "alt",
+            "sourceIds": [
+              "places-65de4bdfa04d114b73df",
+              "places-94d093f3220cad23f468"
+            ],
+            "text": "If no Place matches, return the missing-place response; otherwise enqueue a request."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:f471dd170980c48ef424033f",
+              "places:flow:1bdf9a8c438732fd9a47e250",
+              "places:symbol:65de4bdfa04d114b73dffbc2"
+            ],
+            "from": "service-places",
+            "id": "claim-4b23141210b65de33384",
+            "kind": "return",
+            "sourceIds": [
+              "places-1bdf9a8c438732fd9a47",
+              "places-65de4bdfa04d114b73df"
+            ],
+            "text": "Return 404 Not Found with error PLACE_NOT_FOUND.",
+            "to": "caller"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:f471dd170980c48ef424033f",
+              "places:flow:94d093f3220cad23f468d056",
+              "places:symbol:65de4bdfa04d114b73dffbc2"
+            ],
+            "id": "claim-2c84e5fa72bb011322e0",
+            "kind": "else",
+            "sourceIds": [
+              "places-65de4bdfa04d114b73df",
+              "places-94d093f3220cad23f468"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:434ffab68fae2f991ebba252",
+              "places:symbol:51d94b76d870001475fd2c51"
+            ],
+            "from": "service-places",
+            "id": "claim-3731e04d998b1d89f509",
+            "kind": "message",
+            "sourceIds": [
+              "places-434ffab68fae2f991ebb",
+              "places-51d94b76d870001475fd"
+            ],
+            "text": "InsertRequest creates a new event GUID and place.requested v1 JSON payload in request_outbox within the enqueue transaction, then Enqueue commits.",
+            "to": "places-db"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:f471dd170980c48ef424033f",
+              "places:flow:9e8cdc503c6cd9f7b5e3386c",
+              "places:symbol:65de4bdfa04d114b73dffbc2"
+            ],
+            "from": "service-places",
+            "id": "claim-3574406aeae6c4d31c28",
+            "kind": "return",
+            "sourceIds": [
+              "places-65de4bdfa04d114b73df",
+              "places-9e8cdc503c6cd9f7b5e3"
+            ],
+            "text": "Return 202 Accepted with placeId and status QUEUED after enqueue completes; no forecast recomputation is awaited here.",
+            "to": "caller"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:f471dd170980c48ef424033f",
+              "places:flow:94d093f3220cad23f468d056",
+              "places:symbol:65de4bdfa04d114b73dffbc2"
+            ],
+            "id": "claim-9f0a7126a1e232d4caec",
+            "kind": "end",
+            "sourceIds": [
+              "places-65de4bdfa04d114b73df",
+              "places-94d093f3220cad23f468"
+            ],
+            "text": ""
+          }
+        ],
+        "explanation": [
+          {
+            "dependencyIds": [
+              "places:entrypoint:f471dd170980c48ef424033f",
+              "places:symbol:65de4bdfa04d114b73dffbc2"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-862cf13e66efb12411ec"
+            ],
+            "id": "claim-e4a17f4b5837e7a3d48c",
+            "sourceIds": [
+              "places-65de4bdfa04d114b73df"
+            ],
+            "text": "POST /places/{id}/refresh passes the supplied path id to the repository lookup."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:24afabf4ce6fb0dad4a762cb",
+              "places:symbol:93a350e119c095d258221cb9"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-eb87fd8d97539d058378"
+            ],
+            "id": "claim-e867152426779f31e94f",
+            "sourceIds": [
+              "places-24afabf4ce6fb0dad4a7",
+              "places-93a350e119c095d25822"
+            ],
+            "text": "Find loads the list and selects the first Place whose id matches the path value."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:f471dd170980c48ef424033f",
+              "places:flow:94d093f3220cad23f468d056",
+              "places:symbol:65de4bdfa04d114b73dffbc2"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-a3a3a9e6489495e8b740"
+            ],
+            "id": "claim-09bfc2b4c4ca63632e26",
+            "sourceIds": [
+              "places-65de4bdfa04d114b73df",
+              "places-94d093f3220cad23f468"
+            ],
+            "text": "If no Place matches, return the missing-place response; otherwise enqueue a request."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:f471dd170980c48ef424033f",
+              "places:flow:1bdf9a8c438732fd9a47e250",
+              "places:symbol:65de4bdfa04d114b73dffbc2"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-4b23141210b65de33384"
+            ],
+            "id": "claim-b1d5702e76c42302f567",
+            "sourceIds": [
+              "places-1bdf9a8c438732fd9a47",
+              "places-65de4bdfa04d114b73df"
+            ],
+            "text": "Return 404 Not Found with error PLACE_NOT_FOUND."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:f471dd170980c48ef424033f",
+              "places:flow:94d093f3220cad23f468d056",
+              "places:symbol:65de4bdfa04d114b73dffbc2"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-2c84e5fa72bb011322e0"
+            ],
+            "id": "claim-7d5dc3fed8993427d820",
+            "sourceIds": [
+              "places-65de4bdfa04d114b73df",
+              "places-94d093f3220cad23f468"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:434ffab68fae2f991ebba252",
+              "places:symbol:51d94b76d870001475fd2c51"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-3731e04d998b1d89f509"
+            ],
+            "id": "claim-442d3181f475486b0a78",
+            "sourceIds": [
+              "places-434ffab68fae2f991ebb",
+              "places-51d94b76d870001475fd"
+            ],
+            "text": "InsertRequest creates a new event GUID and place.requested v1 JSON payload in request_outbox within the enqueue transaction, then Enqueue commits."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:f471dd170980c48ef424033f",
+              "places:flow:9e8cdc503c6cd9f7b5e3386c",
+              "places:symbol:65de4bdfa04d114b73dffbc2"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-3574406aeae6c4d31c28"
+            ],
+            "id": "claim-7c26488308c17ec3022a",
+            "sourceIds": [
+              "places-65de4bdfa04d114b73df",
+              "places-9e8cdc503c6cd9f7b5e3"
+            ],
+            "text": "Return 202 Accepted with placeId and status QUEUED after enqueue completes; no forecast recomputation is awaited here."
+          }
+        ],
+        "findings": [],
+        "id": "places-e06f41e67f62720ad106",
+        "interfaceContracts": [
+          {
+            "boundaries": [],
+            "id": "claim-b11db78cf7639d7126cc",
+            "kind": "http",
+            "rows": [
+              {
+                "dependencyIds": [
+                  "places:contract-operation:08d1b9df6781b2953a038bc2",
+                  "places:contract-operation:0f29e92a853c76a6ea564769",
+                  "places:contract-operation:6b165729e2d309a9b2687873",
+                  "places:contract-operation:6e713b9442ae5dfc4b99b133",
+                  "places:contract-operation:fa5644a96e01681d7c2b0445",
+                  "places:contract:91b280ed0ed0eda3e8e3231d"
+                ],
+                "id": "claim-cd7b9eb4cc543cdb91dc",
+                "label": "Path and responses",
+                "sourceIds": [
+                  "places-770e53d99edf681987e1"
+                ],
+                "value": "The contract requires path parameter id with enum oslo, helsinki, or lisbon and declares 202, 404, and 500 responses."
+              }
+            ],
+            "title": "OpenAPI: POST /places/{id}/refresh"
+          }
+        ],
+        "participants": [
+          {
+            "id": "caller",
+            "label": "Caller",
+            "service": null
+          },
+          {
+            "id": "service-places",
+            "label": "places",
+            "service": "places"
+          },
+          {
+            "id": "places-db",
+            "label": "Places PostgreSQL",
+            "service": null
+          }
+        ],
+        "summary": {
+          "dependencyIds": [
+            "places:contract-operation:08d1b9df6781b2953a038bc2",
+            "places:contract-operation:0f29e92a853c76a6ea564769",
+            "places:contract-operation:6b165729e2d309a9b2687873",
+            "places:contract-operation:6e713b9442ae5dfc4b99b133",
+            "places:contract-operation:fa5644a96e01681d7c2b0445",
+            "places:contract:91b280ed0ed0eda3e8e3231d",
+            "places:entrypoint:f471dd170980c48ef424033f",
+            "places:symbol:24afabf4ce6fb0dad4a762cb",
+            "places:symbol:434ffab68fae2f991ebba252",
+            "places:symbol:51d94b76d870001475fd2c51",
+            "places:symbol:65de4bdfa04d114b73dffbc2",
+            "places:symbol:707eb762b8c1f4718a5b89e7",
+            "places:symbol:93a350e119c095d258221cb9"
+          ],
+          "id": "claim-adcb64040bd0aab2cb3d",
+          "sourceIds": [
+            "places-24afabf4ce6fb0dad4a7",
+            "places-434ffab68fae2f991ebb",
+            "places-51d94b76d870001475fd",
+            "places-65de4bdfa04d114b73df",
+            "places-707eb762b8c1f4718a5b",
+            "places-770e53d99edf681987e1",
+            "places-93a350e119c095d25822"
+          ],
+          "text": "PlacesController.Refresh passes the path id to Find, which loads the full list and chooses the first matching Place. A missing match returns 404 PLACE_NOT_FOUND. A match is enqueued in a database transaction with a newly generated request_outbox event ID and web-serialized place.requested v1 payload, then the handler returns 202 QUEUED. It does not wait for forecast recomputation. The OpenAPI contract declares an id enum of oslo, helsinki, and lisbon and 202, 404, and 500 responses; the handler source shown does not perform that enum validation. If database connection opening fails, Open disposes the connection and rethrows."
+        },
+        "title": "POST /places/{id}/refresh"
+      },
+      {
+        "$clewRef": "sha256:6861266f1956377433f88f0e97fa2df8d43d7baa197f6346b1287b20042454d6"
+      },
+      {
+        "$clewRef": "sha256:aa3179795407fce3eecf8f2a2d29b8473ec96b3318cf6b54ddcc8fad08a2fcfa"
+      },
+      {
+        "$clewRef": "sha256:2dade3de4f043e3c1189d0c9046ef3f452b45d93ecc01c3688f8156a283e4b6b"
+      },
+      {
+        "$clewRef": "sha256:f435331faa109402c4ca1945f16dde93eb6f9aab9d77fbb7db66b2a05437f4ce"
+      },
+      {
+        "$clewRef": "sha256:0a7a30af6e9b4fe22fc3ce77f2bcc9a093269cf4936d6934f66eebd22f736ff7"
+      }
+    ],
+    "process": null,
+    "processCandidates": {
+      "internal": [
+        {
+          "controlEventCount": 1,
+          "dependencyIds": [
+            "places:symbol:d3b23b700626394c74b7ef9e"
+          ],
+          "flowDependencyIds": [
+            "places:flow:196df051366edbcf119322e8",
+            "places:flow:2aa1abb03cb6d736522923c4",
+            "places:flow:2cc47f03322f4c4b8aacb1af",
+            "places:flow:3e148dc4ec1c8e6777dab503",
+            "places:flow:5986b982ec9ea14a9201c034",
+            "places:flow:7e611cd36ea1b24dc99826e0",
+            "places:flow:7f4982ec55e534b8944697ec",
+            "places:flow:7f9dd42e7a646f3b74493b50",
+            "places:flow:95934c4ebf87266e085d4f74",
+            "places:flow:cde094e2c3c8f48926e56c80",
+            "places:flow:e44e082ad42852e40e046cdf",
+            "places:flow:eb05288ce18a0e26ee7b493b",
+            "places:flow:f0629a2fa339e49ae1423098",
+            "places:flow:f1f3c31f651af94efe86737a",
+            "places:flow:fd3ad57d5275e61e87dd92af"
+          ],
+          "gaps": [],
+          "id": "places:symbol:d3b23b700626394c74b7ef9e",
+          "lane": "internal",
+          "lexicalCallSiteCount": 0,
+          "localCallTargetCount": 2,
+          "localCallTargets": [
+            "method:class:Weather.Places.PlacesRepository#InsertRequest(LNpgsql/NpgsqlConnection;LNpgsql/NpgsqlTransaction;LWeather/Places/Place;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;",
+            "method:class:Weather.Places.PlacesRepository#Open(LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;"
+          ],
+          "meaningReview": "UNASSESSED",
+          "name": "Save",
+          "owner": "class:Weather.Places.PlacesRepository",
+          "parameterTypes": [
+            "Weather.Places.Place",
+            "System.Threading.CancellationToken"
+          ],
+          "publicBoundary": false,
+          "reasons": [
+            "INTERNAL_ORCHESTRATION_CANDIDATE"
+          ],
+          "scope": "csproj:services/places/Places.csproj@net10.0",
+          "service": "places",
+          "sourceIds": [
+            "places-d3b23b700626394c74b7"
+          ],
+          "status": "CANDIDATE",
+          "symbol": "method:class:Weather.Places.PlacesRepository#Save(LWeather/Places/Place;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;",
+          "triggerIds": []
+        }
+      ],
+      "omittedInternal": 0,
+      "summary": {
+        "accessorFilteredCount": 0,
+        "candidateCount": 6,
+        "consideredCallableCount": 15,
+        "detailAuthority": "Selected immutable snapshot; preview strings may be truncated",
+        "flowUnavailableCount": 4,
+        "gaps": [
+          "CANDIDATES_ARE_STRUCTURAL_SIGNALS_NOT_BUSINESS_PROCESS_COVERAGE",
+          "DISCOVERY_IS_BOUNDED_BY_RETAINED_SCOPES_AND_FLOW_SUPPORT",
+          "DYNAMIC_REGISTRATION_AND_RUNTIME_ACTIVATION_UNVERIFIED"
+        ],
+        "internalCandidateCount": 1,
+        "omittedSourceBoundaries": 4,
+        "omittedUnavailableScopes": 0,
+        "previewLimits": {
+          "boundaryBytes": 256,
+          "boundaryItems": 4,
+          "scopeBytes": 128,
+          "scopeItems": 8
+        },
+        "ruleVersion": "local-calls-control/3",
+        "service": "places",
+        "sourceBoundaries": [
+          "CLR_SIGNATURE_PROJECTED_TO_JVM_DESCRIPTOR_GRAMMAR",
+          "CSHARP_SOURCE_GENERATED_DOCUMENTS_NOT_INDEXED",
+          "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+          "GENERATED_SOURCE_BODIES_NOT_INDEXED"
+        ],
+        "sourceBoundaryCount": 8,
+        "status": "PARTIAL",
+        "suppressedCount": 0,
+        "triggerCandidateCount": 5,
+        "unavailableScopeCount": 1,
+        "unavailableScopes": [
+          "csproj:services/places/Places.csproj@net10.0"
+        ]
+      },
+      "suppressed": []
+    },
+    "proseDisplayPolicy": "READABLE_ORIGINALS",
+    "publicBoundaryIds": [
+      "places-3a33202464c8b4fff218",
+      "places-691b340ea61828b197b6",
+      "places-8a2148bf5e312b0c5947",
+      "places-de7d5796a632782443dc",
+      "places-e06f41e67f62720ad106"
+    ],
+    "readerOptions": {
+      "showInternalProcesses": false
+    },
+    "readerOutlines": {
+      "section-egress": [
+        "A new supported place insert and its request_outbox event are written in one PostgreSQL transaction."
+      ],
+      "section-entities": [
+        "Place is the service's domain record with Id, Name, Latitude, and Longitude."
+      ],
+      "section-ingress": [
+        "The controller exposes GET /places, POST /places, POST /places/{id}/refresh, GET /health, and GET /openapi.json."
+      ],
+      "section-overview": [
+        "Six Places roots in the selected source revision c289b28be4819eddf29d59a7c12f178559ec5229: five HTTP actions and RequestPublisher.ExecuteAsync.",
+        "GET /places calls List, which reads rows ordered by name; failed database open disposes the connection and rethrows.",
+        "POST /places maps cityId oslo, helsinki, and lisbon to places; others return 400 UNSUPPORTED_CITY.",
+        "POST /places/{id}/refresh finds by loading the list; missing IDs return 404 PLACE_NOT_FOUND.",
+        "The publisher selects one eligible unpublished row in created_at order with FOR UPDATE SKIP LOCKED; empty selection returns."
+      ],
+      "section-responsibilities": [
+        "Places maps the supported IDs oslo, helsinki, and lisbon to canonical Place records for Oslo, Helsinki, and Lisbon, exposes HTTP actions for listing, saving, and requesting a refresh, and checks database readiness."
+      ]
+    },
+    "relatedViews": [],
+    "renderer": "codeclew-documentation-html/1.16",
+    "requestedDocumentationLanguage": "en",
+    "revisions": {
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "savedProcesses": [
+      {
+        "$clewRef": "sha256:b576155bfcd8941658a9e05d353c6712c6b19408226b6e04be0d00f2eec929f4"
+      },
+      {
+        "$clewRef": "sha256:0ec6664df6ecee718f0829cf18b70606c8ea8d0785ed3d86916e23f24aa8d2a7"
+      },
+      {
+        "$clewRef": "sha256:f267de428ca116326f8cf0439b23128bee26da37e937d62848df6be04f2c04c6"
+      }
+    ],
+    "sectionState": {
+      "$clewRef": "sha256:5a6a7b40bd8db5940788361f21fb7d7f2e4577bbca44ec06cd6809abe3482938"
+    },
+    "sections": [
+      {
+        "content": {
+          "$clewRef": "sha256:f435331faa109402c4ca1945f16dde93eb6f9aab9d77fbb7db66b2a05437f4ce"
+        },
+        "gap": "Describe the service purpose, scope and supported outcomes. Source-bound content has not been accepted yet.",
+        "id": "section-overview",
+        "objectId": "service:places/section-overview",
+        "purpose": "Describe the service purpose, scope and supported outcomes.",
+        "required": true,
+        "schema": "codeclew-documentation-section/1.0",
+        "service": "places",
+        "status": "AUTHORED",
+        "title": "Overview",
+        "workRequest": {
+          "audience": "Service maintainers and architecture readers",
+          "documentationLanguage": "en",
+          "entrypoint": "section-overview",
+          "maxBytes": 40960,
+          "maxItems": 20,
+          "schema": "codeclew-documentation-work-request/1.0"
+        }
+      },
+      {
+        "content": {
+          "$clewRef": "sha256:0a7a30af6e9b4fe22fc3ce77f2bcc9a093269cf4936d6934f66eebd22f736ff7"
+        },
+        "gap": "Describe responsibilities and exclusions from evidence; business intent may need a human note. Source-bound content has not been accepted yet.",
+        "id": "section-responsibilities",
+        "objectId": "service:places/section-responsibilities",
+        "purpose": "Describe responsibilities and exclusions from evidence; business intent may need a human note.",
+        "required": true,
+        "schema": "codeclew-documentation-section/1.0",
+        "service": "places",
+        "status": "AUTHORED",
+        "title": "Responsibilities",
+        "workRequest": {
+          "audience": "Service maintainers and architecture readers",
+          "documentationLanguage": "en",
+          "entrypoint": "section-responsibilities",
+          "maxBytes": 40960,
+          "maxItems": 20,
+          "schema": "codeclew-documentation-work-request/1.0"
+        }
+      },
+      {
+        "content": {
+          "$clewRef": "sha256:aa3179795407fce3eecf8f2a2d29b8473ec96b3318cf6b54ddcc8fad08a2fcfa"
+        },
+        "gap": "Identify domain concepts separately from DTOs and storage classes; ownership needs an explicit declaration. Source-bound content has not been accepted yet.",
+        "id": "section-entities",
+        "objectId": "service:places/section-entities",
+        "purpose": "Identify domain concepts separately from DTOs and storage classes; ownership needs an explicit declaration.",
+        "required": true,
+        "schema": "codeclew-documentation-section/1.0",
+        "service": "places",
+        "status": "AUTHORED",
+        "title": "Domain entities",
+        "workRequest": {
+          "audience": "Service maintainers and architecture readers",
+          "documentationLanguage": "en",
+          "entrypoint": "section-entities",
+          "maxBytes": 40960,
+          "maxItems": 20,
+          "schema": "codeclew-documentation-work-request/1.0"
+        }
+      },
+      {
+        "content": {
+          "$clewRef": "sha256:2dade3de4f043e3c1189d0c9046ef3f452b45d93ecc01c3688f8156a283e4b6b"
+        },
+        "gap": "Document discovered public boundaries and declared contracts; retain gaps for unsupported discovery. Source-bound content has not been accepted yet.",
+        "id": "section-ingress",
+        "objectId": "service:places/section-ingress",
+        "purpose": "Document discovered public boundaries and declared contracts; retain gaps for unsupported discovery.",
+        "required": true,
+        "schema": "codeclew-documentation-section/1.0",
+        "service": "places",
+        "status": "AUTHORED",
+        "title": "Ingress contracts",
+        "workRequest": {
+          "audience": "Service maintainers and architecture readers",
+          "documentationLanguage": "en",
+          "entrypoint": "section-ingress",
+          "maxBytes": 40960,
+          "maxItems": 20,
+          "schema": "codeclew-documentation-work-request/1.0"
+        }
+      },
+      {
+        "content": {
+          "$clewRef": "sha256:6861266f1956377433f88f0e97fa2df8d43d7baa197f6346b1287b20042454d6"
+        },
+        "gap": "Document external calls and messages; unresolved destinations and runtime activation remain gaps. Source-bound content has not been accepted yet.",
+        "id": "section-egress",
+        "objectId": "service:places/section-egress",
+        "purpose": "Document external calls and messages; unresolved destinations and runtime activation remain gaps.",
+        "required": true,
+        "schema": "codeclew-documentation-section/1.0",
+        "service": "places",
+        "status": "AUTHORED",
+        "title": "Egress contracts",
+        "workRequest": {
+          "audience": "Service maintainers and architecture readers",
+          "documentationLanguage": "en",
+          "entrypoint": "section-egress",
+          "maxBytes": 40960,
+          "maxItems": 20,
+          "schema": "codeclew-documentation-work-request/1.0"
+        }
+      }
+    ],
+    "selectedBoundaryInventory": {
+      "$clewRef": "sha256:30a3697d401c48c13390f917077ff7f23a446fb67acbabad34e85b988a41f926"
+    },
+    "selectedEvidence": {
+      "$clewRef": "sha256:ca9e4ab3cdcbe2cee291a0df9c86fe72afd4d98160313803db7f0417ab3e0e97"
+    },
+    "selectedPublicBoundaryIds": [
+      "places-3a33202464c8b4fff218",
+      "places-691b340ea61828b197b6",
+      "places-8a2148bf5e312b0c5947",
+      "places-de7d5796a632782443dc",
+      "places-e06f41e67f62720ad106"
+    ],
+    "selectedSnapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
+    "selectedSources": {
+      "$clewRef": "sha256:31665956df7386c6709bc71d21a3abddeb5303ab53008fbc11c200c6d0052494"
+    },
+    "serviceFragments": [
+      {
+        "entryMethod": "places-refresh",
+        "fragmentId": "places-refresh-handler",
+        "id": "service-fragment-dashboard-refresh-request:places-refresh-handler",
+        "processId": "dashboard-refresh-request",
+        "returnHref": "../scenarios/dashboard-refresh-request.html#thread-step-places-refresh-handler",
+        "steps": {
+          "$clewRef": "sha256:a6e2a9c70cfe56f542075d5fff4df180e2bd6f1873af9c7dafeecc28f200d6c4"
+        },
+        "thread": {
+          "authority": "DECLARED_MEANING_EXACT_RETAINED_SOURCE_NOT_COMPILER_CALL_GRAPH",
+          "boundaries": [
+            "The Dashboard-to-Places target is a declared HTTP boundary; compiler linkage and runtime routing are not established.",
+            "HTTP 202 QUEUED does not prove that a forecast refresh ran, completed, or was delivered to either consumer.",
+            "These wrappers do not establish idempotency or deduplication across repeated refresh requests."
+          ],
+          "boundaryContracts": [],
+          "contractAuthority": "DECLARED_SOURCE_INTERPRETATION_NOT_WIRE_OR_RUNTIME_PROOF",
+          "contractSources": {},
+          "declaredBranchCoverage": "NOT_PROVEN",
+          "methodOrder": [
+            "places-refresh"
+          ],
+          "methods": {
+            "places-refresh": {
+              "$clewRef": "sha256:54ffe64ba936f4053351231e670bd3d5f7e6258614ea6db0000c4ab9ad733857"
+            }
+          },
+          "processId": "dashboard-refresh-request",
+          "processPages": {},
+          "rootMethod": "places-refresh",
+          "schema": "codeclew-declared-process-thread/1.0",
+          "scope": "Dashboard.requestRefresh and the declared Places.Refresh HTTP boundary, through the controller response that labels accepted work QUEUED.",
+          "selectedEffectCompleteness": "NOT_PROVEN",
+          "serviceFragments": [],
+          "sourcePage": "../scenarios/dashboard-refresh-request",
+          "status": "SOURCE_BOUND_DECLARATION",
+          "steps": {
+            "$clewRef": "sha256:a6e2a9c70cfe56f542075d5fff4df180e2bd6f1873af9c7dafeecc28f200d6c4"
+          }
+        },
+        "title": "Dashboard refresh-request thread"
+      },
+      {
+        "entryMethod": "places-save",
+        "fragmentId": "places-save-handler",
+        "id": "service-fragment-dashboard-save-city:places-save-handler",
+        "processId": "dashboard-save-city",
+        "returnHref": "../scenarios/dashboard-save-city.html#thread-step-places-save-handler",
+        "steps": {
+          "$clewRef": "sha256:91c2b0aea957e00061096dacc1089cc8d1fba6ee57b3995ad702df0b1cde7271"
+        },
+        "thread": {
+          "authority": "DECLARED_MEANING_EXACT_RETAINED_SOURCE_NOT_COMPILER_CALL_GRAPH",
+          "boundaries": [
+            "The Dashboard-to-Places target is a declared HTTP boundary; compiler linkage and runtime routing are not established.",
+            "The selected wrappers do not establish repository commit, timeout completion, retry, or duplicate-request behavior."
+          ],
+          "boundaryContracts": [],
+          "contractAuthority": "DECLARED_SOURCE_INTERPRETATION_NOT_WIRE_OR_RUNTIME_PROOF",
+          "contractSources": {},
+          "declaredBranchCoverage": "NOT_PROVEN",
+          "methodOrder": [
+            "places-save"
+          ],
+          "methods": {
+            "places-save": {
+              "$clewRef": "sha256:cb79259081545280fd097eb00afca46426c85d90c76519215cc6683cd49ebd1c"
+            }
+          },
+          "processId": "dashboard-save-city",
+          "processPages": {},
+          "rootMethod": "places-save",
+          "schema": "codeclew-declared-process-thread/1.0",
+          "scope": "Dashboard.savePlace and the declared Places.Save HTTP boundary, with controller-visible request and response branches.",
+          "selectedEffectCompleteness": "NOT_PROVEN",
+          "serviceFragments": [],
+          "sourcePage": "../scenarios/dashboard-save-city",
+          "status": "SOURCE_BOUND_DECLARATION",
+          "steps": {
+            "$clewRef": "sha256:91c2b0aea957e00061096dacc1089cc8d1fba6ee57b3995ad702df0b1cde7271"
+          }
+        },
+        "title": "Dashboard save-city thread"
+      }
+    ],
+    "serviceModelLinks": [
+      {
+        "href": "../data-model/save-city-request.html#fields-and-representations",
+        "id": "save-city-request",
+        "title": "Save city request"
+      },
+      {
+        "href": "../data-model/place.html#fields-and-representations",
+        "id": "place",
+        "title": "Place"
+      },
+      {
+        "href": "../data-model/city-lookup.html#fields-and-representations",
+        "id": "city-lookup",
+        "title": "City lookup"
+      }
+    ],
+    "sourceAuthorities": {
+      "dashboard": "CAPTURED_SOURCE",
+      "forecasts": "RETAINED_SOURCE_NOT_REVERIFIED",
+      "places": "RETAINED_SOURCE_NOT_REVERIFIED"
+    },
+    "sources": {
+      "$clewRef": "sha256:31665956df7386c6709bc71d21a3abddeb5303ab53008fbc11c200c6d0052494"
+    },
+    "stateDiagram": null,
+    "stateDiagramSvg": false,
+    "subject": "service:places",
+    "subtitle": "Service behavior and explicit evidence boundaries",
+    "targetRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "title": "Places",
+    "translationComplete": false,
+    "translationGaps": {
+      "original-note-runtime-broker-outage": {
+        "authority": "ORIGINAL_AUTHORED_DESCRIPTION_UNCHANGED",
+        "availableLanguage": null,
+        "kind": "NOTE_ORIGINAL_TRANSLATION",
+        "noteId": "runtime-broker-outage",
+        "originalPath": "services/places.note-runtime-broker-outage.original.json",
+        "requestedLanguage": "en",
+        "title": "broker-outage.json"
+      }
+    },
+    "updateFailures": {},
+    "view": null
+  }
+}

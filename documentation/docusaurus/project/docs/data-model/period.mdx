@@ -1,0 +1,302 @@
+---
+title: "Period"
+slug: "/data-model/period"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Period
+
+Agent proposal · Not reviewed.
+
+<p id="dm-return"></p>
+
+An embedded weather time point within Forecast.periods, with temperature, precipitation and a provider symbol.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+
+</details>
+
+## Identity and relationships {#identity-and-relationships}
+
+Period has no independent identifier or table in this inspected model. It is an embedded value object in the forecast JSON, carried through storage and API responses with its parent.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4.mdx)
+
+</details>
+
+<p className="clew-related-models">Related concepts: <ClewRelatedModelLink model="forecast">Forecast</ClewRelatedModelLink></p>
+
+
+## Fields and representations {#fields-and-representations}
+
+<div className="dm-fields-scroll" tabIndex={0} role="region" aria-label="Field descriptions"><table className="dm-fields" role="table"><caption>Field descriptions</caption><thead><tr><th scope="col">Field</th><th scope="col">Purpose</th></tr></thead><tbody><tr><th scope="row"><a href="#field-time"><code>time</code></a></th><td data-label="Purpose">Time represented by this provider period; checked as a timestamp at Dashboard ingestion.</td></tr><tr><th scope="row"><a href="#field-temperature"><code>temperatureC</code></a></th><td data-label="Purpose">Air temperature copied from air_temperature into the numeric temperatureC field.</td></tr><tr><th scope="row"><a href="#field-precipitation"><code>precipitationMm</code></a></th><td data-label="Purpose">Precipitation amount from next_1_hours. A missing or nonnumeric provider amount is emitted as explicit null. The event property remains required.</td></tr><tr><th scope="row"><a href="#field-symbol"><code>symbol</code></a></th><td data-label="Purpose">Provider symbol_code, or the producer fallback &quot;unknown&quot;. It is validated, stored, returned and part of browser whole-response comparison; the inspected update function does not directly display it.</td></tr></tbody></table></div>
+
+### time {#field-time}
+
+Time represented by this provider period; checked as a timestamp at Dashboard ingestion.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:104–112 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/c738c23bd59a1d1c08e9d112fabe3c0cd1052dc031832adf90691f4c67e8175e.mdx)
+- [services/dashboard/src/events.ts:16–27 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4ebf071996df03879a1293a8b7d501451be45c62012ab844b28d76b8adcebfbb.mdx)
+
+</details>
+
+<div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Representation</th><th scope="col">Type / declared constraints</th><th scope="col">Requiredness / nullability</th><th scope="col">Retained mapping</th></tr></thead><tbody><tr><td data-label="Representation">Event v1 · forecast-updated</td><td data-label="Type / declared constraints">string · date-time · format: date-time</td><td data-label="Requiredness / nullability">Required when branch matches<br/>Not nullable</td><td data-label="Retained mapping">The contract property is separate from validator implementation and downstream use.</td></tr><tr><td data-label="Representation">Embedded Forecast JSON / TypeScript Period</td><td data-label="Type / declared constraints">string</td><td data-label="Requiredness / nullability">Present on each Period<br/>Nullable only for precipitationMm</td><td data-label="Retained mapping">Provider names are mapped explicitly: air\_temperature → temperatureC; precipitation\_amount → precipitationMm; symbol\_code → symbol. The period is nested inside the forecast payload.</td></tr></tbody></table></div>
+
+<details>
+<summary>Event v1 · forecast-updated</summary>
+
+Derived from exact JSON Schema · Branch-conditional · Derived from schema
+
+The contract property is separate from validator implementation and downstream use.
+
+[forecast.updated v1](../contracts/forecast-updated.mdx)
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "format": "date-time",
+  "type": "string"
+}
+```
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [contracts/events.schema.json:1–173 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4f5e368172c056412420d76a096c229f94968d52746b28b1a0c0b7b6faa971dc.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Embedded Forecast JSON / TypeScript Period</summary>
+
+string · Present on each Period · Nullable only for precipitationMm
+
+Provider names are mapped explicitly: air\_temperature → temperatureC; precipitation\_amount → precipitationMm; symbol\_code → symbol. The period is nested inside the forecast payload.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:104–112 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/c738c23bd59a1d1c08e9d112fabe3c0cd1052dc031832adf90691f4c67e8175e.mdx)
+- [services/dashboard/src/events.ts:1–30 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e315f42d31e792e7aa347f9f1a24237c1af90d82a71f4fcc4ddb87e219ce6b80.mdx)
+
+</details>
+
+
+</details>
+
+<ClewFieldTrace field="time" />
+
+### temperatureC {#field-temperature}
+
+Air temperature copied from air\_temperature into the numeric temperatureC field.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:104–112 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/c738c23bd59a1d1c08e9d112fabe3c0cd1052dc031832adf90691f4c67e8175e.mdx)
+- [services/dashboard/src/events.ts:16–27 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4ebf071996df03879a1293a8b7d501451be45c62012ab844b28d76b8adcebfbb.mdx)
+
+</details>
+
+<div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Representation</th><th scope="col">Type / declared constraints</th><th scope="col">Requiredness / nullability</th><th scope="col">Retained mapping</th></tr></thead><tbody><tr><td data-label="Representation">Event v1 · forecast-updated</td><td data-label="Type / declared constraints">number · </td><td data-label="Requiredness / nullability">Required when branch matches<br/>Not nullable</td><td data-label="Retained mapping">The contract property is separate from validator implementation and downstream use.</td></tr><tr><td data-label="Representation">Embedded Forecast JSON / TypeScript Period</td><td data-label="Type / declared constraints">number</td><td data-label="Requiredness / nullability">Present on each Period<br/>Nullable only for precipitationMm</td><td data-label="Retained mapping">Provider names are mapped explicitly: air\_temperature → temperatureC; precipitation\_amount → precipitationMm; symbol\_code → symbol. The period is nested inside the forecast payload.</td></tr></tbody></table></div>
+
+<details>
+<summary>Event v1 · forecast-updated</summary>
+
+Derived from exact JSON Schema · Branch-conditional · Derived from schema
+
+The contract property is separate from validator implementation and downstream use.
+
+[forecast.updated v1](../contracts/forecast-updated.mdx)
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "type": "number"
+}
+```
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [contracts/events.schema.json:1–173 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4f5e368172c056412420d76a096c229f94968d52746b28b1a0c0b7b6faa971dc.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Embedded Forecast JSON / TypeScript Period</summary>
+
+number · Present on each Period · Nullable only for precipitationMm
+
+Provider names are mapped explicitly: air\_temperature → temperatureC; precipitation\_amount → precipitationMm; symbol\_code → symbol. The period is nested inside the forecast payload.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:104–112 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/c738c23bd59a1d1c08e9d112fabe3c0cd1052dc031832adf90691f4c67e8175e.mdx)
+- [services/dashboard/src/events.ts:1–30 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e315f42d31e792e7aa347f9f1a24237c1af90d82a71f4fcc4ddb87e219ce6b80.mdx)
+
+</details>
+
+
+</details>
+
+<ClewFieldTrace field="temperature" />
+
+### precipitationMm {#field-precipitation}
+
+Precipitation amount from next\_1\_hours. A missing or nonnumeric provider amount is emitted as explicit null. The event property remains required.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:104–112 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/c738c23bd59a1d1c08e9d112fabe3c0cd1052dc031832adf90691f4c67e8175e.mdx)
+- [services/dashboard/src/events.ts:16–27 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4ebf071996df03879a1293a8b7d501451be45c62012ab844b28d76b8adcebfbb.mdx)
+
+</details>
+
+<div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Representation</th><th scope="col">Type / declared constraints</th><th scope="col">Requiredness / nullability</th><th scope="col">Retained mapping</th></tr></thead><tbody><tr><td data-label="Representation">Event v1 · forecast-updated</td><td data-label="Type / declared constraints">[&quot;number&quot;,&quot;null&quot;] · minimum: 0</td><td data-label="Requiredness / nullability">Required when branch matches<br/>Nullable</td><td data-label="Retained mapping">The contract property is separate from validator implementation and downstream use.</td></tr><tr><td data-label="Representation">Embedded Forecast JSON / TypeScript Period</td><td data-label="Type / declared constraints">number | null</td><td data-label="Requiredness / nullability">Present on each Period<br/>Nullable only for precipitationMm</td><td data-label="Retained mapping">Provider names are mapped explicitly: air\_temperature → temperatureC; precipitation\_amount → precipitationMm; symbol\_code → symbol. The period is nested inside the forecast payload.</td></tr></tbody></table></div>
+
+<details>
+<summary>Event v1 · forecast-updated</summary>
+
+Derived from exact JSON Schema · Branch-conditional · Derived from schema
+
+The contract property is separate from validator implementation and downstream use.
+
+[forecast.updated v1](../contracts/forecast-updated.mdx)
+
+Required when branch matches: true · Accepts null: true
+
+```json
+{
+  "minimum": 0,
+  "type": [
+    "number",
+    "null"
+  ]
+}
+```
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [contracts/events.schema.json:1–173 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4f5e368172c056412420d76a096c229f94968d52746b28b1a0c0b7b6faa971dc.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Embedded Forecast JSON / TypeScript Period</summary>
+
+number \| null · Present on each Period · Nullable only for precipitationMm
+
+Provider names are mapped explicitly: air\_temperature → temperatureC; precipitation\_amount → precipitationMm; symbol\_code → symbol. The period is nested inside the forecast payload.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:104–112 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/c738c23bd59a1d1c08e9d112fabe3c0cd1052dc031832adf90691f4c67e8175e.mdx)
+- [services/dashboard/src/events.ts:1–30 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e315f42d31e792e7aa347f9f1a24237c1af90d82a71f4fcc4ddb87e219ce6b80.mdx)
+
+</details>
+
+
+</details>
+
+<ClewFieldTrace field="precipitation" />
+
+### symbol {#field-symbol}
+
+Provider symbol\_code, or the producer fallback "unknown". It is validated, stored, returned and part of browser whole-response comparison; the inspected update function does not directly display it.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:104–112 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/c738c23bd59a1d1c08e9d112fabe3c0cd1052dc031832adf90691f4c67e8175e.mdx)
+- [services/dashboard/src/events.ts:16–27 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4ebf071996df03879a1293a8b7d501451be45c62012ab844b28d76b8adcebfbb.mdx)
+- [services/dashboard/public/index.html:1–11 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/c2239e2c6403a3d1207383732a448da7982b4d8765aaa00a7aa74ac6b8bbdfd0.mdx)
+
+</details>
+
+<div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Representation</th><th scope="col">Type / declared constraints</th><th scope="col">Requiredness / nullability</th><th scope="col">Retained mapping</th></tr></thead><tbody><tr><td data-label="Representation">Event v1 · forecast-updated</td><td data-label="Type / declared constraints">string · </td><td data-label="Requiredness / nullability">Required when branch matches<br/>Not nullable</td><td data-label="Retained mapping">The contract property is separate from validator implementation and downstream use.</td></tr><tr><td data-label="Representation">Embedded Forecast JSON / TypeScript Period</td><td data-label="Type / declared constraints">string</td><td data-label="Requiredness / nullability">Present on each Period<br/>Nullable only for precipitationMm</td><td data-label="Retained mapping">Provider names are mapped explicitly: air\_temperature → temperatureC; precipitation\_amount → precipitationMm; symbol\_code → symbol. The period is nested inside the forecast payload.</td></tr></tbody></table></div>
+
+<details>
+<summary>Event v1 · forecast-updated</summary>
+
+Derived from exact JSON Schema · Branch-conditional · Derived from schema
+
+The contract property is separate from validator implementation and downstream use.
+
+[forecast.updated v1](../contracts/forecast-updated.mdx)
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "type": "string"
+}
+```
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [contracts/events.schema.json:1–173 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4f5e368172c056412420d76a096c229f94968d52746b28b1a0c0b7b6faa971dc.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Embedded Forecast JSON / TypeScript Period</summary>
+
+string · Present on each Period · Nullable only for precipitationMm
+
+Provider names are mapped explicitly: air\_temperature → temperatureC; precipitation\_amount → precipitationMm; symbol\_code → symbol. The period is nested inside the forecast payload.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:104–112 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/c738c23bd59a1d1c08e9d112fabe3c0cd1052dc031832adf90691f4c67e8175e.mdx)
+- [services/dashboard/src/events.ts:1–30 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e315f42d31e792e7aa347f9f1a24237c1af90d82a71f4fcc4ddb87e219ce6b80.mdx)
+
+</details>
+
+
+</details>
+
+<ClewFieldTrace field="symbol" />
+
+## Field usage and focused flow {#field-usage}
+
+<ClewDataModel dataPath="/clew-data/widgets/model-period.json" />
+
+## Processes {#processes}
+
+- [dashboard forecast updated consumer](../scenarios/dashboard-forecast-updated-consumer.mdx#question-apply)
+

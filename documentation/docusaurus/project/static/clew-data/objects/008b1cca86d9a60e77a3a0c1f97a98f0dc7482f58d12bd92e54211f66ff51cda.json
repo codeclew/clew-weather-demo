@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:008b1cca86d9a60e77a3a0c1f97a98f0dc7482f58d12bd92e54211f66ff51cda",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:58a7b287648459b56610207df1ee379d2af4355b104636dd0bf71bdb3378d513"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "event.place.id is explicitly bound to weather_cards.place_id in the forecast event INSERT/UPDATE. The update is conditional on a strictly newer forecast timestamp.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

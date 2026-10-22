@@ -1,0 +1,42 @@
+{
+  "identity": "sha256:9e83d08f8c346b294da2ec7af5ad596f55fe6b98597047577da5a0d015a1bf9c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "documentationLanguage": "en",
+    "fields": {
+      "$clewRef": "sha256:a2c0f22e5ff3c44307cecd93e04f94fed167758141b0dd11f8d27428f64a9102"
+    },
+    "id": "city-lookup",
+    "identity": {
+      "$clewRef": "sha256:7188988a440ce010f2ece4273aca2f13ee93fb2dbf930a29b43ea9a5e8767c3f"
+    },
+    "kind": "VALUE_OBJECT",
+    "processLinks": [
+      {
+        "anchor": "question-validation",
+        "label": "Save a city: Places checks the city",
+        "reference": {
+          "stages": [
+            "Places city lookup"
+          ]
+        },
+        "subject": "scenario:dashboard-save-city"
+      },
+      {
+        "anchor": "section-entities",
+        "label": "places: field descriptions",
+        "subject": "service:places"
+      }
+    ],
+    "purpose": {
+      "$clewRef": "sha256:b8dc463366eb36cce8213986d0bb780fa6183c7757bb9791b558998dfa4a93ba"
+    },
+    "records": {
+      "$clewRef": "sha256:50640dc6e85e2b1fada1adae85e76e408588c546d6e369aaa952855acba738cc"
+    },
+    "relatedModels": [
+      "place"
+    ],
+    "title": "City lookup"
+  }
+}

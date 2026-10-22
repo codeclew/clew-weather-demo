@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:b5fb2c793a734b4b81a7285d056d6e0a9717062119ead3d601ba4ceb4244fa8c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:ebe8d46cb101c2fa1682a089fb53a9f533fd67a9a412c93b71bc389406063a9b"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "After awaiting repository.Save, the handler returns Ok(city). Dashboard forwards response.status and parsed response JSON. The returned value is the Place, not the outbox event. No publisher/consumer completion is established by this source path.",
+    "title": "Save a city: source interpretation",
+    "tone": null
+  }
+}

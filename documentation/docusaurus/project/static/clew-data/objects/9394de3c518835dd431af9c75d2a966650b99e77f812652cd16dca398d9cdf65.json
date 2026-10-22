@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:9394de3c518835dd431af9c75d2a966650b99e77f812652cd16dca398d9cdf65",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "fragment": {
+      "$clewRef": "sha256:a788f70cce333267d202e2ae6912507f99f0fe8a13c0cd784da174dff30dc930"
+    },
+    "kind": "RETAINED_CLAIM",
+    "operation": "places-request-publisher",
+    "sourceContext": {
+      "$clewRef": "sha256:532c0cbde5ec5e323ccbcfcaa71f0009389b9d8d7e46005486ecccf091a92ca2"
+    },
+    "sources": {
+      "$clewRef": "sha256:7df30dda668a40807bbb0da3ee43374a41a1458e76c0227a21a1a0e06b59a40b"
+    },
+    "state": {
+      "$clewRef": "sha256:80a3d471b0896596761520253625c1508954ad0b77b4e8b9ee9668df32f91fc8"
+    },
+    "subject": "scenario:places-request-publisher",
+    "title": "Place request publisher"
+  }
+}

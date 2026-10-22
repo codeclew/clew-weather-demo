@@ -1,0 +1,8 @@
+{
+  "identity": "sha256:2b09c043d3d5ce3b3793db9cf5ae4fb5f3f5db9cd592fe1dc62141b1d934f9b9",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "digest": "sha256:33a34fa20a299b1a0e2a4087ab838dde7c466bf4b941670490b3ad83b26f2508",
+    "text": "{\n  \"sources\": [\n    {\n      \"file\": \"services/places/PlacesController.cs\",\n      \"revision\": \"c289b28be4819eddf29d59a7c12f178559ec5229\",\n      \"sha256\": \"cc30217e5adff0694049dc43d7857510a7da3c71726a78384de6f4195a573895\",\n      \"localCopy\": \"PlacesController.cs\"\n    },\n    {\n      \"file\": \"services/places/Program.cs\",\n      \"revision\": \"c289b28be4819eddf29d59a7c12f178559ec5229\",\n      \"sha256\": \"11954fa4108dce77aaf85c691f31cd6b2e0c33347b0df673f511b8551c88528c\",\n      \"localCopy\": \"Program.cs\"\n    },\n    {\n      \"file\": \"services/places/PlacesRepository.cs\",\n      \"revision\": \"c289b28be4819eddf29d59a7c12f178559ec5229\",\n      \"sha256\": \"f77ef5110e62488caaa82deeeb599e33f8063303aad786b8763b1be3b6d5e578\",\n      \"localCopy\": \"PlacesRepository.cs.original.txt\"\n    },\n    {\n      \"file\": \"services/places/Places.csproj\",\n      \"revision\": \"c289b28be4819eddf29d59a7c12f178559ec5229\",\n      \"sha256\": \"cfeb8d7f57d321c22226794c1a04e5be2eaaaee1de3c065a541decb90b9bd69e\",\n      \"localCopy\": \"Places.csproj.original.txt\"\n    }\n  ],\n  \"scope\": \"Exact controller and Program; repository and publisher replaced. Tests MVC binding/formatting only, not PostgreSQL/Kafka behavior or production deployment.\"\n}\n"
+  }
+}

@@ -1,0 +1,25 @@
+---
+title: "services/dashboard/src/events.ts:13–15"
+slug: "/sources/3196fbcf39b57b5ff16e97ffb336524f9e9ef45de403004e3078ca408e933fac"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/dashboard/src/events.ts:13–15
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6
+
+Text digest: sha256:23e9ee0dc489275bc794296084be562932d227ffb7a69e3d63adfd74888e909d
+
+## Retained text {#retained-text}
+
+```text
+if (typeof event.id !== 'string' || event.version !== 1 || !event.place || typeof event.place.id !== 'string'
+      || !['oslo', 'helsinki', 'lisbon'].includes(event.place.id) || typeof event.place.name !== 'string'
+      || !Number.isFinite(event.place.latitude) || !Number.isFinite(event.place.longitude)) throw new Error('INVALID_EVENT')
+```
+
+<ClewDownload path="/clew-data/objects/3196fbcf39b57b5ff16e97ffb336524f9e9ef45de403004e3078ca408e933fac.json">Complete original source binding</ClewDownload>

@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:46eddf5951b8e3cd7e46d1946199921fb60435a94ae11ccfbca7934fa9d1b41d",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+      "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+      "interaction:places-place-requested-to-forecasts",
+      "process-scope:forecasts-place-requested-consumer",
+      "process:forecasts-place-requested-consumer"
+    ],
+    "from": "places",
+    "id": "claim-16277baad799ac0ea5f1",
+    "interaction": "places-place-requested-to-forecasts",
+    "kind": "message",
+    "sourceIds": [
+      "forecasts-ad28a606f0881dfe7cfc"
+    ],
+    "text": "The maintained process proposes the weather.place-requested mapping from Places.PublishPending to Forecasts.consume; this association does not verify topic configuration or runtime delivery.",
+    "to": "service-forecasts"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "identity": "sha256:175f36d8d281e373a64786ea1e9ab5e2dab6b7af8b40058e3c151dc0923d83ad",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "applicability": null,
+    "boundaries": [
+      "RUNTIME_DESTINATION_AND_ACTIVATION_UNKNOWN",
+      "WIRE_SERIALIZATION_NOT_ASSESSED",
+      "ENVIRONMENT_SCOPE_UNSPECIFIED",
+      "CLIENT_PATTERN_UNSUPPORTED_OR_AMBIGUOUS",
+      "UNACCEPTED_AGENT_PROPOSAL"
+    ],
+    "callSite": {
+      "candidates": [
+        "dashboard:flow:118d806d3691510542299f52"
+      ],
+      "details": [
+        {
+          "id": "dashboard:flow:118d806d3691510542299f52",
+          "selectedOrdinal": 0,
+          "sourceIds": [
+            "dashboard-118d806d369151054229"
+          ],
+          "target": null,
+          "transport": null
+        }
+      ],
+      "sourceIds": [
+        "dashboard-118d806d369151054229"
+      ],
+      "status": "RESOLVED"
+    },
+    "contractStatus": "NOT_ASSESSED",
+    "declaration": {
+      "$clewRef": "sha256:12e85a97dc3625913c098433803d002b467be829a385ece09bfdc4b2d3a76b4c"
+    },
+    "declarationDigest": "sha256:12e85a97dc3625913c098433803d002b467be829a385ece09bfdc4b2d3a76b4c",
+    "destination": {
+      "declared": null,
+      "observed": [],
+      "status": "UNRESOLVED"
+    },
+    "from": {
+      "candidates": [
+        "dashboard:symbol:1612e17d589cb9d0fa4ae1f7"
+      ],
+      "details": [
+        {
+          "descriptor": null,
+          "id": "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+          "parameterTypes": [
+            ": FastifyRequest<{ Params: { id: string } }>",
+            ": FastifyReply"
+          ],
+          "sourceIds": [
+            "dashboard-1612e17d589cb9d0fa4a"
+          ],
+          "symbol": "source:services/dashboard/src/main.ts/package:/requestRefresh/e49ec3442bac18d9abaa"
+        }
+      ],
+      "sourceIds": [
+        "dashboard-1612e17d589cb9d0fa4a"
+      ],
+      "status": "SOURCE_MATCH"
+    },
+    "id": "dashboard-request-refresh-to-places",
+    "method": {
+      "caller": {
+        "declared": "POST",
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": "POST",
+        "observed": [
+          "POST"
+        ],
+        "status": "MATCH"
+      }
+    },
+    "origin": "agent-proposal",
+    "path": {
+      "caller": {
+        "declared": "/places/{id}/refresh",
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": "/places/{id}/refresh",
+        "observed": [
+          "/places/{id}/refresh"
+        ],
+        "status": "MATCH"
+      }
+    },
+    "runtime": "UNKNOWN",
+    "to": {
+      "$clewRef": "sha256:723697a49f5d1e58324d6c08ca010763c69f9dec9d54cb2dbb1a9249b24c525e"
+    }
+  }
+}

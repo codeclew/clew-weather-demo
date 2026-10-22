@@ -1,0 +1,32 @@
+{
+  "identity": "sha256:4f1ea753b3ca3b47322c34fae01887f6ce6b1e5b0ab229770e2ad3e2f283fc26",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "fragment": {
+      "dependencyIds": [
+        "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+      ],
+      "from": "service-dashboard",
+      "id": "claim-ebeef3c264171b01cd39",
+      "kind": "message",
+      "sourceIds": [
+        "dashboard-ac3aadb76be6fea3e790"
+      ],
+      "text": "For a new forecast event, insert the card from event.place when no card exists, without checking for a prior place-requested event; for an existing card, update its place fields and forecast only when stored updated_at is null or the incoming timestamp is strictly newer.",
+      "to": "dashboard-db"
+    },
+    "kind": "RETAINED_CLAIM",
+    "operation": "dashboard-forecast-updated-consumer",
+    "sourceContext": {
+      "$clewRef": "sha256:ebff0ac1bf65e82eab9a03d9ea1602d72b899d362a9b668fc7258a487be713bc"
+    },
+    "sources": {
+      "$clewRef": "sha256:db235f4e9ec7d80b527f09b9d75e1b6a68f8fa1c4d72221ae3056ed6c5486e1c"
+    },
+    "state": {
+      "$clewRef": "sha256:16170ce006198916df899740035d9a945a227bcdae4ab0cc9cd5196297850f42"
+    },
+    "subject": "scenario:dashboard-forecast-updated-consumer",
+    "title": "Dashboard consumes forecast-updated events"
+  }
+}

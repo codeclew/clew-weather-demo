@@ -1,0 +1,30 @@
+---
+title: "services/places/PlacesRepository.cs:52–59"
+slug: "/sources/89387464df117dd1f2cfdbd8113d90c803728d4fe220f507529703bd597dbf8e"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/places/PlacesRepository.cs:52–59
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: c289b28be4819eddf29d59a7c12f178559ec5229
+
+Text digest: sha256:b760523f1391d08669d20d18510de700ebf367c42ddc23365d51e63bb03037c3
+
+## Retained text {#retained-text}
+
+```text
+private static async Task InsertRequest(NpgsqlConnection connection, NpgsqlTransaction transaction, Place city, CancellationToken token)
+    {
+        var id = Guid.NewGuid();
+        var json = JsonSerializer.Serialize(new { id, type = "place.requested", version = 1, place = city }, new JsonSerializerOptions(JsonSerializerDefaults.Web));
+        await using var command = new NpgsqlCommand("INSERT INTO request_outbox(id,payload) VALUES($1,$2::jsonb)", connection, transaction);
+        command.Parameters.AddWithValue(id); command.Parameters.AddWithValue(json);
+        await command.ExecuteNonQueryAsync(token);
+    }
+```
+
+<ClewDownload path="/clew-data/objects/89387464df117dd1f2cfdbd8113d90c803728d4fe220f507529703bd597dbf8e.json">Complete original source binding</ClewDownload>

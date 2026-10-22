@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:3196fbcf39b57b5ff16e97ffb336524f9e9ef45de403004e3078ca408e933fac",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 15,
+    "evidenceDigest": "sha256:1298a34f4752b860c5fd69e9ced4cb071c51d567d18cbd85484f797f0c40da29",
+    "file": "services/dashboard/src/events.ts",
+    "id": "dashboard-b05a5fad821839a42cc6",
+    "occurrence": {
+      "blob": "ddda5719da0d973028010984703f3ee5163090f5",
+      "endByte": 1129,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 789
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 13,
+    "text": "if (typeof event.id !== 'string' || event.version !== 1 || !event.place || typeof event.place.id !== 'string'\n      || !['oslo', 'helsinki', 'lisbon'].includes(event.place.id) || typeof event.place.name !== 'string'\n      || !Number.isFinite(event.place.latitude) || !Number.isFinite(event.place.longitude)) throw new Error('INVALID_EVENT')",
+    "textDigest": "sha256:23e9ee0dc489275bc794296084be562932d227ffb7a69e3d63adfd74888e909d",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/events.ts#L13-L15"
+  }
+}

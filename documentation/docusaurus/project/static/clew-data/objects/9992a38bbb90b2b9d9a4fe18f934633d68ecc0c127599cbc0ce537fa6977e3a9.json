@@ -1,0 +1,44 @@
+{
+  "identity": "sha256:9992a38bbb90b2b9d9a4fe18f934633d68ecc0c127599cbc0ce537fa6977e3a9",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "declaration": {
+      "origin": "agent-proposal",
+      "rationale": "Agent-proposed weather.place-requested subscriber mapping. The captured Places producer call location is exact; topic resolution, consumer subscription and runtime delivery remain unverified."
+    },
+    "from": {
+      "callSite": {
+        "observation": "places:flow:941152b2ec99892568c9e40a"
+      },
+      "selector": {
+        "language": "csharp",
+        "name": "PublishPending",
+        "owner": "class:Weather.Places.RequestPublisher",
+        "parameterTypes": [
+          "Confluent.Kafka.IProducer`2",
+          "System.Threading.CancellationToken"
+        ]
+      },
+      "service": "places"
+    },
+    "id": "places-place-requested-to-forecasts",
+    "schema": "codeclew-documentation-interaction/1.0",
+    "title": "Places place-requested message to Forecasts.consume",
+    "to": {
+      "selector": {
+        "language": "kotlin",
+        "name": "consume",
+        "owner": "class:weather.Forecasts",
+        "parameterTypes": [
+          "record: ConsumerRecord<String, String>",
+          "acknowledgment: Acknowledgment"
+        ]
+      },
+      "service": "forecasts"
+    },
+    "transport": {
+      "kind": "kafka",
+      "topic": "weather.place-requested"
+    }
+  }
+}

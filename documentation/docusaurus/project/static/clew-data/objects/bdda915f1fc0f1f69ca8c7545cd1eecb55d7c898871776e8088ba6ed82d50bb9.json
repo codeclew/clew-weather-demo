@@ -1,0 +1,32 @@
+{
+  "identity": "sha256:bdda915f1fc0f1f69ca8c7545cd1eecb55d7c898871776e8088ba6ed82d50bb9",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "bodyAssessment": "matches-selected-schema",
+    "bodyErrors": [],
+    "comparedSchemaMedia": "application/json",
+    "declaredMedia": [
+      "application/json"
+    ],
+    "id": "empty-body",
+    "mediaAssessment": "undeclared-media",
+    "request": {
+      "body": "",
+      "contentType": "application/json",
+      "method": "POST",
+      "path": "/places"
+    },
+    "requestAssessment": "outside-schema",
+    "requestErrors": [
+      {
+        "message": "Empty or invalid JSON body"
+      }
+    ],
+    "response": {
+      "body": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"\":[\"A non-empty request body is required.\"],\"request\":[\"The request field is required.\"]},\"traceId\":\"00-d9a2c74327d58d896b379722736b423e-70ce1b4800cbde43-00\"}",
+      "contentType": "application/problem+json; charset=utf-8",
+      "status": 400
+    },
+    "statusDeclared": true
+  }
+}

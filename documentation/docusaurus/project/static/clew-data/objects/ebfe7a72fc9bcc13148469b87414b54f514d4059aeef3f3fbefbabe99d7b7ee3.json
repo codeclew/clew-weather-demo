@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 65,
+    "evidenceDigest": "sha256:84674b6d57c3ce74b9b40bd27004299ea1e0a72e0a555c870d3bea147982f5d3",
+    "file": "services/dashboard/src/main.ts",
+    "id": "dashboard-f3bcad13842060db4065",
+    "occurrence": {
+      "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+      "endByte": 3120,
+      "snapshot": "sha256:550435c6f8e16951bd815f9f7b54eda07bff8ad73a80a6df524ab2af077f4f6f",
+      "startByte": 2923
+    },
+    "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+    "service": "dashboard",
+    "startLine": 62,
+    "text": "async function getWeather(): Promise<unknown[]> {\n  const result = await pool.query('SELECT place_id AS id,name,latitude,longitude,forecast FROM weather_cards ORDER BY name')\n  return result.rows\n}",
+    "textDigest": "sha256:def65fe4282006875ba05f755ba7f85def1fe647fa6a53822d6e546e4988b57c",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/e635069293d58cb0d4f28c8211e748b8d58e6b37/services/dashboard/src/main.ts#L62-L65"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "codeclew-normalized-data/1.0",
+  "value": {
+    "authority": "AGENT_PROPOSAL",
+    "contracts": [
+      {
+        "$clewRef": "sha256:b84a56ca5278f3bf142c799d04c6feb66c826676fd08e316c35e8d3304fea6f4"
+      },
+      {
+        "$clewRef": "sha256:cfd94a06b92175ed96dd0c0339e1e78855605dc6dc8674c869f47848da418c3f"
+      },
+      {
+        "$clewRef": "sha256:183f79eeda5c97b1828897edbeb8b5a3a6b4608aacfdc366c480cc2fa787e8ce"
+      },
+      {
+        "$clewRef": "sha256:0c4938ea83fb2b521cad64a1373542c89ef637ad6e706eb65b2b7f37db2eaaa3"
+      }
+    ],
+    "documentationLanguage": "en",
+    "mappingBasis": {
+      "module": "entity-dataflow/1.0",
+      "scope": "Static authored field interpretation; no accepted ownership or runtime proof"
+    },
+    "models": [
+      {
+        "$clewRef": "sha256:0d1045bcee07e7b56749f75ce2b1c20337e04b16f2906a405bc09dd4ec46d28b"
+      },
+      {
+        "$clewRef": "sha256:34f5846e41d92cffcff2ccb15e024452adbe282daeeb7f813d44e0b3eaa50d83"
+      },
+      {
+        "$clewRef": "sha256:ab8d0bfcb30bc7163e0dbbe30e25d9d5b9c6ea77a7ecee235c8f9b170edd438e"
+      },
+      {
+        "$clewRef": "sha256:a177b16c8a44c592a7a0ee9560ae60ef5d5ceca9b61c22f35c9c9ec07c50c0ba"
+      },
+      {
+        "$clewRef": "sha256:c23f34d5459dcf7d01f4835ef528cd9198c206bf6be45e0ce09fff267df7f5ae"
+      },
+      {
+        "$clewRef": "sha256:9e83d08f8c346b294da2ec7af5ad596f55fe6b98597047577da5a0d015a1bf9c"
+      }
+    ],
+    "processViews": [
+      {
+        "$clewRef": "sha256:d74aaa7a37139ebc54f3f1847ad0620f08ac391208c64490b6d751c5bf82b7f1"
+      },
+      {
+        "$clewRef": "sha256:e0433c8abc9a95ed6ebc926e3546347719b067088736f85f63a54d82e56583c0"
+      }
+    ],
+    "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+    "review": "UNASSESSED",
+    "schema": "codeclew-data-model-reading/1.0",
+    "snapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956"
+  }
+}

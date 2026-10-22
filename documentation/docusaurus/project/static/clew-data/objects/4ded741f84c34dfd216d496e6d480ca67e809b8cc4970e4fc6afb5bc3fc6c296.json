@@ -1,0 +1,126 @@
+{
+  "identity": "sha256:4ded741f84c34dfd216d496e6d480ca67e809b8cc4970e4fc6afb5bc3fc6c296",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "applicability": null,
+    "boundaries": [
+      "RUNTIME_DESTINATION_AND_ACTIVATION_UNKNOWN",
+      "WIRE_SERIALIZATION_NOT_ASSESSED",
+      "MESSAGE_DELIVERY_ORDER_RETRY_AND_CONSUMER_ACTIVATION_UNKNOWN",
+      "ENVIRONMENT_SCOPE_UNSPECIFIED",
+      "CLIENT_PATTERN_UNSUPPORTED_OR_AMBIGUOUS",
+      "UNACCEPTED_AGENT_PROPOSAL"
+    ],
+    "callSite": {
+      "candidates": [
+        "forecasts:flow:a5b0ed72a047f4f36e281eb2"
+      ],
+      "details": [
+        {
+          "id": "forecasts:flow:a5b0ed72a047f4f36e281eb2",
+          "selectedOrdinal": 0,
+          "sourceIds": [
+            "forecasts-a5b0ed72a047f4f36e28"
+          ],
+          "target": null,
+          "transport": null
+        }
+      ],
+      "sourceIds": [
+        "forecasts-a5b0ed72a047f4f36e28"
+      ],
+      "status": "RESOLVED"
+    },
+    "contractStatus": "NOT_ASSESSED",
+    "declaration": {
+      "$clewRef": "sha256:8ac8a86546986aaebf4e49f48ef5814cb8b7fe8248d349a1e0c13b3296a169b8"
+    },
+    "declarationDigest": "sha256:8ac8a86546986aaebf4e49f48ef5814cb8b7fe8248d349a1e0c13b3296a169b8",
+    "destination": {
+      "declared": null,
+      "observed": [],
+      "status": "UNRESOLVED"
+    },
+    "from": {
+      "candidates": [
+        "forecasts:symbol:3d7b217355f2e6a34064e800"
+      ],
+      "details": [
+        {
+          "descriptor": null,
+          "id": "forecasts:symbol:3d7b217355f2e6a34064e800",
+          "parameterTypes": [],
+          "sourceIds": [
+            "forecasts-3d7b217355f2e6a34064"
+          ],
+          "symbol": "source:services/forecasts/src/main/kotlin/weather/Forecasts.kt/class:weather.Forecasts/publishPending/db0508abb6d728a6b0f2"
+        }
+      ],
+      "sourceIds": [
+        "forecasts-3d7b217355f2e6a34064"
+      ],
+      "status": "SOURCE_MATCH"
+    },
+    "id": "forecasts-forecast-updated-to-dashboard",
+    "method": {
+      "caller": {
+        "declared": null,
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": null,
+        "observed": [],
+        "status": "UNRESOLVED"
+      }
+    },
+    "origin": "agent-proposal",
+    "path": {
+      "caller": {
+        "declared": null,
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": null,
+        "observed": [],
+        "status": "UNRESOLVED"
+      }
+    },
+    "runtime": "UNKNOWN",
+    "to": {
+      "candidates": [
+        "dashboard:symbol:a4627e5e868830287e83e0dc"
+      ],
+      "details": [
+        {
+          "descriptor": null,
+          "id": "dashboard:symbol:a4627e5e868830287e83e0dc",
+          "parameterTypes": [
+            ": EachMessagePayload"
+          ],
+          "sourceIds": [
+            "dashboard-a4627e5e868830287e83"
+          ],
+          "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5"
+        }
+      ],
+      "sourceIds": [
+        "dashboard-a4627e5e868830287e83"
+      ],
+      "status": "SOURCE_MATCH"
+    },
+    "topic": {
+      "caller": {
+        "declared": "weather.forecast-updated",
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": "weather.forecast-updated",
+        "observed": [],
+        "status": "UNRESOLVED"
+      }
+    }
+  }
+}

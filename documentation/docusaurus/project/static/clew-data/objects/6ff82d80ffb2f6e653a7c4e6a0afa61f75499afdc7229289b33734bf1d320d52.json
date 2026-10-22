@@ -1,0 +1,21 @@
+{
+  "identity": "sha256:6ff82d80ffb2f6e653a7c4e6a0afa61f75499afdc7229289b33734bf1d320d52",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "Kotlin and Spring source evidence does not establish runtime listener or scheduler registration, callback invocation, or database transaction commit and rollback behavior. Captured application configuration is source text, not proof of deployed settings.",
+      "OpenAPI and event JSON Schema are read as source text; JSON Schema keywords, unions, and null types are not fully interpreted."
+    ],
+    "documentationLanguage": "en",
+    "events": [],
+    "explanation": [],
+    "findings": [],
+    "id": "section-ingress",
+    "interfaceContracts": [],
+    "participants": [],
+    "summary": {
+      "$clewRef": "sha256:90e0478ce2798aa873d62856c0e683030295d29f368d732b83d9ae52297d51a6"
+    },
+    "title": "Forecasts ingress contracts"
+  }
+}

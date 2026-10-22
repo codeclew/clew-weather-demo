@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:d5b3dd971244f66116631632ff90b938d813bdf39f02770eeab8ea06b6556ebe",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "digest": "sha256:54e3edb3e65550eae5f2e31d666667d3aa0e00e066c8f0d7c6923f3a2b7830f2",
+    "id": "places:contract-operation:6e713b9442ae5dfc4b99b133",
+    "kind": "CONTRACT_OPERATION",
+    "normalized": {
+      "$clewRef": "sha256:54e3edb3e65550eae5f2e31d666667d3aa0e00e066c8f0d7c6923f3a2b7830f2"
+    },
+    "service": "places",
+    "sourceIds": [
+      "places-770e53d99edf681987e1"
+    ],
+    "symbol": "method:class:Weather.Places.PlacesController#OpenApi(LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;"
+  }
+}

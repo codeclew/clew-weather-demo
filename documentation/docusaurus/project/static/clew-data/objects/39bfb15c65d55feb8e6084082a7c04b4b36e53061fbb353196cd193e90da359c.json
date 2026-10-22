@@ -1,0 +1,79 @@
+{
+  "identity": "sha256:39bfb15c65d55feb8e6084082a7c04b4b36e53061fbb353196cd193e90da359c",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    {
+      "field": "id",
+      "nullable": false,
+      "pointer": "/oneOf/0/properties/id",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "minLength": 1,
+        "type": "string"
+      }
+    },
+    {
+      "field": "place.id",
+      "nullable": false,
+      "pointer": "/oneOf/0/properties/place/properties/id",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "enum": [
+          "oslo",
+          "helsinki",
+          "lisbon"
+        ],
+        "type": "string"
+      }
+    },
+    {
+      "field": "place.latitude",
+      "nullable": false,
+      "pointer": "/oneOf/0/properties/place/properties/latitude",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "maximum": 90,
+        "minimum": -90,
+        "type": "number"
+      }
+    },
+    {
+      "field": "place.longitude",
+      "nullable": false,
+      "pointer": "/oneOf/0/properties/place/properties/longitude",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "maximum": 180,
+        "minimum": -180,
+        "type": "number"
+      }
+    },
+    {
+      "field": "place.name",
+      "nullable": false,
+      "pointer": "/oneOf/0/properties/place/properties/name",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "type": "string"
+      }
+    },
+    {
+      "field": "type",
+      "nullable": false,
+      "pointer": "/oneOf/0/properties/type",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "const": "place.requested"
+      }
+    },
+    {
+      "field": "version",
+      "nullable": false,
+      "pointer": "/oneOf/0/properties/version",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "const": 1
+      }
+    }
+  ]
+}

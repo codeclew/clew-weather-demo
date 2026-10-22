@@ -1,0 +1,1331 @@
+{
+  "schema": "codeclew-normalized-data/1.0",
+  "value": {
+    "activityTransitions": null,
+    "activityTransitionsSvg": false,
+    "analysisEvidence": {
+      "dashboard": {
+        "coverage": "SYNTAX",
+        "extractor": "codeclew-documentation-source/1.0",
+        "mappedSymbols": 0,
+        "provider": {
+          "status": "NOT_REQUESTED"
+        },
+        "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+        "runtimeMode": "COMMITTED_SOURCE_NO_BUILD",
+        "sampleFacts": []
+      }
+    },
+    "authoredTranslationGaps": [],
+    "boundaries": [
+      "CALL_TARGETS_UNRESOLVED",
+      "DECLARED_TRANSITION_NOT_REACHED:places-place-requested-to-dashboard",
+      "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+      "FILE_ONLY:compose.yaml",
+      "FILE_ONLY:contracts/dashboard.openapi.json",
+      "FILE_ONLY:contracts/events.schema.json",
+      "FILE_ONLY:database/init.sql",
+      "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+      "FILE_ONLY:exercises/replay.py",
+      "FILE_ONLY:exercises/validator-regression.mjs",
+      "FILE_ONLY:fixtures/helsinki.json",
+      "FILE_ONLY:fixtures/lisbon.json",
+      "FILE_ONLY:fixtures/met-oslo-recorded.json",
+      "FILE_ONLY:fixtures/oslo.json",
+      "FILE_ONLY:fixtures/provenance.json",
+      "FILE_ONLY:services/dashboard/Dockerfile",
+      "FILE_ONLY:services/dashboard/package-lock.json",
+      "FILE_ONLY:services/dashboard/package.json",
+      "FILE_ONLY:services/dashboard/public/index.html",
+      "FILE_ONLY:services/dashboard/tsconfig.json",
+      "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+      "ORDER_LEXICAL_ONLY",
+      "SCOPE_WATCH_CONSERVATIVE",
+      "Static source interpretation; runtime activation and execution are not established."
+    ],
+    "boundaryInventory": null,
+    "canonicalEntityLinks": {
+      "question-apply": {
+        "dashboard": [
+          {
+            "documentationLanguage": "en",
+            "href": "../data-model/weather-card.html",
+            "id": "weather-card",
+            "title": "Weather card"
+          }
+        ]
+      }
+    },
+    "catalogue": [],
+    "contracts": [],
+    "coverage": {
+      "dashboard": "SYNTAX"
+    },
+    "entities": [],
+    "extractor": "codeclew-documentation-jvm/1.3",
+    "frozenLanguageAvailability": {
+      "requestedDocumentationLanguage": "en",
+      "translationComplete": true,
+      "translationGaps": {}
+    },
+    "frozenPublication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+    "gaps": {},
+    "interactions": [
+      {
+        "$clewRef": "sha256:6e4730373affdcc11f36db84d22f061b28aa2a81f5b1f75232912aaa1bebe1e7"
+      }
+    ],
+    "language": "en",
+    "lifecycleOperations": [],
+    "notes": [],
+    "operationContracts": {
+      "dashboard-place-requested-consumer": [],
+      "process-overview": []
+    },
+    "operationExternalCalls": {
+      "dashboard-place-requested-consumer": [],
+      "process-overview": []
+    },
+    "operationSources": {
+      "dashboard-place-requested-consumer": {
+        "$clewRef": "sha256:f7b09d16f5c676867d0cbd16322670da984883140d18155681d9672f6849512c"
+      },
+      "process-overview": {
+        "$clewRef": "sha256:f7b09d16f5c676867d0cbd16322670da984883140d18155681d9672f6849512c"
+      }
+    },
+    "operationStates": {
+      "dashboard-place-requested-consumer": {
+        "$clewRef": "sha256:c18ddf3d31574006b39d94c64c9a7a78332f997376da5da26175e611d7f1ea2d"
+      },
+      "process-overview": {
+        "$clewRef": "sha256:c18ddf3d31574006b39d94c64c9a7a78332f997376da5da26175e611d7f1ea2d"
+      }
+    },
+    "operations": [
+      {
+        "boundaries": {
+          "$clewRef": "sha256:c5e3ff9683ccabaf6191f333e96b04468d6d884b82de165bf920176096a1c25a"
+        },
+        "documentationLanguage": "en",
+        "events": [
+          {
+            "dependencyIds": [
+              "dashboard:symbol:a4627e5e868830287e83e0dc",
+              "dashboard:symbol:bc57152944dfa54c072b94e5",
+              "interaction:places-place-requested-to-dashboard"
+            ],
+            "id": "claim-e115bfea282330298768",
+            "kind": "note",
+            "sourceIds": [
+              "dashboard-a4627e5e868830287e83",
+              "dashboard-bc57152944dfa54c072b"
+            ],
+            "text": "The source subscribes to both weather topics from the beginning and starts consumeMessage with automatic commits disabled. This source sequence does not prove runtime activation or delivery."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:a4627e5e868830287e83e0dc",
+              "interaction:places-place-requested-to-dashboard",
+              "process:dashboard-place-requested-consumer"
+            ],
+            "from": "dashboard-kafka",
+            "id": "claim-3e43b9b76525d70d7296",
+            "kind": "message",
+            "sourceIds": [
+              "dashboard-a4627e5e868830287e83"
+            ],
+            "text": "The saved process declaration proposes weather.place-requested as a topic-to-consumeMessage mapping; the mapping remains unverified at runtime.",
+            "to": "service-dashboard"
+          },
+          {
+            "$clewRef": "sha256:3aa037571d3a73c8c441f26379ac619a65d643b6c28670a448cf5931d55c139e"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:021fcd0ff7baa53bd3c51930"
+            ],
+            "id": "claim-6ae7076a3f8d34076d34",
+            "kind": "note",
+            "sourceIds": [
+              "dashboard-021fcd0ff7baa53bd3c5"
+            ],
+            "text": "A place event has a string id, version 1, allowed place.id (oslo, helsinki, or lisbon), string place.name, finite latitude and longitude, type place.requested, and no forecast field. The known weather.forecast-updated topic has a separate validation branch; only unrecognized topic names throw UNKNOWN_TOPIC."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "from": "service-dashboard",
+            "id": "claim-243fd9bcfe4cb76cb450",
+            "kind": "message",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "Begin a transaction and insert the event id into inbox with conflict ignored. If that id already exists, commit and return DUPLICATE without updating the card.",
+            "to": "dashboard-db"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "id": "claim-f2babb34bc118db77422",
+            "kind": "alt",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "The inbox insert finds this event id already present."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+              "dashboard:symbol:a4627e5e868830287e83e0dc",
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "id": "claim-4d0f0aaeb7970b7060f1",
+            "kind": "note",
+            "sourceIds": [
+              "dashboard-8a4f6855cb7f1a476a04",
+              "dashboard-a4627e5e868830287e83",
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "A duplicate commits its transaction and returns DUPLICATE; consumeMessage then advances the message offset."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "id": "claim-9fc8659d3dbf350f0161",
+            "kind": "else",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "from": "service-dashboard",
+            "id": "claim-73a1b3dc808969fc8978",
+            "kind": "message",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "For a new place.requested event, upsert the place id, name, latitude, and longitude; this branch does not replace the stored forecast.",
+            "to": "dashboard-db"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "from": "service-dashboard",
+            "id": "claim-52ee3e4766ac916d6719",
+            "kind": "message",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "Commit the card update and return from applyEvent.",
+            "to": "dashboard-db"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "id": "claim-753cdb076ce7aad730b4",
+            "kind": "end",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:049a97e649d7feb212e6c67f",
+              "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+              "dashboard:symbol:a4627e5e868830287e83e0dc"
+            ],
+            "from": "service-dashboard",
+            "id": "claim-76046f36c07cb1e840a7",
+            "kind": "message",
+            "sourceIds": [
+              "dashboard-049a97e649d7feb212e6",
+              "dashboard-8a4f6855cb7f1a476a04",
+              "dashboard-a4627e5e868830287e83"
+            ],
+            "text": "After applyEvent resolves, commit this partition’s offset plus one.",
+            "to": "dashboard-kafka"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:886390b176392fdbad06fc3a",
+              "dashboard:flow:a190efb9bca6603f1d2abc58",
+              "dashboard:symbol:021fcd0ff7baa53bd3c51930",
+              "dashboard:symbol:a4627e5e868830287e83e0dc"
+            ],
+            "id": "claim-55bea38a2bad1fe3d153",
+            "kind": "else",
+            "sourceIds": [
+              "dashboard-021fcd0ff7baa53bd3c5",
+              "dashboard-886390b176392fdbad06",
+              "dashboard-a190efb9bca6603f1d2a",
+              "dashboard-a4627e5e868830287e83"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:59f03a0653cc7a3798b8ceaf",
+              "dashboard:flow:a190efb9bca6603f1d2abc58"
+            ],
+            "from": "service-dashboard",
+            "id": "claim-460e91322f99b692ca98",
+            "kind": "message",
+            "sourceIds": [
+              "dashboard-59f03a0653cc7a3798b8",
+              "dashboard-a190efb9bca6603f1d2a"
+            ],
+            "text": "Insert the topic, partition, offset, and reason INVALID_EVENT into rejected_messages; duplicate reject records are ignored.",
+            "to": "dashboard-db"
+          },
+          {
+            "$clewRef": "sha256:b685fa27b9193a907ad24ffaa20fe37b94ed3539012078a734d6010a14031cee"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:a190efb9bca6603f1d2abc58",
+              "dashboard:flow:f4a336f51f8e91a3da04831a"
+            ],
+            "id": "claim-5865dc5650776115bf83",
+            "kind": "note",
+            "sourceIds": [
+              "dashboard-a190efb9bca6603f1d2a",
+              "dashboard-f4a336f51f8e91a3da04"
+            ],
+            "text": "After writing the INVALID_EVENT rejection and committing offset plus one, consumeMessage returns."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:886390b176392fdbad06fc3a",
+              "dashboard:flow:a190efb9bca6603f1d2abc58",
+              "dashboard:symbol:021fcd0ff7baa53bd3c51930",
+              "dashboard:symbol:a4627e5e868830287e83e0dc"
+            ],
+            "id": "claim-dd4e77cedc166794074a",
+            "kind": "end",
+            "sourceIds": [
+              "dashboard-021fcd0ff7baa53bd3c5",
+              "dashboard-886390b176392fdbad06",
+              "dashboard-a190efb9bca6603f1d2a",
+              "dashboard-a4627e5e868830287e83"
+            ],
+            "text": ""
+          },
+          {
+            "$clewRef": "sha256:6eba077c3de4c14456644961dd159f22aace0156a6d58166c52fb1a40ec780a0"
+          },
+          {
+            "$clewRef": "sha256:eb4eba7e8a929a065eafc70ec20975a2db6490149d04554901ae0161e97c1bf2"
+          }
+        ],
+        "explanation": [
+          {
+            "dependencyIds": [
+              "dashboard:symbol:a4627e5e868830287e83e0dc",
+              "dashboard:symbol:bc57152944dfa54c072b94e5",
+              "interaction:places-place-requested-to-dashboard"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-e115bfea282330298768"
+            ],
+            "id": "claim-889ce3a55ee2443fc490",
+            "sourceIds": [
+              "dashboard-a4627e5e868830287e83",
+              "dashboard-bc57152944dfa54c072b"
+            ],
+            "text": "The source subscribes to both weather topics from the beginning and starts consumeMessage with automatic commits disabled. This source sequence does not prove runtime activation or delivery."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:a4627e5e868830287e83e0dc",
+              "interaction:places-place-requested-to-dashboard",
+              "process:dashboard-place-requested-consumer"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-3e43b9b76525d70d7296"
+            ],
+            "id": "claim-4471267f52e071f0ec90",
+            "sourceIds": [
+              "dashboard-a4627e5e868830287e83"
+            ],
+            "text": "The saved process declaration proposes weather.place-requested as a topic-to-consumeMessage mapping; the mapping remains unverified at runtime."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:886390b176392fdbad06fc3a",
+              "dashboard:flow:a190efb9bca6603f1d2abc58",
+              "dashboard:symbol:021fcd0ff7baa53bd3c51930",
+              "dashboard:symbol:a4627e5e868830287e83e0dc"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-43819f21ee5be6154fe6"
+            ],
+            "id": "claim-0eaa1c9c1164a929f57c",
+            "sourceIds": [
+              "dashboard-021fcd0ff7baa53bd3c5",
+              "dashboard-886390b176392fdbad06",
+              "dashboard-a190efb9bca6603f1d2a",
+              "dashboard-a4627e5e868830287e83"
+            ],
+            "text": "JSON parsing and validateEvent both succeed for the weather.place-requested topic, producing a valid place.requested event."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:021fcd0ff7baa53bd3c51930"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-6ae7076a3f8d34076d34"
+            ],
+            "id": "claim-21bc258348fe2cf55c3c",
+            "sourceIds": [
+              "dashboard-021fcd0ff7baa53bd3c5"
+            ],
+            "text": "A place event has a string id, version 1, allowed place.id (oslo, helsinki, or lisbon), string place.name, finite latitude and longitude, type place.requested, and no forecast field. The known weather.forecast-updated topic has a separate validation branch; only unrecognized topic names throw UNKNOWN_TOPIC."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-243fd9bcfe4cb76cb450"
+            ],
+            "id": "claim-aea9adf8d562d604d9eb",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "Begin a transaction and insert the event id into inbox with conflict ignored. If that id already exists, commit and return DUPLICATE without updating the card."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-f2babb34bc118db77422"
+            ],
+            "id": "claim-a3068893d448ab19c237",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "The inbox insert finds this event id already present."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+              "dashboard:symbol:a4627e5e868830287e83e0dc",
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-4d0f0aaeb7970b7060f1"
+            ],
+            "id": "claim-ba9d766f81164e3e7db4",
+            "sourceIds": [
+              "dashboard-8a4f6855cb7f1a476a04",
+              "dashboard-a4627e5e868830287e83",
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "A duplicate commits its transaction and returns DUPLICATE; consumeMessage then advances the message offset."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-9fc8659d3dbf350f0161"
+            ],
+            "id": "claim-00d5fff9fd16337fcbb7",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-73a1b3dc808969fc8978"
+            ],
+            "id": "claim-0641dfa233a99083df78",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "For a new place.requested event, upsert the place id, name, latitude, and longitude; this branch does not replace the stored forecast."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-52ee3e4766ac916d6719"
+            ],
+            "id": "claim-3045f20256abfd435798",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "Commit the card update and return from applyEvent."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:049a97e649d7feb212e6c67f",
+              "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+              "dashboard:symbol:a4627e5e868830287e83e0dc"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-76046f36c07cb1e840a7"
+            ],
+            "id": "claim-92f0e1661257c2f8a1f1",
+            "sourceIds": [
+              "dashboard-049a97e649d7feb212e6",
+              "dashboard-8a4f6855cb7f1a476a04",
+              "dashboard-a4627e5e868830287e83"
+            ],
+            "text": "After applyEvent resolves, commit this partition’s offset plus one."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:886390b176392fdbad06fc3a",
+              "dashboard:flow:a190efb9bca6603f1d2abc58",
+              "dashboard:symbol:021fcd0ff7baa53bd3c51930",
+              "dashboard:symbol:a4627e5e868830287e83e0dc"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-55bea38a2bad1fe3d153"
+            ],
+            "id": "claim-4a415a56ebffc52a9a42",
+            "sourceIds": [
+              "dashboard-021fcd0ff7baa53bd3c5",
+              "dashboard-886390b176392fdbad06",
+              "dashboard-a190efb9bca6603f1d2a",
+              "dashboard-a4627e5e868830287e83"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:59f03a0653cc7a3798b8ceaf",
+              "dashboard:flow:a190efb9bca6603f1d2abc58"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-460e91322f99b692ca98"
+            ],
+            "id": "claim-5c4b4d848d0f025cf895",
+            "sourceIds": [
+              "dashboard-59f03a0653cc7a3798b8",
+              "dashboard-a190efb9bca6603f1d2a"
+            ],
+            "text": "Insert the topic, partition, offset, and reason INVALID_EVENT into rejected_messages; duplicate reject records are ignored."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:049a97e649d7feb212e6c67f",
+              "dashboard:flow:654eeebd7e0618b0c6dd58f9",
+              "dashboard:flow:667235490ded3f35c51f99f1",
+              "dashboard:flow:a190efb9bca6603f1d2abc58",
+              "dashboard:flow:f4a336f51f8e91a3da04831a"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-01c6eb303d1b7e50ee1f"
+            ],
+            "id": "claim-093ab937a7bba7e36b2a",
+            "sourceIds": [
+              "dashboard-049a97e649d7feb212e6",
+              "dashboard-654eeebd7e0618b0c6dd",
+              "dashboard-667235490ded3f35c51f",
+              "dashboard-a190efb9bca6603f1d2a",
+              "dashboard-f4a336f51f8e91a3da04"
+            ],
+            "text": "After the reject record is written, commit this partition’s offset plus one and return."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:a190efb9bca6603f1d2abc58",
+              "dashboard:flow:f4a336f51f8e91a3da04831a"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-5865dc5650776115bf83"
+            ],
+            "id": "claim-b6a2a649faa62d06d977",
+            "sourceIds": [
+              "dashboard-a190efb9bca6603f1d2a",
+              "dashboard-f4a336f51f8e91a3da04"
+            ],
+            "text": "After writing the INVALID_EVENT rejection and committing offset plus one, consumeMessage returns."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:37dec2bf70bc69d603cb8d4b",
+              "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+              "dashboard:flow:a190efb9bca6603f1d2abc58",
+              "dashboard:flow:f4a336f51f8e91a3da04831a",
+              "dashboard:symbol:a4627e5e868830287e83e0dc",
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-c0730141fa3e6db6f8de"
+            ],
+            "id": "claim-58628726be8180a8e0c0",
+            "sourceIds": [
+              "dashboard-37dec2bf70bc69d603cb",
+              "dashboard-8a4f6855cb7f1a476a04",
+              "dashboard-a190efb9bca6603f1d2a",
+              "dashboard-a4627e5e868830287e83",
+              "dashboard-ac3aadb76be6fea3e790",
+              "dashboard-f4a336f51f8e91a3da04"
+            ],
+            "text": "A failure writing the rejection row or committing the rejection-path offset propagates. On the valid path, if pool.connect succeeds, an error inside applyEvent’s try attempts ROLLBACK, rethrows, and releases the client in finally. If pool.connect fails, that happens before the try, so no transaction rollback or client release runs. Either applyEvent error prevents consumeMessage from reaching the offset commit."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+              "dashboard:symbol:a4627e5e868830287e83e0dc",
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-4cc1da1d40cb9d296d9c"
+            ],
+            "id": "claim-6faad881a778cc1a1f3d",
+            "sourceIds": [
+              "dashboard-8a4f6855cb7f1a476a04",
+              "dashboard-a4627e5e868830287e83",
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "On a valid event, applyEvent commits its database transaction before consumeMessage commits offset plus one. If that later offset commit fails, the event can be replayed; the inbox duplicate check suppresses a second card update, but does not establish exactly-once delivery."
+          }
+        ],
+        "findings": [],
+        "id": "dashboard-place-requested-consumer",
+        "interfaceContracts": [
+          {
+            "boundaries": [],
+            "id": "claim-3b9f73a1cc8914367b17",
+            "kind": "kafka",
+            "rows": [
+              {
+                "dependencyIds": [
+                  "dashboard:symbol:bc57152944dfa54c072b94e5",
+                  "interaction:places-place-requested-to-dashboard",
+                  "process:dashboard-place-requested-consumer"
+                ],
+                "id": "claim-69ddadf2e91cce92fba8",
+                "label": "Topic association",
+                "sourceIds": [
+                  "dashboard-bc57152944dfa54c072b"
+                ],
+                "value": "The saved process proposes weather.place-requested as a mapping to consumeMessage; source start subscribes to this topic and weather.forecast-updated from the beginning, but runtime delivery is unverified."
+              },
+              {
+                "dependencyIds": [
+                  "dashboard:symbol:021fcd0ff7baa53bd3c51930"
+                ],
+                "id": "claim-5fdf33c20d7a86c620bf",
+                "label": "Shared event fields",
+                "sourceIds": [
+                  "dashboard-021fcd0ff7baa53bd3c5"
+                ],
+                "value": "validateEvent requires a string event id, version 1, place.id in oslo, helsinki, or lisbon, string place.name, and finite place.latitude and place.longitude."
+              },
+              {
+                "dependencyIds": [
+                  "dashboard:symbol:021fcd0ff7baa53bd3c51930"
+                ],
+                "id": "claim-845196422b6924c86a65",
+                "label": "Place-topic fields",
+                "sourceIds": [
+                  "dashboard-021fcd0ff7baa53bd3c5"
+                ],
+                "value": "For weather.place-requested, type must be place.requested and the forecast field must be absent. These are code-level validator checks; they do not establish runtime JSON Schema enforcement."
+              }
+            ],
+            "title": "weather.place-requested message checks"
+          }
+        ],
+        "participants": [
+          {
+            "id": "caller",
+            "label": "Caller",
+            "service": null
+          },
+          {
+            "id": "service-dashboard",
+            "label": "dashboard",
+            "service": "dashboard"
+          },
+          {
+            "id": "dashboard-db",
+            "label": "Dashboard PostgreSQL",
+            "service": null
+          },
+          {
+            "id": "dashboard-kafka",
+            "label": "Kafka topic weather.place-requested",
+            "service": null
+          }
+        ],
+        "summary": {
+          "$clewRef": "sha256:d561a24f15bfb42100555fbc13eee8ef76fa63352657fb45d1e71b548a577f19"
+        },
+        "title": "Dashboard consumes place-requested events"
+      },
+      {
+        "boundaries": [
+          "CALL_TARGETS_UNRESOLVED",
+          "DECLARED_TRANSITION_NOT_REACHED:places-place-requested-to-dashboard",
+          "ORDER_LEXICAL_ONLY"
+        ],
+        "documentationLanguage": "en",
+        "events": [],
+        "explanation": [],
+        "findings": [],
+        "id": "process-overview",
+        "interfaceContracts": [],
+        "participants": [],
+        "summary": {
+          "dependencyIds": [
+            "dashboard:symbol:a4627e5e868830287e83e0dc",
+            "interaction:places-place-requested-to-dashboard",
+            "process-scope:dashboard-place-requested-consumer",
+            "process:dashboard-place-requested-consumer",
+            "scenario:dashboard-place-requested-consumer"
+          ],
+          "id": "claim-326000440395907b809a",
+          "sourceIds": [
+            "dashboard-a4627e5e868830287e83"
+          ],
+          "text": "The same Dashboard.consumeMessage handler parses JSON and validates each event against its topic. Invalid messages attempt an INVALID_EVENT rejected_messages insert (ON CONFLICT DO NOTHING), commit partition offset plus one, and return; valid messages call applyEvent, then commit offset plus one. The saved cross-service declaration maps weather.place-requested to this handler as an agent-proposed interaction. Topic resolution, consumer subscription and runtime delivery remain unverified, as do applyEvent's effects for this event."
+        },
+        "title": "Dashboard place-requested consumer view"
+      }
+    ],
+    "process": {
+      "authority": "Explicit saved request; generated interpretation is reviewed separately.",
+      "definition": {
+        "$clewRef": "sha256:a67899b047ab0e2607697685417c80cf8105ff78f388b029303520aaf8f9b045"
+      },
+      "definitionVersion": "sha256:66c5f53c236138b25527addd8895b9e4383298e0e8db25baa41f7da194a8ce53",
+      "linkedSubviews": [],
+      "scope": {
+        "digest": "sha256:44dcab95708b4a10d1e151f73dba5ee8fafaeae909da0b1735a995735cbcd8cc",
+        "id": "process-scope:dashboard-place-requested-consumer",
+        "kind": "PROCESS_SCOPE",
+        "normalized": {
+          "dependencyIds": [
+            "dashboard:contract-scope:f86e10393733a9350be2eda4",
+            "dashboard:source_scope:a94d30979421b6ddbba5e94b",
+            "entity-scope:dashboard",
+            "note-scope:dashboard"
+          ],
+          "interactionMembership": [
+            "dashboard-request-refresh-to-places",
+            "dashboard-save-place-to-places",
+            "forecasts-forecast-updated-to-dashboard",
+            "forecasts-refresh-to-external-met",
+            "places-place-requested-to-dashboard",
+            "places-place-requested-to-forecasts"
+          ],
+          "participants": [
+            "dashboard"
+          ],
+          "runtime": "UNKNOWN",
+          "unavailableParticipants": []
+        },
+        "service": "",
+        "sourceIds": [],
+        "symbol": "process-scope:dashboard-place-requested-consumer"
+      }
+    },
+    "processCandidates": null,
+    "processExtraction": null,
+    "processOutline": {
+      "$clewRef": "sha256:0c32f15873d2685cef7b16f1769e3f5ec173433979644e92dd650c5e551a6848"
+    },
+    "processThread": null,
+    "proseDisplayPolicy": "READABLE_ORIGINALS",
+    "questionReader": {
+      "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+      "conclusion": {
+        "$clewRef": "sha256:e0fc6e28bf869a085380e1b355733d2ac1b935ea5d54cc88d5c7bd4bdc66b1ef"
+      },
+      "language": "en",
+      "presentation": "SEQUENTIAL",
+      "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+      "purpose": "Dashboard validates the event, updates its card when appropriate and advances the Kafka offset.",
+      "schema": "codeclew-question-reading-plan/1.0",
+      "sections": [
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "dashboard:symbol:a4627e5e868830287e83e0dc",
+                      "interaction:places-place-requested-to-dashboard",
+                      "process:dashboard-place-requested-consumer"
+                    ],
+                    "from": "dashboard-kafka",
+                    "id": "claim-3e43b9b76525d70d7296",
+                    "kind": "message",
+                    "sourceIds": [
+                      "dashboard-a4627e5e868830287e83"
+                    ],
+                    "text": "The saved process declaration proposes weather.place-requested as a topic-to-consumeMessage mapping; the mapping remains unverified at runtime.",
+                    "to": "service-dashboard"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-place-requested-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:ebff0ac1bf65e82eab9a03d9ea1602d72b899d362a9b668fc7258a487be713bc"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:2a981cfe81d93c74a56f95c30a64bec5977dc5dd82be7b4f5139342150ff4593"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:c18ddf3d31574006b39d94c64c9a7a78332f997376da5da26175e611d7f1ea2d"
+                  },
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "title": "Dashboard consumes place-requested events"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "The saved process associates `weather.place-requested` with this Dashboard consumer. Runtime activation and message delivery are unverified.",
+              "title": "Declared input",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": "Consumer configuration and mapping",
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "dashboard:symbol:a4627e5e868830287e83e0dc",
+                      "dashboard:symbol:bc57152944dfa54c072b94e5",
+                      "interaction:places-place-requested-to-dashboard"
+                    ],
+                    "id": "claim-e115bfea282330298768",
+                    "kind": "note",
+                    "sourceIds": [
+                      "dashboard-a4627e5e868830287e83",
+                      "dashboard-bc57152944dfa54c072b"
+                    ],
+                    "text": "The source subscribes to both weather topics from the beginning and starts consumeMessage with automatic commits disabled. This source sequence does not prove runtime activation or delivery."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-place-requested-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:ebff0ac1bf65e82eab9a03d9ea1602d72b899d362a9b668fc7258a487be713bc"
+                  },
+                  "sources": {
+                    "dashboard-a4627e5e868830287e83": {
+                      "$clewRef": "sha256:c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233"
+                    },
+                    "dashboard-bc57152944dfa54c072b": {
+                      "$clewRef": "sha256:b8c6b94020ae709e61177a744a5a5315fccb0813ac9f4e37ca6a0be5140d129c"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:c18ddf3d31574006b39d94c64c9a7a78332f997376da5da26175e611d7f1ea2d"
+                  },
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "title": "Dashboard consumes place-requested events"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": "Declared topic mapping · manual offset handling · runtime unverified",
+              "text": "The source subscribes to both Weather topics from the beginning and starts the consumer with automatic offset commits disabled. This declaration does not prove runtime activation or delivery.",
+              "title": "Consumer configuration",
+              "tone": null
+            }
+          ],
+          "icon": "arrow-right",
+          "id": "receive",
+          "navTitle": "Receive event",
+          "number": 1,
+          "route": "Topic: weather.place-requested",
+          "title": "Dashboard receives the event"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "$clewRef": "sha256:3aa037571d3a73c8c441f26379ac619a65d643b6c28670a448cf5931d55c139e"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-place-requested-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:ebff0ac1bf65e82eab9a03d9ea1602d72b899d362a9b668fc7258a487be713bc"
+                  },
+                  "sources": {
+                    "dashboard-021fcd0ff7baa53bd3c5": {
+                      "$clewRef": "sha256:afddedfc8054e8c5495b73e95e3924f7b15f90f9b73caf09d7c1b7cdda664830"
+                    },
+                    "dashboard-886390b176392fdbad06": {
+                      "$clewRef": "sha256:4798bc09cdd58e52e7e56aae4740dbb99954e40e39ad7c17923a447e491e2712"
+                    },
+                    "dashboard-a190efb9bca6603f1d2a": {
+                      "$clewRef": "sha256:cb1d1d3100a0984649d98da9a16956ac42fc63a19ea6841dad22f15a13784ba7"
+                    },
+                    "dashboard-a4627e5e868830287e83": {
+                      "$clewRef": "sha256:c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:c18ddf3d31574006b39d94c64c9a7a78332f997376da5da26175e611d7f1ea2d"
+                  },
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "title": "Dashboard consumes place-requested events"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "The handler parses the JSON and checks that the event has the expected shape before applying it.",
+              "title": "Validate input",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": "Validation details",
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "dashboard:symbol:021fcd0ff7baa53bd3c51930"
+                    ],
+                    "id": "claim-6ae7076a3f8d34076d34",
+                    "kind": "note",
+                    "sourceIds": [
+                      "dashboard-021fcd0ff7baa53bd3c5"
+                    ],
+                    "text": "A place event has a string id, version 1, allowed place.id (oslo, helsinki, or lisbon), string place.name, finite latitude and longitude, type place.requested, and no forecast field. The known weather.forecast-updated topic has a separate validation branch; only unrecognized topic names throw UNKNOWN_TOPIC."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-place-requested-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:ebff0ac1bf65e82eab9a03d9ea1602d72b899d362a9b668fc7258a487be713bc"
+                  },
+                  "sources": {
+                    "dashboard-021fcd0ff7baa53bd3c5": {
+                      "$clewRef": "sha256:afddedfc8054e8c5495b73e95e3924f7b15f90f9b73caf09d7c1b7cdda664830"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:c18ddf3d31574006b39d94c64c9a7a78332f997376da5da26175e611d7f1ea2d"
+                  },
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "title": "Dashboard consumes place-requested events"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": "Envelope, place fields and topic-specific payload checks",
+              "text": "A place.requested event needs a string ID, version 1, an allowed place ID, a string name and finite coordinates, with no forecast field. The forecast-updated topic has its own validator branch; an unrecognized topic throws UNKNOWN_TOPIC.",
+              "title": "Validation rules",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "dashboard:flow:59f03a0653cc7a3798b8ceaf",
+                      "dashboard:flow:a190efb9bca6603f1d2abc58"
+                    ],
+                    "from": "service-dashboard",
+                    "id": "claim-460e91322f99b692ca98",
+                    "kind": "message",
+                    "sourceIds": [
+                      "dashboard-59f03a0653cc7a3798b8",
+                      "dashboard-a190efb9bca6603f1d2a"
+                    ],
+                    "text": "Insert the topic, partition, offset, and reason INVALID_EVENT into rejected_messages; duplicate reject records are ignored.",
+                    "to": "dashboard-db"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-place-requested-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:ebff0ac1bf65e82eab9a03d9ea1602d72b899d362a9b668fc7258a487be713bc"
+                  },
+                  "sources": {
+                    "dashboard-59f03a0653cc7a3798b8": {
+                      "$clewRef": "sha256:51eb13746a4ec715b7f498f982fc29c26b082e21cf20eed410ae88e3807a0f13"
+                    },
+                    "dashboard-a190efb9bca6603f1d2a": {
+                      "$clewRef": "sha256:cb1d1d3100a0984649d98da9a16956ac42fc63a19ea6841dad22f15a13784ba7"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:c18ddf3d31574006b39d94c64c9a7a78332f997376da5da26175e611d7f1ea2d"
+                  },
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "title": "Dashboard consumes place-requested events"
+                },
+                {
+                  "fragment": {
+                    "$clewRef": "sha256:b685fa27b9193a907ad24ffaa20fe37b94ed3539012078a734d6010a14031cee"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-place-requested-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:ebff0ac1bf65e82eab9a03d9ea1602d72b899d362a9b668fc7258a487be713bc"
+                  },
+                  "sources": {
+                    "dashboard-049a97e649d7feb212e6": {
+                      "$clewRef": "sha256:fb056517f94476af3c7964b81f570f4579e6b57b469923f270bb1b5b7f3ec245"
+                    },
+                    "dashboard-654eeebd7e0618b0c6dd": {
+                      "$clewRef": "sha256:04307c94ed8910824028310d5a54e4062e623b9b852e4e1ed79879721fe73f84"
+                    },
+                    "dashboard-667235490ded3f35c51f": {
+                      "$clewRef": "sha256:7aade9ed3c0bb735283355f77a431ea3c8729271662e54ebab578098032c7df9"
+                    },
+                    "dashboard-a190efb9bca6603f1d2a": {
+                      "$clewRef": "sha256:cb1d1d3100a0984649d98da9a16956ac42fc63a19ea6841dad22f15a13784ba7"
+                    },
+                    "dashboard-f4a336f51f8e91a3da04": {
+                      "$clewRef": "sha256:7fdaf9f2a9021a175f7a56f3d1da7a449de99be9aa83f25efd9106bc89d18e90"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:c18ddf3d31574006b39d94c64c9a7a78332f997376da5da26175e611d7f1ea2d"
+                  },
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "title": "Dashboard consumes place-requested events"
+                },
+                {
+                  "$clewRef": "sha256:d0399974ac76c906cf7b3cb0bef2c9e225dae4977dd22fab730abd1f3b0f7bb0"
+                }
+              ],
+              "id": "invalid-event",
+              "links": [],
+              "navTitle": "Invalid event",
+              "preview": null,
+              "text": "A parse or validation failure is recorded as `INVALID_EVENT`. After that rejection is saved, Dashboard advances the offset and returns. Failure to save the rejection or advance its offset propagates.",
+              "title": "If the event is invalid",
+              "tone": "ERROR"
+            }
+          ],
+          "icon": null,
+          "id": "validate",
+          "navTitle": "Validate event",
+          "number": 2,
+          "route": null,
+          "title": "Dashboard checks the event"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": {
+                "$clewRef": "sha256:54905e88d4a7d813b72fba259a923c6119d6b7a03a845a350b1229c64950b673"
+              },
+              "id": null,
+              "links": [
+                {
+                  "href": "../services/dashboard.html#section-entities",
+                  "label": "Dashboard cards · service context",
+                  "operation": "section-entities",
+                  "subject": "service:dashboard"
+                }
+              ],
+              "navTitle": null,
+              "preview": null,
+              "text": "For a new event ID, Dashboard saves the place name and coordinates on the card. This branch preserves any stored forecast.",
+              "title": "Apply a new event",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+                    ],
+                    "from": "service-dashboard",
+                    "id": "claim-243fd9bcfe4cb76cb450",
+                    "kind": "message",
+                    "sourceIds": [
+                      "dashboard-ac3aadb76be6fea3e790"
+                    ],
+                    "text": "Begin a transaction and insert the event id into inbox with conflict ignored. If that id already exists, commit and return DUPLICATE without updating the card.",
+                    "to": "dashboard-db"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-place-requested-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:ebff0ac1bf65e82eab9a03d9ea1602d72b899d362a9b668fc7258a487be713bc"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:db235f4e9ec7d80b527f09b9d75e1b6a68f8fa1c4d72221ae3056ed6c5486e1c"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:c18ddf3d31574006b39d94c64c9a7a78332f997376da5da26175e611d7f1ea2d"
+                  },
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "title": "Dashboard consumes place-requested events"
+                },
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+                      "dashboard:symbol:a4627e5e868830287e83e0dc",
+                      "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+                    ],
+                    "id": "claim-4d0f0aaeb7970b7060f1",
+                    "kind": "note",
+                    "sourceIds": [
+                      "dashboard-8a4f6855cb7f1a476a04",
+                      "dashboard-a4627e5e868830287e83",
+                      "dashboard-ac3aadb76be6fea3e790"
+                    ],
+                    "text": "A duplicate commits its transaction and returns DUPLICATE; consumeMessage then advances the message offset."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-place-requested-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:ebff0ac1bf65e82eab9a03d9ea1602d72b899d362a9b668fc7258a487be713bc"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:7b926b68ad0cd13fc763b8ba53e114b6ef3d71b0db5b103dde41d8efcd414287"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:c18ddf3d31574006b39d94c64c9a7a78332f997376da5da26175e611d7f1ea2d"
+                  },
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "title": "Dashboard consumes place-requested events"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "If the event ID was already handled, Dashboard commits its database transaction and skips the card change. The consumer can still advance its offset.",
+              "title": "If this event ID was already handled",
+              "tone": "INFO"
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": {
+                "$clewRef": "sha256:54905e88d4a7d813b72fba259a923c6119d6b7a03a845a350b1229c64950b673"
+              },
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "A place-requested event changes the place fields without replacing forecast data.",
+              "title": "Forecast stays intact",
+              "tone": "INFO"
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "$clewRef": "sha256:d0399974ac76c906cf7b3cb0bef2c9e225dae4977dd22fab730abd1f3b0f7bb0"
+                }
+              ],
+              "id": "database-error",
+              "links": [],
+              "navTitle": "Database failure",
+              "preview": null,
+              "text": "An error on the valid path stops normal processing before offset advancement. Errors after a connection is acquired attempt rollback and release the client; connection acquisition can fail before that cleanup scope.",
+              "title": "If database work fails",
+              "tone": "ERROR"
+            }
+          ],
+          "icon": "database",
+          "id": "apply",
+          "navTitle": "Update card",
+          "number": 3,
+          "route": null,
+          "title": "Dashboard updates the card"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "dashboard:flow:049a97e649d7feb212e6c67f",
+                      "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+                      "dashboard:symbol:a4627e5e868830287e83e0dc"
+                    ],
+                    "from": "service-dashboard",
+                    "id": "claim-76046f36c07cb1e840a7",
+                    "kind": "message",
+                    "sourceIds": [
+                      "dashboard-049a97e649d7feb212e6",
+                      "dashboard-8a4f6855cb7f1a476a04",
+                      "dashboard-a4627e5e868830287e83"
+                    ],
+                    "text": "After applyEvent resolves, commit this partition’s offset plus one.",
+                    "to": "dashboard-kafka"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-place-requested-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:ebff0ac1bf65e82eab9a03d9ea1602d72b899d362a9b668fc7258a487be713bc"
+                  },
+                  "sources": {
+                    "dashboard-049a97e649d7feb212e6": {
+                      "$clewRef": "sha256:fb056517f94476af3c7964b81f570f4579e6b57b469923f270bb1b5b7f3ec245"
+                    },
+                    "dashboard-8a4f6855cb7f1a476a04": {
+                      "$clewRef": "sha256:596449b04f878bf0394c5492523a6a54d943d9f3a2a63e24cba4e4ca8dce043a"
+                    },
+                    "dashboard-a4627e5e868830287e83": {
+                      "$clewRef": "sha256:c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:c18ddf3d31574006b39d94c64c9a7a78332f997376da5da26175e611d7f1ea2d"
+                  },
+                  "subject": "scenario:dashboard-place-requested-consumer",
+                  "title": "Dashboard consumes place-requested events"
+                },
+                {
+                  "$clewRef": "sha256:080dae01917f1b057e2a42aff5f7ca98b008198a0b6a1244b4d578f407fddcad"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "After the valid-event handler returns, Dashboard commits this partition’s next offset. The database change and offset commit are separate effects.",
+              "title": "Record progress",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "$clewRef": "sha256:080dae01917f1b057e2a42aff5f7ca98b008198a0b6a1244b4d578f407fddcad"
+                }
+              ],
+              "id": "offset-error",
+              "links": [],
+              "navTitle": "Offset failure and replay",
+              "preview": null,
+              "text": "The database may already have committed. Kafka can replay the message; remembered event IDs prevent a second card update, but do not prevent duplicate delivery or establish exactly-once processing.",
+              "title": "If the final offset commit fails",
+              "tone": "WARNING"
+            }
+          ],
+          "icon": null,
+          "id": "offset",
+          "navTitle": "Advance offset",
+          "number": 4,
+          "route": null,
+          "title": "Dashboard advances the offset"
+        },
+        {
+          "blocks": [
+            {
+              "$clewRef": "sha256:e0fc6e28bf869a085380e1b355733d2ac1b935ea5d54cc88d5c7bd4bdc66b1ef"
+            }
+          ],
+          "icon": null,
+          "id": "confidence",
+          "navTitle": "Sources and provenance",
+          "number": null,
+          "route": null,
+          "title": "Full description and sources"
+        }
+      ],
+      "subject": "scenario:dashboard-place-requested-consumer",
+      "title": "Add a place to Dashboard"
+    },
+    "readerOptions": {
+      "showInternalProcesses": false
+    },
+    "relatedViews": [],
+    "renderer": "codeclew-documentation-html/1.16",
+    "requestedDocumentationLanguage": "en",
+    "revisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37"
+    },
+    "savedProcesses": [],
+    "sectionState": {
+      "$clewRef": "sha256:19ae8800d943f92a95302fb6acba8d93288626269b6b8381ebad9f7c0f44c7bc"
+    },
+    "sections": [],
+    "selectedEvidence": {
+      "$clewRef": "sha256:ca9e4ab3cdcbe2cee291a0df9c86fe72afd4d98160313803db7f0417ab3e0e97"
+    },
+    "selectedSnapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
+    "sourceAuthorities": {
+      "dashboard": "CAPTURED_SOURCE",
+      "forecasts": "RETAINED_SOURCE_NOT_REVERIFIED",
+      "places": "RETAINED_SOURCE_NOT_REVERIFIED"
+    },
+    "sources": {
+      "$clewRef": "sha256:f7b09d16f5c676867d0cbd16322670da984883140d18155681d9672f6849512c"
+    },
+    "stateDiagram": null,
+    "stateDiagramSvg": false,
+    "subject": "scenario:dashboard-place-requested-consumer",
+    "subtitle": "Service behavior and explicit evidence boundaries",
+    "targetRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "title": "Dashboard place-requested consumer view",
+    "translationComplete": true,
+    "translationGaps": {},
+    "updateFailures": {},
+    "view": null
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "identity": "sha256:63d8323682ba773ac8bb82a6c24586291a57cd5ecb40778f978cf6e52d488d40",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+      "interaction:dashboard-request-refresh-to-places",
+      "process:dashboard-refresh-request"
+    ],
+    "from": "service-dashboard",
+    "id": "claim-200c312ea5553a634796",
+    "interaction": "dashboard-request-refresh-to-places",
+    "kind": "message",
+    "sourceIds": [
+      "dashboard-1612e17d589cb9d0fa4a"
+    ],
+    "text": "Dashboard sends a bodyless POST to /places/{id}/refresh, URL-encodes the ID and applies a 10-second timeout. This declared receiver mapping is agent-proposed; runtime routing is unverified.",
+    "to": "places"
+  }
+}

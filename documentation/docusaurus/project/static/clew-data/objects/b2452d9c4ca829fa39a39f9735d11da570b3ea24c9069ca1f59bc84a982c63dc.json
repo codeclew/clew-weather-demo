@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:b2452d9c4ca829fa39a39f9735d11da570b3ea24c9069ca1f59bc84a982c63dc",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [],
+    "documentationLanguage": "en",
+    "events": [],
+    "explanation": [],
+    "findings": [],
+    "id": "section-overview",
+    "interfaceContracts": [],
+    "participants": [],
+    "summary": {
+      "$clewRef": "sha256:0511deef4e31af5541ccb8632dea2d710bb894491ac2300138c197c13cec0a99"
+    },
+    "title": "Forecasts service"
+  }
+}

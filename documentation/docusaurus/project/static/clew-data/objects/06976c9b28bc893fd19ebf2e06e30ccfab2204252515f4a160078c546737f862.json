@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:06976c9b28bc893fd19ebf2e06e30ccfab2204252515f4a160078c546737f862",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 3,
+    "evidenceDigest": "sha256:5c927da3bbd68aafa61199f36d3e89069284ca66c76488efa40068a228dfe454",
+    "file": "services/dashboard/src/main.ts",
+    "id": "dashboard-393e9152419ea693ff36",
+    "occurrence": {
+      "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+      "endByte": 150,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 94
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 3,
+    "text": "import { Kafka, type EachMessagePayload } from 'kafkajs'",
+    "textDigest": "sha256:7ee6dd4ccbe2cb89d353f7e9a86b831219761af19a0af4bda76774b438c2ba17",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L3-L3"
+  }
+}

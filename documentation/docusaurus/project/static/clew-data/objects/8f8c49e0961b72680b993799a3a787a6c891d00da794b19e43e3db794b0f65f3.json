@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:8f8c49e0961b72680b993799a3a787a6c891d00da794b19e43e3db794b0f65f3",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 23,
+    "evidenceDigest": "sha256:586a6d6f1e335fe8a8e783f5f50be58fb633c710d62420c8ad5884cb1a78ee00",
+    "file": "services/dashboard/src/events.ts",
+    "id": "dashboard-5402c6a44ee72e4cc62b",
+    "occurrence": {
+      "blob": "ddda5719da0d973028010984703f3ee5163090f5",
+      "endByte": 1877,
+      "snapshot": "sha256:550435c6f8e16951bd815f9f7b54eda07bff8ad73a80a6df524ab2af077f4f6f",
+      "startByte": 1844
+    },
+    "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+    "service": "dashboard",
+    "startLine": 23,
+    "text": "throw new Error('INVALID_PERIOD')",
+    "textDigest": "sha256:576fe187cef0ed78ceb34c7af90d354bffd014870d350278c8e0ca13284ad675",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/e635069293d58cb0d4f28c8211e748b8d58e6b37/services/dashboard/src/events.ts#L23-L23"
+  }
+}

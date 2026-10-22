@@ -1,0 +1,24 @@
+{
+  "identity": "sha256:0511deef4e31af5541ccb8632dea2d710bb894491ac2300138c197c13cec0a99",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": {
+      "$clewRef": "sha256:912166fa5c74193f231c585a20aa7f254689722c7ec576804bd32f4916519c8b"
+    },
+    "id": "claim-4f574b28443c817cf319",
+    "sourceIds": [
+      "forecasts-04bc0feeea5752d3f197",
+      "forecasts-0dad2f6c74261ec67a63",
+      "forecasts-1571fff289ff6226f149",
+      "forecasts-1ea53b95922ad5791d93",
+      "forecasts-3b271aa33f7bd944bb5a",
+      "forecasts-3d7b217355f2e6a34064",
+      "forecasts-59f31d25c0ed89f258ae",
+      "forecasts-77706d418ba7932d0d3f",
+      "forecasts-ad28a606f0881dfe7cfc",
+      "forecasts-c0b9aa485ebf80a7fcc5",
+      "forecasts-cc58d8643f3d17e4b691"
+    ],
+    "text": "At the saved source revision c289b28be4819eddf29d59a7c12f178559ec5229, the Forecasts service declares three HTTP handlers and a Kafka listener for weather.place-requested. The forecast endpoint reads a stored payload by place id; health executes a database ping; OpenAPI reads the checked-in forecasts contract. The listener validates place.requested v1 events, records and acknowledges invalid messages before returning, and sends valid events through a transaction callback that inserts the inbox id, upserts the place and calls refresh before reaching the later acknowledgment; runtime callback and transaction behavior remain unverified. Refresh returns early while cached data is unexpired; otherwise fixture or live-provider processing can update the forecast record and attempt a forecast.updated outbox insert. The source includes two scheduled entrypoint declarations, refreshExpired and publishPending; runtime activation is unverified. Kotlin parsing is source-syntax only; the saved capture did not build the service, and runtime activation is unverified."
+  }
+}

@@ -1,0 +1,31 @@
+---
+title: "services/places/PlacesRepository.cs:26–34"
+slug: "/sources/e51d4c67bd27056cdebb28e9eb5ea481a943fc5f4d158a8ed72036c81cce0843"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/places/PlacesRepository.cs:26–34
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: c289b28be4819eddf29d59a7c12f178559ec5229
+
+Text digest: sha256:57e490d9a1f61cd4c65587b0846a749437c2527de8c9b83d77a69e19c4659230
+
+## Retained text {#retained-text}
+
+```text
+public async Task<IReadOnlyList<Place>> List(CancellationToken token)
+    {
+        await using var connection = await Open(token);
+        await using var command = new NpgsqlCommand("SELECT id,name,latitude,longitude FROM places ORDER BY name", connection);
+        await using var reader = await command.ExecuteReaderAsync(token);
+        var result = new List<Place>();
+        while (await reader.ReadAsync(token)) result.Add(new(reader.GetString(0), reader.GetString(1), reader.GetDouble(2), reader.GetDouble(3)));
+        return result;
+    }
+```
+
+<ClewDownload path="/clew-data/objects/e51d4c67bd27056cdebb28e9eb5ea481a943fc5f4d158a8ed72036c81cce0843.json">Complete original source binding</ClewDownload>

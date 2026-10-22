@@ -1,0 +1,38 @@
+{
+  "identity": "sha256:1d8f29a2e650c48d95d1eb9a9d81d35b4dafd67d7af54c638897f6a44f7cfb93",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "FRAMEWORK_DERIVED_SOURCE",
+    "configuration": {
+      "fixedDelayString": null
+    },
+    "disabled": null,
+    "frameworkDeclarations": [
+      {
+        "controller": null,
+        "kind": "SCHEDULED_JOB",
+        "registration": "RUNTIME_CONDITIONAL",
+        "trigger": {
+          "authority": "SPRING_ANNOTATION_RULES",
+          "configuration": {
+            "fixedDelayString": null
+          },
+          "disabled": null,
+          "timeUnit": "MILLISECONDS"
+        }
+      }
+    ],
+    "frameworkDerivation": {
+      "coverage": "PARTIAL",
+      "implementationDigest": "sha256:afdbd2484f030da4d481e109d5a74a62a9885136cf7c6832ee1869318477c464",
+      "inputAuthority": "SOURCE_ANNOTATIONS",
+      "inputDigest": "sha256:4c88d0aef2335d02859468803f80f8be06add9161f27b7a334fa08ad9504a3eb",
+      "inputSchema": "source-annotation-facts/1.0",
+      "moduleId": "spring",
+      "policyVersion": "spring-annotation-declarations/1.0"
+    },
+    "name": "publishPending",
+    "owner": "class:weather.Forecasts",
+    "timeUnit": "MILLISECONDS"
+  }
+}

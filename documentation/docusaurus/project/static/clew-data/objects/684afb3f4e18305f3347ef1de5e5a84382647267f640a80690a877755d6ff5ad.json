@@ -1,0 +1,28 @@
+{
+  "identity": "sha256:684afb3f4e18305f3347ef1de5e5a84382647267f640a80690a877755d6ff5ad",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": {
+      "$clewRef": "sha256:8eb265de0617dcb0db330953132d9d6a2a6cb6efb03d314e59128fc8a86342a5"
+    },
+    "id": "claim-59b67fd3c0c511df88db",
+    "sourceIds": [
+      "dashboard-021fcd0ff7baa53bd3c5",
+      "dashboard-1612e17d589cb9d0fa4a",
+      "dashboard-1db17a7767cbf1b12d50",
+      "dashboard-21314369bd35a5f6a1c4",
+      "dashboard-7970ac3e2a8cf3f45b4a",
+      "dashboard-7d0d09a16ac25de86e5b",
+      "dashboard-7d79014f99ba83eadfd7",
+      "dashboard-812cb9b6c2878af12cf9",
+      "dashboard-8e13fe1feb2708d5e5bd",
+      "dashboard-a4627e5e868830287e83",
+      "dashboard-aa928ac6576338bb0b18",
+      "dashboard-ac3aadb76be6fea3e790",
+      "dashboard-bc57152944dfa54c072b",
+      "dashboard-cf87224657914cc333f2",
+      "dashboard-f3bcad13842060db4065"
+    ],
+    "text": "Dashboard serves saved place cards and accepts save and forecast-refresh requests for Places. It also consumes weather.place-requested and weather.forecast-updated events to maintain local cards. Six HTTP roots are GET /, GET /api/weather, POST /api/places, POST /api/places/{id}/refresh, GET /health, and GET /openapi.json. Source start connects Kafka, subscribes from the beginning to both topics, starts the shared consumer with autoCommit false, registers those routes, then listens; this source sequence does not establish runtime activation. The consumer validates recognized topic/event pairs and applies valid events transactionally. Parse or validation failures are persisted before offset plus one is committed; persistence failure prevents the commit, while an unknown topic throws UNKNOWN_TOPIC. The event schema and OpenAPI file are declarations, not proof of runtime enforcement. The capture uses TypeScript source syntax with declared dialect 7.0.2 and file-only browser, contract, schema, and database inputs; runtime and compiler validation remain UNKNOWN. See GET / for browser behavior and each HTTP operation for its declared contract."
+  }
+}

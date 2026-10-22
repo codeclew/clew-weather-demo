@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:cc3071dc8c5731d9afe963b7cfb95891350bced9d2e967d2e6309ac9ae8d6dc4",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "observed-static-use",
+    "claim": {
+      "$clewRef": "sha256:1993b7bc26e649fb7efec52b4dcd84a006d380837ef678b8d8880cd5e91bc94c"
+    },
+    "condition": "Normalized nonempty forecast; SQL predicate accepts updatedAt >= stored value",
+    "consumer": "forecasts.payload",
+    "contract": "forecast-updated",
+    "coveredScope": "Forecast persistence",
+    "kinds": [
+      "persist",
+      "whole-object-serialization-or-comparison"
+    ],
+    "processes": [],
+    "producer": "Forecasts.refresh",
+    "representation": "forecasts.payload.periods[]",
+    "stage": "Forecast persistence",
+    "unresolved": "Static source interpretation; runtime execution and delivery are not established."
+  }
+}
