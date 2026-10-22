@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:2a6820da57aa2a8352f3e1d8f3464a63030c2132f3ef540b946d0597bfdd3678",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "digest": "sha256:ef7e876c72c8ae5b0a7c6ed72ae9ea5ff65cd42d459290d692bf389a80c59709",
+    "id": "dashboard:contract-operation:97d881f216d27f90570cf086",
+    "kind": "CONTRACT_OPERATION",
+    "normalized": {
+      "$clewRef": "sha256:ef7e876c72c8ae5b0a7c6ed72ae9ea5ff65cd42d459290d692bf389a80c59709"
+    },
+    "service": "dashboard",
+    "sourceIds": [
+      "dashboard-1d4380bd7760bcafc13d"
+    ],
+    "symbol": "post /api/places/{id}/refresh"
+  }
+}

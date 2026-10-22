@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:90cb4673d9b990aa5acc3596ab5be8271403cae22d3999aa993a7d9d21142fc8",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 119,
+    "evidenceDigest": "sha256:1ae89a72bfba89eace29e70a2f2496b72974e64ded19693b7ce3a4dae96f9e07",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "id": "forecasts-9e51736462dd6f6b2870",
+    "occurrence": {
+      "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+      "endByte": 8429,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 7994
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 119,
+    "text": "jdbc.update(\"INSERT INTO forecasts(place_id,updated_at,payload,expires_at,last_modified) VALUES(?,?,?::jsonb,?,?) ON CONFLICT(place_id) DO UPDATE SET updated_at=EXCLUDED.updated_at,payload=EXCLUDED.payload,expires_at=EXCLUDED.expires_at,last_modified=EXCLUDED.last_modified WHERE EXCLUDED.updated_at>=forecasts.updated_at\", id, java.sql.Timestamp.from(Instant.parse(updatedAt)), payload, java.sql.Timestamp.from(expires), lastModified)",
+    "textDigest": "sha256:fbc48492ac77f0fa174ea3fdbceda567cd4b85adfc9d03b9db49fd96c11495aa",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L119-L119"
+  }
+}

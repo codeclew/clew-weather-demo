@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:3ed1a40a058287a76c789e51038678890acaf114227abc84a8085dc13a4c8c15",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:5961d22a8e0ed9e6f4188e004a652c1e0196fa21f13c676b32fe710d962e6c20"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Dashboard serializes request.body as a whole and sends POST to ${placesUrl}/places. PLACES_URL overrides the base; its source fallback and selected Compose value are http://places:8080, giving POST http://places:8080/places. The handler has no named cityId validation. Fetch, response JSON or the 10-second timeout can reach 503 PLACES_UNAVAILABLE; that does not prove rollback or a safe retry.",
+    "title": "Save a city: source interpretation",
+    "tone": null
+  }
+}

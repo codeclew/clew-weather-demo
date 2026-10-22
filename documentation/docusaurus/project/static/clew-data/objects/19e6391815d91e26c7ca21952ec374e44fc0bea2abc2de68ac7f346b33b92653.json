@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:19e6391815d91e26c7ca21952ec374e44fc0bea2abc2de68ac7f346b33b92653",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contract": "place-requested",
+    "field": "place.id",
+    "label": "Event v1 · place-requested",
+    "mapping": {
+      "$clewRef": "sha256:7b95b7ac8271945e1f014428798f25992d19921ab9cadbf4da0f04c16a7a759b"
+    },
+    "nullability": "Derived from schema",
+    "relatedModel": null,
+    "requiredness": "Branch-conditional",
+    "typeLabel": "Derived from exact JSON Schema"
+  }
+}

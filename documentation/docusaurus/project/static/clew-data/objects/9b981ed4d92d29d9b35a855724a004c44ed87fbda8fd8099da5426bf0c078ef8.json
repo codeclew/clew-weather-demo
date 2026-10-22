@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:9b981ed4d92d29d9b35a855724a004c44ed87fbda8fd8099da5426bf0c078ef8",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 19,
+    "evidenceDigest": "sha256:f775b5f562b7ee25591474b13332da006e219a8d8c6683c127d610be977361d4",
+    "file": "exercises/unchecked-place-forecast.ts",
+    "id": "dashboard-ecae56b17e4bb5956440",
+    "occurrence": {
+      "blob": "6f2194a87f69be18be06c36b2e922debcbff3273",
+      "endByte": 1692,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 1659
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 19,
+    "text": "throw new Error('INVALID_PERIOD')",
+    "textDigest": "sha256:576fe187cef0ed78ceb34c7af90d354bffd014870d350278c8e0ca13284ad675",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/exercises/unchecked-place-forecast.ts#L19-L19"
+  }
+}

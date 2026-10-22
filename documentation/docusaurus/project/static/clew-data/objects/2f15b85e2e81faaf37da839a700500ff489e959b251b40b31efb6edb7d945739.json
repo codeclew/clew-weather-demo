@@ -1,0 +1,29 @@
+{
+  "identity": "sha256:2f15b85e2e81faaf37da839a700500ff489e959b251b40b31efb6edb7d945739",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": {
+      "associationDigest": "sha256:48e8e1c6bcb568332d6543c4e9875c114d7d4c4fb180940d4f03ccb48bcfe75d",
+      "note": "runtime-broker-outage",
+      "noteDigest": "sha256:17319921d1eb6cc02800188b5275786181c8a0fd39258f4b41f096947d268361",
+      "outcome": "CONSISTENT",
+      "period": "2026-10-13T07:33:08.044370+00:00",
+      "proposedCorrection": null,
+      "schema": "codeclew-documentation-note-assessment/1.0"
+    },
+    "boundaries": [
+      "The outage result and five file-hash matches are imported historical observations. The recorded source excerpts describe Places behavior but do not constitute a fresh compiler or runtime run, establish broker health through the health endpoint, or prove exactly-once delivery."
+    ],
+    "documentationLanguage": "en",
+    "events": [],
+    "explanation": [],
+    "findings": [],
+    "id": "assessment-runtime-broker-outage",
+    "interfaceContracts": [],
+    "participants": [],
+    "summary": {
+      "$clewRef": "sha256:185c4b8511afed7317ae95f32cd8037cc2a94d61c8b5337455e94459cb5e1db1"
+    },
+    "title": "A broker outage leaves a saved place waiting in the outbox"
+  }
+}

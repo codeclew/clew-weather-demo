@@ -1,0 +1,64 @@
+---
+title: "An event with an older updatedAt leaves a newer Dashboard forecast unchanged"
+slug: "/operations/services-dashboard--assessment-runtime-kafka-replay"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# An event with an older updatedAt leaves a newer Dashboard forecast unchanged
+
+<ClewPageContext />
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+At 8d69f2b1d4a6d9770f87c720cd665dab30081815, imported runtime replay passed six: forecast-before-place, duplicate ID, older/equal timestamps, newer 0 °C/null rain, place-after-forecast.
+
+At Dashboard revision e635069293d58cb0d4f28c8211e748b8d58e6b37, applyEvent inserts event IDs into inbox transactionally; duplicates commit before card writes. INSERT may create a card; conflicts update for null stored timestamp or newer incoming updatedAt. With a dated card, a distinct new event ID is recorded in inbox; older/equal forecast updatedAt leaves it unchanged; newer applies. Valid path: consumeMessage awaits applyEvent before offset+1 commit; invalid events persist rejected\_messages before offset commit. Validation permits 0 °C and null/nonnegative rain; timestamps must match UTC shape and yield finite Date.parse output. Place upsert leaves forecast unchanged.
+
+These six historical runtime passes are not a current rerun; they establish no universal ordering, restart/crash behavior, or exactly-once guarantee. No compiler result is claimed.
+
+From checkout root: Python 3, Docker Compose, free ports 8080–8082, fresh project/volumes, fixture mode, ready Dashboard API with empty array, no Lisbon card. Example project weather-replay-20261013-ab12; sibling output ../replay-ab12. Change the suffix if either exists. Start:
+FORECAST\_MODE=fixture docker compose --project-name weather-replay-20261013-ab12 -f compose.yaml up --build -d
+Replay:
+python3 -I -S -B exercises/replay.py --project weather-replay-20261013-ab12 --dashboard-url http://127.0.0.1:8080 --output ../replay-ab12
+Output must be new, outside and not above the checkout. Replay does not create or clean the stack. Cleanup:
+docker compose --project-name weather-replay-20261013-ab12 -f compose.yaml down --volumes --remove-orphans
+Cleanup targets only that project. For alternate ports use the same Compose override for up, replay with --compose-override, and down; set the matching Dashboard URL. Recipe source-checked, not executed here.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/dashboard/src/events.ts:10–29 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/afddedfc8054e8c5495b73e95e3924f7b15f90f9b73caf09d7c1b7cdda664830.mdx)
+- [services/dashboard/src/events.ts:6–8 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/f595401e33ffe1c87198d3297a901422e3d449fe00dd98adddc17aaca283d70e.mdx)
+- [services/dashboard/src/main.ts:47–60 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233.mdx)
+- [services/dashboard/src/main.ts:15–45 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/bf524d202ba882540036918136ea088912da8bc6f340ab23d8a90bfb0aacab71.mdx)
+
+</details>
+
+## Declared interface schemas
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/475242e2ef07721c45d26c563b5cd15b52b47fb16494eab9b22738cd80b35c25">GET /openapi.json</ClewContextLink>
+
+<ClewContextLink path="/http/5e9ce2f78105d5d9215b07ddf87c8025176e932f11403c3b248ee8f2f77a9989">POST /api/places</ClewContextLink>
+
+<ClewContextLink path="/http/ed3ea26055386f7e8904ff37c1c9931e4943602283a96c6067a31ac32aa24dac">POST /api/places/&#123;id&#125;/refresh</ClewContextLink>
+
+<ClewContextLink path="/http/d3d56f55618a4d6b12c611f5055d16e80668439f39a23e30eb42437d1be85294">GET /</ClewContextLink>
+
+<ClewContextLink path="/http/589bef5f2c1640933430afb73226fc910c4cdb435b53197fdaef848d460a716b">GET /health</ClewContextLink>
+
+<ClewContextLink path="/http/5fda6cc4b385e34a2f5c5b6539f9420f1a95661ef0c3656b18ef951b4f2fe516">GET /api/weather</ClewContextLink>
+
+</div>
+
+
+<details>
+<summary>Retained boundaries</summary>
+
+- Six historical runtime passes are evidence, but no current rerun, compiler result, or exactly-once guarantee is claimed.
+
+</details>
+

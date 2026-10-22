@@ -1,0 +1,41 @@
+---
+title: "Forecasts ingress contracts"
+slug: "/operations/services-forecasts--section-ingress"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Forecasts ingress contracts
+
+<ClewPageContext />
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+The controller declares GET /forecasts/&#123;id&#125;, GET /health, and GET /openapi.json. The forecast route returns the stored JSON payload as application/json or 404 when no row exists. The health handler executes SELECT 1 and returns database READY; it does not check Kafka. The OpenAPI declaration describes a 200 forecast payload, 404, and 500 response, restricts id to oslo, helsinki, or lisbon, and declares health fields database READY and kafka READY. The handler and contract therefore differ on the health body, and the contract’s 500 response is not an explicit local error mapping in these handlers. The OpenAPI route reads /app/contracts/forecasts.openapi.json; file or database exceptions are not locally converted by the shown handlers.
+
+A source-declared Kafka listener receives weather.place-requested. The validator requires a nonblank event id, version 1, type place.requested, one of the three place ids, a nonblank name, and numeric coordinates. The event schema additionally declares latitude and longitude bounds and disallows extra top-level properties; the captured validator does not check those rules. Application properties declare earliest offset reset, disabled auto-commit, and manual-immediate acknowledgments. Invalid parse or validation is recorded in rejected\_messages and acknowledged; valid processing reaches acknowledgment after the transaction callback. Runtime listener registration, acknowledgment behavior, and framework status serialization remain unverified.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [contracts/forecasts.openapi.json:1–191 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/05a53615f19e214ae81a34c0ae85fcfafb9285ab8078741f240e9fc46c2c358e.mdx)
+- [services/forecasts/src/main/resources/application.properties:1–16 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/7dc31ff2f89df6313b31ccd5e53de88f58ca342c20783e2f8e34d13d0d872b55.mdx)
+- [services/forecasts/src/main/kotlin/weather/ForecastController.kt:11–15 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d1fcf17d0a9de09639b7db63855f8f57f94441c9779b2f70329e75c7d03c99f4.mdx)
+- [services/forecasts/src/main/kotlin/weather/ForecastController.kt:16–17 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/3fd6e0154de0e76dd7f5030fd6198b1f6fcb97f00c9d7d4ba454f60a75b32969.mdx)
+- [contracts/events.schema.json:1–173 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/02aca9b5de2e5fecc6239e85b2f8203c7f42eabce144a6c852ec3faed9d1a218.mdx)
+- [services/forecasts/src/main/kotlin/weather/ForecastController.kt:9–20 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ffa1bcd654fb053b7268bd37f4d7f3bab953ed7333d711728cffd5034606ae82.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:38–53 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/fabcf790d6359bad92930830b294197d73c440e51b6a010808853eccb900f2e6.mdx)
+- [services/forecasts/src/main/kotlin/weather/ForecastController.kt:18–19 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/f5e071d1a91e127fd568d40ec2c7e1cec3410af274774d60bbeadc63779d1192.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:55–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/9233bcae5aa5673c061ebdb857c39ce75ee4724473f2f75c21b7387f0fc94e1b.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- Kotlin and Spring source evidence does not establish runtime listener or scheduler registration, callback invocation, or database transaction commit and rollback behavior. Captured application configuration is source text, not proof of deployed settings.
+- OpenAPI and event JSON Schema are read as source text; JSON Schema keywords, unions, and null types are not fully interpreted.
+
+</details>
+

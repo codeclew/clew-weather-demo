@@ -1,0 +1,49 @@
+{
+  "identity": "sha256:e0ffcb77e5127363e079a70dc6fd8a1724ee554402d2feb2ce814a85f331b799",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "CALL_TARGETS_UNRESOLVED",
+      "RUNTIME_REGISTRATION_UNPROVEN",
+      "SOURCE_ROUTE_NOT_COMPILER_RESOLVED"
+    ],
+    "dependencyIds": [
+      "dashboard:symbol:1db17a7767cbf1b12d50234a",
+      "dashboard:syntax_detail:83a408854aa86e9d1149acb0"
+    ],
+    "id": "dashboard-d36957b096678dbe4785",
+    "kind": "HTTP_ENDPOINT",
+    "service": "dashboard",
+    "sourceIds": [
+      "dashboard-1db17a7767cbf1b12d50",
+      "dashboard-52e3ed5a793ab4976994",
+      "dashboard-7b23495a6677c1ee4362",
+      "dashboard-ba66712d2075feb3a25c"
+    ],
+    "symbol": "source:services/dashboard/src/main.ts/package:/getHealth/db1627e51cfed35ce621",
+    "trigger": {
+      "authority": "SOURCE_REGISTRATION_SYNTAX",
+      "methods": [
+        "GET"
+      ],
+      "name": "getHealth",
+      "owner": "package:",
+      "paths": [
+        "/health"
+      ],
+      "sourceRoutes": [
+        {
+          "authority": "SOURCE_SYNTAX",
+          "declaredPath": "/health",
+          "framework": "fastify",
+          "handler": "source:services/dashboard/src/main.ts/package:/getHealth/db1627e51cfed35ce621",
+          "method": "GET",
+          "path": "/health",
+          "receiver": "app",
+          "runtimeActivation": "UNVERIFIED",
+          "schema": "codeclew-typescript-source-route/1.0"
+        }
+      ]
+    }
+  }
+}

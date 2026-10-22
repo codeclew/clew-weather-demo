@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:51eb13746a4ec715b7f498f982fc29c26b082e21cf20eed410ae88e3807a0f13",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 54,
+    "evidenceDigest": "sha256:9174f2546690021b95ff11e3dd05d3eecc9baac1906fc091d1806b3e26abcd8d",
+    "file": "services/dashboard/src/main.ts",
+    "id": "dashboard-59f03a0653cc7a3798b8",
+    "occurrence": {
+      "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+      "endByte": 2659,
+      "snapshot": "sha256:550435c6f8e16951bd815f9f7b54eda07bff8ad73a80a6df524ab2af077f4f6f",
+      "startByte": 2481
+    },
+    "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+    "service": "dashboard",
+    "startLine": 53,
+    "text": "pool.query(`INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES($1,$2,$3,'INVALID_EVENT')\n      ON CONFLICT DO NOTHING`, [topic, partition, message.offset])",
+    "textDigest": "sha256:db0908cc89ab5e14b48824ddc0145c7c82b67b5315d6014438691e0795b41a4b",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/e635069293d58cb0d4f28c8211e748b8d58e6b37/services/dashboard/src/main.ts#L53-L54"
+  }
+}

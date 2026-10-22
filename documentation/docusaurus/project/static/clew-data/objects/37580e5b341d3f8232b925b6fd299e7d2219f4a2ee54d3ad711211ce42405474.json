@@ -1,0 +1,30 @@
+{
+  "identity": "sha256:37580e5b341d3f8232b925b6fd299e7d2219f4a2ee54d3ad711211ce42405474",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "id": "forecasts-place-requested-consumer",
+    "interactions": [
+      "places-place-requested-to-forecasts"
+    ],
+    "maxDepth": 4,
+    "maxNodes": 64,
+    "process": {
+      "$clewRef": "sha256:2d4dc745419782d5385133e8895c45d7a3b31b318cbbab16c391b60836d31943"
+    },
+    "root": {
+      "selector": {
+        "language": "kotlin",
+        "name": "consume",
+        "owner": "class:weather.Forecasts",
+        "parameterTypes": [
+          "record: ConsumerRecord<String, String>",
+          "acknowledgment: Acknowledgment"
+        ]
+      },
+      "service": "forecasts"
+    },
+    "schema": "codeclew-documentation-process/1.0",
+    "summary": "Source-level view of the weather.place-requested KafkaListener and Forecasts.consume handler; rejection, inbox transaction and acknowledgment detail stays with the accepted Forecasts.consume service operation. Linked process views do not establish cross-process ordering or delivery.",
+    "title": "Forecasts place-requested consumer"
+  }
+}

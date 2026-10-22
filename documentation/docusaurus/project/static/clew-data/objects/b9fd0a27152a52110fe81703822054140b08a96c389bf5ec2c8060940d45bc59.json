@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:b9fd0a27152a52110fe81703822054140b08a96c389bf5ec2c8060940d45bc59",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:138bffb78c4fe001e039cce54d30397d2865f2fc90408d41cee3b0c92d0e05ed"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Place.Latitude is explicitly bound to places.latitude in INSERT ... ON CONFLICT DO NOTHING RETURNING id. Only a newly inserted row calls InsertRequest, which serializes the complete Place into request_outbox.payload.place and inserts it in the same transaction. An existing city leaves both the stored Place and outbox unchanged; the transaction still commits. SQL, serialization or commit failure prevents normal completion of this shown Save path.",
+    "title": "Save a city: source interpretation",
+    "tone": null
+  }
+}

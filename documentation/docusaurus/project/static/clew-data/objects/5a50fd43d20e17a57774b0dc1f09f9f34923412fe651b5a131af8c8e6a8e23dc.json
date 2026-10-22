@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:5a50fd43d20e17a57774b0dc1f09f9f34923412fe651b5a131af8c8e6a8e23dc",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "interaction:forecasts-forecast-updated-to-dashboard",
+      "interaction:places-place-requested-to-dashboard",
+      "interaction:places-place-requested-to-forecasts",
+      "places:symbol:51d94b76d870001475fd2c51",
+      "process:dashboard-save-city",
+      "scenario:dashboard-save-city"
+    ],
+    "detail": false,
+    "eventIds": [
+      "claim-264815f9722d1cf4918d"
+    ],
+    "id": "claim-1cd536e010d3cd375a7e",
+    "sourceIds": [
+      "places-51d94b76d870001475fd"
+    ],
+    "text": "The saved process links the Places publisher, Forecasts consumer/publisher, and Dashboard consumer views as separate subviews. This HTTP narrative does not establish their activation, routing, retry behavior, or message delivery, and the outbox insert is not a synchronous broker acknowledgement."
+  }
+}

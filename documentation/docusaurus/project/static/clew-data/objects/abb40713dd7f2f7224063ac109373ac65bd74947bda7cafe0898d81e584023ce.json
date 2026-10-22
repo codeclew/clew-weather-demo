@@ -1,0 +1,25 @@
+{
+  "identity": "sha256:abb40713dd7f2f7224063ac109373ac65bd74947bda7cafe0898d81e584023ce",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:54f0a942483af4a3f68f5f14ee8912e5a31dd52bc62e1ceff093ae99882cc962"
+    },
+    "id": null,
+    "links": [
+      {
+        "href": "../scenarios/places-request-publisher.html#process-overview",
+        "label": "Related request-publisher view",
+        "operation": "process-overview",
+        "subject": "scenario:places-request-publisher"
+      }
+    ],
+    "navTitle": null,
+    "preview": null,
+    "text": "This guide interprets pinned source. It does not prove runtime routing, Kafka publication, delivery or forecast completion. Retained Dashboard explanations and selected-source evidence keep their separate revision bindings. Related publisher and consumer views are separate accounts, not a proven execution sequence.",
+    "title": "Evidence scope",
+    "tone": null
+  }
+}

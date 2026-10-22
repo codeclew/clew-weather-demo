@@ -1,0 +1,143 @@
+---
+title: "exercises/replay.py:1–120"
+slug: "/sources/4dd8ea84c6cac8228e4402bbe650e31ac0d2e4496f5c0529f58b0ed103c62dd3"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# exercises/replay.py:1–120
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6
+
+Text digest: sha256:8bfaa5d4fa467df91f7b46609bf5bd1cd561f30abcf6d635da5bfabf20930f10
+
+## Retained text {#retained-text}
+
+```text
+from pathlib import Path
+import copy, datetime, hashlib, json, subprocess, time, urllib.request, uuid
+
+import argparse
+from urllib.parse import urlsplit
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--project', required=True)
+parser.add_argument('--dashboard-url', required=True)
+parser.add_argument('--compose-override', type=Path)
+parser.add_argument('--output', required=True, type=Path)
+args = parser.parse_args()
+REPO = Path(__file__).resolve().parents[1]
+OUT = args.output.expanduser().resolve()
+url = urlsplit(args.dashboard_url)
+if url.scheme != 'http' or url.hostname not in ('127.0.0.1', 'localhost') or url.username or url.password or url.query or url.fragment or url.path not in ('', '/'):
+    parser.error('use the local isolated dashboard HTTP URL')
+if OUT.exists() or OUT == REPO or REPO in OUT.parents or OUT in REPO.parents:
+    parser.error('use a new output directory outside the source checkout')
+OUT.mkdir(mode=0o700)
+DASHBOARD = args.dashboard_url.rstrip('/')
+PREFIX = 'acceptance-lisbon-' + str(uuid.uuid4())
+DC = ['docker', 'compose', '--project-name', args.project, '-f', str(REPO / 'compose.yaml')]
+if args.compose_override:
+    DC.extend(['-f', str(args.compose_override.expanduser().resolve())])
+evidence = {'project': args.project, 'prefix': PREFIX, 'cases': [], 'inputs': [], 'startedAt': datetime.datetime.now(datetime.timezone.utc).isoformat()}
+evidence['runnerSha256'] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+
+def command(args, stdin=None):
+    r = subprocess.run(args, input=stdin, text=True, capture_output=True, timeout=40, cwd=REPO)
+    if r.returncode: raise RuntimeError(r.stdout + r.stderr)
+    return r.stdout
+
+def sql(database, statement):
+    return command(DC + ['exec', '-T', 'postgres', 'psql', '-U', 'weather', '-d', database, '-At', '-c', statement]).strip()
+
+def cards():
+    with urllib.request.urlopen(DASHBOARD + '/api/weather', timeout=5) as r: return json.loads(r.read())
+
+def card():
+    return next((r for r in cards() if r['id'] == 'lisbon'), None)
+
+def flush():
+    (OUT / 'result.json').write_text(json.dumps(evidence, indent=2) + '\n')
+
+def send(topic, event):
+    evidence['inputs'].append({'topic': topic, 'event': event})
+    flush()
+    command(DC + ['exec', '-T', 'kafka', '/opt/kafka/bin/kafka-console-producer.sh', '--bootstrap-server', 'kafka:9092', '--topic', topic], json.dumps(event) + '\n')
+    offsets = command(DC + ['exec', '-T', 'kafka', '/opt/kafka/bin/kafka-get-offsets.sh', '--bootstrap-server', 'kafka:9092', '--topic', topic])
+    end = max(int(line.split(':')[-1]) for line in offsets.splitlines() if line.startswith(topic + ':'))
+    deadline = time.monotonic() + 20
+    while time.monotonic() < deadline:
+        groups = command(DC + ['exec', '-T', 'kafka', '/opt/kafka/bin/kafka-consumer-groups.sh', '--bootstrap-server', 'kafka:9092', '--describe', '--group', 'weather-dashboard-v1'])
+        rows = [line.split() for line in groups.splitlines() if line.startswith('weather-dashboard-v1 ')]
+        if any(r[1] == topic and r[3].isdigit() and int(r[3]) >= end for r in rows):
+            return {'topicEnd': end, 'groupSnapshot': groups}
+        time.sleep(0.3)
+    raise AssertionError('Dashboard did not commit the produced offset')
+
+def expect(label, condition, details):
+    evidence['cases'].append({'case': label, 'pass': bool(condition), **details})
+    flush()
+    assert condition, label
+
+source_files = ['services/dashboard/src/main.ts', 'services/dashboard/src/events.ts', 'services/forecasts/src/main/kotlin/weather/Forecasts.kt', 'compose.yaml', 'database/init.sql']
+hashes = {p: hashlib.sha256((REPO / p).read_bytes()).hexdigest() for p in source_files}
+evidence['sourceCommit'] = command(['git', 'rev-parse', 'HEAD']).strip()
+evidence['sourceHashes'] = hashes
+evidence['runtimeContainers'] = command(DC + ['ps', '--all', '--format', 'json'])
+try:
+    assert cards() == [], 'Dashboard must be empty; use fresh isolated volumes'
+    fixture = json.loads((REPO / 'fixtures/lisbon.json').read_text())
+    base = datetime.datetime.fromisoformat(fixture['properties']['meta']['updated_at'].replace('Z', '+00:00'))
+    stamp = lambda seconds: (base + datetime.timedelta(seconds=seconds)).isoformat().replace('+00:00', 'Z')
+    place = {'id': 'lisbon', 'name': 'Lisbon', 'latitude': 38.72, 'longitude': -9.14}
+    forecast = {'updatedAt': stamp(60), 'fetchedAt': stamp(120), 'mode': 'fixture', 'periods': [{'time': stamp(3600), 'temperatureC': 18, 'precipitationMm': 0, 'symbol': 'synthetic_acceptance'}]}
+    event = {'id': PREFIX + '-initial', 'type': 'forecast.updated', 'version': 1, 'place': place, 'forecast': forecast}
+    ack = send('weather.forecast-updated', event)
+    initial = card()
+    expect('forecast-before-place', initial is not None and initial['forecast'] == forecast, {'observed': initial, **ack})
+    before = sql('dashboard', "SELECT consumed_at::text FROM inbox WHERE event_id='" + event['id'] + "'")
+    ack = send('weather.forecast-updated', event)
+    after = sql('dashboard', "SELECT consumed_at::text FROM inbox WHERE event_id='" + event['id'] + "'")
+    expect('duplicate', card() == initial and before == after and bool(after), {'inboxTimestampBefore': before, 'inboxTimestampAfter': after, **ack})
+    for label, offset, temperature in [('older', 0, 99), ('equal', 60, 98)]:
+        replay = copy.deepcopy(event); replay['id'] = PREFIX + '-' + label
+        replay['forecast']['updatedAt'] = stamp(offset); replay['forecast']['periods'][0]['temperatureC'] = temperature
+        ack = send('weather.forecast-updated', replay)
+        consumed = sql('dashboard', "SELECT count(*) FROM inbox WHERE event_id='" + replay['id'] + "'")
+        expect(label, card() == initial and consumed == '1', {'inboxRows': consumed, 'observed': card(), **ack})
+    newer = copy.deepcopy(event); newer['id'] = PREFIX + '-newer'
+    newer['forecast']['updatedAt'] = stamp(180); newer['forecast']['periods'][0]['temperatureC'] = 0; newer['forecast']['periods'][0]['precipitationMm'] = None
+    ack = send('weather.forecast-updated', newer)
+    newest = card()
+    expect('newer-zero-temperature-unknown-rain', newest['forecast'] == newer['forecast'], {'observed': newest, **ack})
+    place_event = {'id': PREFIX + '-place-last', 'type': 'place.requested', 'version': 1, 'place': place}
+    ack = send('weather.place-requested', place_event)
+    deadline = time.monotonic() + 20
+    while time.monotonic() < deadline:
+        published = sql('forecasts', "SELECT count(*) FROM forecast_outbox WHERE id='lisbon:" + stamp(0) + "' AND published")
+        if published == '1': break
+        time.sleep(0.3)
+    assert published == '1', 'Forecast service did not publish its fixture response'
+    generated_id = 'lisbon:' + stamp(0)
+    deadline = time.monotonic() + 20
+    while time.monotonic() < deadline:
+        consumed = sql('dashboard', "SELECT count(*) FROM inbox WHERE event_id='" + generated_id + "'")
+        if consumed == '1': break
+        time.sleep(0.3)
+    expect('place-arrives-later-and-generated-older-forecast', card()['forecast'] == newer['forecast'] and consumed == '1', {'observed': card(), 'generatedForecastConsumed': consumed, **ack})
+    evidence['status'] = 'PASS'
+except Exception as error:
+    evidence['status'] = 'FAIL'; evidence['error'] = repr(error)
+    raise
+finally:
+    evidence['sourceUnchangedAtFinish'] = all(hashlib.sha256((REPO / p).read_bytes()).hexdigest() == h for p, h in hashes.items())
+    evidence['finishedAt'] = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    flush()
+    print(json.dumps({'status': evidence['status'], 'cases': [{'case': r['case'], 'pass': r['pass']} for r in evidence['cases']], 'receipt': str(OUT / 'result.json')}))
+
+```
+
+<ClewDownload path="/clew-data/objects/4dd8ea84c6cac8228e4402bbe650e31ac0d2e4496f5c0529f58b0ed103c62dd3.json">Complete original source binding</ClewDownload>

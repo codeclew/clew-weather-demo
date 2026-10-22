@@ -1,0 +1,106 @@
+---
+title: "compose.yaml:1–83"
+slug: "/sources/9e05093fb5c331baf99770e08434001fe6343fef20af9c9cb9f50d4dedc19fe5"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# compose.yaml:1–83
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: c289b28be4819eddf29d59a7c12f178559ec5229
+
+Text digest: sha256:76d5d8226d233a558b901a06887bcce216e4738778edff8462367d827169c167
+
+## Retained text {#retained-text}
+
+```text
+name: clew-weather-demo
+services:
+  postgres:
+    image: postgres:18.3
+    environment:
+      POSTGRES_USER: weather
+      POSTGRES_PASSWORD: weather
+    volumes:
+      - weather-data:/var/lib/postgresql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U weather]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  kafka:
+    image: apache/kafka:4.1.2
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+    healthcheck:
+      test: [CMD-SHELL, '/opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list']
+      interval: 5s
+      timeout: 10s
+      retries: 30
+  kafka-init:
+    image: apache/kafka:4.1.2
+    entrypoint: ["/bin/bash", "-ec"]
+    command:
+      - |
+        for topic in weather.place-requested weather.forecast-updated; do
+          /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --create --if-not-exists --topic "$$topic" --partitions 1 --replication-factor 1
+          /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --describe --topic "$$topic"
+        done
+    depends_on:
+      kafka: {condition: service_healthy}
+  places:
+    build:
+      context: .
+      dockerfile: services/places/Dockerfile
+    environment:
+      DATABASE_URL: Host=postgres;Database=places;Username=weather;Password=weather
+      KAFKA_BOOTSTRAP: kafka:9092
+    ports: ['127.0.0.1:8081:8080']
+    depends_on:
+      postgres: {condition: service_healthy}
+      kafka-init: {condition: service_completed_successfully}
+  forecasts:
+    build:
+      context: .
+      dockerfile: services/forecasts/Dockerfile
+    environment:
+      DATABASE_URL: jdbc:postgresql://postgres:5432/forecasts
+      KAFKA_BOOTSTRAP: kafka:9092
+      FORECAST_MODE: ${FORECAST_MODE:-fixture}
+      MET_USER_AGENT: ${MET_USER_AGENT:-}
+    ports: ['127.0.0.1:8082:8080']
+    depends_on:
+      postgres: {condition: service_healthy}
+      kafka-init: {condition: service_completed_successfully}
+  dashboard:
+    build:
+      context: .
+      dockerfile: services/dashboard/Dockerfile
+    environment:
+      DATABASE_URL: postgres://weather:weather@postgres:5432/dashboard
+      KAFKA_BOOTSTRAP: kafka:9092
+      PLACES_URL: http://places:8080
+    ports: ['127.0.0.1:8080:8080']
+    depends_on:
+      postgres: {condition: service_healthy}
+      kafka-init: {condition: service_completed_successfully}
+volumes:
+  weather-data:
+
+```
+
+<ClewDownload path="/clew-data/objects/9e05093fb5c331baf99770e08434001fe6343fef20af9c9cb9f50d4dedc19fe5.json">Complete original source binding</ClewDownload>

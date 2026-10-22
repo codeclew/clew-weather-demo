@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:9870889d860c87d254cf1beab50023f36ebbf860cd954f22642df34501103017",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dashboard-request-refresh": {
+      "endLine": 83,
+      "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "service": "dashboard",
+      "sourceId": "dashboard-1612e17d589cb9d0fa4a",
+      "startLine": 76,
+      "textDigest": "sha256:8a1197a24ccae2bc108ed3180894b777ff122a2be4b0f3510f70588e0e3d8dbf"
+    },
+    "places-refresh": {
+      "endLine": 25,
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "sourceId": "places-65de4bdfa04d114b73df",
+      "startLine": 18,
+      "textDigest": "sha256:15621e3458e3e37377113dbf343bd3621c520edd48affea91206c49bec8b238f"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "identity": "sha256:d01318c7195e5d40240629ac3018e7d5f40ed5d80e4a69b5c0e8083999159a78",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "declaration": {
+      "origin": "agent-proposal",
+      "rationale": "Agent-proposed external MET GET relationship from Forecasts.refresh. The destination identity is a documentation label; host, path, configuration and runtime routing remain unverified."
+    },
+    "external": true,
+    "from": {
+      "selector": {
+        "language": "kotlin",
+        "name": "refresh",
+        "owner": "class:weather.Forecasts",
+        "parameterTypes": [
+          "place: JsonNode"
+        ]
+      },
+      "service": "forecasts"
+    },
+    "id": "forecasts-refresh-to-external-met",
+    "schema": "codeclew-documentation-interaction/1.0",
+    "title": "Forecasts refresh to the external MET provider",
+    "to": {
+      "service": "external-met"
+    },
+    "transport": {
+      "kind": "http",
+      "method": "GET"
+    }
+  }
+}

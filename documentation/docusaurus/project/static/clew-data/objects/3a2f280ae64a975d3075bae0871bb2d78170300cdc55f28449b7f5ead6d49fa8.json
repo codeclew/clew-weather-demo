@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:3a2f280ae64a975d3075bae0871bb2d78170300cdc55f28449b7f5ead6d49fa8",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 124,
+    "evidenceDigest": "sha256:4adc8a59602eeeb02decb579b44b9bcf2e37a25a796c5cd7ec20c31cccc2bb89",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "id": "forecasts-0a12a80d9f52276ffbdc",
+    "occurrence": {
+      "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+      "endByte": 8801,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 8664
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 124,
+    "text": "jdbc.update(\"INSERT INTO forecast_outbox(id,payload) VALUES(?,?::jsonb) ON CONFLICT DO NOTHING\", eventId, json.writeValueAsString(event))",
+    "textDigest": "sha256:9291501a8c23a1413b28f939290046b1fa6f679459d8b424f7cf78de508042a9",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L124-L124"
+  }
+}

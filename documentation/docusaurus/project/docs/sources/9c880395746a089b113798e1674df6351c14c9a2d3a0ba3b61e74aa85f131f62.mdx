@@ -1,0 +1,25 @@
+---
+title: "services/dashboard/src/main.ts:95–97"
+slug: "/sources/9c880395746a089b113798e1674df6351c14c9a2d3a0ba3b61e74aa85f131f62"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/dashboard/src/main.ts:95–97
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6
+
+Text digest: sha256:8aeb493b679280da38327ef590f0b93042b05598982fdd0b9722006f1f99bb13
+
+## Retained text {#retained-text}
+
+```text
+async function getHome(_request: FastifyRequest, reply: import('fastify').FastifyReply): Promise<void> {
+  reply.type('text/html').send(await readFile('/app/services/dashboard/public/index.html', 'utf8'))
+}
+```
+
+<ClewDownload path="/clew-data/objects/9c880395746a089b113798e1674df6351c14c9a2d3a0ba3b61e74aa85f131f62.json">Complete original source binding</ClewDownload>

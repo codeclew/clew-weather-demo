@@ -1,0 +1,37 @@
+{
+  "identity": "sha256:3e58da5809386dbde92bca817b43c5179004c927d1765817e319152760c43590",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "fragment": {
+      "dependencyIds": [
+        "places:contract-operation:fa5644a96e01681d7c2b0445",
+        "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+        "places:symbol:309961f88b197290c1b04e50",
+        "scenario:dashboard-save-city"
+      ],
+      "detail": false,
+      "eventIds": [
+        "claim-b2c2a256aeb68b422a06"
+      ],
+      "id": "claim-85c6428d31b46191f479",
+      "sourceIds": [
+        "places-309961f88b197290c1b0",
+        "places-770e53d99edf681987e1"
+      ],
+      "text": "After repository.Save returns, the controller returns HTTP 200 with the mapped city."
+    },
+    "kind": "RETAINED_CLAIM",
+    "operation": "dashboard-save-city",
+    "sourceContext": {
+      "$clewRef": "sha256:2500520baf99b1d310b6288dd07e56c5fb4474fc6d95aae8ba0d0ca371a5f557"
+    },
+    "sources": {
+      "$clewRef": "sha256:7c15e6b4e4658a72a141555dc6b44cf3b224364f1b64f2b79d0627fd1fb77790"
+    },
+    "state": {
+      "$clewRef": "sha256:1ade2833affd21c2594b8a65814dd40a3662f96f5ab0b85edb71e877a81945d9"
+    },
+    "subject": "scenario:dashboard-save-city",
+    "title": "Save a city through Dashboard and record the outbox boundary"
+  }
+}

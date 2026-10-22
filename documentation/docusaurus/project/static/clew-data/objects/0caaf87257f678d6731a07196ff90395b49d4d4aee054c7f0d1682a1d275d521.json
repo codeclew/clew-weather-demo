@@ -1,0 +1,42 @@
+{
+  "identity": "sha256:0caaf87257f678d6731a07196ff90395b49d4d4aee054c7f0d1682a1d275d521",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "AGENT_PROPOSAL",
+    "contracts": {
+      "$clewRef": "sha256:a944993ed4b60a8fbf07a8a2a3a35eef40fa930b78e2c4d43f504c8d6f13cdbb"
+    },
+    "modelReferences": [
+      {
+        "anchor": "question-validation",
+        "documentationLanguage": "en",
+        "href": "../data-model/city-lookup.html",
+        "id": "city-lookup",
+        "stages": [
+          "Places city lookup"
+        ],
+        "title": "City lookup"
+      }
+    ],
+    "models": {
+      "$clewRef": "sha256:1fe5192aea4864eda5f11ec0357b25ee44cda5e2443f0a90f131db052b719175"
+    },
+    "relatedModels": [
+      {
+        "documentationLanguage": "en",
+        "id": "save-city-request",
+        "title": "Save city request"
+      },
+      {
+        "documentationLanguage": "en",
+        "id": "place",
+        "title": "Place"
+      }
+    ],
+    "request": {
+      "$clewRef": "sha256:e0433c8abc9a95ed6ebc926e3546347719b067088736f85f63a54d82e56583c0"
+    },
+    "review": "UNASSESSED",
+    "scope": "Fields of directly referenced models and contract leaves. Only explicitly selected process fields and consumer stages are investigated here; omitted fields remain outside investigated scope. Static interpretation, not observed runtime transfer."
+  }
+}

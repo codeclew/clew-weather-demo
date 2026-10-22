@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:a5f71b20b7f9c14560edc7bcf9045a0d6f298a5d85d92fed66caf34d32f64b1a",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "fragment": {
+      "$clewRef": "sha256:d1817af8671609dcbb2e8f86e99f01c9a193cabfb6357d79649843ba35a51cf1"
+    },
+    "kind": "RETAINED_CLAIM",
+    "operation": "process-overview",
+    "sourceContext": {
+      "$clewRef": "sha256:5f55cf30888b6d7f4a1a8bcb14377e75afe02ad83464e277755633f7b34308ed"
+    },
+    "sources": {
+      "$clewRef": "sha256:5d5690c10ca1b23e237065497cbcee2ce5bea970752f9a991d12bdbd8fc3139d"
+    },
+    "state": {
+      "$clewRef": "sha256:7498ca9221d6a36b34d6f744884b2827326a8743acff08a48940d35a5d44c9d5"
+    },
+    "subject": "scenario:dashboard-refresh-request",
+    "title": "Dashboard refresh-request thread"
+  }
+}

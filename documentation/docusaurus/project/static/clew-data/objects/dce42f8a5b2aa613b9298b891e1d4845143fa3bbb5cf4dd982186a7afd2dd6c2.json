@@ -1,0 +1,31 @@
+{
+  "identity": "sha256:dce42f8a5b2aa613b9298b891e1d4845143fa3bbb5cf4dd982186a7afd2dd6c2",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:77a9a3d920f9d5c5826896a0cdc45a132f1b391e808fdcb920e9f5eb8eaf200a"
+    },
+    "id": null,
+    "links": [
+      {
+        "href": "../scenarios/forecasts-refresh-scheduled.html#process-overview",
+        "label": "Shared forecast refresh path",
+        "operation": "process-overview",
+        "subject": "scenario:forecasts-refresh-scheduled"
+      },
+      {
+        "href": "../scenarios/forecasts-publish-pending.html#process-overview",
+        "label": "Related forecast publisher",
+        "operation": "process-overview",
+        "subject": "scenario:forecasts-publish-pending"
+      }
+    ],
+    "navTitle": null,
+    "preview": null,
+    "text": "The saved topic mapping is agent-proposed. Callback execution, transaction outcome and runtime delivery remain unverified. The shared refresh and pending-publisher views describe separate source scopes, not a proven execution sequence.",
+    "title": "Evidence scope",
+    "tone": null
+  }
+}

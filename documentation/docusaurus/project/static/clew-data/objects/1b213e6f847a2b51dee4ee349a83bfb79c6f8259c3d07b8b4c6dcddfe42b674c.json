@@ -1,0 +1,30 @@
+{
+  "identity": "sha256:1b213e6f847a2b51dee4ee349a83bfb79c6f8259c3d07b8b4c6dcddfe42b674c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "id": "places-request-publisher",
+    "interactions": [
+      "places-place-requested-to-forecasts",
+      "places-place-requested-to-dashboard"
+    ],
+    "maxDepth": 4,
+    "maxNodes": 64,
+    "process": {
+      "$clewRef": "sha256:66f9a748b635c9110f0c316515c081d53f1c314f571c5ef54577715036d26f7b"
+    },
+    "root": {
+      "selector": {
+        "language": "csharp",
+        "name": "ExecuteAsync",
+        "owner": "class:Weather.Places.RequestPublisher",
+        "parameterTypes": [
+          "System.Threading.CancellationToken"
+        ]
+      },
+      "service": "places"
+    },
+    "schema": "codeclew-documentation-process/1.0",
+    "summary": "Source-level process for RequestPublisher.ExecuteAsync and its PublishPending helper in the Places service.",
+    "title": "Publish pending place requests"
+  }
+}

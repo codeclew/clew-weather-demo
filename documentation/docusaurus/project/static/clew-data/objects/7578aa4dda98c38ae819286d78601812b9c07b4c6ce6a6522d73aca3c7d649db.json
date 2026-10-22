@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:7578aa4dda98c38ae819286d78601812b9c07b4c6ce6a6522d73aca3c7d649db",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    {
+      "entrypoint": "dashboard-4301d0222c019e9d5339",
+      "id": "dashboard-request-refresh",
+      "label": "Dashboard requestRefresh handler",
+      "service": "dashboard",
+      "sourceId": "dashboard-1612e17d589cb9d0fa4a",
+      "textDigest": "sha256:8a1197a24ccae2bc108ed3180894b777ff122a2be4b0f3510f70588e0e3d8dbf"
+    },
+    {
+      "entrypoint": "places-e06f41e67f62720ad106",
+      "id": "places-refresh",
+      "label": "Places Refresh controller",
+      "service": "places",
+      "sourceId": "places-65de4bdfa04d114b73df",
+      "textDigest": "sha256:15621e3458e3e37377113dbf343bd3621c520edd48affea91206c49bec8b238f"
+    }
+  ]
+}

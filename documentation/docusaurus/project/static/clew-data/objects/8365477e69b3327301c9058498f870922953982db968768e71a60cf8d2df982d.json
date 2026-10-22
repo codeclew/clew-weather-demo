@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:8365477e69b3327301c9058498f870922953982db968768e71a60cf8d2df982d",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 35,
+    "evidenceDigest": "sha256:40da54a9ce383d7e7fcf4f71d91747eb2314978b6bc7247158fd8c5e521fe634",
+    "file": "services/places/RequestPublisher.cs",
+    "id": "places-d4d0aa9ce7bc37e81fa3",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "places",
+    "startLine": 5,
+    "text": "public class RequestPublisher(PlacesRepository repository, ILogger<RequestPublisher> logger) : BackgroundService\n{\n    protected override async Task ExecuteAsync(CancellationToken token)\n    {\n        using var producer = new ProducerBuilder<string, string>(new ProducerConfig { BootstrapServers = Environment.GetEnvironmentVariable(\"KAFKA_BOOTSTRAP\") ?? \"kafka:9092\", EnableIdempotence = true, MessageTimeoutMs = 10000 }).Build();\n        while (!token.IsCancellationRequested)\n        {\n            try { await PublishPending(producer, token); }\n            catch (OperationCanceledException) when (token.IsCancellationRequested) { break; }\n            catch (Exception error) { logger.LogWarning(error, \"PUBLISH_RETRY\"); }\n            await Task.Delay(1000, token);\n        }\n    }\n    public async Task PublishPending(IProducer<string, string> producer, CancellationToken token)\n    {\n        await using var connection = await repository.Open(token);\n        await using var transaction = await connection.BeginTransactionAsync(token);\n        await using var command = new NpgsqlCommand(\"SELECT id,payload::text FROM request_outbox WHERE NOT published ORDER BY created_at LIMIT 1 FOR UPDATE SKIP LOCKED\", connection, transaction);\n        Guid id; string payload;\n        await using (var reader = await command.ExecuteReaderAsync(token))\n        {\n            if (!await reader.ReadAsync(token)) return;\n            id = reader.GetGuid(0); payload = reader.GetString(1);\n        }\n        var placeId = JsonDocument.Parse(payload).RootElement.GetProperty(\"place\").GetProperty(\"id\").GetString()!;\n        await producer.ProduceAsync(\"weather.place-requested\", new Message<string, string> { Key = placeId, Value = payload }, token);\n        await using var mark = new NpgsqlCommand(\"UPDATE request_outbox SET published=true WHERE id=$1\", connection, transaction);\n        mark.Parameters.AddWithValue(id); await mark.ExecuteNonQueryAsync(token);\n        await transaction.CommitAsync(token);\n    }\n}",
+    "textDigest": "sha256:b6dcc747daa4c7491b8b968592a2100bafd3c75304a1b68779074336da717e6f",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/RequestPublisher.cs#L5-L35"
+  }
+}

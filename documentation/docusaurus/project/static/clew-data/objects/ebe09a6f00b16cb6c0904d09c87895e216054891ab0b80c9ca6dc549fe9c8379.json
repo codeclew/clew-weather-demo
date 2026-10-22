@@ -1,0 +1,28 @@
+{
+  "identity": "sha256:ebe09a6f00b16cb6c0904d09c87895e216054891ab0b80c9ca6dc549fe9c8379",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "bodyAssessment": "matches-selected-schema",
+    "bodyErrors": [],
+    "comparedSchemaMedia": "application/json",
+    "declaredMedia": [
+      "application/json"
+    ],
+    "id": "list-places",
+    "mediaAssessment": "declared",
+    "request": {
+      "body": null,
+      "contentType": null,
+      "method": "GET",
+      "path": "/places"
+    },
+    "requestAssessment": "no-body-declared",
+    "requestErrors": null,
+    "response": {
+      "body": "[{\"id\":\"oslo\",\"name\":\"Oslo\",\"latitude\":59.93,\"longitude\":10.72},{\"id\":\"helsinki\",\"name\":\"Helsinki\",\"latitude\":60.17,\"longitude\":24.94},{\"id\":\"lisbon\",\"name\":\"Lisbon\",\"latitude\":38.72,\"longitude\":-9.14}]",
+      "contentType": "application/json; charset=utf-8",
+      "status": 200
+    },
+    "statusDeclared": true
+  }
+}

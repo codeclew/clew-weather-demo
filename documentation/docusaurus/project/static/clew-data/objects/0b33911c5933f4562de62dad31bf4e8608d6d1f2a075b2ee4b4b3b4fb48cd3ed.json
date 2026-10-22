@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:0b33911c5933f4562de62dad31bf4e8608d6d1f2a075b2ee4b4b3b4fb48cd3ed",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "id": "periods",
+    "meaning": {
+      "$clewRef": "sha256:a6fa11c36a9ffb0b580f60acc335a0a66f259b3e435c44a6d8555d9373ab9944"
+    },
+    "path": "periods[]",
+    "representations": {
+      "$clewRef": "sha256:16a85429de541aa27ce3443837c887d5d1fc75dd8faadbd6f5006b361861195c"
+    },
+    "usage": {
+      "$clewRef": "sha256:0ba3f498d1d22ad5ed1c88aecf7163d5ef8c0f71a23479e17d991487e2894592"
+    }
+  }
+}

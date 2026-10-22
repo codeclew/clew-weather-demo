@@ -1,0 +1,14 @@
+{
+  "identity": "sha256:8707d3e604c65a93ab7303274d152e0fea9c2a60b6cb137178d538e96dbea7a9",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "SOURCE_INTERPRETATION",
+    "claim": {
+      "$clewRef": "sha256:b5fb2c793a734b4b81a7285d056d6e0a9717062119ead3d601ba4ceb4244fa8c"
+    },
+    "condition": "repository.Save and its commit complete normally; the response can still fail in transport or JSON decoding.",
+    "from": "Places transaction and outbox",
+    "kind": "transfer",
+    "to": "HTTP save result"
+  }
+}

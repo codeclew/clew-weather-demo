@@ -1,0 +1,24 @@
+{
+  "identity": "sha256:cbd37899d3efb2da9cf2fbf2ace27a3c2fa50cb025193ba67bd67a19e28255c7",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "observed-static-use",
+    "claim": {
+      "$clewRef": "sha256:b3a3ac2461c3c60fe679fdad19154253f1f12b293e30aa934832af9ad9546f09"
+    },
+    "condition": "A captured city button is clicked",
+    "consumer": "POST /api/places",
+    "contract": "save-city-request",
+    "coveredScope": "Captured Save a city source ranges only; no publisher or forecast consumer expansion",
+    "kinds": [
+      "forward"
+    ],
+    "processes": [
+      "scenario:dashboard-save-city"
+    ],
+    "producer": "Dashboard city button",
+    "representation": "JSON body.cityId ← button.dataset.city",
+    "stage": "Browser city choice",
+    "unresolved": "Browser execution and HTTP delivery are unverified."
+  }
+}

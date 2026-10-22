@@ -1,0 +1,30 @@
+{
+  "identity": "sha256:df4895dcab1a0531e78ea951dc8ce326582a06acbbf8e80fa41ab8c8c8018204",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "fragment": {
+      "dependencyIds": [
+        "places:symbol:7fb8137cf82d592b243e54aa"
+      ],
+      "id": "claim-7f09695286f324c4f3f1",
+      "kind": "note",
+      "sourceIds": [
+        "places-7fb8137cf82d592b243e"
+      ],
+      "text": "Other exceptions are logged with PUBLISH_RETRY; normal completion and logged failures continue to the one-second delay. The delay also receives the token, so cancellation reaching that await can propagate."
+    },
+    "kind": "RETAINED_CLAIM",
+    "operation": "places-request-publisher",
+    "sourceContext": {
+      "$clewRef": "sha256:532c0cbde5ec5e323ccbcfcaa71f0009389b9d8d7e46005486ecccf091a92ca2"
+    },
+    "sources": {
+      "$clewRef": "sha256:ff0da895393c9f0dfecd0e6ea8aabd314b3a671596dea38a957a76fb796b5571"
+    },
+    "state": {
+      "$clewRef": "sha256:80a3d471b0896596761520253625c1508954ad0b77b4e8b9ee9668df32f91fc8"
+    },
+    "subject": "scenario:places-request-publisher",
+    "title": "Place request publisher"
+  }
+}

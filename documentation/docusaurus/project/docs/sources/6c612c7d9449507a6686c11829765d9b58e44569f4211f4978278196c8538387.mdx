@@ -1,0 +1,23 @@
+---
+title: "services/forecasts/src/main/kotlin/weather/Forecasts.kt:100–100"
+slug: "/sources/6c612c7d9449507a6686c11829765d9b58e44569f4211f4978278196c8538387"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/forecasts/src/main/kotlin/weather/Forecasts.kt:100–100
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: c289b28be4819eddf29d59a7c12f178559ec5229
+
+Text digest: sha256:c2856f5b951904ce72dfbb2cbd309b56259485d3fa11ed7e9635152531231eb3
+
+## Retained text {#retained-text}
+
+```text
+if (response.headers().firstValue("Content-Encoding").orElse("").equals("gzip", ignoreCase = true)) GZIPInputStream(ByteArrayInputStream(response.body())).bufferedReader().use { it.readText() } else response.body().toString(Charsets.UTF_8)
+```
+
+<ClewDownload path="/clew-data/objects/6c612c7d9449507a6686c11829765d9b58e44569f4211f4978278196c8538387.json">Complete original source binding</ClewDownload>

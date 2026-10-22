@@ -1,0 +1,28 @@
+{
+  "identity": "sha256:aca8ddbd12dad32442216a165aafa3ee2e0ee0d93e718928b3a3c1aaaf71ed5c",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    {
+      "$clewRef": "sha256:4ede4c657a9b3df4267a8f3b1e6d3829b045c6ec7e5953ea346d8137a1cdc10e"
+    },
+    {
+      "$clewRef": "sha256:4a975a20367e723470d9d75f32abe83f50ca3fb35d7e5ed161ac7fc29a53494f"
+    },
+    {
+      "$clewRef": "sha256:07d2e47a16be238a314a1eae658c9e30d02230bb9c2aa5f4cb14019d0c77ded4"
+    },
+    {
+      "cases": [],
+      "contractDigest": "sha256:54e3edb3e65550eae5f2e31d666667d3aa0e00e066c8f0d7c6923f3a2b7830f2",
+      "contractId": "places:contract-operation:6e713b9442ae5dfc4b99b133",
+      "coverage": "Source inspection only: the controller reads a mounted JSON file and declares application/json. The HTTP path was not exercised because the /app/contracts mount was absent.",
+      "entrypoint": "places-de7d5796a632782443dc",
+      "findings": [],
+      "method": "GET",
+      "path": "/openapi.json"
+    },
+    {
+      "$clewRef": "sha256:eaf873bd13edcb8ba6069578329ce7efeaead6ab8c0a2cdae24f0989f88edb6f"
+    }
+  ]
+}

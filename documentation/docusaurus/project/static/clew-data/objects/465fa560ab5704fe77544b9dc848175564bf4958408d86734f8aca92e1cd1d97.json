@@ -1,0 +1,21 @@
+{
+  "identity": "sha256:465fa560ab5704fe77544b9dc848175564bf4958408d86734f8aca92e1cd1d97",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "dashboard:flow:59f03a0653cc7a3798b8ceaf",
+      "dashboard:flow:a190efb9bca6603f1d2abc58",
+      "dashboard:symbol:021fcd0ff7baa53bd3c51930"
+    ],
+    "from": "service-dashboard",
+    "id": "claim-0b1e97374ab832082b1d",
+    "kind": "message",
+    "sourceIds": [
+      "dashboard-021fcd0ff7baa53bd3c5",
+      "dashboard-59f03a0653cc7a3798b8",
+      "dashboard-a190efb9bca6603f1d2a"
+    ],
+    "text": "On JSON parse or validation failure, including an unrecognized topic that throws UNKNOWN_TOPIC, insert topic, partition, offset, and reason INVALID_EVENT into rejected_messages; ignore a duplicate rejection row.",
+    "to": "dashboard-db"
+  }
+}

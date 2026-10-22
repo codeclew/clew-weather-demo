@@ -1,0 +1,763 @@
+---
+title: "Dashboard exercise place and forecast validator"
+slug: "/operations/services-dashboard--dashboard-8f0c2429af695539e6cd"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Dashboard exercise place and forecast validator
+
+<ClewPageContext />
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+The exercise-only validateEvent(value, topic) first rejects falsy or non-object input with INVALID\_EVENT, then checks the event id/version and required allowlisted place fields; that explicit guard also throws INVALID\_EVENT. Only topic weather.forecast-updated selects forecast validation. The forecast event type, timestamp parses, mode and periods array (one to six items) are checked by an explicit guard that throws INVALID\_FORECAST when a check fails. The period loop reads period.time before its explicit period guard, so periods:\[null\] passes the length check and then throws a property-access TypeError before INVALID\_PERIOD. No local catch handles that TypeError or other property-access/conversion exceptions. When property reads and conversions complete, the explicit period guard throws INVALID\_PERIOD for a non-finite parsed time or temperature, precipitation other than null or a finite nonnegative number, or a non-string symbol. Other topics accept only event.type place.requested; a mismatch throws INVALID\_PLACE\_EVENT. Valid input returns the same event. The body shows no I/O or mutation. Evidence is source-syntax only; call targets, compiler validation, framework trigger, and runtime activation are unverified.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:17–19 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3a81327dd5a0a202bcf0478842b7f1548cb29bc661119b27088099ca1bcd3487.mdx)
+- [exercises/unchecked-place-forecast.ts:7–7 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/690f120dd2b2fd34d9ee5356c866f50358a51ed54fdcb57af0a47cdcf8164a05.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+- [exercises/unchecked-place-forecast.ts:9–11 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/06a614c8c1ba5997f691087ab64fb8757e2b2b0ff5e7ff5a9d2b450158d4f9a6.mdx)
+- [exercises/unchecked-place-forecast.ts:11–11 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d683bdc24c04e85356c7a024326d35d01b37fb180c4b4648e5c1f3d146e99b2.mdx)
+- [exercises/unchecked-place-forecast.ts:22–22 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/84f1e98c69560b314ced968c97e0f640ce52cdfe843e9bd7edf795f8ac550621.mdx)
+- [exercises/unchecked-place-forecast.ts:13–15 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/443921237f5507689b10de3d589f0eacfe57312bec802c6e14eea6c88ecf7cbe.mdx)
+- [exercises/unchecked-place-forecast.ts:15–15 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/069e11a3b57fe94d612d8b40ff93b59e7d2061a45c9ce711d9c418d5835ae381.mdx)
+- [exercises/unchecked-place-forecast.ts:21–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/4a58c3966d1b840c1265fbd8d786d1afd46de4588b9235592f182f53f3efea15.mdx)
+- [exercises/unchecked-place-forecast.ts:21–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/d70390c59f999c361905a722ee4b2b2f718eda32266ab1f1de584785c8d45f2e.mdx)
+- [exercises/unchecked-place-forecast.ts:19–19 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/9d162f310c10b95f496d0846906e2eab3a2f47866cd294d0ef3427f07b16fd85.mdx)
+- [exercises/unchecked-place-forecast.ts:7–7 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/d5dc1340c585b487fed8c0d3cd3c32a66cf4541056c08b036e47ca4a09b56974.mdx)
+
+</details>
+
+## Declared interface schemas
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/475242e2ef07721c45d26c563b5cd15b52b47fb16494eab9b22738cd80b35c25">GET /openapi.json</ClewContextLink>
+
+<ClewContextLink path="/http/5e9ce2f78105d5d9215b07ddf87c8025176e932f11403c3b248ee8f2f77a9989">POST /api/places</ClewContextLink>
+
+<ClewContextLink path="/http/ed3ea26055386f7e8904ff37c1c9931e4943602283a96c6067a31ac32aa24dac">POST /api/places/&#123;id&#125;/refresh</ClewContextLink>
+
+<ClewContextLink path="/http/d3d56f55618a4d6b12c611f5055d16e80668439f39a23e30eb42437d1be85294">GET /</ClewContextLink>
+
+<ClewContextLink path="/http/589bef5f2c1640933430afb73226fc910c4cdb435b53197fdaef848d460a716b">GET /health</ClewContextLink>
+
+<ClewContextLink path="/http/5fda6cc4b385e34a2f5c5b6539f9420f1a95661ef0c3656b18ef951b4f2fe516">GET /api/weather</ClewContextLink>
+
+</div>
+
+
+## Interaction diagram
+
+Actors and nested branches from the retained account; not a runtime trace. Labels are shortened for readability. Full messages and notes follow.
+
+```mermaid
+sequenceDiagram
+participant p0 as Caller
+participant p1 as exercise validateEvent helper
+p1-->>p0: After the selected validation path<br/>completes, return the same event value.<br/>Invalid branches throw before reaching this<br/>return.
+
+```
+
+<details>
+<summary>Full original sequence, branches and notes</summary>
+
+#### 1. alt
+
+The first guard requires a truthy object.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:7–7 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/690f120dd2b2fd34d9ee5356c866f50358a51ed54fdcb57af0a47cdcf8164a05.mdx)
+
+</details>
+
+#### 2. note
+
+Falsy input or a value whose type is not object throws INVALID\_EVENT and exits before the cast.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:7–7 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/690f120dd2b2fd34d9ee5356c866f50358a51ed54fdcb57af0a47cdcf8164a05.mdx)
+- [exercises/unchecked-place-forecast.ts:7–7 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/d5dc1340c585b487fed8c0d3cd3c32a66cf4541056c08b036e47ca4a09b56974.mdx)
+
+</details>
+
+#### 3. else
+
+Otherwise
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:7–7 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/690f120dd2b2fd34d9ee5356c866f50358a51ed54fdcb57af0a47cdcf8164a05.mdx)
+
+</details>
+
+#### 4. note
+
+A truthy object is cast to Event and proceeds to field validation.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:7–7 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/690f120dd2b2fd34d9ee5356c866f50358a51ed54fdcb57af0a47cdcf8164a05.mdx)
+
+</details>
+
+#### 5. end
+
+
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:7–7 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/690f120dd2b2fd34d9ee5356c866f50358a51ed54fdcb57af0a47cdcf8164a05.mdx)
+
+</details>
+
+#### 6. alt
+
+The cast value must have the required identity and place fields.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:9–11 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/06a614c8c1ba5997f691087ab64fb8757e2b2b0ff5e7ff5a9d2b450158d4f9a6.mdx)
+
+</details>
+
+#### 7. note
+
+A non-string id, version other than 1, absent place, non-string or non-allowlisted place id, non-string place name, or non-finite latitude or longitude throws INVALID\_EVENT.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:9–11 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/06a614c8c1ba5997f691087ab64fb8757e2b2b0ff5e7ff5a9d2b450158d4f9a6.mdx)
+- [exercises/unchecked-place-forecast.ts:11–11 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d683bdc24c04e85356c7a024326d35d01b37fb180c4b4648e5c1f3d146e99b2.mdx)
+
+</details>
+
+#### 8. else
+
+Otherwise
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:9–11 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/06a614c8c1ba5997f691087ab64fb8757e2b2b0ff5e7ff5a9d2b450158d4f9a6.mdx)
+
+</details>
+
+#### 9. note
+
+If those fields pass, topic-specific validation continues.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:9–11 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/06a614c8c1ba5997f691087ab64fb8757e2b2b0ff5e7ff5a9d2b450158d4f9a6.mdx)
+
+</details>
+
+#### 10. end
+
+
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:9–11 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/06a614c8c1ba5997f691087ab64fb8757e2b2b0ff5e7ff5a9d2b450158d4f9a6.mdx)
+
+</details>
+
+#### 11. alt
+
+Only weather.forecast-updated selects the forecast branch; the else branch checks the place-request event type.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+
+</details>
+
+#### 12. alt
+
+The forecast event metadata and period list must satisfy the forecast guard.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+- [exercises/unchecked-place-forecast.ts:13–15 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/443921237f5507689b10de3d589f0eacfe57312bec802c6e14eea6c88ecf7cbe.mdx)
+
+</details>
+
+#### 13. note
+
+A wrong event type, missing forecast, non-finite parsed updatedAt or fetchedAt, mode outside fixture/live, non-array periods, or period count outside one through six throws INVALID\_FORECAST.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+- [exercises/unchecked-place-forecast.ts:13–15 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/443921237f5507689b10de3d589f0eacfe57312bec802c6e14eea6c88ecf7cbe.mdx)
+- [exercises/unchecked-place-forecast.ts:15–15 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/069e11a3b57fe94d612d8b40ff93b59e7d2061a45c9ce711d9c418d5835ae381.mdx)
+
+</details>
+
+#### 14. else
+
+Otherwise
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+- [exercises/unchecked-place-forecast.ts:13–15 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/443921237f5507689b10de3d589f0eacfe57312bec802c6e14eea6c88ecf7cbe.mdx)
+
+</details>
+
+#### 15. note
+
+After forecast metadata passes, the function checks each period.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+- [exercises/unchecked-place-forecast.ts:13–15 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/443921237f5507689b10de3d589f0eacfe57312bec802c6e14eea6c88ecf7cbe.mdx)
+
+</details>
+
+#### 16. end
+
+
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+- [exercises/unchecked-place-forecast.ts:13–15 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/443921237f5507689b10de3d589f0eacfe57312bec802c6e14eea6c88ecf7cbe.mdx)
+
+</details>
+
+#### 17. note
+
+The forecast branch iterates through the periods array before the final return.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+
+</details>
+
+#### 18. alt
+
+Every forecast period must pass the period guard.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:17–19 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3a81327dd5a0a202bcf0478842b7f1548cb29bc661119b27088099ca1bcd3487.mdx)
+
+</details>
+
+#### 19. note
+
+For periods that reach this explicit guard after their property reads and conversions complete, a non-finite parsed time or temperature, precipitation other than null or a finite nonnegative number, or non-string symbol throws INVALID\_PERIOD. A null period reaches period.time before this guard and throws a property-access TypeError; this function has no local catch for that or other property-access/conversion exceptions.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:17–19 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3a81327dd5a0a202bcf0478842b7f1548cb29bc661119b27088099ca1bcd3487.mdx)
+- [exercises/unchecked-place-forecast.ts:19–19 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/9d162f310c10b95f496d0846906e2eab3a2f47866cd294d0ef3427f07b16fd85.mdx)
+
+</details>
+
+#### 20. else
+
+Otherwise
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:17–19 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3a81327dd5a0a202bcf0478842b7f1548cb29bc661119b27088099ca1bcd3487.mdx)
+
+</details>
+
+#### 21. note
+
+Each period that passes this guard continues through the loop.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:17–19 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3a81327dd5a0a202bcf0478842b7f1548cb29bc661119b27088099ca1bcd3487.mdx)
+
+</details>
+
+#### 22. end
+
+
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:17–19 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3a81327dd5a0a202bcf0478842b7f1548cb29bc661119b27088099ca1bcd3487.mdx)
+
+</details>
+
+#### 23. else
+
+Otherwise
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+
+</details>
+
+#### 24. alt
+
+For every topic other than weather.forecast-updated, the else-if guard accepts only event.type place.requested.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+- [exercises/unchecked-place-forecast.ts:21–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/d70390c59f999c361905a722ee4b2b2f718eda32266ab1f1de584785c8d45f2e.mdx)
+
+</details>
+
+#### 25. note
+
+Any other event type throws INVALID\_PLACE\_EVENT.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:21–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/4a58c3966d1b840c1265fbd8d786d1afd46de4588b9235592f182f53f3efea15.mdx)
+- [exercises/unchecked-place-forecast.ts:21–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/d70390c59f999c361905a722ee4b2b2f718eda32266ab1f1de584785c8d45f2e.mdx)
+
+</details>
+
+#### 26. else
+
+Otherwise
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+- [exercises/unchecked-place-forecast.ts:21–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/d70390c59f999c361905a722ee4b2b2f718eda32266ab1f1de584785c8d45f2e.mdx)
+
+</details>
+
+#### 27. note
+
+The place-request event type passes this branch.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:21–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/d70390c59f999c361905a722ee4b2b2f718eda32266ab1f1de584785c8d45f2e.mdx)
+
+</details>
+
+#### 28. end
+
+
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+- [exercises/unchecked-place-forecast.ts:21–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/d70390c59f999c361905a722ee4b2b2f718eda32266ab1f1de584785c8d45f2e.mdx)
+
+</details>
+
+#### 29. end
+
+
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+
+</details>
+
+#### 30. return
+
+After the selected validation path completes, return the same event value. Invalid branches throw before reaching this return.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:22–22 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/84f1e98c69560b314ced968c97e0f640ce52cdfe843e9bd7edf795f8ac550621.mdx)
+
+</details>
+
+
+</details>
+
+## Implementation explanation
+
+The first guard requires a truthy object.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:7–7 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/690f120dd2b2fd34d9ee5356c866f50358a51ed54fdcb57af0a47cdcf8164a05.mdx)
+
+</details>
+
+Falsy input or a value whose type is not object throws INVALID\_EVENT and exits before the cast.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:7–7 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/690f120dd2b2fd34d9ee5356c866f50358a51ed54fdcb57af0a47cdcf8164a05.mdx)
+- [exercises/unchecked-place-forecast.ts:7–7 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/d5dc1340c585b487fed8c0d3cd3c32a66cf4541056c08b036e47ca4a09b56974.mdx)
+
+</details>
+
+The source describes an alternative branch.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:7–7 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/690f120dd2b2fd34d9ee5356c866f50358a51ed54fdcb57af0a47cdcf8164a05.mdx)
+
+</details>
+
+A truthy object is cast to Event and proceeds to field validation.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:7–7 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/690f120dd2b2fd34d9ee5356c866f50358a51ed54fdcb57af0a47cdcf8164a05.mdx)
+
+</details>
+
+The cast value must have the required identity and place fields.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:9–11 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/06a614c8c1ba5997f691087ab64fb8757e2b2b0ff5e7ff5a9d2b450158d4f9a6.mdx)
+
+</details>
+
+A non-string id, version other than 1, absent place, non-string or non-allowlisted place id, non-string place name, or non-finite latitude or longitude throws INVALID\_EVENT.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:9–11 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/06a614c8c1ba5997f691087ab64fb8757e2b2b0ff5e7ff5a9d2b450158d4f9a6.mdx)
+- [exercises/unchecked-place-forecast.ts:11–11 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d683bdc24c04e85356c7a024326d35d01b37fb180c4b4648e5c1f3d146e99b2.mdx)
+
+</details>
+
+The source describes an alternative branch.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:9–11 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/06a614c8c1ba5997f691087ab64fb8757e2b2b0ff5e7ff5a9d2b450158d4f9a6.mdx)
+
+</details>
+
+If those fields pass, topic-specific validation continues.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:9–11 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/06a614c8c1ba5997f691087ab64fb8757e2b2b0ff5e7ff5a9d2b450158d4f9a6.mdx)
+
+</details>
+
+Only weather.forecast-updated selects the forecast branch; the else branch checks the place-request event type.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+
+</details>
+
+The forecast event metadata and period list must satisfy the forecast guard.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+- [exercises/unchecked-place-forecast.ts:13–15 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/443921237f5507689b10de3d589f0eacfe57312bec802c6e14eea6c88ecf7cbe.mdx)
+
+</details>
+
+A wrong event type, missing forecast, non-finite parsed updatedAt or fetchedAt, mode outside fixture/live, non-array periods, or period count outside one through six throws INVALID\_FORECAST.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+- [exercises/unchecked-place-forecast.ts:13–15 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/443921237f5507689b10de3d589f0eacfe57312bec802c6e14eea6c88ecf7cbe.mdx)
+- [exercises/unchecked-place-forecast.ts:15–15 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/069e11a3b57fe94d612d8b40ff93b59e7d2061a45c9ce711d9c418d5835ae381.mdx)
+
+</details>
+
+The source describes an alternative branch.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+- [exercises/unchecked-place-forecast.ts:13–15 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/443921237f5507689b10de3d589f0eacfe57312bec802c6e14eea6c88ecf7cbe.mdx)
+
+</details>
+
+After forecast metadata passes, the function checks each period.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+- [exercises/unchecked-place-forecast.ts:13–15 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/443921237f5507689b10de3d589f0eacfe57312bec802c6e14eea6c88ecf7cbe.mdx)
+
+</details>
+
+The forecast branch iterates through the periods array before the final return.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+
+</details>
+
+Every forecast period must pass the period guard.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:17–19 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3a81327dd5a0a202bcf0478842b7f1548cb29bc661119b27088099ca1bcd3487.mdx)
+
+</details>
+
+For periods that reach this explicit guard after their property reads and conversions complete, a non-finite parsed time or temperature, precipitation other than null or a finite nonnegative number, or non-string symbol throws INVALID\_PERIOD. A null period reaches period.time before this guard and throws a property-access TypeError; this function has no local catch for that or other property-access/conversion exceptions.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:17–19 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3a81327dd5a0a202bcf0478842b7f1548cb29bc661119b27088099ca1bcd3487.mdx)
+- [exercises/unchecked-place-forecast.ts:19–19 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/9d162f310c10b95f496d0846906e2eab3a2f47866cd294d0ef3427f07b16fd85.mdx)
+
+</details>
+
+The source describes an alternative branch.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:17–19 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3a81327dd5a0a202bcf0478842b7f1548cb29bc661119b27088099ca1bcd3487.mdx)
+
+</details>
+
+Each period that passes this guard continues through the loop.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:17–19 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3a81327dd5a0a202bcf0478842b7f1548cb29bc661119b27088099ca1bcd3487.mdx)
+
+</details>
+
+The source describes an alternative branch.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+
+</details>
+
+For every topic other than weather.forecast-updated, the else-if guard accepts only event.type place.requested.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+- [exercises/unchecked-place-forecast.ts:21–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/d70390c59f999c361905a722ee4b2b2f718eda32266ab1f1de584785c8d45f2e.mdx)
+
+</details>
+
+Any other event type throws INVALID\_PLACE\_EVENT.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:21–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/4a58c3966d1b840c1265fbd8d786d1afd46de4588b9235592f182f53f3efea15.mdx)
+- [exercises/unchecked-place-forecast.ts:21–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/d70390c59f999c361905a722ee4b2b2f718eda32266ab1f1de584785c8d45f2e.mdx)
+
+</details>
+
+The source describes an alternative branch.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+- [exercises/unchecked-place-forecast.ts:21–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/d70390c59f999c361905a722ee4b2b2f718eda32266ab1f1de584785c8d45f2e.mdx)
+
+</details>
+
+The place-request event type passes this branch.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:21–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/d70390c59f999c361905a722ee4b2b2f718eda32266ab1f1de584785c8d45f2e.mdx)
+
+</details>
+
+After the selected validation path completes, return the same event value. Invalid branches throw before reaching this return.
+
+<details>
+<summary>Source bindings</summary>
+
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/unchecked-place-forecast.ts:22–22 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/84f1e98c69560b314ced968c97e0f640ce52cdfe843e9bd7edf795f8ac550621.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- This explanation is limited to the captured TypeScript source-syntax record. Call targets remain unresolved; compiler validation, framework trigger resolution, and runtime activation are not established.
+- CALL\_TARGETS\_UNRESOLVED
+- DIALECT\_DECLARED\_NOT\_COMPILER\_VALIDATED
+- FILE\_ONLY:compose.yaml
+- FILE\_ONLY:contracts/dashboard.openapi.json
+- FILE\_ONLY:contracts/events.schema.json
+- FILE\_ONLY:database/init.sql
+- FILE\_ONLY:exercises/dashboard-focus-regression.mjs
+- FILE\_ONLY:exercises/replay.py
+- FILE\_ONLY:exercises/validator-regression.mjs
+- FILE\_ONLY:fixtures/helsinki.json
+- FILE\_ONLY:fixtures/lisbon.json
+- FILE\_ONLY:fixtures/met-oslo-recorded.json
+- FILE\_ONLY:fixtures/oslo.json
+- FILE\_ONLY:fixtures/provenance.json
+- FILE\_ONLY:services/dashboard/Dockerfile
+- FILE\_ONLY:services/dashboard/package-lock.json
+- FILE\_ONLY:services/dashboard/package.json
+- FILE\_ONLY:services/dashboard/public/index.html
+- FILE\_ONLY:services/dashboard/tsconfig.json
+- OPENAPI\_JSON\_SCHEMA\_KEYWORDS\_NOT\_INTERPRETED
+- OPENAPI\_SCHEMA\_NULL\_TYPE\_NOT\_INTERPRETED
+- OPENAPI\_SCHEMA\_TYPE\_UNIONS\_NOT\_INTERPRETED
+- ORDER\_LEXICAL\_ONLY
+- SCOPE\_WATCH\_CONSERVATIVE
+- Syntax evidence does not establish runtime dispatch or configuration. Expand known owners and helpers; retain explicit gaps for unresolved targets.
+- ANNOTATION\_DECLARATION\_UNAVAILABLE
+- CALL\_TARGETS\_UNRESOLVED
+- DIALECT\_DECLARED\_NOT\_COMPILER\_VALIDATED
+- FILE\_ONLY:compose.yaml
+- FILE\_ONLY:contracts/events.schema.json
+- FILE\_ONLY:contracts/forecasts.openapi.json
+- FILE\_ONLY:database/init.sql
+- FILE\_ONLY:fixtures/helsinki.json
+- FILE\_ONLY:fixtures/lisbon.json
+- FILE\_ONLY:fixtures/met-oslo-recorded.json
+- FILE\_ONLY:fixtures/oslo.json
+- FILE\_ONLY:fixtures/provenance.json
+- FILE\_ONLY:services/forecasts/Dockerfile
+- FILE\_ONLY:services/forecasts/pom.xml
+- FILE\_ONLY:services/forecasts/src/main/resources/application.properties
+- NO\_BEAN\_OWNER
+- OPENAPI\_JSON\_SCHEMA\_KEYWORDS\_NOT\_INTERPRETED
+- OPENAPI\_SCHEMA\_NULL\_TYPE\_NOT\_INTERPRETED
+- OPENAPI\_SCHEMA\_TYPE\_UNIONS\_NOT\_INTERPRETED
+- ORDER\_LEXICAL\_ONLY
+- RUNTIME\_REGISTRATION\_UNPROVEN
+- SCOPE\_WATCH\_CONSERVATIVE
+- SOURCE\_NAMES\_NOT\_COMPILER\_RESOLVED
+- UNRESOLVED\_ANNOTATION\_VALUE
+- Syntax evidence does not establish runtime dispatch or configuration. Expand known owners and helpers; retain explicit gaps for unresolved targets.
+- CLR\_SIGNATURE\_PROJECTED\_TO\_JVM\_DESCRIPTOR\_GRAMMAR
+- CSHARP\_SOURCE\_GENERATED\_DOCUMENTS\_NOT\_INDEXED
+- EXCEPTION\_FLOW\_REQUIRES\_SOURCE\_REVIEW
+- GENERATED\_SOURCE\_BODIES\_NOT\_INDEXED
+- LAMBDA\_EXECUTION\_NOT\_EXPANDED
+- OPENAPI\_JSON\_SCHEMA\_KEYWORDS\_NOT\_INTERPRETED
+- SHORT\_CIRCUIT\_FLOW\_REQUIRES\_SOURCE\_REVIEW
+- SWITCH\_FLOW\_REQUIRES\_SOURCE\_REVIEW
+
+</details>
+

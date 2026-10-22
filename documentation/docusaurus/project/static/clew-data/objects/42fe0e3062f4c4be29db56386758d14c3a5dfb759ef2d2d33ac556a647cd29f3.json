@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:42fe0e3062f4c4be29db56386758d14c3a5dfb759ef2d2d33ac556a647cd29f3",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contract": null,
+    "field": null,
+    "label": "Stored column · weather_cards.updated_at",
+    "mapping": {
+      "$clewRef": "sha256:85b77bf13fffa0bec9dbdd7e4f6311de62012d1a6ee7114cea42d060ef2849e5"
+    },
+    "nullability": "Nullable",
+    "relatedModel": null,
+    "requiredness": "Column exists; may be omitted by the place-only INSERT",
+    "typeLabel": "timestamptz"
+  }
+}

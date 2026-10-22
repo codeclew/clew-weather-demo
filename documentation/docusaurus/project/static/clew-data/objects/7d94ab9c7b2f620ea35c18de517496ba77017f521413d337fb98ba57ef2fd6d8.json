@@ -1,0 +1,8 @@
+{
+  "identity": "sha256:7d94ab9c7b2f620ea35c18de517496ba77017f521413d337fb98ba57ef2fd6d8",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "digest": "sha256:423643b095d8953de0de703a231648e4d3720a22335184c87102d12c2d834c07",
+    "text": "namespace Weather.Places;\n// Research-only dependencies. No PostgreSQL or Kafka operations occur.\npublic class PlacesRepository {\npublic static Place? City(string id) => id switch\n    {\n        \"oslo\" => new(\"oslo\", \"Oslo\", 59.93, 10.72),\n        \"helsinki\" => new(\"helsinki\", \"Helsinki\", 60.17, 24.94),\n        \"lisbon\" => new(\"lisbon\", \"Lisbon\", 38.72, -9.14),\n        _ => null\n    };\npublic Task Ping(CancellationToken token) => Task.CompletedTask;\npublic Task<IReadOnlyList<Place>> List(CancellationToken token) => Task.FromResult<IReadOnlyList<Place>>(new[] { City(\"oslo\")!, City(\"helsinki\")!, City(\"lisbon\")! });\npublic Task<Place?> Find(string id, CancellationToken token) => Task.FromResult(City(id));\npublic Task Save(Place city, CancellationToken token) => Task.CompletedTask;\npublic Task Enqueue(Place city, CancellationToken token) => Task.CompletedTask;\n}\npublic class RequestPublisher : IHostedService {\npublic Task StartAsync(CancellationToken token) => Task.CompletedTask;\npublic Task StopAsync(CancellationToken token) => Task.CompletedTask;\n}\n"
+  }
+}

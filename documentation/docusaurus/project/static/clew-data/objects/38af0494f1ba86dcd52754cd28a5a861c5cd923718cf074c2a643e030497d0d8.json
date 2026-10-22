@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:38af0494f1ba86dcd52754cd28a5a861c5cd923718cf074c2a643e030497d0d8",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:58a7b287648459b56610207df1ee379d2af4355b104636dd0bf71bdb3378d513"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "event.place.longitude is explicitly bound to weather_cards.longitude in the forecast event INSERT/UPDATE. The update is conditional on a strictly newer forecast timestamp.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

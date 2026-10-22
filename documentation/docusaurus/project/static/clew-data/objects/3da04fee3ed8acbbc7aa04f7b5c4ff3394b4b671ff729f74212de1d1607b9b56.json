@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:3da04fee3ed8acbbc7aa04f7b5c4ff3394b4b671ff729f74212de1d1607b9b56",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:040dcf86edd8b30ebae68ceb519337686b87e304aa01605c54feefd14f94ebd7"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The last accepted forecast JSON, or no forecast yet while the card is pending.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

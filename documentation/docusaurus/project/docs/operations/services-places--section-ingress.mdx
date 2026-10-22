@@ -1,0 +1,31 @@
+---
+title: "Places ingress contracts"
+slug: "/operations/services-places--section-ingress"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Places ingress contracts
+
+<ClewPageContext />
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+The controller exposes GET /places, POST /places, POST /places/&#123;id&#125;/refresh, GET /health, and GET /openapi.json. Listing returns the repository result; saving maps SavePlace.CityId and returns 400 UNSUPPORTED\_CITY for an unknown ID or saves and returns the Place; refresh returns 404 PLACE\_NOT\_FOUND for a missing ID or enqueues the place and returns 202 QUEUED. Health runs the repository's database ping and returns database READY. OpenAPI retrieval reads /app/contracts/places.openapi.json. The declared contract lists 200/500 for GET routes, 200/400/415/500 for save, and 202/404/500 for refresh; it requires cityId in the save body and declares the three supported IDs.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [contracts/places.openapi.json:1–263 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959.mdx)
+- [services/places/PlacesController.cs:5–34 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/351979e24a417de4797960a50c6bb0b27e90fbe64ebb5f7b32f302f1907e995c.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- C\# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted.
+
+</details>
+

@@ -1,0 +1,25 @@
+{
+  "identity": "sha256:f918a654b55ac7effc21cdbdfa3e0231948519e534e83feb95f3b11aa5c39f4e",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "observed-static-use",
+    "claim": {
+      "$clewRef": "sha256:71f9e64fc328e32ba62a3ecccabe27aed1bdb23ed8d26c24ea17b2f6f6dd8edf"
+    },
+    "condition": "New inbox event; forecast.updated with forecast; insert or strictly newer updatedAt",
+    "consumer": "weather_cards",
+    "contract": "forecast-updated",
+    "coveredScope": "Dashboard transaction",
+    "kinds": [
+      "persist",
+      "whole-object-serialization-or-comparison"
+    ],
+    "processes": [
+      "scenario:dashboard-forecast-updated-consumer"
+    ],
+    "producer": "Dashboard.applyEvent",
+    "representation": "weather_cards.forecast.periods[].precipitationMm",
+    "stage": "Dashboard transaction",
+    "unresolved": "Static source interpretation; runtime execution and delivery are not established."
+  }
+}

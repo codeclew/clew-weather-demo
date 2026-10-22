@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:f595401e33ffe1c87198d3297a901422e3d449fe00dd98adddc17aaca283d70e",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 8,
+    "evidenceDigest": "sha256:21875289279ffb11bafd4d4bf965780b2b485fe6cabc3c452b8f9585811f7727",
+    "file": "services/dashboard/src/events.ts",
+    "id": "dashboard-7d0d09a16ac25de86e5b",
+    "occurrence": {
+      "blob": "ddda5719da0d973028010984703f3ee5163090f5",
+      "endByte": 608,
+      "snapshot": "sha256:550435c6f8e16951bd815f9f7b54eda07bff8ad73a80a6df524ab2af077f4f6f",
+      "startByte": 412
+    },
+    "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+    "service": "dashboard",
+    "startLine": 6,
+    "text": "function isTimestamp(value: unknown): value is string {\n  return typeof value === 'string' && /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$/.test(value) && Number.isFinite(Date.parse(value))\n}",
+    "textDigest": "sha256:bd0c10a89f66df7387a1045bcebd602e0d98c2d25ba7ee7b091ddcad09114f4a",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/e635069293d58cb0d4f28c8211e748b8d58e6b37/services/dashboard/src/events.ts#L6-L8"
+  }
+}

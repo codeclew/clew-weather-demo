@@ -1,0 +1,40 @@
+{
+  "identity": "sha256:d423263b619efff712ab189c50af84e2c00ba109d04789fcf2eb19359b154109",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "bodyAssessment": "matches-selected-schema",
+    "bodyErrors": [],
+    "comparedSchemaMedia": "application/json",
+    "declaredMedia": [
+      "application/json"
+    ],
+    "id": "unsupported-city",
+    "mediaAssessment": "declared",
+    "request": {
+      "body": "{\"cityId\":\"unknown\"}",
+      "contentType": "application/json",
+      "method": "POST",
+      "path": "/places"
+    },
+    "requestAssessment": "outside-schema",
+    "requestErrors": [
+      {
+        "message": "'unknown' is not one of ['oslo', 'helsinki', 'lisbon']",
+        "path": [
+          "cityId"
+        ],
+        "schemaPath": [
+          "properties",
+          "cityId",
+          "enum"
+        ]
+      }
+    ],
+    "response": {
+      "body": "{\"error\":\"UNSUPPORTED_CITY\"}",
+      "contentType": "application/json; charset=utf-8",
+      "status": 400
+    },
+    "statusDeclared": true
+  }
+}

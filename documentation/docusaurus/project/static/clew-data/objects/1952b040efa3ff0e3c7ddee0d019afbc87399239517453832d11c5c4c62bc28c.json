@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:1952b040efa3ff0e3c7ddee0d019afbc87399239517453832d11c5c4c62bc28c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:927c2766cceda6da34efaeac7a942c7be201eac6f1a6d0c9e100ef7401ead79f"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "City(\"lisbon\") selects the literal Place(\"lisbon\", \"Lisbon\", 38.72, -9.14) in this switch branch.",
+    "title": "City lookup: source interpretation",
+    "tone": null
+  }
+}

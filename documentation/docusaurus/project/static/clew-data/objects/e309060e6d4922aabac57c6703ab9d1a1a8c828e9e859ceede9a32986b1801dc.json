@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:e309060e6d4922aabac57c6703ab9d1a1a8c828e9e859ceede9a32986b1801dc",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 21,
+    "evidenceDigest": "sha256:51bcd8302e42f85d6df2044375902ac5977ba770ff9cbbede9df357f513180e0",
+    "file": "services/dashboard/src/main.ts",
+    "id": "dashboard-282ee420abe115949937",
+    "occurrence": {
+      "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+      "endByte": 989,
+      "snapshot": "sha256:550435c6f8e16951bd815f9f7b54eda07bff8ad73a80a6df524ab2af077f4f6f",
+      "startByte": 967
+    },
+    "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+    "service": "dashboard",
+    "startLine": 21,
+    "text": "client.query('COMMIT')",
+    "textDigest": "sha256:b1c5bb20682b5343446fe5e3ac0471bb7e2af532b15c081c3c52c801b6116f41",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/e635069293d58cb0d4f28c8211e748b8d58e6b37/services/dashboard/src/main.ts#L21-L21"
+  }
+}

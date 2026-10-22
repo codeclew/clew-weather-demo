@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:4a975a20367e723470d9d75f32abe83f50ca3fb35d7e5ed161ac7fc29a53494f",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "cases": {
+      "$clewRef": "sha256:c688d2812ec8bb0950323b6b93098810e2927be4f0d18c0075e7d45a350818de"
+    },
+    "contractDigest": "sha256:b1332329a3f4b30acc3ffaf392bcd42ed603cd5a4f1722b7c4f2a65d3d8534bc",
+    "contractId": "places:contract-operation:0f29e92a853c76a6ea564769",
+    "coverage": "Observed 200 with a schema-valid array of three canonical places. Repository contents were substituted; arbitrary persisted rows were not verified.",
+    "entrypoint": "places-8a2148bf5e312b0c5947",
+    "findings": [],
+    "method": "GET",
+    "path": "/places"
+  }
+}

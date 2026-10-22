@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:c738c23bd59a1d1c08e9d112fabe3c0cd1052dc031832adf90691f4c67e8175e",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 112,
+    "evidenceDigest": "sha256:b10a1a469de6c1824d1d842dc31352a408e054151f40fd6bcee27af9a3771910",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "id": "forecasts-42e2cee4691a4df13fb5",
+    "occurrence": {
+      "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+      "endByte": 7605,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 6884
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 104,
+    "text": "for (point in document[\"properties\"][\"timeseries\"].take(6)) {\n            val temperature = point[\"data\"][\"instant\"][\"details\"][\"air_temperature\"]\n            require(temperature != null && temperature.isNumber)\n            val next = point[\"data\"][\"next_1_hours\"]\n            val period = json.createObjectNode().put(\"time\", point[\"time\"].asText()).put(\"temperatureC\", temperature.asDouble()).put(\"symbol\", next?.get(\"summary\")?.get(\"symbol_code\")?.asText() ?: \"unknown\")\n            val rain = next?.get(\"details\")?.get(\"precipitation_amount\")\n            if (rain == null || !rain.isNumber) period.putNull(\"precipitationMm\") else period.put(\"precipitationMm\", rain.asDouble())\n            periods.add(period)\n        }",
+    "textDigest": "sha256:2fd089e67783cb8f1fe86871c0eea3e308b658d62e7ec13bb840c8dbc3b7677b",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L104-L112"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:0e89a89382acd1c69273e2a766da26933e872a457cbfc23c82bf4d6096de8828",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": {
+      "$clewRef": "sha256:ea52ccc88516380a39ed7cec2f15e144bfbfd82da2dcffb55d1db17b24416883"
+    },
+    "id": "claim-86809f2595a1f7590a92",
+    "sourceIds": [
+      "forecasts-04bc0feeea5752d3f197",
+      "forecasts-1ea53b95922ad5791d93",
+      "forecasts-e98a76fbed8be126547f"
+    ],
+    "text": "The source declares refreshExpired with a 60-second default fixed delay; scheduler registration and activation are unverified. It selects places with a null or expired forecast, ordered by place id, and passes each refresh call to a transaction callback inside a per-place try/catch. The shared refresh path returns on an unexpired cache entry. Fixture mode reads a place file; live mode requires a nonblank MET_USER_AGENT and uses a private in-memory ConcurrentHashMap field keyed by place id for nextAttempt, setting a 60-second deadline before the request. Each response sets expiry from Expires or a one-hour fallback, then sets nextAttempt from numeric Retry-After for 429 with a 60-second minimum, or from expiry for other statuses. A cached 304 updates expiry and returns. Fixture data and accepted 200/203 bodies share the transformation and persistence path: up to six periods require numeric temperature and a nonempty result; missing or nonnumeric rain becomes null and a missing symbol becomes unknown. The forecast upsert accepts an incoming updatedAt at least as new as the stored value, then attempts a forecast.updated outbox insert keyed by place id and updatedAt with conflict suppression. Pending-row delivery belongs to a separate linked publisher view. These source records do not prove scheduler activation, callback transaction behavior, or runtime delivery."
+  }
+}

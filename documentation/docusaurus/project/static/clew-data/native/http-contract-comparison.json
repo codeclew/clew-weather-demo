@@ -1,0 +1,6 @@
+{
+  "schema": "codeclew-normalized-data/1.0",
+  "value": {
+    "$clewRef": "sha256:178fb86dc04839e1d0f0a3946a1a76562d4a843053dd11d977a361f110e714e9"
+  }
+}

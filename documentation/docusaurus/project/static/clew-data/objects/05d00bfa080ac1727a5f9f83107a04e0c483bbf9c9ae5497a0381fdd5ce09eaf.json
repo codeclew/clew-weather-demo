@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:05d00bfa080ac1727a5f9f83107a04e0c483bbf9c9ae5497a0381fdd5ce09eaf",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 44,
+    "evidenceDigest": "sha256:07d6c021b1b1930220e4eebf80e9f522cf0595eafd22997387a1db8d358bdb59",
+    "file": "services/dashboard/src/main.ts",
+    "id": "dashboard-70034b35041093512519",
+    "occurrence": {
+      "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+      "endByte": 2226,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 746
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 17,
+    "text": "try {\n    await client.query('BEGIN')\n    const inserted = await client.query('INSERT INTO inbox(event_id) VALUES($1) ON CONFLICT DO NOTHING RETURNING event_id', [event.id])\n    if (inserted.rowCount === 0) {\n      await client.query('COMMIT')\n      return 'DUPLICATE'\n    }\n    let result\n    if (event.type === 'forecast.updated' && event.forecast) {\n      result = await client.query(`INSERT INTO weather_cards(place_id,name,latitude,longitude,updated_at,forecast)\n        VALUES($1,$2,$3,$4,$5,$6) ON CONFLICT(place_id) DO UPDATE SET\n        name=EXCLUDED.name,latitude=EXCLUDED.latitude,longitude=EXCLUDED.longitude,\n        updated_at=EXCLUDED.updated_at,forecast=EXCLUDED.forecast\n        WHERE weather_cards.updated_at IS NULL OR EXCLUDED.updated_at > weather_cards.updated_at`,\n      [event.place.id, event.place.name, event.place.latitude, event.place.longitude, event.forecast.updatedAt, JSON.stringify(event.forecast)])\n    } else {\n      result = await client.query(`INSERT INTO weather_cards(place_id,name,latitude,longitude) VALUES($1,$2,$3,$4)\n        ON CONFLICT(place_id) DO UPDATE SET name=EXCLUDED.name,latitude=EXCLUDED.latitude,longitude=EXCLUDED.longitude`,\n      [event.place.id, event.place.name, event.place.latitude, event.place.longitude])\n    }\n    await client.query('COMMIT')\n    return result.rowCount === 0 ? 'OLDER_OR_EQUAL' : 'APPLIED'\n  } catch (error) {\n    await client.query('ROLLBACK')\n    throw error\n  } finally {\n    client.release()\n  }",
+    "textDigest": "sha256:0bad80e525debf625b25d32527d63d31b1c616f93d0b2d43b68b5302c34bed2b",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L17-L44"
+  }
+}

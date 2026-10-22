@@ -1,0 +1,1260 @@
+---
+title: "Places"
+slug: "/services/places"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+<span id="service-overview"></span>
+
+# Places
+
+<section className="service-orientation">
+
+Reading outline · verbatim excerpts from retained descriptions
+
+Places maps the supported IDs oslo, helsinki, and lisbon to canonical Place records for Oslo, Helsinki, and Lisbon, exposes HTTP actions for listing, saving, and requesting a refresh, and checks database readiness.
+
+**Outgoing Kafka:** weather.place-requested. Declared handoffs; runtime delivery has not been verified.
+
+**Entry points and incoming interfaces**
+
+- The controller exposes GET /places, POST /places, POST /places/&#123;id&#125;/refresh, GET /health, and GET /openapi.json.
+
+[Full description and rules →](#section-ingress)
+
+**Domain entities and representations**
+
+- Place is the service's domain record with Id, Name, Latitude, and Longitude.
+
+[Full description and rules →](#section-entities)
+
+**External calls, files and storage**
+
+- A new supported place insert and its request\_outbox event are written in one PostgreSQL transaction.
+
+[Full description and rules →](#section-egress)
+
+</section>
+
+<aside className="translation-gap language-disclosure">
+<details>
+<summary>English output: some retained descriptions have another or unknown prose language · Descriptions to inspect: 1</summary>
+
+Inspect the listed descriptions and their retained originals; no translation is implied.
+
+- broker-outage.json · unknown · <ClewDownload path="/clew-original/services/places.note-runtime-broker-outage.original.json">Original description and evidence (JSON)</ClewDownload>
+
+</details>
+</aside>
+
+<ClewPageContext />
+
+<ClewStatus freshness="UNVERIFIED" verification="UNASSESSED" />
+
+Service behavior and explicit evidence boundaries
+
+## Overview {#section-overview}
+
+<details>
+<summary>Full retained description and supporting source</summary>
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+Six Places roots in the selected source revision c289b28be4819eddf29d59a7c12f178559ec5229: five HTTP actions and RequestPublisher.ExecuteAsync. Partial C\# source coverage; runtime activation and cross-service outcomes are unverified.
+
+GET /places calls List, which reads rows ordered by name; failed database open disposes the connection and rethrows. GET /health runs SELECT 1, then returns 200 database READY. It checks the database, not Kafka.
+
+POST /places maps cityId oslo, helsinki, and lisbon to places; others return 400 UNSUPPORTED\_CITY. Supported IDs call Save and return 200. Save inserts with ON CONFLICT DO NOTHING RETURNING id in a transaction; only a new row creates a request\_outbox event, so duplicates return 200 without a new request. The event is a new GUID with web-serialized place.requested v1 payload in that transaction.
+
+POST /places/&#123;id&#125;/refresh finds by loading the list; missing IDs return 404 PLACE\_NOT\_FOUND. A found place is enqueued with a new event ID and returns 202 QUEUED without waiting for forecast recomputation. GET /openapi.json reads /app/contracts/places.openapi.json with no fallback. The contract declares GET /places 200/500, POST /places 200/400/415/500, refresh 202/404/500, and health and OpenAPI retrieval 200/500; its save body requires cityId. JSON Schema semantics are not fully interpreted, and file-read failure is not a successful 200 response.
+
+The publisher selects one eligible unpublished row in created\_at order with FOR UPDATE SKIP LOCKED; empty selection returns. It awaits ProduceAsync to weather.place-requested using place ID as key, then marks the database row published and commits. A crash between send completion and database commit can replay the event; producer idempotence does not make the two stores atomic. The producer uses idempotence, KAFKA\_BOOTSTRAP or kafka:9092, and a 10-second message timeout. The loop logs other failures as PUBLISH\_RETRY, waits one second, and retries; cancellation exits or can propagate from the delay.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/places/PlacesRepository.cs:4–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d.mdx)
+- [contracts/places.openapi.json:1–263 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959.mdx)
+- [services/places/PlacesController.cs:5–34 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/351979e24a417de4797960a50c6bb0b27e90fbe64ebb5f7b32f302f1907e995c.mdx)
+- [services/places/RequestPublisher.cs:5–35 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/8365477e69b3327301c9058498f870922953982db968768e71a60cf8d2df982d.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- C\# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted.
+
+</details>
+
+
+</details>
+
+## Responsibilities {#section-responsibilities}
+
+Reading outline · verbatim excerpts; open the full description for all qualifications.
+
+- Places maps the supported IDs oslo, helsinki, and lisbon to canonical Place records for Oslo, Helsinki, and Lisbon, exposes HTTP actions for listing, saving, and requesting a refresh, and checks database readiness.
+
+<details>
+<summary>Full retained description and supporting source</summary>
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+Places maps the supported IDs oslo, helsinki, and lisbon to canonical Place records for Oslo, Helsinki, and Lisbon, exposes HTTP actions for listing, saving, and requesting a refresh, and checks database readiness. The repository stores places and durable request\_outbox rows; RequestPublisher sends pending place.requested events to Kafka. This service source view does not document forecast recomputation or dashboard-card updates.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/places/PlacesRepository.cs:4–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d.mdx)
+- [services/places/PlacesController.cs:5–34 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/351979e24a417de4797960a50c6bb0b27e90fbe64ebb5f7b32f302f1907e995c.mdx)
+- [services/places/RequestPublisher.cs:5–35 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/8365477e69b3327301c9058498f870922953982db968768e71a60cf8d2df982d.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- C\# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted.
+
+</details>
+
+
+</details>
+
+## Domain entities {#section-entities}
+
+Reading outline · verbatim excerpts; open the full description for all qualifications.
+
+- Place is the service's domain record with Id, Name, Latitude, and Longitude.
+
+<details>
+<summary>Full retained description and supporting source</summary>
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+Place is the service's domain record with Id, Name, Latitude, and Longitude. SavePlace is an HTTP request DTO containing CityId. The repository persists those place fields in the places table and stores JSON request payloads in request\_outbox; the outbox row is a delivery record rather than a domain entity. The static City mapping maps IDs oslo, helsinki, and lisbon to the names and coordinates for Oslo, Helsinki, and Lisbon.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/places/PlacesRepository.cs:4–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d.mdx)
+- [services/places/PlacesController.cs:4–4 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/5d0e0230101848f293cac0902245f465a92e8106f700b8853514a42687637309.mdx)
+- [services/places/PlacesController.cs:3–3 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/9e47d817ca1d51924aad0c9840dc01a49fa438ad4b7d03faf2c22fbca713adc4.mdx)
+
+</details>
+
+<details>
+<summary>Record for later publication · retained process documentation</summary>
+
+For an existing place, Places saves a request for later publication (outbox) in a database transaction.
+
+EDITORIAL\_READING\_GUIDE\_NOT\_ACCEPTED\_PROSE. This context does not change the interaction declaration or establish runtime binding.
+
+[Process step and source evidence](../scenarios/dashboard-refresh-request.mdx#question-enqueue)
+
+
+</details>
+
+<details>
+<summary>New city · retained process documentation</summary>
+
+A new Place and its request for later publication (outbox) are saved in one database transaction.
+
+EDITORIAL\_READING\_GUIDE\_NOT\_ACCEPTED\_PROSE. This context does not change the interaction declaration or establish runtime binding.
+
+[Process step and source evidence](../scenarios/dashboard-save-city.mdx#question-save)
+
+
+</details>
+
+<details>
+<summary>Record outcome · retained process documentation</summary>
+
+After the send completes, the outbox row is marked published and the database transaction is committed.
+
+EDITORIAL\_READING\_GUIDE\_NOT\_ACCEPTED\_PROSE. This context does not change the interaction declaration or establish runtime binding.
+
+[Process step and source evidence](../scenarios/places-request-publisher.mdx#question-record)
+
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- C\# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted.
+
+</details>
+
+
+</details>
+
+- [Save city request · Field descriptions](../data-model/save-city-request.mdx#fields-and-representations)
+
+- [Place · Field descriptions](../data-model/place.mdx#fields-and-representations)
+
+- [City lookup · Field descriptions](../data-model/city-lookup.mdx#fields-and-representations)
+
+## Ingress contracts {#section-ingress}
+
+Reading outline · verbatim excerpts; open the full description for all qualifications.
+
+- The controller exposes GET /places, POST /places, POST /places/&#123;id&#125;/refresh, GET /health, and GET /openapi.json.
+
+<details>
+<summary>Full retained description and supporting source</summary>
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+The controller exposes GET /places, POST /places, POST /places/&#123;id&#125;/refresh, GET /health, and GET /openapi.json. Listing returns the repository result; saving maps SavePlace.CityId and returns 400 UNSUPPORTED\_CITY for an unknown ID or saves and returns the Place; refresh returns 404 PLACE\_NOT\_FOUND for a missing ID or enqueues the place and returns 202 QUEUED. Health runs the repository's database ping and returns database READY. OpenAPI retrieval reads /app/contracts/places.openapi.json. The declared contract lists 200/500 for GET routes, 200/400/415/500 for save, and 202/404/500 for refresh; it requires cityId in the save body and declares the three supported IDs.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [contracts/places.openapi.json:1–263 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959.mdx)
+- [services/places/PlacesController.cs:5–34 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/351979e24a417de4797960a50c6bb0b27e90fbe64ebb5f7b32f302f1907e995c.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- C\# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted.
+
+</details>
+
+
+</details>
+
+### Declared HTTP interface schemas
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/87bdfe805b90ff664e9fc182216739d849835c6c30af7a07a61f2e924a3ac715">GET /health</ClewContextLink>
+
+<ClewContextLink path="/http/21f85a173ea2df11931c2a8c3d4c8953ac99f281ef337c409d8436421d347b61">GET /places</ClewContextLink>
+
+<ClewContextLink path="/http/323c07ab1fab7684d72321edf709e7e56345afa1fed70fa7e429deef72d255dc">POST /places/&#123;id&#125;/refresh</ClewContextLink>
+
+<ClewContextLink path="/http/d3ee0d34d91fd8813ea24869ec083fb1661ae843ae68a8370d87dd837a061341">GET /openapi.json</ClewContextLink>
+
+<ClewContextLink path="/http/4faae4a057439031a1013fae51fc548d28f7ae661a688f8923ca2d1474e2a60a">POST /places</ClewContextLink>
+
+</div>
+
+### Captured public inputs
+
+#### GET /health {#entry-places-3a33202464c8b4fff218}
+
+HTTP\_ENDPOINT
+
+<details>
+<summary>Declared trigger details</summary>
+
+```json
+{
+  "apiVersions": [],
+  "authority": "ASPNETCORE_ROUTING_RULES",
+  "conditions": {
+    "authorization": {
+      "allowAnonymous": false,
+      "authorize": []
+    },
+    "consumes": [],
+    "produces": []
+  },
+  "methods": [
+    "GET"
+  ],
+  "pathResolution": "DERIVED",
+  "paths": [
+    "/health"
+  ],
+  "versionedPaths": null
+}
+```
+
+
+</details>
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/87bdfe805b90ff664e9fc182216739d849835c6c30af7a07a61f2e924a3ac715">GET /health</ClewContextLink>
+
+</div>
+
+
+##### Retained HTTP comparison {#retained-http-comparison}
+
+Observed 200 with declared media and schema-valid JSON. The kafka field is optional. Failure paths and a real database were not tested.
+
+<details>
+<summary>Cases, evidence and limits</summary>
+
+<div className="clew-table-scroll"><table className="clew-schema-table clew-case-table"><thead><tr><th scope="col">Retained case</th><th scope="col">HTTP status</th><th scope="col">Status declared</th><th scope="col">Recorded media</th><th scope="col">Request assessment</th><th scope="col">Body assessment</th></tr></thead><tbody><tr><td data-label="Retained case">health</td><td data-label="HTTP status">200</td><td data-label="Status declared">true</td><td data-label="Recorded media">application/json; charset=utf-8 · declared</td><td data-label="Request assessment">no-body-declared</td><td data-label="Body assessment">matches-selected-schema</td></tr></tbody></table></div>
+
+
+Local .NET 10 HTTP reproduction, exact pinned controller and Program. Repository and hosted publisher are substituted. No PostgreSQL/Kafka/deployed runtime conformance claim.
+
+External JSON-schema assessments are retained from jsonschema 4.25.1 / Draft202012Validator; this reader verifies saved bindings and does not rerun that validator.
+
+- Repository substitutions prevent conclusions about real storage contents, persistence, transaction failures, or Kafka delivery.
+- Observed declared statuses do not prove exhaustive status-code coverage; 500 paths were not exercised.
+- Accepting an input outside the schema shows broader runtime acceptance, not failure for a contract-valid client.
+- Matching a body against another media type schema does not resolve an undeclared response media type.
+- GET /openapi.json was not exercised.
+- The recorded controller and DTO spans are compared with selected snapshot source. Program and substituted harness files are retained external evidence, not additional compiler-backed facts.
+<details>
+<summary>Raw recorded cases, differences and bindings</summary>
+
+```json
+{
+  "cases": [
+    {
+      "bodyAssessment": "matches-selected-schema",
+      "bodyErrors": [],
+      "comparedSchemaMedia": "application/json",
+      "declaredMedia": [
+        "application/json"
+      ],
+      "id": "health",
+      "mediaAssessment": "declared",
+      "request": {
+        "body": null,
+        "contentType": null,
+        "method": "GET",
+        "path": "/health"
+      },
+      "requestAssessment": "no-body-declared",
+      "requestErrors": null,
+      "response": {
+        "body": "{\"database\":\"READY\"}",
+        "contentType": "application/json; charset=utf-8",
+        "status": 200
+      },
+      "statusDeclared": true
+    }
+  ],
+  "contractDigest": "sha256:14e0311af7bc78a8290539edd6ed922ce4c14c237a01713f4b8c157fe0b35fcc",
+  "contractId": "places:contract-operation:08d1b9df6781b2953a038bc2",
+  "coverage": "Observed 200 with declared media and schema-valid JSON. The kafka field is optional. Failure paths and a real database were not tested.",
+  "entrypoint": "places-3a33202464c8b4fff218",
+  "findings": [],
+  "method": "GET",
+  "path": "/health"
+}
+```
+
+
+</details>
+
+
+</details>
+
+[Comparison scope and original test artifacts](../comparisons/places.mdx)
+
+#### POST /places {#entry-places-691b340ea61828b197b6}
+
+HTTP\_ENDPOINT
+
+<details>
+<summary>Declared trigger details</summary>
+
+```json
+{
+  "apiVersions": [],
+  "authority": "ASPNETCORE_ROUTING_RULES",
+  "conditions": {
+    "authorization": {
+      "allowAnonymous": false,
+      "authorize": []
+    },
+    "consumes": [],
+    "produces": []
+  },
+  "methods": [
+    "POST"
+  ],
+  "pathResolution": "DERIVED",
+  "paths": [
+    "/places"
+  ],
+  "versionedPaths": null
+}
+```
+
+
+</details>
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/4faae4a057439031a1013fae51fc548d28f7ae661a688f8923ca2d1474e2a60a">POST /places</ClewContextLink>
+
+</div>
+
+
+##### Retained HTTP comparison {#retained-http-comparison-1}
+
+Observed 200, 400 and 415. Two differences are retained below; 415 has no declared body schema. The 500 path was not exercised.
+
+<aside className="clew-http-finding" role="status">
+
+#### Broader request acceptance {#broader-request-acceptance}
+
+A recorded request outside the declared schema received a successful response. This shows broader acceptance; it does not show failure for a contract-valid request.
+
+<p>Recorded request: <code>&#123;&quot;cityId&quot;:&quot;oslo&quot;,&quot;extra&quot;:true&#125;</code> → <code>200 application/json</code>.</p>
+
+External schema check: Additional properties are not allowed ('extra' was unexpected)
+
+Cases: extra-property
+
+</aside>
+
+<aside className="clew-http-finding" role="status">
+
+#### Undeclared response media type {#undeclared-response-media-type}
+
+Recorded responses use a media type absent from the selected status declaration. Status-code and body-schema results are separate below.
+
+<p>Observed: <code>400 application/problem+json</code>. Declared for this status: <code>application/json</code>.</p>
+
+Cases: missing-city, empty-body, invalid-city-type
+
+</aside>
+
+<details>
+<summary>Cases, evidence and limits</summary>
+
+<div className="clew-table-scroll"><table className="clew-schema-table clew-case-table"><thead><tr><th scope="col">Retained case</th><th scope="col">HTTP status</th><th scope="col">Status declared</th><th scope="col">Recorded media</th><th scope="col">Request assessment</th><th scope="col">Body assessment</th></tr></thead><tbody><tr><td data-label="Retained case">valid-save</td><td data-label="HTTP status">200</td><td data-label="Status declared">true</td><td data-label="Recorded media">application/json; charset=utf-8 · declared</td><td data-label="Request assessment">within-schema</td><td data-label="Body assessment">matches-selected-schema</td></tr><tr><td data-label="Retained case">extra-property</td><td data-label="HTTP status">200</td><td data-label="Status declared">true</td><td data-label="Recorded media">application/json; charset=utf-8 · declared</td><td data-label="Request assessment">outside-schema</td><td data-label="Body assessment">matches-selected-schema</td></tr><tr><td data-label="Retained case">missing-city</td><td data-label="HTTP status">400</td><td data-label="Status declared">true</td><td data-label="Recorded media">application/problem+json; charset=utf-8 · undeclared-media</td><td data-label="Request assessment">outside-schema</td><td data-label="Body assessment">matches-selected-schema</td></tr><tr><td data-label="Retained case">empty-body</td><td data-label="HTTP status">400</td><td data-label="Status declared">true</td><td data-label="Recorded media">application/problem+json; charset=utf-8 · undeclared-media</td><td data-label="Request assessment">outside-schema</td><td data-label="Body assessment">matches-selected-schema</td></tr><tr><td data-label="Retained case">invalid-city-type</td><td data-label="HTTP status">400</td><td data-label="Status declared">true</td><td data-label="Recorded media">application/problem+json; charset=utf-8 · undeclared-media</td><td data-label="Request assessment">outside-schema</td><td data-label="Body assessment">matches-selected-schema</td></tr><tr><td data-label="Retained case">unsupported-city</td><td data-label="HTTP status">400</td><td data-label="Status declared">true</td><td data-label="Recorded media">application/json; charset=utf-8 · declared</td><td data-label="Request assessment">outside-schema</td><td data-label="Body assessment">matches-selected-schema</td></tr><tr><td data-label="Retained case">unsupported-media</td><td data-label="HTTP status">415</td><td data-label="Status declared">true</td><td data-label="Recorded media">application/problem+json; charset=utf-8 · not-specified</td><td data-label="Request assessment">undeclared-media</td><td data-label="Body assessment">not-specified</td></tr></tbody></table></div>
+
+
+Local .NET 10 HTTP reproduction, exact pinned controller and Program. Repository and hosted publisher are substituted. No PostgreSQL/Kafka/deployed runtime conformance claim.
+
+External JSON-schema assessments are retained from jsonschema 4.25.1 / Draft202012Validator; this reader verifies saved bindings and does not rerun that validator.
+
+- Repository substitutions prevent conclusions about real storage contents, persistence, transaction failures, or Kafka delivery.
+- Observed declared statuses do not prove exhaustive status-code coverage; 500 paths were not exercised.
+- Accepting an input outside the schema shows broader runtime acceptance, not failure for a contract-valid client.
+- Matching a body against another media type schema does not resolve an undeclared response media type.
+- GET /openapi.json was not exercised.
+- The recorded controller and DTO spans are compared with selected snapshot source. Program and substituted harness files are retained external evidence, not additional compiler-backed facts.
+<details>
+<summary>Raw recorded cases, differences and bindings</summary>
+
+```json
+{
+  "cases": [
+    {
+      "bodyAssessment": "matches-selected-schema",
+      "bodyErrors": [],
+      "comparedSchemaMedia": "application/json",
+      "declaredMedia": [
+        "application/json"
+      ],
+      "id": "valid-save",
+      "mediaAssessment": "declared",
+      "request": {
+        "body": "{\"cityId\":\"oslo\"}",
+        "contentType": "application/json",
+        "method": "POST",
+        "path": "/places"
+      },
+      "requestAssessment": "within-schema",
+      "requestErrors": [],
+      "response": {
+        "body": "{\"id\":\"oslo\",\"name\":\"Oslo\",\"latitude\":59.93,\"longitude\":10.72}",
+        "contentType": "application/json; charset=utf-8",
+        "status": 200
+      },
+      "statusDeclared": true
+    },
+    {
+      "bodyAssessment": "matches-selected-schema",
+      "bodyErrors": [],
+      "comparedSchemaMedia": "application/json",
+      "declaredMedia": [
+        "application/json"
+      ],
+      "id": "extra-property",
+      "mediaAssessment": "declared",
+      "request": {
+        "body": "{\"cityId\":\"oslo\",\"extra\":true}",
+        "contentType": "application/json",
+        "method": "POST",
+        "path": "/places"
+      },
+      "requestAssessment": "outside-schema",
+      "requestErrors": [
+        {
+          "message": "Additional properties are not allowed ('extra' was unexpected)",
+          "path": [],
+          "schemaPath": [
+            "additionalProperties"
+          ]
+        }
+      ],
+      "response": {
+        "body": "{\"id\":\"oslo\",\"name\":\"Oslo\",\"latitude\":59.93,\"longitude\":10.72}",
+        "contentType": "application/json; charset=utf-8",
+        "status": 200
+      },
+      "statusDeclared": true
+    },
+    {
+      "bodyAssessment": "matches-selected-schema",
+      "bodyErrors": [],
+      "comparedSchemaMedia": "application/json",
+      "declaredMedia": [
+        "application/json"
+      ],
+      "id": "missing-city",
+      "mediaAssessment": "undeclared-media",
+      "request": {
+        "body": "{}",
+        "contentType": "application/json",
+        "method": "POST",
+        "path": "/places"
+      },
+      "requestAssessment": "outside-schema",
+      "requestErrors": [
+        {
+          "message": "'cityId' is a required property",
+          "path": [],
+          "schemaPath": [
+            "required"
+          ]
+        }
+      ],
+      "response": {
+        "body": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"CityId\":[\"The CityId field is required.\"]},\"traceId\":\"00-3c5198a10b5b2f693cdcb3be59e48a70-3130a9dc56125040-00\"}",
+        "contentType": "application/problem+json; charset=utf-8",
+        "status": 400
+      },
+      "statusDeclared": true
+    },
+    {
+      "bodyAssessment": "matches-selected-schema",
+      "bodyErrors": [],
+      "comparedSchemaMedia": "application/json",
+      "declaredMedia": [
+        "application/json"
+      ],
+      "id": "empty-body",
+      "mediaAssessment": "undeclared-media",
+      "request": {
+        "body": "",
+        "contentType": "application/json",
+        "method": "POST",
+        "path": "/places"
+      },
+      "requestAssessment": "outside-schema",
+      "requestErrors": [
+        {
+          "message": "Empty or invalid JSON body"
+        }
+      ],
+      "response": {
+        "body": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"\":[\"A non-empty request body is required.\"],\"request\":[\"The request field is required.\"]},\"traceId\":\"00-d9a2c74327d58d896b379722736b423e-70ce1b4800cbde43-00\"}",
+        "contentType": "application/problem+json; charset=utf-8",
+        "status": 400
+      },
+      "statusDeclared": true
+    },
+    {
+      "bodyAssessment": "matches-selected-schema",
+      "bodyErrors": [],
+      "comparedSchemaMedia": "application/json",
+      "declaredMedia": [
+        "application/json"
+      ],
+      "id": "invalid-city-type",
+      "mediaAssessment": "undeclared-media",
+      "request": {
+        "body": "{\"cityId\":42}",
+        "contentType": "application/json",
+        "method": "POST",
+        "path": "/places"
+      },
+      "requestAssessment": "outside-schema",
+      "requestErrors": [
+        {
+          "message": "42 is not one of ['oslo', 'helsinki', 'lisbon']",
+          "path": [
+            "cityId"
+          ],
+          "schemaPath": [
+            "properties",
+            "cityId",
+            "enum"
+          ]
+        },
+        {
+          "message": "42 is not of type 'string'",
+          "path": [
+            "cityId"
+          ],
+          "schemaPath": [
+            "properties",
+            "cityId",
+            "type"
+          ]
+        }
+      ],
+      "response": {
+        "body": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"request\":[\"The request field is required.\"],\"$.cityId\":[\"The JSON value could not be converted to Weather.Places.SavePlace. Path: $.cityId | LineNumber: 0 | BytePositionInLine: 12.\"]},\"traceId\":\"00-4a31f66cfc0695a4f21188547e90670b-a6a173a23219198e-00\"}",
+        "contentType": "application/problem+json; charset=utf-8",
+        "status": 400
+      },
+      "statusDeclared": true
+    },
+    {
+      "bodyAssessment": "matches-selected-schema",
+      "bodyErrors": [],
+      "comparedSchemaMedia": "application/json",
+      "declaredMedia": [
+        "application/json"
+      ],
+      "id": "unsupported-city",
+      "mediaAssessment": "declared",
+      "request": {
+        "body": "{\"cityId\":\"unknown\"}",
+        "contentType": "application/json",
+        "method": "POST",
+        "path": "/places"
+      },
+      "requestAssessment": "outside-schema",
+      "requestErrors": [
+        {
+          "message": "'unknown' is not one of ['oslo', 'helsinki', 'lisbon']",
+          "path": [
+            "cityId"
+          ],
+          "schemaPath": [
+            "properties",
+            "cityId",
+            "enum"
+          ]
+        }
+      ],
+      "response": {
+        "body": "{\"error\":\"UNSUPPORTED_CITY\"}",
+        "contentType": "application/json; charset=utf-8",
+        "status": 400
+      },
+      "statusDeclared": true
+    },
+    {
+      "bodyAssessment": "not-specified",
+      "bodyErrors": null,
+      "comparedSchemaMedia": null,
+      "declaredMedia": [],
+      "id": "unsupported-media",
+      "mediaAssessment": "not-specified",
+      "request": {
+        "body": "{\"cityId\":\"oslo\"}",
+        "contentType": "text/plain",
+        "method": "POST",
+        "path": "/places"
+      },
+      "requestAssessment": "undeclared-media",
+      "requestErrors": null,
+      "response": {
+        "body": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.16\",\"title\":\"Unsupported Media Type\",\"status\":415,\"traceId\":\"00-922898ef14a8d9170cc957b129cc9f7b-c9cc45b13bcd0c9b-00\"}",
+        "contentType": "application/problem+json; charset=utf-8",
+        "status": 415
+      },
+      "statusDeclared": true
+    }
+  ],
+  "contractDigest": "sha256:9900361e3e545d6846284b0207c072664f270a5d373c79c0aa19e785a61d2145",
+  "contractId": "places:contract-operation:fa5644a96e01681d7c2b0445",
+  "coverage": "Observed 200, 400 and 415. Two differences are retained below; 415 has no declared body schema. The 500 path was not exercised.",
+  "entrypoint": "places-691b340ea61828b197b6",
+  "findings": [
+    {
+      "caseIds": [
+        "extra-property"
+      ],
+      "kind": "BROADER_REQUEST_ACCEPTANCE"
+    },
+    {
+      "caseIds": [
+        "missing-city",
+        "empty-body",
+        "invalid-city-type"
+      ],
+      "kind": "UNDECLARED_RESPONSE_MEDIA"
+    }
+  ],
+  "method": "POST",
+  "path": "/places"
+}
+```
+
+
+</details>
+
+
+</details>
+
+[Comparison scope and original test artifacts](../comparisons/places.mdx)
+
+#### GET /places {#entry-places-8a2148bf5e312b0c5947}
+
+HTTP\_ENDPOINT
+
+<details>
+<summary>Declared trigger details</summary>
+
+```json
+{
+  "apiVersions": [],
+  "authority": "ASPNETCORE_ROUTING_RULES",
+  "conditions": {
+    "authorization": {
+      "allowAnonymous": false,
+      "authorize": []
+    },
+    "consumes": [],
+    "produces": []
+  },
+  "methods": [
+    "GET"
+  ],
+  "pathResolution": "DERIVED",
+  "paths": [
+    "/places"
+  ],
+  "versionedPaths": null
+}
+```
+
+
+</details>
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/21f85a173ea2df11931c2a8c3d4c8953ac99f281ef337c409d8436421d347b61">GET /places</ClewContextLink>
+
+</div>
+
+
+##### Retained HTTP comparison {#retained-http-comparison-2}
+
+Observed 200 with a schema-valid array of three canonical places. Repository contents were substituted; arbitrary persisted rows were not verified.
+
+<details>
+<summary>Cases, evidence and limits</summary>
+
+<div className="clew-table-scroll"><table className="clew-schema-table clew-case-table"><thead><tr><th scope="col">Retained case</th><th scope="col">HTTP status</th><th scope="col">Status declared</th><th scope="col">Recorded media</th><th scope="col">Request assessment</th><th scope="col">Body assessment</th></tr></thead><tbody><tr><td data-label="Retained case">list-places</td><td data-label="HTTP status">200</td><td data-label="Status declared">true</td><td data-label="Recorded media">application/json; charset=utf-8 · declared</td><td data-label="Request assessment">no-body-declared</td><td data-label="Body assessment">matches-selected-schema</td></tr></tbody></table></div>
+
+
+Local .NET 10 HTTP reproduction, exact pinned controller and Program. Repository and hosted publisher are substituted. No PostgreSQL/Kafka/deployed runtime conformance claim.
+
+External JSON-schema assessments are retained from jsonschema 4.25.1 / Draft202012Validator; this reader verifies saved bindings and does not rerun that validator.
+
+- Repository substitutions prevent conclusions about real storage contents, persistence, transaction failures, or Kafka delivery.
+- Observed declared statuses do not prove exhaustive status-code coverage; 500 paths were not exercised.
+- Accepting an input outside the schema shows broader runtime acceptance, not failure for a contract-valid client.
+- Matching a body against another media type schema does not resolve an undeclared response media type.
+- GET /openapi.json was not exercised.
+- The recorded controller and DTO spans are compared with selected snapshot source. Program and substituted harness files are retained external evidence, not additional compiler-backed facts.
+<details>
+<summary>Raw recorded cases, differences and bindings</summary>
+
+```json
+{
+  "cases": [
+    {
+      "bodyAssessment": "matches-selected-schema",
+      "bodyErrors": [],
+      "comparedSchemaMedia": "application/json",
+      "declaredMedia": [
+        "application/json"
+      ],
+      "id": "list-places",
+      "mediaAssessment": "declared",
+      "request": {
+        "body": null,
+        "contentType": null,
+        "method": "GET",
+        "path": "/places"
+      },
+      "requestAssessment": "no-body-declared",
+      "requestErrors": null,
+      "response": {
+        "body": "[{\"id\":\"oslo\",\"name\":\"Oslo\",\"latitude\":59.93,\"longitude\":10.72},{\"id\":\"helsinki\",\"name\":\"Helsinki\",\"latitude\":60.17,\"longitude\":24.94},{\"id\":\"lisbon\",\"name\":\"Lisbon\",\"latitude\":38.72,\"longitude\":-9.14}]",
+        "contentType": "application/json; charset=utf-8",
+        "status": 200
+      },
+      "statusDeclared": true
+    }
+  ],
+  "contractDigest": "sha256:b1332329a3f4b30acc3ffaf392bcd42ed603cd5a4f1722b7c4f2a65d3d8534bc",
+  "contractId": "places:contract-operation:0f29e92a853c76a6ea564769",
+  "coverage": "Observed 200 with a schema-valid array of three canonical places. Repository contents were substituted; arbitrary persisted rows were not verified.",
+  "entrypoint": "places-8a2148bf5e312b0c5947",
+  "findings": [],
+  "method": "GET",
+  "path": "/places"
+}
+```
+
+
+</details>
+
+
+</details>
+
+[Comparison scope and original test artifacts](../comparisons/places.mdx)
+
+#### GET /openapi.json {#entry-places-de7d5796a632782443dc}
+
+HTTP\_ENDPOINT
+
+<details>
+<summary>Declared trigger details</summary>
+
+```json
+{
+  "apiVersions": [],
+  "authority": "ASPNETCORE_ROUTING_RULES",
+  "conditions": {
+    "authorization": {
+      "allowAnonymous": false,
+      "authorize": []
+    },
+    "consumes": [],
+    "produces": []
+  },
+  "methods": [
+    "GET"
+  ],
+  "pathResolution": "DERIVED",
+  "paths": [
+    "/openapi.json"
+  ],
+  "versionedPaths": null
+}
+```
+
+
+</details>
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/d3ee0d34d91fd8813ea24869ec083fb1661ae843ae68a8370d87dd837a061341">GET /openapi.json</ClewContextLink>
+
+</div>
+
+
+##### Retained HTTP comparison {#retained-http-comparison-3}
+
+Source inspection only: the controller reads a mounted JSON file and declares application/json. The HTTP path was not exercised because the /app/contracts mount was absent.
+
+<details>
+<summary>Cases, evidence and limits</summary>
+
+<div className="clew-table-scroll"><table className="clew-schema-table clew-case-table"><thead><tr><th scope="col">Retained case</th><th scope="col">HTTP status</th><th scope="col">Status declared</th><th scope="col">Recorded media</th><th scope="col">Request assessment</th><th scope="col">Body assessment</th></tr></thead><tbody></tbody></table></div>
+
+
+Local .NET 10 HTTP reproduction, exact pinned controller and Program. Repository and hosted publisher are substituted. No PostgreSQL/Kafka/deployed runtime conformance claim.
+
+External JSON-schema assessments are retained from jsonschema 4.25.1 / Draft202012Validator; this reader verifies saved bindings and does not rerun that validator.
+
+- Repository substitutions prevent conclusions about real storage contents, persistence, transaction failures, or Kafka delivery.
+- Observed declared statuses do not prove exhaustive status-code coverage; 500 paths were not exercised.
+- Accepting an input outside the schema shows broader runtime acceptance, not failure for a contract-valid client.
+- Matching a body against another media type schema does not resolve an undeclared response media type.
+- GET /openapi.json was not exercised.
+- The recorded controller and DTO spans are compared with selected snapshot source. Program and substituted harness files are retained external evidence, not additional compiler-backed facts.
+<details>
+<summary>Raw recorded cases, differences and bindings</summary>
+
+```json
+{
+  "cases": [],
+  "contractDigest": "sha256:54e3edb3e65550eae5f2e31d666667d3aa0e00e066c8f0d7c6923f3a2b7830f2",
+  "contractId": "places:contract-operation:6e713b9442ae5dfc4b99b133",
+  "coverage": "Source inspection only: the controller reads a mounted JSON file and declares application/json. The HTTP path was not exercised because the /app/contracts mount was absent.",
+  "entrypoint": "places-de7d5796a632782443dc",
+  "findings": [],
+  "method": "GET",
+  "path": "/openapi.json"
+}
+```
+
+
+</details>
+
+
+</details>
+
+[Comparison scope and original test artifacts](../comparisons/places.mdx)
+
+#### POST /places/&#123;id&#125;/refresh {#entry-places-e06f41e67f62720ad106}
+
+HTTP\_ENDPOINT
+
+<details>
+<summary>Declared trigger details</summary>
+
+```json
+{
+  "apiVersions": [],
+  "authority": "ASPNETCORE_ROUTING_RULES",
+  "conditions": {
+    "authorization": {
+      "allowAnonymous": false,
+      "authorize": []
+    },
+    "consumes": [],
+    "produces": []
+  },
+  "methods": [
+    "POST"
+  ],
+  "pathResolution": "DERIVED",
+  "paths": [
+    "/places/{id}/refresh"
+  ],
+  "versionedPaths": null
+}
+```
+
+
+</details>
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/323c07ab1fab7684d72321edf709e7e56345afa1fed70fa7e429deef72d255dc">POST /places/&#123;id&#125;/refresh</ClewContextLink>
+
+</div>
+
+
+##### Retained HTTP comparison {#retained-http-comparison-4}
+
+Observed 202 and 404 with declared media and schema-valid JSON. QUEUED satisfies the const-only schema. Persistence and the 500 path were not tested.
+
+<details>
+<summary>Cases, evidence and limits</summary>
+
+<div className="clew-table-scroll"><table className="clew-schema-table clew-case-table"><thead><tr><th scope="col">Retained case</th><th scope="col">HTTP status</th><th scope="col">Status declared</th><th scope="col">Recorded media</th><th scope="col">Request assessment</th><th scope="col">Body assessment</th></tr></thead><tbody><tr><td data-label="Retained case">refresh-found</td><td data-label="HTTP status">202</td><td data-label="Status declared">true</td><td data-label="Recorded media">application/json; charset=utf-8 · declared</td><td data-label="Request assessment">no-body-declared</td><td data-label="Body assessment">matches-selected-schema</td></tr><tr><td data-label="Retained case">refresh-missing</td><td data-label="HTTP status">404</td><td data-label="Status declared">true</td><td data-label="Recorded media">application/json; charset=utf-8 · declared</td><td data-label="Request assessment">no-body-declared</td><td data-label="Body assessment">matches-selected-schema</td></tr></tbody></table></div>
+
+
+Local .NET 10 HTTP reproduction, exact pinned controller and Program. Repository and hosted publisher are substituted. No PostgreSQL/Kafka/deployed runtime conformance claim.
+
+External JSON-schema assessments are retained from jsonschema 4.25.1 / Draft202012Validator; this reader verifies saved bindings and does not rerun that validator.
+
+- Repository substitutions prevent conclusions about real storage contents, persistence, transaction failures, or Kafka delivery.
+- Observed declared statuses do not prove exhaustive status-code coverage; 500 paths were not exercised.
+- Accepting an input outside the schema shows broader runtime acceptance, not failure for a contract-valid client.
+- Matching a body against another media type schema does not resolve an undeclared response media type.
+- GET /openapi.json was not exercised.
+- The recorded controller and DTO spans are compared with selected snapshot source. Program and substituted harness files are retained external evidence, not additional compiler-backed facts.
+<details>
+<summary>Raw recorded cases, differences and bindings</summary>
+
+```json
+{
+  "cases": [
+    {
+      "bodyAssessment": "matches-selected-schema",
+      "bodyErrors": [],
+      "comparedSchemaMedia": "application/json",
+      "declaredMedia": [
+        "application/json"
+      ],
+      "id": "refresh-found",
+      "mediaAssessment": "declared",
+      "request": {
+        "body": null,
+        "contentType": null,
+        "method": "POST",
+        "path": "/places/oslo/refresh"
+      },
+      "requestAssessment": "no-body-declared",
+      "requestErrors": null,
+      "response": {
+        "body": "{\"placeId\":\"oslo\",\"status\":\"QUEUED\"}",
+        "contentType": "application/json; charset=utf-8",
+        "status": 202
+      },
+      "statusDeclared": true
+    },
+    {
+      "bodyAssessment": "matches-selected-schema",
+      "bodyErrors": [],
+      "comparedSchemaMedia": "application/json",
+      "declaredMedia": [
+        "application/json"
+      ],
+      "id": "refresh-missing",
+      "mediaAssessment": "declared",
+      "request": {
+        "body": null,
+        "contentType": null,
+        "method": "POST",
+        "path": "/places/unknown/refresh"
+      },
+      "requestAssessment": "no-body-declared",
+      "requestErrors": null,
+      "response": {
+        "body": "{\"error\":\"PLACE_NOT_FOUND\"}",
+        "contentType": "application/json; charset=utf-8",
+        "status": 404
+      },
+      "statusDeclared": true
+    }
+  ],
+  "contractDigest": "sha256:01e33d77e61703ad9c2f666874c4f7704610d8b934a5792ae509abfaabb41bad",
+  "contractId": "places:contract-operation:6b165729e2d309a9b2687873",
+  "coverage": "Observed 202 and 404 with declared media and schema-valid JSON. QUEUED satisfies the const-only schema. Persistence and the 500 path were not tested.",
+  "entrypoint": "places-e06f41e67f62720ad106",
+  "findings": [],
+  "method": "POST",
+  "path": "/places/{id}/refresh"
+}
+```
+
+
+</details>
+
+
+</details>
+
+[Comparison scope and original test artifacts](../comparisons/places.mdx)
+
+## Egress contracts {#section-egress}
+
+<article className="clew-topic" id="topic-outgoing-weather.place-requested" tabIndex={-1}>
+
+### Outgoing Kafka topic · weather.place-requested
+
+<ClewProcessReturn topic="weather.place-requested" direction="outgoing" />
+
+<div className="clew-topic-path" aria-label="Declared asynchronous handoff">
+
+<div>
+
+<ClewContextLink path="/services/places#section-egress" fromProcess="" fromQuestion="" query={{"direction":"outgoing","topic":"weather.place-requested"}}>Places</ClewContextLink>
+
+PublishPending
+
+</div>
+
+<span aria-hidden="true">→</span>
+
+<div>
+
+**weather.place-requested**
+
+Kafka topic · asynchronous
+
+</div>
+
+<span aria-hidden="true">→</span>
+
+<div>
+
+<ClewContextLink path="/services/dashboard#section-ingress" fromProcess="" fromQuestion="" query={{"direction":"incoming","topic":"weather.place-requested"}}>Dashboard</ClewContextLink>
+
+consumeMessage
+
+<ClewContextLink path="/services/forecasts#section-ingress" fromProcess="" fromQuestion="" query={{"direction":"incoming","topic":"weather.place-requested"}}>Forecasts</ClewContextLink>
+
+consume
+
+</div>
+
+</div>
+
+Proposed handoff; runtime delivery has not been verified.
+
+Saved consumer view: <ClewContextLink path="/scenarios/dashboard-place-requested-consumer#process-overview" fromProcess="" fromQuestion="" query={{}}>Add a place to Dashboard</ClewContextLink>
+
+Saved consumer view: <ClewContextLink path="/scenarios/forecasts-place-requested-consumer#process-overview" fromProcess="" fromQuestion="" query={{}}>Refresh a forecast after a place request</ClewContextLink>
+
+Saved publisher view: <ClewContextLink path="/scenarios/places-request-publisher#process-overview" fromProcess="" fromQuestion="" query={{}}>Publish place requests</ClewContextLink>
+
+<details>
+<summary>Retained source and declaration context</summary>
+
+Topic names and the payload's event type are separate values. These references retain their own revisions; source matches do not prove topic resolution or delivery.
+
+- [services/places/RequestPublisher.cs:30–30 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/19b51220c3de5da3aa47f6979d68cf5cf893c3b3ff20cb789136be772ef4998c.mdx)
+- [services/places/RequestPublisher.cs:18–34 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/728b9ba12f04391993430660fb0e4a022375568be05cd19f8e9d4aca115e990d.mdx)
+- [services/places/RequestPublisher.cs:30–30 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/50fa1b3b3fa3c19a6fea30932984d495a1c04c271d10c755e8be7b51d6ae9511.mdx)
+- [services/places/RequestPublisher.cs:5–35 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/8365477e69b3327301c9058498f870922953982db968768e71a60cf8d2df982d.mdx)
+- [services/places/RequestPublisher.cs:30–30 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/5bdce740d2964abf6968a77eb00e0fc2fb1eda5f1edc5f3a05ab3838d2305d3e.mdx)
+
+```json
+[
+  {
+    "boundaries": [
+      "RUNTIME_DESTINATION_AND_ACTIVATION_UNKNOWN",
+      "WIRE_SERIALIZATION_NOT_ASSESSED",
+      "MESSAGE_DELIVERY_ORDER_RETRY_AND_CONSUMER_ACTIVATION_UNKNOWN",
+      "ENVIRONMENT_SCOPE_UNSPECIFIED",
+      "CLIENT_PATTERN_UNSUPPORTED_OR_AMBIGUOUS",
+      "UNACCEPTED_AGENT_PROPOSAL"
+    ],
+    "from": {
+      "callSite": {
+        "observation": "places:flow:941152b2ec99892568c9e40a"
+      },
+      "selector": {
+        "language": "csharp",
+        "name": "PublishPending",
+        "owner": "class:Weather.Places.RequestPublisher",
+        "parameterTypes": [
+          "Confluent.Kafka.IProducer`2",
+          "System.Threading.CancellationToken"
+        ]
+      },
+      "service": "places"
+    },
+    "interaction": "places-place-requested-to-dashboard",
+    "origin": "agent-proposal",
+    "rationale": "Agent-proposed weather.place-requested subscriber mapping. The captured Places producer call location is exact; topic resolution, consumer subscription and runtime delivery remain unverified.",
+    "runtime": "UNKNOWN",
+    "to": {
+      "selector": {
+        "language": "typescript",
+        "name": "consumeMessage",
+        "owner": "package:",
+        "parameterTypes": [
+          ": EachMessagePayload"
+        ]
+      },
+      "service": "dashboard"
+    },
+    "topic": {
+      "caller": {
+        "declared": "weather.place-requested",
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": "weather.place-requested",
+        "observed": [],
+        "status": "UNRESOLVED"
+      }
+    }
+  },
+  {
+    "boundaries": [
+      "RUNTIME_DESTINATION_AND_ACTIVATION_UNKNOWN",
+      "WIRE_SERIALIZATION_NOT_ASSESSED",
+      "MESSAGE_DELIVERY_ORDER_RETRY_AND_CONSUMER_ACTIVATION_UNKNOWN",
+      "ENVIRONMENT_SCOPE_UNSPECIFIED",
+      "CLIENT_PATTERN_UNSUPPORTED_OR_AMBIGUOUS",
+      "UNACCEPTED_AGENT_PROPOSAL"
+    ],
+    "from": {
+      "callSite": {
+        "observation": "places:flow:941152b2ec99892568c9e40a"
+      },
+      "selector": {
+        "language": "csharp",
+        "name": "PublishPending",
+        "owner": "class:Weather.Places.RequestPublisher",
+        "parameterTypes": [
+          "Confluent.Kafka.IProducer`2",
+          "System.Threading.CancellationToken"
+        ]
+      },
+      "service": "places"
+    },
+    "interaction": "places-place-requested-to-forecasts",
+    "origin": "agent-proposal",
+    "rationale": "Agent-proposed weather.place-requested subscriber mapping. The captured Places producer call location is exact; topic resolution, consumer subscription and runtime delivery remain unverified.",
+    "runtime": "UNKNOWN",
+    "to": {
+      "selector": {
+        "language": "kotlin",
+        "name": "consume",
+        "owner": "class:weather.Forecasts",
+        "parameterTypes": [
+          "record: ConsumerRecord<String, String>",
+          "acknowledgment: Acknowledgment"
+        ]
+      },
+      "service": "forecasts"
+    },
+    "topic": {
+      "caller": {
+        "declared": "weather.place-requested",
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": "weather.place-requested",
+        "observed": [],
+        "status": "UNRESOLVED"
+      }
+    }
+  }
+]
+```
+
+
+</details>
+
+</article>
+
+Reading outline · verbatim excerpts; open the full description for all qualifications.
+
+- A new supported place insert and its request\_outbox event are written in one PostgreSQL transaction.
+
+<details>
+<summary>Full retained description and supporting source</summary>
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+A new supported place insert and its request\_outbox event are written in one PostgreSQL transaction. ON CONFLICT DO NOTHING means a duplicate place does not create another event. Refresh of a found place creates a new outbox event in its own transaction. The payload contains a new GUID, type place.requested, version 1, and the Place, serialized with web JSON defaults. RequestPublisher selects one eligible unpublished row in created\_at order with FOR UPDATE SKIP LOCKED, sends it to weather.place-requested with Place.Id as the Kafka key, then marks the row published and commits. A failure after Kafka accepts the event but before the database commit can lead to a replay; producer idempotence does not make the Kafka send and database update one transaction.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/places/PlacesRepository.cs:4–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d.mdx)
+- [services/places/RequestPublisher.cs:5–35 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/8365477e69b3327301c9058498f870922953982db968768e71a60cf8d2df982d.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- C\# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted.
+
+</details>
+
+
+</details>
+
+## Notes and assessments
+
+### A broker outage leaves a saved place waiting in the outbox {#assessment-runtime-broker-outage}
+
+[Open the retained record and separate assessment](../notes/places--assessment-runtime-broker-outage.mdx)
+
+## Original operations
+
+- [A broker outage leaves a saved place waiting in the outbox](../operations/services-places--assessment-runtime-broker-outage.mdx)
+- [GET /health](../operations/services-places--places-3a33202464c8b4fff218.mdx)
+- [POST /places](../operations/services-places--places-691b340ea61828b197b6.mdx)
+- [GET /places](../operations/services-places--places-8a2148bf5e312b0c5947.mdx)
+- [GET /openapi.json](../operations/services-places--places-de7d5796a632782443dc.mdx)
+- [POST /places/&#123;id&#125;/refresh](../operations/services-places--places-e06f41e67f62720ad106.mdx)
+- [Places egress contracts](../operations/services-places--section-egress.mdx)
+- [Places domain entities](../operations/services-places--section-entities.mdx)
+- [Places ingress contracts](../operations/services-places--section-ingress.mdx)
+- [Places service](../operations/services-places--section-overview.mdx)
+- [Places responsibilities](../operations/services-places--section-responsibilities.mdx)
+
+<ClewDownload path="/clew-data/native/services/places.json">Saved data and complete provenance (reference format)</ClewDownload>
+

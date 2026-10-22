@@ -1,0 +1,32 @@
+---
+title: "Places responsibilities"
+slug: "/operations/services-places--section-responsibilities"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Places responsibilities
+
+<ClewPageContext />
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+Places maps the supported IDs oslo, helsinki, and lisbon to canonical Place records for Oslo, Helsinki, and Lisbon, exposes HTTP actions for listing, saving, and requesting a refresh, and checks database readiness. The repository stores places and durable request\_outbox rows; RequestPublisher sends pending place.requested events to Kafka. This service source view does not document forecast recomputation or dashboard-card updates.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/places/PlacesRepository.cs:4–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d.mdx)
+- [services/places/PlacesController.cs:5–34 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/351979e24a417de4797960a50c6bb0b27e90fbe64ebb5f7b32f302f1907e995c.mdx)
+- [services/places/RequestPublisher.cs:5–35 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/8365477e69b3327301c9058498f870922953982db968768e71a60cf8d2df982d.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- C\# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted.
+
+</details>
+

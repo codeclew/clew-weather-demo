@@ -1,0 +1,30 @@
+---
+title: "services/places/PlacesController.cs:18–25"
+slug: "/sources/10944607b7dd3022e1223a7de9822b263e1bccb2a729b6118f97fc90f3c31306"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/places/PlacesController.cs:18–25
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: c289b28be4819eddf29d59a7c12f178559ec5229
+
+Text digest: sha256:15621e3458e3e37377113dbf343bd3621c520edd48affea91206c49bec8b238f
+
+## Retained text {#retained-text}
+
+```text
+[HttpPost("/places/{id}/refresh")]
+    public async Task<IActionResult> Refresh(string id, CancellationToken token)
+    {
+        var city = await repository.Find(id, token);
+        if (city is null) return NotFound(new { error = "PLACE_NOT_FOUND" });
+        await repository.Enqueue(city, token);
+        return Accepted(new { placeId = id, status = "QUEUED" });
+    }
+```
+
+<ClewDownload path="/clew-data/objects/10944607b7dd3022e1223a7de9822b263e1bccb2a729b6118f97fc90f3c31306.json">Complete original source binding</ClewDownload>

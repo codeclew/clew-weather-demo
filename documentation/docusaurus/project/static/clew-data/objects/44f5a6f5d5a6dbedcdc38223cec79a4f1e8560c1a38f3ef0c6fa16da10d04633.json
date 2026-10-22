@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:44f5a6f5d5a6dbedcdc38223cec79a4f1e8560c1a38f3ef0c6fa16da10d04633",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:5f96972d21e674b7b555b2f9d22eadf1592140fd4d02edd9643f57f9b18f5538"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The captured Save handler passes the derived city value to repository.Save. That method binds the Place fields to the insert; only a new row calls InsertRequest with the same city inside the transaction.",
+    "title": "Save a city: source interpretation",
+    "tone": null
+  }
+}

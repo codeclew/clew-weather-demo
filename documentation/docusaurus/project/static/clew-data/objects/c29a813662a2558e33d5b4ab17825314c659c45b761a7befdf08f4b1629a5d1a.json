@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:c29a813662a2558e33d5b4ab17825314c659c45b761a7befdf08f4b1629a5d1a",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:ee08091f8cdfdb752dd34c82ab2574874bb5d54f7f3dc9f529fab7443b4068b4"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The lowercase reference label id denotes the C# property Id. This table does not rename source properties or establish JSON serialization casing.",
+    "title": "City lookup: source interpretation",
+    "tone": null
+  }
+}

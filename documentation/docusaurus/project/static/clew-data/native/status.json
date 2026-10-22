@@ -1,0 +1,221 @@
+{
+  "schema": "codeclew-normalized-data/1.0",
+  "value": {
+    "documentationLanguage": "en",
+    "schema": "codeclew-documentation-status/1.0",
+    "sections": {
+      "scenario:dashboard-forecast-updated-consumer": {
+        "$clewRef": "sha256:703768a997f4b8df2e1d3acb12271ec57aaacf1328ea5403a7fec345e7bdb50a"
+      },
+      "scenario:dashboard-forecast-updated-consumer/dashboard-forecast-updated-consumer": {
+        "$clewRef": "sha256:16170ce006198916df899740035d9a945a227bcdae4ab0cc9cd5196297850f42"
+      },
+      "scenario:dashboard-forecast-updated-consumer/process-overview": {
+        "$clewRef": "sha256:16170ce006198916df899740035d9a945a227bcdae4ab0cc9cd5196297850f42"
+      },
+      "scenario:dashboard-place-requested-consumer": {
+        "$clewRef": "sha256:19ae8800d943f92a95302fb6acba8d93288626269b6b8381ebad9f7c0f44c7bc"
+      },
+      "scenario:dashboard-place-requested-consumer/dashboard-place-requested-consumer": {
+        "$clewRef": "sha256:c18ddf3d31574006b39d94c64c9a7a78332f997376da5da26175e611d7f1ea2d"
+      },
+      "scenario:dashboard-place-requested-consumer/process-overview": {
+        "$clewRef": "sha256:c18ddf3d31574006b39d94c64c9a7a78332f997376da5da26175e611d7f1ea2d"
+      },
+      "scenario:dashboard-refresh-request": {
+        "$clewRef": "sha256:0aa97d84fbfe5214957c20a8b1bed0087eb083d271b4b05f7e0c0795f3621c24"
+      },
+      "scenario:dashboard-refresh-request/dashboard-refresh-request": {
+        "$clewRef": "sha256:5a6a7b40bd8db5940788361f21fb7d7f2e4577bbca44ec06cd6809abe3482938"
+      },
+      "scenario:dashboard-refresh-request/process-overview": {
+        "$clewRef": "sha256:7498ca9221d6a36b34d6f744884b2827326a8743acff08a48940d35a5d44c9d5"
+      },
+      "scenario:dashboard-save-city": {
+        "$clewRef": "sha256:65a2c1d462fd40a198a7f6f4e7aebf22971d6dc9c024ee6660e408ea5a953db2"
+      },
+      "scenario:dashboard-save-city/dashboard-save-city": {
+        "$clewRef": "sha256:1ade2833affd21c2594b8a65814dd40a3662f96f5ab0b85edb71e877a81945d9"
+      },
+      "scenario:dashboard-save-city/process-overview": {
+        "$clewRef": "sha256:47d60d2e4382b533001b13341d4306aa4972c61b3b18a93de22609af694eb6d5"
+      },
+      "scenario:forecasts-place-requested-consumer": {
+        "$clewRef": "sha256:df9f0f9f0b8bd11aae4458594879ada9f28ec38cc60255992eabec652d154a01"
+      },
+      "scenario:forecasts-place-requested-consumer/forecasts-place-requested-consumer": {
+        "$clewRef": "sha256:f7e42ad5b473c8bcce1aa240a97a1ef0f124a9625011c2ac4db758c3a6e502d0"
+      },
+      "scenario:forecasts-place-requested-consumer/process-overview": {
+        "$clewRef": "sha256:f7e42ad5b473c8bcce1aa240a97a1ef0f124a9625011c2ac4db758c3a6e502d0"
+      },
+      "scenario:forecasts-publish-pending": {
+        "$clewRef": "sha256:c60939b2d391612f703e7f3505fd5ecdb2e97bf078fbac7bfec95adcdedf0956"
+      },
+      "scenario:forecasts-publish-pending/forecasts-publish-pending": {
+        "$clewRef": "sha256:762764a54456cc5ae0daa0b83a1d9e177129d2eeafdc77ed710d87a41aaef72e"
+      },
+      "scenario:forecasts-publish-pending/process-overview": {
+        "$clewRef": "sha256:6335416423472e8b75619b2e6cd8a9ee44f34561b20742fc6c193bfe0d34778e"
+      },
+      "scenario:forecasts-refresh-scheduled": {
+        "$clewRef": "sha256:42456483de68b25146e060cbd2967fe4ce6a2e0a3da0fee71d358d2d07419f9e"
+      },
+      "scenario:forecasts-refresh-scheduled/forecasts-refresh-scheduled": {
+        "$clewRef": "sha256:82e927e67dae99bd3754f5446485cef8d9189e74ab2df509b568c85e2ada45b3"
+      },
+      "scenario:forecasts-refresh-scheduled/process-overview": {
+        "$clewRef": "sha256:f67aad2a8ed6f03de8f7635517061f43344ca2f95f9782fb4a85e49cf23412d2"
+      },
+      "scenario:places-request-publisher": {
+        "$clewRef": "sha256:d74dc3c90ce8322b04ba8bf237ce3a0b156c5d6fd48e766e9641a4dba017f4e7"
+      },
+      "scenario:places-request-publisher/places-request-publisher": {
+        "$clewRef": "sha256:80a3d471b0896596761520253625c1508954ad0b77b4e8b9ee9668df32f91fc8"
+      },
+      "scenario:places-request-publisher/process-overview": {
+        "$clewRef": "sha256:80a3d471b0896596761520253625c1508954ad0b77b4e8b9ee9668df32f91fc8"
+      },
+      "service:dashboard": {
+        "$clewRef": "sha256:5a6a7b40bd8db5940788361f21fb7d7f2e4577bbca44ec06cd6809abe3482938"
+      },
+      "service:dashboard/assessment-runtime-kafka-replay": {
+        "$clewRef": "sha256:1287307dd215fe09e7d7fa52473028891a640f133e59b81eee9f42ed7050de68"
+      },
+      "service:dashboard/assessment-runtime-validator-node24": {
+        "$clewRef": "sha256:937c6764bc48037dfed233d980b77a9fa98c953a031969967154f785a9453a39"
+      },
+      "service:dashboard/dashboard-1d4aa83e0d1825825971": {
+        "$clewRef": "sha256:7201b03313a325999965b7a08eea4a2d9457cbae4a7e11fdb7bc7517b01d8c03"
+      },
+      "service:dashboard/dashboard-310371b6c91f276ad642": {
+        "$clewRef": "sha256:7201b03313a325999965b7a08eea4a2d9457cbae4a7e11fdb7bc7517b01d8c03"
+      },
+      "service:dashboard/dashboard-32f3a8fe3000ac506a5a": {
+        "$clewRef": "sha256:7201b03313a325999965b7a08eea4a2d9457cbae4a7e11fdb7bc7517b01d8c03"
+      },
+      "service:dashboard/dashboard-4301d0222c019e9d5339": {
+        "$clewRef": "sha256:7201b03313a325999965b7a08eea4a2d9457cbae4a7e11fdb7bc7517b01d8c03"
+      },
+      "service:dashboard/dashboard-721012b8ddf1b26a39b9": {
+        "$clewRef": "sha256:7201b03313a325999965b7a08eea4a2d9457cbae4a7e11fdb7bc7517b01d8c03"
+      },
+      "service:dashboard/dashboard-8f0c2429af695539e6cd": {
+        "$clewRef": "sha256:372a9769664221853f1905cdf01b54a12090d99e05ca1083baaafc8db2d0b895"
+      },
+      "service:dashboard/dashboard-9e8af3ed64d9d5e72548": {
+        "$clewRef": "sha256:3ec22cd8bf75e1ffd17ca6179c19c5f3352ed9a093893333b95d8cdb62aed3d4"
+      },
+      "service:dashboard/dashboard-aa92fac55661297c8e9a": {
+        "$clewRef": "sha256:cf0b200976b04ca1e536f5499c4eac754a15fc0aa486934f298ffea098b14a0c"
+      },
+      "service:dashboard/dashboard-ad968c2137fedea90215": {
+        "$clewRef": "sha256:7201b03313a325999965b7a08eea4a2d9457cbae4a7e11fdb7bc7517b01d8c03"
+      },
+      "service:dashboard/dashboard-d36957b096678dbe4785": {
+        "$clewRef": "sha256:7201b03313a325999965b7a08eea4a2d9457cbae4a7e11fdb7bc7517b01d8c03"
+      },
+      "service:dashboard/dashboard-d527a6e620a1974b0e5a": {
+        "$clewRef": "sha256:ca7d5db2f1b0bbe63263e159cb0e3fdc99a051c95da5b59d9c20959dd5c7635a"
+      },
+      "service:dashboard/dashboard-f965de51f1f237949bc6": {
+        "$clewRef": "sha256:8e972220dc20cdec24c6ff03c6fcfbef8820817e45623ef91d1f3fd423840081"
+      },
+      "service:dashboard/section-egress": {
+        "$clewRef": "sha256:15f7211f1f598995fb051feb10664ff5480a02ceae81f136c93451a2a9349f56"
+      },
+      "service:dashboard/section-entities": {
+        "$clewRef": "sha256:15f7211f1f598995fb051feb10664ff5480a02ceae81f136c93451a2a9349f56"
+      },
+      "service:dashboard/section-ingress": {
+        "$clewRef": "sha256:15f7211f1f598995fb051feb10664ff5480a02ceae81f136c93451a2a9349f56"
+      },
+      "service:dashboard/section-overview": {
+        "$clewRef": "sha256:7201b03313a325999965b7a08eea4a2d9457cbae4a7e11fdb7bc7517b01d8c03"
+      },
+      "service:dashboard/section-responsibilities": {
+        "$clewRef": "sha256:15f7211f1f598995fb051feb10664ff5480a02ceae81f136c93451a2a9349f56"
+      },
+      "service:forecasts": {
+        "$clewRef": "sha256:5a6a7b40bd8db5940788361f21fb7d7f2e4577bbca44ec06cd6809abe3482938"
+      },
+      "service:forecasts/forecasts-23c1f84e75a5f47c4675": {
+        "$clewRef": "sha256:5adc242ccfa3fecc4db563d91f6e6643da11f449d9ee619b7548c72cc9e7e041"
+      },
+      "service:forecasts/forecasts-4e4e8e31400c498b7591": {
+        "$clewRef": "sha256:d427b97359350d37eab23d62a8c2f3d75dec53e7e9a22609b630fbcba9ce6aad"
+      },
+      "service:forecasts/forecasts-7113b27ca4694ebce3b6": {
+        "$clewRef": "sha256:5adc242ccfa3fecc4db563d91f6e6643da11f449d9ee619b7548c72cc9e7e041"
+      },
+      "service:forecasts/forecasts-a2617f9567b7eac19bf2": {
+        "$clewRef": "sha256:5adc242ccfa3fecc4db563d91f6e6643da11f449d9ee619b7548c72cc9e7e041"
+      },
+      "service:forecasts/forecasts-bd578e14951373ddaddf": {
+        "$clewRef": "sha256:5adc242ccfa3fecc4db563d91f6e6643da11f449d9ee619b7548c72cc9e7e041"
+      },
+      "service:forecasts/forecasts-c91896e4eb5ce5155f3d": {
+        "$clewRef": "sha256:5adc242ccfa3fecc4db563d91f6e6643da11f449d9ee619b7548c72cc9e7e041"
+      },
+      "service:forecasts/section-egress": {
+        "$clewRef": "sha256:05c76d8a63f5131c7bdefe307699810ca43941b929f8969a454f1d8fe7c6987c"
+      },
+      "service:forecasts/section-entities": {
+        "$clewRef": "sha256:05c76d8a63f5131c7bdefe307699810ca43941b929f8969a454f1d8fe7c6987c"
+      },
+      "service:forecasts/section-ingress": {
+        "$clewRef": "sha256:05c76d8a63f5131c7bdefe307699810ca43941b929f8969a454f1d8fe7c6987c"
+      },
+      "service:forecasts/section-overview": {
+        "$clewRef": "sha256:5adc242ccfa3fecc4db563d91f6e6643da11f449d9ee619b7548c72cc9e7e041"
+      },
+      "service:forecasts/section-responsibilities": {
+        "$clewRef": "sha256:05c76d8a63f5131c7bdefe307699810ca43941b929f8969a454f1d8fe7c6987c"
+      },
+      "service:places": {
+        "$clewRef": "sha256:5a6a7b40bd8db5940788361f21fb7d7f2e4577bbca44ec06cd6809abe3482938"
+      },
+      "service:places/assessment-runtime-broker-outage": {
+        "$clewRef": "sha256:1287307dd215fe09e7d7fa52473028891a640f133e59b81eee9f42ed7050de68"
+      },
+      "service:places/places-3a33202464c8b4fff218": {
+        "$clewRef": "sha256:aeada3ad526ae8a35878f733a7a061cd57b1427be659d6e7d483123ea9963d1a"
+      },
+      "service:places/places-691b340ea61828b197b6": {
+        "$clewRef": "sha256:aeada3ad526ae8a35878f733a7a061cd57b1427be659d6e7d483123ea9963d1a"
+      },
+      "service:places/places-8a2148bf5e312b0c5947": {
+        "$clewRef": "sha256:aeada3ad526ae8a35878f733a7a061cd57b1427be659d6e7d483123ea9963d1a"
+      },
+      "service:places/places-de7d5796a632782443dc": {
+        "$clewRef": "sha256:aeada3ad526ae8a35878f733a7a061cd57b1427be659d6e7d483123ea9963d1a"
+      },
+      "service:places/places-e06f41e67f62720ad106": {
+        "$clewRef": "sha256:aeada3ad526ae8a35878f733a7a061cd57b1427be659d6e7d483123ea9963d1a"
+      },
+      "service:places/section-egress": {
+        "$clewRef": "sha256:7449d8aac6ed9736ab4f2ef7e21f8258b178915b39babe38cf3cc40fb100aac1"
+      },
+      "service:places/section-entities": {
+        "$clewRef": "sha256:7449d8aac6ed9736ab4f2ef7e21f8258b178915b39babe38cf3cc40fb100aac1"
+      },
+      "service:places/section-ingress": {
+        "$clewRef": "sha256:7449d8aac6ed9736ab4f2ef7e21f8258b178915b39babe38cf3cc40fb100aac1"
+      },
+      "service:places/section-overview": {
+        "$clewRef": "sha256:7449d8aac6ed9736ab4f2ef7e21f8258b178915b39babe38cf3cc40fb100aac1"
+      },
+      "service:places/section-responsibilities": {
+        "$clewRef": "sha256:7449d8aac6ed9736ab4f2ef7e21f8258b178915b39babe38cf3cc40fb100aac1"
+      }
+    },
+    "targetRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "translationGaps": 0,
+    "unresolved": {},
+    "updateFailures": {}
+  }
+}

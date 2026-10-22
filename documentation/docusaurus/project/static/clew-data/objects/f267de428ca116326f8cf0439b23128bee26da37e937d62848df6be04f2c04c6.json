@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:f267de428ca116326f8cf0439b23128bee26da37e937d62848df6be04f2c04c6",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "DECLARED_TRANSITION_NOT_REACHED:places-place-requested-to-dashboard",
+      "DECLARED_TRANSITION_NOT_REACHED:places-place-requested-to-forecasts",
+      "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+      "EXTERNAL_CALL_BODY_NOT_EXPANDED",
+      "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+      "LINKED_PROCESS_STALE:dashboard-place-requested-consumer",
+      "LINKED_PROCESS_STALE:forecasts-place-requested-consumer"
+    ],
+    "href": "../scenarios/places-request-publisher.html#process-overview",
+    "id": "places-request-publisher",
+    "state": {
+      "$clewRef": "sha256:80a3d471b0896596761520253625c1508954ad0b77b4e8b9ee9668df32f91fc8"
+    },
+    "status": "AUTHORED",
+    "title": "Publish pending place requests",
+    "trigger": "ExecuteAsync receives a cancellation token and enters its publisher loop."
+  }
+}

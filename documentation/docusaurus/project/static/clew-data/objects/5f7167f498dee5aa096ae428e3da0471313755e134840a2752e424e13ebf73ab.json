@@ -1,0 +1,110 @@
+{
+  "identity": "sha256:5f7167f498dee5aa096ae428e3da0471313755e134840a2752e424e13ebf73ab",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "applicability": null,
+    "boundaries": [
+      "RUNTIME_DESTINATION_AND_ACTIVATION_UNKNOWN",
+      "WIRE_SERIALIZATION_NOT_ASSESSED",
+      "MESSAGE_DELIVERY_ORDER_RETRY_AND_CONSUMER_ACTIVATION_UNKNOWN",
+      "ENVIRONMENT_SCOPE_UNSPECIFIED",
+      "CLIENT_PATTERN_UNSUPPORTED_OR_AMBIGUOUS",
+      "UNACCEPTED_AGENT_PROPOSAL"
+    ],
+    "callSite": {
+      "candidates": [
+        "places:flow:941152b2ec99892568c9e40a"
+      ],
+      "details": [
+        {
+          "id": "places:flow:941152b2ec99892568c9e40a",
+          "selectedOrdinal": 0,
+          "sourceIds": [
+            "places-941152b2ec99892568c9"
+          ],
+          "target": "method:class:Confluent.Kafka.IProducer`2#ProduceAsync(LSystem/String;LConfluent/Kafka/Message`2;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;",
+          "transport": null
+        }
+      ],
+      "sourceIds": [
+        "places-941152b2ec99892568c9"
+      ],
+      "status": "RESOLVED"
+    },
+    "contractStatus": "NOT_ASSESSED",
+    "declaration": {
+      "$clewRef": "sha256:9992a38bbb90b2b9d9a4fe18f934633d68ecc0c127599cbc0ce537fa6977e3a9"
+    },
+    "declarationDigest": "sha256:9992a38bbb90b2b9d9a4fe18f934633d68ecc0c127599cbc0ce537fa6977e3a9",
+    "destination": {
+      "declared": null,
+      "observed": [],
+      "status": "UNRESOLVED"
+    },
+    "from": {
+      "$clewRef": "sha256:87913634370bd1505476f4915a60bb67c1d635a9ee4aaecaedb0267e35a48e4e"
+    },
+    "id": "places-place-requested-to-forecasts",
+    "method": {
+      "caller": {
+        "declared": null,
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": null,
+        "observed": [],
+        "status": "UNRESOLVED"
+      }
+    },
+    "origin": "agent-proposal",
+    "path": {
+      "caller": {
+        "declared": null,
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": null,
+        "observed": [],
+        "status": "UNRESOLVED"
+      }
+    },
+    "runtime": "UNKNOWN",
+    "to": {
+      "candidates": [
+        "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+      ],
+      "details": [
+        {
+          "descriptor": null,
+          "id": "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+          "parameterTypes": [
+            "record: ConsumerRecord<String, String>",
+            "acknowledgment: Acknowledgment"
+          ],
+          "sourceIds": [
+            "forecasts-ad28a606f0881dfe7cfc"
+          ],
+          "symbol": "source:services/forecasts/src/main/kotlin/weather/Forecasts.kt/class:weather.Forecasts/consume/5a16ece51f5fff27c58e"
+        }
+      ],
+      "sourceIds": [
+        "forecasts-ad28a606f0881dfe7cfc"
+      ],
+      "status": "SOURCE_MATCH"
+    },
+    "topic": {
+      "caller": {
+        "declared": "weather.place-requested",
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": "weather.place-requested",
+        "observed": [],
+        "status": "UNRESOLVED"
+      }
+    }
+  }
+}

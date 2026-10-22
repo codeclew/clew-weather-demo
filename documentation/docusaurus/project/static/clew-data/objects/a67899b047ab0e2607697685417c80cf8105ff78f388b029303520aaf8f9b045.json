@@ -1,0 +1,38 @@
+{
+  "identity": "sha256:a67899b047ab0e2607697685417c80cf8105ff78f388b029303520aaf8f9b045",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "id": "dashboard-place-requested-consumer",
+    "interactions": [
+      "places-place-requested-to-dashboard"
+    ],
+    "maxDepth": 4,
+    "maxNodes": 64,
+    "process": {
+      "linkedSubviews": [],
+      "objects": [],
+      "outcomes": [
+        "The topic-to-handler association is retained for review; handler behavior, subscription configuration and runtime delivery remain unverified."
+      ],
+      "participants": [
+        "dashboard"
+      ],
+      "scope": "Dashboard.consumeMessage with the agent-proposed weather.place-requested topic mapping.",
+      "trigger": "An agent-proposed mapping associates a weather.place-requested message with Dashboard.consumeMessage."
+    },
+    "root": {
+      "selector": {
+        "language": "typescript",
+        "name": "consumeMessage",
+        "owner": "package:",
+        "parameterTypes": [
+          ": EachMessagePayload"
+        ]
+      },
+      "service": "dashboard"
+    },
+    "schema": "codeclew-documentation-process/1.0",
+    "summary": "Agent-proposed association between the weather.place-requested topic and source handler Dashboard.consumeMessage; topic subscription and runtime delivery remain unverified.",
+    "title": "Dashboard place-requested consumer view"
+  }
+}

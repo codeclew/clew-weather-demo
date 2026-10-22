@@ -1,0 +1,42 @@
+{
+  "identity": "sha256:d0606e06ecb1f9c5879a39ecadbfc9f3d9151a17de4cb6b40e5e6697d1ac4a04",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "documentationLanguage": "en",
+    "fields": {
+      "$clewRef": "sha256:0c8a0d8d8a024e1fc558911fc52f16949c4def87252e9770ed3dd5dc9b53e6e0"
+    },
+    "id": "weather-card",
+    "identity": {
+      "$clewRef": "sha256:31a09a3d85e023d50c58ebbdabb40081e3884b5e690a1de4c42cf61610c6e3dc"
+    },
+    "kind": "READ_MODEL",
+    "processLinks": [
+      {
+        "anchor": "question-apply",
+        "label": "dashboard forecast updated consumer",
+        "replacesServiceEntities": "dashboard",
+        "subject": "scenario:dashboard-forecast-updated-consumer"
+      },
+      {
+        "anchor": "question-apply",
+        "label": "dashboard place requested consumer",
+        "replacesServiceEntities": "dashboard",
+        "subject": "scenario:dashboard-place-requested-consumer"
+      },
+      {
+        "anchor": "section-entities",
+        "label": "dashboard: field descriptions",
+        "subject": "service:dashboard"
+      }
+    ],
+    "purpose": {
+      "$clewRef": "sha256:052245fb5b5cc735035815b3c3ac1d5e72bf718d9c39ee0386e22e328120909b"
+    },
+    "relatedModels": [
+      "place",
+      "forecast"
+    ],
+    "title": "Weather card"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "identity": "sha256:450785a68a38ca0f210a25176fd3287f0e395907fcea00c0b5cbc9d1f0725f49",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "dashboard:contract-scope:f86e10393733a9350be2eda4",
+      "dashboard:source_scope:a94d30979421b6ddbba5e94b",
+      "entity-scope:dashboard",
+      "entity-scope:forecasts",
+      "entity-scope:places",
+      "forecasts:contract-scope:f86e10393733a9350be2eda4",
+      "forecasts:source_scope:a94d30979421b6ddbba5e94b",
+      "note-scope:dashboard",
+      "note-scope:forecasts",
+      "note-scope:places",
+      "places:MODULE_SCOPE:55a4c630c66aa1b96be127e5",
+      "places:contract-scope:f86e10393733a9350be2eda4"
+    ],
+    "interactionMembership": [
+      "dashboard-request-refresh-to-places",
+      "dashboard-save-place-to-places",
+      "forecasts-forecast-updated-to-dashboard",
+      "forecasts-refresh-to-external-met",
+      "places-place-requested-to-dashboard",
+      "places-place-requested-to-forecasts"
+    ],
+    "participants": [
+      "dashboard",
+      "places",
+      "forecasts"
+    ],
+    "runtime": "UNKNOWN",
+    "unavailableParticipants": []
+  }
+}

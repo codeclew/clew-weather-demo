@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:07d2e47a16be238a314a1eae658c9e30d02230bb9c2aa5f4cb14019d0c77ded4",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "cases": {
+      "$clewRef": "sha256:f485d9cc980a9c090d524b460c828044e0c0acfacc7ca6c23d4b861d4cbba95c"
+    },
+    "contractDigest": "sha256:01e33d77e61703ad9c2f666874c4f7704610d8b934a5792ae509abfaabb41bad",
+    "contractId": "places:contract-operation:6b165729e2d309a9b2687873",
+    "coverage": "Observed 202 and 404 with declared media and schema-valid JSON. QUEUED satisfies the const-only schema. Persistence and the 500 path were not tested.",
+    "entrypoint": "places-e06f41e67f62720ad106",
+    "findings": [],
+    "method": "POST",
+    "path": "/places/{id}/refresh"
+  }
+}

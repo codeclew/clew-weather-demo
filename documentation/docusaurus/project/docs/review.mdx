@@ -1,0 +1,40 @@
+---
+title: Weather Docusaurus review
+slug: /review
+---
+
+import {ClewDownload} from '@site/src/components/ClewReaders';
+
+# Weather Docusaurus review
+
+This separate version presents the retained Weather publication with the current renderer candidate. The original native website remains available at [Weather native documentation · official clew 0.13.39](https://codeclew.github.io/clew-weather-demo/). This is a source candidate, not a new Codeclew public release or a new runtime observation.
+
+**Renderer source commit:** `17224661d68056b502c50c6c9431efb40aca2b4a` · reported source version `0.13.46`.
+
+**Publication:** `14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8`
+
+**Selected snapshot:** `sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956`
+
+## Current MDX capabilities and real examples
+
+| Capability | Real Weather example |
+| --- | --- |
+| [System story and catalog](overview.mdx) | The current reading guide and service/process discovery. |
+| [Service purpose, inputs, state and rules](services/dashboard.mdx) | Dashboard; Places and Forecasts have the same service reader. |
+| [Source-bound process and complete selected methods](scenarios/dashboard-save-city.mdx) | Saving a city through Dashboard and Places. |
+| [Optional process Data Flow](scenarios/dashboard-forecast-updated-consumer.mdx) | Read the account, then select Data Flow; this author input explicitly enables it. |
+| [Models, field tables and lookup records](data-model/city-lookup.mdx) | The three supported cities and field evidence; follow related Place and forecast models. |
+| [HTTP schemas and retained comparisons](comparisons/places.mdx) | Declared contracts and retained observations keep separate authority. |
+| [Kafka consumption and asynchronous continuation](scenarios/forecasts-place-requested-consumer.mdx) | A real place-requested consumer and producer/consumer discovery. |
+| [Historical runtime note and separate assessment](notes/dashboard--assessment-runtime-kafka-replay.mdx) | A retained replay observation, not a fresh runtime test. |
+| [Retained source appendix](sources/index.mdx) | Exact retained revision/range bindings and their reading context. |
+| [Reader help and author recipes](help.mdx) | Navigation, evidence interpretation and explicitly labeled authoring instructions. |
+| [Publication identity and limits](history.mdx) | The selected publication and snapshot; this export contains no chronology or diff. |
+
+These links cover the page types and optional data-flow view actually present in this export. Source, declarations, interpretations, meaning review and historical observations retain their own limits. The Help capability table describes module support and admission requirements; this publication does not demonstrate every possible module or prove runtime activation.
+
+## Historical native examples
+
+[Open the historical real-example renderer catalog](https://codeclew.github.io/clew-weather-demo/render-catalog/). It retains native and earlier renderer examples from source revision `31a559851b947d5eda90afc003f2bfb2b2c27130`. Its inventory and missing view types describe that collection. They are not a claim of current MDX coverage or a list of missing current features.
+
+<ClewDownload path="/variant-identity.json">Inspect the variant identity</ClewDownload>.

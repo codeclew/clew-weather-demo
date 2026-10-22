@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:f3b9679a16510eab56899cb4a3b74750972ebd66840d271e846b18be05db622c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "forecasts:flow:ea6dd04c278f12f668b5cde7",
+      "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+      "forecasts:symbol:04bc0feeea5752d3f1979c56"
+    ],
+    "id": "claim-94a23a87ffeebe48a0d6",
+    "kind": "note",
+    "sourceIds": [
+      "forecasts-04bc0feeea5752d3f197",
+      "forecasts-ea6dd04c278f12f668b5"
+    ],
+    "text": "For a status other than 200 or 203, the source requirement throws an error containing the provider status. The enclosing per-place catch logs the exception class, and this failed path does not reach the shared transformation or persistence steps."
+  }
+}

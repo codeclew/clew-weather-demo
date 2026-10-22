@@ -1,0 +1,60 @@
+{
+  "identity": "sha256:f3dabbbd956d8bd60cb969cbf1d6be59f8a141ed1e62cdf64c873092a2b791c3",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "DECLARED_OPENAPI",
+    "boundaries": [],
+    "declaredSource": "contracts/dashboard.openapi.json",
+    "entrypoint": null,
+    "method": "GET",
+    "openapi": "3.1.0",
+    "operation": {
+      "operationId": "dashboard_get_openapi.json",
+      "responses": {
+        "200": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": true,
+                "type": "object"
+              }
+            }
+          },
+          "description": "200"
+        },
+        "500": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": true,
+                "properties": {
+                  "error": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "description": "500"
+        }
+      }
+    },
+    "parameters": [],
+    "path": "/openapi.json",
+    "readerSelection": {
+      "compatibilityAnchor": "3.1",
+      "fullSpecificationValidation": false,
+      "outsideAdvertisedRange": false,
+      "reader": "BOUNDED_OPENAPI_PATH_OPERATION_READER",
+      "selectionMode": "DECLARED_COMPATIBILITY_PROFILE",
+      "supportedVersionRange": "OPENAPI_THROUGH_3_X"
+    },
+    "runtimeEnforcement": "UNVERIFIED",
+    "schema": "codeclew-documentation-contract-facts/1.0",
+    "security": null,
+    "securitySchemes": null,
+    "servers": null,
+    "sourceMapping": "NO_SOURCE_ROUTE_MATCH"
+  }
+}

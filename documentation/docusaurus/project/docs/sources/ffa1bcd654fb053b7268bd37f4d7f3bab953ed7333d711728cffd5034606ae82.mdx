@@ -1,0 +1,34 @@
+---
+title: "services/forecasts/src/main/kotlin/weather/ForecastController.kt:9–20"
+slug: "/sources/ffa1bcd654fb053b7268bd37f4d7f3bab953ed7333d711728cffd5034606ae82"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/forecasts/src/main/kotlin/weather/ForecastController.kt:9–20
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: c289b28be4819eddf29d59a7c12f178559ec5229
+
+Text digest: sha256:45d873fa042fb2bfb738ca1a4208dc4a7e1565befa67e79b7ebd76b8952b34b9
+
+## Retained text {#retained-text}
+
+```text
+@RestController
+class ForecastController(private val forecasts: Forecasts) {
+    @GetMapping("/forecasts/{id}")
+    fun get(@PathVariable id: String): ResponseEntity<String> {
+        val payload = forecasts.get(id) ?: return ResponseEntity.notFound().build()
+        return ResponseEntity.ok().header("Content-Type", "application/json").body(payload)
+    }
+    @GetMapping("/health")
+    fun health(): Map<String, String> { forecasts.ping(); return mapOf("database" to "READY") }
+    @GetMapping("/openapi.json")
+    fun openApi(): ResponseEntity<String> = ResponseEntity.ok().header("Content-Type", "application/json").body(Files.readString(Path.of("/app/contracts/forecasts.openapi.json")))
+}
+```
+
+<ClewDownload path="/clew-data/objects/ffa1bcd654fb053b7268bd37f4d7f3bab953ed7333d711728cffd5034606ae82.json">Complete original source binding</ClewDownload>

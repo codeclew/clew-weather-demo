@@ -1,0 +1,51 @@
+{
+  "identity": "sha256:a2c4fd7927d707a16d4aff7c1db8696857ba70bf2970e86affd285e7b7b02b52",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "bodyAssessment": "matches-selected-schema",
+    "bodyErrors": [],
+    "comparedSchemaMedia": "application/json",
+    "declaredMedia": [
+      "application/json"
+    ],
+    "id": "invalid-city-type",
+    "mediaAssessment": "undeclared-media",
+    "request": {
+      "body": "{\"cityId\":42}",
+      "contentType": "application/json",
+      "method": "POST",
+      "path": "/places"
+    },
+    "requestAssessment": "outside-schema",
+    "requestErrors": [
+      {
+        "message": "42 is not one of ['oslo', 'helsinki', 'lisbon']",
+        "path": [
+          "cityId"
+        ],
+        "schemaPath": [
+          "properties",
+          "cityId",
+          "enum"
+        ]
+      },
+      {
+        "message": "42 is not of type 'string'",
+        "path": [
+          "cityId"
+        ],
+        "schemaPath": [
+          "properties",
+          "cityId",
+          "type"
+        ]
+      }
+    ],
+    "response": {
+      "body": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"request\":[\"The request field is required.\"],\"$.cityId\":[\"The JSON value could not be converted to Weather.Places.SavePlace. Path: $.cityId | LineNumber: 0 | BytePositionInLine: 12.\"]},\"traceId\":\"00-4a31f66cfc0695a4f21188547e90670b-a6a173a23219198e-00\"}",
+      "contentType": "application/problem+json; charset=utf-8",
+      "status": 400
+    },
+    "statusDeclared": true
+  }
+}

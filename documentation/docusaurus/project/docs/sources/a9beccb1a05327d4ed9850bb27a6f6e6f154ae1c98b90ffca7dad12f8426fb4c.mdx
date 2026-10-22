@@ -1,0 +1,37 @@
+---
+title: "fixtures/provenance.json:1–14"
+slug: "/sources/a9beccb1a05327d4ed9850bb27a6f6e6f154ae1c98b90ffca7dad12f8426fb4c"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# fixtures/provenance.json:1–14
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6
+
+Text digest: sha256:414e27ffff0ec31ee87be9a2d13fdaab70d56b4d22d5e00e5a9885a47af47c23
+
+## Retained text {#retained-text}
+
+```text
+{
+  "schema": "weather-fixture-provenance/1.0",
+  "provider": "MET Norway",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "sourceUrl": "https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=59.93&lon=10.72",
+  "recordedResponse": "met-oslo-recorded.json",
+  "fixtureDerivations": {
+    "oslo": "first six recorded points",
+    "helsinki": "synthetic zero-temperature boundary derived from recorded structure",
+    "lisbon": "synthetic temperature values derived from recorded structure"
+  },
+  "liveWeather": false
+}
+
+```
+
+<ClewDownload path="/clew-data/objects/a9beccb1a05327d4ed9850bb27a6f6e6f154ae1c98b90ffca7dad12f8426fb4c.json">Complete original source binding</ClewDownload>

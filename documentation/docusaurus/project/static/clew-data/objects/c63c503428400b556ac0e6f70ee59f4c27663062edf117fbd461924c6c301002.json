@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:c63c503428400b556ac0e6f70ee59f4c27663062edf117fbd461924c6c301002",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "branchGroup": {
+      "$clewRef": "sha256:74c336341ddccdf17c182b403008c90df191879b404d872b2f6cbac3718611f0"
+    },
+    "endLine": 25,
+    "id": "places-refresh-handler",
+    "kind": "DECISION",
+    "method": "places-refresh",
+    "startLine": 18,
+    "text": "Find the place. Return 404 if absent; otherwise await repository.Enqueue and return 202 with status QUEUED. The wrapper does not establish downstream forecast completion.",
+    "title": "Handle the refresh request"
+  }
+}

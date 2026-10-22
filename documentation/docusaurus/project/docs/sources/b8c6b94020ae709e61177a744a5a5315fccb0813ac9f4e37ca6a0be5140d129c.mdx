@@ -1,0 +1,35 @@
+---
+title: "services/dashboard/src/main.ts:99–111"
+slug: "/sources/b8c6b94020ae709e61177a744a5a5315fccb0813ac9f4e37ca6a0be5140d129c"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/dashboard/src/main.ts:99–111
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: e635069293d58cb0d4f28c8211e748b8d58e6b37
+
+Text digest: sha256:e62fed56d05e20de4911ed5a13ee187cd1779ed829116b5940245d256b4a3351
+
+## Retained text {#retained-text}
+
+```text
+async function start(): Promise<void> {
+  await consumer.connect()
+  await consumer.subscribe({ topics: ['weather.place-requested', 'weather.forecast-updated'], fromBeginning: true })
+  await consumer.run({ autoCommit: false, eachMessage: consumeMessage })
+  consumerReady = true
+  app.get('/api/weather', getWeather)
+  app.post('/api/places', savePlace)
+  app.post<{ Params: { id: string } }>('/api/places/:id/refresh', requestRefresh)
+  app.get('/health', getHealth)
+  app.get('/openapi.json', getOpenApi)
+  app.get('/', getHome)
+  await app.listen({ port: Number(process.env.PORT ?? 8080), host: '0.0.0.0' })
+}
+```
+
+<ClewDownload path="/clew-data/objects/b8c6b94020ae709e61177a744a5a5315fccb0813ac9f4e37ca6a0be5140d129c.json">Complete original source binding</ClewDownload>

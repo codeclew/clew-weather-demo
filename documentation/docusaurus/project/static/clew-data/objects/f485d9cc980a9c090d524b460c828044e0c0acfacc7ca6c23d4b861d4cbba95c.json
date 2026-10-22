@@ -1,0 +1,54 @@
+{
+  "identity": "sha256:f485d9cc980a9c090d524b460c828044e0c0acfacc7ca6c23d4b861d4cbba95c",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    {
+      "bodyAssessment": "matches-selected-schema",
+      "bodyErrors": [],
+      "comparedSchemaMedia": "application/json",
+      "declaredMedia": [
+        "application/json"
+      ],
+      "id": "refresh-found",
+      "mediaAssessment": "declared",
+      "request": {
+        "body": null,
+        "contentType": null,
+        "method": "POST",
+        "path": "/places/oslo/refresh"
+      },
+      "requestAssessment": "no-body-declared",
+      "requestErrors": null,
+      "response": {
+        "body": "{\"placeId\":\"oslo\",\"status\":\"QUEUED\"}",
+        "contentType": "application/json; charset=utf-8",
+        "status": 202
+      },
+      "statusDeclared": true
+    },
+    {
+      "bodyAssessment": "matches-selected-schema",
+      "bodyErrors": [],
+      "comparedSchemaMedia": "application/json",
+      "declaredMedia": [
+        "application/json"
+      ],
+      "id": "refresh-missing",
+      "mediaAssessment": "declared",
+      "request": {
+        "body": null,
+        "contentType": null,
+        "method": "POST",
+        "path": "/places/unknown/refresh"
+      },
+      "requestAssessment": "no-body-declared",
+      "requestErrors": null,
+      "response": {
+        "body": "{\"error\":\"PLACE_NOT_FOUND\"}",
+        "contentType": "application/json; charset=utf-8",
+        "status": 404
+      },
+      "statusDeclared": true
+    }
+  ]
+}

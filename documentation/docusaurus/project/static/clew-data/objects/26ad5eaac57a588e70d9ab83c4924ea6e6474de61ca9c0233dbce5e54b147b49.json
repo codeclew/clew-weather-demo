@@ -1,0 +1,24 @@
+{
+  "identity": "sha256:26ad5eaac57a588e70d9ab83c4924ea6e6474de61ca9c0233dbce5e54b147b49",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "places:symbol:434ffab68fae2f991ebba252"
+    ],
+    "id": "places:symbol:434ffab68fae2f991ebba252",
+    "name": "Enqueue",
+    "owner": "class:Weather.Places.PlacesRepository",
+    "parameterTypes": [
+      "Weather.Places.Place",
+      "System.Threading.CancellationToken"
+    ],
+    "publicBoundary": false,
+    "scope": "csproj:services/places/Places.csproj@net10.0",
+    "service": "places",
+    "sourceIds": [
+      "places-434ffab68fae2f991ebb"
+    ],
+    "status": "RECORDED",
+    "symbol": "method:class:Weather.Places.PlacesRepository#Enqueue(LWeather/Places/Place;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;"
+  }
+}

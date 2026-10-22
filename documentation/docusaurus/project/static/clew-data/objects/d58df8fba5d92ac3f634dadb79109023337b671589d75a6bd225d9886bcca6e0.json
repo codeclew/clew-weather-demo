@@ -1,0 +1,49 @@
+{
+  "identity": "sha256:d58df8fba5d92ac3f634dadb79109023337b671589d75a6bd225d9886bcca6e0",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "CALL_TARGETS_UNRESOLVED",
+      "RUNTIME_REGISTRATION_UNPROVEN",
+      "SOURCE_ROUTE_NOT_COMPILER_RESOLVED"
+    ],
+    "dependencyIds": [
+      "dashboard:symbol:8e13fe1feb2708d5e5bd3c43",
+      "dashboard:syntax_detail:43f954425f6ac6068fb74031"
+    ],
+    "id": "dashboard-721012b8ddf1b26a39b9",
+    "kind": "HTTP_ENDPOINT",
+    "service": "dashboard",
+    "sourceIds": [
+      "dashboard-1692b114a9d500b491f7",
+      "dashboard-1e3cf8abfb4c21d6e8dc",
+      "dashboard-8e13fe1feb2708d5e5bd",
+      "dashboard-bfc0fdabee0517e3f6a1"
+    ],
+    "symbol": "source:services/dashboard/src/main.ts/package:/getHome/71d253de88dabefd2d09",
+    "trigger": {
+      "authority": "SOURCE_REGISTRATION_SYNTAX",
+      "methods": [
+        "GET"
+      ],
+      "name": "getHome",
+      "owner": "package:",
+      "paths": [
+        "/"
+      ],
+      "sourceRoutes": [
+        {
+          "authority": "SOURCE_SYNTAX",
+          "declaredPath": "/",
+          "framework": "fastify",
+          "handler": "source:services/dashboard/src/main.ts/package:/getHome/71d253de88dabefd2d09",
+          "method": "GET",
+          "path": "/",
+          "receiver": "app",
+          "runtimeActivation": "UNVERIFIED",
+          "schema": "codeclew-typescript-source-route/1.0"
+        }
+      ]
+    }
+  }
+}

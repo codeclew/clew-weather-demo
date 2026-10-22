@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:a52fcf96c4c466fb94ad4b2248b4be5085316219ac296d47095877aac5d96a5c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:20787f3758781aeffa8c4adefd59be7c70f3603b3504b8b24775eb5109a8d0b0"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Each Period.time must pass isTimestamp.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

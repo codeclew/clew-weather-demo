@@ -1,0 +1,85 @@
+{
+  "identity": "sha256:5253ad68fdd1d1fb2b3a788d974d605418b8cb621693fb3d213d74ca2d2bf16b",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "applicability": null,
+    "boundaries": [
+      "RUNTIME_DESTINATION_AND_ACTIVATION_UNKNOWN",
+      "WIRE_SERIALIZATION_NOT_ASSESSED",
+      "ENVIRONMENT_SCOPE_UNSPECIFIED",
+      "CLIENT_PATTERN_UNSUPPORTED_OR_AMBIGUOUS",
+      "UNACCEPTED_AGENT_PROPOSAL"
+    ],
+    "callSite": {
+      "candidates": [],
+      "details": [],
+      "sourceIds": [],
+      "status": "MISSING"
+    },
+    "contractStatus": "NOT_ASSESSED",
+    "declaration": {
+      "$clewRef": "sha256:d01318c7195e5d40240629ac3018e7d5f40ed5d80e4a69b5c0e8083999159a78"
+    },
+    "declarationDigest": "sha256:d01318c7195e5d40240629ac3018e7d5f40ed5d80e4a69b5c0e8083999159a78",
+    "destination": {
+      "declared": null,
+      "observed": [],
+      "status": "UNRESOLVED"
+    },
+    "from": {
+      "candidates": [
+        "forecasts:symbol:04bc0feeea5752d3f1979c56"
+      ],
+      "details": [
+        {
+          "descriptor": null,
+          "id": "forecasts:symbol:04bc0feeea5752d3f1979c56",
+          "parameterTypes": [
+            "place: JsonNode"
+          ],
+          "sourceIds": [
+            "forecasts-04bc0feeea5752d3f197"
+          ],
+          "symbol": "source:services/forecasts/src/main/kotlin/weather/Forecasts.kt/class:weather.Forecasts/refresh/30ebb38d591ad64f6290"
+        }
+      ],
+      "sourceIds": [
+        "forecasts-04bc0feeea5752d3f197"
+      ],
+      "status": "SOURCE_MATCH"
+    },
+    "id": "forecasts-refresh-to-external-met",
+    "method": {
+      "caller": {
+        "declared": "GET",
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": "GET",
+        "observed": [],
+        "status": "UNRESOLVED"
+      }
+    },
+    "origin": "agent-proposal",
+    "path": {
+      "caller": {
+        "declared": null,
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": null,
+        "observed": [],
+        "status": "UNRESOLVED"
+      }
+    },
+    "runtime": "UNKNOWN",
+    "to": {
+      "candidates": [],
+      "details": [],
+      "sourceIds": [],
+      "status": "INCOMPLETE"
+    }
+  }
+}

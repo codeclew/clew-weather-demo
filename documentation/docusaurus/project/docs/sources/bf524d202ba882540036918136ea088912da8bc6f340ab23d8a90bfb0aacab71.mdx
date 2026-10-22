@@ -1,0 +1,53 @@
+---
+title: "services/dashboard/src/main.ts:15–45"
+slug: "/sources/bf524d202ba882540036918136ea088912da8bc6f340ab23d8a90bfb0aacab71"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/dashboard/src/main.ts:15–45
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: e635069293d58cb0d4f28c8211e748b8d58e6b37
+
+Text digest: sha256:e9e14fa39603fb16a105b4a376fbe2e86d969f3ee273f06a32d88c0b5799e6a5
+
+## Retained text {#retained-text}
+
+```text
+async function applyEvent(event: Event): Promise<string> {
+  const client = await pool.connect()
+  try {
+    await client.query('BEGIN')
+    const inserted = await client.query('INSERT INTO inbox(event_id) VALUES($1) ON CONFLICT DO NOTHING RETURNING event_id', [event.id])
+    if (inserted.rowCount === 0) {
+      await client.query('COMMIT')
+      return 'DUPLICATE'
+    }
+    let result
+    if (event.type === 'forecast.updated' && event.forecast) {
+      result = await client.query(`INSERT INTO weather_cards(place_id,name,latitude,longitude,updated_at,forecast)
+        VALUES($1,$2,$3,$4,$5,$6) ON CONFLICT(place_id) DO UPDATE SET
+        name=EXCLUDED.name,latitude=EXCLUDED.latitude,longitude=EXCLUDED.longitude,
+        updated_at=EXCLUDED.updated_at,forecast=EXCLUDED.forecast
+        WHERE weather_cards.updated_at IS NULL OR EXCLUDED.updated_at > weather_cards.updated_at`,
+      [event.place.id, event.place.name, event.place.latitude, event.place.longitude, event.forecast.updatedAt, JSON.stringify(event.forecast)])
+    } else {
+      result = await client.query(`INSERT INTO weather_cards(place_id,name,latitude,longitude) VALUES($1,$2,$3,$4)
+        ON CONFLICT(place_id) DO UPDATE SET name=EXCLUDED.name,latitude=EXCLUDED.latitude,longitude=EXCLUDED.longitude`,
+      [event.place.id, event.place.name, event.place.latitude, event.place.longitude])
+    }
+    await client.query('COMMIT')
+    return result.rowCount === 0 ? 'OLDER_OR_EQUAL' : 'APPLIED'
+  } catch (error) {
+    await client.query('ROLLBACK')
+    throw error
+  } finally {
+    client.release()
+  }
+}
+```
+
+<ClewDownload path="/clew-data/objects/bf524d202ba882540036918136ea088912da8bc6f340ab23d8a90bfb0aacab71.json">Complete original source binding</ClewDownload>

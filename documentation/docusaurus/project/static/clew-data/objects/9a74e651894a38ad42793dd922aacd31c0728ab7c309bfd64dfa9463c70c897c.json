@@ -1,0 +1,35 @@
+{
+  "identity": "sha256:9a74e651894a38ad42793dd922aacd31c0728ab7c309bfd64dfa9463c70c897c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "fragment": {
+      "dependencyIds": [
+        "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+        "interaction:dashboard-save-place-to-places",
+        "scenario:dashboard-save-city"
+      ],
+      "detail": false,
+      "eventIds": [
+        "claim-ea66fc67117c852a5204"
+      ],
+      "id": "claim-acefd929067d5d7fd3f8",
+      "sourceIds": [
+        "dashboard-7970ac3e2a8cf3f45b4a"
+      ],
+      "text": "Dashboard POSTs JSON.stringify(request.body) to /places with content-type application/json and AbortSignal.timeout(10000). The saved interaction is an agent-proposed target mapping, not proof of runtime routing."
+    },
+    "kind": "RETAINED_CLAIM",
+    "operation": "dashboard-save-city",
+    "sourceContext": {
+      "$clewRef": "sha256:2500520baf99b1d310b6288dd07e56c5fb4474fc6d95aae8ba0d0ca371a5f557"
+    },
+    "sources": {
+      "$clewRef": "sha256:de66434bd1260a61a99cdf6689d1967278211a25f17e7b143b13f8ade98307a8"
+    },
+    "state": {
+      "$clewRef": "sha256:1ade2833affd21c2594b8a65814dd40a3662f96f5ab0b85edb71e877a81945d9"
+    },
+    "subject": "scenario:dashboard-save-city",
+    "title": "Save a city through Dashboard and record the outbox boundary"
+  }
+}

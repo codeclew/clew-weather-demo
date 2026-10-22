@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:a2a588353e80392c65b47c005a5d4cbc447e0b5b7297f6240d0c49c04d5fbc3c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contract": null,
+    "field": null,
+    "label": "GET /api/weather row.id",
+    "mapping": {
+      "$clewRef": "sha256:5afdc1dddebf89fbdbef0affd943537f7479778d2de3b954eb54d30db22becc8"
+    },
+    "nullability": "Not nullable under the captured table definition",
+    "relatedModel": null,
+    "requiredness": "Explicitly selected by the SQL query",
+    "typeLabel": "string"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "identity": "sha256:6fe8927ea6c43fffa47e56d330eae9023b1ba37c93c3fd3fc40649371180ad44",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    {
+      "artifact": "controller",
+      "artifactDigest": "sha256:cc30217e5adff0694049dc43d7857510a7da3c71726a78384de6f4195a573895",
+      "endByte": 403,
+      "match": "EXACT_CAPTURED_BYTES_WITHIN_DECLARED_LINES",
+      "sourceId": "places-19e12857365e6c3ab8c1",
+      "startByte": 276
+    },
+    {
+      "artifact": "controller",
+      "artifactDigest": "sha256:cc30217e5adff0694049dc43d7857510a7da3c71726a78384de6f4195a573895",
+      "endByte": 746,
+      "match": "EXACT_CAPTURED_BYTES_WITHIN_DECLARED_LINES",
+      "sourceId": "places-309961f88b197290c1b0",
+      "startByte": 408
+    },
+    {
+      "artifact": "controller",
+      "artifactDigest": "sha256:cc30217e5adff0694049dc43d7857510a7da3c71726a78384de6f4195a573895",
+      "endByte": 1122,
+      "match": "EXACT_CAPTURED_BYTES_WITHIN_DECLARED_LINES",
+      "sourceId": "places-65de4bdfa04d114b73df",
+      "startByte": 751
+    },
+    {
+      "artifact": "controller",
+      "artifactDigest": "sha256:cc30217e5adff0694049dc43d7857510a7da3c71726a78384de6f4195a573895",
+      "endByte": 177,
+      "match": "EXACT_CAPTURED_BYTES_WITHIN_DECLARED_LINES",
+      "sourceId": "places-6c7321d96988c6277e32",
+      "startByte": 138
+    },
+    {
+      "artifact": "openapi",
+      "artifactDigest": "sha256:ab24febec1817f3cca9b6e58e2f161f489edcc7266670d7b71b9736134cdc8c5",
+      "endByte": 6754,
+      "match": "EXACT_CAPTURED_BYTES_WITHIN_DECLARED_LINES",
+      "sourceId": "places-770e53d99edf681987e1",
+      "startByte": 0
+    },
+    {
+      "artifact": "controller",
+      "artifactDigest": "sha256:cc30217e5adff0694049dc43d7857510a7da3c71726a78384de6f4195a573895",
+      "endByte": 1530,
+      "match": "EXACT_CAPTURED_BYTES_WITHIN_DECLARED_LINES",
+      "sourceId": "places-980888b04e77862e073c",
+      "startByte": 1318
+    },
+    {
+      "artifact": "controller",
+      "artifactDigest": "sha256:cc30217e5adff0694049dc43d7857510a7da3c71726a78384de6f4195a573895",
+      "endByte": 1532,
+      "match": "EXACT_CAPTURED_BYTES_WITHIN_DECLARED_LINES",
+      "sourceId": "places-c4c78f2ff61478266b21",
+      "startByte": 178
+    },
+    {
+      "artifact": "controller",
+      "artifactDigest": "sha256:cc30217e5adff0694049dc43d7857510a7da3c71726a78384de6f4195a573895",
+      "endByte": 1313,
+      "match": "EXACT_CAPTURED_BYTES_WITHIN_DECLARED_LINES",
+      "sourceId": "places-edfd73109baec00e38bd",
+      "startByte": 1127
+    }
+  ]
+}

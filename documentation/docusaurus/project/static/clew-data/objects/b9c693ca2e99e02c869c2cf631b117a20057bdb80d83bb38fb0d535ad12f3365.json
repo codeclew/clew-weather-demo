@@ -1,0 +1,20 @@
+{
+  "identity": "sha256:b9c693ca2e99e02c869c2cf631b117a20057bdb80d83bb38fb0d535ad12f3365",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": {
+      "$clewRef": "sha256:7e3e8a82826632b85c75a9b5218274770c9b25a3776d978049d2a0c42107a80b"
+    },
+    "id": "claim-494dc5c43cce06a75764",
+    "sourceIds": [
+      "forecasts-04bc0feeea5752d3f197",
+      "forecasts-1ea53b95922ad5791d93",
+      "forecasts-27cca3456e62e8b1d498",
+      "forecasts-3d7b217355f2e6a34064",
+      "forecasts-a38291144ad4bd8a411b",
+      "forecasts-ad28a606f0881dfe7cfc",
+      "forecasts-cc58d8643f3d17e4b691"
+    ],
+    "text": "Forecasts serves stored forecast payloads by place id, reports database readiness, and serves the checked-in OpenAPI document. Its Kafka listener consumes weather.place-requested events. Invalid JSON or place.requested v1 validation throws enter the reject branch, which inserts a rejected_messages row and acknowledges the record before returning; the valid branch places inbox insertion, place upsert, and refresh in a transaction callback, then reaches acknowledgment afterward. Callback timing, commit, rollback, and runtime delivery remain unverified.\n\nThe service refreshes only when a cached forecast is expired or absent. Its fixture branch reads a place-specific fixture; its live branch calls MET. It builds a forecast payload, attempts an upsert that accepts equal or newer updatedAt values, then attempts a forecast.updated outbox insert. Two source declarations use scheduled annotations: refreshExpired scans expired or missing forecasts, and publishPending sends outbox records. Source syntax and configuration do not establish that either schedule or listener runs in deployment."
+  }
+}

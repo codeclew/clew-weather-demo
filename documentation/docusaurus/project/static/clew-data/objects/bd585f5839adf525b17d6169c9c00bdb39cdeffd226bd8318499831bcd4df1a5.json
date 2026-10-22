@@ -1,0 +1,38 @@
+{
+  "identity": "sha256:bd585f5839adf525b17d6169c9c00bdb39cdeffd226bd8318499831bcd4df1a5",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "FRAMEWORK_DERIVED_SOURCE",
+    "configuration": {
+      "topics": [
+        "weather.place-requested"
+      ]
+    },
+    "frameworkDeclarations": [
+      {
+        "controller": null,
+        "kind": "KAFKA_LISTENER",
+        "registration": "RUNTIME_CONDITIONAL",
+        "trigger": {
+          "authority": "SPRING_ANNOTATION_RULES",
+          "configuration": {
+            "topics": [
+              "weather.place-requested"
+            ]
+          }
+        }
+      }
+    ],
+    "frameworkDerivation": {
+      "coverage": "PARTIAL",
+      "implementationDigest": "sha256:afdbd2484f030da4d481e109d5a74a62a9885136cf7c6832ee1869318477c464",
+      "inputAuthority": "SOURCE_ANNOTATIONS",
+      "inputDigest": "sha256:ae54968adbcaf8333aaffa507c3ff11d78ce080bb76ad90360fd90d099faf3e9",
+      "inputSchema": "source-annotation-facts/1.0",
+      "moduleId": "spring",
+      "policyVersion": "spring-annotation-declarations/1.0"
+    },
+    "name": "consume",
+    "owner": "class:weather.Forecasts"
+  }
+}

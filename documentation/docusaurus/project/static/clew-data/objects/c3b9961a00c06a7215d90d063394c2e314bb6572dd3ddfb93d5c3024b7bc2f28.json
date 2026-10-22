@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:c3b9961a00c06a7215d90d063394c2e314bb6572dd3ddfb93d5c3024b7bc2f28",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:f677f7caa029c76cb7c93f15395a92efc0f78608f7288cc859df5018b17a63cd"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The query selects weather_cards.latitude as latitude.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

@@ -1,0 +1,364 @@
+---
+title: "Scheduled refreshExpired declaration"
+slug: "/operations/services-forecasts--forecasts-a2617f9567b7eac19bf2"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Scheduled refreshExpired declaration
+
+<ClewPageContext />
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+The source declares refreshExpired with fixedDelayString REFRESH\_INTERVAL\_MS and a 60000 millisecond default. It queries places whose forecast expiry is absent or earlier than now, ordered by place id, then passes each refresh call to a transaction callback. Scheduler activation and runtime callback behavior remain unverified.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:62–68 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ee1c73490c4cd4a1f4efaf310e65a12cc2a3c6bbb15ab76a4eb246cf1533dc35.mdx)
+
+</details>
+
+## Declared interface schemas
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/f6ce8266c4e697d9db9c6b995e231713ba2df9f58df6c8a2b74789bcf30bfa2c">GET /openapi.json</ClewContextLink>
+
+<ClewContextLink path="/http/99c2697e8d504c9514c34631f942558372d28feb06ef894ce282840389e9f94a">GET /forecasts/&#123;id&#125;</ClewContextLink>
+
+<ClewContextLink path="/http/bd635c40728e23898f5528ecb1a60517fa6eb4df4b3b94834ca587cb6e123780">GET /health</ClewContextLink>
+
+</div>
+
+
+## Interaction diagram
+
+Actors and nested branches from the retained account; not a runtime trace. Labels are shortened for readability. Full messages and notes follow.
+
+```mermaid
+sequenceDiagram
+participant p0 as forecasts
+participant p1 as Forecasts database
+p0->>p1: Query places whose forecast has no expiry<br/>or an expiry earlier than now, ordered by<br/>place id#59; source supplies the following<br/>row-mapper callb
+
+```
+
+<details>
+<summary>Full original sequence, branches and notes</summary>
+
+#### 1. note
+
+The source declaration uses REFRESH\_INTERVAL\_MS with a 60000 millisecond fallback; this Work does not prove scheduler registration or runtime invocation.
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:62–68 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ee1c73490c4cd4a1f4efaf310e65a12cc2a3c6bbb15ab76a4eb246cf1533dc35.mdx)
+
+</details>
+
+#### 2. message
+
+Query places whose forecast has no expiry or an expiry earlier than now, ordered by place id; source supplies the following row-mapper callback.
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:62–68 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ee1c73490c4cd4a1f4efaf310e65a12cc2a3c6bbb15ab76a4eb246cf1533dc35.mdx)
+
+</details>
+
+#### 3. opt
+
+The query includes a deferred row-mapper lambda; this Work does not establish callback invocation or count.
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:64–64 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d88100a3e64655a7f2f776447263dde9b9a986a7fdba57965ea9c7565783ffbf.mdx)
+
+</details>
+
+#### 4. note
+
+The lambda builds a place object from each row’s id, name, latitude, and longitude.
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:64–64 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d88100a3e64655a7f2f776447263dde9b9a986a7fdba57965ea9c7565783ffbf.mdx)
+
+</details>
+
+#### 5. end
+
+
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:64–64 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d88100a3e64655a7f2f776447263dde9b9a986a7fdba57965ea9c7565783ffbf.mdx)
+
+</details>
+
+#### 6. loop
+
+For each selected place, the source attempts the transaction callback and catches per-place exceptions.
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:65–67 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/afc9d1096fb08a657cb9b7dfe6672bff110cfa74625c7d51092f4873e0a6863d.mdx)
+
+</details>
+
+#### 7. alt
+
+The transaction call returns, or an exception is caught and logged as FORECAST\_RETRY with its class name.
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:66–66 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/a5d4bf22b0f8c31ff9bfeb782f4242c6a3fbae92380ecfadc31c144d27b7f55f.mdx)
+
+</details>
+
+#### 8. opt
+
+The source passes refresh(place) to transaction.executeWithoutResult as a deferred callback; runtime commit and rollback behavior are not established.
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:66–66 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/181fa6c9d9cc1e3e7ddeb4efe5cd89a564e8b1eb6511eb73f297139264c4609d.mdx)
+
+</details>
+
+#### 9. note
+
+The callback body calls refresh(place).
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:66–66 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/181fa6c9d9cc1e3e7ddeb4efe5cd89a564e8b1eb6511eb73f297139264c4609d.mdx)
+
+</details>
+
+#### 10. end
+
+
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:66–66 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/181fa6c9d9cc1e3e7ddeb4efe5cd89a564e8b1eb6511eb73f297139264c4609d.mdx)
+
+</details>
+
+#### 11. else
+
+Otherwise
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:66–66 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/a5d4bf22b0f8c31ff9bfeb782f4242c6a3fbae92380ecfadc31c144d27b7f55f.mdx)
+
+</details>
+
+#### 12. note
+
+The catch logs FORECAST\_RETRY and the exception class; the source does not establish whether the scheduler will invoke the method again.
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:66–66 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/a5d4bf22b0f8c31ff9bfeb782f4242c6a3fbae92380ecfadc31c144d27b7f55f.mdx)
+
+</details>
+
+#### 13. end
+
+
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:66–66 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/a5d4bf22b0f8c31ff9bfeb782f4242c6a3fbae92380ecfadc31c144d27b7f55f.mdx)
+
+</details>
+
+#### 14. end
+
+
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:65–67 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/afc9d1096fb08a657cb9b7dfe6672bff110cfa74625c7d51092f4873e0a6863d.mdx)
+
+</details>
+
+
+</details>
+
+## Implementation explanation
+
+The source declaration uses REFRESH\_INTERVAL\_MS with a 60000 millisecond fallback; this Work does not prove scheduler registration or runtime invocation.
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:62–68 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ee1c73490c4cd4a1f4efaf310e65a12cc2a3c6bbb15ab76a4eb246cf1533dc35.mdx)
+
+</details>
+
+Query places whose forecast has no expiry or an expiry earlier than now, ordered by place id; source supplies the following row-mapper callback.
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:62–68 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ee1c73490c4cd4a1f4efaf310e65a12cc2a3c6bbb15ab76a4eb246cf1533dc35.mdx)
+
+</details>
+
+The query includes a deferred row-mapper lambda; this Work does not establish callback invocation or count.
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:64–64 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d88100a3e64655a7f2f776447263dde9b9a986a7fdba57965ea9c7565783ffbf.mdx)
+
+</details>
+
+The lambda builds a place object from each row’s id, name, latitude, and longitude.
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:64–64 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d88100a3e64655a7f2f776447263dde9b9a986a7fdba57965ea9c7565783ffbf.mdx)
+
+</details>
+
+For each selected place, the source attempts the transaction callback and catches per-place exceptions.
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:65–67 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/afc9d1096fb08a657cb9b7dfe6672bff110cfa74625c7d51092f4873e0a6863d.mdx)
+
+</details>
+
+The transaction call returns, or an exception is caught and logged as FORECAST\_RETRY with its class name.
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:66–66 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/a5d4bf22b0f8c31ff9bfeb782f4242c6a3fbae92380ecfadc31c144d27b7f55f.mdx)
+
+</details>
+
+The source passes refresh(place) to transaction.executeWithoutResult as a deferred callback; runtime commit and rollback behavior are not established.
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:66–66 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/181fa6c9d9cc1e3e7ddeb4efe5cd89a564e8b1eb6511eb73f297139264c4609d.mdx)
+
+</details>
+
+The callback body calls refresh(place).
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:66–66 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/181fa6c9d9cc1e3e7ddeb4efe5cd89a564e8b1eb6511eb73f297139264c4609d.mdx)
+
+</details>
+
+The source describes an alternative branch.
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:66–66 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/a5d4bf22b0f8c31ff9bfeb782f4242c6a3fbae92380ecfadc31c144d27b7f55f.mdx)
+
+</details>
+
+The catch logs FORECAST\_RETRY and the exception class; the source does not establish whether the scheduler will invoke the method again.
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:66–66 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/a5d4bf22b0f8c31ff9bfeb782f4242c6a3fbae92380ecfadc31c144d27b7f55f.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- CALL\_TARGETS\_UNRESOLVED
+- DIALECT\_DECLARED\_NOT\_COMPILER\_VALIDATED
+- FILE\_ONLY:compose.yaml
+- FILE\_ONLY:contracts/dashboard.openapi.json
+- FILE\_ONLY:contracts/events.schema.json
+- FILE\_ONLY:database/init.sql
+- FILE\_ONLY:exercises/dashboard-focus-regression.mjs
+- FILE\_ONLY:exercises/replay.py
+- FILE\_ONLY:exercises/validator-regression.mjs
+- FILE\_ONLY:fixtures/helsinki.json
+- FILE\_ONLY:fixtures/lisbon.json
+- FILE\_ONLY:fixtures/met-oslo-recorded.json
+- FILE\_ONLY:fixtures/oslo.json
+- FILE\_ONLY:fixtures/provenance.json
+- FILE\_ONLY:services/dashboard/Dockerfile
+- FILE\_ONLY:services/dashboard/package-lock.json
+- FILE\_ONLY:services/dashboard/package.json
+- FILE\_ONLY:services/dashboard/public/index.html
+- FILE\_ONLY:services/dashboard/tsconfig.json
+- OPENAPI\_JSON\_SCHEMA\_KEYWORDS\_NOT\_INTERPRETED
+- OPENAPI\_SCHEMA\_NULL\_TYPE\_NOT\_INTERPRETED
+- OPENAPI\_SCHEMA\_TYPE\_UNIONS\_NOT\_INTERPRETED
+- ORDER\_LEXICAL\_ONLY
+- SCOPE\_WATCH\_CONSERVATIVE
+- Syntax evidence does not establish runtime dispatch or configuration. Expand known owners and helpers; retain explicit gaps for unresolved targets.
+- ANNOTATION\_DECLARATION\_UNAVAILABLE
+- CALL\_TARGETS\_UNRESOLVED
+- DIALECT\_DECLARED\_NOT\_COMPILER\_VALIDATED
+- FILE\_ONLY:compose.yaml
+- FILE\_ONLY:contracts/events.schema.json
+- FILE\_ONLY:contracts/forecasts.openapi.json
+- FILE\_ONLY:database/init.sql
+- FILE\_ONLY:fixtures/helsinki.json
+- FILE\_ONLY:fixtures/lisbon.json
+- FILE\_ONLY:fixtures/met-oslo-recorded.json
+- FILE\_ONLY:fixtures/oslo.json
+- FILE\_ONLY:fixtures/provenance.json
+- FILE\_ONLY:services/forecasts/Dockerfile
+- FILE\_ONLY:services/forecasts/pom.xml
+- FILE\_ONLY:services/forecasts/src/main/resources/application.properties
+- NO\_BEAN\_OWNER
+- OPENAPI\_JSON\_SCHEMA\_KEYWORDS\_NOT\_INTERPRETED
+- OPENAPI\_SCHEMA\_NULL\_TYPE\_NOT\_INTERPRETED
+- OPENAPI\_SCHEMA\_TYPE\_UNIONS\_NOT\_INTERPRETED
+- ORDER\_LEXICAL\_ONLY
+- RUNTIME\_REGISTRATION\_UNPROVEN
+- SCOPE\_WATCH\_CONSERVATIVE
+- SOURCE\_NAMES\_NOT\_COMPILER\_RESOLVED
+- UNRESOLVED\_ANNOTATION\_VALUE
+- Syntax evidence does not establish runtime dispatch or configuration. Expand known owners and helpers; retain explicit gaps for unresolved targets.
+- CLR\_SIGNATURE\_PROJECTED\_TO\_JVM\_DESCRIPTOR\_GRAMMAR
+- CSHARP\_SOURCE\_GENERATED\_DOCUMENTS\_NOT\_INDEXED
+- EXCEPTION\_FLOW\_REQUIRES\_SOURCE\_REVIEW
+- GENERATED\_SOURCE\_BODIES\_NOT\_INDEXED
+- LAMBDA\_EXECUTION\_NOT\_EXPANDED
+- OPENAPI\_JSON\_SCHEMA\_KEYWORDS\_NOT\_INTERPRETED
+- SHORT\_CIRCUIT\_FLOW\_REQUIRES\_SOURCE\_REVIEW
+- SWITCH\_FLOW\_REQUIRES\_SOURCE\_REVIEW
+
+</details>
+

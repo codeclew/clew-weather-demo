@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 60,
+    "evidenceDigest": "sha256:84807f84d849913304ca71c2c58452d15c4ab38ed5c4d432396fc7fdb4c3af13",
+    "file": "services/dashboard/src/main.ts",
+    "id": "dashboard-a4627e5e868830287e83",
+    "occurrence": {
+      "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+      "endByte": 2914,
+      "snapshot": "sha256:550435c6f8e16951bd815f9f7b54eda07bff8ad73a80a6df524ab2af077f4f6f",
+      "startByte": 2237
+    },
+    "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+    "service": "dashboard",
+    "startLine": 47,
+    "text": "async function consumeMessage(payload: EachMessagePayload): Promise<void> {\n  const { topic, partition, message } = payload\n  let event\n  try {\n    event = validateEvent(JSON.parse(message.value?.toString() ?? ''), topic)\n  } catch {\n    await pool.query(`INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES($1,$2,$3,'INVALID_EVENT')\n      ON CONFLICT DO NOTHING`, [topic, partition, message.offset])\n    await consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])\n    return\n  }\n  await applyEvent(event)\n  await consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])\n}",
+    "textDigest": "sha256:e2ec368962cff169b81a5e04e5d2dbbf4ed970c39b3fa3a967106efa22e66840",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/e635069293d58cb0d4f28c8211e748b8d58e6b37/services/dashboard/src/main.ts#L47-L60"
+  }
+}

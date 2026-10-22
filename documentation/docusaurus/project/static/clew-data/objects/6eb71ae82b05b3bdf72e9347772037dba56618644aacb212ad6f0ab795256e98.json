@@ -1,0 +1,34 @@
+{
+  "identity": "sha256:6eb71ae82b05b3bdf72e9347772037dba56618644aacb212ad6f0ab795256e98",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "operationId": "places_post_places",
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "additionalProperties": false,
+            "properties": {
+              "cityId": {
+                "enum": [
+                  "oslo",
+                  "helsinki",
+                  "lisbon"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "cityId"
+            ],
+            "type": "object"
+          }
+        }
+      },
+      "required": true
+    },
+    "responses": {
+      "$clewRef": "sha256:a072f3fae11e4af8c3373844c4098f35497b4b3636a11e376bab3b052e15cb6d"
+    }
+  }
+}

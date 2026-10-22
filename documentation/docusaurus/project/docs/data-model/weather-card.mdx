@@ -1,0 +1,379 @@
+---
+title: "Weather card"
+slug: "/data-model/weather-card"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Weather card
+
+Agent proposal · Not reviewed.
+
+<p id="dm-return"></p>
+
+Dashboard’s stored projection for reading weather by location. A place can appear before its first forecast arrives.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4.mdx)
+- [services/dashboard/public/index.html:1–11 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/c2239e2c6403a3d1207383732a448da7982b4d8765aaa00a7aa74ac6b8bbdfd0.mdx)
+
+</details>
+
+## Identity and relationships {#identity-and-relationships}
+
+weather\_cards is keyed by place\_id and GET /api/weather returns that key as id. Card forecast may be pending/null, unlike the required forecast property of a forecast.updated event.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4.mdx)
+- [contracts/events.schema.json:1–173 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4f5e368172c056412420d76a096c229f94968d52746b28b1a0c0b7b6faa971dc.mdx)
+- [services/dashboard/public/index.html:1–11 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/c2239e2c6403a3d1207383732a448da7982b4d8765aaa00a7aa74ac6b8bbdfd0.mdx)
+
+</details>
+
+<p className="clew-related-models">Related concepts: <ClewRelatedModelLink model="place">Place</ClewRelatedModelLink> · <ClewRelatedModelLink model="forecast">Forecast</ClewRelatedModelLink></p>
+
+
+## Fields and representations {#fields-and-representations}
+
+<div className="dm-fields-scroll" tabIndex={0} role="region" aria-label="Field descriptions"><table className="dm-fields" role="table"><caption>Field descriptions</caption><thead><tr><th scope="col">Field</th><th scope="col">Purpose</th></tr></thead><tbody><tr><th scope="row"><a href="#field-place-id"><code>id</code></a></th><td data-label="Purpose">The location key returned as card id by the API.</td></tr><tr><th scope="row"><a href="#field-name"><code>name</code></a></th><td data-label="Purpose">Location name shown in the card.</td></tr><tr><th scope="row"><a href="#field-latitude"><code>latitude</code></a></th><td data-label="Purpose">Location latitude returned with the card.</td></tr><tr><th scope="row"><a href="#field-longitude"><code>longitude</code></a></th><td data-label="Purpose">Location longitude returned with the card.</td></tr><tr><th scope="row"><a href="#field-forecast"><code>forecast</code></a></th><td data-label="Purpose">The last accepted forecast JSON, or no forecast yet while the card is pending.</td></tr><tr><th scope="row"><a href="#field-ordering"><code>updated_at (stored only)</code></a></th><td data-label="Purpose">Relational timestamp used to accept only a strictly newer forecast. It is not separately selected by GET /api/weather.</td></tr></tbody></table></div>
+
+### id {#field-place-id}
+
+The location key returned as card id by the API.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4.mdx)
+- [services/dashboard/public/index.html:1–11 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/c2239e2c6403a3d1207383732a448da7982b4d8765aaa00a7aa74ac6b8bbdfd0.mdx)
+
+</details>
+
+<div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Representation</th><th scope="col">Type / declared constraints</th><th scope="col">Requiredness / nullability</th><th scope="col">Retained mapping</th></tr></thead><tbody><tr><td data-label="Representation">Stored column · weather_cards.place_id</td><td data-label="Type / declared constraints">text</td><td data-label="Requiredness / nullability">Required stored value<br/>Not nullable</td><td data-label="Retained mapping">place\_id is the primary key and is populated from event.place.id.</td></tr><tr><td data-label="Representation">GET /api/weather row.id</td><td data-label="Type / declared constraints">string</td><td data-label="Requiredness / nullability">Explicitly selected by the SQL query<br/>Not nullable under the captured table definition</td><td data-label="Retained mapping">The query selects weather\_cards.place\_id AS id.</td></tr></tbody></table></div>
+
+<details>
+<summary>Stored column · weather\_cards.place\_id</summary>
+
+text · Required stored value · Not nullable
+
+place\_id is the primary key and is populated from event.place.id.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>GET /api/weather row.id</summary>
+
+string · Explicitly selected by the SQL query · Not nullable under the captured table definition
+
+The query selects weather\_cards.place\_id AS id.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/dashboard/src/main.ts:62–65 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4.mdx)
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+
+</details>
+
+
+</details>
+
+<ClewFieldTrace field="place-id" />
+
+### name {#field-name}
+
+Location name shown in the card.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4.mdx)
+- [services/dashboard/public/index.html:1–11 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/c2239e2c6403a3d1207383732a448da7982b4d8765aaa00a7aa74ac6b8bbdfd0.mdx)
+
+</details>
+
+<div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Representation</th><th scope="col">Type / declared constraints</th><th scope="col">Requiredness / nullability</th><th scope="col">Retained mapping</th></tr></thead><tbody><tr><td data-label="Representation">Stored column · weather_cards.name</td><td data-label="Type / declared constraints">text</td><td data-label="Requiredness / nullability">Required stored value<br/>Not nullable</td><td data-label="Retained mapping">The name column receives the explicit event.place.name value.</td></tr><tr><td data-label="Representation">GET /api/weather row.name</td><td data-label="Type / declared constraints">string</td><td data-label="Requiredness / nullability">Explicitly selected by the SQL query<br/>Not nullable under the captured table definition</td><td data-label="Retained mapping">The query selects weather\_cards.name as name.</td></tr></tbody></table></div>
+
+<details>
+<summary>Stored column · weather\_cards.name</summary>
+
+text · Required stored value · Not nullable
+
+The name column receives the explicit event.place.name value.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>GET /api/weather row.name</summary>
+
+string · Explicitly selected by the SQL query · Not nullable under the captured table definition
+
+The query selects weather\_cards.name as name.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/dashboard/src/main.ts:62–65 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4.mdx)
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+
+</details>
+
+
+</details>
+
+<ClewFieldTrace field="name" />
+
+### latitude {#field-latitude}
+
+Location latitude returned with the card.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4.mdx)
+- [services/dashboard/public/index.html:1–11 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/c2239e2c6403a3d1207383732a448da7982b4d8765aaa00a7aa74ac6b8bbdfd0.mdx)
+
+</details>
+
+<div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Representation</th><th scope="col">Type / declared constraints</th><th scope="col">Requiredness / nullability</th><th scope="col">Retained mapping</th></tr></thead><tbody><tr><td data-label="Representation">Stored column · weather_cards.latitude</td><td data-label="Type / declared constraints">double precision</td><td data-label="Requiredness / nullability">Required stored value<br/>Not nullable</td><td data-label="Retained mapping">The latitude column receives the explicit event.place.latitude value.</td></tr><tr><td data-label="Representation">GET /api/weather row.latitude</td><td data-label="Type / declared constraints">number</td><td data-label="Requiredness / nullability">Explicitly selected by the SQL query<br/>Not nullable under the captured table definition</td><td data-label="Retained mapping">The query selects weather\_cards.latitude as latitude.</td></tr></tbody></table></div>
+
+<details>
+<summary>Stored column · weather\_cards.latitude</summary>
+
+double precision · Required stored value · Not nullable
+
+The latitude column receives the explicit event.place.latitude value.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>GET /api/weather row.latitude</summary>
+
+number · Explicitly selected by the SQL query · Not nullable under the captured table definition
+
+The query selects weather\_cards.latitude as latitude.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/dashboard/src/main.ts:62–65 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4.mdx)
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+
+</details>
+
+
+</details>
+
+<ClewFieldTrace field="latitude" />
+
+### longitude {#field-longitude}
+
+Location longitude returned with the card.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4.mdx)
+- [services/dashboard/public/index.html:1–11 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/c2239e2c6403a3d1207383732a448da7982b4d8765aaa00a7aa74ac6b8bbdfd0.mdx)
+
+</details>
+
+<div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Representation</th><th scope="col">Type / declared constraints</th><th scope="col">Requiredness / nullability</th><th scope="col">Retained mapping</th></tr></thead><tbody><tr><td data-label="Representation">Stored column · weather_cards.longitude</td><td data-label="Type / declared constraints">double precision</td><td data-label="Requiredness / nullability">Required stored value<br/>Not nullable</td><td data-label="Retained mapping">The longitude column receives the explicit event.place.longitude value.</td></tr><tr><td data-label="Representation">GET /api/weather row.longitude</td><td data-label="Type / declared constraints">number</td><td data-label="Requiredness / nullability">Explicitly selected by the SQL query<br/>Not nullable under the captured table definition</td><td data-label="Retained mapping">The query selects weather\_cards.longitude as longitude.</td></tr></tbody></table></div>
+
+<details>
+<summary>Stored column · weather\_cards.longitude</summary>
+
+double precision · Required stored value · Not nullable
+
+The longitude column receives the explicit event.place.longitude value.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>GET /api/weather row.longitude</summary>
+
+number · Explicitly selected by the SQL query · Not nullable under the captured table definition
+
+The query selects weather\_cards.longitude as longitude.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/dashboard/src/main.ts:62–65 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4.mdx)
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+
+</details>
+
+
+</details>
+
+<ClewFieldTrace field="longitude" />
+
+### forecast {#field-forecast}
+
+The last accepted forecast JSON, or no forecast yet while the card is pending.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4.mdx)
+- [services/dashboard/public/index.html:1–11 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/c2239e2c6403a3d1207383732a448da7982b4d8765aaa00a7aa74ac6b8bbdfd0.mdx)
+
+</details>
+
+<div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Representation</th><th scope="col">Type / declared constraints</th><th scope="col">Requiredness / nullability</th><th scope="col">Retained mapping</th></tr></thead><tbody><tr><td data-label="Representation">Stored column · weather_cards.forecast</td><td data-label="Type / declared constraints">jsonb</td><td data-label="Requiredness / nullability">Column exists; may be omitted by the place-only INSERT<br/>Nullable</td><td data-label="Retained mapping">The JSONB column permits SQL NULL. The forecast branch binds JSON.stringify(event.forecast); the place-only INSERT omits this column.</td></tr><tr><td data-label="Representation">GET /api/weather row.forecast</td><td data-label="Type / declared constraints">Forecast-shaped JSON object | null</td><td data-label="Requiredness / nullability">Explicitly selected by the SQL query<br/>May be null before a forecast arrives</td><td data-label="Retained mapping">The query returns the forecast JSONB value as forecast. SQL NULL is returned when no forecast has been stored; a present object is linked to the proposed Forecast shape.</td></tr><tr><td data-label="Representation">Browser row.forecast</td><td data-label="Type / declared constraints">Forecast-shaped object, null or absent</td><td data-label="Requiredness / nullability">The pending guard tolerates absence<br/>Missing and null both enter pending; no schema validation here</td><td data-label="Retained mapping">The browser tests \!row.forecast before reading mode and periods. This is a tolerant pending branch, distinct from the required forecast.updated contract property.</td></tr></tbody></table></div>
+
+<details>
+<summary>Stored column · weather\_cards.forecast</summary>
+
+jsonb · Column exists; may be omitted by the place-only INSERT · Nullable
+
+The JSONB column permits SQL NULL. The forecast branch binds JSON.stringify(event.forecast); the place-only INSERT omits this column.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>GET /api/weather row.forecast</summary>
+
+Forecast-shaped JSON object \| null · Explicitly selected by the SQL query · May be null before a forecast arrives
+
+The query returns the forecast JSONB value as forecast. SQL NULL is returned when no forecast has been stored; a present object is linked to the proposed Forecast shape.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/dashboard/src/main.ts:62–65 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4.mdx)
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Browser row.forecast</summary>
+
+Forecast-shaped object, null or absent · The pending guard tolerates absence · Missing and null both enter pending; no schema validation here
+
+The browser tests \!row.forecast before reading mode and periods. This is a tolerant pending branch, distinct from the required forecast.updated contract property.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/dashboard/public/index.html:1–11 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/c2239e2c6403a3d1207383732a448da7982b4d8765aaa00a7aa74ac6b8bbdfd0.mdx)
+
+</details>
+
+
+</details>
+
+<ClewFieldTrace field="forecast" />
+
+### updated\_at (stored only) {#field-ordering}
+
+Relational timestamp used to accept only a strictly newer forecast. It is not separately selected by GET /api/weather.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4.mdx)
+- [services/dashboard/public/index.html:1–11 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/c2239e2c6403a3d1207383732a448da7982b4d8765aaa00a7aa74ac6b8bbdfd0.mdx)
+
+</details>
+
+<div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Representation</th><th scope="col">Type / declared constraints</th><th scope="col">Requiredness / nullability</th><th scope="col">Retained mapping</th></tr></thead><tbody><tr><td data-label="Representation">Stored column · weather_cards.updated_at</td><td data-label="Type / declared constraints">timestamptz</td><td data-label="Requiredness / nullability">Column exists; may be omitted by the place-only INSERT<br/>Nullable</td><td data-label="Retained mapping">event.forecast.updatedAt supplies this nullable timestamptz column. The update predicate accepts only a strictly greater timestamp.</td></tr></tbody></table></div>
+
+<details>
+<summary>Stored column · weather\_cards.updated\_at</summary>
+
+timestamptz · Column exists; may be omitted by the place-only INSERT · Nullable
+
+event.forecast.updatedAt supplies this nullable timestamptz column. The update predicate accepts only a strictly greater timestamp.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+
+</details>
+
+
+</details>
+
+<ClewFieldTrace field="ordering" />
+
+## Field usage and focused flow {#field-usage}
+
+<ClewDataModel dataPath="/clew-data/widgets/model-weather-card.json" />
+
+## Processes {#processes}
+
+- [dashboard forecast updated consumer](../scenarios/dashboard-forecast-updated-consumer.mdx#question-apply)
+- [dashboard place requested consumer](../scenarios/dashboard-place-requested-consumer.mdx#question-apply)
+

@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:39a0b9cb74608bcd8d8d9668d6bf8c76a1a6ac2650f64a734bae1dc91bf3c10e",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "id": "longitude",
+    "meaning": {
+      "$clewRef": "sha256:825ddc7f1f2e88b807525e631d1be74c749b0ff81230cd0ca7eb661e6975f95d"
+    },
+    "path": "longitude",
+    "representations": {
+      "$clewRef": "sha256:9803952a2a5ec7c074bc52f7fbee9aa02f103d94e06ad5792565eb3cdd490ba8"
+    },
+    "usage": {
+      "$clewRef": "sha256:b91ebdd1e89974171c1c32f287337dbe596382697c031845d6943a745ed0a980"
+    }
+  }
+}

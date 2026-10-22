@@ -1,0 +1,300 @@
+---
+title: "POST /places"
+slug: "/http/4faae4a057439031a1013fae51fc548d28f7ae661a688f8923ca2d1474e2a60a"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# POST /places
+
+<ClewPageContext />
+
+Declared interface · DECLARED\_OPENAPI. Runtime enforcement and full specification validation are not established by this bounded record.
+
+<ClewContextLink path="/services/places#entry-places-691b340ea61828b197b6">Service and input context · Places</ClewContextLink>
+
+<details>
+<summary>Declaration source and provenance</summary>
+
+- [contracts/places.openapi.json:1–263 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959.mdx)
+
+</details>
+
+## Parameters {#parameters}
+
+No parameters declared.
+
+## Request body {#request-body}
+
+Required body.
+
+**Media:** application/json
+
+<p className="clew-schema-scope">object · additionalProperties: false</p>  <div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Required</th><th scope="col">Declared constraints / description</th></tr></thead><tbody> <tr><td data-label="Field"><code>cityId</code></td><td data-label="Type">string</td><td data-label="Required">Required</td><td data-label="Declared constraints / description">enum: [&quot;oslo&quot;,&quot;helsinki&quot;,&quot;lisbon&quot;]<br/></td></tr> </tbody></table></div>  
+
+<details>
+<summary>Exact retained media schema and examples</summary>
+
+```json
+{
+  "schema": {
+    "additionalProperties": false,
+    "properties": {
+      "cityId": {
+        "enum": [
+          "oslo",
+          "helsinki",
+          "lisbon"
+        ],
+        "type": "string"
+      }
+    },
+    "required": [
+      "cityId"
+    ],
+    "type": "object"
+  }
+}
+```
+
+
+</details>
+
+## Declared responses {#declared-responses}
+
+### 200
+
+200
+
+<details open>
+<summary>Response media and body schema</summary>
+
+**Media:** application/json
+
+<p className="clew-schema-scope">object</p>  <div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Required</th><th scope="col">Declared constraints / description</th></tr></thead><tbody> <tr><td data-label="Field"><code>id</code></td><td data-label="Type">string</td><td data-label="Required">Required</td><td data-label="Declared constraints / description">enum: [&quot;oslo&quot;,&quot;helsinki&quot;,&quot;lisbon&quot;]<br/></td></tr> <tr><td data-label="Field"><code>latitude</code></td><td data-label="Type">number</td><td data-label="Required">Required</td><td data-label="Declared constraints / description">minimum: -90; maximum: 90<br/></td></tr> <tr><td data-label="Field"><code>longitude</code></td><td data-label="Type">number</td><td data-label="Required">Required</td><td data-label="Declared constraints / description">minimum: -180; maximum: 180<br/></td></tr> <tr><td data-label="Field"><code>name</code></td><td data-label="Type">string</td><td data-label="Required">Required</td><td data-label="Declared constraints / description"></td></tr> </tbody></table></div>  
+
+<details>
+<summary>Exact retained media schema and examples</summary>
+
+```json
+{
+  "schema": {
+    "properties": {
+      "id": {
+        "enum": [
+          "oslo",
+          "helsinki",
+          "lisbon"
+        ],
+        "type": "string"
+      },
+      "latitude": {
+        "maximum": 90,
+        "minimum": -90,
+        "type": "number"
+      },
+      "longitude": {
+        "maximum": 180,
+        "minimum": -180,
+        "type": "number"
+      },
+      "name": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "name",
+      "latitude",
+      "longitude"
+    ],
+    "type": "object"
+  }
+}
+```
+
+
+</details>
+
+
+</details>
+
+### 400
+
+400
+
+<details>
+<summary>Response media and body schema</summary>
+
+**Media:** application/json
+
+<p className="clew-schema-scope">object · additionalProperties: true</p>  <div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Required</th><th scope="col">Declared constraints / description</th></tr></thead><tbody> <tr><td data-label="Field"><code>error</code></td><td data-label="Type">string</td><td data-label="Required">Optional</td><td data-label="Declared constraints / description"></td></tr> </tbody></table></div>  
+
+<details>
+<summary>Exact retained media schema and examples</summary>
+
+```json
+{
+  "schema": {
+    "additionalProperties": true,
+    "properties": {
+      "error": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  }
+}
+```
+
+
+</details>
+
+
+</details>
+
+### 415
+
+415
+
+No response media or body schema is recorded for this status in the retained declaration.
+
+### 500
+
+500
+
+No response media or body schema is recorded for this status in the retained declaration.
+
+<details>
+<summary>Complete retained operation contract</summary>
+
+```json
+{
+  "operationId": "places_post_places",
+  "requestBody": {
+    "content": {
+      "application/json": {
+        "schema": {
+          "additionalProperties": false,
+          "properties": {
+            "cityId": {
+              "enum": [
+                "oslo",
+                "helsinki",
+                "lisbon"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "cityId"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    "required": true
+  },
+  "responses": {
+    "200": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "properties": {
+              "id": {
+                "enum": [
+                  "oslo",
+                  "helsinki",
+                  "lisbon"
+                ],
+                "type": "string"
+              },
+              "latitude": {
+                "maximum": 90,
+                "minimum": -90,
+                "type": "number"
+              },
+              "longitude": {
+                "maximum": 180,
+                "minimum": -180,
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "latitude",
+              "longitude"
+            ],
+            "type": "object"
+          }
+        }
+      },
+      "description": "200"
+    },
+    "400": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "additionalProperties": true,
+            "properties": {
+              "error": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        }
+      },
+      "description": "400"
+    },
+    "415": {
+      "description": "415"
+    },
+    "500": {
+      "description": "500"
+    }
+  }
+}
+```
+
+
+</details>
+
+<details>
+<summary>Declaration reader and source context</summary>
+
+```json
+{
+  "authority": "DECLARED_OPENAPI",
+  "boundaries": [],
+  "declaredSource": "contracts/places.openapi.json",
+  "entrypoint": "places-691b340ea61828b197b6",
+  "method": "POST",
+  "openapi": "3.1.0",
+  "parameters": [],
+  "path": "/places",
+  "readerSelection": {
+    "compatibilityAnchor": "3.1",
+    "fullSpecificationValidation": false,
+    "outsideAdvertisedRange": false,
+    "reader": "BOUNDED_OPENAPI_PATH_OPERATION_READER",
+    "selectionMode": "DECLARED_COMPATIBILITY_PROFILE",
+    "supportedVersionRange": "OPENAPI_THROUGH_3_X"
+  },
+  "runtimeEnforcement": "UNVERIFIED",
+  "schema": "codeclew-documentation-contract-facts/1.0",
+  "security": null,
+  "securitySchemes": null,
+  "servers": null,
+  "sourceMapping": "SOURCE_ROUTE_MATCH_ONLY"
+}
+```
+
+
+</details>
+

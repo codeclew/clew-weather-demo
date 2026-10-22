@@ -1,0 +1,25 @@
+---
+title: "services/dashboard/src/events.ts:17–19"
+slug: "/sources/ca30d5450662411a0f321f4bb0db3863eb158380f4617bf02280910731a13829"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/dashboard/src/events.ts:17–19
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: e635069293d58cb0d4f28c8211e748b8d58e6b37
+
+Text digest: sha256:57fe8ef30688b4363053f1e4b89f2c1e196d254737ee37283d7deb66c5406a02
+
+## Retained text {#retained-text}
+
+```text
+if (event.type !== 'forecast.updated' || !event.forecast || !isTimestamp(event.forecast.updatedAt)
+        || !isTimestamp(event.forecast.fetchedAt) || !['fixture', 'live'].includes(event.forecast.mode)
+        || !Array.isArray(event.forecast.periods) || event.forecast.periods.length < 1 || event.forecast.periods.length > 6) throw new Error('INVALID_FORECAST')
+```
+
+<ClewDownload path="/clew-data/objects/ca30d5450662411a0f321f4bb0db3863eb158380f4617bf02280910731a13829.json">Complete original source binding</ClewDownload>

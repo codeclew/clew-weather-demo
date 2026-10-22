@@ -1,0 +1,20 @@
+{
+  "identity": "sha256:0a7a30af6e9b4fe22fc3ce77f2bcc9a093269cf4936d6934f66eebd22f736ff7",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "C# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted."
+    ],
+    "documentationLanguage": "en",
+    "events": [],
+    "explanation": [],
+    "findings": [],
+    "id": "section-responsibilities",
+    "interfaceContracts": [],
+    "participants": [],
+    "summary": {
+      "$clewRef": "sha256:9642a38d669b0a1c211345c26814d469c968a95646e5b1fa1e204d35afd1c270"
+    },
+    "title": "Places responsibilities"
+  }
+}

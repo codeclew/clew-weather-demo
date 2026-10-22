@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:a068efa2e0a64c9eb023eeed6eb678ff1c25a3e9e5cd12aa831e6494dabd8ff6",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 74,
+    "evidenceDigest": "sha256:58d46e5fa5c11351b226e943b41c7407122af107f03818e7bfb5f50803c5e4a9",
+    "file": "services/dashboard/src/main.ts",
+    "id": "dashboard-7970ac3e2a8cf3f45b4a",
+    "occurrence": {
+      "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+      "endByte": 3557,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 3129
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 67,
+    "text": "async function savePlace(request: FastifyRequest, reply: FastifyReply): Promise<void> {\n  try {\n    const response = await fetch(`${placesUrl}/places`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(request.body), signal: AbortSignal.timeout(10000) })\n    reply.code(response.status).send(await response.json())\n  } catch {\n    reply.code(503).send({ error: 'PLACES_UNAVAILABLE' })\n  }\n}",
+    "textDigest": "sha256:d36fd526184e291acfb7df17b6ebb41df8afb1f284fcdb448f552c1b457260a8",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L67-L74"
+  }
+}

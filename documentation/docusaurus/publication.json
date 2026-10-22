@@ -1,0 +1,38 @@
+{
+  "acceptance": {
+    "analyst": {
+      "path": "acceptance/analyst.json",
+      "sha256": "71ac2551d48a99be6b5c397b12f33fda32c32e0b4ee1e981c055333da4b59d48"
+    },
+    "engineer": {
+      "path": "acceptance/engineer.json",
+      "sha256": "1d3b56c2d2f4d70ce9969cb4cfb255d1e632a8e8a543d10c6bf0beea776af450"
+    },
+    "scope": "Independent mediated screenshot/AX acceptance of native C4-C9 and local R1 orientation, plus representative production-built Docusaurus routes. Public deployment, runtime/compiler behavior and exhaustive accessibility remain unverified.",
+    "sourceCandidate": "17224661d68056b502c50c6c9431efb40aca2b4a",
+    "status": "PASS"
+  },
+  "files": "files.json",
+  "filesSha256": "ba875e176f72e4ced17c82136c938ac06de2d597505e2ce7cebe2e286468e087",
+  "identity": {
+    "baseUrl": "/clew-weather-demo/docusaurus/",
+    "documentationLanguage": "en",
+    "inputSha256": {
+      "contract-comparison.json": "0ca08c89e445ec62bc5a575807c034cac7232039573819c946e34d602bbd9e8b",
+      "data-model-plan.json": "40afa1f07b972f902186c69e63bcf14967b52c84f38d80a24fb7e9b39afdda83",
+      "reading-plan.json": "ac8e47e098005956b90b63a9c81e5dd118c4e10a09d3ec4060b20d9d81d624b0",
+      "service-model-links.json": "e1db4493387507eb9b8311fd76d0e2ae806d84447c8a491bd55b35ae7104e4b1"
+    },
+    "publicReleaseClaim": false,
+    "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+    "renderer": {
+      "selection": "SOURCE_CANDIDATE",
+      "sourceRevision": "17224661d68056b502c50c6c9431efb40aca2b4a",
+      "version": "0.13.46"
+    },
+    "runtimeReexecuted": false,
+    "schema": "weather-docusaurus-review/1.0",
+    "snapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956"
+  },
+  "schema": "weather-docusaurus-publication/1.0"
+}

@@ -1,0 +1,26 @@
+{
+  "identity": "sha256:1b06a235e193e594652df5a21d22f5cecf91f496229e9ad0f763f688653cd312",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "bodyAssessment": "not-specified",
+    "bodyErrors": null,
+    "comparedSchemaMedia": null,
+    "declaredMedia": [],
+    "id": "unsupported-media",
+    "mediaAssessment": "not-specified",
+    "request": {
+      "body": "{\"cityId\":\"oslo\"}",
+      "contentType": "text/plain",
+      "method": "POST",
+      "path": "/places"
+    },
+    "requestAssessment": "undeclared-media",
+    "requestErrors": null,
+    "response": {
+      "body": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.16\",\"title\":\"Unsupported Media Type\",\"status\":415,\"traceId\":\"00-922898ef14a8d9170cc957b129cc9f7b-c9cc45b13bcd0c9b-00\"}",
+      "contentType": "application/problem+json; charset=utf-8",
+      "status": 415
+    },
+    "statusDeclared": true
+  }
+}

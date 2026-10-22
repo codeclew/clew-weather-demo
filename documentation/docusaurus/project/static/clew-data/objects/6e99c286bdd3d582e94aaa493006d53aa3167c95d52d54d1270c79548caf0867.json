@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:6e99c286bdd3d582e94aaa493006d53aa3167c95d52d54d1270c79548caf0867",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 82,
+    "evidenceDigest": "sha256:47316d5e148804ccdce748fdcaf57d63dbe82b0595705cb25a3a2af8cc5e4ac0",
+    "file": "services/dashboard/src/main.ts",
+    "id": "dashboard-0c42e8da3e274553f5bc",
+    "occurrence": {
+      "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+      "endByte": 3989,
+      "snapshot": "sha256:550435c6f8e16951bd815f9f7b54eda07bff8ad73a80a6df524ab2af077f4f6f",
+      "startByte": 3689
+    },
+    "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+    "service": "dashboard",
+    "startLine": 77,
+    "text": "try {\n    const response = await fetch(`${placesUrl}/places/${encodeURIComponent(request.params.id)}/refresh`, { method: 'POST', signal: AbortSignal.timeout(10000) })\n    reply.code(response.status).send(await response.json())\n  } catch {\n    reply.code(503).send({ error: 'PLACES_UNAVAILABLE' })\n  }",
+    "textDigest": "sha256:86f85aae3887cd983b2365a1102661ba85ccda1883fde5b6b91815e6d2aaf217",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/e635069293d58cb0d4f28c8211e748b8d58e6b37/services/dashboard/src/main.ts#L77-L82"
+  }
+}

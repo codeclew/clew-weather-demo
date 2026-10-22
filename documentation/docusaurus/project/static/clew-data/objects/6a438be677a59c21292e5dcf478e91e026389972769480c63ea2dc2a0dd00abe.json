@@ -1,0 +1,29 @@
+{
+  "identity": "sha256:6a438be677a59c21292e5dcf478e91e026389972769480c63ea2dc2a0dd00abe",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "The Dashboard-to-Places target is a declared HTTP boundary; compiler linkage and runtime routing are not established.",
+      "HTTP 202 QUEUED does not prove that a forecast refresh ran, completed, or was delivered to either consumer.",
+      "These wrappers do not establish idempotency or deduplication across repeated refresh requests."
+    ],
+    "boundaryContracts": {
+      "$clewRef": "sha256:87c1b9648e0ff9575b017be5c3668298977f1afce33a203ae3e192bd8768985a"
+    },
+    "methods": {
+      "$clewRef": "sha256:7578aa4dda98c38ae819286d78601812b9c07b4c6ce6a6522d73aca3c7d649db"
+    },
+    "rootMethod": "dashboard-request-refresh",
+    "scope": "Dashboard.requestRefresh and the declared Places.Refresh HTTP boundary, through the controller response that labels accepted work QUEUED.",
+    "serviceFragments": [
+      {
+        "entryMethod": "places-refresh",
+        "id": "places-refresh-handler",
+        "rootStep": "places-refresh-handler"
+      }
+    ],
+    "steps": {
+      "$clewRef": "sha256:67be56b17d70c83f7f9694abb739f0be949fb9ea5a9c7c856f1ff23ec3d91de1"
+    }
+  }
+}

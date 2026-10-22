@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:7188988a440ce010f2ece4273aca2f13ee93fb2dbf930a29b43ea9a5e8767c3f",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:d2a7077fd775d72483fa02758e727b6f39721fda5862029c405c6e518b202de6"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "This supported-city reference is separate from saved places in PostgreSQL. City(id) selects one of the literals below; List and Save query or update the places table separately. An unknown ID returns null. The inspected Places controller responds with 400 UNSUPPORTED_CITY before calling Save; that branch does not save a city. These are retained static source facts, not an observed request or a live database dump.",
+    "title": "City lookup: source interpretation",
+    "tone": null
+  }
+}

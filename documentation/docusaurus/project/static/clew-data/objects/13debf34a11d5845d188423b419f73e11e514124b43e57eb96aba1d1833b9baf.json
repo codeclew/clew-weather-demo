@@ -1,0 +1,153 @@
+{
+  "identity": "sha256:13debf34a11d5845d188423b419f73e11e514124b43e57eb96aba1d1833b9baf",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    {
+      "field": "forecast.fetchedAt",
+      "nullable": false,
+      "pointer": "/oneOf/1/properties/forecast/properties/fetchedAt",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "format": "date-time",
+        "type": "string"
+      }
+    },
+    {
+      "field": "forecast.mode",
+      "nullable": false,
+      "pointer": "/oneOf/1/properties/forecast/properties/mode",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "enum": [
+          "fixture",
+          "live"
+        ],
+        "type": "string"
+      }
+    },
+    {
+      "field": "forecast.periods[].precipitationMm",
+      "nullable": true,
+      "pointer": "/oneOf/1/properties/forecast/properties/periods/items/properties/precipitationMm",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "minimum": 0,
+        "type": [
+          "number",
+          "null"
+        ]
+      }
+    },
+    {
+      "field": "forecast.periods[].symbol",
+      "nullable": false,
+      "pointer": "/oneOf/1/properties/forecast/properties/periods/items/properties/symbol",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "type": "string"
+      }
+    },
+    {
+      "field": "forecast.periods[].temperatureC",
+      "nullable": false,
+      "pointer": "/oneOf/1/properties/forecast/properties/periods/items/properties/temperatureC",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "type": "number"
+      }
+    },
+    {
+      "field": "forecast.periods[].time",
+      "nullable": false,
+      "pointer": "/oneOf/1/properties/forecast/properties/periods/items/properties/time",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "format": "date-time",
+        "type": "string"
+      }
+    },
+    {
+      "field": "forecast.updatedAt",
+      "nullable": false,
+      "pointer": "/oneOf/1/properties/forecast/properties/updatedAt",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "format": "date-time",
+        "type": "string"
+      }
+    },
+    {
+      "field": "id",
+      "nullable": false,
+      "pointer": "/oneOf/1/properties/id",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "minLength": 1,
+        "type": "string"
+      }
+    },
+    {
+      "field": "place.id",
+      "nullable": false,
+      "pointer": "/oneOf/1/properties/place/properties/id",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "enum": [
+          "oslo",
+          "helsinki",
+          "lisbon"
+        ],
+        "type": "string"
+      }
+    },
+    {
+      "field": "place.latitude",
+      "nullable": false,
+      "pointer": "/oneOf/1/properties/place/properties/latitude",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "maximum": 90,
+        "minimum": -90,
+        "type": "number"
+      }
+    },
+    {
+      "field": "place.longitude",
+      "nullable": false,
+      "pointer": "/oneOf/1/properties/place/properties/longitude",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "maximum": 180,
+        "minimum": -180,
+        "type": "number"
+      }
+    },
+    {
+      "field": "place.name",
+      "nullable": false,
+      "pointer": "/oneOf/1/properties/place/properties/name",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "type": "string"
+      }
+    },
+    {
+      "field": "type",
+      "nullable": false,
+      "pointer": "/oneOf/1/properties/type",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "const": "forecast.updated"
+      }
+    },
+    {
+      "field": "version",
+      "nullable": false,
+      "pointer": "/oneOf/1/properties/version",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "const": 1
+      }
+    }
+  ]
+}

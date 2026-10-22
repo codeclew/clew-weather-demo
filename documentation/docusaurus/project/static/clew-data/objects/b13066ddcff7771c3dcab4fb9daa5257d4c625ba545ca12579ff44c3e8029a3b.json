@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:b13066ddcff7771c3dcab4fb9daa5257d4c625ba545ca12579ff44c3e8029a3b",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+      "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+      "dashboard:symbol:a4627e5e868830287e83e0dc",
+      "dashboard:symbol:ac3aadb76be6fea3e790cb85",
+      "dashboard:symbol:bc57152944dfa54c072b94e5"
+    ],
+    "id": "claim-2c725bab3da872293f81",
+    "sourceIds": [
+      "dashboard-1612e17d589cb9d0fa4a",
+      "dashboard-7970ac3e2a8cf3f45b4a",
+      "dashboard-a4627e5e868830287e83",
+      "dashboard-ac3aadb76be6fea3e790",
+      "dashboard-bc57152944dfa54c072b"
+    ],
+    "text": "The save and refresh handlers send POST requests to the configured Places base URL with a ten-second timeout. Save sends the request body as JSON; refresh appends the encoded place id and sends no body. Both forward the upstream status and parsed JSON response, and both return 503 with PLACES_UNAVAILABLE when an exception is caught. For consumed messages, the invalid branch attempts a rejected_messages insert and then calls commitOffsets for offset plus one. The valid branch waits for applyEvent and then calls commitOffsets; a thrown handler or database error exits before that call in the shown body. applyEvent uses a PostgreSQL transaction for inbox and weather_cards writes. The source shows call order, not cross-store atomicity or broker delivery guarantees."
+  }
+}

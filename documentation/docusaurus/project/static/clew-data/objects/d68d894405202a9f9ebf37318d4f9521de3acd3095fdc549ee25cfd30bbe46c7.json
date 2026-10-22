@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:d68d894405202a9f9ebf37318d4f9521de3acd3095fdc549ee25cfd30bbe46c7",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contract": null,
+    "field": null,
+    "label": "Places SavePlace DTO",
+    "mapping": {
+      "$clewRef": "sha256:7069c7346ca4986974f184945e6a4a0975678306ad84ad40bd081cc256f5ae77"
+    },
+    "nullability": "Framework binding/rejection paths are not established here",
+    "relatedModel": null,
+    "requiredness": "Read when the captured Save handler runs",
+    "typeLabel": "string (C# CityId)"
+  }
+}

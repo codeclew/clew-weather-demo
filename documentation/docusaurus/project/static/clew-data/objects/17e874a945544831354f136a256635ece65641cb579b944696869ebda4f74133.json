@@ -1,0 +1,32 @@
+{
+  "identity": "sha256:17e874a945544831354f136a256635ece65641cb579b944696869ebda4f74133",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "fragment": {
+      "dependencyIds": [
+        "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+      ],
+      "from": "service-dashboard",
+      "id": "claim-73a1b3dc808969fc8978",
+      "kind": "message",
+      "sourceIds": [
+        "dashboard-ac3aadb76be6fea3e790"
+      ],
+      "text": "For a new place.requested event, upsert the place id, name, latitude, and longitude; this branch does not replace the stored forecast.",
+      "to": "dashboard-db"
+    },
+    "kind": "RETAINED_CLAIM",
+    "operation": "dashboard-place-requested-consumer",
+    "sourceContext": {
+      "$clewRef": "sha256:ebff0ac1bf65e82eab9a03d9ea1602d72b899d362a9b668fc7258a487be713bc"
+    },
+    "sources": {
+      "$clewRef": "sha256:db235f4e9ec7d80b527f09b9d75e1b6a68f8fa1c4d72221ae3056ed6c5486e1c"
+    },
+    "state": {
+      "$clewRef": "sha256:c18ddf3d31574006b39d94c64c9a7a78332f997376da5da26175e611d7f1ea2d"
+    },
+    "subject": "scenario:dashboard-place-requested-consumer",
+    "title": "Dashboard consumes place-requested events"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:47163287e73423302553fcf9f87874118a651079a37b1d41c1706b2b9073d5a6",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 136,
+    "evidenceDigest": "sha256:6b57780efd57aff881dcf145747d074a21dc1b51851dc3629d0da68d85478c22",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "id": "forecasts-fa16aa3e1994940a8299",
+    "occurrence": {
+      "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+      "endByte": 9522,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 9444
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 136,
+    "text": "jdbc.update(\"UPDATE forecast_outbox SET published=true WHERE id=?\", row[\"id\"])",
+    "textDigest": "sha256:d5f0f2b6dc2a9e3ca5e30a1e59fea66023fe847bd0c861ad07c664d988fc1085",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L136-L136"
+  }
+}

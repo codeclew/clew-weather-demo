@@ -1,0 +1,10 @@
+{
+  "identity": "sha256:6c9138c18734100c034d6906ddda816563d2a9900826479d299e031893188424",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "operationId": "dashboard_get_api_weather",
+    "responses": {
+      "$clewRef": "sha256:5863f0e639a1dd774ac6c063e997d3be7d3ca3265ad3ba1842cdddaca933a499"
+    }
+  }
+}

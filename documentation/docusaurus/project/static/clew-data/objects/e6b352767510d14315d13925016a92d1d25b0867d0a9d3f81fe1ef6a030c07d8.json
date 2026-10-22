@@ -1,0 +1,168 @@
+{
+  "identity": "sha256:e6b352767510d14315d13925016a92d1d25b0867d0a9d3f81fe1ef6a030c07d8",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "forecasts-03d732fdcc1a6ba315a2": {
+      "$clewRef": "sha256:1529ba907e255c6f70f38cc5e5b61b5a2b327694fef7c877c7ba7b4a892798ce"
+    },
+    "forecasts-04bc0feeea5752d3f197": {
+      "$clewRef": "sha256:ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa"
+    },
+    "forecasts-0dad2f6c74261ec67a63": {
+      "$clewRef": "sha256:05a53615f19e214ae81a34c0ae85fcfafb9285ab8078741f240e9fc46c2c358e"
+    },
+    "forecasts-0faab21eaf0b9a233e97": {
+      "$clewRef": "sha256:7193d0f62621ef22a56e6eafe3da31be249266f0354d2904fca3a51bd93fe0d3"
+    },
+    "forecasts-0fe858295941b31bc615": {
+      "$clewRef": "sha256:3d6e849747d42118f08326100c579214f91cc34c812327400a04638863cba873"
+    },
+    "forecasts-1571fff289ff6226f149": {
+      "$clewRef": "sha256:f6bdd894e3f69a993b049015d6d7a4d0e73a5e6dc94b46bf32a274326decee8b"
+    },
+    "forecasts-1ea53b95922ad5791d93": {
+      "$clewRef": "sha256:ee1c73490c4cd4a1f4efaf310e65a12cc2a3c6bbb15ab76a4eb246cf1533dc35"
+    },
+    "forecasts-27cca3456e62e8b1d498": {
+      "$clewRef": "sha256:7dc31ff2f89df6313b31ccd5e53de88f58ca342c20783e2f8e34d13d0d872b55"
+    },
+    "forecasts-2b758ee1c16726c56e96": {
+      "$clewRef": "sha256:203a0ed17382d6023ae3bbb0600b826a5b59530796110b91d1ac083f967f2b2b"
+    },
+    "forecasts-2c1288d911c12d9dba44": {
+      "$clewRef": "sha256:515071c54d48c31841ec690b1b480a50b434b45eb74990f1624b0f09e744de84"
+    },
+    "forecasts-3697d7f6e84dd5742597": {
+      "$clewRef": "sha256:4690abc33b226f3841e5eaaf90ce58e0cd06f7a69c28f21647e0f14c2e20e5ab"
+    },
+    "forecasts-3b271aa33f7bd944bb5a": {
+      "$clewRef": "sha256:bac513bace0ad04151b3709181393a5b35c9977fa0683066b265012f6b139f18"
+    },
+    "forecasts-3d7b217355f2e6a34064": {
+      "$clewRef": "sha256:1bd07596f6d98195ae25427eb2eb0175e2e0db2969f1b348800d52ddabc630ab"
+    },
+    "forecasts-43b5da447d0cdacd517e": {
+      "$clewRef": "sha256:46d81d49b96762d11f749e57bd348eeeecf426392203bcbd7833228d7ad4421e"
+    },
+    "forecasts-44c1216c3e37f45f4ff9": {
+      "$clewRef": "sha256:77419b38cab1c2be268d248020c0f3d1aed119786e7f30a01355c56299cf7b1f"
+    },
+    "forecasts-59f31d25c0ed89f258ae": {
+      "$clewRef": "sha256:d1fcf17d0a9de09639b7db63855f8f57f94441c9779b2f70329e75c7d03c99f4"
+    },
+    "forecasts-5bda17b9322e1d09244c": {
+      "$clewRef": "sha256:409e3c65e41d42561e1d69c57c599677ac5cd54fccc2d766e8adf954f68ee7d8"
+    },
+    "forecasts-5c0f3b18ff82fe4d8110": {
+      "$clewRef": "sha256:47e4ea3df3f628f54c8dde414c838593d9efdf9d54a4f79f3c08f48519ca7d51"
+    },
+    "forecasts-5c27f4aee13a3c5fa345": {
+      "$clewRef": "sha256:2aee9d53590251f93f68f72d38b0f201c17fcc7c36e538e20c569a50ecbaafdd"
+    },
+    "forecasts-6197b7e7ffd42134c675": {
+      "$clewRef": "sha256:384453793a46df4473ae10f9da35b024cd20ccdcc119f971bdd3c51a8dc6b413"
+    },
+    "forecasts-68da87fb7524f89fb0ac": {
+      "$clewRef": "sha256:9f66c8a1048a37f611053a404085aabd8c71d98662bb52618c717211a56a6786"
+    },
+    "forecasts-740f3405b57f36fc72f3": {
+      "$clewRef": "sha256:181fa6c9d9cc1e3e7ddeb4efe5cd89a564e8b1eb6511eb73f297139264c4609d"
+    },
+    "forecasts-77706d418ba7932d0d3f": {
+      "$clewRef": "sha256:3fd6e0154de0e76dd7f5030fd6198b1f6fcb97f00c9d7d4ba454f60a75b32969"
+    },
+    "forecasts-7d79014f99ba83eadfd7": {
+      "$clewRef": "sha256:02aca9b5de2e5fecc6239e85b2f8203c7f42eabce144a6c852ec3faed9d1a218"
+    },
+    "forecasts-7ea5dfea1728e5e2e238": {
+      "$clewRef": "sha256:5f55ff665f3f986398cd5544b88c28677409cabbd0442b42ed54d5a3de81a080"
+    },
+    "forecasts-814ab3aaee1977605c70": {
+      "$clewRef": "sha256:0d496a05c23a3202685173d8a8f7bcb13f2319abaacf7d63938c9b5180a2e86d"
+    },
+    "forecasts-8437237940bc2e908ccb": {
+      "$clewRef": "sha256:a7bcb7cba000cbbf5d61798b42b99274d2e88df847484159d5c25ed0a479510c"
+    },
+    "forecasts-84ab2c89d2ea61234233": {
+      "$clewRef": "sha256:afc9d1096fb08a657cb9b7dfe6672bff110cfa74625c7d51092f4873e0a6863d"
+    },
+    "forecasts-85fe67fa83679d5c2807": {
+      "$clewRef": "sha256:17dacf92a6fa435cb7a8669968338be46439de4eb6d2509e8c458716d0a031d0"
+    },
+    "forecasts-9abefb87ce9da5369dcc": {
+      "$clewRef": "sha256:8eaaa1dd5f23912e1bf1ff8c9cfd22b8801da3458df6ea963a0714e4316b27f5"
+    },
+    "forecasts-a38291144ad4bd8a411b": {
+      "$clewRef": "sha256:ffa1bcd654fb053b7268bd37f4d7f3bab953ed7333d711728cffd5034606ae82"
+    },
+    "forecasts-a38d386449227ba051cf": {
+      "$clewRef": "sha256:97e0dd89fa86dcb90cc283f4c25f9200d6f06d20fb3ddd9728645de580dd22fc"
+    },
+    "forecasts-a73ae3b4a6eb6513fdcd": {
+      "$clewRef": "sha256:7f48ca961cf99126b73bca2e5059e43de81420e2c4e6e581cee473fab5b0069d"
+    },
+    "forecasts-a91ff11cffbbe839dcfe": {
+      "$clewRef": "sha256:a9ab89dedd2b2f820a65a3b31b06a7e29e1e432f2a2e9f9b8c1d1a030d0a2614"
+    },
+    "forecasts-acbf22bab989bab22a0c": {
+      "$clewRef": "sha256:e13d878fbbcc7b5d5b9fa08cec665f3b8ce1a54157cee2d954944814a70ad0fb"
+    },
+    "forecasts-ad28a606f0881dfe7cfc": {
+      "$clewRef": "sha256:fabcf790d6359bad92930830b294197d73c440e51b6a010808853eccb900f2e6"
+    },
+    "forecasts-ae29ebea4e122d8b81f7": {
+      "$clewRef": "sha256:579f64293791f67f09ba4405689bc7977511bdb1c682d36f0db4f2fe7c6e38e8"
+    },
+    "forecasts-b7a8f5b7842c514f7f59": {
+      "$clewRef": "sha256:4e9f622c29b7004ef06a46c8f890c5d19566d4f728694d74e89ca982402eeb60"
+    },
+    "forecasts-b86b8774a179db381547": {
+      "$clewRef": "sha256:22f59aaa92b2bda3fd052ce2f9ddc601df9ad4893af4f5474e5abb501b0c698c"
+    },
+    "forecasts-bdedac7f9b2afb2a8e68": {
+      "$clewRef": "sha256:55ed1a1f543405b3248a8c39ba5b752884359975fc7c9225b66bfb2d6339c33b"
+    },
+    "forecasts-c0b9aa485ebf80a7fcc5": {
+      "$clewRef": "sha256:f5e071d1a91e127fd568d40ec2c7e1cec3410af274774d60bbeadc63779d1192"
+    },
+    "forecasts-c276c8bbe48869c1c665": {
+      "$clewRef": "sha256:d16edda6870f49ad776f5d271642e7ceb0421909d445f9f593fa3fd1ecf610c2"
+    },
+    "forecasts-ca69bbde23a96263a8aa": {
+      "$clewRef": "sha256:7c66cfc253529cc22121742daf694971e07c9472d3498bc6ef300d767cbf4713"
+    },
+    "forecasts-cbe0a836e93f909f2825": {
+      "$clewRef": "sha256:7e91c34807cc22ec484f72d2e4506c85976f38cfff61cce5f7dece6d263b8506"
+    },
+    "forecasts-cc58d8643f3d17e4b691": {
+      "$clewRef": "sha256:9233bcae5aa5673c061ebdb857c39ce75ee4724473f2f75c21b7387f0fc94e1b"
+    },
+    "forecasts-cc65db9fa6bd3a33f4ba": {
+      "$clewRef": "sha256:5ed6052166d04c3a86d97235ea7a956a2eb24a664bdaa74e09d2b0ffc72e20ba"
+    },
+    "forecasts-cf87224657914cc333f2": {
+      "$clewRef": "sha256:6c81c74b2345ce780cb749bc5fd0e843fc65ce33af41498bf0a3bd3aa572b6cf"
+    },
+    "forecasts-d3cdb716aaac8f6ed002": {
+      "$clewRef": "sha256:6296fcbcff0be8424cfc73414b600a57d335607e13e2875fa56aef0d81f27ce1"
+    },
+    "forecasts-d52cf4645c46f8e43578": {
+      "$clewRef": "sha256:700b495f05423548d7f3d8b471b51bf64fba6afa970c98cb7516bf9ff1b2c36a"
+    },
+    "forecasts-d988fd0a0bd0b1deecfb": {
+      "$clewRef": "sha256:ac051494dd55d4673d494d5a705f37341c5833affea72c6c9476c9f68a13b08e"
+    },
+    "forecasts-e0b522ecefdf6da700eb": {
+      "$clewRef": "sha256:fb2f2a703de39fb293e9b3628f178583cdc4a44cc9ca5ec9362efdeb07238ed7"
+    },
+    "forecasts-e9881531c62a3422e80b": {
+      "$clewRef": "sha256:d88100a3e64655a7f2f776447263dde9b9a986a7fdba57965ea9c7565783ffbf"
+    },
+    "forecasts-ea6dd04c278f12f668b5": {
+      "$clewRef": "sha256:a5d4bf22b0f8c31ff9bfeb782f4242c6a3fbae92380ecfadc31c144d27b7f55f"
+    },
+    "forecasts-ff171b4088a1fea4d1c5": {
+      "$clewRef": "sha256:82080250637a61157578f134c0309ac5e11c2adb9c4d0df9719841ec8fcd5292"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:f8ac87ba1354dac250a4a0fbefe0abb7fe58bf3903d5663e30ec292610d450d0",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "observed-static-use",
+    "claim": {
+      "$clewRef": "sha256:a30410f47d25490268dcd2dfb43159f3517ebb9705c2fd3f510bd2f82ff6ed3c"
+    },
+    "condition": "Successful API read; the Forecast payload is present.",
+    "consumer": "Dashboard browser update()",
+    "contract": "forecast-updated",
+    "coveredScope": "Complete retained update() function on index.html line 8",
+    "kinds": [
+      "whole-object-serialization-or-comparison"
+    ],
+    "processes": [],
+    "producer": "GET /api/weather",
+    "representation": "rows[].forecast.periods[].temperatureC",
+    "stage": "Browser comparison",
+    "unresolved": "Static source interpretation; runtime execution and delivery are not established."
+  }
+}

@@ -1,0 +1,32 @@
+---
+title: "Dashboard forecast-updated consumer view"
+slug: "/operations/scenarios-dashboard-forecast-updated-consumer--process-overview"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Dashboard forecast-updated consumer view
+
+<ClewPageContext />
+
+Retained account · STALE · UNASSESSED. Runtime behavior is not established by this export.
+
+The Dashboard source handler parses each message and validates the event against its topic. For invalid events, it attempts to insert a rejected\_messages row with reason INVALID\_EVENT (ON CONFLICT DO NOTHING), commits the next partition offset, and returns. For a valid event, it calls applyEvent before committing the next offset. The saved cross-service view associates this handler with weather.forecast-updated through an agent-proposed interaction; source subscription configuration and runtime delivery remain unverified. The effects inside applyEvent and Kafka behavior beyond these explicit handler calls are not established by this slice.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/dashboard/src/main.ts:47–60 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- CALL\_TARGETS\_UNRESOLVED
+- DECLARED\_TRANSITION\_NOT\_REACHED:forecasts-forecast-updated-to-dashboard
+- ORDER\_LEXICAL\_ONLY
+
+</details>
+

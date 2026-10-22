@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:6ab010e5ab5daee5cfe2d0438b5e1d37396bad1e05e8bbeced7700b4b5a2b56c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contract": null,
+    "field": null,
+    "label": "Stored column · weather_cards.latitude",
+    "mapping": {
+      "$clewRef": "sha256:55691b9d50c1a08f2025e88bba5c359d532db7acb7fbfe64ddb6889624e9f852"
+    },
+    "nullability": "Not nullable",
+    "relatedModel": null,
+    "requiredness": "Required stored value",
+    "typeLabel": "double precision"
+  }
+}

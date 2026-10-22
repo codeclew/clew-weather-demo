@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 23,
+    "evidenceDigest": "sha256:e59888fd670f2a7f65041edbabccaf7251f4cf9ec933e3554609f7ed7a399e24",
+    "file": "exercises/unchecked-place-forecast.ts",
+    "id": "dashboard-1465618c5ba0bb960fb1",
+    "occurrence": {
+      "blob": "6f2194a87f69be18be06c36b2e922debcbff3273",
+      "endByte": 1801,
+      "snapshot": "sha256:550435c6f8e16951bd815f9f7b54eda07bff8ad73a80a6df524ab2af077f4f6f",
+      "startByte": 384
+    },
+    "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+    "service": "dashboard",
+    "startLine": 6,
+    "text": "function validateEvent(value: unknown, topic: string): Event {\n  if (!value || typeof value !== 'object') throw new Error('INVALID_EVENT')\n  const event = value as Event\n  if (typeof event.id !== 'string' || event.version !== 1 || !event.place || typeof event.place.id !== 'string'\n      || !['oslo', 'helsinki', 'lisbon'].includes(event.place.id) || typeof event.place.name !== 'string'\n      || !Number.isFinite(event.place.latitude) || !Number.isFinite(event.place.longitude)) throw new Error('INVALID_EVENT')\n  if (topic === 'weather.forecast-updated') {\n    if (event.type !== 'forecast.updated' || !event.forecast || !Number.isFinite(Date.parse(event.forecast.updatedAt))\n        || !Number.isFinite(Date.parse(event.forecast.fetchedAt)) || !['fixture', 'live'].includes(event.forecast.mode)\n        || !Array.isArray(event.forecast.periods) || event.forecast.periods.length < 1 || event.forecast.periods.length > 6) throw new Error('INVALID_FORECAST')\n    for (const period of event.forecast.periods) {\n      if (!Number.isFinite(Date.parse(period.time)) || !Number.isFinite(period.temperatureC)\n          || !(period.precipitationMm === null || (Number.isFinite(period.precipitationMm) && period.precipitationMm >= 0))\n          || typeof period.symbol !== 'string') throw new Error('INVALID_PERIOD')\n    }\n  } else if (event.type !== 'place.requested') throw new Error('INVALID_PLACE_EVENT')\n  return event\n}",
+    "textDigest": "sha256:76d9416fdef0acedab2800ee546fb24a00df56a0ca66e9903fdd93ad183cec5b",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/e635069293d58cb0d4f28c8211e748b8d58e6b37/exercises/unchecked-place-forecast.ts#L6-L23"
+  }
+}

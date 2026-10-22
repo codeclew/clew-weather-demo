@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:939e5f894d2d5470f64161c9c1dae974e04f953e93e9fa715e6969ae47f13ca6",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "claim": {
+      "$clewRef": "sha256:cc46d05653cc77e88c31e3e4def0a1d6da658c2016f454fb9bfc0959d68fde33"
+    },
+    "fields": [
+      {
+        "field": "updatedat",
+        "model": "forecast"
+      },
+      {
+        "field": "temperature",
+        "model": "period"
+      }
+    ],
+    "stages": [
+      "Dashboard validation",
+      "Dashboard transaction"
+    ]
+  }
+}

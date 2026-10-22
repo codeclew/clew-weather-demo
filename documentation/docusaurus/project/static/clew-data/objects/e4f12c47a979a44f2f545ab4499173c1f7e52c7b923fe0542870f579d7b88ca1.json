@@ -1,0 +1,21 @@
+{
+  "identity": "sha256:e4f12c47a979a44f2f545ab4499173c1f7e52c7b923fe0542870f579d7b88ca1",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "places:symbol:434ffab68fae2f991ebba252",
+      "places:symbol:51d94b76d870001475fd2c51",
+      "places:symbol:707eb762b8c1f4718a5b89e7"
+    ],
+    "from": "places",
+    "id": "claim-60cc4fa9d56726c50aff",
+    "kind": "message",
+    "sourceIds": [
+      "places-434ffab68fae2f991ebb",
+      "places-51d94b76d870001475fd",
+      "places-707eb762b8c1f4718a5b"
+    ],
+    "text": "For a found place, Enqueue opens a connection, begins a transaction, inserts a request_outbox row with a new GUID and place.requested v1 payload, then commits before returning.",
+    "to": "places-db"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:14e8508c78dbbb0348ea669ebd11a7c4715bc5b28975ead8c6f4b1dbc39b2108",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:85c6501495a122ddb7b788da1223a7fd85863e420783d8f5fb7a8a95520a68f6"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The supported city key identifies a Place. Place data appears in separate service tables and event payloads; these mappings do not assign domain ownership or prove runtime delivery.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

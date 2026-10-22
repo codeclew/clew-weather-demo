@@ -1,0 +1,102 @@
+{
+  "identity": "sha256:2d81f0bce5dd98e4b87ba38c72c706d0cd8e15fde8dbc6aa06c71fb8e97fdb25",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    {
+      "dependencyIds": [
+        "forecasts:symbol:03d732fdcc1a6ba315a2427c"
+      ],
+      "id": "forecasts:symbol:03d732fdcc1a6ba315a2427c",
+      "name": "main",
+      "owner": "package:weather",
+      "parameterTypes": [
+        "args: Array<String>"
+      ],
+      "publicBoundary": false,
+      "scope": "",
+      "service": "forecasts",
+      "sourceIds": [
+        "forecasts-03d732fdcc1a6ba315a2"
+      ],
+      "status": "RECORDED",
+      "symbol": "source:services/forecasts/src/main/kotlin/weather/Application.kt/package:weather/main/f47d49c74489cceb6151"
+    },
+    {
+      "dependencyIds": [
+        "forecasts:symbol:3b271aa33f7bd944bb5ab6a5"
+      ],
+      "id": "forecasts:symbol:3b271aa33f7bd944bb5ab6a5",
+      "name": "get",
+      "owner": "class:weather.Forecasts",
+      "parameterTypes": [
+        "id: String"
+      ],
+      "publicBoundary": false,
+      "scope": "",
+      "service": "forecasts",
+      "sourceIds": [
+        "forecasts-3b271aa33f7bd944bb5a"
+      ],
+      "status": "RECORDED",
+      "symbol": "source:services/forecasts/src/main/kotlin/weather/Forecasts.kt/class:weather.Forecasts/get/a68cb324983bdaa017fd"
+    },
+    {
+      "dependencyIds": [
+        "forecasts:symbol:1571fff289ff6226f149c918"
+      ],
+      "id": "forecasts:symbol:1571fff289ff6226f149c918",
+      "name": "ping",
+      "owner": "class:weather.Forecasts",
+      "parameterTypes": [],
+      "publicBoundary": false,
+      "scope": "",
+      "service": "forecasts",
+      "sourceIds": [
+        "forecasts-1571fff289ff6226f149"
+      ],
+      "status": "RECORDED",
+      "symbol": "source:services/forecasts/src/main/kotlin/weather/Forecasts.kt/class:weather.Forecasts/ping/e06a03958f0a962454c5"
+    },
+    {
+      "dependencyIds": [
+        "forecasts:symbol:04bc0feeea5752d3f1979c56"
+      ],
+      "id": "forecasts:symbol:04bc0feeea5752d3f1979c56",
+      "name": "refresh",
+      "owner": "class:weather.Forecasts",
+      "parameterTypes": [
+        "place: JsonNode"
+      ],
+      "publicBoundary": false,
+      "scope": "",
+      "service": "forecasts",
+      "sourceIds": [
+        "forecasts-04bc0feeea5752d3f197"
+      ],
+      "status": "RECORDED",
+      "symbol": "source:services/forecasts/src/main/kotlin/weather/Forecasts.kt/class:weather.Forecasts/refresh/30ebb38d591ad64f6290"
+    },
+    {
+      "dependencyIds": [
+        "forecasts:symbol:cc58d8643f3d17e4b6911d22"
+      ],
+      "id": "forecasts:symbol:cc58d8643f3d17e4b6911d22",
+      "name": "validatePlaceEvent",
+      "owner": "class:weather.Forecasts",
+      "parameterTypes": [
+        "event: JsonNode"
+      ],
+      "publicBoundary": false,
+      "scope": "",
+      "service": "forecasts",
+      "sourceIds": [
+        "forecasts-cc58d8643f3d17e4b691"
+      ],
+      "status": "RECORDED",
+      "symbol": "source:services/forecasts/src/main/kotlin/weather/Forecasts.kt/class:weather.Forecasts/validatePlaceEvent/3ba523dfd93c1171c787"
+    },
+    {
+      "$clewRef": "sha256:dd966f830f6c5bce9f69739523f8a3ee02ab6f88835c997068eb2350fcdb75b6"
+    }
+  ]
+}

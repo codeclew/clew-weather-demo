@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:521f5abd20171a14ec7a3df487b5cb4c0807fecd8bd414f0f8f3ba692c4a64b0",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "places:symbol:1223607978a77b621e144f3c",
+      "places:symbol:6c7321d96988c6277e32e39e",
+      "places:symbol:d9cadcac8ec9a824bbdfc878"
+    ],
+    "id": "claim-b4df91eec926f5311ba3",
+    "sourceIds": [
+      "places-1223607978a77b621e14",
+      "places-6c7321d96988c6277e32",
+      "places-d9cadcac8ec9a824bbdf"
+    ],
+    "text": "Place is the service's domain record with Id, Name, Latitude, and Longitude. SavePlace is an HTTP request DTO containing CityId. The repository persists those place fields in the places table and stores JSON request payloads in request_outbox; the outbox row is a delivery record rather than a domain entity. The static City mapping maps IDs oslo, helsinki, and lisbon to the names and coordinates for Oslo, Helsinki, and Lisbon."
+  }
+}

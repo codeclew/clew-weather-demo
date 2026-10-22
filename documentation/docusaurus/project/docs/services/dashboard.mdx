@@ -1,0 +1,846 @@
+---
+title: "Dashboard"
+slug: "/services/dashboard"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+<span id="service-overview"></span>
+
+# Dashboard
+
+<section className="service-orientation">
+
+Reading outline · verbatim excerpts from retained descriptions
+
+The captured Dashboard source serves a home page and saved weather-card JSON, forwards place-save and refresh requests to Places, and subscribes to weather.place-requested and weather.forecast-updated.
+
+**Incoming Kafka:** weather.forecast-updated, weather.place-requested. Declared handoffs; runtime delivery has not been verified.
+
+**Entry points and incoming interfaces**
+
+- The captured OpenAPI declaration lists GET /, GET /api/weather, GET /health, GET /openapi.json, POST /api/places, and POST /api/places/&#123;id&#125;/refresh.
+
+[Full description and rules →](#section-ingress)
+
+**Domain entities and representations**
+
+- The service validator checks an event id, version 1, and a place with id, name, latitude, and longitude.
+
+[Full description and rules →](#section-entities)
+
+**External calls, files and storage**
+
+- The save and refresh handlers send POST requests to the configured Places base URL with a ten-second timeout.
+
+[Full description and rules →](#section-egress)
+
+</section>
+
+<aside className="translation-gap language-disclosure">
+<details>
+<summary>English output: some retained descriptions have another or unknown prose language · Descriptions to inspect: 2</summary>
+
+Inspect the listed descriptions and their retained originals; no translation is implied.
+
+- kafka-replay.json · unknown · <ClewDownload path="/clew-original/services/dashboard.note-runtime-kafka-replay.original.json">Original description and evidence (JSON)</ClewDownload>
+- validator-node24.json · unknown · <ClewDownload path="/clew-original/services/dashboard.note-runtime-validator-node24.original.json">Original description and evidence (JSON)</ClewDownload>
+
+</details>
+</aside>
+
+<ClewPageContext />
+
+<ClewStatus freshness="UNVERIFIED" verification="UNASSESSED" />
+
+Service behavior and explicit evidence boundaries
+
+## Overview {#section-overview}
+
+<details>
+<summary>Full retained description and supporting source</summary>
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+Dashboard serves saved place cards and accepts save and forecast-refresh requests for Places. It also consumes weather.place-requested and weather.forecast-updated events to maintain local cards. Six HTTP roots are GET /, GET /api/weather, POST /api/places, POST /api/places/&#123;id&#125;/refresh, GET /health, and GET /openapi.json. Source start connects Kafka, subscribes from the beginning to both topics, starts the shared consumer with autoCommit false, registers those routes, then listens; this source sequence does not establish runtime activation. The consumer validates recognized topic/event pairs and applies valid events transactionally. Parse or validation failures are persisted before offset plus one is committed; persistence failure prevents the commit, while an unknown topic throws UNKNOWN\_TOPIC. The event schema and OpenAPI file are declarations, not proof of runtime enforcement. The capture uses TypeScript source syntax with declared dialect 7.0.2 and file-only browser, contract, schema, and database inputs; runtime and compiler validation remain UNKNOWN. See GET / for browser behavior and each HTTP operation for its declared contract.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/dashboard/src/events.ts:10–29 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/afddedfc8054e8c5495b73e95e3924f7b15f90f9b73caf09d7c1b7cdda664830.mdx)
+- [services/dashboard/src/main.ts:76–83 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b41ac7155eba29b1e6a9dfe10348b626c22e19654978c7d35379a71fff4526a1.mdx)
+- [services/dashboard/src/main.ts:85–89 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/f2538d01a5740ce1abfc03ae7e7a7b2d8cd5252bbf39b4aa3f59a797afd655ae.mdx)
+- [services/dashboard/public/index.html:1–11 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/e2aefa0ef5b60c47780df39c33c065727314abc97f9d4dee8776810ca9ea58a9.mdx)
+- [services/dashboard/src/main.ts:67–74 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ab8df8a5fe7536b2fc32d2257bed77e48c54ce422b10c3afba79f26ac88b67a8.mdx)
+- [services/dashboard/src/events.ts:6–8 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/f595401e33ffe1c87198d3297a901422e3d449fe00dd98adddc17aaca283d70e.mdx)
+- [contracts/events.schema.json:1–173 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/dec95b6c15be91b214b5461a9c4a4de2c6778f4dc08926144af59dd3b4127499.mdx)
+- [services/dashboard/src/main.ts:91–93 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/9dfc47272109627664d48b7bdfc7a9f5e84c42965146d7a0196095441dd45229.mdx)
+- [services/dashboard/src/main.ts:95–97 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/115f097e979ebca0d7af8b4670f23623a3cdcd8fe24627d5867e6a072e81272d.mdx)
+- [services/dashboard/src/main.ts:47–60 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233.mdx)
+- [contracts/dashboard.openapi.json:1–462 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/a185cd3784485dfc3e136c62c34e70b819c1cf87d46b4c0a36781e0c808d35ec.mdx)
+- [services/dashboard/src/main.ts:15–45 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/bf524d202ba882540036918136ea088912da8bc6f340ab23d8a90bfb0aacab71.mdx)
+- [services/dashboard/src/main.ts:99–111 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b8c6b94020ae709e61177a744a5a5315fccb0813ac9f4e37ca6a0be5140d129c.mdx)
+- [database/init.sql:1–16 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3ad6c48ca9955bf3294e416633c41e7189d10ff1260271efaf018e87b0c15e97.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+
+</details>
+
+
+</details>
+
+## Responsibilities {#section-responsibilities}
+
+Reading outline · verbatim excerpts; open the full description for all qualifications.
+
+- The captured Dashboard source serves a home page and saved weather-card JSON, forwards place-save and refresh requests to Places, and subscribes to weather.place-requested and weather.forecast-updated.
+
+<details>
+<summary>Full retained description and supporting source</summary>
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+The captured Dashboard source serves a home page and saved weather-card JSON, forwards place-save and refresh requests to Places, and subscribes to weather.place-requested and weather.forecast-updated. The consumer dispatches each message to validation and event handling. In a transaction, applyEvent first inserts the event id into inbox; a duplicate commits and returns before any weather\_cards upsert. A new place request updates place details. A forecast event inserts a missing card, or updates a conflicting card only when its stored updated\_at is null or the incoming updatedAt is strictly newer; an older or equal event can commit its inbox row without changing the card. The health handler probes PostgreSQL and checks a local consumerReady flag. These statements describe source paths and declared registrations, not runtime activation.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/dashboard/src/main.ts:76–83 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b41ac7155eba29b1e6a9dfe10348b626c22e19654978c7d35379a71fff4526a1.mdx)
+- [services/dashboard/src/main.ts:85–89 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/f2538d01a5740ce1abfc03ae7e7a7b2d8cd5252bbf39b4aa3f59a797afd655ae.mdx)
+- [services/dashboard/src/main.ts:67–74 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ab8df8a5fe7536b2fc32d2257bed77e48c54ce422b10c3afba79f26ac88b67a8.mdx)
+- [services/dashboard/src/main.ts:95–97 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/115f097e979ebca0d7af8b4670f23623a3cdcd8fe24627d5867e6a072e81272d.mdx)
+- [services/dashboard/src/main.ts:47–60 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233.mdx)
+- [services/dashboard/src/main.ts:15–45 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/bf524d202ba882540036918136ea088912da8bc6f340ab23d8a90bfb0aacab71.mdx)
+- [services/dashboard/src/main.ts:99–111 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b8c6b94020ae709e61177a744a5a5315fccb0813ac9f4e37ca6a0be5140d129c.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- This proposal documents four service sections from source-level TypeScript and the captured OpenAPI declaration. It does not establish runtime route or listener activation, deployed settings, database outcomes, or broker delivery and offset-commit guarantees. The OpenAPI document is read as source text; JSON Schema semantics are not fully interpreted.
+
+</details>
+
+
+</details>
+
+## Domain entities {#section-entities}
+
+Reading outline · verbatim excerpts; open the full description for all qualifications.
+
+- The service validator checks an event id, version 1, and a place with id, name, latitude, and longitude.
+
+<details>
+<summary>Full retained description and supporting source</summary>
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+The service validator checks an event id, version 1, and a place with id, name, latitude, and longitude. A weather.forecast-updated event must carry a forecast with updatedAt, fetchedAt, mode, and one to six periods; each period is checked for a timestamp, numeric temperature, null or nonnegative numeric precipitation, and a string symbol. The weather\_cards upsert stores place fields, updated\_at, and the forecast JSON. The inbox table is used for event-id duplicate handling, while rejected\_messages records topic, partition, offset, and reason. These shapes come from code checks and SQL statements, not a fully interpreted shared JSON Schema.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/dashboard/src/events.ts:10–29 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/afddedfc8054e8c5495b73e95e3924f7b15f90f9b73caf09d7c1b7cdda664830.mdx)
+- [services/dashboard/src/events.ts:6–8 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/f595401e33ffe1c87198d3297a901422e3d449fe00dd98adddc17aaca283d70e.mdx)
+- [services/dashboard/src/main.ts:47–60 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233.mdx)
+- [services/dashboard/src/main.ts:15–45 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/bf524d202ba882540036918136ea088912da8bc6f340ab23d8a90bfb0aacab71.mdx)
+
+</details>
+
+<details>
+<summary>Apply a new event · retained process documentation</summary>
+
+A new forecast event can create its card directly from the place in the message. An existing card is updated only if its stored forecast timestamp is missing or the incoming forecast is strictly newer.
+
+EDITORIAL\_READING\_GUIDE\_NOT\_ACCEPTED\_PROSE. This context does not change the interaction declaration or establish runtime binding.
+
+[Process step and source evidence](../scenarios/dashboard-forecast-updated-consumer.mdx#question-apply)
+
+
+</details>
+
+<details>
+<summary>Apply a new event · retained process documentation</summary>
+
+For a new event ID, Dashboard saves the place name and coordinates on the card. This branch preserves any stored forecast.
+
+EDITORIAL\_READING\_GUIDE\_NOT\_ACCEPTED\_PROSE. This context does not change the interaction declaration or establish runtime binding.
+
+[Process step and source evidence](../scenarios/dashboard-place-requested-consumer.mdx#question-apply)
+
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- This proposal documents four service sections from source-level TypeScript and the captured OpenAPI declaration. It does not establish runtime route or listener activation, deployed settings, database outcomes, or broker delivery and offset-commit guarantees. The OpenAPI document is read as source text; JSON Schema semantics are not fully interpreted.
+
+</details>
+
+
+</details>
+
+- [Save city request · Field descriptions](../data-model/save-city-request.mdx#fields-and-representations)
+
+- [Place · Field descriptions](../data-model/place.mdx#fields-and-representations)
+
+- [Forecast · Field descriptions](../data-model/forecast.mdx#fields-and-representations)
+
+- [Period · Field descriptions](../data-model/period.mdx#fields-and-representations)
+
+- [Weather card · Field descriptions](../data-model/weather-card.mdx#fields-and-representations)
+
+## Ingress contracts {#section-ingress}
+
+<article className="clew-topic" id="topic-incoming-weather.forecast-updated" tabIndex={-1}>
+
+### Incoming Kafka topic · weather.forecast-updated
+
+<ClewProcessReturn topic="weather.forecast-updated" direction="incoming" />
+
+<div className="clew-topic-path" aria-label="Declared asynchronous handoff">
+
+<div>
+
+<ClewContextLink path="/services/forecasts#section-egress" fromProcess="" fromQuestion="" query={{"direction":"outgoing","topic":"weather.forecast-updated"}}>Forecasts</ClewContextLink>
+
+publishPending
+
+</div>
+
+<span aria-hidden="true">→</span>
+
+<div>
+
+**weather.forecast-updated**
+
+Kafka topic · asynchronous
+
+</div>
+
+<span aria-hidden="true">→</span>
+
+<div>
+
+<ClewContextLink path="/services/dashboard#section-ingress" fromProcess="" fromQuestion="" query={{"direction":"incoming","topic":"weather.forecast-updated"}}>Dashboard</ClewContextLink>
+
+consumeMessage
+
+</div>
+
+</div>
+
+Proposed handoff; runtime delivery has not been verified.
+
+Saved consumer view: <ClewContextLink path="/scenarios/dashboard-forecast-updated-consumer#process-overview" fromProcess="" fromQuestion="" query={{}}>Update a Dashboard forecast</ClewContextLink>
+
+Saved publisher view: <ClewContextLink path="/scenarios/forecasts-publish-pending#process-overview" fromProcess="" fromQuestion="" query={{}}>Publish forecast updates</ClewContextLink>
+
+Related service assessment: <ClewContextLink path="/notes/dashboard--assessment-runtime-kafka-replay" fromProcess="" fromQuestion="" query={{}}>An event with an older updatedAt leaves a newer Dashboard forecast unchanged</ClewContextLink>
+
+Related service assessment: <ClewContextLink path="/notes/dashboard--assessment-runtime-validator-node24" fromProcess="" fromQuestion="" query={{}}>A hidden forecast slips through an unchecked exercise</ClewContextLink>
+
+<details>
+<summary>Retained source and declaration context</summary>
+
+Topic names and the payload's event type are separate values. These references retain their own revisions; source matches do not prove topic resolution or delivery.
+
+- [services/dashboard/src/events.ts:10–29 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/afddedfc8054e8c5495b73e95e3924f7b15f90f9b73caf09d7c1b7cdda664830.mdx)
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [exercises/validator-regression.mjs:1–23 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4e79263abf80fbf833432043cb6b74035cf46f395ad731ee204419fb513afed2.mdx)
+- [services/dashboard/src/main.ts:1–113 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/489998b3bb96ff69dfe04f629b6281ed01757e4adcc670bc9d740381b32f543d.mdx)
+- [exercises/unchecked-place-forecast.ts:12–21 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb.mdx)
+- [compose.yaml:1–83 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/8b8a9654afc91bb6fdc51b4c16fc618743a55511d2caa81ebea58ac4f522db68.mdx)
+- [exercises/replay.py:1–120 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4dd8ea84c6cac8228e4402bbe650e31ac0d2e4496f5c0529f58b0ed103c62dd3.mdx)
+- [services/dashboard/src/events.ts:1–30 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e315f42d31e792e7aa347f9f1a24237c1af90d82a71f4fcc4ddb87e219ce6b80.mdx)
+- [services/dashboard/src/main.ts:47–60 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233.mdx)
+- [services/dashboard/src/main.ts:99–111 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b8c6b94020ae709e61177a744a5a5315fccb0813ac9f4e37ca6a0be5140d129c.mdx)
+- [services/dashboard/src/main.ts:101–101 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/da1659a8327b8aecd7e61977894445c5f3ee2983c3a8452cc29f6c75241a70a1.mdx)
+- [services/dashboard/src/events.ts:16–27 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/1bebaa185b698264b919df27521ad36ef4b4df48db052250e96a94cd76ec9f4c.mdx)
+- [exercises/unchecked-place-forecast.ts:1–24 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/b076801fa84cf68c847ac011415392df22b5da0111c08ec6827773b5011fb307.mdx)
+
+```json
+[
+  {
+    "boundaries": [
+      "RUNTIME_DESTINATION_AND_ACTIVATION_UNKNOWN",
+      "WIRE_SERIALIZATION_NOT_ASSESSED",
+      "MESSAGE_DELIVERY_ORDER_RETRY_AND_CONSUMER_ACTIVATION_UNKNOWN",
+      "ENVIRONMENT_SCOPE_UNSPECIFIED",
+      "CLIENT_PATTERN_UNSUPPORTED_OR_AMBIGUOUS",
+      "UNACCEPTED_AGENT_PROPOSAL"
+    ],
+    "from": {
+      "callSite": {
+        "observation": "forecasts:flow:a5b0ed72a047f4f36e281eb2"
+      },
+      "selector": {
+        "language": "kotlin",
+        "name": "publishPending",
+        "owner": "class:weather.Forecasts",
+        "parameterTypes": []
+      },
+      "service": "forecasts"
+    },
+    "interaction": "forecasts-forecast-updated-to-dashboard",
+    "origin": "agent-proposal",
+    "rationale": "Agent-proposed weather.forecast-updated subscriber mapping. The selected source method and producer callsite are retained; topic resolution, consumer subscription and runtime delivery remain unverified.",
+    "runtime": "UNKNOWN",
+    "to": {
+      "selector": {
+        "language": "typescript",
+        "name": "consumeMessage",
+        "owner": "package:",
+        "parameterTypes": [
+          ": EachMessagePayload"
+        ]
+      },
+      "service": "dashboard"
+    },
+    "topic": {
+      "caller": {
+        "declared": "weather.forecast-updated",
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": "weather.forecast-updated",
+        "observed": [],
+        "status": "UNRESOLVED"
+      }
+    }
+  }
+]
+```
+
+
+</details>
+
+</article>
+
+<article className="clew-topic" id="topic-incoming-weather.place-requested" tabIndex={-1}>
+
+### Incoming Kafka topic · weather.place-requested
+
+<ClewProcessReturn topic="weather.place-requested" direction="incoming" />
+
+<div className="clew-topic-path" aria-label="Declared asynchronous handoff">
+
+<div>
+
+<ClewContextLink path="/services/places#section-egress" fromProcess="" fromQuestion="" query={{"direction":"outgoing","topic":"weather.place-requested"}}>Places</ClewContextLink>
+
+PublishPending
+
+</div>
+
+<span aria-hidden="true">→</span>
+
+<div>
+
+**weather.place-requested**
+
+Kafka topic · asynchronous
+
+</div>
+
+<span aria-hidden="true">→</span>
+
+<div>
+
+<ClewContextLink path="/services/dashboard#section-ingress" fromProcess="" fromQuestion="" query={{"direction":"incoming","topic":"weather.place-requested"}}>Dashboard</ClewContextLink>
+
+consumeMessage
+
+</div>
+
+</div>
+
+Proposed handoff; runtime delivery has not been verified.
+
+Saved consumer view: <ClewContextLink path="/scenarios/dashboard-place-requested-consumer#process-overview" fromProcess="" fromQuestion="" query={{}}>Add a place to Dashboard</ClewContextLink>
+
+Saved publisher view: <ClewContextLink path="/scenarios/places-request-publisher#process-overview" fromProcess="" fromQuestion="" query={{}}>Publish place requests</ClewContextLink>
+
+Related service assessment: <ClewContextLink path="/notes/dashboard--assessment-runtime-kafka-replay" fromProcess="" fromQuestion="" query={{}}>An event with an older updatedAt leaves a newer Dashboard forecast unchanged</ClewContextLink>
+
+Related service assessment: <ClewContextLink path="/notes/dashboard--assessment-runtime-validator-node24" fromProcess="" fromQuestion="" query={{}}>A hidden forecast slips through an unchecked exercise</ClewContextLink>
+
+<details>
+<summary>Retained source and declaration context</summary>
+
+Topic names and the payload's event type are separate values. These references retain their own revisions; source matches do not prove topic resolution or delivery.
+
+- [services/dashboard/src/events.ts:10–29 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/afddedfc8054e8c5495b73e95e3924f7b15f90f9b73caf09d7c1b7cdda664830.mdx)
+- [exercises/validator-regression.mjs:1–23 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4e79263abf80fbf833432043cb6b74035cf46f395ad731ee204419fb513afed2.mdx)
+- [services/dashboard/src/main.ts:1–113 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/489998b3bb96ff69dfe04f629b6281ed01757e4adcc670bc9d740381b32f543d.mdx)
+- [services/dashboard/src/events.ts:25–27 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/37ea8a5ad67c8d8f122e011d24c642789632aada629a962c19c554ae08cf14ed.mdx)
+- [compose.yaml:1–83 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/8b8a9654afc91bb6fdc51b4c16fc618743a55511d2caa81ebea58ac4f522db68.mdx)
+- [exercises/replay.py:1–120 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4dd8ea84c6cac8228e4402bbe650e31ac0d2e4496f5c0529f58b0ed103c62dd3.mdx)
+- [services/dashboard/src/events.ts:1–30 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e315f42d31e792e7aa347f9f1a24237c1af90d82a71f4fcc4ddb87e219ce6b80.mdx)
+- [services/dashboard/src/main.ts:47–60 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233.mdx)
+- [services/dashboard/src/main.ts:99–111 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b8c6b94020ae709e61177a744a5a5315fccb0813ac9f4e37ca6a0be5140d129c.mdx)
+- [services/dashboard/src/main.ts:101–101 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/da1659a8327b8aecd7e61977894445c5f3ee2983c3a8452cc29f6c75241a70a1.mdx)
+- [services/dashboard/src/events.ts:16–27 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/1bebaa185b698264b919df27521ad36ef4b4df48db052250e96a94cd76ec9f4c.mdx)
+
+```json
+[
+  {
+    "boundaries": [
+      "RUNTIME_DESTINATION_AND_ACTIVATION_UNKNOWN",
+      "WIRE_SERIALIZATION_NOT_ASSESSED",
+      "MESSAGE_DELIVERY_ORDER_RETRY_AND_CONSUMER_ACTIVATION_UNKNOWN",
+      "ENVIRONMENT_SCOPE_UNSPECIFIED",
+      "CLIENT_PATTERN_UNSUPPORTED_OR_AMBIGUOUS",
+      "UNACCEPTED_AGENT_PROPOSAL"
+    ],
+    "from": {
+      "callSite": {
+        "observation": "places:flow:941152b2ec99892568c9e40a"
+      },
+      "selector": {
+        "language": "csharp",
+        "name": "PublishPending",
+        "owner": "class:Weather.Places.RequestPublisher",
+        "parameterTypes": [
+          "Confluent.Kafka.IProducer`2",
+          "System.Threading.CancellationToken"
+        ]
+      },
+      "service": "places"
+    },
+    "interaction": "places-place-requested-to-dashboard",
+    "origin": "agent-proposal",
+    "rationale": "Agent-proposed weather.place-requested subscriber mapping. The captured Places producer call location is exact; topic resolution, consumer subscription and runtime delivery remain unverified.",
+    "runtime": "UNKNOWN",
+    "to": {
+      "selector": {
+        "language": "typescript",
+        "name": "consumeMessage",
+        "owner": "package:",
+        "parameterTypes": [
+          ": EachMessagePayload"
+        ]
+      },
+      "service": "dashboard"
+    },
+    "topic": {
+      "caller": {
+        "declared": "weather.place-requested",
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": "weather.place-requested",
+        "observed": [],
+        "status": "UNRESOLVED"
+      }
+    }
+  }
+]
+```
+
+
+</details>
+
+</article>
+
+Reading outline · verbatim excerpts; open the full description for all qualifications.
+
+- The captured OpenAPI declaration lists GET /, GET /api/weather, GET /health, GET /openapi.json, POST /api/places, and POST /api/places/&#123;id&#125;/refresh.
+
+<details>
+<summary>Full retained description and supporting source</summary>
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+The captured OpenAPI declaration lists GET /, GET /api/weather, GET /health, GET /openapi.json, POST /api/places, and POST /api/places/&#123;id&#125;/refresh. It marks the place-save JSON body as required and declares response sets for the save and refresh routes; the source handler forwards the Places response status and JSON body, or maps a caught failure to 503. The refresh handler encodes the id in a bodyless POST. The weather handler selects saved cards ordered by name; the health handler runs SELECT 1 and rejects a false consumerReady flag. Startup source subscribes to weather.place-requested and weather.forecast-updated with fromBeginning true and passes eachMessage to consumeMessage with autoCommit false. The route and topic declarations are source evidence only.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/dashboard/src/main.ts:76–83 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b41ac7155eba29b1e6a9dfe10348b626c22e19654978c7d35379a71fff4526a1.mdx)
+- [contracts/dashboard.openapi.json:1–462 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/2cf069499a8284aa81909007590ed57f8b987703681fef870962f36c0681f13b.mdx)
+- [services/dashboard/src/main.ts:85–89 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/f2538d01a5740ce1abfc03ae7e7a7b2d8cd5252bbf39b4aa3f59a797afd655ae.mdx)
+- [services/dashboard/src/main.ts:67–74 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ab8df8a5fe7536b2fc32d2257bed77e48c54ce422b10c3afba79f26ac88b67a8.mdx)
+- [services/dashboard/src/main.ts:91–93 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/9dfc47272109627664d48b7bdfc7a9f5e84c42965146d7a0196095441dd45229.mdx)
+- [services/dashboard/src/main.ts:95–97 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/115f097e979ebca0d7af8b4670f23623a3cdcd8fe24627d5867e6a072e81272d.mdx)
+- [services/dashboard/src/main.ts:47–60 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233.mdx)
+- [services/dashboard/src/main.ts:99–111 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b8c6b94020ae709e61177a744a5a5315fccb0813ac9f4e37ca6a0be5140d129c.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- This proposal documents four service sections from source-level TypeScript and the captured OpenAPI declaration. It does not establish runtime route or listener activation, deployed settings, database outcomes, or broker delivery and offset-commit guarantees. The OpenAPI document is read as source text; JSON Schema semantics are not fully interpreted.
+
+</details>
+
+
+</details>
+
+### Declared HTTP interface schemas
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/93d2fd2abdff6fea53adccc0eb0c8ff30df22671295a4ba939d2068f2f939a6e">GET /openapi.json</ClewContextLink>
+
+<ClewContextLink path="/http/0c312e0425afbdb65a94cc73244bd6adf6c307f6dadb9a86fec7314268d8c799">POST /api/places</ClewContextLink>
+
+<ClewContextLink path="/http/3e308c20cc9247d5ad31b40b1dbdcc41986cdbdd7115eae886675d0288e9e55f">POST /api/places/&#123;id&#125;/refresh</ClewContextLink>
+
+<ClewContextLink path="/http/09abb227cff10ec4abdfcec54e5070b4850f7f9c2504146a1a65129bfc5a1921">GET /</ClewContextLink>
+
+<ClewContextLink path="/http/24d405c454b387ee91311b9bc1a517adda2e2252316ba50f791f60a9ba74e47b">GET /health</ClewContextLink>
+
+<ClewContextLink path="/http/e54e4711254fc46b9d7dc8a6ec81e89483f377a7e3eb8970200fd219b1ea0783">GET /api/weather</ClewContextLink>
+
+</div>
+
+### Captured public inputs
+
+#### GET /api/weather {#entry-dashboard-1d4aa83e0d1825825971}
+
+HTTP\_ENDPOINT
+
+<details>
+<summary>Declared trigger details</summary>
+
+```json
+{
+  "authority": "SOURCE_REGISTRATION_SYNTAX",
+  "methods": [
+    "GET"
+  ],
+  "name": "getWeather",
+  "owner": "package:",
+  "paths": [
+    "/api/weather"
+  ],
+  "sourceRoutes": [
+    {
+      "authority": "SOURCE_SYNTAX",
+      "declaredPath": "/api/weather",
+      "framework": "fastify",
+      "handler": "source:services/dashboard/src/main.ts/package:/getWeather/6f5c4b46a1381056433d",
+      "method": "GET",
+      "path": "/api/weather",
+      "receiver": "app",
+      "runtimeActivation": "UNVERIFIED",
+      "schema": "codeclew-typescript-source-route/1.0"
+    }
+  ]
+}
+```
+
+
+</details>
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/e54e4711254fc46b9d7dc8a6ec81e89483f377a7e3eb8970200fd219b1ea0783">GET /api/weather</ClewContextLink>
+
+</div>
+
+
+#### POST /api/places {#entry-dashboard-ad968c2137fedea90215}
+
+HTTP\_ENDPOINT
+
+<details>
+<summary>Declared trigger details</summary>
+
+```json
+{
+  "authority": "SOURCE_REGISTRATION_SYNTAX",
+  "methods": [
+    "POST"
+  ],
+  "name": "savePlace",
+  "owner": "package:",
+  "paths": [
+    "/api/places"
+  ],
+  "sourceRoutes": [
+    {
+      "authority": "SOURCE_SYNTAX",
+      "declaredPath": "/api/places",
+      "framework": "fastify",
+      "handler": "source:services/dashboard/src/main.ts/package:/savePlace/7a5f9ccc269b81055666",
+      "method": "POST",
+      "path": "/api/places",
+      "receiver": "app",
+      "runtimeActivation": "UNVERIFIED",
+      "schema": "codeclew-typescript-source-route/1.0"
+    }
+  ]
+}
+```
+
+
+</details>
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/0c312e0425afbdb65a94cc73244bd6adf6c307f6dadb9a86fec7314268d8c799">POST /api/places</ClewContextLink>
+
+</div>
+
+- [Retained process: dashboard-save-city](../scenarios/dashboard-save-city.mdx#process-overview) · EXACT\_RETAINED\_ROOT\_DECLARATION · source revision e635069293d58cb0d4f28c8211e748b8d58e6b37
+
+#### POST /api/places/&#123;id&#125;/refresh {#entry-dashboard-4301d0222c019e9d5339}
+
+HTTP\_ENDPOINT
+
+<details>
+<summary>Declared trigger details</summary>
+
+```json
+{
+  "authority": "SOURCE_REGISTRATION_SYNTAX",
+  "methods": [
+    "POST"
+  ],
+  "name": "requestRefresh",
+  "owner": "package:",
+  "paths": [
+    "/api/places/{id}/refresh"
+  ],
+  "sourceRoutes": [
+    {
+      "authority": "SOURCE_SYNTAX",
+      "declaredPath": "/api/places/:id/refresh",
+      "framework": "fastify",
+      "handler": "source:services/dashboard/src/main.ts/package:/requestRefresh/e49ec3442bac18d9abaa",
+      "method": "POST",
+      "path": "/api/places/{id}/refresh",
+      "receiver": "app",
+      "runtimeActivation": "UNVERIFIED",
+      "schema": "codeclew-typescript-source-route/1.0"
+    }
+  ]
+}
+```
+
+
+</details>
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/3e308c20cc9247d5ad31b40b1dbdcc41986cdbdd7115eae886675d0288e9e55f">POST /api/places/&#123;id&#125;/refresh</ClewContextLink>
+
+</div>
+
+- [Retained process: dashboard-refresh-request](../scenarios/dashboard-refresh-request.mdx#process-overview) · EXACT\_RETAINED\_ROOT\_DECLARATION · source revision e635069293d58cb0d4f28c8211e748b8d58e6b37
+
+#### GET /health {#entry-dashboard-d36957b096678dbe4785}
+
+HTTP\_ENDPOINT
+
+<details>
+<summary>Declared trigger details</summary>
+
+```json
+{
+  "authority": "SOURCE_REGISTRATION_SYNTAX",
+  "methods": [
+    "GET"
+  ],
+  "name": "getHealth",
+  "owner": "package:",
+  "paths": [
+    "/health"
+  ],
+  "sourceRoutes": [
+    {
+      "authority": "SOURCE_SYNTAX",
+      "declaredPath": "/health",
+      "framework": "fastify",
+      "handler": "source:services/dashboard/src/main.ts/package:/getHealth/db1627e51cfed35ce621",
+      "method": "GET",
+      "path": "/health",
+      "receiver": "app",
+      "runtimeActivation": "UNVERIFIED",
+      "schema": "codeclew-typescript-source-route/1.0"
+    }
+  ]
+}
+```
+
+
+</details>
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/24d405c454b387ee91311b9bc1a517adda2e2252316ba50f791f60a9ba74e47b">GET /health</ClewContextLink>
+
+</div>
+
+
+#### GET /openapi.json {#entry-dashboard-310371b6c91f276ad642}
+
+HTTP\_ENDPOINT
+
+<details>
+<summary>Declared trigger details</summary>
+
+```json
+{
+  "authority": "SOURCE_REGISTRATION_SYNTAX",
+  "methods": [
+    "GET"
+  ],
+  "name": "getOpenApi",
+  "owner": "package:",
+  "paths": [
+    "/openapi.json"
+  ],
+  "sourceRoutes": [
+    {
+      "authority": "SOURCE_SYNTAX",
+      "declaredPath": "/openapi.json",
+      "framework": "fastify",
+      "handler": "source:services/dashboard/src/main.ts/package:/getOpenApi/0ec2fcbeaf4f9f4919a7",
+      "method": "GET",
+      "path": "/openapi.json",
+      "receiver": "app",
+      "runtimeActivation": "UNVERIFIED",
+      "schema": "codeclew-typescript-source-route/1.0"
+    }
+  ]
+}
+```
+
+
+</details>
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/93d2fd2abdff6fea53adccc0eb0c8ff30df22671295a4ba939d2068f2f939a6e">GET /openapi.json</ClewContextLink>
+
+</div>
+
+
+#### GET / {#entry-dashboard-721012b8ddf1b26a39b9}
+
+HTTP\_ENDPOINT
+
+<details>
+<summary>Declared trigger details</summary>
+
+```json
+{
+  "authority": "SOURCE_REGISTRATION_SYNTAX",
+  "methods": [
+    "GET"
+  ],
+  "name": "getHome",
+  "owner": "package:",
+  "paths": [
+    "/"
+  ],
+  "sourceRoutes": [
+    {
+      "authority": "SOURCE_SYNTAX",
+      "declaredPath": "/",
+      "framework": "fastify",
+      "handler": "source:services/dashboard/src/main.ts/package:/getHome/71d253de88dabefd2d09",
+      "method": "GET",
+      "path": "/",
+      "receiver": "app",
+      "runtimeActivation": "UNVERIFIED",
+      "schema": "codeclew-typescript-source-route/1.0"
+    }
+  ]
+}
+```
+
+
+</details>
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/09abb227cff10ec4abdfcec54e5070b4850f7f9c2504146a1a65129bfc5a1921">GET /</ClewContextLink>
+
+</div>
+
+
+## Egress contracts {#section-egress}
+
+Reading outline · verbatim excerpts; open the full description for all qualifications.
+
+- The save and refresh handlers send POST requests to the configured Places base URL with a ten-second timeout.
+
+<details>
+<summary>Full retained description and supporting source</summary>
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+The save and refresh handlers send POST requests to the configured Places base URL with a ten-second timeout. Save sends the request body as JSON; refresh appends the encoded place id and sends no body. Both forward the upstream status and parsed JSON response, and both return 503 with PLACES\_UNAVAILABLE when an exception is caught. For consumed messages, the invalid branch attempts a rejected\_messages insert and then calls commitOffsets for offset plus one. The valid branch waits for applyEvent and then calls commitOffsets; a thrown handler or database error exits before that call in the shown body. applyEvent uses a PostgreSQL transaction for inbox and weather\_cards writes. The source shows call order, not cross-store atomicity or broker delivery guarantees.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/dashboard/src/main.ts:76–83 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b41ac7155eba29b1e6a9dfe10348b626c22e19654978c7d35379a71fff4526a1.mdx)
+- [services/dashboard/src/main.ts:67–74 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ab8df8a5fe7536b2fc32d2257bed77e48c54ce422b10c3afba79f26ac88b67a8.mdx)
+- [services/dashboard/src/main.ts:47–60 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233.mdx)
+- [services/dashboard/src/main.ts:15–45 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/bf524d202ba882540036918136ea088912da8bc6f340ab23d8a90bfb0aacab71.mdx)
+- [services/dashboard/src/main.ts:99–111 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b8c6b94020ae709e61177a744a5a5315fccb0813ac9f4e37ca6a0be5140d129c.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- This proposal documents four service sections from source-level TypeScript and the captured OpenAPI declaration. It does not establish runtime route or listener activation, deployed settings, database outcomes, or broker delivery and offset-commit guarantees. The OpenAPI document is read as source text; JSON Schema semantics are not fully interpreted.
+
+</details>
+
+
+</details>
+
+## Notes and assessments
+
+### An event with an older updatedAt leaves a newer Dashboard forecast unchanged {#assessment-runtime-kafka-replay}
+
+[Open the retained record and separate assessment](../notes/dashboard--assessment-runtime-kafka-replay.mdx)
+
+### A hidden forecast slips through an unchecked exercise {#assessment-runtime-validator-node24}
+
+[Open the retained record and separate assessment](../notes/dashboard--assessment-runtime-validator-node24.mdx)
+
+## Original operations
+
+- [An event with an older updatedAt leaves a newer Dashboard forecast unchanged](../operations/services-dashboard--assessment-runtime-kafka-replay.mdx)
+- [A hidden forecast slips through an unchecked exercise](../operations/services-dashboard--assessment-runtime-validator-node24.mdx)
+- [GET /api/weather — saved cards](../operations/services-dashboard--dashboard-1d4aa83e0d1825825971.mdx)
+- [GET /openapi.json — serve contract](../operations/services-dashboard--dashboard-310371b6c91f276ad642.mdx)
+- [Dashboard startup registrations (source-level)](../operations/services-dashboard--dashboard-32f3a8fe3000ac506a5a.mdx)
+- [POST /api/places/&#123;id&#125;/refresh — queue refresh](../operations/services-dashboard--dashboard-4301d0222c019e9d5339.mdx)
+- [GET / — Dashboard page](../operations/services-dashboard--dashboard-721012b8ddf1b26a39b9.mdx)
+- [Dashboard exercise place and forecast validator](../operations/services-dashboard--dashboard-8f0c2429af695539e6cd.mdx)
+- [Dashboard timestamp predicate](../operations/services-dashboard--dashboard-9e8af3ed64d9d5e72548.mdx)
+- [Apply dashboard event effects](../operations/services-dashboard--dashboard-aa92fac55661297c8e9a.mdx)
+- [POST /api/places — save a place](../operations/services-dashboard--dashboard-ad968c2137fedea90215.mdx)
+- [GET /health — local readiness checks](../operations/services-dashboard--dashboard-d36957b096678dbe4785.mdx)
+- [Dashboard consumeMessage wrapper](../operations/services-dashboard--dashboard-d527a6e620a1974b0e5a.mdx)
+- [Dashboard event validation](../operations/services-dashboard--dashboard-f965de51f1f237949bc6.mdx)
+- [Dashboard egress contracts](../operations/services-dashboard--section-egress.mdx)
+- [Dashboard domain entities](../operations/services-dashboard--section-entities.mdx)
+- [Dashboard ingress contracts](../operations/services-dashboard--section-ingress.mdx)
+- [Dashboard overview](../operations/services-dashboard--section-overview.mdx)
+- [Dashboard responsibilities](../operations/services-dashboard--section-responsibilities.mdx)
+
+<ClewDownload path="/clew-data/native/services/dashboard.json">Saved data and complete provenance (reference format)</ClewDownload>
+

@@ -1,0 +1,36 @@
+{
+  "identity": "sha256:1ec6bb95716e81272394843fa3f6594d9d37e60645591a4d2419dcb8322b3bdd",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "bodyAssessment": "matches-selected-schema",
+    "bodyErrors": [],
+    "comparedSchemaMedia": "application/json",
+    "declaredMedia": [
+      "application/json"
+    ],
+    "id": "missing-city",
+    "mediaAssessment": "undeclared-media",
+    "request": {
+      "body": "{}",
+      "contentType": "application/json",
+      "method": "POST",
+      "path": "/places"
+    },
+    "requestAssessment": "outside-schema",
+    "requestErrors": [
+      {
+        "message": "'cityId' is a required property",
+        "path": [],
+        "schemaPath": [
+          "required"
+        ]
+      }
+    ],
+    "response": {
+      "body": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"CityId\":[\"The CityId field is required.\"]},\"traceId\":\"00-3c5198a10b5b2f693cdcb3be59e48a70-3130a9dc56125040-00\"}",
+      "contentType": "application/problem+json; charset=utf-8",
+      "status": 400
+    },
+    "statusDeclared": true
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:a23273f40b760d1de457c7ce6ff0b620102c28d1306ee9a84752a34d1c183130",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:eb4ddb66acd449dafad7d95fb3705d72bbe89c8355bb07ca80d4b8944c5beb7a"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The producer attempts to save the event in forecast_outbox. An existing event ID is not replaced (ON CONFLICT DO NOTHING). publishPending sends the saved payload to weather.forecast-updated using Place.id as key, and marks it published only after send().get() returns.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

@@ -1,0 +1,30 @@
+---
+title: "services/places/PlacesController.cs:10–17"
+slug: "/sources/31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/places/PlacesController.cs:10–17
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: c289b28be4819eddf29d59a7c12f178559ec5229
+
+Text digest: sha256:b6a46a9557e67342266ccce88f28a634490cacba1ee8f705d71066775158f708
+
+## Retained text {#retained-text}
+
+```text
+[HttpPost("/places")]
+    public async Task<IActionResult> Save([FromBody] SavePlace request, CancellationToken token)
+    {
+        var city = PlacesRepository.City(request.CityId);
+        if (city is null) return BadRequest(new { error = "UNSUPPORTED_CITY" });
+        await repository.Save(city, token);
+        return Ok(city);
+    }
+```
+
+<ClewDownload path="/clew-data/objects/31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0.json">Complete original source binding</ClewDownload>

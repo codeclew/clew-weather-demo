@@ -1,0 +1,41 @@
+---
+title: "Places service"
+slug: "/operations/services-places--section-overview"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Places service
+
+<ClewPageContext />
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+Six Places roots in the selected source revision c289b28be4819eddf29d59a7c12f178559ec5229: five HTTP actions and RequestPublisher.ExecuteAsync. Partial C\# source coverage; runtime activation and cross-service outcomes are unverified.
+
+GET /places calls List, which reads rows ordered by name; failed database open disposes the connection and rethrows. GET /health runs SELECT 1, then returns 200 database READY. It checks the database, not Kafka.
+
+POST /places maps cityId oslo, helsinki, and lisbon to places; others return 400 UNSUPPORTED\_CITY. Supported IDs call Save and return 200. Save inserts with ON CONFLICT DO NOTHING RETURNING id in a transaction; only a new row creates a request\_outbox event, so duplicates return 200 without a new request. The event is a new GUID with web-serialized place.requested v1 payload in that transaction.
+
+POST /places/&#123;id&#125;/refresh finds by loading the list; missing IDs return 404 PLACE\_NOT\_FOUND. A found place is enqueued with a new event ID and returns 202 QUEUED without waiting for forecast recomputation. GET /openapi.json reads /app/contracts/places.openapi.json with no fallback. The contract declares GET /places 200/500, POST /places 200/400/415/500, refresh 202/404/500, and health and OpenAPI retrieval 200/500; its save body requires cityId. JSON Schema semantics are not fully interpreted, and file-read failure is not a successful 200 response.
+
+The publisher selects one eligible unpublished row in created\_at order with FOR UPDATE SKIP LOCKED; empty selection returns. It awaits ProduceAsync to weather.place-requested using place ID as key, then marks the database row published and commits. A crash between send completion and database commit can replay the event; producer idempotence does not make the two stores atomic. The producer uses idempotence, KAFKA\_BOOTSTRAP or kafka:9092, and a 10-second message timeout. The loop logs other failures as PUBLISH\_RETRY, waits one second, and retries; cancellation exits or can propagate from the delay.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/places/PlacesRepository.cs:4–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d.mdx)
+- [contracts/places.openapi.json:1–263 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959.mdx)
+- [services/places/PlacesController.cs:5–34 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/351979e24a417de4797960a50c6bb0b27e90fbe64ebb5f7b32f302f1907e995c.mdx)
+- [services/places/RequestPublisher.cs:5–35 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/8365477e69b3327301c9058498f870922953982db968768e71a60cf8d2df982d.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- C\# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted.
+
+</details>
+

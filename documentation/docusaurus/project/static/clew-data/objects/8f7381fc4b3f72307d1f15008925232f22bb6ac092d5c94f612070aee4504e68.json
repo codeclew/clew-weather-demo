@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:8f7381fc4b3f72307d1f15008925232f22bb6ac092d5c94f612070aee4504e68",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:1005209bbc0286c2119aaf7ab274a2a2b881a5403ce5ba4d06bfeb292d724732"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "getWeather selects place_id AS id, name, latitude, longitude and forecast. Stored forecast JSON is returned as a whole; the updated_at ordering column is not selected separately.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

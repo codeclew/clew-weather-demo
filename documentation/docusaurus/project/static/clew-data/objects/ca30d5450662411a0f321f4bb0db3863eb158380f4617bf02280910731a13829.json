@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:ca30d5450662411a0f321f4bb0db3863eb158380f4617bf02280910731a13829",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 19,
+    "evidenceDigest": "sha256:7c80228d48a723c07e9b3fb3658c1382ce94dc2869d82c78277879b88477ff80",
+    "file": "services/dashboard/src/events.ts",
+    "id": "dashboard-24db9c53afcbb4e3c95b",
+    "occurrence": {
+      "blob": "ddda5719da0d973028010984703f3ee5163090f5",
+      "endByte": 1543,
+      "snapshot": "sha256:550435c6f8e16951bd815f9f7b54eda07bff8ad73a80a6df524ab2af077f4f6f",
+      "startByte": 1180
+    },
+    "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+    "service": "dashboard",
+    "startLine": 17,
+    "text": "if (event.type !== 'forecast.updated' || !event.forecast || !isTimestamp(event.forecast.updatedAt)\n        || !isTimestamp(event.forecast.fetchedAt) || !['fixture', 'live'].includes(event.forecast.mode)\n        || !Array.isArray(event.forecast.periods) || event.forecast.periods.length < 1 || event.forecast.periods.length > 6) throw new Error('INVALID_FORECAST')",
+    "textDigest": "sha256:57fe8ef30688b4363053f1e4b89f2c1e196d254737ee37283d7deb66c5406a02",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/e635069293d58cb0d4f28c8211e748b8d58e6b37/services/dashboard/src/events.ts#L17-L19"
+  }
+}

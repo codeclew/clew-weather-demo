@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:a6fa11c36a9ffb0b580f60acc335a0a66f259b3e435c44a6d8555d9373ab9944",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:fd2936fcb97ba714f6e655357398c9ba111fdac6188e4fbf7ef2917153836853"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Up to six provider time points normalized into embedded Period values. This is not an independently stored entity.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "identity": "sha256:b0dd097565fec7a47d5ae963453dd033d2df26ce8a1087cd2e1b05fe40cb5e1c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "href": "../scenarios/dashboard-refresh-request.html#question-request",
+    "language": "en",
+    "process": "dashboard-refresh-request",
+    "text": "Dashboard sends a bodyless POST to /places/{id}/refresh, URL-encodes the ID and applies a 10-second timeout. The selected Compose config sets PLACES_URL to http://places:8080; the source uses the same default. The example target is POST http://places:8080/places/{id}/refresh. Production address and runtime receiver routing are unverified.",
+    "title": "Address and contracts"
+  }
+}

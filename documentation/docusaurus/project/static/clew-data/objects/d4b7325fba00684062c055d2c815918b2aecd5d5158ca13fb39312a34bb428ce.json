@@ -1,0 +1,12 @@
+{
+  "identity": "sha256:d4b7325fba00684062c055d2c815918b2aecd5d5158ca13fb39312a34bb428ce",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    "Repository substitutions prevent conclusions about real storage contents, persistence, transaction failures, or Kafka delivery.",
+    "Observed declared statuses do not prove exhaustive status-code coverage; 500 paths were not exercised.",
+    "Accepting an input outside the schema shows broader runtime acceptance, not failure for a contract-valid client.",
+    "Matching a body against another media type schema does not resolve an undeclared response media type.",
+    "GET /openapi.json was not exercised.",
+    "The recorded controller and DTO spans are compared with selected snapshot source. Program and substituted harness files are retained external evidence, not additional compiler-backed facts."
+  ]
+}

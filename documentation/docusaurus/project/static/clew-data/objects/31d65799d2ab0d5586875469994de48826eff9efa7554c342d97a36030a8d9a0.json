@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 17,
+    "evidenceDigest": "sha256:736bebeb9058370d059c092f45e8d76f8469809174e7db77cf0de838d1e1663f",
+    "file": "services/places/PlacesController.cs",
+    "id": "places-309961f88b197290c1b0",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "places",
+    "startLine": 10,
+    "text": "[HttpPost(\"/places\")]\n    public async Task<IActionResult> Save([FromBody] SavePlace request, CancellationToken token)\n    {\n        var city = PlacesRepository.City(request.CityId);\n        if (city is null) return BadRequest(new { error = \"UNSUPPORTED_CITY\" });\n        await repository.Save(city, token);\n        return Ok(city);\n    }",
+    "textDigest": "sha256:b6a46a9557e67342266ccce88f28a634490cacba1ee8f705d71066775158f708",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L10-L17"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "identity": "sha256:814658ea469b066b79cf1debc3acaade1e31c5028613f001a76b5418768e899d",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "digest": "sha256:926c9ba7fc3e31b231ebf00713ec1b8a172ca82c05a47924afc6e3e39c1d14c8",
+    "status": "CAPTURED",
+    "text": "{\n  \"schema\": \"clew-weather-runtime-observation/1.0\",\n  \"id\": \"validator-node24\",\n  \"origin\": \"LOCAL_TEST_OBSERVATION\",\n  \"compilerEvidence\": false,\n  \"originalRecordSha256\": \"dd0db06bc40207580d6c1097e68fff4d0fe696172e7d861fe528e98468bc218a\",\n  \"status\": \"PASSED\",\n  \"nodeVersion\": \"v24.21.0\",\n  \"assetSha256\": \"bed7eea5325e1108f32ce5228ddd6a5f0f08a499ee42aa7442aea583702f6057\",\n  \"officialChecksumMatched\": true,\n  \"exerciseResult\": {\n    \"status\": \"PASSED\",\n    \"assertions\": 6,\n    \"runtime\": \"v24.21.0\"\n  },\n  \"repositoryRevision\": \"8d69f2b1d4a6d9770f87c720cd665dab30081815\"\n}\n"
+  }
+}

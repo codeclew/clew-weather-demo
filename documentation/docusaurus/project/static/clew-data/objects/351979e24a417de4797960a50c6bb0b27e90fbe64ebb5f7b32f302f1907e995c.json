@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:351979e24a417de4797960a50c6bb0b27e90fbe64ebb5f7b32f302f1907e995c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 34,
+    "evidenceDigest": "sha256:42003231fcefb221d1faf13b3c85315f31925da008a2b2c3b8e5c6f6a524cc50",
+    "file": "services/places/PlacesController.cs",
+    "id": "places-c4c78f2ff61478266b21",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "places",
+    "startLine": 5,
+    "text": "[ApiController]\npublic class PlacesController(PlacesRepository repository) : ControllerBase\n{\n    [HttpGet(\"/places\")]\n    public async Task<IReadOnlyList<Place>> List(CancellationToken token) => await repository.List(token);\n    [HttpPost(\"/places\")]\n    public async Task<IActionResult> Save([FromBody] SavePlace request, CancellationToken token)\n    {\n        var city = PlacesRepository.City(request.CityId);\n        if (city is null) return BadRequest(new { error = \"UNSUPPORTED_CITY\" });\n        await repository.Save(city, token);\n        return Ok(city);\n    }\n    [HttpPost(\"/places/{id}/refresh\")]\n    public async Task<IActionResult> Refresh(string id, CancellationToken token)\n    {\n        var city = await repository.Find(id, token);\n        if (city is null) return NotFound(new { error = \"PLACE_NOT_FOUND\" });\n        await repository.Enqueue(city, token);\n        return Accepted(new { placeId = id, status = \"QUEUED\" });\n    }\n    [HttpGet(\"/health\")]\n    public async Task<IActionResult> Health(CancellationToken token)\n    {\n        await repository.Ping(token);\n        return Ok(new { database = \"READY\" });\n    }\n    [HttpGet(\"/openapi.json\")]\n    public async Task<IActionResult> OpenApi(CancellationToken token) => Content(await System.IO.File.ReadAllTextAsync(\"/app/contracts/places.openapi.json\", token), \"application/json\");\n}",
+    "textDigest": "sha256:6fb464381635249726d23d640c975b2e23058da1760d04f08d7dea1e7e2dcf78",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L5-L34"
+  }
+}

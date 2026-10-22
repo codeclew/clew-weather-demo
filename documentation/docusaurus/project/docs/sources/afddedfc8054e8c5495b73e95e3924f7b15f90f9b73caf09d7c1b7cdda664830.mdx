@@ -1,0 +1,42 @@
+---
+title: "services/dashboard/src/events.ts:10–29"
+slug: "/sources/afddedfc8054e8c5495b73e95e3924f7b15f90f9b73caf09d7c1b7cdda664830"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/dashboard/src/events.ts:10–29
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: e635069293d58cb0d4f28c8211e748b8d58e6b37
+
+Text digest: sha256:571b99fa820132a9b7704991ddc99c05fc3d68089de3929a4fe0b5ce7a153da1
+
+## Retained text {#retained-text}
+
+```text
+function validateEvent(value: unknown, topic: string): Event {
+  if (!value || typeof value !== 'object') throw new Error('INVALID_EVENT')
+  const event = value as Event
+  if (typeof event.id !== 'string' || event.version !== 1 || !event.place || typeof event.place.id !== 'string'
+      || !['oslo', 'helsinki', 'lisbon'].includes(event.place.id) || typeof event.place.name !== 'string'
+      || !Number.isFinite(event.place.latitude) || !Number.isFinite(event.place.longitude)) throw new Error('INVALID_EVENT')
+  if (topic === 'weather.forecast-updated') {
+    if (event.type !== 'forecast.updated' || !event.forecast || !isTimestamp(event.forecast.updatedAt)
+        || !isTimestamp(event.forecast.fetchedAt) || !['fixture', 'live'].includes(event.forecast.mode)
+        || !Array.isArray(event.forecast.periods) || event.forecast.periods.length < 1 || event.forecast.periods.length > 6) throw new Error('INVALID_FORECAST')
+    for (const period of event.forecast.periods) {
+      if (!isTimestamp(period.time) || !Number.isFinite(period.temperatureC)
+          || !(period.precipitationMm === null || (Number.isFinite(period.precipitationMm) && period.precipitationMm >= 0))
+          || typeof period.symbol !== 'string') throw new Error('INVALID_PERIOD')
+    }
+  } else if (topic === 'weather.place-requested') {
+    if (event.type !== 'place.requested' || event.forecast !== undefined) throw new Error('INVALID_PLACE_EVENT')
+  } else throw new Error('UNKNOWN_TOPIC')
+  return event
+}
+```
+
+<ClewDownload path="/clew-data/objects/afddedfc8054e8c5495b73e95e3924f7b15f90f9b73caf09d7c1b7cdda664830.json">Complete original source binding</ClewDownload>

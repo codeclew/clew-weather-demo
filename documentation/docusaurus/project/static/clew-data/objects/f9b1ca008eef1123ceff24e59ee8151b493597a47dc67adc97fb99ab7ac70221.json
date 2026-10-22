@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:f9b1ca008eef1123ceff24e59ee8151b493597a47dc67adc97fb99ab7ac70221",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:a85120309ebf9641ee2e342b353ff812c6b51a1b861a79ec2f139c6669f169ce"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Air temperature copied from air_temperature into the numeric temperatureC field.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

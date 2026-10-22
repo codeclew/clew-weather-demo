@@ -1,0 +1,36 @@
+{
+  "identity": "sha256:d44f4c35c7175a6bdcc9e327f0206e40835e897cf4bd2d95d35a9eac3441f6e1",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "bodyAssessment": "matches-selected-schema",
+    "bodyErrors": [],
+    "comparedSchemaMedia": "application/json",
+    "declaredMedia": [
+      "application/json"
+    ],
+    "id": "extra-property",
+    "mediaAssessment": "declared",
+    "request": {
+      "body": "{\"cityId\":\"oslo\",\"extra\":true}",
+      "contentType": "application/json",
+      "method": "POST",
+      "path": "/places"
+    },
+    "requestAssessment": "outside-schema",
+    "requestErrors": [
+      {
+        "message": "Additional properties are not allowed ('extra' was unexpected)",
+        "path": [],
+        "schemaPath": [
+          "additionalProperties"
+        ]
+      }
+    ],
+    "response": {
+      "body": "{\"id\":\"oslo\",\"name\":\"Oslo\",\"latitude\":59.93,\"longitude\":10.72}",
+      "contentType": "application/json; charset=utf-8",
+      "status": 200
+    },
+    "statusDeclared": true
+  }
+}

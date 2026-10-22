@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:373818338886a901699a266066c2e15eac66ab4b091f192b4f2fa9110ec5221a",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:58a7b287648459b56610207df1ee379d2af4355b104636dd0bf71bdb3378d513"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "event.place.latitude is explicitly bound to weather_cards.latitude in the forecast event INSERT/UPDATE. The update is conditional on a strictly newer forecast timestamp.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

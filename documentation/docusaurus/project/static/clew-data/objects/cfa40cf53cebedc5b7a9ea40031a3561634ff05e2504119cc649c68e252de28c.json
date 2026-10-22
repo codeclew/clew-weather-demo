@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:cfa40cf53cebedc5b7a9ea40031a3561634ff05e2504119cc649c68e252de28c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "id": "temperature",
+    "meaning": {
+      "$clewRef": "sha256:f9b1ca008eef1123ceff24e59ee8151b493597a47dc67adc97fb99ab7ac70221"
+    },
+    "path": "temperatureC",
+    "representations": {
+      "$clewRef": "sha256:1d32de3df7795409c58289876edeb2eb649b60f6bb4d4f3e7fe3ffab543fae3b"
+    },
+    "selectedProcessField": true,
+    "usage": {
+      "$clewRef": "sha256:006e0975cfacb40f09007a9bf4c8000e9d309c44c86a48546bffc638150f6fcb"
+    }
+  }
+}

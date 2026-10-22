@@ -1,0 +1,38 @@
+{
+  "identity": "sha256:d75fb8fe44179b3d36270dd0cdc465c8774ae74ce3300230611dd14eb69f2cb9",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "controller": {
+      "$clewRef": "sha256:2ba601b596bde3026a5a79ecc673e59294b394f6aec3e186b107feedc785bd81"
+    },
+    "http-harness": {
+      "$clewRef": "sha256:f8a96f4daccd9323601cef4491246e29f679ae69d3ee63c2a5f9058dc94345c4"
+    },
+    "http-probe": {
+      "$clewRef": "sha256:1a844655630426516cf61bea579cdf78f15d5e1349ae5a0b355d6fe042b43803"
+    },
+    "openapi": {
+      "$clewRef": "sha256:3355dc140e1a5db780f5146e2f4a103bcc7c84197744058ad6a4413d8ded8caf"
+    },
+    "probe-project": {
+      "digest": "sha256:8b4e038e6509a65ca98a58d89dcf34b9460c567d46d96222581bbfa1d469e8cf",
+      "text": "<Project Sdk=\"Microsoft.NET.Sdk.Web\"><PropertyGroup><TargetFramework>net10.0</TargetFramework><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings></PropertyGroup></Project>\n"
+    },
+    "program": {
+      "digest": "sha256:11954fa4108dce77aaf85c691f31cd6b2e0c33347b0df673f511b8551c88528c",
+      "text": "using Weather.Places;\nvar builder = WebApplication.CreateBuilder(args);\nbuilder.Services.AddControllers();\nbuilder.Services.AddSingleton<PlacesRepository>();\nbuilder.Services.AddHostedService<RequestPublisher>();\nvar app = builder.Build();\napp.MapControllers();\napp.Run();\n"
+    },
+    "schema-assessment": {
+      "$clewRef": "sha256:35a88450851a7725f248316af36b91c296a50467a25a971310c5c87cfba7d50c"
+    },
+    "schema-validator": {
+      "$clewRef": "sha256:fd48659b39aef0dfe8f837383d106de53886ebf2d03e0e26d27517a9ee0bd9e5"
+    },
+    "source-evidence": {
+      "$clewRef": "sha256:2b09c043d3d5ce3b3793db9cf5ae4fb5f3f5db9cd592fe1dc62141b1d934f9b9"
+    },
+    "substituted-dependencies": {
+      "$clewRef": "sha256:7d94ab9c7b2f620ea35c18de517496ba77017f521413d337fb98ba57ef2fd6d8"
+    }
+  }
+}

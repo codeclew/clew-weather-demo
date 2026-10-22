@@ -1,0 +1,1344 @@
+{
+  "schema": "codeclew-normalized-data/1.0",
+  "value": {
+    "activityTransitions": null,
+    "activityTransitionsSvg": false,
+    "analysisEvidence": {
+      "dashboard": {
+        "coverage": "SYNTAX",
+        "extractor": "codeclew-documentation-source/1.0",
+        "mappedSymbols": 0,
+        "provider": {
+          "status": "NOT_REQUESTED"
+        },
+        "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+        "runtimeMode": "COMMITTED_SOURCE_NO_BUILD",
+        "sampleFacts": []
+      }
+    },
+    "authoredTranslationGaps": [],
+    "boundaries": [
+      "CALL_TARGETS_UNRESOLVED",
+      "DECLARED_TRANSITION_NOT_REACHED:forecasts-forecast-updated-to-dashboard",
+      "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+      "FILE_ONLY:compose.yaml",
+      "FILE_ONLY:contracts/dashboard.openapi.json",
+      "FILE_ONLY:contracts/events.schema.json",
+      "FILE_ONLY:database/init.sql",
+      "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+      "FILE_ONLY:exercises/replay.py",
+      "FILE_ONLY:exercises/validator-regression.mjs",
+      "FILE_ONLY:fixtures/helsinki.json",
+      "FILE_ONLY:fixtures/lisbon.json",
+      "FILE_ONLY:fixtures/met-oslo-recorded.json",
+      "FILE_ONLY:fixtures/oslo.json",
+      "FILE_ONLY:fixtures/provenance.json",
+      "FILE_ONLY:services/dashboard/Dockerfile",
+      "FILE_ONLY:services/dashboard/package-lock.json",
+      "FILE_ONLY:services/dashboard/package.json",
+      "FILE_ONLY:services/dashboard/public/index.html",
+      "FILE_ONLY:services/dashboard/tsconfig.json",
+      "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+      "ORDER_LEXICAL_ONLY",
+      "SCOPE_WATCH_CONSERVATIVE",
+      "Static source interpretation; runtime activation and execution are not established."
+    ],
+    "boundaryInventory": null,
+    "canonicalEntityLinks": {
+      "question-apply": {
+        "dashboard": [
+          {
+            "documentationLanguage": "en",
+            "href": "../data-model/weather-card.html",
+            "id": "weather-card",
+            "title": "Weather card"
+          }
+        ]
+      }
+    },
+    "catalogue": [],
+    "contracts": [],
+    "coverage": {
+      "dashboard": "SYNTAX"
+    },
+    "entities": [],
+    "extractor": "codeclew-documentation-jvm/1.3",
+    "frozenLanguageAvailability": {
+      "requestedDocumentationLanguage": "en",
+      "translationComplete": true,
+      "translationGaps": {}
+    },
+    "frozenPublication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+    "gaps": {},
+    "interactions": {
+      "$clewRef": "sha256:ec6fc3e11bb1e210a626e7acf5b9f6c5cf29f683f8430b16e7839c534bcaba8d"
+    },
+    "language": "en",
+    "lifecycleOperations": [],
+    "notes": [],
+    "operationContracts": {
+      "dashboard-forecast-updated-consumer": [],
+      "process-overview": []
+    },
+    "operationExternalCalls": {
+      "dashboard-forecast-updated-consumer": [],
+      "process-overview": []
+    },
+    "operationSources": {
+      "dashboard-forecast-updated-consumer": {
+        "$clewRef": "sha256:c69b939717e7755fe850875d5bc0731e46e1068c59d051ee1b4e7b09819a9a0a"
+      },
+      "process-overview": {
+        "$clewRef": "sha256:c69b939717e7755fe850875d5bc0731e46e1068c59d051ee1b4e7b09819a9a0a"
+      }
+    },
+    "operationStates": {
+      "dashboard-forecast-updated-consumer": {
+        "$clewRef": "sha256:16170ce006198916df899740035d9a945a227bcdae4ab0cc9cd5196297850f42"
+      },
+      "process-overview": {
+        "$clewRef": "sha256:16170ce006198916df899740035d9a945a227bcdae4ab0cc9cd5196297850f42"
+      }
+    },
+    "operations": [
+      {
+        "boundaries": {
+          "$clewRef": "sha256:c5e3ff9683ccabaf6191f333e96b04468d6d884b82de165bf920176096a1c25a"
+        },
+        "documentationLanguage": "en",
+        "events": [
+          {
+            "$clewRef": "sha256:d44cb1392e9de666627c60fbf8f6ecdc8828efd145f436235f89fb424bb11fe6"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:a190efb9bca6603f1d2abc58",
+              "dashboard:symbol:021fcd0ff7baa53bd3c51930",
+              "dashboard:symbol:a4627e5e868830287e83e0dc"
+            ],
+            "id": "claim-446e6c2329b37b7bc2e3",
+            "kind": "alt",
+            "sourceIds": [
+              "dashboard-021fcd0ff7baa53bd3c5",
+              "dashboard-a190efb9bca6603f1d2a",
+              "dashboard-a4627e5e868830287e83"
+            ],
+            "text": "JSON parsing and validateEvent succeed for a weather.forecast-updated message, producing a valid forecast.updated event."
+          },
+          {
+            "$clewRef": "sha256:2fd6eb666893e6d36b1d747ff289931d116b1a469ab5e230e59bbe6876c354fa"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "from": "service-dashboard",
+            "id": "claim-48972f4d4c6203f6ae51",
+            "kind": "message",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "Begin a transaction and insert the event id into inbox with conflict ignored. If it already exists, commit and return DUPLICATE without changing the weather card.",
+            "to": "dashboard-db"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "id": "claim-fd8faa1594379cf31d5a",
+            "kind": "alt",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "The inbox insert reports an existing event id."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:049a97e649d7feb212e6c67f",
+              "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+              "dashboard:symbol:a4627e5e868830287e83e0dc",
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "id": "claim-c93fdad5457395f7b859",
+            "kind": "note",
+            "sourceIds": [
+              "dashboard-049a97e649d7feb212e6",
+              "dashboard-8a4f6855cb7f1a476a04",
+              "dashboard-a4627e5e868830287e83",
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "The duplicate path commits and returns DUPLICATE; consumeMessage then commits this partition's offset plus one."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "id": "claim-823cd741657db88dad7b",
+            "kind": "else",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "from": "service-dashboard",
+            "id": "claim-ebeef3c264171b01cd39",
+            "kind": "message",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "For a new forecast event, insert the card from event.place when no card exists, without checking for a prior place-requested event; for an existing card, update its place fields and forecast only when stored updated_at is null or the incoming timestamp is strictly newer.",
+            "to": "dashboard-db"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "id": "claim-17d4ba7ac8ddbe4f6f8e",
+            "kind": "alt",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "The card insert or timestamp-gated update affects a row."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:049a97e649d7feb212e6c67f",
+              "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+              "dashboard:symbol:a4627e5e868830287e83e0dc",
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "id": "claim-14d800cb6eb3b41173a3",
+            "kind": "note",
+            "sourceIds": [
+              "dashboard-049a97e649d7feb212e6",
+              "dashboard-8a4f6855cb7f1a476a04",
+              "dashboard-a4627e5e868830287e83",
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "Commit the transaction and return APPLIED; after applyEvent resolves, consumeMessage commits offset plus one."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "id": "claim-638c041a2a7a1f82d8ab",
+            "kind": "else",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "$clewRef": "sha256:b49c5959d8192b00feb4209fc30550c87558bf7da3487b2c2f1c3cbb50dd9828"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "id": "claim-94f21d423ba2dd719a90",
+            "kind": "end",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "id": "claim-b948fdda4f38f0ee54e6",
+            "kind": "end",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": ""
+          },
+          {
+            "$clewRef": "sha256:1039175666e1d460dbe94566fd381ec44b637deb2337dd4473ed927b4e326354"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:a190efb9bca6603f1d2abc58",
+              "dashboard:symbol:021fcd0ff7baa53bd3c51930",
+              "dashboard:symbol:a4627e5e868830287e83e0dc"
+            ],
+            "id": "claim-f7dea6136e5065db201f",
+            "kind": "else",
+            "sourceIds": [
+              "dashboard-021fcd0ff7baa53bd3c5",
+              "dashboard-a190efb9bca6603f1d2a",
+              "dashboard-a4627e5e868830287e83"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "$clewRef": "sha256:465fa560ab5704fe77544b9dc848175564bf4958408d86734f8aca92e1cd1d97"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:049a97e649d7feb212e6c67f",
+              "dashboard:flow:654eeebd7e0618b0c6dd58f9",
+              "dashboard:flow:a190efb9bca6603f1d2abc58"
+            ],
+            "from": "service-dashboard",
+            "id": "claim-2bc228fbe1d00118816c",
+            "kind": "message",
+            "sourceIds": [
+              "dashboard-049a97e649d7feb212e6",
+              "dashboard-654eeebd7e0618b0c6dd",
+              "dashboard-a190efb9bca6603f1d2a"
+            ],
+            "text": "After the rejection row is written, commit this partition's offset plus one and return.",
+            "to": "dashboard-kafka"
+          },
+          {
+            "$clewRef": "sha256:cbc5798733c8640bf31da51077dde0c0b7cab4bb18fcd19d30b220f7123ae57b"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:a190efb9bca6603f1d2abc58",
+              "dashboard:symbol:021fcd0ff7baa53bd3c51930",
+              "dashboard:symbol:a4627e5e868830287e83e0dc"
+            ],
+            "id": "claim-d5b5ff6501bfef747acd",
+            "kind": "end",
+            "sourceIds": [
+              "dashboard-021fcd0ff7baa53bd3c5",
+              "dashboard-a190efb9bca6603f1d2a",
+              "dashboard-a4627e5e868830287e83"
+            ],
+            "text": ""
+          },
+          {
+            "$clewRef": "sha256:e32371149d0cd3ef9d7db244ee94ebbe618f4d12b1c80503364c61a7947dc83a"
+          }
+        ],
+        "explanation": [
+          {
+            "dependencyIds": [
+              "dashboard:symbol:a4627e5e868830287e83e0dc",
+              "interaction:forecasts-forecast-updated-to-dashboard",
+              "process-scope:dashboard-forecast-updated-consumer",
+              "process:dashboard-forecast-updated-consumer",
+              "scenario:dashboard-forecast-updated-consumer"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-96d7f6d416c0fedd9aac"
+            ],
+            "id": "claim-eab25f3bae595eb55249",
+            "sourceIds": [
+              "dashboard-a4627e5e868830287e83"
+            ],
+            "text": "The saved process associates weather.forecast-updated with Dashboard.consumeMessage as an agent-proposed topic mapping. It leaves topic subscription configuration and runtime delivery unverified."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:a190efb9bca6603f1d2abc58",
+              "dashboard:symbol:021fcd0ff7baa53bd3c51930",
+              "dashboard:symbol:a4627e5e868830287e83e0dc"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-446e6c2329b37b7bc2e3"
+            ],
+            "id": "claim-ceb73bbb504c06c778d2",
+            "sourceIds": [
+              "dashboard-021fcd0ff7baa53bd3c5",
+              "dashboard-a190efb9bca6603f1d2a",
+              "dashboard-a4627e5e868830287e83"
+            ],
+            "text": "JSON parsing and validateEvent succeed for a weather.forecast-updated message, producing a valid forecast.updated event."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:021fcd0ff7baa53bd3c51930",
+              "dashboard:symbol:7d0d09a16ac25de86e5beb53"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-0e2d7ace81dc22974434"
+            ],
+            "id": "claim-0d02ee378255bcf5936e",
+            "sourceIds": [
+              "dashboard-021fcd0ff7baa53bd3c5",
+              "dashboard-7d0d09a16ac25de86e5b"
+            ],
+            "text": "The common envelope requires an object, string id, version 1, a place with id oslo, helsinki, or lisbon, string name, and finite latitude and longitude. The forecast branch requires updatedAt and fetchedAt accepted by isTimestamp, mode fixture or live, and a periods array of length 1 through 6. Each period requires a valid time, finite temperatureC, precipitationMm null or finite and nonnegative, and a string symbol. isTimestamp accepts a UTC ISO-like value with seconds and optional fractional seconds, and also requires Date.parse to be finite."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-48972f4d4c6203f6ae51"
+            ],
+            "id": "claim-9307da2e8071147fabdd",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "Begin a transaction and insert the event id into inbox with conflict ignored. If it already exists, commit and return DUPLICATE without changing the weather card."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-fd8faa1594379cf31d5a"
+            ],
+            "id": "claim-11d867a764e778f4e350",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "The inbox insert reports an existing event id."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:049a97e649d7feb212e6c67f",
+              "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+              "dashboard:symbol:a4627e5e868830287e83e0dc",
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-c93fdad5457395f7b859"
+            ],
+            "id": "claim-a153939686d209374a31",
+            "sourceIds": [
+              "dashboard-049a97e649d7feb212e6",
+              "dashboard-8a4f6855cb7f1a476a04",
+              "dashboard-a4627e5e868830287e83",
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "The duplicate path commits and returns DUPLICATE; consumeMessage then commits this partition's offset plus one."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-823cd741657db88dad7b"
+            ],
+            "id": "claim-ac5a3da35fafd1022918",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-ebeef3c264171b01cd39"
+            ],
+            "id": "claim-e8ae04b50cd7143ff3dd",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "For a new forecast event, insert the card from event.place when no card exists, without checking for a prior place-requested event; for an existing card, update its place fields and forecast only when stored updated_at is null or the incoming timestamp is strictly newer."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-17d4ba7ac8ddbe4f6f8e"
+            ],
+            "id": "claim-b032748356e154a8425e",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "The card insert or timestamp-gated update affects a row."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:049a97e649d7feb212e6c67f",
+              "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+              "dashboard:symbol:a4627e5e868830287e83e0dc",
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-14d800cb6eb3b41173a3"
+            ],
+            "id": "claim-79ebb8ec6231bd0bb7f1",
+            "sourceIds": [
+              "dashboard-049a97e649d7feb212e6",
+              "dashboard-8a4f6855cb7f1a476a04",
+              "dashboard-a4627e5e868830287e83",
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "Commit the transaction and return APPLIED; after applyEvent resolves, consumeMessage commits offset plus one."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-638c041a2a7a1f82d8ab"
+            ],
+            "id": "claim-da64e7e41206a251b1d0",
+            "sourceIds": [
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:049a97e649d7feb212e6c67f",
+              "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+              "dashboard:symbol:a4627e5e868830287e83e0dc",
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-b438013a6e503a7046eb"
+            ],
+            "id": "claim-e5e891285217d31265e8",
+            "sourceIds": [
+              "dashboard-049a97e649d7feb212e6",
+              "dashboard-8a4f6855cb7f1a476a04",
+              "dashboard-a4627e5e868830287e83",
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "For an existing card with an equal or newer stored timestamp, the SQL update condition affects no row. The transaction still commits the inbox insert and returns OLDER_OR_EQUAL without changing the card; consumeMessage then commits offset plus one."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:049a97e649d7feb212e6c67f",
+              "dashboard:flow:37dec2bf70bc69d603cb8d4b",
+              "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+              "dashboard:symbol:a4627e5e868830287e83e0dc"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-8485c4c6795cffd18c51"
+            ],
+            "id": "claim-07bd4fbf2c6c9fdb509e",
+            "sourceIds": [
+              "dashboard-049a97e649d7feb212e6",
+              "dashboard-37dec2bf70bc69d603cb",
+              "dashboard-8a4f6855cb7f1a476a04",
+              "dashboard-a4627e5e868830287e83"
+            ],
+            "text": "After applyEvent resolves on the valid path, commit this partition's offset plus one."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:a190efb9bca6603f1d2abc58",
+              "dashboard:symbol:021fcd0ff7baa53bd3c51930",
+              "dashboard:symbol:a4627e5e868830287e83e0dc"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-f7dea6136e5065db201f"
+            ],
+            "id": "claim-17af4ddab4152c07df6a",
+            "sourceIds": [
+              "dashboard-021fcd0ff7baa53bd3c5",
+              "dashboard-a190efb9bca6603f1d2a",
+              "dashboard-a4627e5e868830287e83"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:59f03a0653cc7a3798b8ceaf",
+              "dashboard:flow:a190efb9bca6603f1d2abc58",
+              "dashboard:symbol:021fcd0ff7baa53bd3c51930"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-0b1e97374ab832082b1d"
+            ],
+            "id": "claim-eb15ed7392d49e4beda5",
+            "sourceIds": [
+              "dashboard-021fcd0ff7baa53bd3c5",
+              "dashboard-59f03a0653cc7a3798b8",
+              "dashboard-a190efb9bca6603f1d2a"
+            ],
+            "text": "On JSON parse or validation failure, including an unrecognized topic that throws UNKNOWN_TOPIC, insert topic, partition, offset, and reason INVALID_EVENT into rejected_messages; ignore a duplicate rejection row."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:049a97e649d7feb212e6c67f",
+              "dashboard:flow:654eeebd7e0618b0c6dd58f9",
+              "dashboard:flow:a190efb9bca6603f1d2abc58"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-2bc228fbe1d00118816c"
+            ],
+            "id": "claim-4a13b67eae3efec53940",
+            "sourceIds": [
+              "dashboard-049a97e649d7feb212e6",
+              "dashboard-654eeebd7e0618b0c6dd",
+              "dashboard-a190efb9bca6603f1d2a"
+            ],
+            "text": "After the rejection row is written, commit this partition's offset plus one and return."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:59f03a0653cc7a3798b8ceaf",
+              "dashboard:flow:654eeebd7e0618b0c6dd58f9",
+              "dashboard:flow:a190efb9bca6603f1d2abc58",
+              "dashboard:flow:f4a336f51f8e91a3da04831a"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-171b883d8fb946af3647"
+            ],
+            "id": "claim-160b1fc7e461689ec9a4",
+            "sourceIds": [
+              "dashboard-59f03a0653cc7a3798b8",
+              "dashboard-654eeebd7e0618b0c6dd",
+              "dashboard-a190efb9bca6603f1d2a",
+              "dashboard-f4a336f51f8e91a3da04"
+            ],
+            "text": "A rejection-write or rejection-path offset-commit failure propagates. When both writes succeed, consumeMessage returns after advancing the offset."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:37dec2bf70bc69d603cb8d4b",
+              "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+              "dashboard:flow:a190efb9bca6603f1d2abc58",
+              "dashboard:symbol:a4627e5e868830287e83e0dc",
+              "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-b811b0fb9bbccaf5140e"
+            ],
+            "id": "claim-eb4a86febe1a26557456",
+            "sourceIds": [
+              "dashboard-37dec2bf70bc69d603cb",
+              "dashboard-8a4f6855cb7f1a476a04",
+              "dashboard-a190efb9bca6603f1d2a",
+              "dashboard-a4627e5e868830287e83",
+              "dashboard-ac3aadb76be6fea3e790"
+            ],
+            "text": "pool.connect runs before applyEvent's try. If it fails, there is no transaction rollback or client release. Once connected, errors inside the try attempt ROLLBACK, rethrow, and release the client in finally; either error prevents consumeMessage from reaching its valid-path offset commit. The DB transaction commits before the offset commit, so an offset failure can replay the message; the inbox duplicate check prevents a second card update, but does not establish exactly-once delivery."
+          }
+        ],
+        "findings": [],
+        "id": "dashboard-forecast-updated-consumer",
+        "interfaceContracts": [
+          {
+            "boundaries": [],
+            "id": "claim-1fa6ad108a2637e192d5",
+            "kind": "kafka",
+            "rows": [
+              {
+                "dependencyIds": [
+                  "dashboard:symbol:a4627e5e868830287e83e0dc",
+                  "interaction:forecasts-forecast-updated-to-dashboard",
+                  "process:dashboard-forecast-updated-consumer"
+                ],
+                "id": "claim-c7a1f387fecca03e17e5",
+                "label": "Topic association",
+                "sourceIds": [
+                  "dashboard-a4627e5e868830287e83"
+                ],
+                "value": "The saved process proposes weather.forecast-updated as a mapping to Dashboard.consumeMessage; subscription configuration and runtime delivery remain unverified."
+              },
+              {
+                "dependencyIds": [
+                  "dashboard:symbol:021fcd0ff7baa53bd3c51930"
+                ],
+                "id": "claim-03f6b81fbe002d70eee1",
+                "label": "Shared event fields",
+                "sourceIds": [
+                  "dashboard-021fcd0ff7baa53bd3c5"
+                ],
+                "value": "validateEvent requires an object with string id, version 1, place.id in oslo, helsinki, or lisbon, string place.name, and finite place.latitude and place.longitude."
+              },
+              {
+                "dependencyIds": [
+                  "dashboard:symbol:021fcd0ff7baa53bd3c51930",
+                  "dashboard:symbol:7d0d09a16ac25de86e5beb53"
+                ],
+                "id": "claim-de62c80658615f6e6c96",
+                "label": "Forecast fields",
+                "sourceIds": [
+                  "dashboard-021fcd0ff7baa53bd3c5",
+                  "dashboard-7d0d09a16ac25de86e5b"
+                ],
+                "value": "For the weather.forecast-updated topic, type must be forecast.updated; forecast must include valid updatedAt and fetchedAt strings, mode fixture or live, and a periods array containing 1 to 6 entries."
+              },
+              {
+                "dependencyIds": [
+                  "dashboard:symbol:021fcd0ff7baa53bd3c51930",
+                  "dashboard:symbol:7d0d09a16ac25de86e5beb53"
+                ],
+                "id": "claim-ca9ead00d3f0e17c21ef",
+                "label": "Period fields",
+                "sourceIds": [
+                  "dashboard-021fcd0ff7baa53bd3c5",
+                  "dashboard-7d0d09a16ac25de86e5b"
+                ],
+                "value": "Each period must have a valid UTC time, finite temperatureC (including 0), precipitationMm that is null or finite and nonnegative, and a string symbol."
+              },
+              {
+                "dependencyIds": [
+                  "dashboard:symbol:7d0d09a16ac25de86e5beb53"
+                ],
+                "id": "claim-fcbbe002ecba0488ceac",
+                "label": "Timestamp check",
+                "sourceIds": [
+                  "dashboard-7d0d09a16ac25de86e5b"
+                ],
+                "value": "isTimestamp accepts a UTC Z timestamp with seconds and optional fractional seconds when Date.parse returns a finite value."
+              },
+              {
+                "dependencyIds": [
+                  "dashboard:symbol:021fcd0ff7baa53bd3c51930",
+                  "dashboard:symbol:7d0d09a16ac25de86e5beb53",
+                  "process-scope:dashboard-forecast-updated-consumer",
+                  "process:dashboard-forecast-updated-consumer"
+                ],
+                "id": "claim-1ec7b7ed73c36f365e26",
+                "label": "Validation scope",
+                "sourceIds": [
+                  "dashboard-021fcd0ff7baa53bd3c5",
+                  "dashboard-7d0d09a16ac25de86e5b"
+                ],
+                "value": "These are code-level checks in validateEvent, not proof of runtime JSON Schema enforcement, subscription, or delivery. Runtime status remains UNKNOWN."
+              }
+            ],
+            "title": "weather.forecast-updated message checks"
+          }
+        ],
+        "participants": [
+          {
+            "id": "caller",
+            "label": "Caller",
+            "service": null
+          },
+          {
+            "id": "service-dashboard",
+            "label": "dashboard",
+            "service": "dashboard"
+          },
+          {
+            "id": "dashboard-kafka",
+            "label": "Kafka topic weather.forecast-updated",
+            "service": null
+          },
+          {
+            "id": "dashboard-db",
+            "label": "Dashboard PostgreSQL",
+            "service": null
+          }
+        ],
+        "summary": {
+          "$clewRef": "sha256:611fb5a5aefc6415f04ff6ee5d79b7041c2ac6f3c913bb61339c9f009872c9ce"
+        },
+        "title": "Dashboard consumes forecast-updated events"
+      },
+      {
+        "boundaries": [
+          "CALL_TARGETS_UNRESOLVED",
+          "DECLARED_TRANSITION_NOT_REACHED:forecasts-forecast-updated-to-dashboard",
+          "ORDER_LEXICAL_ONLY"
+        ],
+        "documentationLanguage": "en",
+        "events": [],
+        "explanation": [],
+        "findings": [],
+        "id": "process-overview",
+        "interfaceContracts": [],
+        "participants": [],
+        "summary": {
+          "dependencyIds": [
+            "dashboard:symbol:a4627e5e868830287e83e0dc",
+            "interaction:forecasts-forecast-updated-to-dashboard",
+            "process-scope:dashboard-forecast-updated-consumer",
+            "process:dashboard-forecast-updated-consumer",
+            "scenario:dashboard-forecast-updated-consumer"
+          ],
+          "id": "claim-cfb141445f270902f3d8",
+          "sourceIds": [
+            "dashboard-a4627e5e868830287e83"
+          ],
+          "text": "The Dashboard source handler parses each message and validates the event against its topic. For invalid events, it attempts to insert a rejected_messages row with reason INVALID_EVENT (ON CONFLICT DO NOTHING), commits the next partition offset, and returns. For a valid event, it calls applyEvent before committing the next offset. The saved cross-service view associates this handler with weather.forecast-updated through an agent-proposed interaction; source subscription configuration and runtime delivery remain unverified. The effects inside applyEvent and Kafka behavior beyond these explicit handler calls are not established by this slice."
+        },
+        "title": "Dashboard forecast-updated consumer view"
+      }
+    ],
+    "process": {
+      "authority": "Explicit saved request; generated interpretation is reviewed separately.",
+      "definition": {
+        "$clewRef": "sha256:bae1081159df1d47abc4e4b6de9e7d68e9aeeaa17f0f51c9c7f148f2a668f763"
+      },
+      "definitionVersion": "sha256:4fec1cb28f18c93b4de2ed16414dd8b5d35a64a07fe65c517da9d70f5399dabb",
+      "linkedSubviews": [],
+      "scope": {
+        "digest": "sha256:44dcab95708b4a10d1e151f73dba5ee8fafaeae909da0b1735a995735cbcd8cc",
+        "id": "process-scope:dashboard-forecast-updated-consumer",
+        "kind": "PROCESS_SCOPE",
+        "normalized": {
+          "dependencyIds": [
+            "dashboard:contract-scope:f86e10393733a9350be2eda4",
+            "dashboard:source_scope:a94d30979421b6ddbba5e94b",
+            "entity-scope:dashboard",
+            "note-scope:dashboard"
+          ],
+          "interactionMembership": [
+            "dashboard-request-refresh-to-places",
+            "dashboard-save-place-to-places",
+            "forecasts-forecast-updated-to-dashboard",
+            "forecasts-refresh-to-external-met",
+            "places-place-requested-to-dashboard",
+            "places-place-requested-to-forecasts"
+          ],
+          "participants": [
+            "dashboard"
+          ],
+          "runtime": "UNKNOWN",
+          "unavailableParticipants": []
+        },
+        "service": "",
+        "sourceIds": [],
+        "symbol": "process-scope:dashboard-forecast-updated-consumer"
+      }
+    },
+    "processCandidates": null,
+    "processDataFlow": {
+      "$clewRef": "sha256:d2633011c8114e09acadab1d1c75ba78135da8beb3c5139c3803138d2462b44d"
+    },
+    "processExtraction": null,
+    "processOutline": {
+      "$clewRef": "sha256:0c32f15873d2685cef7b16f1769e3f5ec173433979644e92dd650c5e551a6848"
+    },
+    "processThread": null,
+    "proseDisplayPolicy": "READABLE_ORIGINALS",
+    "questionReader": {
+      "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+      "conclusion": {
+        "$clewRef": "sha256:46bbe328b3d20b0856e1562050f72cfcb2beb2df1281f1aceca4de1aed177a03"
+      },
+      "language": "en",
+      "presentation": "SEQUENTIAL",
+      "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+      "purpose": "Dashboard validates the event, updates its card when appropriate and advances the Kafka offset.",
+      "schema": "codeclew-question-reading-plan/1.0",
+      "sections": [
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "$clewRef": "sha256:a79ea03a3cab95a29fce8bf27616b602e39d8cf8d61ce9751ddd740e771a2c20"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "The saved process associates `weather.forecast-updated` with this Dashboard consumer. Runtime activation and message delivery are unverified.",
+              "title": "Declared input",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": "Consumer configuration and mapping",
+              "evidence": [
+                {
+                  "$clewRef": "sha256:a79ea03a3cab95a29fce8bf27616b602e39d8cf8d61ce9751ddd740e771a2c20"
+                },
+                {
+                  "$clewRef": "sha256:447ef7e985bdff146414e5153424045a41fba3d3c525231bc67ff2775ae645cd"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": "Declared topic mapping · manual offset handling · runtime unverified",
+              "text": "This account does not establish subscription configuration. The handler explicitly advances offsets after its valid or rejection paths; runtime activation and delivery remain unverified.",
+              "title": "Consumer configuration",
+              "tone": null
+            }
+          ],
+          "icon": "arrow-right",
+          "id": "receive",
+          "navTitle": "Receive event",
+          "number": 1,
+          "route": "Topic: weather.forecast-updated",
+          "title": "Dashboard receives the event"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "dashboard:flow:a190efb9bca6603f1d2abc58",
+                      "dashboard:symbol:021fcd0ff7baa53bd3c51930",
+                      "dashboard:symbol:a4627e5e868830287e83e0dc"
+                    ],
+                    "id": "claim-446e6c2329b37b7bc2e3",
+                    "kind": "alt",
+                    "sourceIds": [
+                      "dashboard-021fcd0ff7baa53bd3c5",
+                      "dashboard-a190efb9bca6603f1d2a",
+                      "dashboard-a4627e5e868830287e83"
+                    ],
+                    "text": "JSON parsing and validateEvent succeed for a weather.forecast-updated message, producing a valid forecast.updated event."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:ebff0ac1bf65e82eab9a03d9ea1602d72b899d362a9b668fc7258a487be713bc"
+                  },
+                  "sources": {
+                    "dashboard-021fcd0ff7baa53bd3c5": {
+                      "$clewRef": "sha256:afddedfc8054e8c5495b73e95e3924f7b15f90f9b73caf09d7c1b7cdda664830"
+                    },
+                    "dashboard-a190efb9bca6603f1d2a": {
+                      "$clewRef": "sha256:cb1d1d3100a0984649d98da9a16956ac42fc63a19ea6841dad22f15a13784ba7"
+                    },
+                    "dashboard-a4627e5e868830287e83": {
+                      "$clewRef": "sha256:c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:16170ce006198916df899740035d9a945a227bcdae4ab0cc9cd5196297850f42"
+                  },
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "title": "Dashboard consumes forecast-updated events"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "The handler parses the JSON and checks that the event has the expected shape before applying it.",
+              "title": "Validate input",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": "Validation details",
+              "evidence": [
+                {
+                  "fragment": {
+                    "$clewRef": "sha256:2fd6eb666893e6d36b1d747ff289931d116b1a469ab5e230e59bbe6876c354fa"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:ebff0ac1bf65e82eab9a03d9ea1602d72b899d362a9b668fc7258a487be713bc"
+                  },
+                  "sources": {
+                    "dashboard-021fcd0ff7baa53bd3c5": {
+                      "$clewRef": "sha256:afddedfc8054e8c5495b73e95e3924f7b15f90f9b73caf09d7c1b7cdda664830"
+                    },
+                    "dashboard-7d0d09a16ac25de86e5b": {
+                      "$clewRef": "sha256:f595401e33ffe1c87198d3297a901422e3d449fe00dd98adddc17aaca283d70e"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:16170ce006198916df899740035d9a945a227bcdae4ab0cc9cd5196297850f42"
+                  },
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "title": "Dashboard consumes forecast-updated events"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": "Envelope, place fields and topic-specific payload checks",
+              "text": "The envelope requires a string event ID, version 1, an allowed place ID, a string name and finite coordinates. A forecast.updated event also needs valid updatedAt/fetchedAt timestamps, fixture or live mode, and 1–6 periods with valid times, finite temperatures, null or finite nonnegative precipitation and string symbols.",
+              "title": "Validation rules",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "$clewRef": "sha256:465fa560ab5704fe77544b9dc848175564bf4958408d86734f8aca92e1cd1d97"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:ebff0ac1bf65e82eab9a03d9ea1602d72b899d362a9b668fc7258a487be713bc"
+                  },
+                  "sources": {
+                    "dashboard-021fcd0ff7baa53bd3c5": {
+                      "$clewRef": "sha256:afddedfc8054e8c5495b73e95e3924f7b15f90f9b73caf09d7c1b7cdda664830"
+                    },
+                    "dashboard-59f03a0653cc7a3798b8": {
+                      "$clewRef": "sha256:51eb13746a4ec715b7f498f982fc29c26b082e21cf20eed410ae88e3807a0f13"
+                    },
+                    "dashboard-a190efb9bca6603f1d2a": {
+                      "$clewRef": "sha256:cb1d1d3100a0984649d98da9a16956ac42fc63a19ea6841dad22f15a13784ba7"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:16170ce006198916df899740035d9a945a227bcdae4ab0cc9cd5196297850f42"
+                  },
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "title": "Dashboard consumes forecast-updated events"
+                },
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "dashboard:flow:049a97e649d7feb212e6c67f",
+                      "dashboard:flow:654eeebd7e0618b0c6dd58f9",
+                      "dashboard:flow:a190efb9bca6603f1d2abc58"
+                    ],
+                    "from": "service-dashboard",
+                    "id": "claim-2bc228fbe1d00118816c",
+                    "kind": "message",
+                    "sourceIds": [
+                      "dashboard-049a97e649d7feb212e6",
+                      "dashboard-654eeebd7e0618b0c6dd",
+                      "dashboard-a190efb9bca6603f1d2a"
+                    ],
+                    "text": "After the rejection row is written, commit this partition's offset plus one and return.",
+                    "to": "dashboard-kafka"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:ebff0ac1bf65e82eab9a03d9ea1602d72b899d362a9b668fc7258a487be713bc"
+                  },
+                  "sources": {
+                    "dashboard-049a97e649d7feb212e6": {
+                      "$clewRef": "sha256:fb056517f94476af3c7964b81f570f4579e6b57b469923f270bb1b5b7f3ec245"
+                    },
+                    "dashboard-654eeebd7e0618b0c6dd": {
+                      "$clewRef": "sha256:04307c94ed8910824028310d5a54e4062e623b9b852e4e1ed79879721fe73f84"
+                    },
+                    "dashboard-a190efb9bca6603f1d2a": {
+                      "$clewRef": "sha256:cb1d1d3100a0984649d98da9a16956ac42fc63a19ea6841dad22f15a13784ba7"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:16170ce006198916df899740035d9a945a227bcdae4ab0cc9cd5196297850f42"
+                  },
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "title": "Dashboard consumes forecast-updated events"
+                },
+                {
+                  "fragment": {
+                    "$clewRef": "sha256:cbc5798733c8640bf31da51077dde0c0b7cab4bb18fcd19d30b220f7123ae57b"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:ebff0ac1bf65e82eab9a03d9ea1602d72b899d362a9b668fc7258a487be713bc"
+                  },
+                  "sources": {
+                    "dashboard-59f03a0653cc7a3798b8": {
+                      "$clewRef": "sha256:51eb13746a4ec715b7f498f982fc29c26b082e21cf20eed410ae88e3807a0f13"
+                    },
+                    "dashboard-654eeebd7e0618b0c6dd": {
+                      "$clewRef": "sha256:04307c94ed8910824028310d5a54e4062e623b9b852e4e1ed79879721fe73f84"
+                    },
+                    "dashboard-a190efb9bca6603f1d2a": {
+                      "$clewRef": "sha256:cb1d1d3100a0984649d98da9a16956ac42fc63a19ea6841dad22f15a13784ba7"
+                    },
+                    "dashboard-f4a336f51f8e91a3da04": {
+                      "$clewRef": "sha256:7fdaf9f2a9021a175f7a56f3d1da7a449de99be9aa83f25efd9106bc89d18e90"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:16170ce006198916df899740035d9a945a227bcdae4ab0cc9cd5196297850f42"
+                  },
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "title": "Dashboard consumes forecast-updated events"
+                }
+              ],
+              "id": "invalid-event",
+              "links": [],
+              "navTitle": "Invalid event",
+              "preview": null,
+              "text": "A parse or validation failure is recorded as `INVALID_EVENT`. After that rejection is saved, Dashboard advances the offset and returns. Failure to save the rejection or advance its offset propagates.",
+              "title": "If the event is invalid",
+              "tone": "ERROR"
+            }
+          ],
+          "icon": null,
+          "id": "validate",
+          "navTitle": "Validate event",
+          "number": 2,
+          "route": null,
+          "title": "Dashboard checks the event"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "$clewRef": "sha256:4f1ea753b3ca3b47322c34fae01887f6ce6b1e5b0ab229770e2ad3e2f283fc26"
+                }
+              ],
+              "id": null,
+              "links": [
+                {
+                  "href": "../services/dashboard.html#section-entities",
+                  "label": "Dashboard cards · service context",
+                  "operation": "section-entities",
+                  "subject": "service:dashboard"
+                }
+              ],
+              "navTitle": null,
+              "preview": null,
+              "text": "A new forecast event can create its card directly from the place in the message. An existing card is updated only if its stored forecast timestamp is missing or the incoming forecast is strictly newer.",
+              "title": "Apply a new event",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+                    ],
+                    "from": "service-dashboard",
+                    "id": "claim-48972f4d4c6203f6ae51",
+                    "kind": "message",
+                    "sourceIds": [
+                      "dashboard-ac3aadb76be6fea3e790"
+                    ],
+                    "text": "Begin a transaction and insert the event id into inbox with conflict ignored. If it already exists, commit and return DUPLICATE without changing the weather card.",
+                    "to": "dashboard-db"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:ebff0ac1bf65e82eab9a03d9ea1602d72b899d362a9b668fc7258a487be713bc"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:db235f4e9ec7d80b527f09b9d75e1b6a68f8fa1c4d72221ae3056ed6c5486e1c"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:16170ce006198916df899740035d9a945a227bcdae4ab0cc9cd5196297850f42"
+                  },
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "title": "Dashboard consumes forecast-updated events"
+                },
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "dashboard:flow:049a97e649d7feb212e6c67f",
+                      "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+                      "dashboard:symbol:a4627e5e868830287e83e0dc",
+                      "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+                    ],
+                    "id": "claim-c93fdad5457395f7b859",
+                    "kind": "note",
+                    "sourceIds": [
+                      "dashboard-049a97e649d7feb212e6",
+                      "dashboard-8a4f6855cb7f1a476a04",
+                      "dashboard-a4627e5e868830287e83",
+                      "dashboard-ac3aadb76be6fea3e790"
+                    ],
+                    "text": "The duplicate path commits and returns DUPLICATE; consumeMessage then commits this partition's offset plus one."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:ebff0ac1bf65e82eab9a03d9ea1602d72b899d362a9b668fc7258a487be713bc"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:b4d470f61c3e9b4c500677e6392bdf85f188f1348c98895657240637abc26026"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:16170ce006198916df899740035d9a945a227bcdae4ab0cc9cd5196297850f42"
+                  },
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "title": "Dashboard consumes forecast-updated events"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "If the event ID was already handled, Dashboard commits its database transaction and skips the card change. The consumer can still advance its offset.",
+              "title": "If this event ID was already handled",
+              "tone": "INFO"
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "$clewRef": "sha256:4f1ea753b3ca3b47322c34fae01887f6ce6b1e5b0ab229770e2ad3e2f283fc26"
+                },
+                {
+                  "fragment": {
+                    "$clewRef": "sha256:b49c5959d8192b00feb4209fc30550c87558bf7da3487b2c2f1c3cbb50dd9828"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-forecast-updated-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:ebff0ac1bf65e82eab9a03d9ea1602d72b899d362a9b668fc7258a487be713bc"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:b4d470f61c3e9b4c500677e6392bdf85f188f1348c98895657240637abc26026"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:16170ce006198916df899740035d9a945a227bcdae4ab0cc9cd5196297850f42"
+                  },
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "title": "Dashboard consumes forecast-updated events"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "An equal or older incoming timestamp leaves an existing card unchanged. Creating a new card does not require a prior place-requested event.",
+              "title": "Older or equal forecast",
+              "tone": "INFO"
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": {
+                "$clewRef": "sha256:a5248c59cc6eab2b8a57612eee78eba9932c5b22d7bf0980d8c7384f25a874f9"
+              },
+              "id": "database-error",
+              "links": [],
+              "navTitle": "Database failure",
+              "preview": null,
+              "text": "An error on the valid path stops normal processing before offset advancement. Errors after a connection is acquired attempt rollback and release the client; connection acquisition can fail before that cleanup scope.",
+              "title": "If database work fails",
+              "tone": "ERROR"
+            }
+          ],
+          "icon": "database",
+          "id": "apply",
+          "navTitle": "Update card",
+          "number": 3,
+          "route": null,
+          "title": "Dashboard updates the card"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "$clewRef": "sha256:447ef7e985bdff146414e5153424045a41fba3d3c525231bc67ff2775ae645cd"
+                },
+                {
+                  "$clewRef": "sha256:0d97389a4b4b633563dc69c120ccc956381e8dae63cc5ef65403e61af58cf0df"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "After the valid-event handler returns, Dashboard commits this partition’s next offset. The database change and offset commit are separate effects.",
+              "title": "Record progress",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": {
+                "$clewRef": "sha256:a5248c59cc6eab2b8a57612eee78eba9932c5b22d7bf0980d8c7384f25a874f9"
+              },
+              "id": "offset-error",
+              "links": [],
+              "navTitle": "Offset failure and replay",
+              "preview": null,
+              "text": "The database may already have committed. Kafka can replay the message; remembered event IDs prevent a second card update, but do not prevent duplicate delivery or establish exactly-once processing.",
+              "title": "If the final offset commit fails",
+              "tone": "WARNING"
+            }
+          ],
+          "icon": null,
+          "id": "offset",
+          "navTitle": "Advance offset",
+          "number": 4,
+          "route": null,
+          "title": "Dashboard advances the offset"
+        },
+        {
+          "blocks": [
+            {
+              "$clewRef": "sha256:46bbe328b3d20b0856e1562050f72cfcb2beb2df1281f1aceca4de1aed177a03"
+            }
+          ],
+          "icon": null,
+          "id": "confidence",
+          "navTitle": "Sources and provenance",
+          "number": null,
+          "route": null,
+          "title": "Full description and sources"
+        }
+      ],
+      "subject": "scenario:dashboard-forecast-updated-consumer",
+      "title": "Update a Dashboard forecast"
+    },
+    "readerOptions": {
+      "showInternalProcesses": false
+    },
+    "relatedViews": [],
+    "renderer": "codeclew-documentation-html/1.16",
+    "requestedDocumentationLanguage": "en",
+    "revisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37"
+    },
+    "savedProcesses": [],
+    "sectionState": {
+      "$clewRef": "sha256:703768a997f4b8df2e1d3acb12271ec57aaacf1328ea5403a7fec345e7bdb50a"
+    },
+    "sections": [],
+    "selectedEvidence": {
+      "$clewRef": "sha256:ca9e4ab3cdcbe2cee291a0df9c86fe72afd4d98160313803db7f0417ab3e0e97"
+    },
+    "selectedSnapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
+    "sourceAuthorities": {
+      "dashboard": "CAPTURED_SOURCE",
+      "forecasts": "RETAINED_SOURCE_NOT_REVERIFIED",
+      "places": "RETAINED_SOURCE_NOT_REVERIFIED"
+    },
+    "sources": {
+      "$clewRef": "sha256:c69b939717e7755fe850875d5bc0731e46e1068c59d051ee1b4e7b09819a9a0a"
+    },
+    "stateDiagram": null,
+    "stateDiagramSvg": false,
+    "subject": "scenario:dashboard-forecast-updated-consumer",
+    "subtitle": "Service behavior and explicit evidence boundaries",
+    "targetRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "title": "Dashboard forecast-updated consumer view",
+    "translationComplete": true,
+    "translationGaps": {},
+    "updateFailures": {},
+    "view": null
+  }
+}

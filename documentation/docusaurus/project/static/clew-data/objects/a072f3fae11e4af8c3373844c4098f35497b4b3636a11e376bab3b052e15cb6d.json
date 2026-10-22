@@ -1,0 +1,67 @@
+{
+  "identity": "sha256:a072f3fae11e4af8c3373844c4098f35497b4b3636a11e376bab3b052e15cb6d",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "200": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "properties": {
+              "id": {
+                "enum": [
+                  "oslo",
+                  "helsinki",
+                  "lisbon"
+                ],
+                "type": "string"
+              },
+              "latitude": {
+                "maximum": 90,
+                "minimum": -90,
+                "type": "number"
+              },
+              "longitude": {
+                "maximum": 180,
+                "minimum": -180,
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "latitude",
+              "longitude"
+            ],
+            "type": "object"
+          }
+        }
+      },
+      "description": "200"
+    },
+    "400": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "additionalProperties": true,
+            "properties": {
+              "error": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        }
+      },
+      "description": "400"
+    },
+    "415": {
+      "description": "415"
+    },
+    "500": {
+      "description": "500"
+    }
+  }
+}

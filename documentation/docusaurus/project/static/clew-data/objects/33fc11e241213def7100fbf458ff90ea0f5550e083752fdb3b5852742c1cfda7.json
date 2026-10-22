@@ -1,0 +1,21 @@
+{
+  "identity": "sha256:33fc11e241213def7100fbf458ff90ea0f5550e083752fdb3b5852742c1cfda7",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "CALL_TARGETS_UNRESOLVED",
+      "DECLARED_TRANSITION_NOT_REACHED:forecasts-forecast-updated-to-dashboard",
+      "ORDER_LEXICAL_ONLY",
+      "UNACCEPTED_AGENT_PROPOSAL",
+      "LINKED_PROCESS_STALE:dashboard-forecast-updated-consumer"
+    ],
+    "href": "../scenarios/forecasts-publish-pending.html#process-overview",
+    "id": "forecasts-publish-pending",
+    "state": {
+      "$clewRef": "sha256:6335416423472e8b75619b2e6cd8a9ee44f34561b20742fc6c193bfe0d34778e"
+    },
+    "status": "AUTHORED",
+    "title": "Publish pending forecast updates",
+    "trigger": "The source-declared publishPending entrypoint is invoked; runtime scheduling activation is unverified."
+  }
+}

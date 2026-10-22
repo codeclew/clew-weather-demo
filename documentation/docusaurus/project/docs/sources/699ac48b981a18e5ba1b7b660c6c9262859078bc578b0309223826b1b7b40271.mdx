@@ -1,0 +1,32 @@
+---
+title: "exercises/unchecked-place-forecast.ts:12–21"
+slug: "/sources/699ac48b981a18e5ba1b7b660c6c9262859078bc578b0309223826b1b7b40271"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# exercises/unchecked-place-forecast.ts:12–21
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6
+
+Text digest: sha256:b5aa7304354329a37211bf52708c68c3293a4d49829a392c21f66f072451f531
+
+## Retained text {#retained-text}
+
+```text
+if (topic === 'weather.forecast-updated') {
+    if (event.type !== 'forecast.updated' || !event.forecast || !Number.isFinite(Date.parse(event.forecast.updatedAt))
+        || !Number.isFinite(Date.parse(event.forecast.fetchedAt)) || !['fixture', 'live'].includes(event.forecast.mode)
+        || !Array.isArray(event.forecast.periods) || event.forecast.periods.length < 1 || event.forecast.periods.length > 6) throw new Error('INVALID_FORECAST')
+    for (const period of event.forecast.periods) {
+      if (!Number.isFinite(Date.parse(period.time)) || !Number.isFinite(period.temperatureC)
+          || !(period.precipitationMm === null || (Number.isFinite(period.precipitationMm) && period.precipitationMm >= 0))
+          || typeof period.symbol !== 'string') throw new Error('INVALID_PERIOD')
+    }
+  } else if (event.type !== 'place.requested') throw new Error('INVALID_PLACE_EVENT')
+```
+
+<ClewDownload path="/clew-data/objects/699ac48b981a18e5ba1b7b660c6c9262859078bc578b0309223826b1b7b40271.json">Complete original source binding</ClewDownload>

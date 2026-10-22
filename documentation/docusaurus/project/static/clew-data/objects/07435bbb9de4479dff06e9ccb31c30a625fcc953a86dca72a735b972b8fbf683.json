@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:07435bbb9de4479dff06e9ccb31c30a625fcc953a86dca72a735b972b8fbf683",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:d3240030965d1ca91e501bb32d25807ce2b87b8940682274b12bef571ec6fcb2"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The selected city key sent by the browser. This request carries only cityId; Places derives the Place name and coordinates from its supported-city lookup. It is not an event ID, and it is not a client-supplied Place object.",
+    "title": "Save a city: source interpretation",
+    "tone": null
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "identity": "sha256:5bb4c233bd7749e4d2127e3d7918a9df56061377ece8e7583ab669051fd9b8ef",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "observed-static-use",
+    "claim": {
+      "$clewRef": "sha256:81938e4713f57e815ce1dd8d5a016d0fbbec76f25a16a12989d23e10b9c08195"
+    },
+    "condition": "forecast.updated v1 branch",
+    "consumer": "Dashboard.validateEvent",
+    "contract": "forecast-updated",
+    "coveredScope": "Dashboard validation",
+    "kinds": [
+      "validate"
+    ],
+    "processes": [
+      "scenario:dashboard-forecast-updated-consumer"
+    ],
+    "producer": "Dashboard.consumeMessage",
+    "representation": "event.forecast.periods[].temperatureC",
+    "stage": "Dashboard validation",
+    "unresolved": "Static source interpretation; runtime execution and delivery are not established."
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "identity": "sha256:d44cb1392e9de666627c60fbf8f6ecdc8828efd145f436235f89fb424bb11fe6",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "dashboard:symbol:a4627e5e868830287e83e0dc",
+      "interaction:forecasts-forecast-updated-to-dashboard",
+      "process-scope:dashboard-forecast-updated-consumer",
+      "process:dashboard-forecast-updated-consumer",
+      "scenario:dashboard-forecast-updated-consumer"
+    ],
+    "id": "claim-96d7f6d416c0fedd9aac",
+    "kind": "note",
+    "sourceIds": [
+      "dashboard-a4627e5e868830287e83"
+    ],
+    "text": "The saved process associates weather.forecast-updated with Dashboard.consumeMessage as an agent-proposed topic mapping. It leaves topic subscription configuration and runtime delivery unverified."
+  }
+}

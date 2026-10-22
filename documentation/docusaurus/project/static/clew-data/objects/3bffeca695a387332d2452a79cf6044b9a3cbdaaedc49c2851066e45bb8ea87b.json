@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:3bffeca695a387332d2452a79cf6044b9a3cbdaaedc49c2851066e45bb8ea87b",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contract": null,
+    "field": null,
+    "label": "C# Place.Longitude",
+    "mapping": {
+      "$clewRef": "sha256:a5ac2197751555f42c59e7895f241131a0c070f2f0c87f38c6ed520412c00192"
+    },
+    "nullability": "Non-nullable value type.",
+    "relatedModel": null,
+    "requiredness": "Supplied as a constructor argument in every supported literal branch.",
+    "typeLabel": "double"
+  }
+}

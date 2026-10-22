@@ -1,0 +1,49 @@
+{
+  "identity": "sha256:591523062d0a77b8bed49ac44a2a72d06047cbb38cee6576114535687e8bb789",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "CALL_TARGETS_UNRESOLVED",
+      "RUNTIME_REGISTRATION_UNPROVEN",
+      "SOURCE_ROUTE_NOT_COMPILER_RESOLVED"
+    ],
+    "dependencyIds": [
+      "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+      "dashboard:syntax_detail:e74ae30d664efe67729efda8"
+    ],
+    "id": "dashboard-ad968c2137fedea90215",
+    "kind": "HTTP_ENDPOINT",
+    "service": "dashboard",
+    "sourceIds": [
+      "dashboard-285d7e634ac6a0a268a7",
+      "dashboard-70d0514e3a02debba6be",
+      "dashboard-7970ac3e2a8cf3f45b4a",
+      "dashboard-e29667a34bf5d4d6ef9a"
+    ],
+    "symbol": "source:services/dashboard/src/main.ts/package:/savePlace/7a5f9ccc269b81055666",
+    "trigger": {
+      "authority": "SOURCE_REGISTRATION_SYNTAX",
+      "methods": [
+        "POST"
+      ],
+      "name": "savePlace",
+      "owner": "package:",
+      "paths": [
+        "/api/places"
+      ],
+      "sourceRoutes": [
+        {
+          "authority": "SOURCE_SYNTAX",
+          "declaredPath": "/api/places",
+          "framework": "fastify",
+          "handler": "source:services/dashboard/src/main.ts/package:/savePlace/7a5f9ccc269b81055666",
+          "method": "POST",
+          "path": "/api/places",
+          "receiver": "app",
+          "runtimeActivation": "UNVERIFIED",
+          "schema": "codeclew-typescript-source-route/1.0"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:afe5a81f405eea25b09bcf052045c99b60aa65127f8a12a72c15f15177dc7c9d",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:e73d6b16c2dc8e8c604caba9e027b8cc766e50ed0cd0847c23584ea00605d192"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Period has no independent identifier or table in this inspected model. It is an embedded value object in the forecast JSON, carried through storage and API responses with its parent.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

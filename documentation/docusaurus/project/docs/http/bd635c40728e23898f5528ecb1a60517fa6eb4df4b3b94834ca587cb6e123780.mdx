@@ -1,0 +1,186 @@
+---
+title: "GET /health"
+slug: "/http/bd635c40728e23898f5528ecb1a60517fa6eb4df4b3b94834ca587cb6e123780"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# GET /health
+
+<ClewPageContext />
+
+Declared interface · DECLARED\_OPENAPI. Runtime enforcement and full specification validation are not established by this bounded record.
+
+<ClewContextLink path="/services/forecasts#entry-forecasts-bd578e14951373ddaddf">Service and input context · Forecasts</ClewContextLink>
+
+<details>
+<summary>Declaration source and provenance</summary>
+
+- [contracts/forecasts.openapi.json:1–191 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/05a53615f19e214ae81a34c0ae85fcfafb9285ab8078741f240e9fc46c2c358e.mdx)
+
+</details>
+
+## Parameters {#parameters}
+
+No parameters declared.
+
+## Request body {#request-body}
+
+No request body is recorded in this declaration.
+
+## Declared responses {#declared-responses}
+
+### 200
+
+200
+
+<details open>
+<summary>Response media and body schema</summary>
+
+**Media:** application/json
+
+<p className="clew-schema-scope">object</p>  <div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Required</th><th scope="col">Declared constraints / description</th></tr></thead><tbody> <tr><td data-label="Field"><code>database</code></td><td data-label="Type">Not declared</td><td data-label="Required">Optional</td><td data-label="Declared constraints / description">const: READY<br/></td></tr> <tr><td data-label="Field"><code>kafka</code></td><td data-label="Type">Not declared</td><td data-label="Required">Optional</td><td data-label="Declared constraints / description">const: READY<br/></td></tr> </tbody></table></div>  
+
+<details>
+<summary>Exact retained media schema and examples</summary>
+
+```json
+{
+  "schema": {
+    "properties": {
+      "database": {
+        "const": "READY"
+      },
+      "kafka": {
+        "const": "READY"
+      }
+    },
+    "type": "object"
+  }
+}
+```
+
+
+</details>
+
+
+</details>
+
+### 500
+
+500
+
+<details>
+<summary>Response media and body schema</summary>
+
+**Media:** application/json
+
+<p className="clew-schema-scope">object · additionalProperties: true</p>  <div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Required</th><th scope="col">Declared constraints / description</th></tr></thead><tbody> <tr><td data-label="Field"><code>error</code></td><td data-label="Type">string</td><td data-label="Required">Optional</td><td data-label="Declared constraints / description"></td></tr> </tbody></table></div>  
+
+<details>
+<summary>Exact retained media schema and examples</summary>
+
+```json
+{
+  "schema": {
+    "additionalProperties": true,
+    "properties": {
+      "error": {
+        "type": "string"
+      }
+    },
+    "type": "object"
+  }
+}
+```
+
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Complete retained operation contract</summary>
+
+```json
+{
+  "operationId": "forecasts_get_health",
+  "responses": {
+    "200": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "properties": {
+              "database": {
+                "const": "READY"
+              },
+              "kafka": {
+                "const": "READY"
+              }
+            },
+            "type": "object"
+          }
+        }
+      },
+      "description": "200"
+    },
+    "500": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "additionalProperties": true,
+            "properties": {
+              "error": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        }
+      },
+      "description": "500"
+    }
+  }
+}
+```
+
+
+</details>
+
+<details>
+<summary>Declaration reader and source context</summary>
+
+```json
+{
+  "authority": "DECLARED_OPENAPI",
+  "boundaries": [
+    "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED"
+  ],
+  "declaredSource": "contracts/forecasts.openapi.json",
+  "entrypoint": "forecasts-bd578e14951373ddaddf",
+  "method": "GET",
+  "openapi": "3.1.0",
+  "parameters": [],
+  "path": "/health",
+  "readerSelection": {
+    "compatibilityAnchor": "3.1",
+    "fullSpecificationValidation": false,
+    "outsideAdvertisedRange": false,
+    "reader": "BOUNDED_OPENAPI_PATH_OPERATION_READER",
+    "selectionMode": "DECLARED_COMPATIBILITY_PROFILE",
+    "supportedVersionRange": "OPENAPI_THROUGH_3_X"
+  },
+  "runtimeEnforcement": "UNVERIFIED",
+  "schema": "codeclew-documentation-contract-facts/1.0",
+  "security": null,
+  "securitySchemes": null,
+  "servers": null,
+  "sourceMapping": "SOURCE_ROUTE_MATCH_ONLY"
+}
+```
+
+
+</details>
+

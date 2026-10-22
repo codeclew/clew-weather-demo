@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:ffa1bcd654fb053b7268bd37f4d7f3bab953ed7333d711728cffd5034606ae82",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 20,
+    "evidenceDigest": "sha256:50c7c62a0e76c7f181d9ec912f782de7d9a0ec847cfefe9ce30cb30b25ae2c83",
+    "file": "services/forecasts/src/main/kotlin/weather/ForecastController.kt",
+    "id": "forecasts-a38291144ad4bd8a411b",
+    "occurrence": {
+      "blob": "d47ffdb98963d778367a656d920d2f938da883ed",
+      "endByte": 992,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 297
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 9,
+    "text": "@RestController\nclass ForecastController(private val forecasts: Forecasts) {\n    @GetMapping(\"/forecasts/{id}\")\n    fun get(@PathVariable id: String): ResponseEntity<String> {\n        val payload = forecasts.get(id) ?: return ResponseEntity.notFound().build()\n        return ResponseEntity.ok().header(\"Content-Type\", \"application/json\").body(payload)\n    }\n    @GetMapping(\"/health\")\n    fun health(): Map<String, String> { forecasts.ping(); return mapOf(\"database\" to \"READY\") }\n    @GetMapping(\"/openapi.json\")\n    fun openApi(): ResponseEntity<String> = ResponseEntity.ok().header(\"Content-Type\", \"application/json\").body(Files.readString(Path.of(\"/app/contracts/forecasts.openapi.json\")))\n}",
+    "textDigest": "sha256:45d873fa042fb2bfb738ca1a4208dc4a7e1565befa67e79b7ebd76b8952b34b9",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/ForecastController.kt#L9-L20"
+  }
+}

@@ -1,0 +1,905 @@
+---
+title: "Forecasts"
+slug: "/services/forecasts"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+<span id="service-overview"></span>
+
+# Forecasts
+
+<section className="service-orientation">
+
+Reading outline · verbatim excerpts from retained descriptions
+
+Forecasts serves stored forecast payloads by place id, reports database readiness, and serves the checked-in OpenAPI document.
+
+**Incoming Kafka:** weather.place-requested. Declared handoffs; runtime delivery has not been verified.
+
+**Outgoing Kafka:** weather.forecast-updated. Declared handoffs; runtime delivery has not been verified.
+
+**Entry points and incoming interfaces**
+
+- The controller declares GET /forecasts/&#123;id&#125;, GET /health, and GET /openapi.json.
+- A source-declared Kafka listener receives weather.place-requested.
+
+[Full description and rules →](#section-ingress)
+
+**Domain entities and representations**
+
+- The Forecasts source assembles JSON rather than declaring a separate forecast DTO in the captured implementation.
+- The Forecasts database schema stores places, a forecasts row keyed by place\_id with updated\_at, JSON payload, expires\_at, and last\_modified, inbox event IDs, forecast\_outbox payloads with a published flag, and rejected message coordinates keyed by topic, partition, and offset.
+
+[Full description and rules →](#section-entities)
+
+**External calls, files and storage**
+
+- When refresh is needed, fixture mode reads /app/fixtures/&#123;id&#125;.json.
+- After the forecast upsert, the source attempts an outbox row keyed by place id and updatedAt, with type forecast.updated, version 1, place, and forecast.
+
+[Full description and rules →](#section-egress)
+
+</section>
+
+<ClewPageContext />
+
+<ClewStatus freshness="UNVERIFIED" verification="UNASSESSED" />
+
+Service behavior and explicit evidence boundaries
+
+## Overview {#section-overview}
+
+<details>
+<summary>Full retained description and supporting source</summary>
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+At the saved source revision c289b28be4819eddf29d59a7c12f178559ec5229, the Forecasts service declares three HTTP handlers and a Kafka listener for weather.place-requested. The forecast endpoint reads a stored payload by place id; health executes a database ping; OpenAPI reads the checked-in forecasts contract. The listener validates place.requested v1 events, records and acknowledges invalid messages before returning, and sends valid events through a transaction callback that inserts the inbox id, upserts the place and calls refresh before reaching the later acknowledgment; runtime callback and transaction behavior remain unverified. Refresh returns early while cached data is unexpired; otherwise fixture or live-provider processing can update the forecast record and attempt a forecast.updated outbox insert. The source includes two scheduled entrypoint declarations, refreshExpired and publishPending; runtime activation is unverified. Kotlin parsing is source-syntax only; the saved capture did not build the service, and runtime activation is unverified.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+- [contracts/forecasts.openapi.json:1–191 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/05a53615f19e214ae81a34c0ae85fcfafb9285ab8078741f240e9fc46c2c358e.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:35–35 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/f6bdd894e3f69a993b049015d6d7a4d0e73a5e6dc94b46bf32a274326decee8b.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:62–68 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ee1c73490c4cd4a1f4efaf310e65a12cc2a3c6bbb15ab76a4eb246cf1533dc35.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:36–36 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/bac513bace0ad04151b3709181393a5b35c9977fa0683066b265012f6b139f18.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:127–139 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/1bd07596f6d98195ae25427eb2eb0175e2e0db2969f1b348800d52ddabc630ab.mdx)
+- [services/forecasts/src/main/kotlin/weather/ForecastController.kt:11–15 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d1fcf17d0a9de09639b7db63855f8f57f94441c9779b2f70329e75c7d03c99f4.mdx)
+- [services/forecasts/src/main/kotlin/weather/ForecastController.kt:16–17 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/3fd6e0154de0e76dd7f5030fd6198b1f6fcb97f00c9d7d4ba454f60a75b32969.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:38–53 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/fabcf790d6359bad92930830b294197d73c440e51b6a010808853eccb900f2e6.mdx)
+- [services/forecasts/src/main/kotlin/weather/ForecastController.kt:18–19 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/f5e071d1a91e127fd568d40ec2c7e1cec3410af274774d60bbeadc63779d1192.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:55–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/9233bcae5aa5673c061ebdb857c39ce75ee4724473f2f75c21b7387f0fc94e1b.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+
+</details>
+
+
+</details>
+
+## Responsibilities {#section-responsibilities}
+
+Reading outline · verbatim excerpts; open the full description for all qualifications.
+
+- Forecasts serves stored forecast payloads by place id, reports database readiness, and serves the checked-in OpenAPI document.
+- The service refreshes only when a cached forecast is expired or absent.
+
+<details>
+<summary>Full retained description and supporting source</summary>
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+Forecasts serves stored forecast payloads by place id, reports database readiness, and serves the checked-in OpenAPI document. Its Kafka listener consumes weather.place-requested events. Invalid JSON or place.requested v1 validation throws enter the reject branch, which inserts a rejected\_messages row and acknowledges the record before returning; the valid branch places inbox insertion, place upsert, and refresh in a transaction callback, then reaches acknowledgment afterward. Callback timing, commit, rollback, and runtime delivery remain unverified.
+
+The service refreshes only when a cached forecast is expired or absent. Its fixture branch reads a place-specific fixture; its live branch calls MET. It builds a forecast payload, attempts an upsert that accepts equal or newer updatedAt values, then attempts a forecast.updated outbox insert. Two source declarations use scheduled annotations: refreshExpired scans expired or missing forecasts, and publishPending sends outbox records. Source syntax and configuration do not establish that either schedule or listener runs in deployment.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:62–68 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ee1c73490c4cd4a1f4efaf310e65a12cc2a3c6bbb15ab76a4eb246cf1533dc35.mdx)
+- [services/forecasts/src/main/resources/application.properties:1–16 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/7dc31ff2f89df6313b31ccd5e53de88f58ca342c20783e2f8e34d13d0d872b55.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:127–139 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/1bd07596f6d98195ae25427eb2eb0175e2e0db2969f1b348800d52ddabc630ab.mdx)
+- [services/forecasts/src/main/kotlin/weather/ForecastController.kt:9–20 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ffa1bcd654fb053b7268bd37f4d7f3bab953ed7333d711728cffd5034606ae82.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:38–53 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/fabcf790d6359bad92930830b294197d73c440e51b6a010808853eccb900f2e6.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:55–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/9233bcae5aa5673c061ebdb857c39ce75ee4724473f2f75c21b7387f0fc94e1b.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- Kotlin and Spring source evidence does not establish runtime listener or scheduler registration, callback invocation, or database transaction commit and rollback behavior. Captured application configuration is source text, not proof of deployed settings.
+- OpenAPI and event JSON Schema are read as source text; JSON Schema keywords, unions, and null types are not fully interpreted.
+
+</details>
+
+
+</details>
+
+## Domain entities {#section-entities}
+
+Reading outline · verbatim excerpts; open the full description for all qualifications.
+
+- The Forecasts source assembles JSON rather than declaring a separate forecast DTO in the captured implementation.
+- The Forecasts database schema stores places, a forecasts row keyed by place\_id with updated\_at, JSON payload, expires\_at, and last\_modified, inbox event IDs, forecast\_outbox payloads with a published flag, and rejected message coordinates keyed by topic, partition, and offset.
+
+<details>
+<summary>Full retained description and supporting source</summary>
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+The Forecasts source assembles JSON rather than declaring a separate forecast DTO in the captured implementation. A forecast object contains updatedAt, fetchedAt, mode, and periods. Each period contains time, temperatureC, symbol, and precipitationMm; the source writes null precipitation when the provider omits a numeric amount. A forecast.updated event carries an id formed from place id and updatedAt, type, version 1, place, and forecast. The event schema and OpenAPI document declare one to six periods and date-time strings; their JSON Schema keywords are not fully interpreted here.
+
+The Forecasts database schema stores places, a forecasts row keyed by place\_id with updated\_at, JSON payload, expires\_at, and last\_modified, inbox event IDs, forecast\_outbox payloads with a published flag, and rejected message coordinates keyed by topic, partition, and offset. These are persistence and delivery records, distinct from the JSON forecast and event shapes.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:29–140 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/4690abc33b226f3841e5eaaf90ce58e0cd06f7a69c28f21647e0f14c2e20e5ab.mdx)
+- [contracts/events.schema.json:1–173 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/02aca9b5de2e5fecc6239e85b2f8203c7f42eabce144a6c852ec3faed9d1a218.mdx)
+- [contracts/forecasts.openapi.json:1–191 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/8eaaa1dd5f23912e1bf1ff8c9cfd22b8801da3458df6ea963a0714e4316b27f5.mdx)
+- [database/init.sql:1–16 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/6c81c74b2345ce780cb749bc5fd0e843fc65ce33af41498bf0a3bd3aa572b6cf.mdx)
+
+</details>
+
+<details>
+<summary>New event · retained process documentation</summary>
+
+The supplied transaction callback remembers the event ID, updates the place and calls the shared forecast-refresh path. This snapshot does not prove callback execution or transaction commit.
+
+EDITORIAL\_READING\_GUIDE\_NOT\_ACCEPTED\_PROSE. This context does not change the interaction declaration or establish runtime binding.
+
+[Process step and source evidence](../scenarios/forecasts-place-requested-consumer.mdx#question-update)
+
+
+</details>
+
+<details>
+<summary>Record outcome · retained process documentation</summary>
+
+After the send future completes, the callback marks the selected row published. This statement alone does not prove that its database transaction committed.
+
+EDITORIAL\_READING\_GUIDE\_NOT\_ACCEPTED\_PROSE. This context does not change the interaction declaration or establish runtime binding.
+
+[Process step and source evidence](../scenarios/forecasts-publish-pending.mdx#question-record)
+
+
+</details>
+
+<details>
+<summary>Prepare writes · retained process documentation</summary>
+
+The supplied callback attempts to save the forecast, then insert an update event for a separate publisher. A committed result is not established by this syntax snapshot.
+
+EDITORIAL\_READING\_GUIDE\_NOT\_ACCEPTED\_PROSE. This context does not change the interaction declaration or establish runtime binding.
+
+[Process step and source evidence](../scenarios/forecasts-refresh-scheduled.mdx#question-save)
+
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- Kotlin and Spring source evidence does not establish runtime listener or scheduler registration, callback invocation, or database transaction commit and rollback behavior. Captured application configuration is source text, not proof of deployed settings.
+- OpenAPI and event JSON Schema are read as source text; JSON Schema keywords, unions, and null types are not fully interpreted.
+
+</details>
+
+
+</details>
+
+- [Place · Field descriptions](../data-model/place.mdx#fields-and-representations)
+
+- [Forecast · Field descriptions](../data-model/forecast.mdx#fields-and-representations)
+
+- [Period · Field descriptions](../data-model/period.mdx#fields-and-representations)
+
+## Ingress contracts {#section-ingress}
+
+<article className="clew-topic" id="topic-incoming-weather.place-requested" tabIndex={-1}>
+
+### Incoming Kafka topic · weather.place-requested
+
+<ClewProcessReturn topic="weather.place-requested" direction="incoming" />
+
+<div className="clew-topic-path" aria-label="Declared asynchronous handoff">
+
+<div>
+
+<ClewContextLink path="/services/places#section-egress" fromProcess="" fromQuestion="" query={{"direction":"outgoing","topic":"weather.place-requested"}}>Places</ClewContextLink>
+
+PublishPending
+
+</div>
+
+<span aria-hidden="true">→</span>
+
+<div>
+
+**weather.place-requested**
+
+Kafka topic · asynchronous
+
+</div>
+
+<span aria-hidden="true">→</span>
+
+<div>
+
+<ClewContextLink path="/services/forecasts#section-ingress" fromProcess="" fromQuestion="" query={{"direction":"incoming","topic":"weather.place-requested"}}>Forecasts</ClewContextLink>
+
+consume
+
+</div>
+
+</div>
+
+Proposed handoff; runtime delivery has not been verified.
+
+Saved consumer view: <ClewContextLink path="/scenarios/forecasts-place-requested-consumer#process-overview" fromProcess="" fromQuestion="" query={{}}>Refresh a forecast after a place request</ClewContextLink>
+
+Saved publisher view: <ClewContextLink path="/scenarios/places-request-publisher#process-overview" fromProcess="" fromQuestion="" query={{}}>Publish place requests</ClewContextLink>
+
+<details>
+<summary>Retained source and declaration context</summary>
+
+Topic names and the payload's event type are separate values. These references retain their own revisions; source matches do not prove topic resolution or delivery.
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:29–140 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/4690abc33b226f3841e5eaaf90ce58e0cd06f7a69c28f21647e0f14c2e20e5ab.mdx)
+- [compose.yaml:1–83 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/9e05093fb5c331baf99770e08434001fe6343fef20af9c9cb9f50d4dedc19fe5.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:38–53 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/fabcf790d6359bad92930830b294197d73c440e51b6a010808853eccb900f2e6.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:38–38 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/10c00da8a702034410e469873927632b27aa63ce186476ed96ebe835f4a655c7.mdx)
+
+```json
+[
+  {
+    "boundaries": [
+      "RUNTIME_DESTINATION_AND_ACTIVATION_UNKNOWN",
+      "WIRE_SERIALIZATION_NOT_ASSESSED",
+      "MESSAGE_DELIVERY_ORDER_RETRY_AND_CONSUMER_ACTIVATION_UNKNOWN",
+      "ENVIRONMENT_SCOPE_UNSPECIFIED",
+      "CLIENT_PATTERN_UNSUPPORTED_OR_AMBIGUOUS",
+      "UNACCEPTED_AGENT_PROPOSAL"
+    ],
+    "from": {
+      "callSite": {
+        "observation": "places:flow:941152b2ec99892568c9e40a"
+      },
+      "selector": {
+        "language": "csharp",
+        "name": "PublishPending",
+        "owner": "class:Weather.Places.RequestPublisher",
+        "parameterTypes": [
+          "Confluent.Kafka.IProducer`2",
+          "System.Threading.CancellationToken"
+        ]
+      },
+      "service": "places"
+    },
+    "interaction": "places-place-requested-to-forecasts",
+    "origin": "agent-proposal",
+    "rationale": "Agent-proposed weather.place-requested subscriber mapping. The captured Places producer call location is exact; topic resolution, consumer subscription and runtime delivery remain unverified.",
+    "runtime": "UNKNOWN",
+    "to": {
+      "selector": {
+        "language": "kotlin",
+        "name": "consume",
+        "owner": "class:weather.Forecasts",
+        "parameterTypes": [
+          "record: ConsumerRecord<String, String>",
+          "acknowledgment: Acknowledgment"
+        ]
+      },
+      "service": "forecasts"
+    },
+    "topic": {
+      "caller": {
+        "declared": "weather.place-requested",
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": "weather.place-requested",
+        "observed": [],
+        "status": "UNRESOLVED"
+      }
+    }
+  }
+]
+```
+
+
+</details>
+
+</article>
+
+Reading outline · verbatim excerpts; open the full description for all qualifications.
+
+- The controller declares GET /forecasts/&#123;id&#125;, GET /health, and GET /openapi.json.
+- A source-declared Kafka listener receives weather.place-requested.
+
+<details>
+<summary>Full retained description and supporting source</summary>
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+The controller declares GET /forecasts/&#123;id&#125;, GET /health, and GET /openapi.json. The forecast route returns the stored JSON payload as application/json or 404 when no row exists. The health handler executes SELECT 1 and returns database READY; it does not check Kafka. The OpenAPI declaration describes a 200 forecast payload, 404, and 500 response, restricts id to oslo, helsinki, or lisbon, and declares health fields database READY and kafka READY. The handler and contract therefore differ on the health body, and the contract’s 500 response is not an explicit local error mapping in these handlers. The OpenAPI route reads /app/contracts/forecasts.openapi.json; file or database exceptions are not locally converted by the shown handlers.
+
+A source-declared Kafka listener receives weather.place-requested. The validator requires a nonblank event id, version 1, type place.requested, one of the three place ids, a nonblank name, and numeric coordinates. The event schema additionally declares latitude and longitude bounds and disallows extra top-level properties; the captured validator does not check those rules. Application properties declare earliest offset reset, disabled auto-commit, and manual-immediate acknowledgments. Invalid parse or validation is recorded in rejected\_messages and acknowledged; valid processing reaches acknowledgment after the transaction callback. Runtime listener registration, acknowledgment behavior, and framework status serialization remain unverified.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [contracts/forecasts.openapi.json:1–191 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/05a53615f19e214ae81a34c0ae85fcfafb9285ab8078741f240e9fc46c2c358e.mdx)
+- [services/forecasts/src/main/resources/application.properties:1–16 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/7dc31ff2f89df6313b31ccd5e53de88f58ca342c20783e2f8e34d13d0d872b55.mdx)
+- [services/forecasts/src/main/kotlin/weather/ForecastController.kt:11–15 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d1fcf17d0a9de09639b7db63855f8f57f94441c9779b2f70329e75c7d03c99f4.mdx)
+- [services/forecasts/src/main/kotlin/weather/ForecastController.kt:16–17 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/3fd6e0154de0e76dd7f5030fd6198b1f6fcb97f00c9d7d4ba454f60a75b32969.mdx)
+- [contracts/events.schema.json:1–173 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/02aca9b5de2e5fecc6239e85b2f8203c7f42eabce144a6c852ec3faed9d1a218.mdx)
+- [services/forecasts/src/main/kotlin/weather/ForecastController.kt:9–20 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ffa1bcd654fb053b7268bd37f4d7f3bab953ed7333d711728cffd5034606ae82.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:38–53 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/fabcf790d6359bad92930830b294197d73c440e51b6a010808853eccb900f2e6.mdx)
+- [services/forecasts/src/main/kotlin/weather/ForecastController.kt:18–19 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/f5e071d1a91e127fd568d40ec2c7e1cec3410af274774d60bbeadc63779d1192.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:55–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/9233bcae5aa5673c061ebdb857c39ce75ee4724473f2f75c21b7387f0fc94e1b.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- Kotlin and Spring source evidence does not establish runtime listener or scheduler registration, callback invocation, or database transaction commit and rollback behavior. Captured application configuration is source text, not proof of deployed settings.
+- OpenAPI and event JSON Schema are read as source text; JSON Schema keywords, unions, and null types are not fully interpreted.
+
+</details>
+
+
+</details>
+
+### Declared HTTP interface schemas
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/f6ce8266c4e697d9db9c6b995e231713ba2df9f58df6c8a2b74789bcf30bfa2c">GET /openapi.json</ClewContextLink>
+
+<ClewContextLink path="/http/99c2697e8d504c9514c34631f942558372d28feb06ef894ce282840389e9f94a">GET /forecasts/&#123;id&#125;</ClewContextLink>
+
+<ClewContextLink path="/http/bd635c40728e23898f5528ecb1a60517fa6eb4df4b3b94834ca587cb6e123780">GET /health</ClewContextLink>
+
+</div>
+
+### Captured public inputs
+
+#### GET /forecasts/&#123;id&#125; {#entry-forecasts-c91896e4eb5ce5155f3d}
+
+HTTP\_ENDPOINT
+
+<details>
+<summary>Declared trigger details</summary>
+
+```json
+{
+  "authority": "FRAMEWORK_DERIVED_SOURCE",
+  "conditions": {
+    "consumes": [],
+    "headers": [],
+    "params": [],
+    "produces": []
+  },
+  "frameworkDeclarations": [
+    {
+      "controller": true,
+      "kind": "HTTP_ENDPOINT",
+      "registration": "RUNTIME_CONDITIONAL",
+      "trigger": {
+        "authority": "SPRING_ANNOTATION_RULES",
+        "conditions": {
+          "consumes": [],
+          "headers": [],
+          "params": [],
+          "produces": []
+        },
+        "methods": [
+          "GET"
+        ],
+        "pathResolution": "DERIVED",
+        "paths": [
+          "/forecasts/{id}"
+        ]
+      }
+    }
+  ],
+  "frameworkDerivation": {
+    "coverage": "PARTIAL",
+    "implementationDigest": "sha256:afdbd2484f030da4d481e109d5a74a62a9885136cf7c6832ee1869318477c464",
+    "inputAuthority": "SOURCE_ANNOTATIONS",
+    "inputDigest": "sha256:5c94cc9c5290372a67e3e050caa00b589197c4666622966c3cc40ac6b4f2b91c",
+    "inputSchema": "source-annotation-facts/1.0",
+    "moduleId": "spring",
+    "policyVersion": "spring-annotation-declarations/1.0"
+  },
+  "methods": [
+    "GET"
+  ],
+  "name": "get",
+  "owner": "class:weather.ForecastController",
+  "pathResolution": "DERIVED",
+  "paths": [
+    "/forecasts/{id}"
+  ]
+}
+```
+
+
+</details>
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/99c2697e8d504c9514c34631f942558372d28feb06ef894ce282840389e9f94a">GET /forecasts/&#123;id&#125;</ClewContextLink>
+
+</div>
+
+
+#### GET /health {#entry-forecasts-bd578e14951373ddaddf}
+
+HTTP\_ENDPOINT
+
+<details>
+<summary>Declared trigger details</summary>
+
+```json
+{
+  "authority": "FRAMEWORK_DERIVED_SOURCE",
+  "conditions": {
+    "consumes": [],
+    "headers": [],
+    "params": [],
+    "produces": []
+  },
+  "frameworkDeclarations": [
+    {
+      "controller": true,
+      "kind": "HTTP_ENDPOINT",
+      "registration": "RUNTIME_CONDITIONAL",
+      "trigger": {
+        "authority": "SPRING_ANNOTATION_RULES",
+        "conditions": {
+          "consumes": [],
+          "headers": [],
+          "params": [],
+          "produces": []
+        },
+        "methods": [
+          "GET"
+        ],
+        "pathResolution": "DERIVED",
+        "paths": [
+          "/health"
+        ]
+      }
+    }
+  ],
+  "frameworkDerivation": {
+    "coverage": "PARTIAL",
+    "implementationDigest": "sha256:afdbd2484f030da4d481e109d5a74a62a9885136cf7c6832ee1869318477c464",
+    "inputAuthority": "SOURCE_ANNOTATIONS",
+    "inputDigest": "sha256:beda02313dfadee4b071d380637c889da1328debae73027a99a2a9023d3a05fe",
+    "inputSchema": "source-annotation-facts/1.0",
+    "moduleId": "spring",
+    "policyVersion": "spring-annotation-declarations/1.0"
+  },
+  "methods": [
+    "GET"
+  ],
+  "name": "health",
+  "owner": "class:weather.ForecastController",
+  "pathResolution": "DERIVED",
+  "paths": [
+    "/health"
+  ]
+}
+```
+
+
+</details>
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/bd635c40728e23898f5528ecb1a60517fa6eb4df4b3b94834ca587cb6e123780">GET /health</ClewContextLink>
+
+</div>
+
+
+#### GET /openapi.json {#entry-forecasts-7113b27ca4694ebce3b6}
+
+HTTP\_ENDPOINT
+
+<details>
+<summary>Declared trigger details</summary>
+
+```json
+{
+  "authority": "FRAMEWORK_DERIVED_SOURCE",
+  "conditions": {
+    "consumes": [],
+    "headers": [],
+    "params": [],
+    "produces": []
+  },
+  "frameworkDeclarations": [
+    {
+      "controller": true,
+      "kind": "HTTP_ENDPOINT",
+      "registration": "RUNTIME_CONDITIONAL",
+      "trigger": {
+        "authority": "SPRING_ANNOTATION_RULES",
+        "conditions": {
+          "consumes": [],
+          "headers": [],
+          "params": [],
+          "produces": []
+        },
+        "methods": [
+          "GET"
+        ],
+        "pathResolution": "DERIVED",
+        "paths": [
+          "/openapi.json"
+        ]
+      }
+    }
+  ],
+  "frameworkDerivation": {
+    "coverage": "PARTIAL",
+    "implementationDigest": "sha256:afdbd2484f030da4d481e109d5a74a62a9885136cf7c6832ee1869318477c464",
+    "inputAuthority": "SOURCE_ANNOTATIONS",
+    "inputDigest": "sha256:1d1f6f374c4d51c8e074287933e0e0656fa3aa83054eefe4de4ea39cde112651",
+    "inputSchema": "source-annotation-facts/1.0",
+    "moduleId": "spring",
+    "policyVersion": "spring-annotation-declarations/1.0"
+  },
+  "methods": [
+    "GET"
+  ],
+  "name": "openApi",
+  "owner": "class:weather.ForecastController",
+  "pathResolution": "DERIVED",
+  "paths": [
+    "/openapi.json"
+  ]
+}
+```
+
+
+</details>
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/f6ce8266c4e697d9db9c6b995e231713ba2df9f58df6c8a2b74789bcf30bfa2c">GET /openapi.json</ClewContextLink>
+
+</div>
+
+
+#### consume {#entry-forecasts-4e4e8e31400c498b7591}
+
+KAFKA\_LISTENER
+
+<details>
+<summary>Declared trigger details</summary>
+
+```json
+{
+  "authority": "FRAMEWORK_DERIVED_SOURCE",
+  "configuration": {
+    "topics": [
+      "weather.place-requested"
+    ]
+  },
+  "frameworkDeclarations": [
+    {
+      "controller": null,
+      "kind": "KAFKA_LISTENER",
+      "registration": "RUNTIME_CONDITIONAL",
+      "trigger": {
+        "authority": "SPRING_ANNOTATION_RULES",
+        "configuration": {
+          "topics": [
+            "weather.place-requested"
+          ]
+        }
+      }
+    }
+  ],
+  "frameworkDerivation": {
+    "coverage": "PARTIAL",
+    "implementationDigest": "sha256:afdbd2484f030da4d481e109d5a74a62a9885136cf7c6832ee1869318477c464",
+    "inputAuthority": "SOURCE_ANNOTATIONS",
+    "inputDigest": "sha256:ae54968adbcaf8333aaffa507c3ff11d78ce080bb76ad90360fd90d099faf3e9",
+    "inputSchema": "source-annotation-facts/1.0",
+    "moduleId": "spring",
+    "policyVersion": "spring-annotation-declarations/1.0"
+  },
+  "name": "consume",
+  "owner": "class:weather.Forecasts"
+}
+```
+
+
+</details>
+
+
+#### refreshExpired {#entry-forecasts-a2617f9567b7eac19bf2}
+
+SCHEDULED\_JOB
+
+<details>
+<summary>Declared trigger details</summary>
+
+```json
+{
+  "authority": "FRAMEWORK_DERIVED_SOURCE",
+  "configuration": {
+    "fixedDelayString": null
+  },
+  "disabled": null,
+  "frameworkDeclarations": [
+    {
+      "controller": null,
+      "kind": "SCHEDULED_JOB",
+      "registration": "RUNTIME_CONDITIONAL",
+      "trigger": {
+        "authority": "SPRING_ANNOTATION_RULES",
+        "configuration": {
+          "fixedDelayString": null
+        },
+        "disabled": null,
+        "timeUnit": "MILLISECONDS"
+      }
+    }
+  ],
+  "frameworkDerivation": {
+    "coverage": "PARTIAL",
+    "implementationDigest": "sha256:afdbd2484f030da4d481e109d5a74a62a9885136cf7c6832ee1869318477c464",
+    "inputAuthority": "SOURCE_ANNOTATIONS",
+    "inputDigest": "sha256:52704ea485b16e4a44ca438f045ec1c04fa99c56f9cda243f3f5495fc5d79cda",
+    "inputSchema": "source-annotation-facts/1.0",
+    "moduleId": "spring",
+    "policyVersion": "spring-annotation-declarations/1.0"
+  },
+  "name": "refreshExpired",
+  "owner": "class:weather.Forecasts",
+  "timeUnit": "MILLISECONDS"
+}
+```
+
+
+</details>
+
+
+#### publishPending {#entry-forecasts-23c1f84e75a5f47c4675}
+
+SCHEDULED\_JOB
+
+<details>
+<summary>Declared trigger details</summary>
+
+```json
+{
+  "authority": "FRAMEWORK_DERIVED_SOURCE",
+  "configuration": {
+    "fixedDelayString": null
+  },
+  "disabled": null,
+  "frameworkDeclarations": [
+    {
+      "controller": null,
+      "kind": "SCHEDULED_JOB",
+      "registration": "RUNTIME_CONDITIONAL",
+      "trigger": {
+        "authority": "SPRING_ANNOTATION_RULES",
+        "configuration": {
+          "fixedDelayString": null
+        },
+        "disabled": null,
+        "timeUnit": "MILLISECONDS"
+      }
+    }
+  ],
+  "frameworkDerivation": {
+    "coverage": "PARTIAL",
+    "implementationDigest": "sha256:afdbd2484f030da4d481e109d5a74a62a9885136cf7c6832ee1869318477c464",
+    "inputAuthority": "SOURCE_ANNOTATIONS",
+    "inputDigest": "sha256:4c88d0aef2335d02859468803f80f8be06add9161f27b7a334fa08ad9504a3eb",
+    "inputSchema": "source-annotation-facts/1.0",
+    "moduleId": "spring",
+    "policyVersion": "spring-annotation-declarations/1.0"
+  },
+  "name": "publishPending",
+  "owner": "class:weather.Forecasts",
+  "timeUnit": "MILLISECONDS"
+}
+```
+
+
+</details>
+
+
+## Egress contracts {#section-egress}
+
+<article className="clew-topic" id="topic-outgoing-weather.forecast-updated" tabIndex={-1}>
+
+### Outgoing Kafka topic · weather.forecast-updated
+
+<ClewProcessReturn topic="weather.forecast-updated" direction="outgoing" />
+
+<div className="clew-topic-path" aria-label="Declared asynchronous handoff">
+
+<div>
+
+<ClewContextLink path="/services/forecasts#section-egress" fromProcess="" fromQuestion="" query={{"direction":"outgoing","topic":"weather.forecast-updated"}}>Forecasts</ClewContextLink>
+
+publishPending
+
+</div>
+
+<span aria-hidden="true">→</span>
+
+<div>
+
+**weather.forecast-updated**
+
+Kafka topic · asynchronous
+
+</div>
+
+<span aria-hidden="true">→</span>
+
+<div>
+
+<ClewContextLink path="/services/dashboard#section-ingress" fromProcess="" fromQuestion="" query={{"direction":"incoming","topic":"weather.forecast-updated"}}>Dashboard</ClewContextLink>
+
+consumeMessage
+
+</div>
+
+</div>
+
+Proposed handoff; runtime delivery has not been verified.
+
+Saved consumer view: <ClewContextLink path="/scenarios/dashboard-forecast-updated-consumer#process-overview" fromProcess="" fromQuestion="" query={{}}>Update a Dashboard forecast</ClewContextLink>
+
+Saved publisher view: <ClewContextLink path="/scenarios/forecasts-publish-pending#process-overview" fromProcess="" fromQuestion="" query={{}}>Publish forecast updates</ClewContextLink>
+
+<details>
+<summary>Retained source and declaration context</summary>
+
+Topic names and the payload's event type are separate values. These references retain their own revisions; source matches do not prove topic resolution or delivery.
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:135–135 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/558d39b4863fa6cb937541ea9e4827803b77507cde218761a7aafda72311894e.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:29–140 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/4690abc33b226f3841e5eaaf90ce58e0cd06f7a69c28f21647e0f14c2e20e5ab.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:127–139 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/1bd07596f6d98195ae25427eb2eb0175e2e0db2969f1b348800d52ddabc630ab.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:129–138 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/77419b38cab1c2be268d248020c0f3d1aed119786e7f30a01355c56299cf7b1f.mdx)
+- [compose.yaml:1–83 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/9e05093fb5c331baf99770e08434001fe6343fef20af9c9cb9f50d4dedc19fe5.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:135–135 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/32c1189e76bb303ba295680ff8e2e7928efb5fd710b3abd88084686a9c7263ca.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:130–137 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/3b9ceb5d936d477a14e078772df0cf27b41402f3492b30ea24fc79186397d3f2.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:135–135 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/44e1ef63dbc35f966f73342014b7ca84cc21d83c66515af5fb5c631841bba129.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:130–137 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d16edda6870f49ad776f5d271642e7ceb0421909d445f9f593fa3fd1ecf610c2.mdx)
+
+```json
+[
+  {
+    "boundaries": [
+      "RUNTIME_DESTINATION_AND_ACTIVATION_UNKNOWN",
+      "WIRE_SERIALIZATION_NOT_ASSESSED",
+      "MESSAGE_DELIVERY_ORDER_RETRY_AND_CONSUMER_ACTIVATION_UNKNOWN",
+      "ENVIRONMENT_SCOPE_UNSPECIFIED",
+      "CLIENT_PATTERN_UNSUPPORTED_OR_AMBIGUOUS",
+      "UNACCEPTED_AGENT_PROPOSAL"
+    ],
+    "from": {
+      "callSite": {
+        "observation": "forecasts:flow:a5b0ed72a047f4f36e281eb2"
+      },
+      "selector": {
+        "language": "kotlin",
+        "name": "publishPending",
+        "owner": "class:weather.Forecasts",
+        "parameterTypes": []
+      },
+      "service": "forecasts"
+    },
+    "interaction": "forecasts-forecast-updated-to-dashboard",
+    "origin": "agent-proposal",
+    "rationale": "Agent-proposed weather.forecast-updated subscriber mapping. The selected source method and producer callsite are retained; topic resolution, consumer subscription and runtime delivery remain unverified.",
+    "runtime": "UNKNOWN",
+    "to": {
+      "selector": {
+        "language": "typescript",
+        "name": "consumeMessage",
+        "owner": "package:",
+        "parameterTypes": [
+          ": EachMessagePayload"
+        ]
+      },
+      "service": "dashboard"
+    },
+    "topic": {
+      "caller": {
+        "declared": "weather.forecast-updated",
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": "weather.forecast-updated",
+        "observed": [],
+        "status": "UNRESOLVED"
+      }
+    }
+  }
+]
+```
+
+
+</details>
+
+</article>
+
+Reading outline · verbatim excerpts; open the full description for all qualifications.
+
+- When refresh is needed, fixture mode reads /app/fixtures/&#123;id&#125;.json.
+- After the forecast upsert, the source attempts an outbox row keyed by place id and updatedAt, with type forecast.updated, version 1, place, and forecast.
+
+<details>
+<summary>Full retained description and supporting source</summary>
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+When refresh is needed, fixture mode reads /app/fixtures/&#123;id&#125;.json. Live mode requires FORECAST\_MODE=live and a nonblank MET\_USER\_AGENT, truncates coordinates toward zero to four decimal places, and sends GET to the MET locationforecast compact endpoint with a 20-second timeout, User-Agent, gzip acceptance, and If-Modified-Since when cached metadata exists. A 304 with a cached row updates expiry and returns; only 200 and 203 continue to parse the response. The source derives expiry from Expires or defaults to one hour, uses Retry-After for a 429 with a 60-second minimum, and keeps per-place retry times in memory. It extracts at most six periods, requires numeric temperature and a nonempty period list, parses updatedAt, and attempts an upsert whose predicate accepts equal or newer updatedAt values; an older incoming value leaves the stored row unchanged. The source then attempts the forecast.updated outbox insert. These are source paths; no live provider call was made.
+
+After the forecast upsert, the source attempts an outbox row keyed by place id and updatedAt, with type forecast.updated, version 1, place, and forecast. The scheduled publisher selects at most one unpublished row ordered by id with FOR UPDATE SKIP LOCKED, sends weather.forecast-updated using place id as the Kafka key, waits up to 10 seconds, then marks the row published inside the transaction callback. It logs PUBLISH\_RETRY on caught failures. A send that completes before a later database failure can leave the row eligible for another attempt; Kafka and PostgreSQL atomicity and runtime transaction behavior are not established.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+- [services/forecasts/src/main/resources/application.properties:1–16 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/7dc31ff2f89df6313b31ccd5e53de88f58ca342c20783e2f8e34d13d0d872b55.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:127–139 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/1bd07596f6d98195ae25427eb2eb0175e2e0db2969f1b348800d52ddabc630ab.mdx)
+- [contracts/events.schema.json:1–173 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/02aca9b5de2e5fecc6239e85b2f8203c7f42eabce144a6c852ec3faed9d1a218.mdx)
+- [database/init.sql:1–16 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/6c81c74b2345ce780cb749bc5fd0e843fc65ce33af41498bf0a3bd3aa572b6cf.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- Kotlin and Spring source evidence does not establish runtime listener or scheduler registration, callback invocation, or database transaction commit and rollback behavior. Captured application configuration is source text, not proof of deployed settings.
+- OpenAPI and event JSON Schema are read as source text; JSON Schema keywords, unions, and null types are not fully interpreted.
+
+</details>
+
+
+</details>
+
+## Original operations
+
+- [Scheduled publishPending declaration](../operations/services-forecasts--forecasts-23c1f84e75a5f47c4675.mdx)
+- [Consume weather.place-requested](../operations/services-forecasts--forecasts-4e4e8e31400c498b7591.mdx)
+- [GET /openapi.json](../operations/services-forecasts--forecasts-7113b27ca4694ebce3b6.mdx)
+- [Scheduled refreshExpired declaration](../operations/services-forecasts--forecasts-a2617f9567b7eac19bf2.mdx)
+- [GET /health](../operations/services-forecasts--forecasts-bd578e14951373ddaddf.mdx)
+- [GET /forecasts/&#123;id&#125;](../operations/services-forecasts--forecasts-c91896e4eb5ce5155f3d.mdx)
+- [Forecasts egress contracts](../operations/services-forecasts--section-egress.mdx)
+- [Forecasts domain entities](../operations/services-forecasts--section-entities.mdx)
+- [Forecasts ingress contracts](../operations/services-forecasts--section-ingress.mdx)
+- [Forecasts service](../operations/services-forecasts--section-overview.mdx)
+- [Forecasts responsibilities](../operations/services-forecasts--section-responsibilities.mdx)
+
+<ClewDownload path="/clew-data/native/services/forecasts.json">Saved data and complete provenance (reference format)</ClewDownload>
+

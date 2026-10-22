@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:fea4c10d8f648f3bc2b6caac44212e05c7d696c4efc72a1b8628207703cf1220",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contract": null,
+    "field": null,
+    "label": "Browser row.forecast",
+    "mapping": {
+      "$clewRef": "sha256:ea6e28c9107eaed4d51977cc099f0c0a170420626893fe562a558090c9457dd5"
+    },
+    "nullability": "Missing and null both enter pending; no schema validation here",
+    "relatedModel": "forecast",
+    "requiredness": "The pending guard tolerates absence",
+    "typeLabel": "Forecast-shaped object, null or absent"
+  }
+}

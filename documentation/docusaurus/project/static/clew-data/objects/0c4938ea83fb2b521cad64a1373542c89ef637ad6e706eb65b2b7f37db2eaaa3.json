@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:0c4938ea83fb2b521cad64a1373542c89ef637ad6e706eb65b2b7f37db2eaaa3",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "branchPointer": "/paths/~1places/post/responses/200/content/application~1json/schema",
+    "documentationLanguage": "en",
+    "id": "save-city-response",
+    "leaves": {
+      "$clewRef": "sha256:c8c576cffc101dd88bc1952b583a6c4734cf0eef5a23878a9a89b362a836c906"
+    },
+    "requiredCondition": "Selected contract branch matches; required parents and array element are present. Array leaves expanded once, independent of cardinality.",
+    "source": {
+      "$clewRef": "sha256:d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959"
+    },
+    "title": "Places POST /places 200 response (declared)"
+  }
+}

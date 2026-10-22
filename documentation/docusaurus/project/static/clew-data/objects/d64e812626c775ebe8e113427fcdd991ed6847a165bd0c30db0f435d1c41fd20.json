@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:d64e812626c775ebe8e113427fcdd991ed6847a165bd0c30db0f435d1c41fd20",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "places:symbol:1223607978a77b621e144f3c",
+      "places:symbol:d4d0aa9ce7bc37e81fa3623b"
+    ],
+    "id": "claim-43bb26328ad1090b78cb",
+    "sourceIds": [
+      "places-1223607978a77b621e14",
+      "places-d4d0aa9ce7bc37e81fa3"
+    ],
+    "text": "A new supported place insert and its request_outbox event are written in one PostgreSQL transaction. ON CONFLICT DO NOTHING means a duplicate place does not create another event. Refresh of a found place creates a new outbox event in its own transaction. The payload contains a new GUID, type place.requested, version 1, and the Place, serialized with web JSON defaults. RequestPublisher selects one eligible unpublished row in created_at order with FOR UPDATE SKIP LOCKED, sends it to weather.place-requested with Place.Id as the Kafka key, then marks the row published and commits. A failure after Kafka accepts the event but before the database commit can lead to a replay; producer idempotence does not make the Kafka send and database update one transaction."
+  }
+}

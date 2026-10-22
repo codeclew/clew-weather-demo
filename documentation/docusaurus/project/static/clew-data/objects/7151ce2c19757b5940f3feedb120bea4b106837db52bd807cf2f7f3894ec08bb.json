@@ -1,0 +1,42 @@
+{
+  "identity": "sha256:7151ce2c19757b5940f3feedb120bea4b106837db52bd807cf2f7f3894ec08bb",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    {
+      "after": "sha256:1b19be39e13fad55d3972231a08c06573a8375afc5a70275bd3918561d39deed",
+      "before": "sha256:54c56b910be2c0250b934502d9e8a69627788643ff6e6df98636ab6d55e96163",
+      "dependency": "scenario:forecasts-publish-pending",
+      "reason": "SCENARIO_SELECTION_CHANGED"
+    },
+    {
+      "after": "sha256:1b5f23cacf432a775fe22273fe53f9bb2abb1b7ff999910e15d1407181d123d9",
+      "before": "sha256:e3b4940ede42d2eec9d7fa36ad414d15386a51bc4526deebc02be7129635df8d",
+      "dependency": "process-component:forecasts-publish-pending:dashboard-forecast-updated-consumer",
+      "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+    },
+    {
+      "after": "sha256:6581799fb599515b1c0a408d16b71cae00ec90d9787e82bc7e1262efde035654",
+      "before": "sha256:5a437da0a3ea75b8f136d6d65d5792cdfd2e7b51527897832d4a44d812c838d8",
+      "dependency": "process:forecasts-publish-pending",
+      "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+    },
+    {
+      "after": "sha256:6658a32479c356ff16b7edb6af7b69885dcea55b6bef2a076ed4e425bd69c81c",
+      "before": "sha256:1059411c47ed9d2adbee13c07a371d05394433732e32c9b1f171aeab1c87a86d",
+      "dependency": "process-scope:forecasts-publish-pending",
+      "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+    },
+    {
+      "reason": "INFLUENCE_SCOPE_CHANGED",
+      "scope": "sha256:37c75496e611ce649d84655de37dd1918188f9e4664b6d358ba479b62644a34f"
+    },
+    {
+      "reason": "INFLUENCE_SCOPE_CHANGED",
+      "scope": "sha256:f889eb5be6b5a2f6692ea7c786530b80666d34501cf27eea40d2e6c6998504f7"
+    },
+    {
+      "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+      "snapshot": "sha256:b57016f8fd0621d202cb2ee1e96f17cd3ba84d6a935e64660e40ac3d60be0ca4/164667"
+    }
+  ]
+}

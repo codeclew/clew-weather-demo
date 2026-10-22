@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:acff00cd7d043180b09924a12ef066e443264aa6b9bd2a37862933beb255c289",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "properties": {
+      "$clewRef": "sha256:93d2fd8bf11926e8aca78fbe74076dc5bb357a233e81a493f92a8493891921a5"
+    },
+    "required": [
+      "id",
+      "name",
+      "latitude",
+      "longitude",
+      "forecast"
+    ],
+    "type": "object"
+  }
+}

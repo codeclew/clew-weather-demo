@@ -1,0 +1,28 @@
+{
+  "identity": "sha256:c8298d352a644bb3310f330f0b1459ca8ed633facea82d53264160468e205cbb",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "fragment": {
+      "$clewRef": "sha256:195e28208d716c21cf678b9ad64d2af3581170a955bce66ea3e186b09c3ec822"
+    },
+    "kind": "RETAINED_CLAIM",
+    "operation": "section-overview",
+    "sourceContext": {
+      "boundaries": [
+        "C# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted."
+      ],
+      "publication": null,
+      "revisions": {
+        "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+      }
+    },
+    "sources": {
+      "$clewRef": "sha256:ca3188648ba932ee59461bc91109755a0e65fd97ad6226599e86261848149126"
+    },
+    "state": {
+      "$clewRef": "sha256:7449d8aac6ed9736ab4f2ef7e21f8258b178915b39babe38cf3cc40fb100aac1"
+    },
+    "subject": "service:places",
+    "title": "Places service"
+  }
+}

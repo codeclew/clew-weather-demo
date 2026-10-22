@@ -1,0 +1,20 @@
+{
+  "baseUrl": "/clew-weather-demo/docusaurus/",
+  "documentationLanguage": "en",
+  "inputSha256": {
+    "contract-comparison.json": "0ca08c89e445ec62bc5a575807c034cac7232039573819c946e34d602bbd9e8b",
+    "data-model-plan.json": "40afa1f07b972f902186c69e63bcf14967b52c84f38d80a24fb7e9b39afdda83",
+    "reading-plan.json": "ac8e47e098005956b90b63a9c81e5dd118c4e10a09d3ec4060b20d9d81d624b0",
+    "service-model-links.json": "e1db4493387507eb9b8311fd76d0e2ae806d84447c8a491bd55b35ae7104e4b1"
+  },
+  "publicReleaseClaim": false,
+  "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+  "renderer": {
+    "selection": "SOURCE_CANDIDATE",
+    "sourceRevision": "17224661d68056b502c50c6c9431efb40aca2b4a",
+    "version": "0.13.46"
+  },
+  "runtimeReexecuted": false,
+  "schema": "weather-docusaurus-review/1.0",
+  "snapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956"
+}

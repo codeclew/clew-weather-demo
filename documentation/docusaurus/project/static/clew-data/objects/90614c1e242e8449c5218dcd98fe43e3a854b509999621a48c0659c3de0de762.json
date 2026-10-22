@@ -1,0 +1,33 @@
+{
+  "identity": "sha256:90614c1e242e8449c5218dcd98fe43e3a854b509999621a48c0659c3de0de762",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "id": "dashboard-save-city",
+    "interactions": [
+      "dashboard-save-place-to-places",
+      "places-place-requested-to-forecasts",
+      "places-place-requested-to-dashboard",
+      "forecasts-forecast-updated-to-dashboard"
+    ],
+    "maxDepth": 4,
+    "maxNodes": 64,
+    "process": {
+      "$clewRef": "sha256:c2e1de9ad93e35c6647b8bfa13d7c5430a707f804a24dc82d3f108fd41e3c3cd"
+    },
+    "root": {
+      "selector": {
+        "language": "typescript",
+        "name": "savePlace",
+        "owner": "package:",
+        "parameterTypes": [
+          ": FastifyRequest",
+          ": FastifyReply"
+        ]
+      },
+      "service": "dashboard"
+    },
+    "schema": "codeclew-documentation-process/1.0",
+    "summary": "Source-level thread connecting the proposed POST /places mapping to the place-requested publisher, Forecasts consumer and publisher, and both Dashboard consumer views; linked views do not establish execution order or delivery.",
+    "title": "Dashboard save-city thread"
+  }
+}

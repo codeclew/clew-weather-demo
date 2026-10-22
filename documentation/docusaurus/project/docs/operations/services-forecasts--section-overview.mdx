@@ -1,0 +1,39 @@
+---
+title: "Forecasts service"
+slug: "/operations/services-forecasts--section-overview"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Forecasts service
+
+<ClewPageContext />
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+At the saved source revision c289b28be4819eddf29d59a7c12f178559ec5229, the Forecasts service declares three HTTP handlers and a Kafka listener for weather.place-requested. The forecast endpoint reads a stored payload by place id; health executes a database ping; OpenAPI reads the checked-in forecasts contract. The listener validates place.requested v1 events, records and acknowledges invalid messages before returning, and sends valid events through a transaction callback that inserts the inbox id, upserts the place and calls refresh before reaching the later acknowledgment; runtime callback and transaction behavior remain unverified. Refresh returns early while cached data is unexpired; otherwise fixture or live-provider processing can update the forecast record and attempt a forecast.updated outbox insert. The source includes two scheduled entrypoint declarations, refreshExpired and publishPending; runtime activation is unverified. Kotlin parsing is source-syntax only; the saved capture did not build the service, and runtime activation is unverified.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+- [contracts/forecasts.openapi.json:1–191 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/05a53615f19e214ae81a34c0ae85fcfafb9285ab8078741f240e9fc46c2c358e.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:35–35 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/f6bdd894e3f69a993b049015d6d7a4d0e73a5e6dc94b46bf32a274326decee8b.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:62–68 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ee1c73490c4cd4a1f4efaf310e65a12cc2a3c6bbb15ab76a4eb246cf1533dc35.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:36–36 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/bac513bace0ad04151b3709181393a5b35c9977fa0683066b265012f6b139f18.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:127–139 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/1bd07596f6d98195ae25427eb2eb0175e2e0db2969f1b348800d52ddabc630ab.mdx)
+- [services/forecasts/src/main/kotlin/weather/ForecastController.kt:11–15 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d1fcf17d0a9de09639b7db63855f8f57f94441c9779b2f70329e75c7d03c99f4.mdx)
+- [services/forecasts/src/main/kotlin/weather/ForecastController.kt:16–17 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/3fd6e0154de0e76dd7f5030fd6198b1f6fcb97f00c9d7d4ba454f60a75b32969.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:38–53 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/fabcf790d6359bad92930830b294197d73c440e51b6a010808853eccb900f2e6.mdx)
+- [services/forecasts/src/main/kotlin/weather/ForecastController.kt:18–19 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/f5e071d1a91e127fd568d40ec2c7e1cec3410af274774d60bbeadc63779d1192.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:55–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/9233bcae5aa5673c061ebdb857c39ce75ee4724473f2f75c21b7387f0fc94e1b.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+
+</details>
+

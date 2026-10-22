@@ -1,0 +1,25 @@
+{
+  "identity": "sha256:33c1090b443a53f00f53ddcfcbe9629ace00200b792d68f058a5cc0d15d85f72",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "observed-static-use",
+    "claim": {
+      "$clewRef": "sha256:23a408a718108ab48db487b22badc67853d64093c192b027ef1745b1bc40aebb"
+    },
+    "condition": "CityId matches oslo, helsinki or lisbon",
+    "consumer": "PlacesController.Save city value",
+    "contract": "place-requested",
+    "coveredScope": "Captured Save a city source ranges only; no publisher or forecast consumer expansion",
+    "kinds": [
+      "calculate-or-decide",
+      "identify-or-route"
+    ],
+    "processes": [
+      "scenario:dashboard-save-city"
+    ],
+    "producer": "PlacesRepository.City constants",
+    "representation": "City(request.CityId) → Place.Id",
+    "stage": "Places city lookup",
+    "unresolved": "This is a derived field mapping, not an observed call. Event-requiredness is distinct from the HTTP request shape."
+  }
+}

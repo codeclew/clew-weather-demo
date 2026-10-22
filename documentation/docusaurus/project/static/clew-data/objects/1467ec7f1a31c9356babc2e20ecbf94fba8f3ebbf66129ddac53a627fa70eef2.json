@@ -1,0 +1,21 @@
+{
+  "identity": "sha256:1467ec7f1a31c9356babc2e20ecbf94fba8f3ebbf66129ddac53a627fa70eef2",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+    "interaction:dashboard-request-refresh-to-places",
+    "places:entrypoint:f471dd170980c48ef424033f",
+    "places:symbol:24afabf4ce6fb0dad4a762cb",
+    "places:symbol:434ffab68fae2f991ebba252",
+    "places:symbol:51d94b76d870001475fd2c51",
+    "places:symbol:65de4bdfa04d114b73dffbc2",
+    "places:symbol:707eb762b8c1f4718a5b89e7",
+    "process-component:dashboard-refresh-request:dashboard-forecast-updated-consumer",
+    "process-component:dashboard-refresh-request:dashboard-place-requested-consumer",
+    "process-component:dashboard-refresh-request:forecasts-place-requested-consumer",
+    "process-component:dashboard-refresh-request:forecasts-publish-pending",
+    "process-component:dashboard-refresh-request:places-request-publisher",
+    "process-scope:dashboard-refresh-request",
+    "process:dashboard-refresh-request"
+  ]
+}

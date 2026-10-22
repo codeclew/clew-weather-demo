@@ -1,0 +1,37 @@
+---
+title: "Dashboard responsibilities"
+slug: "/operations/services-dashboard--section-responsibilities"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Dashboard responsibilities
+
+<ClewPageContext />
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+The captured Dashboard source serves a home page and saved weather-card JSON, forwards place-save and refresh requests to Places, and subscribes to weather.place-requested and weather.forecast-updated. The consumer dispatches each message to validation and event handling. In a transaction, applyEvent first inserts the event id into inbox; a duplicate commits and returns before any weather\_cards upsert. A new place request updates place details. A forecast event inserts a missing card, or updates a conflicting card only when its stored updated\_at is null or the incoming updatedAt is strictly newer; an older or equal event can commit its inbox row without changing the card. The health handler probes PostgreSQL and checks a local consumerReady flag. These statements describe source paths and declared registrations, not runtime activation.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/dashboard/src/main.ts:76–83 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b41ac7155eba29b1e6a9dfe10348b626c22e19654978c7d35379a71fff4526a1.mdx)
+- [services/dashboard/src/main.ts:85–89 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/f2538d01a5740ce1abfc03ae7e7a7b2d8cd5252bbf39b4aa3f59a797afd655ae.mdx)
+- [services/dashboard/src/main.ts:67–74 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ab8df8a5fe7536b2fc32d2257bed77e48c54ce422b10c3afba79f26ac88b67a8.mdx)
+- [services/dashboard/src/main.ts:95–97 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/115f097e979ebca0d7af8b4670f23623a3cdcd8fe24627d5867e6a072e81272d.mdx)
+- [services/dashboard/src/main.ts:47–60 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233.mdx)
+- [services/dashboard/src/main.ts:15–45 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/bf524d202ba882540036918136ea088912da8bc6f340ab23d8a90bfb0aacab71.mdx)
+- [services/dashboard/src/main.ts:99–111 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b8c6b94020ae709e61177a744a5a5315fccb0813ac9f4e37ca6a0be5140d129c.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- This proposal documents four service sections from source-level TypeScript and the captured OpenAPI declaration. It does not establish runtime route or listener activation, deployed settings, database outcomes, or broker delivery and offset-commit guarantees. The OpenAPI document is read as source text; JSON Schema semantics are not fully interpreted.
+
+</details>
+

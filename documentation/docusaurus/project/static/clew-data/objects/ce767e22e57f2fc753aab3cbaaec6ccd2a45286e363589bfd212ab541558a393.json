@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:ce767e22e57f2fc753aab3cbaaec6ccd2a45286e363589bfd212ab541558a393",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    "dashboard:contract-operation:359dbcae66966113bf88b8f9",
+    "dashboard:contract-operation:46eb1353d8493620edc8bfcb",
+    "dashboard:contract-operation:97d881f216d27f90570cf086",
+    "dashboard:contract-operation:a134218675bfd8d39281c02d",
+    "dashboard:contract-operation:c8f77692c3c0b8acd9232c7e",
+    "dashboard:contract-operation:f2a55cb383d259206638d57a",
+    "dashboard:contract:97420ee0a3ffefe0cddb405b",
+    "dashboard:flow:0515cb5fe6fd4b05a4fc0b08",
+    "dashboard:flow:a4174281df61bd1eb551a1d7",
+    "dashboard:flow:cfe766397f14fd43379ec157",
+    "dashboard:flow:d4af166cd6cf671b39e776a6",
+    "dashboard:symbol:1db17a7767cbf1b12d50234a"
+  ]
+}

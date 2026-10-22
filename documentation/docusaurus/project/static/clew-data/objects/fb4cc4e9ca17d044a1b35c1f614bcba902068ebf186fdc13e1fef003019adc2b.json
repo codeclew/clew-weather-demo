@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:fb4cc4e9ca17d044a1b35c1f614bcba902068ebf186fdc13e1fef003019adc2b",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 73,
+    "evidenceDigest": "sha256:335d7f4bc8626e32c61dfea9ef15e2eb47f77cd71309ee746e7af3dcae8396c2",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "id": "forecasts-5ce821db4a4908c57dba",
+    "occurrence": {
+      "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+      "endByte": 4385,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 4276
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 73,
+    "text": "if (cached != null && (cached[\"expires_at\"] as java.sql.Timestamp).toInstant().isAfter(Instant.now())) return",
+    "textDigest": "sha256:bcbb263b6fe2c02147e846b691e11791bfe80280d6808d9b259f4a043f09f2b6",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L73-L73"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:2f17ff09df821d57174263ad9801ebdfb5415b05ded7ec1c4ec152060c3e4b85",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "observed-static-use",
+    "claim": {
+      "$clewRef": "sha256:9bf5d8c934ae84ae0a9954b399bc11ad16b8a1f77c7404640d8b89a5f2d0bed6"
+    },
+    "condition": "Fixture-file selection only when FORECAST_MODE=fixture",
+    "consumer": "Fixture file / forecast storage",
+    "contract": "place-requested",
+    "coveredScope": "Fixture selection",
+    "kinds": [
+      "identify-or-route"
+    ],
+    "processes": [],
+    "producer": "Forecasts.refresh",
+    "representation": "/app/fixtures/{place.id}.json",
+    "stage": "Fixture selection",
+    "unresolved": "Static source interpretation; runtime execution and delivery are not established."
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:edf1b642af6214c18a6d57b93d0e225af6d7c19d052d2a15319724076438e338",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 23,
+    "evidenceDigest": "sha256:64471f2961e96845fe523888371375bbb1128dc883ba45477556b26dbafa9f98",
+    "file": "services/dashboard/src/main.ts",
+    "id": "dashboard-9e928e7e01e6f4f57297",
+    "occurrence": {
+      "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+      "endByte": 1020,
+      "snapshot": "sha256:550435c6f8e16951bd815f9f7b54eda07bff8ad73a80a6df524ab2af077f4f6f",
+      "startByte": 924
+    },
+    "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+    "service": "dashboard",
+    "startLine": 20,
+    "text": "if (inserted.rowCount === 0) {\n      await client.query('COMMIT')\n      return 'DUPLICATE'\n    }",
+    "textDigest": "sha256:1e11934e0d551d6f1673b9fff3baa4b411c393cf99be8c0d282bcd0c22be5e2c",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/e635069293d58cb0d4f28c8211e748b8d58e6b37/services/dashboard/src/main.ts#L20-L23"
+  }
+}

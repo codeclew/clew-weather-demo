@@ -1,0 +1,21 @@
+{
+  "identity": "sha256:9a1fee7ff6c2089546a5b2227f4db234549d63e97baa706e668841eaf6c59669",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "forecasts:flow:5c0f3b18ff82fe4d811047e9",
+      "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+      "forecasts:source_annotations:cc58d8643f3d17e4b6911d22",
+      "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+      "forecasts:symbol:cc58d8643f3d17e4b6911d22"
+    ],
+    "id": "claim-a6e7c5dc1f930d20d436",
+    "kind": "opt",
+    "sourceIds": [
+      "forecasts-5c0f3b18ff82fe4d8110",
+      "forecasts-ad28a606f0881dfe7cfc",
+      "forecasts-cc58d8643f3d17e4b691"
+    ],
+    "text": "The source expression contains a deferred also lambda that calls validatePlaceEvent. The exact invocation semantics are not established by this syntax record."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "identity": "sha256:43c8c5283e7ea55ab68ac121e7fcf3dbc9085e2b7eb483307df89cfb611fe99f",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "DECLARED_TRANSFER",
+    "claim": {
+      "$clewRef": "sha256:1668093f85219ebf033459b2ebde8784d08d6ad563d008d9d37662c84085f0a5"
+    },
+    "condition": "The declared Dashboard POST /api/places route is active and receives the browser request.",
+    "from": "Browser city choice",
+    "kind": "candidate",
+    "to": "Dashboard HTTP request"
+  }
+}

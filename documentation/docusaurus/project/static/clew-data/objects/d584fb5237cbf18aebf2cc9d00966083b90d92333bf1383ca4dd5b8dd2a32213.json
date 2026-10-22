@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:d584fb5237cbf18aebf2cc9d00966083b90d92333bf1383ca4dd5b8dd2a32213",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:ed383c147dc179cd0d6b463688d94b66ca4f2de3f3e7178dbe4ac9adbaba20c7"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The place properties are explicitly bound to the local places INSERT/UPDATE columns before refresh.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

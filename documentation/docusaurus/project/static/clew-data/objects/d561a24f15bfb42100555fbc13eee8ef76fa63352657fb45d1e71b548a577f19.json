@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:d561a24f15bfb42100555fbc13eee8ef76fa63352657fb45d1e71b548a577f19",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": {
+      "$clewRef": "sha256:dec9e708ef9e361a518b49a9e1f50324017fdaa76098077c3e22fa42e9247ae2"
+    },
+    "id": "claim-be570953399e4ff10530",
+    "sourceIds": [
+      "dashboard-021fcd0ff7baa53bd3c5",
+      "dashboard-37dec2bf70bc69d603cb",
+      "dashboard-59f03a0653cc7a3798b8",
+      "dashboard-654eeebd7e0618b0c6dd",
+      "dashboard-8a4f6855cb7f1a476a04",
+      "dashboard-a190efb9bca6603f1d2a",
+      "dashboard-a4627e5e868830287e83",
+      "dashboard-ac3aadb76be6fea3e790",
+      "dashboard-bc57152944dfa54c072b",
+      "dashboard-f4a336f51f8e91a3da04"
+    ],
+    "text": "At source level, start subscribes to weather.place-requested and weather.forecast-updated from the beginning and runs consumeMessage with autoCommit false; this does not prove runtime activation or delivery. The saved mapping of weather.place-requested to consumeMessage is agent-proposed. For this topic, validateEvent requires a string event id, version 1, an allowed place id, string name, finite coordinates, type place.requested, and no forecast. The known forecast-updated topic has its own validator branch; only an unrecognized topic name throws UNKNOWN_TOPIC, and consumeMessage catches that too as INVALID_EVENT. On parse or validation failure it writes a rejected_messages row and commits offset plus one; a write or commit failure propagates. On valid input it inserts the event id into inbox within a transaction; an existing id commits and returns DUPLICATE without changing the card, while a new place event upserts name and coordinates without replacing forecast data. If the DB transaction commits but offset commit then fails, a replay can occur; inbox suppresses duplicate application, not delivery, so this is not exactly-once processing. If pool.connect succeeds, errors inside applyEvent’s try attempt rollback, rethrow, and release in finally. A connection failure occurs before the try, so no transaction rollback or client release runs; either failure prevents offset commit. Runtime behavior remains unverified."
+  }
+}

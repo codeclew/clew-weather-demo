@@ -1,0 +1,40 @@
+---
+title: "exercises/unchecked-place-forecast.ts:6–23"
+slug: "/sources/25867dd792dbf5273d80f41b3f8a90acef00986c1aff58ab612f57cc8178e5c2"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# exercises/unchecked-place-forecast.ts:6–23
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6
+
+Text digest: sha256:76d9416fdef0acedab2800ee546fb24a00df56a0ca66e9903fdd93ad183cec5b
+
+## Retained text {#retained-text}
+
+```text
+function validateEvent(value: unknown, topic: string): Event {
+  if (!value || typeof value !== 'object') throw new Error('INVALID_EVENT')
+  const event = value as Event
+  if (typeof event.id !== 'string' || event.version !== 1 || !event.place || typeof event.place.id !== 'string'
+      || !['oslo', 'helsinki', 'lisbon'].includes(event.place.id) || typeof event.place.name !== 'string'
+      || !Number.isFinite(event.place.latitude) || !Number.isFinite(event.place.longitude)) throw new Error('INVALID_EVENT')
+  if (topic === 'weather.forecast-updated') {
+    if (event.type !== 'forecast.updated' || !event.forecast || !Number.isFinite(Date.parse(event.forecast.updatedAt))
+        || !Number.isFinite(Date.parse(event.forecast.fetchedAt)) || !['fixture', 'live'].includes(event.forecast.mode)
+        || !Array.isArray(event.forecast.periods) || event.forecast.periods.length < 1 || event.forecast.periods.length > 6) throw new Error('INVALID_FORECAST')
+    for (const period of event.forecast.periods) {
+      if (!Number.isFinite(Date.parse(period.time)) || !Number.isFinite(period.temperatureC)
+          || !(period.precipitationMm === null || (Number.isFinite(period.precipitationMm) && period.precipitationMm >= 0))
+          || typeof period.symbol !== 'string') throw new Error('INVALID_PERIOD')
+    }
+  } else if (event.type !== 'place.requested') throw new Error('INVALID_PLACE_EVENT')
+  return event
+}
+```
+
+<ClewDownload path="/clew-data/objects/25867dd792dbf5273d80f41b3f8a90acef00986c1aff58ab612f57cc8178e5c2.json">Complete original source binding</ClewDownload>

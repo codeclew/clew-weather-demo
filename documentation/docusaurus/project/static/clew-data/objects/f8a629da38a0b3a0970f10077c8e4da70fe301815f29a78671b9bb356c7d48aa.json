@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:f8a629da38a0b3a0970f10077c8e4da70fe301815f29a78671b9bb356c7d48aa",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contract": null,
+    "field": null,
+    "label": "Forecast.periods",
+    "mapping": {
+      "$clewRef": "sha256:cdd29d7b804ba1d3630ac8a4ade833b5c568450de54528f6bcce59a4862cafca"
+    },
+    "nullability": "Not nullable",
+    "relatedModel": "period",
+    "requiredness": "Event validator requires 1 to 6 elements",
+    "typeLabel": "Period[]"
+  }
+}

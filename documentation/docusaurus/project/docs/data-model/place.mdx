@@ -1,0 +1,630 @@
+---
+title: "Place"
+slug: "/data-model/place"
+hide_title: true
+---
+
+import {ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Place
+
+Agent proposal · Not reviewed.
+
+<p id="dm-return"></p>
+
+A supported location for which the system requests and presents weather information.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/places/PlacesRepository.cs:7–13 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/c267a4a78e8949194aeb00d9acfa74a5a9a90a34ddabb3a97ae3d4a7eed0a2fa.mdx)
+- [services/places/PlacesRepository.cs:4–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d.mdx)
+
+</details>
+
+## Identity and relationships {#identity-and-relationships}
+
+The supported city key identifies a Place. Place data appears in separate service tables and event payloads; these mappings do not assign domain ownership or prove runtime delivery.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+- [services/places/PlacesRepository.cs:4–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:45–51 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/4e9f622c29b7004ef06a46c8f890c5d19566d4f728694d74e89ca982402eeb60.mdx)
+
+</details>
+
+<p className="clew-related-models">Related concepts: <ClewRelatedModelLink model="forecast">Forecast</ClewRelatedModelLink> · <ClewRelatedModelLink model="weather-card">Weather card</ClewRelatedModelLink></p>
+
+
+## Fields and representations {#fields-and-representations}
+
+<div className="dm-fields-scroll" tabIndex={0} role="region" aria-label="Field descriptions"><table className="dm-fields" role="table"><caption>Field descriptions</caption><thead><tr><th scope="col">Field</th><th scope="col">Purpose</th></tr></thead><tbody><tr><th scope="row"><a href="#field-id"><code>id</code></a></th><td data-label="Purpose">A supported city key used to identify the place and route refreshes. It is distinct from an event ID.</td></tr><tr><th scope="row"><a href="#field-name"><code>name</code></a></th><td data-label="Purpose">The human-readable city name shown on a weather card.</td></tr><tr><th scope="row"><a href="#field-latitude"><code>latitude</code></a></th><td data-label="Purpose">The latitude coordinate stored with the place and forwarded in events. MET query use is live-only.</td></tr><tr><th scope="row"><a href="#field-longitude"><code>longitude</code></a></th><td data-label="Purpose">The longitude coordinate stored with the place and forwarded in events. MET query use is live-only.</td></tr></tbody></table></div>
+
+### id {#field-id}
+
+A supported city key used to identify the place and route refreshes. It is distinct from an event ID.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/places/PlacesRepository.cs:7–13 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/c267a4a78e8949194aeb00d9acfa74a5a9a90a34ddabb3a97ae3d4a7eed0a2fa.mdx)
+- [services/dashboard/src/events.ts:1–30 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e315f42d31e792e7aa347f9f1a24237c1af90d82a71f4fcc4ddb87e219ce6b80.mdx)
+
+</details>
+
+<div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Representation</th><th scope="col">Type / declared constraints</th><th scope="col">Requiredness / nullability</th><th scope="col">Retained mapping</th></tr></thead><tbody><tr><td data-label="Representation">Event v1 · place-requested</td><td data-label="Type / declared constraints">string · enum: [&quot;oslo&quot;,&quot;helsinki&quot;,&quot;lisbon&quot;]</td><td data-label="Requiredness / nullability">Required when branch matches<br/>Not nullable</td><td data-label="Retained mapping">The contract property is separate from validator implementation and downstream use.</td></tr><tr><td data-label="Representation">Event v1 · forecast-updated</td><td data-label="Type / declared constraints">string · enum: [&quot;oslo&quot;,&quot;helsinki&quot;,&quot;lisbon&quot;]</td><td data-label="Requiredness / nullability">Required when branch matches<br/>Not nullable</td><td data-label="Retained mapping">The contract property is separate from validator implementation and downstream use.</td></tr><tr><td data-label="Representation">Places / Forecasts places table</td><td data-label="Type / declared constraints">text PRIMARY KEY</td><td data-label="Requiredness / nullability">Present in stored row<br/>Not nullable</td><td data-label="Retained mapping">Same-named place columns receive the explicit place values; this is a source interpretation of the mapping.</td></tr><tr><td data-label="Representation">Dashboard GET /api/weather</td><td data-label="Type / declared constraints">string</td><td data-label="Requiredness / nullability">Selected by the query for each returned row<br/>Not nullable in weather_cards</td><td data-label="Retained mapping">weather\_cards.place\_id is returned as id; name and coordinates retain their names.</td></tr><tr><td data-label="Representation">Places POST /places 200 response</td><td data-label="Type / declared constraints">string · enum: [&quot;oslo&quot;,&quot;helsinki&quot;,&quot;lisbon&quot;]</td><td data-label="Requiredness / nullability">Required when branch matches<br/>Not nullable</td><td data-label="Retained mapping">The declared Places POST /places 200 JSON schema requires id. The shown handler returns the selected Place through Ok(city), after awaited Save; Place.Id to JSON.id is the source interpretation of this representation. Dashboard parses and forwards the whole body. The browser checks response.ok without reading these returned Place properties. Actual wire conformance is unverified. Request cityId chooses the Place; the returned id identifies that Place. The separately generated outbox event id is not this field.</td></tr></tbody></table></div>
+
+<details>
+<summary>Event v1 · place-requested</summary>
+
+Derived from exact JSON Schema · Branch-conditional · Derived from schema
+
+The contract property is separate from validator implementation and downstream use.
+
+[place.requested v1](../contracts/place-requested.mdx)
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "enum": [
+    "oslo",
+    "helsinki",
+    "lisbon"
+  ],
+  "type": "string"
+}
+```
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [contracts/events.schema.json:1–173 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4f5e368172c056412420d76a096c229f94968d52746b28b1a0c0b7b6faa971dc.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Event v1 · forecast-updated</summary>
+
+Derived from exact JSON Schema · Branch-conditional · Derived from schema
+
+The contract property is separate from validator implementation and downstream use.
+
+[forecast.updated v1](../contracts/forecast-updated.mdx)
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "enum": [
+    "oslo",
+    "helsinki",
+    "lisbon"
+  ],
+  "type": "string"
+}
+```
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [contracts/events.schema.json:1–173 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4f5e368172c056412420d76a096c229f94968d52746b28b1a0c0b7b6faa971dc.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Places / Forecasts places table</summary>
+
+text PRIMARY KEY · Present in stored row · Not nullable
+
+Same-named place columns receive the explicit place values; this is a source interpretation of the mapping.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+- [services/places/PlacesRepository.cs:4–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:45–51 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/4e9f622c29b7004ef06a46c8f890c5d19566d4f728694d74e89ca982402eeb60.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Dashboard GET /api/weather</summary>
+
+string · Selected by the query for each returned row · Not nullable in weather\_cards
+
+weather\_cards.place\_id is returned as id; name and coordinates retain their names.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/dashboard/src/main.ts:62–65 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4.mdx)
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Places POST /places 200 response</summary>
+
+Derived from the declared HTTP 200 JSON Schema · Required when the response branch matches · Derived from the exact response property schema
+
+The declared Places POST /places 200 JSON schema requires id. The shown handler returns the selected Place through Ok(city), after awaited Save; Place.Id to JSON.id is the source interpretation of this representation. Dashboard parses and forwards the whole body. The browser checks response.ok without reading these returned Place properties. Actual wire conformance is unverified. Request cityId chooses the Place; the returned id identifies that Place. The separately generated outbox event id is not this field.
+
+[Places POST /places 200 response (declared)](../contracts/save-city-response.mdx)
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "enum": [
+    "oslo",
+    "helsinki",
+    "lisbon"
+  ],
+  "type": "string"
+}
+```
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/places/PlacesController.cs:10–17 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0.mdx)
+- [services/dashboard/src/main.ts:67–74 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/a068efa2e0a64c9eb023eeed6eb678ff1c25a3e9e5cd12aa831e6494dabd8ff6.mdx)
+- [services/dashboard/public/index.html:1–11 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/c2239e2c6403a3d1207383732a448da7982b4d8765aaa00a7aa74ac6b8bbdfd0.mdx)
+- [contracts/places.openapi.json:1–263 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959.mdx)
+
+</details>
+
+
+</details>
+
+<ClewFieldTrace field="id" />
+
+### name {#field-name}
+
+The human-readable city name shown on a weather card.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/places/PlacesRepository.cs:7–13 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/c267a4a78e8949194aeb00d9acfa74a5a9a90a34ddabb3a97ae3d4a7eed0a2fa.mdx)
+- [services/dashboard/src/events.ts:1–30 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e315f42d31e792e7aa347f9f1a24237c1af90d82a71f4fcc4ddb87e219ce6b80.mdx)
+
+</details>
+
+<div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Representation</th><th scope="col">Type / declared constraints</th><th scope="col">Requiredness / nullability</th><th scope="col">Retained mapping</th></tr></thead><tbody><tr><td data-label="Representation">Event v1 · place-requested</td><td data-label="Type / declared constraints">string · </td><td data-label="Requiredness / nullability">Required when branch matches<br/>Not nullable</td><td data-label="Retained mapping">The contract property is separate from validator implementation and downstream use.</td></tr><tr><td data-label="Representation">Event v1 · forecast-updated</td><td data-label="Type / declared constraints">string · </td><td data-label="Requiredness / nullability">Required when branch matches<br/>Not nullable</td><td data-label="Retained mapping">The contract property is separate from validator implementation and downstream use.</td></tr><tr><td data-label="Representation">Places / Forecasts places table</td><td data-label="Type / declared constraints">text NOT NULL</td><td data-label="Requiredness / nullability">Present in stored row<br/>Not nullable</td><td data-label="Retained mapping">Same-named place columns receive the explicit place values; this is a source interpretation of the mapping.</td></tr><tr><td data-label="Representation">Dashboard GET /api/weather</td><td data-label="Type / declared constraints">string</td><td data-label="Requiredness / nullability">Selected by the query for each returned row<br/>Not nullable in weather_cards</td><td data-label="Retained mapping">weather\_cards.place\_id is returned as id; name and coordinates retain their names.</td></tr><tr><td data-label="Representation">Places POST /places 200 response</td><td data-label="Type / declared constraints">string · </td><td data-label="Requiredness / nullability">Required when branch matches<br/>Not nullable</td><td data-label="Retained mapping">The declared Places POST /places 200 JSON schema requires name. The shown handler returns the selected Place through Ok(city), after awaited Save; Place.Name to JSON.name is the source interpretation of this representation. Dashboard parses and forwards the whole body. The browser checks response.ok without reading these returned Place properties. Actual wire conformance is unverified.</td></tr></tbody></table></div>
+
+<details>
+<summary>Event v1 · place-requested</summary>
+
+Derived from exact JSON Schema · Branch-conditional · Derived from schema
+
+The contract property is separate from validator implementation and downstream use.
+
+[place.requested v1](../contracts/place-requested.mdx)
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "type": "string"
+}
+```
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [contracts/events.schema.json:1–173 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4f5e368172c056412420d76a096c229f94968d52746b28b1a0c0b7b6faa971dc.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Event v1 · forecast-updated</summary>
+
+Derived from exact JSON Schema · Branch-conditional · Derived from schema
+
+The contract property is separate from validator implementation and downstream use.
+
+[forecast.updated v1](../contracts/forecast-updated.mdx)
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "type": "string"
+}
+```
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [contracts/events.schema.json:1–173 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4f5e368172c056412420d76a096c229f94968d52746b28b1a0c0b7b6faa971dc.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Places / Forecasts places table</summary>
+
+text NOT NULL · Present in stored row · Not nullable
+
+Same-named place columns receive the explicit place values; this is a source interpretation of the mapping.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+- [services/places/PlacesRepository.cs:4–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:45–51 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/4e9f622c29b7004ef06a46c8f890c5d19566d4f728694d74e89ca982402eeb60.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Dashboard GET /api/weather</summary>
+
+string · Selected by the query for each returned row · Not nullable in weather\_cards
+
+weather\_cards.place\_id is returned as id; name and coordinates retain their names.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/dashboard/src/main.ts:62–65 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4.mdx)
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Places POST /places 200 response</summary>
+
+Derived from the declared HTTP 200 JSON Schema · Required when the response branch matches · Derived from the exact response property schema
+
+The declared Places POST /places 200 JSON schema requires name. The shown handler returns the selected Place through Ok(city), after awaited Save; Place.Name to JSON.name is the source interpretation of this representation. Dashboard parses and forwards the whole body. The browser checks response.ok without reading these returned Place properties. Actual wire conformance is unverified.
+
+[Places POST /places 200 response (declared)](../contracts/save-city-response.mdx)
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "type": "string"
+}
+```
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/places/PlacesController.cs:10–17 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0.mdx)
+- [services/dashboard/src/main.ts:67–74 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/a068efa2e0a64c9eb023eeed6eb678ff1c25a3e9e5cd12aa831e6494dabd8ff6.mdx)
+- [services/dashboard/public/index.html:1–11 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/c2239e2c6403a3d1207383732a448da7982b4d8765aaa00a7aa74ac6b8bbdfd0.mdx)
+- [contracts/places.openapi.json:1–263 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959.mdx)
+
+</details>
+
+
+</details>
+
+<ClewFieldTrace field="name" />
+
+### latitude {#field-latitude}
+
+The latitude coordinate stored with the place and forwarded in events. MET query use is live-only.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/places/PlacesRepository.cs:7–13 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/c267a4a78e8949194aeb00d9acfa74a5a9a90a34ddabb3a97ae3d4a7eed0a2fa.mdx)
+- [services/dashboard/src/events.ts:1–30 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e315f42d31e792e7aa347f9f1a24237c1af90d82a71f4fcc4ddb87e219ce6b80.mdx)
+
+</details>
+
+<div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Representation</th><th scope="col">Type / declared constraints</th><th scope="col">Requiredness / nullability</th><th scope="col">Retained mapping</th></tr></thead><tbody><tr><td data-label="Representation">Event v1 · place-requested</td><td data-label="Type / declared constraints">number · minimum: -90; maximum: 90</td><td data-label="Requiredness / nullability">Required when branch matches<br/>Not nullable</td><td data-label="Retained mapping">The contract property is separate from validator implementation and downstream use.</td></tr><tr><td data-label="Representation">Event v1 · forecast-updated</td><td data-label="Type / declared constraints">number · minimum: -90; maximum: 90</td><td data-label="Requiredness / nullability">Required when branch matches<br/>Not nullable</td><td data-label="Retained mapping">The contract property is separate from validator implementation and downstream use.</td></tr><tr><td data-label="Representation">Places / Forecasts places table</td><td data-label="Type / declared constraints">double precision NOT NULL</td><td data-label="Requiredness / nullability">Present in stored row<br/>Not nullable</td><td data-label="Retained mapping">Same-named place columns receive the explicit place values; this is a source interpretation of the mapping.</td></tr><tr><td data-label="Representation">Dashboard GET /api/weather</td><td data-label="Type / declared constraints">number (JavaScript); double in the producing city records</td><td data-label="Requiredness / nullability">Selected by the query for each returned row<br/>Not nullable in weather_cards</td><td data-label="Retained mapping">weather\_cards.place\_id is returned as id; name and coordinates retain their names.</td></tr><tr><td data-label="Representation">Places POST /places 200 response</td><td data-label="Type / declared constraints">number · minimum: -90; maximum: 90</td><td data-label="Requiredness / nullability">Required when branch matches<br/>Not nullable</td><td data-label="Retained mapping">The declared Places POST /places 200 JSON schema requires latitude. The shown handler returns the selected Place through Ok(city), after awaited Save; Place.Latitude to JSON.latitude is the source interpretation of this representation. Dashboard parses and forwards the whole body. The browser checks response.ok without reading these returned Place properties. Actual wire conformance is unverified.</td></tr></tbody></table></div>
+
+<details>
+<summary>Event v1 · place-requested</summary>
+
+Derived from exact JSON Schema · Branch-conditional · Derived from schema
+
+The contract property is separate from validator implementation and downstream use.
+
+[place.requested v1](../contracts/place-requested.mdx)
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "maximum": 90,
+  "minimum": -90,
+  "type": "number"
+}
+```
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [contracts/events.schema.json:1–173 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4f5e368172c056412420d76a096c229f94968d52746b28b1a0c0b7b6faa971dc.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Event v1 · forecast-updated</summary>
+
+Derived from exact JSON Schema · Branch-conditional · Derived from schema
+
+The contract property is separate from validator implementation and downstream use.
+
+[forecast.updated v1](../contracts/forecast-updated.mdx)
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "maximum": 90,
+  "minimum": -90,
+  "type": "number"
+}
+```
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [contracts/events.schema.json:1–173 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4f5e368172c056412420d76a096c229f94968d52746b28b1a0c0b7b6faa971dc.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Places / Forecasts places table</summary>
+
+double precision NOT NULL · Present in stored row · Not nullable
+
+Same-named place columns receive the explicit place values; this is a source interpretation of the mapping.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+- [services/places/PlacesRepository.cs:4–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:45–51 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/4e9f622c29b7004ef06a46c8f890c5d19566d4f728694d74e89ca982402eeb60.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Dashboard GET /api/weather</summary>
+
+number (JavaScript); double in the producing city records · Selected by the query for each returned row · Not nullable in weather\_cards
+
+weather\_cards.place\_id is returned as id; name and coordinates retain their names.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/dashboard/src/main.ts:62–65 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4.mdx)
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Places POST /places 200 response</summary>
+
+Derived from the declared HTTP 200 JSON Schema · Required when the response branch matches · Derived from the exact response property schema
+
+The declared Places POST /places 200 JSON schema requires latitude. The shown handler returns the selected Place through Ok(city), after awaited Save; Place.Latitude to JSON.latitude is the source interpretation of this representation. Dashboard parses and forwards the whole body. The browser checks response.ok without reading these returned Place properties. Actual wire conformance is unverified.
+
+[Places POST /places 200 response (declared)](../contracts/save-city-response.mdx)
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "maximum": 90,
+  "minimum": -90,
+  "type": "number"
+}
+```
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/places/PlacesController.cs:10–17 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0.mdx)
+- [services/dashboard/src/main.ts:67–74 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/a068efa2e0a64c9eb023eeed6eb678ff1c25a3e9e5cd12aa831e6494dabd8ff6.mdx)
+- [services/dashboard/public/index.html:1–11 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/c2239e2c6403a3d1207383732a448da7982b4d8765aaa00a7aa74ac6b8bbdfd0.mdx)
+- [contracts/places.openapi.json:1–263 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959.mdx)
+
+</details>
+
+
+</details>
+
+<ClewFieldTrace field="latitude" />
+
+### longitude {#field-longitude}
+
+The longitude coordinate stored with the place and forwarded in events. MET query use is live-only.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/places/PlacesRepository.cs:7–13 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/c267a4a78e8949194aeb00d9acfa74a5a9a90a34ddabb3a97ae3d4a7eed0a2fa.mdx)
+- [services/dashboard/src/events.ts:1–30 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e315f42d31e792e7aa347f9f1a24237c1af90d82a71f4fcc4ddb87e219ce6b80.mdx)
+
+</details>
+
+<div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Representation</th><th scope="col">Type / declared constraints</th><th scope="col">Requiredness / nullability</th><th scope="col">Retained mapping</th></tr></thead><tbody><tr><td data-label="Representation">Event v1 · place-requested</td><td data-label="Type / declared constraints">number · minimum: -180; maximum: 180</td><td data-label="Requiredness / nullability">Required when branch matches<br/>Not nullable</td><td data-label="Retained mapping">The contract property is separate from validator implementation and downstream use.</td></tr><tr><td data-label="Representation">Event v1 · forecast-updated</td><td data-label="Type / declared constraints">number · minimum: -180; maximum: 180</td><td data-label="Requiredness / nullability">Required when branch matches<br/>Not nullable</td><td data-label="Retained mapping">The contract property is separate from validator implementation and downstream use.</td></tr><tr><td data-label="Representation">Places / Forecasts places table</td><td data-label="Type / declared constraints">double precision NOT NULL</td><td data-label="Requiredness / nullability">Present in stored row<br/>Not nullable</td><td data-label="Retained mapping">Same-named place columns receive the explicit place values; this is a source interpretation of the mapping.</td></tr><tr><td data-label="Representation">Dashboard GET /api/weather</td><td data-label="Type / declared constraints">number (JavaScript); double in the producing city records</td><td data-label="Requiredness / nullability">Selected by the query for each returned row<br/>Not nullable in weather_cards</td><td data-label="Retained mapping">weather\_cards.place\_id is returned as id; name and coordinates retain their names.</td></tr><tr><td data-label="Representation">Places POST /places 200 response</td><td data-label="Type / declared constraints">number · minimum: -180; maximum: 180</td><td data-label="Requiredness / nullability">Required when branch matches<br/>Not nullable</td><td data-label="Retained mapping">The declared Places POST /places 200 JSON schema requires longitude. The shown handler returns the selected Place through Ok(city), after awaited Save; Place.Longitude to JSON.longitude is the source interpretation of this representation. Dashboard parses and forwards the whole body. The browser checks response.ok without reading these returned Place properties. Actual wire conformance is unverified.</td></tr></tbody></table></div>
+
+<details>
+<summary>Event v1 · place-requested</summary>
+
+Derived from exact JSON Schema · Branch-conditional · Derived from schema
+
+The contract property is separate from validator implementation and downstream use.
+
+[place.requested v1](../contracts/place-requested.mdx)
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "maximum": 180,
+  "minimum": -180,
+  "type": "number"
+}
+```
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [contracts/events.schema.json:1–173 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4f5e368172c056412420d76a096c229f94968d52746b28b1a0c0b7b6faa971dc.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Event v1 · forecast-updated</summary>
+
+Derived from exact JSON Schema · Branch-conditional · Derived from schema
+
+The contract property is separate from validator implementation and downstream use.
+
+[forecast.updated v1](../contracts/forecast-updated.mdx)
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "maximum": 180,
+  "minimum": -180,
+  "type": "number"
+}
+```
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [contracts/events.schema.json:1–173 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4f5e368172c056412420d76a096c229f94968d52746b28b1a0c0b7b6faa971dc.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Places / Forecasts places table</summary>
+
+double precision NOT NULL · Present in stored row · Not nullable
+
+Same-named place columns receive the explicit place values; this is a source interpretation of the mapping.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+- [services/places/PlacesRepository.cs:4–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:45–51 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/4e9f622c29b7004ef06a46c8f890c5d19566d4f728694d74e89ca982402eeb60.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Dashboard GET /api/weather</summary>
+
+number (JavaScript); double in the producing city records · Selected by the query for each returned row · Not nullable in weather\_cards
+
+weather\_cards.place\_id is returned as id; name and coordinates retain their names.
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/dashboard/src/main.ts:62–65 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4.mdx)
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Places POST /places 200 response</summary>
+
+Derived from the declared HTTP 200 JSON Schema · Required when the response branch matches · Derived from the exact response property schema
+
+The declared Places POST /places 200 JSON schema requires longitude. The shown handler returns the selected Place through Ok(city), after awaited Save; Place.Longitude to JSON.longitude is the source interpretation of this representation. Dashboard parses and forwards the whole body. The browser checks response.ok without reading these returned Place properties. Actual wire conformance is unverified.
+
+[Places POST /places 200 response (declared)](../contracts/save-city-response.mdx)
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "maximum": 180,
+  "minimum": -180,
+  "type": "number"
+}
+```
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/places/PlacesController.cs:10–17 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0.mdx)
+- [services/dashboard/src/main.ts:67–74 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/a068efa2e0a64c9eb023eeed6eb678ff1c25a3e9e5cd12aa831e6494dabd8ff6.mdx)
+- [services/dashboard/public/index.html:1–11 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/c2239e2c6403a3d1207383732a448da7982b4d8765aaa00a7aa74ac6b8bbdfd0.mdx)
+- [contracts/places.openapi.json:1–263 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959.mdx)
+
+</details>
+
+
+</details>
+
+<ClewFieldTrace field="longitude" />
+
+## Field usage and focused flow {#field-usage}
+
+<ClewDataModel dataPath="/clew-data/widgets/model-place.json" />
+
+## Processes {#processes}
+
+- [dashboard forecast updated consumer](../scenarios/dashboard-forecast-updated-consumer.mdx#question-apply)
+- [places request publisher](../scenarios/places-request-publisher.mdx#question-record)
+- [dashboard save city](../scenarios/dashboard-save-city.mdx#question-save)
+- [dashboard refresh request](../scenarios/dashboard-refresh-request.mdx#question-enqueue)
+

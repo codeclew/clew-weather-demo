@@ -1,0 +1,38 @@
+{
+  "identity": "sha256:bff1467b662092472ae40a8eaac68ab9b46acb1154833af2171eb933befbd2ec",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [],
+    "dependencyIds": [
+      "places:symbol:309961f88b197290c1b04e50",
+      "places:entrypoint:17bfec4e1ad29c7ec0342f46"
+    ],
+    "id": "places-691b340ea61828b197b6",
+    "kind": "HTTP_ENDPOINT",
+    "service": "places",
+    "sourceIds": [
+      "places-309961f88b197290c1b0"
+    ],
+    "symbol": "method:class:Weather.Places.PlacesController#Save(LWeather/Places/SavePlace;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;",
+    "trigger": {
+      "apiVersions": [],
+      "authority": "ASPNETCORE_ROUTING_RULES",
+      "conditions": {
+        "authorization": {
+          "allowAnonymous": false,
+          "authorize": []
+        },
+        "consumes": [],
+        "produces": []
+      },
+      "methods": [
+        "POST"
+      ],
+      "pathResolution": "DERIVED",
+      "paths": [
+        "/places"
+      ],
+      "versionedPaths": null
+    }
+  }
+}
