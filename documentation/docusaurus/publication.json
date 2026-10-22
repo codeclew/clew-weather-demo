@@ -1,7 +1,16 @@
 {
   "acceptance": {
-    "scope": "Native HTML and production Docusaurus browser review required",
-    "status": "PENDING"
+    "analyst": {
+      "path": "acceptance/analyst.json",
+      "sha256": "71ac2551d48a99be6b5c397b12f33fda32c32e0b4ee1e981c055333da4b59d48"
+    },
+    "engineer": {
+      "path": "acceptance/engineer.json",
+      "sha256": "1d3b56c2d2f4d70ce9969cb4cfb255d1e632a8e8a543d10c6bf0beea776af450"
+    },
+    "scope": "Independent mediated screenshot/AX acceptance of native C4-C9 and local R1 orientation, plus representative production-built Docusaurus routes. Public deployment, runtime/compiler behavior and exhaustive accessibility remain unverified.",
+    "sourceCandidate": "17224661d68056b502c50c6c9431efb40aca2b4a",
+    "status": "PASS"
   },
   "files": "files.json",
   "filesSha256": "ba875e176f72e4ced17c82136c938ac06de2d597505e2ce7cebe2e286468e087",

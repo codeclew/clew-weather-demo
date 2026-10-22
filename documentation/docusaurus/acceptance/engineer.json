@@ -1,0 +1,38 @@
+{
+  "schema": "weather-independent-acceptance/1.0",
+  "role": "engineer",
+  "verdict": "PASS",
+  "sourceCandidate": "17224661d68056b502c50c6c9431efb40aca2b4a",
+  "scope": [
+    "C4",
+    "C5",
+    "C6",
+    "C7",
+    "C8",
+    "C9",
+    "R1-local-candidate-orientation",
+    "production-Docusaurus-representative-D1-D4"
+  ],
+  "method": "Independent screenshot/AX review of fresh coordinator-operated in-app browser, including critic-requested source/return interactions",
+  "remainingBlockers": [],
+  "sourceRecords": {
+    "reportSha256": "d37119a409bef933c1ee319576a8df944f0517d5e446770b6ae71ff48acaefd5",
+    "verdictSha256": "62635a0c2e182ecc918d9dec7a72106847040cd1426fba8d844aa2790c9689b7",
+    "representation": "Faithful portable acceptance record; original report and verdict hashes identify the coordinator-retained evidence. No screenshot links are reproduced."
+  },
+  "observations": [
+    "The final service scopes and Kafka orientation correct the earlier misleading excerpts; full retained rules and exact source remain accessible.",
+    "Reader Help begins with navigation and evidence interpretation; author runbooks retain the explicit authoring audience.",
+    "Representative production process, model/field, optional Data Flow, source and Kafka producer/consumer return journeys passed; unchanged journeys were reused after a bounded delta review.",
+    "Candidate identity and the distinct official native 0.13.39 link are explicit."
+  ],
+  "limits": [
+    "Independent review of coordinator-operated screenshot/AX journeys, not autonomous browsing or a human usability study.",
+    "C7 was accepted on the sampled native catalog route; the verdict does not establish every catalog or operation route.",
+    "Historical gallery orientation is accepted locally; the unchanged public historical gallery is not claimed corrected or republished.",
+    "Public deployment and public deep-link availability were pending and not verified by this local verdict.",
+    "The critic did not execute product tests, builds, compiler checks or runtime experiments; supplied build and preservation evidence remain separate.",
+    "No exhaustive operations, field, mobile, screen-reader, keyboard or WCAG coverage is claimed."
+  ],
+  "analystAcceptanceConsulted": false
+}

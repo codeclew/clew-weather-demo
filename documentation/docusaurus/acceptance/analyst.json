@@ -1,0 +1,42 @@
+{
+  "schema": "weather-independent-acceptance/1.0",
+  "role": "analyst",
+  "verdict": "PASS",
+  "sourceCandidate": "17224661d68056b502c50c6c9431efb40aca2b4a",
+  "nativeVerdict": "PASS_LIMITED_C4_C9_R1",
+  "productionDocusaurusVerdict": "PASS_REPRESENTATIVE_LOCAL_PRODUCTION_BUILD",
+  "scope": [
+    "C4",
+    "C5",
+    "C6",
+    "C7",
+    "C8",
+    "C9",
+    "R1-local-candidate-orientation",
+    "production-Docusaurus-representative-D1-D7"
+  ],
+  "method": "independent mediated screenshot and AX review",
+  "remainingBlockers": [],
+  "sourceRecords": {
+    "reportSha256": "8b6378393412292a75a349e79409bab1b28ef73029486abeed77cd3fc1e5c4e6",
+    "verdictSha256": "ed2dc9c8d006fe24ec566e1b8031924545831759cecd05bf8fbc48d25352babe",
+    "representation": "Faithful portable acceptance record; original report and verdict hashes identify the coordinator-retained evidence. No screenshot links are reproduced."
+  },
+  "observations": [
+    "The final native service delta has useful purpose and explicit Kafka context, accurate neutral scope categories, retained rules and exact source access.",
+    "Reader Help and author runbooks have clear audiences and working destinations.",
+    "Sampled native publication details, human catalog titles with exact identity/search, historical note authority, compact English disclosure and local historical returns passed.",
+    "Representative production process, City lookup records and fields, optional Data Flow, source, Kafka consumer and same-step return routes passed; unchanged journeys were reused after a bounded output comparison.",
+    "Final production identity distinguishes the source candidate 0.13.46 from official native clew 0.13.39."
+  ],
+  "limits": [
+    "Mediated screenshot/AX expert review, not human usability testing or autonomous browser operation.",
+    "Representative Docusaurus routes; final production service detail sampled on Forecasts, all three services inspected in native HTML.",
+    "Local built reader review only; no public deployment verdict, runtime/compiler correctness or full accessibility certification.",
+    "Final production service-detail sampling was Forecasts; all three final service overviews were inspected in native HTML.",
+    "Public deployment, assets, redirects and public deep-link smoke checks remain separate from this local verdict.",
+    "Historical gallery orientation was accepted locally; the unchanged public native gallery was not claimed republished.",
+    "No whole-tree preservation audit, C1-C3 re-audit or review of the other critic was performed."
+  ],
+  "engineerAcceptanceConsulted": false
+}
