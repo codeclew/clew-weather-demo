@@ -1,0 +1,46 @@
+{
+  "schema": "weather-demo-export-receipt/1.0",
+  "producer": {
+    "version": "0.13.48",
+    "sourceRevision": "c8b9fba4520262ea4994c751b0fc39e96e055283",
+    "authority": "INSTALLED_RELEASE",
+    "archiveSha256": "7bc029638bc2c509ae2c73b04512d08a70b907fd409e33ff0d81d6dbb1776c10"
+  },
+  "noRecapture": true,
+  "snapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
+  "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+  "status": "PARTIAL",
+  "command": [
+    "clew",
+    "docs",
+    "pages",
+    "render",
+    "--root",
+    "DOCS_ROOT",
+    "--snapshot",
+    "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
+    "--publication",
+    "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+    "--source-mode",
+    "remote",
+    "--reading-plan",
+    "QUESTIONS_PLAN_JSON",
+    "--output",
+    "EMPTY_OUTPUT_DIRECTORY"
+  ],
+  "commandPaths": "Uppercase values replace private local directories. All other arguments are the actual invocation.",
+  "manifestProjection": {
+    "originalSha256": "092fbc06f8440b6f0fa6748adadc3ffe3f86f8b760b68acae6f56c00c4dcc19f",
+    "changes": [
+      {
+        "field": "output",
+        "change": "Omitted private absolute output directory; all other producer manifest fields unchanged."
+      }
+    ],
+    "allReferencedFilesUnchanged": true
+  },
+  "limits": [
+    "Retained source is not runtime observation. Existing STALE/UNASSESSED labels remain.",
+    "QUESTIONS full-publication render is PARTIAL because existing narrative translation coverage is incomplete."
+  ]
+}

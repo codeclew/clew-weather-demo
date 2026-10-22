@@ -199,7 +199,7 @@ class Links(HTMLParser):
                 self.urls.append(value)
 
 
-def verify_build(build):
+def verify_build(build, showcase_navigation=False):
     checked((build / 'review.html').is_file(), 'built review index missing')
     checked((build / 'variant-identity.json').is_file(), 'built identity missing')
     for page in build.rglob('*.html'):
@@ -207,7 +207,8 @@ def verify_build(build):
         parser.feed(page.read_text())
         for url in parser.urls:
             if url.startswith('/') and not url.startswith('//'):
-                checked(url.startswith(BASE_URL) or url.startswith('/clew-weather-demo/render-catalog/'),
+                checked(url.startswith(BASE_URL) or url.startswith('/clew-weather-demo/render-catalog/')
+                        or (showcase_navigation and url == '/clew-weather-demo/rendering/'),
                         'build link escaped deployment base: ' + url)
     return {'status': 'PASS', 'baseUrl': BASE_URL, 'htmlPages': len(list(build.rglob('*.html')))}
 
@@ -221,6 +222,7 @@ def main():
     frozen.add_argument('--version', required=True)
     check = sub.add_parser('verify'); check.add_argument('--candidate', action='store_true')
     built = sub.add_parser('verify-build'); built.add_argument('--build', type=Path, default=HERE / 'project/build')
+    built.add_argument('--showcase-navigation', action='store_true', help='Allow the exact additive showcase entry link from the separately reviewed config overlay')
     args = parser.parse_args()
     if args.command == 'native-mode':
         print('pinned' if native_unchanged(args.repository.resolve()) else 'policy')
@@ -229,7 +231,7 @@ def main():
     elif args.command == 'verify':
         print(json.dumps(verify(HERE / 'project', HERE / 'publication.json', HERE.parent / 'reference', not args.candidate)))
     else:
-        print(json.dumps(verify_build(args.build)))
+        print(json.dumps(verify_build(args.build, args.showcase_navigation)))
 
 
 if __name__ == '__main__':

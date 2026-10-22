@@ -1,0 +1,900 @@
+{
+  "contracts": [],
+  "externalCalls": [],
+  "operation": {
+    "boundaries": [
+      "CALL_TARGETS_UNRESOLVED",
+      "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+      "FILE_ONLY:compose.yaml",
+      "FILE_ONLY:contracts/dashboard.openapi.json",
+      "FILE_ONLY:contracts/events.schema.json",
+      "FILE_ONLY:database/init.sql",
+      "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+      "FILE_ONLY:exercises/replay.py",
+      "FILE_ONLY:exercises/validator-regression.mjs",
+      "FILE_ONLY:fixtures/helsinki.json",
+      "FILE_ONLY:fixtures/lisbon.json",
+      "FILE_ONLY:fixtures/met-oslo-recorded.json",
+      "FILE_ONLY:fixtures/oslo.json",
+      "FILE_ONLY:fixtures/provenance.json",
+      "FILE_ONLY:services/dashboard/Dockerfile",
+      "FILE_ONLY:services/dashboard/package-lock.json",
+      "FILE_ONLY:services/dashboard/package.json",
+      "FILE_ONLY:services/dashboard/public/index.html",
+      "FILE_ONLY:services/dashboard/tsconfig.json",
+      "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+      "ORDER_LEXICAL_ONLY",
+      "SCOPE_WATCH_CONSERVATIVE",
+      "Syntax evidence does not establish runtime dispatch or configuration. Expand known owners and helpers; retain explicit gaps for unresolved targets.",
+      "ANNOTATION_DECLARATION_UNAVAILABLE",
+      "CALL_TARGETS_UNRESOLVED",
+      "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+      "FILE_ONLY:compose.yaml",
+      "FILE_ONLY:contracts/events.schema.json",
+      "FILE_ONLY:contracts/forecasts.openapi.json",
+      "FILE_ONLY:database/init.sql",
+      "FILE_ONLY:fixtures/helsinki.json",
+      "FILE_ONLY:fixtures/lisbon.json",
+      "FILE_ONLY:fixtures/met-oslo-recorded.json",
+      "FILE_ONLY:fixtures/oslo.json",
+      "FILE_ONLY:fixtures/provenance.json",
+      "FILE_ONLY:services/forecasts/Dockerfile",
+      "FILE_ONLY:services/forecasts/pom.xml",
+      "FILE_ONLY:services/forecasts/src/main/resources/application.properties",
+      "NO_BEAN_OWNER",
+      "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+      "ORDER_LEXICAL_ONLY",
+      "RUNTIME_REGISTRATION_UNPROVEN",
+      "SCOPE_WATCH_CONSERVATIVE",
+      "SOURCE_NAMES_NOT_COMPILER_RESOLVED",
+      "UNRESOLVED_ANNOTATION_VALUE",
+      "Syntax evidence does not establish runtime dispatch or configuration. Expand known owners and helpers; retain explicit gaps for unresolved targets.",
+      "CLR_SIGNATURE_PROJECTED_TO_JVM_DESCRIPTOR_GRAMMAR",
+      "CSHARP_SOURCE_GENERATED_DOCUMENTS_NOT_INDEXED",
+      "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+      "GENERATED_SOURCE_BODIES_NOT_INDEXED",
+      "LAMBDA_EXECUTION_NOT_EXPANDED",
+      "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+      "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+      "SWITCH_FLOW_REQUIRES_SOURCE_REVIEW"
+    ],
+    "documentationLanguage": "en",
+    "events": [
+      {
+        "dependencyIds": [
+          "places:flow:158b244bf277169193530f80",
+          "places:symbol:7fb8137cf82d592b243e54aa"
+        ],
+        "id": "claim-5e4fb5b4a179d1c43e2b",
+        "kind": "loop",
+        "sourceIds": [
+          "places-158b244bf27716919353",
+          "places-7fb8137cf82d592b243e"
+        ],
+        "text": "Repeat while the cancellation token is not signalled; each pass attempts one pending row, then waits one second."
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:722b268c12cec9e1cb51cbe8"
+        ],
+        "from": "service-places",
+        "id": "claim-5d184223c32ec68b480c",
+        "kind": "message",
+        "sourceIds": [
+          "places-722b268c12cec9e1cb51"
+        ],
+        "text": "PublishPending opens a connection and transaction, then selects one eligible unpublished row in created_at order, limited to one and locked with SKIP LOCKED.",
+        "to": "places-db"
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:722b268c12cec9e1cb51cbe8"
+        ],
+        "id": "claim-d1bb4d8b8ebbde14e869",
+        "kind": "alt",
+        "sourceIds": [
+          "places-722b268c12cec9e1cb51"
+        ],
+        "text": "If the select returns no row, PublishPending returns for this pass; otherwise it sends the selected payload and records the completed send."
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:722b268c12cec9e1cb51cbe8"
+        ],
+        "id": "claim-6e445dad38c309bfb434",
+        "kind": "note",
+        "sourceIds": [
+          "places-722b268c12cec9e1cb51"
+        ],
+        "text": "No row is sent when the reader is empty; the using scopes dispose the open transaction and connection on return."
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:722b268c12cec9e1cb51cbe8"
+        ],
+        "id": "claim-84d4e111ed85e5a6774f",
+        "kind": "else",
+        "sourceIds": [
+          "places-722b268c12cec9e1cb51"
+        ],
+        "text": "Otherwise"
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:722b268c12cec9e1cb51cbe8"
+        ],
+        "from": "service-places",
+        "id": "claim-02699e133726492dbc5b",
+        "kind": "message",
+        "sourceIds": [
+          "places-722b268c12cec9e1cb51"
+        ],
+        "text": "Extract place.id from the stored payload and await ProduceAsync to weather.place-requested with place.id as the message key and the original payload as the value.",
+        "to": "places-kafka"
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:722b268c12cec9e1cb51cbe8"
+        ],
+        "from": "service-places",
+        "id": "claim-e18eff8054f84ba9972c",
+        "kind": "message",
+        "sourceIds": [
+          "places-722b268c12cec9e1cb51"
+        ],
+        "text": "After ProduceAsync completes, update that outbox row to published=true and commit the database transaction.",
+        "to": "places-db"
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:722b268c12cec9e1cb51cbe8",
+          "places:symbol:7fb8137cf82d592b243e54aa"
+        ],
+        "id": "claim-f5798d4b4a45388d70ad",
+        "kind": "note",
+        "sourceIds": [
+          "places-722b268c12cec9e1cb51",
+          "places-7fb8137cf82d592b243e"
+        ],
+        "text": "A crash after the broker send but before the database commit can leave the row unpublished for a later send; producer idempotence does not make Kafka and PostgreSQL one atomic transaction."
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:722b268c12cec9e1cb51cbe8"
+        ],
+        "id": "claim-dce06a22daeb4942f9b6",
+        "kind": "end",
+        "sourceIds": [
+          "places-722b268c12cec9e1cb51"
+        ],
+        "text": ""
+      },
+      {
+        "dependencyIds": [
+          "places:flow:096b7f6a391d982235e434ce",
+          "places:symbol:7fb8137cf82d592b243e54aa"
+        ],
+        "id": "claim-a1da6f698c2bdfdf8068",
+        "kind": "alt",
+        "sourceIds": [
+          "places-096b7f6a391d982235e4",
+          "places-7fb8137cf82d592b243e"
+        ],
+        "text": "If PublishPending throws OperationCanceledException while the token is cancelled, the loop exits; other errors are handled by the general catch."
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:7fb8137cf82d592b243e54aa"
+        ],
+        "id": "claim-36f270f7d835dff9dcca",
+        "kind": "note",
+        "sourceIds": [
+          "places-7fb8137cf82d592b243e"
+        ],
+        "text": "An OperationCanceledException observed while the token is cancelled breaks the loop."
+      },
+      {
+        "dependencyIds": [
+          "places:flow:096b7f6a391d982235e434ce",
+          "places:symbol:7fb8137cf82d592b243e54aa"
+        ],
+        "id": "claim-ed716f0ae11456c59aac",
+        "kind": "else",
+        "sourceIds": [
+          "places-096b7f6a391d982235e4",
+          "places-7fb8137cf82d592b243e"
+        ],
+        "text": "Otherwise"
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:7fb8137cf82d592b243e54aa"
+        ],
+        "id": "claim-7f09695286f324c4f3f1",
+        "kind": "note",
+        "sourceIds": [
+          "places-7fb8137cf82d592b243e"
+        ],
+        "text": "Other exceptions are logged with PUBLISH_RETRY; normal completion and logged failures continue to the one-second delay. The delay also receives the token, so cancellation reaching that await can propagate."
+      },
+      {
+        "dependencyIds": [
+          "places:flow:096b7f6a391d982235e434ce",
+          "places:symbol:7fb8137cf82d592b243e54aa"
+        ],
+        "id": "claim-c085ca238c84599cabe4",
+        "kind": "end",
+        "sourceIds": [
+          "places-096b7f6a391d982235e4",
+          "places-7fb8137cf82d592b243e"
+        ],
+        "text": ""
+      },
+      {
+        "dependencyIds": [
+          "places:flow:158b244bf277169193530f80",
+          "places:symbol:7fb8137cf82d592b243e54aa"
+        ],
+        "id": "claim-951105b75c05cb103403",
+        "kind": "end",
+        "sourceIds": [
+          "places-158b244bf27716919353",
+          "places-7fb8137cf82d592b243e"
+        ],
+        "text": ""
+      }
+    ],
+    "explanation": [
+      {
+        "dependencyIds": [
+          "places:flow:158b244bf277169193530f80",
+          "places:symbol:7fb8137cf82d592b243e54aa"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-5e4fb5b4a179d1c43e2b"
+        ],
+        "id": "claim-0d93efb063fd4006d1da",
+        "sourceIds": [
+          "places-158b244bf27716919353",
+          "places-7fb8137cf82d592b243e"
+        ],
+        "text": "Repeat while the cancellation token is not signalled; each pass attempts one pending row, then waits one second."
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:722b268c12cec9e1cb51cbe8"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-5d184223c32ec68b480c"
+        ],
+        "id": "claim-d893211083e1a59aeede",
+        "sourceIds": [
+          "places-722b268c12cec9e1cb51"
+        ],
+        "text": "PublishPending opens a connection and transaction, then selects one eligible unpublished row in created_at order, limited to one and locked with SKIP LOCKED."
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:722b268c12cec9e1cb51cbe8"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-d1bb4d8b8ebbde14e869"
+        ],
+        "id": "claim-66973c08186c64719aa9",
+        "sourceIds": [
+          "places-722b268c12cec9e1cb51"
+        ],
+        "text": "If the select returns no row, PublishPending returns for this pass; otherwise it sends the selected payload and records the completed send."
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:722b268c12cec9e1cb51cbe8"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-6e445dad38c309bfb434"
+        ],
+        "id": "claim-d11327dd7195aa36d9c4",
+        "sourceIds": [
+          "places-722b268c12cec9e1cb51"
+        ],
+        "text": "No row is sent when the reader is empty; the using scopes dispose the open transaction and connection on return."
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:722b268c12cec9e1cb51cbe8"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-84d4e111ed85e5a6774f"
+        ],
+        "id": "claim-100ed92f66d4af59785a",
+        "sourceIds": [
+          "places-722b268c12cec9e1cb51"
+        ],
+        "text": "The source describes an alternative branch."
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:722b268c12cec9e1cb51cbe8"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-02699e133726492dbc5b"
+        ],
+        "id": "claim-597f55c56c3da19421fa",
+        "sourceIds": [
+          "places-722b268c12cec9e1cb51"
+        ],
+        "text": "Extract place.id from the stored payload and await ProduceAsync to weather.place-requested with place.id as the message key and the original payload as the value."
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:722b268c12cec9e1cb51cbe8"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-e18eff8054f84ba9972c"
+        ],
+        "id": "claim-7cbbcd7092cbfe9220bf",
+        "sourceIds": [
+          "places-722b268c12cec9e1cb51"
+        ],
+        "text": "After ProduceAsync completes, update that outbox row to published=true and commit the database transaction."
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:722b268c12cec9e1cb51cbe8",
+          "places:symbol:7fb8137cf82d592b243e54aa"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-f5798d4b4a45388d70ad"
+        ],
+        "id": "claim-62eab67bf9b3750a09e0",
+        "sourceIds": [
+          "places-722b268c12cec9e1cb51",
+          "places-7fb8137cf82d592b243e"
+        ],
+        "text": "A crash after the broker send but before the database commit can leave the row unpublished for a later send; producer idempotence does not make Kafka and PostgreSQL one atomic transaction."
+      },
+      {
+        "dependencyIds": [
+          "places:flow:096b7f6a391d982235e434ce",
+          "places:symbol:7fb8137cf82d592b243e54aa"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-a1da6f698c2bdfdf8068"
+        ],
+        "id": "claim-88da12b5800b4d27510e",
+        "sourceIds": [
+          "places-096b7f6a391d982235e4",
+          "places-7fb8137cf82d592b243e"
+        ],
+        "text": "If PublishPending throws OperationCanceledException while the token is cancelled, the loop exits; other errors are handled by the general catch."
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:7fb8137cf82d592b243e54aa"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-36f270f7d835dff9dcca"
+        ],
+        "id": "claim-ad6c2dc526c79304909a",
+        "sourceIds": [
+          "places-7fb8137cf82d592b243e"
+        ],
+        "text": "An OperationCanceledException observed while the token is cancelled breaks the loop."
+      },
+      {
+        "dependencyIds": [
+          "places:flow:096b7f6a391d982235e434ce",
+          "places:symbol:7fb8137cf82d592b243e54aa"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-ed716f0ae11456c59aac"
+        ],
+        "id": "claim-d12bc32abf4f60c34947",
+        "sourceIds": [
+          "places-096b7f6a391d982235e4",
+          "places-7fb8137cf82d592b243e"
+        ],
+        "text": "The source describes an alternative branch."
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:7fb8137cf82d592b243e54aa"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-7f09695286f324c4f3f1"
+        ],
+        "id": "claim-9f03834c082c8f61f9c7",
+        "sourceIds": [
+          "places-7fb8137cf82d592b243e"
+        ],
+        "text": "Other exceptions are logged with PUBLISH_RETRY; normal completion and logged failures continue to the one-second delay. The delay also receives the token, so cancellation reaching that await can propagate."
+      }
+    ],
+    "findings": [],
+    "id": "places-request-publisher",
+    "interfaceContracts": [],
+    "participants": [
+      {
+        "id": "caller",
+        "label": "Caller",
+        "service": null
+      },
+      {
+        "id": "service-places",
+        "label": "places",
+        "service": "places"
+      },
+      {
+        "id": "places-db",
+        "label": "Places PostgreSQL",
+        "service": null
+      },
+      {
+        "id": "places-kafka",
+        "label": "Kafka topic weather.place-requested",
+        "service": null
+      }
+    ],
+    "summary": {
+      "dependencyIds": [
+        "places:symbol:722b268c12cec9e1cb51cbe8",
+        "places:symbol:7fb8137cf82d592b243e54aa"
+      ],
+      "id": "claim-9a3b7c9fc0561319a1f3",
+      "sourceIds": [
+        "places-722b268c12cec9e1cb51",
+        "places-7fb8137cf82d592b243e"
+      ],
+      "text": "At source level, RequestPublisher.ExecuteAsync creates one Kafka producer using KAFKA_BOOTSTRAP or kafka:9092, with idempotence enabled and a 10-second message timeout. While the token is not cancelled, it calls PublishPending and waits one second between passes. PublishPending selects at most one eligible unpublished row in created_at order with FOR UPDATE SKIP LOCKED; if none is returned, it exits that pass without sending. For a selected row it extracts place.id from the stored JSON, awaits a send to weather.place-requested using that ID as the key, then sets published=true and commits the database transaction. Since send completion comes before the database commit, a crash between them can leave the row eligible for another send. The loop logs other exceptions as PUBLISH_RETRY; cancellation during PublishPending breaks the loop, while cancellation reaching the post-attempt delay can propagate. C# source coverage is PARTIAL; this code does not establish runtime hosting activation or delivery."
+    },
+    "title": "Place request publisher"
+  },
+  "sectionState": {
+    "contentRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "coverage": {
+      "dashboard": {
+        "boundaries": [
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/dashboard.openapi.json",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+          "FILE_ONLY:exercises/replay.py",
+          "FILE_ONLY:exercises/validator-regression.mjs",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/dashboard/Dockerfile",
+          "FILE_ONLY:services/dashboard/package-lock.json",
+          "FILE_ONLY:services/dashboard/package.json",
+          "FILE_ONLY:services/dashboard/public/index.html",
+          "FILE_ONLY:services/dashboard/tsconfig.json",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "SCOPE_WATCH_CONSERVATIVE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "forecasts": {
+        "boundaries": [
+          "ANNOTATION_DECLARATION_UNAVAILABLE",
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:contracts/forecasts.openapi.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/forecasts/Dockerfile",
+          "FILE_ONLY:services/forecasts/pom.xml",
+          "FILE_ONLY:services/forecasts/src/main/resources/application.properties",
+          "NO_BEAN_OWNER",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "RUNTIME_REGISTRATION_UNPROVEN",
+          "SCOPE_WATCH_CONSERVATIVE",
+          "SOURCE_NAMES_NOT_COMPILER_RESOLVED",
+          "UNRESOLVED_ANNOTATION_VALUE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "places": {
+        "boundaries": [
+          "CLR_SIGNATURE_PROJECTED_TO_JVM_DESCRIPTOR_GRAMMAR",
+          "CSHARP_SOURCE_GENERATED_DOCUMENTS_NOT_INDEXED",
+          "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+          "GENERATED_SOURCE_BODIES_NOT_INDEXED",
+          "LAMBDA_EXECUTION_NOT_EXPANDED",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+          "SWITCH_FLOW_REQUIRES_SOURCE_REVIEW"
+        ],
+        "coverage": "PARTIAL"
+      }
+    },
+    "freshness": "STALE",
+    "reasons": [
+      {
+        "after": "sha256:0963521b4ed1f85ab4680772b6a50fe7cbe788b298475434f3fe39fc37747a53",
+        "before": "sha256:3c4e6159a380e6fed6bffd10dabd2c6f173c09d87cb599eac8135c28603230b4",
+        "dependency": "process-component:forecasts-place-requested-consumer:forecasts-publish-pending",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:1b5f23cacf432a775fe22273fe53f9bb2abb1b7ff999910e15d1407181d123d9",
+        "before": "sha256:e3b4940ede42d2eec9d7fa36ad414d15386a51bc4526deebc02be7129635df8d",
+        "dependency": "process-component:forecasts-publish-pending:dashboard-forecast-updated-consumer",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:1d156761e8889b4827f48fc763696cb872479af3922679fcf5d751f3cd188f61",
+        "before": "sha256:ea0d101ab9e54e3b7d92116edac71f1b5d0605552fd0ca5169764b6d04e55afc",
+        "dependency": "process-component:forecasts-refresh-scheduled:forecasts-publish-pending",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:2bbd58eb79f3df485dec903b343433429dde335a3300e76ffa9cb70666cf46d4",
+        "before": "sha256:d8cc9415bf58a0dcf0dfe15f3a082fa33ceac63ca053ff1404abf111fc0c37b2",
+        "dependency": "note:runtime-broker-outage",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:39acb7c9061bc46ca2cf3cb0466dd43e9bc6ee014a1f8f8ec1b3ddf60ee2ac9c",
+        "before": "sha256:5df83ce79a1a4a94bb7eb957bbde39d7f437a886373d5590bf1228b9f683def0",
+        "dependency": "process-component:forecasts-place-requested-consumer:forecasts-refresh-scheduled",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:65db8e1405dc2ea0732c515493fe81f6033b7387d812d45afcc44e40836cd2a7",
+        "before": "sha256:e088d7abd80da07fd2d2cb493bf383dd93bdf18fb6bb454142ab1ce54830942d",
+        "dependency": "process-component:places-request-publisher:dashboard-place-requested-consumer",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:c37527537585450ab70a0eb61866248cfa06fcd73a078572e540cd2073bc6b64",
+        "before": "sha256:cba8f2a4546be6c86877b5ee7fc8ed834dc40a17dab8cec65f808621a766377f",
+        "dependency": "process-component:places-request-publisher:forecasts-place-requested-consumer",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "reason": "INFLUENCE_SCOPE_CHANGED",
+        "scope": "sha256:b4cbff1a86836710cb04e3f7154af04bd4e98f6d8b5e34de2f0376dc198f1d61"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:b57016f8fd0621d202cb2ee1e96f17cd3ba84d6a935e64660e40ac3d60be0ca4/164667"
+      }
+    ],
+    "targetRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "verification": "UNASSESSED"
+  },
+  "sources": {
+    "places-096b7f6a391d982235e4": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 14,
+      "evidenceDigest": "sha256:a7b6adeb542a9964a6258105f1f0b1e407cb53e303dcb96b4a4d4bc909ed0037",
+      "file": "services/places/RequestPublisher.cs",
+      "id": "places-096b7f6a391d982235e4",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 12,
+      "text": "",
+      "textDigest": "sha256:be348c82f0e48dbc93bd49784d474f3ef0c96e81251769e51952fb29c19701a3",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/RequestPublisher.cs#L12-L14"
+    },
+    "places-158b244bf27716919353": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 10,
+      "evidenceDigest": "sha256:a7b6adeb542a9964a6258105f1f0b1e407cb53e303dcb96b4a4d4bc909ed0037",
+      "file": "services/places/RequestPublisher.cs",
+      "id": "places-158b244bf27716919353",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 10,
+      "text": "",
+      "textDigest": "sha256:05b0c045b6f0c2ac37688b690120998768eb93027e482f799cc070125d19a6a8",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/RequestPublisher.cs#L10-L10"
+    },
+    "places-722b268c12cec9e1cb51": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 34,
+      "evidenceDigest": "sha256:4c2a37722e8f758d81ef32cc8048686f59a02936773d6194edf5248ea9b158b6",
+      "file": "services/places/RequestPublisher.cs",
+      "id": "places-722b268c12cec9e1cb51",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 18,
+      "text": "",
+      "textDigest": "sha256:5402c70e41f029dbb02eb020cc4e28fc9f0ba004f670d74c7915aa4b7906db7f",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/RequestPublisher.cs#L18-L34"
+    },
+    "places-7fb8137cf82d592b243e": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 17,
+      "evidenceDigest": "sha256:a7b6adeb542a9964a6258105f1f0b1e407cb53e303dcb96b4a4d4bc909ed0037",
+      "file": "services/places/RequestPublisher.cs",
+      "id": "places-7fb8137cf82d592b243e",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 7,
+      "text": "",
+      "textDigest": "sha256:cdb8aae092e7b0dcc178c111ad01e7c214015c8f589f814b2ce3f67cc83336a3",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/RequestPublisher.cs#L7-L17"
+    }
+  },
+  "state": {
+    "contentRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "coverage": {
+      "dashboard": {
+        "boundaries": [
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/dashboard.openapi.json",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+          "FILE_ONLY:exercises/replay.py",
+          "FILE_ONLY:exercises/validator-regression.mjs",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/dashboard/Dockerfile",
+          "FILE_ONLY:services/dashboard/package-lock.json",
+          "FILE_ONLY:services/dashboard/package.json",
+          "FILE_ONLY:services/dashboard/public/index.html",
+          "FILE_ONLY:services/dashboard/tsconfig.json",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "SCOPE_WATCH_CONSERVATIVE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "forecasts": {
+        "boundaries": [
+          "ANNOTATION_DECLARATION_UNAVAILABLE",
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:contracts/forecasts.openapi.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/forecasts/Dockerfile",
+          "FILE_ONLY:services/forecasts/pom.xml",
+          "FILE_ONLY:services/forecasts/src/main/resources/application.properties",
+          "NO_BEAN_OWNER",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "RUNTIME_REGISTRATION_UNPROVEN",
+          "SCOPE_WATCH_CONSERVATIVE",
+          "SOURCE_NAMES_NOT_COMPILER_RESOLVED",
+          "UNRESOLVED_ANNOTATION_VALUE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "places": {
+        "boundaries": [
+          "CLR_SIGNATURE_PROJECTED_TO_JVM_DESCRIPTOR_GRAMMAR",
+          "CSHARP_SOURCE_GENERATED_DOCUMENTS_NOT_INDEXED",
+          "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+          "GENERATED_SOURCE_BODIES_NOT_INDEXED",
+          "LAMBDA_EXECUTION_NOT_EXPANDED",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+          "SWITCH_FLOW_REQUIRES_SOURCE_REVIEW"
+        ],
+        "coverage": "PARTIAL"
+      }
+    },
+    "freshness": "STALE",
+    "reasons": [
+      {
+        "after": "sha256:0963521b4ed1f85ab4680772b6a50fe7cbe788b298475434f3fe39fc37747a53",
+        "before": "sha256:3c4e6159a380e6fed6bffd10dabd2c6f173c09d87cb599eac8135c28603230b4",
+        "dependency": "process-component:forecasts-place-requested-consumer:forecasts-publish-pending",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:1b5f23cacf432a775fe22273fe53f9bb2abb1b7ff999910e15d1407181d123d9",
+        "before": "sha256:e3b4940ede42d2eec9d7fa36ad414d15386a51bc4526deebc02be7129635df8d",
+        "dependency": "process-component:forecasts-publish-pending:dashboard-forecast-updated-consumer",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:1d156761e8889b4827f48fc763696cb872479af3922679fcf5d751f3cd188f61",
+        "before": "sha256:ea0d101ab9e54e3b7d92116edac71f1b5d0605552fd0ca5169764b6d04e55afc",
+        "dependency": "process-component:forecasts-refresh-scheduled:forecasts-publish-pending",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:2bbd58eb79f3df485dec903b343433429dde335a3300e76ffa9cb70666cf46d4",
+        "before": "sha256:d8cc9415bf58a0dcf0dfe15f3a082fa33ceac63ca053ff1404abf111fc0c37b2",
+        "dependency": "note:runtime-broker-outage",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:39acb7c9061bc46ca2cf3cb0466dd43e9bc6ee014a1f8f8ec1b3ddf60ee2ac9c",
+        "before": "sha256:5df83ce79a1a4a94bb7eb957bbde39d7f437a886373d5590bf1228b9f683def0",
+        "dependency": "process-component:forecasts-place-requested-consumer:forecasts-refresh-scheduled",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:65db8e1405dc2ea0732c515493fe81f6033b7387d812d45afcc44e40836cd2a7",
+        "before": "sha256:e088d7abd80da07fd2d2cb493bf383dd93bdf18fb6bb454142ab1ce54830942d",
+        "dependency": "process-component:places-request-publisher:dashboard-place-requested-consumer",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:c37527537585450ab70a0eb61866248cfa06fcd73a078572e540cd2073bc6b64",
+        "before": "sha256:cba8f2a4546be6c86877b5ee7fc8ed834dc40a17dab8cec65f808621a766377f",
+        "dependency": "process-component:places-request-publisher:forecasts-place-requested-consumer",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "reason": "INFLUENCE_SCOPE_CHANGED",
+        "scope": "sha256:b4cbff1a86836710cb04e3f7154af04bd4e98f6d8b5e34de2f0376dc198f1d61"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:075eaf91a32efa41fabb141466eef5f868bab2be3a330c91f6459ad3fbf6d4f4/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:1a4acebe796911a46a9e52eca80ae1d5d73922c3b192aad0340dd6d985253a2c/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:2670b888a7260cb79c4fea9ba99055838dd5fb9c0b6424324a66f731b76cf345/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:2a1f34950abf28bda91fdc0c865172ee0e480303a094267c6753f4d938cc2308/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:3a9b90284e7e55aad6d289e1492ede1cf10d03888f64c9f6497197b6b7d5f5c6/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:4113ccc4ec0d866b29203388408c0cd6990dc051aedeb2828d5b747e72f5f4c5/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:42dd9707f70452cf8ddb5aa195f79648caa42306df373512cd045007fad38e6d/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:504b0babac4b6086256f5881975f96e395c4752c57a841887f5d7d19f8399f14/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:5b15e56bdf420ed673b509e7784fbc455f416e2d91022910249d0e90b2e971a0/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:62f3a247fafb6c0cf327e9240a30672f840692a306df3c518be5e550b58c72e4/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:8231c762b267ded34757547c03abe0b2be76ab7d0ec20c004cd52a1afb89b86a/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:82acdb08ffb6fb86bb3081263a5ac8f5c33072aad214beec0dc556efb70a78f1/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:8cfa6609f990481eaff2383c5863cbd1f6d71d851f0fb8331d98ed21ec16122a/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:9d7396f3571d9e6903b744f17b28fbc3f6eeaa23340800217f19e6f1c3fb3a48/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:a83f5e37b1f441e91da6cfecbe89c9c46a23b9a98503e929c18ec3060f65fd96/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:a89632e1e09a12549ee8b46b7ad66049f0180801d91c29ddd8a2549101591572/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:aa1752174458377b64788add727011c17393569a55474c2c707efb4184a9462d/164746"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:ae691e7e59e2b379be5d0e43d43be4a7d515c01beaf94b3d4fefde740f13d0fe/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:bbb46b335e7ad79b79887f1fae0a272b899b1f23744493e8c0ca95fd521e151b/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:c56218dbae51569a92fad8e73c36ed07994846170d98761570ea66ef6ebac8c8/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:d9360cb3f6bbc523c0931347691b2618fecd1c94d7378865168a95cf05ff45c5/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:dc696444abfd17803a99e40cab6476bc78a7a2dc05b37bca1f98f1dc1b9ffe4d/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:eff84b20a6320ab207fd84b1bd2c586668bd6a194526191f933e5ca35d0e02a4/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:f9320dacc7fb65a75d47abe97bde64f17495db3abd5759532e053b6bd562b148/164667"
+      },
+      {
+        "reason": "SERVICE_REMOVED",
+        "service": "external-met"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:b57016f8fd0621d202cb2ee1e96f17cd3ba84d6a935e64660e40ac3d60be0ca4/164667"
+      }
+    ],
+    "targetRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "verification": "UNASSESSED"
+  }
+}

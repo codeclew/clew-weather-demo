@@ -1,0 +1,20 @@
+{
+  "schema": "weather-demo-capability-gap/1.0",
+  "feature": "External-service and external-actor information pages",
+  "productSupport": "Supported in official0.13.48",
+  "attempts": {
+    "externalPut": "Succeeded in isolated copy",
+    "interactionPut": "Succeeded as agent-proposal declaration",
+    "processParticipantPut": "Succeeded in isolated copy",
+    "recompose": "CHECKED with existing unresolved/agent-proposal limits; source not reverified",
+    "oldPublicationExports": "Rendered old publication; no external pages were present, so they are not demonstrated as external-service outputs.",
+    "freshPublicationError": {
+      "code": "INVALID_INPUT",
+      "message": "declared thread method dashboard-request-refresh lacks its exact complete retained callable source",
+      "retryable": false
+    }
+  },
+  "scope": "No unrelated process repair, source recapture or target API fetch was attempted. Original Weather publication/store preserved.",
+  "realSource": "Forecasts.kt:85 at c289b28be4819eddf29d59a7c12f178559ec5229 references the MET Locationforecast URL.",
+  "limitations": "Declared input files are available; this legacy saved capture cannot materialize the new external page without addressing the named missing complete callable source."
+}

@@ -1,0 +1,51 @@
+{
+  "schema": "weather-demo-export-receipt/1.0",
+  "producer": {
+    "version": "0.13.48",
+    "sourceRevision": "c8b9fba4520262ea4994c751b0fc39e96e055283",
+    "authority": "INSTALLED_RELEASE",
+    "archiveSha256": "7bc029638bc2c509ae2c73b04512d08a70b907fd409e33ff0d81d6dbb1776c10"
+  },
+  "noRecapture": true,
+  "snapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
+  "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+  "status": "PARTIAL",
+  "command": [
+    "clew",
+    "docs",
+    "pages",
+    "render",
+    "--root",
+    "DOCS_ROOT",
+    "--snapshot",
+    "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
+    "--publication",
+    "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+    "--source-mode",
+    "remote",
+    "--export-subject",
+    "scenario:dashboard-save-city",
+    "--output",
+    "EMPTY_OUTPUT_DIRECTORY",
+    "--export-subject",
+    "service:places",
+    "--export-subject",
+    "service:dashboard"
+  ],
+  "commandPaths": "Uppercase values replace private local directories; other arguments are the actual invocation.",
+  "manifestProjection": {
+    "originalSha256": "9a39d825fd90671486be9799ffd4d1b0e323571da4c40eb1f72cdd57c36de342",
+    "changes": [
+      {
+        "field": "output",
+        "change": "Private output directory omitted; other manifest fields unchanged."
+      }
+    ],
+    "allReferencedFilesUnchanged": true
+  },
+  "limits": [
+    "The selected set explicitly includes scenario:dashboard-save-city plus service:dashboard and service:places, so receiving-service navigation is available.",
+    "The earlier scenario-only attempt omitted a receiving-service link target; automatic closure of every authored cross-link is not claimed.",
+    "Existing source, STALE/UNASSESSED and translation limits remain; no runtime request was executed."
+  ]
+}

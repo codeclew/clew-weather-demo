@@ -1,0 +1,22 @@
+{
+  "schema": "codeclew-documentation-interaction/1.0",
+  "id": "forecasts-to-met-demo",
+  "title": "Declared Forecasts to MET request",
+  "from": {
+    "service": "forecasts"
+  },
+  "to": {
+    "service": "met-norway"
+  },
+  "external": true,
+  "externalService": "met-norway",
+  "transport": {
+    "kind": "http",
+    "method": "GET",
+    "path": "/weatherapi/locationforecast/2.0/compact"
+  },
+  "declaration": {
+    "origin": "agent-proposal",
+    "rationale": "Demo-owned association to the retained api.met.no call in Forecasts.kt:85 at revision c289b28be4819eddf29d59a7c12f178559ec5229. lat/lon are query parameters in source; no deployed route, request or response is asserted."
+  }
+}

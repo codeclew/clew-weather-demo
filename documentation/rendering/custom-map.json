@@ -1,0 +1,88 @@
+{
+  "schema": "weather-demo-owned-claim-map/1.0",
+  "authority": "DEMO_OWNED_METADATA_NOT_CLEW_REGISTRATION",
+  "meaningReview": "UNASSESSED",
+  "snapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
+  "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+  "sources": [
+    {
+      "id": "places-a3f9be5dab0dd63815f7",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "file": "services/places/PlacesRepository.cs",
+      "startLine": 7,
+      "endLine": 13,
+      "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "object": "c267a4a78e8949194aeb00d9acfa74a5a9a90a34ddabb3a97ae3d4a7eed0a2fa",
+      "page": "/clew-weather-demo/docusaurus/sources/c267a4a78e8949194aeb00d9acfa74a5a9a90a34ddabb3a97ae3d4a7eed0a2fa.html#retained-text",
+      "binding": "/clew-weather-demo/docusaurus/clew-data/objects/c267a4a78e8949194aeb00d9acfa74a5a9a90a34ddabb3a97ae3d4a7eed0a2fa.json"
+    },
+    {
+      "id": "places-309961f88b197290c1b0",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "file": "services/places/PlacesController.cs",
+      "startLine": 10,
+      "endLine": 17,
+      "textDigest": "sha256:b6a46a9557e67342266ccce88f28a634490cacba1ee8f705d71066775158f708",
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "object": "31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0",
+      "page": "/clew-weather-demo/docusaurus/sources/31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0.html#retained-text",
+      "binding": "/clew-weather-demo/docusaurus/clew-data/objects/31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0.json"
+    }
+  ],
+  "records": [
+    {
+      "id": "oslo",
+      "name": "Oslo",
+      "latitude": 59.93,
+      "longitude": 10.72
+    },
+    {
+      "id": "helsinki",
+      "name": "Helsinki",
+      "latitude": 60.17,
+      "longitude": 24.94
+    },
+    {
+      "id": "lisbon",
+      "name": "Lisbon",
+      "latitude": 38.72,
+      "longitude": -9.14
+    }
+  ],
+  "claims": [
+    {
+      "id": "literal-records",
+      "block": "#literal-records",
+      "text": "City(id) selects one of three literal records or null; coordinates are stored literals in the lookup.",
+      "sourceIds": [
+        "places-a3f9be5dab0dd63815f7"
+      ],
+      "kind": "STATIC_SOURCE_INTERPRETATION"
+    },
+    {
+      "id": "unsupported-city",
+      "block": "#unsupported-city",
+      "text": "When the lookup returns null, this controller returns BadRequest(UNSUPPORTED_CITY) before calling repository.Save.",
+      "sourceIds": [
+        "places-a3f9be5dab0dd63815f7",
+        "places-309961f88b197290c1b0"
+      ],
+      "kind": "STATIC_SOURCE_INTERPRETATION"
+    },
+    {
+      "id": "accepted-city",
+      "block": "#accepted-city",
+      "text": "For a non-null city, the controller awaits repository.Save(city, token), then returns Ok(city). This fragment does not establish the called implementation, deployed route, persistence success or Kafka delivery.",
+      "sourceIds": [
+        "places-309961f88b197290c1b0"
+      ],
+      "kind": "STATIC_SOURCE_INTERPRETATION"
+    }
+  ],
+  "limits": [
+    "Interactive selector displays a static source-derived branch; it sends no service request.",
+    "No clew freshness registration, semantic validation or meaning approval is created by this mapping.",
+    "The original retained source is evidence; the page layout, mapping and narrative are demo-owned interpretation."
+  ]
+}

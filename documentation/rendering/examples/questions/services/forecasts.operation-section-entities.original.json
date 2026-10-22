@@ -1,0 +1,1583 @@
+{
+  "contracts": [
+    {
+      "digest": "sha256:0fc30c89e732f2a68cf7384b2785103d8a61957be269de32c27be449375ffc22",
+      "id": "forecasts:contract-operation:ab05df1663aab260fd0f45a2",
+      "kind": "CONTRACT_OPERATION",
+      "normalized": {
+        "authority": "DECLARED_OPENAPI",
+        "boundaries": [],
+        "declaredSource": "contracts/forecasts.openapi.json",
+        "entrypoint": "forecasts-7113b27ca4694ebce3b6",
+        "method": "GET",
+        "openapi": "3.1.0",
+        "operation": {
+          "operationId": "forecasts_get_openapi.json",
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "additionalProperties": true,
+                    "type": "object"
+                  }
+                }
+              },
+              "description": "200"
+            },
+            "500": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "additionalProperties": true,
+                    "properties": {
+                      "error": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              },
+              "description": "500"
+            }
+          }
+        },
+        "parameters": [],
+        "path": "/openapi.json",
+        "readerSelection": {
+          "compatibilityAnchor": "3.1",
+          "fullSpecificationValidation": false,
+          "outsideAdvertisedRange": false,
+          "reader": "BOUNDED_OPENAPI_PATH_OPERATION_READER",
+          "selectionMode": "DECLARED_COMPATIBILITY_PROFILE",
+          "supportedVersionRange": "OPENAPI_THROUGH_3_X"
+        },
+        "runtimeEnforcement": "UNVERIFIED",
+        "schema": "codeclew-documentation-contract-facts/1.0",
+        "security": null,
+        "securitySchemes": null,
+        "servers": null,
+        "sourceMapping": "SOURCE_ROUTE_MATCH_ONLY"
+      },
+      "service": "forecasts",
+      "sourceIds": [
+        "forecasts-0dad2f6c74261ec67a63"
+      ],
+      "symbol": "source:services/forecasts/src/main/kotlin/weather/ForecastController.kt/class:weather.ForecastController/openApi/d0fd4d5ccccc30e196c1"
+    },
+    {
+      "digest": "sha256:23164053c9df9baa6c85943bb47c5f2b6f938784e784f4df18cffb79a79aaaaf",
+      "id": "forecasts:contract-operation:dca8b084f8e2ec285f1f6c92",
+      "kind": "CONTRACT_OPERATION",
+      "normalized": {
+        "authority": "DECLARED_OPENAPI",
+        "boundaries": [
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED"
+        ],
+        "declaredSource": "contracts/forecasts.openapi.json",
+        "entrypoint": "forecasts-c91896e4eb5ce5155f3d",
+        "method": "GET",
+        "openapi": "3.1.0",
+        "operation": {
+          "operationId": "forecasts_get_forecasts_id",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": {
+                "enum": [
+                  "oslo",
+                  "helsinki",
+                  "lisbon"
+                ],
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "properties": {
+                      "fetchedAt": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "mode": {
+                        "enum": [
+                          "fixture",
+                          "live"
+                        ],
+                        "type": "string"
+                      },
+                      "periods": {
+                        "items": {
+                          "properties": {
+                            "precipitationMm": {
+                              "minimum": 0,
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            },
+                            "symbol": {
+                              "type": "string"
+                            },
+                            "temperatureC": {
+                              "type": "number"
+                            },
+                            "time": {
+                              "format": "date-time",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "time",
+                            "temperatureC",
+                            "precipitationMm",
+                            "symbol"
+                          ],
+                          "type": "object"
+                        },
+                        "maxItems": 6,
+                        "minItems": 1,
+                        "type": "array"
+                      },
+                      "updatedAt": {
+                        "format": "date-time",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "updatedAt",
+                      "fetchedAt",
+                      "mode",
+                      "periods"
+                    ],
+                    "type": "object"
+                  }
+                }
+              },
+              "description": "200"
+            },
+            "404": {
+              "description": "404"
+            },
+            "500": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "additionalProperties": true,
+                    "properties": {
+                      "error": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              },
+              "description": "500"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "enum": [
+                "oslo",
+                "helsinki",
+                "lisbon"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "path": "/forecasts/{id}",
+        "readerSelection": {
+          "compatibilityAnchor": "3.1",
+          "fullSpecificationValidation": false,
+          "outsideAdvertisedRange": false,
+          "reader": "BOUNDED_OPENAPI_PATH_OPERATION_READER",
+          "selectionMode": "DECLARED_COMPATIBILITY_PROFILE",
+          "supportedVersionRange": "OPENAPI_THROUGH_3_X"
+        },
+        "runtimeEnforcement": "UNVERIFIED",
+        "schema": "codeclew-documentation-contract-facts/1.0",
+        "security": null,
+        "securitySchemes": null,
+        "servers": null,
+        "sourceMapping": "SOURCE_ROUTE_MATCH_ONLY"
+      },
+      "service": "forecasts",
+      "sourceIds": [
+        "forecasts-0dad2f6c74261ec67a63"
+      ],
+      "symbol": "source:services/forecasts/src/main/kotlin/weather/ForecastController.kt/class:weather.ForecastController/get/e14be87877b119f7e216"
+    },
+    {
+      "digest": "sha256:9bfcaa2edcc29dd95810fe426dcc3e030f7bad03a051f96f7833bc0fa4e79e83",
+      "id": "forecasts:contract-operation:ee6a6874e4feb07b195cbf57",
+      "kind": "CONTRACT_OPERATION",
+      "normalized": {
+        "authority": "DECLARED_OPENAPI",
+        "boundaries": [
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED"
+        ],
+        "declaredSource": "contracts/forecasts.openapi.json",
+        "entrypoint": "forecasts-bd578e14951373ddaddf",
+        "method": "GET",
+        "openapi": "3.1.0",
+        "operation": {
+          "operationId": "forecasts_get_health",
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "properties": {
+                      "database": {
+                        "const": "READY"
+                      },
+                      "kafka": {
+                        "const": "READY"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              },
+              "description": "200"
+            },
+            "500": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "additionalProperties": true,
+                    "properties": {
+                      "error": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              },
+              "description": "500"
+            }
+          }
+        },
+        "parameters": [],
+        "path": "/health",
+        "readerSelection": {
+          "compatibilityAnchor": "3.1",
+          "fullSpecificationValidation": false,
+          "outsideAdvertisedRange": false,
+          "reader": "BOUNDED_OPENAPI_PATH_OPERATION_READER",
+          "selectionMode": "DECLARED_COMPATIBILITY_PROFILE",
+          "supportedVersionRange": "OPENAPI_THROUGH_3_X"
+        },
+        "runtimeEnforcement": "UNVERIFIED",
+        "schema": "codeclew-documentation-contract-facts/1.0",
+        "security": null,
+        "securitySchemes": null,
+        "servers": null,
+        "sourceMapping": "SOURCE_ROUTE_MATCH_ONLY"
+      },
+      "service": "forecasts",
+      "sourceIds": [
+        "forecasts-0dad2f6c74261ec67a63"
+      ],
+      "symbol": "source:services/forecasts/src/main/kotlin/weather/ForecastController.kt/class:weather.ForecastController/health/b6919665be4a52d40ebc"
+    }
+  ],
+  "externalCalls": [],
+  "operation": {
+    "boundaries": [
+      "Kotlin and Spring source evidence does not establish runtime listener or scheduler registration, callback invocation, or database transaction commit and rollback behavior. Captured application configuration is source text, not proof of deployed settings.",
+      "OpenAPI and event JSON Schema are read as source text; JSON Schema keywords, unions, and null types are not fully interpreted."
+    ],
+    "documentationLanguage": "en",
+    "events": [],
+    "explanation": [],
+    "findings": [],
+    "id": "section-entities",
+    "interfaceContracts": [],
+    "participants": [],
+    "summary": {
+      "dependencyIds": [
+        "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+        "forecasts:source_scope:a94d30979421b6ddbba5e94b",
+        "forecasts:symbol:04bc0feeea5752d3f1979c56",
+        "forecasts:symbol:3697d7f6e84dd57425971c2b"
+      ],
+      "id": "claim-e450542af87a8ab1482a",
+      "sourceIds": [
+        "forecasts-04bc0feeea5752d3f197",
+        "forecasts-3697d7f6e84dd5742597",
+        "forecasts-7d79014f99ba83eadfd7",
+        "forecasts-9abefb87ce9da5369dcc",
+        "forecasts-cf87224657914cc333f2"
+      ],
+      "text": "The Forecasts source assembles JSON rather than declaring a separate forecast DTO in the captured implementation. A forecast object contains updatedAt, fetchedAt, mode, and periods. Each period contains time, temperatureC, symbol, and precipitationMm; the source writes null precipitation when the provider omits a numeric amount. A forecast.updated event carries an id formed from place id and updatedAt, type, version 1, place, and forecast. The event schema and OpenAPI document declare one to six periods and date-time strings; their JSON Schema keywords are not fully interpreted here.\n\nThe Forecasts database schema stores places, a forecasts row keyed by place_id with updated_at, JSON payload, expires_at, and last_modified, inbox event IDs, forecast_outbox payloads with a published flag, and rejected message coordinates keyed by topic, partition, and offset. These are persistence and delivery records, distinct from the JSON forecast and event shapes."
+    },
+    "title": "Forecasts domain entities"
+  },
+  "sectionState": {
+    "contentRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "coverage": {
+      "dashboard": {
+        "boundaries": [
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/dashboard.openapi.json",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+          "FILE_ONLY:exercises/replay.py",
+          "FILE_ONLY:exercises/validator-regression.mjs",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/dashboard/Dockerfile",
+          "FILE_ONLY:services/dashboard/package-lock.json",
+          "FILE_ONLY:services/dashboard/package.json",
+          "FILE_ONLY:services/dashboard/public/index.html",
+          "FILE_ONLY:services/dashboard/tsconfig.json",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "SCOPE_WATCH_CONSERVATIVE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "forecasts": {
+        "boundaries": [
+          "ANNOTATION_DECLARATION_UNAVAILABLE",
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:contracts/forecasts.openapi.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/forecasts/Dockerfile",
+          "FILE_ONLY:services/forecasts/pom.xml",
+          "FILE_ONLY:services/forecasts/src/main/resources/application.properties",
+          "NO_BEAN_OWNER",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "RUNTIME_REGISTRATION_UNPROVEN",
+          "SCOPE_WATCH_CONSERVATIVE",
+          "SOURCE_NAMES_NOT_COMPILER_RESOLVED",
+          "UNRESOLVED_ANNOTATION_VALUE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "places": {
+        "boundaries": [
+          "CLR_SIGNATURE_PROJECTED_TO_JVM_DESCRIPTOR_GRAMMAR",
+          "CSHARP_SOURCE_GENERATED_DOCUMENTS_NOT_INDEXED",
+          "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+          "GENERATED_SOURCE_BODIES_NOT_INDEXED",
+          "LAMBDA_EXECUTION_NOT_EXPANDED",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+          "SWITCH_FLOW_REQUIRES_SOURCE_REVIEW"
+        ],
+        "coverage": "PARTIAL"
+      }
+    },
+    "freshness": "UNVERIFIED",
+    "reasons": [
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:b57016f8fd0621d202cb2ee1e96f17cd3ba84d6a935e64660e40ac3d60be0ca4/164667"
+      }
+    ],
+    "targetRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "verification": "UNASSESSED"
+  },
+  "sources": {
+    "forecasts-03d732fdcc1a6ba315a2": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 9,
+      "evidenceDigest": "sha256:a35c1b9f1b52ebefa0442a3095adcd7617b399adec05bfa35d45911450f358f8",
+      "file": "services/forecasts/src/main/kotlin/weather/Application.kt",
+      "id": "forecasts-03d732fdcc1a6ba315a2",
+      "occurrence": {
+        "blob": "14838dda0a76ac9154361ab5f62b24b97828003e",
+        "endByte": 351,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 283
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 9,
+      "text": "",
+      "textDigest": "sha256:432e8d29ca007cc154a8168954f7cd4860f169a7b87a5cab84eba2ed3e522962",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Application.kt#L9-L9"
+    },
+    "forecasts-04bc0feeea5752d3f197": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 125,
+      "evidenceDigest": "sha256:67eed096d7519d70b99114fe9e3155c2c4f9cdcc1fe49334d1f534ae5560fac2",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-04bc0feeea5752d3f197",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 8807,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 4061
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 70,
+      "text": "",
+      "textDigest": "sha256:5b529dac9719b7091155ea47958087ec0bd9b5e3c5230c6a19931343432e6112",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L70-L125"
+    },
+    "forecasts-0dad2f6c74261ec67a63": {
+      "authority": "DECLARED_OPENAPI",
+      "endLine": 191,
+      "evidenceDigest": "sha256:327ee78e446e0f27b8501770ae4272916c9d6582b00dbe8e521dacf3c9b14d57",
+      "file": "contracts/forecasts.openapi.json",
+      "id": "forecasts-0dad2f6c74261ec67a63",
+      "occurrence": {
+        "blob": "80cec47a70d2a712b02bc810e353de46a008ac64",
+        "endByte": 5147,
+        "snapshot": "sha256:b4aacd14b57d1e18f0049e00d46319e020313facb80303d87a0bfca4dc99e3a5",
+        "startByte": 0
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 1,
+      "text": "",
+      "textDigest": "sha256:cf1ce22267df655852f605196edc7833a815c9a893b71128a954081038370b80",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/contracts/forecasts.openapi.json#L1-L191"
+    },
+    "forecasts-0faab21eaf0b9a233e97": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 109,
+      "evidenceDigest": "sha256:199883af515c33b52dfb280248e1a7a7aa30a3d93cdeff93e2f2224d5a914184",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-0faab21eaf0b9a233e97",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 7429,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 7369
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 109,
+      "text": "",
+      "textDigest": "sha256:31a841dd35ffeb836422b28bb7da28b48511ab8158c5bb371bedf9d03a41aad5",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L109-L109"
+    },
+    "forecasts-0fe858295941b31bc615": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 105,
+      "evidenceDigest": "sha256:1c9592a973df4426499605a915a383995e75b513e272939ec6011b4e691b94b1",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-0fe858295941b31bc615",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 7030,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 6958
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 105,
+      "text": "",
+      "textDigest": "sha256:34240b40d6b3a2ef722a4206f33acf15c13a8e49d2c3335d0043a8478d95e61c",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L105-L105"
+    },
+    "forecasts-1571fff289ff6226f149": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 35,
+      "evidenceDigest": "sha256:16dc76c4a31af6d973d3da3ca600b2dd3fd1e16d021a8224b0d9df08ee252220",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-1571fff289ff6226f149",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 1589,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 1526
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 35,
+      "text": "",
+      "textDigest": "sha256:68b6be78baf62d9d84b9dc97ba33459ea77e18e7bd634a4a6e1c4f2fdc2bd181",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L35-L35"
+    },
+    "forecasts-1ea53b95922ad5791d93": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 68,
+      "evidenceDigest": "sha256:057d94e839943f3839919eebe0ab40ec10f525063bd4a5ce28e734a09b4a27e0",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-1ea53b95922ad5791d93",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 4055,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 3389
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 62,
+      "text": "",
+      "textDigest": "sha256:f37fdb3b2eae137d77c732fc910aa9ba29b8a969116ba122fc7a331aa11e7d94",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L62-L68"
+    },
+    "forecasts-27cca3456e62e8b1d498": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 16,
+      "evidenceDigest": "sha256:de7bc93df5d049f201b8bfa5b5c80bff789e8c1cd7dc44178d6d7594b672e1fd",
+      "file": "services/forecasts/src/main/resources/application.properties",
+      "id": "forecasts-27cca3456e62e8b1d498",
+      "occurrence": {
+        "blob": "22d8a5a23f018da5722a1bb71c3173de834008f5",
+        "endByte": 935,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 0
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 1,
+      "text": "",
+      "textDigest": "sha256:97bb018b627d24427adae2e9b1c3dfe157a0bdd7d7f609c87a3d14696c00d84c",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/resources/application.properties#L1-L16"
+    },
+    "forecasts-2b758ee1c16726c56e96": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 120,
+      "evidenceDigest": "sha256:f6208475a0c1d3b0bced6e772dfb9e733d05b4b9185b44848cc3fc160384d8e4",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-2b758ee1c16726c56e96",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 8468,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 8438
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 120,
+      "text": "",
+      "textDigest": "sha256:0779c134c43bbc70f98f5ab7963318dcbdcad14d7288248ce83045baba952cc6",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L120-L120"
+    },
+    "forecasts-2c1288d911c12d9dba44": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 27,
+      "evidenceDigest": "sha256:87bf952c2d56a2cbcb1032db21ddc27accf37d9dc9efc22f2694288000e9e52a",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-2c1288d911c12d9dba44",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 1053,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 1017
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 27,
+      "text": "",
+      "textDigest": "sha256:ae995dc6c5dfbde4ca784a18ce7a14b7f1bf103df7c0cf71fbf434f133d7aad6",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L27-L27"
+    },
+    "forecasts-3697d7f6e84dd5742597": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 140,
+      "evidenceDigest": "sha256:30ab9a25a6d1b52db62ed0b35d6a03d4cb685d0e70727908e5d63db2d8c89bad",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-3697d7f6e84dd5742597",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 9649,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 1055
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 29,
+      "text": "",
+      "textDigest": "sha256:95b37c9dcff9e8aa9ee929de552fd2fd7099af3a03acc21ff774033cca75066e",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L29-L140"
+    },
+    "forecasts-3b271aa33f7bd944bb5a": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 36,
+      "evidenceDigest": "sha256:67499adc57cea38c6cc93229aa40ae0c7688fedb08f82dc1c98ec0127f25e282",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-3b271aa33f7bd944bb5a",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 1741,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 1594
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 36,
+      "text": "",
+      "textDigest": "sha256:0aa7579134568df5c57c16d9d0e69cb3560d1a0ae00a3e8a32a1bc7311fe9bb9",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L36-L36"
+    },
+    "forecasts-3d7b217355f2e6a34064": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 139,
+      "evidenceDigest": "sha256:c8204e0e1fc1a8921a3fb73ad0d0ef2b1ee66adcf7a27866824abbfc3caecfd9",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-3d7b217355f2e6a34064",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 9647,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 8813
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 127,
+      "text": "",
+      "textDigest": "sha256:8a8703d6b15bac1a280cb22339d267641c3782a507215889aa9c92dbe3a5e0ab",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L127-L139"
+    },
+    "forecasts-43b5da447d0cdacd517e": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 50,
+      "evidenceDigest": "sha256:50a1784a6c198ebad2fb96636bc1ee13fb42ebffd73fcd1e56aa1b0704de28f6",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-43b5da447d0cdacd517e",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 2871,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 2857
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 50,
+      "text": "",
+      "textDigest": "sha256:cf2b826df70fbce80bd492d5ead551a36dd34b20c7cb31d05aac5ec41377c101",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L50-L50"
+    },
+    "forecasts-44c1216c3e37f45f4ff9": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 138,
+      "evidenceDigest": "sha256:cf9e50ce21978bc037491ba250487c4a1d0415f9c5426a0b3b237d92801cb220",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-44c1216c3e37f45f4ff9",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 9641,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 8910
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 129,
+      "text": "",
+      "textDigest": "sha256:d2ab0210e9c057452b8575d2e5482371407c5d44d2907e48d26a32bde6a48c6c",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L129-L138"
+    },
+    "forecasts-59f31d25c0ed89f258ae": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 15,
+      "evidenceDigest": "sha256:e7e4cb58d69642f2e26b349fea9d569bdf06f3a119fc36a4774b07e49d5ed8f1",
+      "file": "services/forecasts/src/main/kotlin/weather/ForecastController.kt",
+      "id": "forecasts-59f31d25c0ed89f258ae",
+      "occurrence": {
+        "blob": "d47ffdb98963d778367a656d920d2f938da883ed",
+        "endByte": 654,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 378
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 11,
+      "text": "",
+      "textDigest": "sha256:27828cf2cb56c48d1202c9cac45816beab54ab10c791bcd815e7fb4471231167",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/ForecastController.kt#L11-L15"
+    },
+    "forecasts-5bda17b9322e1d09244c": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 47,
+      "evidenceDigest": "sha256:03a7547950ff9d83f68f7f9ec1a25a1ec54ee5c6e05bd5b125efb15d953564c7",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-5bda17b9322e1d09244c",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 2503,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 2457
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 47,
+      "text": "",
+      "textDigest": "sha256:10231815283171f5cd920a27f2f053d4e732a9051bba3a48d340ac22b11c5412",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L47-L47"
+    },
+    "forecasts-5c0f3b18ff82fe4d8110": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 40,
+      "evidenceDigest": "sha256:7a18d45f2d690f6c56e3e0cf203a0ca3bd405255def9363322ba76da8e3968ec",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-5c0f3b18ff82fe4d8110",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 1977,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 1951
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 40,
+      "text": "",
+      "textDigest": "sha256:151cea50ab1822535e45cf412651cf77ee6f5d708b3043b34a5fc8c717ae8b8f",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L40-L40"
+    },
+    "forecasts-5c27f4aee13a3c5fa345": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 41,
+      "evidenceDigest": "sha256:32b275c658bc2807a7ccbd247f23bb839bd1eb8adb67f2e0a9750f1588566d11",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-5c27f4aee13a3c5fa345",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 2206,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 2019
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 41,
+      "text": "",
+      "textDigest": "sha256:c77f27a397f39ae8fa80f059230f0a5a61a1d7c75425dd4f6ee2762a8aec535a",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L41-L41"
+    },
+    "forecasts-6197b7e7ffd42134c675": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 43,
+      "evidenceDigest": "sha256:dfca91a30c4bb1057cac4f02ea727202dd703eae5d058fcb53b736286ea38c84",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-6197b7e7ffd42134c675",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 2266,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 2260
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 43,
+      "text": "",
+      "textDigest": "sha256:7187f0675eb3827939741acf7342ba78836ecec21a31ecf3f34a55309d3bee8a",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L43-L43"
+    },
+    "forecasts-68da87fb7524f89fb0ac": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 17,
+      "evidenceDigest": "sha256:8e2f57c3849a295e16b13562f164c3a79b309b043664f06a12a51d1e1fdcd557",
+      "file": "services/forecasts/src/main/kotlin/weather/ForecastController.kt",
+      "id": "forecasts-68da87fb7524f89fb0ac",
+      "occurrence": {
+        "blob": "d47ffdb98963d778367a656d920d2f938da883ed",
+        "endByte": 775,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 740
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 17,
+      "text": "",
+      "textDigest": "sha256:9c7bcfc17de7f90c22b663512080b6414aaac204b8db4bd128b24096a5fea5e4",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/ForecastController.kt#L17-L17"
+    },
+    "forecasts-740f3405b57f36fc72f3": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 66,
+      "evidenceDigest": "sha256:2fa3c6013863910caa9fe1a67a6c8cb19f63534285e40a68be0778c4125e9163",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-740f3405b57f36fc72f3",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 3941,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 3923
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 66,
+      "text": "",
+      "textDigest": "sha256:b964f1c009ac4ab760f3c84fbb9542d2975fd5cc941fa3473b46f294936c827f",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L66-L66"
+    },
+    "forecasts-77706d418ba7932d0d3f": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 17,
+      "evidenceDigest": "sha256:b91ac1b6efc41d79a55e8eafc7a491bd914c7c48eae67caab40bdc24f159b521",
+      "file": "services/forecasts/src/main/kotlin/weather/ForecastController.kt",
+      "id": "forecasts-77706d418ba7932d0d3f",
+      "occurrence": {
+        "blob": "d47ffdb98963d778367a656d920d2f938da883ed",
+        "endByte": 777,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 659
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 16,
+      "text": "",
+      "textDigest": "sha256:0d2c3ad4170b1f645788156defa7ad5c1dbf690a777abab6cda1e50b3f69bde8",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/ForecastController.kt#L16-L17"
+    },
+    "forecasts-7d79014f99ba83eadfd7": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 173,
+      "evidenceDigest": "sha256:d2794d9c97f33c7e20375d6b6e7a752746ff888303d10d6ab1888a2dec3378c9",
+      "file": "contracts/events.schema.json",
+      "id": "forecasts-7d79014f99ba83eadfd7",
+      "occurrence": {
+        "blob": "b2d10a337934b28f711793c5e03557ee307e8b19",
+        "endByte": 3914,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 0
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 1,
+      "text": "",
+      "textDigest": "sha256:cc9eba8df22972a4e017629c1da8a2062c63c2d0a2c242ce1dc4a698176429c5",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/contracts/events.schema.json#L1-L173"
+    },
+    "forecasts-7ea5dfea1728e5e2e238": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 13,
+      "evidenceDigest": "sha256:3745a24fae579509a57b9224b134e4bfd72ea921bfe3ce7c249a0149377366e2",
+      "file": "services/forecasts/src/main/kotlin/weather/ForecastController.kt",
+      "id": "forecasts-7ea5dfea1728e5e2e238",
+      "occurrence": {
+        "blob": "d47ffdb98963d778367a656d920d2f938da883ed",
+        "endByte": 556,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 516
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 13,
+      "text": "",
+      "textDigest": "sha256:6c66301dae87c159b643b37d19eae5d6e8989cc6f8624e752ae2dd19e8e6ddd5",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/ForecastController.kt#L13-L13"
+    },
+    "forecasts-814ab3aaee1977605c70": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 44,
+      "evidenceDigest": "sha256:d332169c60bcfe2b8bf441e2411ed8e28d3a45e131ee37abd4b5df63c93878f8",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-814ab3aaee1977605c70",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 2276,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 1898
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 40,
+      "text": "",
+      "textDigest": "sha256:d9950577c8d114841c3d08601124e187738c4beab658698ad46239e856a5bf9c",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L40-L44"
+    },
+    "forecasts-8437237940bc2e908ccb": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 46,
+      "evidenceDigest": "sha256:21e95992206c214f733841db36a3027cb08bae6fe5fdcd79f14e0ce579ff448c",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-8437237940bc2e908ccb",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 2444,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 2347
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 46,
+      "text": "",
+      "textDigest": "sha256:1b672248684e1a552a7751d2a0af083706c9adc5e754af25cc5f4d81b636e779",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L46-L46"
+    },
+    "forecasts-84ab2c89d2ea61234233": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 67,
+      "evidenceDigest": "sha256:50d823533193ca90360c61a029f9980cdcd67983a41be4cb0b9a8f3595995152",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-84ab2c89d2ea61234233",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 4049,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 3848
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 65,
+      "text": "",
+      "textDigest": "sha256:98dcc3ea1e4e99eec48579e9128cd40ca70496ef06ccd805b5b37106f4d44522",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L65-L67"
+    },
+    "forecasts-85fe67fa83679d5c2807": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 52,
+      "evidenceDigest": "sha256:b91824c3b960af48be49a595fe5072cc3e47f416317e706325cc10a9853c4d85",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-85fe67fa83679d5c2807",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 2918,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 2890
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 52,
+      "text": "",
+      "textDigest": "sha256:45f0754d2299e8536adbc9a9db18ddbc49eefb2fdab230ba47551a7a50d4983d",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L52-L52"
+    },
+    "forecasts-9abefb87ce9da5369dcc": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 191,
+      "evidenceDigest": "sha256:16b9710822d900b23517e9a41aa5d1423ed743011862d48fbbbe2fb4bd94b7c8",
+      "file": "contracts/forecasts.openapi.json",
+      "id": "forecasts-9abefb87ce9da5369dcc",
+      "occurrence": {
+        "blob": "80cec47a70d2a712b02bc810e353de46a008ac64",
+        "endByte": 5147,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 0
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 1,
+      "text": "",
+      "textDigest": "sha256:cf1ce22267df655852f605196edc7833a815c9a893b71128a954081038370b80",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/contracts/forecasts.openapi.json#L1-L191"
+    },
+    "forecasts-a38291144ad4bd8a411b": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 20,
+      "evidenceDigest": "sha256:50c7c62a0e76c7f181d9ec912f782de7d9a0ec847cfefe9ce30cb30b25ae2c83",
+      "file": "services/forecasts/src/main/kotlin/weather/ForecastController.kt",
+      "id": "forecasts-a38291144ad4bd8a411b",
+      "occurrence": {
+        "blob": "d47ffdb98963d778367a656d920d2f938da883ed",
+        "endByte": 992,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 297
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 9,
+      "text": "",
+      "textDigest": "sha256:45d873fa042fb2bfb738ca1a4208dc4a7e1565befa67e79b7ebd76b8952b34b9",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/ForecastController.kt#L9-L20"
+    },
+    "forecasts-a38d386449227ba051cf": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 44,
+      "evidenceDigest": "sha256:549db20c4e393bada4a55b5fdaf097e6e8be5ebbec4cb4424a1a1aae6f487ca4",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-a38d386449227ba051cf",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 2276,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 1910
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 40,
+      "text": "",
+      "textDigest": "sha256:708eb568aaff8463dc4a2d41b20c261ab450dc22a4a6daaa319843c40bd9da7a",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L40-L44"
+    },
+    "forecasts-a73ae3b4a6eb6513fdcd": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 13,
+      "evidenceDigest": "sha256:b3ac58f7d27187e457fb3d1c4c9a235a73ccf476b345c94cb3389c36f688e9e3",
+      "file": "services/forecasts/src/main/kotlin/weather/ForecastController.kt",
+      "id": "forecasts-a73ae3b4a6eb6513fdcd",
+      "occurrence": {
+        "blob": "d47ffdb98963d778367a656d920d2f938da883ed",
+        "endByte": 556,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 495
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 13,
+      "text": "",
+      "textDigest": "sha256:3a2ab3ab883f0c1ff96b6fb9e29f2049fdaeb62368942a5b59ca0323c02ea98e",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/ForecastController.kt#L13-L13"
+    },
+    "forecasts-a91ff11cffbbe839dcfe": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 132,
+      "evidenceDigest": "sha256:28a3d33de7306a08a0573bfa88edd6fb2b8f1f9a772f7f73fdea526f73bc395e",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-a91ff11cffbbe839dcfe",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 9182,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 9135
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 132,
+      "text": "",
+      "textDigest": "sha256:94eeaa2fd175741d94963fd628cc24ded79321c72d247effde48c355b828147b",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L132-L132"
+    },
+    "forecasts-acbf22bab989bab22a0c": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 42,
+      "evidenceDigest": "sha256:0cfe4e721fabb3205c73d3d7d8eb71b4adbd1fb861be6f53401671dd01cb30cf",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-acbf22bab989bab22a0c",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 2247,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 2219
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 42,
+      "text": "",
+      "textDigest": "sha256:45f0754d2299e8536adbc9a9db18ddbc49eefb2fdab230ba47551a7a50d4983d",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L42-L42"
+    },
+    "forecasts-ad28a606f0881dfe7cfc": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 53,
+      "evidenceDigest": "sha256:75f28391188e016f4cd19d7e61a08699a7eaaa64d58b43b44c4b71414feec28d",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-ad28a606f0881dfe7cfc",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 2924,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 1747
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 38,
+      "text": "",
+      "textDigest": "sha256:f6e86f56f6858e6c825ad010e8b1d1cd4816fc6beaba9bda5daa3a855915c37f",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L38-L53"
+    },
+    "forecasts-ae29ebea4e122d8b81f7": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 14,
+      "evidenceDigest": "sha256:eeeb0ab03e03a05a1c94fe68764578a4c22c7d6a039d19b98ba23dc50977cce9",
+      "file": "services/forecasts/src/main/kotlin/weather/ForecastController.kt",
+      "id": "forecasts-ae29ebea4e122d8b81f7",
+      "occurrence": {
+        "blob": "d47ffdb98963d778367a656d920d2f938da883ed",
+        "endByte": 648,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 565
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 14,
+      "text": "",
+      "textDigest": "sha256:823a5e1e73a087bc974b86aa0815299fa39556fc39bc8d0d28a75a5480afdb5e",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/ForecastController.kt#L14-L14"
+    },
+    "forecasts-b7a8f5b7842c514f7f59": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 51,
+      "evidenceDigest": "sha256:a884ef80db214b344f8266c535c149957d60b069b26c13665086f121186ac935",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-b7a8f5b7842c514f7f59",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 2881,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 2318
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 45,
+      "text": "",
+      "textDigest": "sha256:e0e1cd6cf020be2d85f8c3c988b16e98abcd37a9fdf54e12110ae6ff2d1b7b82",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L45-L51"
+    },
+    "forecasts-b86b8774a179db381547": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 121,
+      "evidenceDigest": "sha256:753cf7c4f262eb797b626ddc5da91195a715b364239317324b48c3036361340c",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-b86b8774a179db381547",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 8581,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 8477
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 121,
+      "text": "",
+      "textDigest": "sha256:4261e373460aab5ad54c1c9c358d14f8d02c6163c902c94a10163616c63a53c4",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L121-L121"
+    },
+    "forecasts-bdedac7f9b2afb2a8e68": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 103,
+      "evidenceDigest": "sha256:5f6e5c13c4d38610b2746fc9cf26a5cb84fc47509715c64d719d4497ed21f972",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-bdedac7f9b2afb2a8e68",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 6875,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 6839
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 103,
+      "text": "",
+      "textDigest": "sha256:6785ff63780ccc77ebf76a0332002d0110076e87fc5037f22eb79b5773dfedfa",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L103-L103"
+    },
+    "forecasts-c0b9aa485ebf80a7fcc5": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 19,
+      "evidenceDigest": "sha256:41092516749c45b3cc3ebb0915dfe5890301cdbee1d9d961a879f1fa84e72d88",
+      "file": "services/forecasts/src/main/kotlin/weather/ForecastController.kt",
+      "id": "forecasts-c0b9aa485ebf80a7fcc5",
+      "occurrence": {
+        "blob": "d47ffdb98963d778367a656d920d2f938da883ed",
+        "endByte": 990,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 782
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 18,
+      "text": "",
+      "textDigest": "sha256:eb9132ba4ad595c35dee0eae14dfdf3fc767fda641f515dc17b4312fa0c132c0",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/ForecastController.kt#L18-L19"
+    },
+    "forecasts-c276c8bbe48869c1c665": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 137,
+      "evidenceDigest": "sha256:1c670611de53dc8bed8c98a0c255a0a62e7ec5843e133a8ca1c4fbcd2ec94e07",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-c276c8bbe48869c1c665",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 9536,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 8961
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 130,
+      "text": "",
+      "textDigest": "sha256:dfd12c6844254af3f47da8583caf9fb27730c9deb22341a8a9d5559e219f2eb5",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L130-L137"
+    },
+    "forecasts-ca69bbde23a96263a8aa": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 132,
+      "evidenceDigest": "sha256:8fd56d8636ab3538eda25bad0d9c12ca60aab357956f552e8c3d4ddc3cbea754",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-ca69bbde23a96263a8aa",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 9182,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 9155
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 132,
+      "text": "",
+      "textDigest": "sha256:c3d89e90ed6f85f06558a602baf6f22dc860196be1624385cca5d0d41ad9e216",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L132-L132"
+    },
+    "forecasts-cbe0a836e93f909f2825": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 47,
+      "evidenceDigest": "sha256:b4117591a89dd5d5be2d80996ddbf4fada6bdebe6979bc1d95eb8ad44e603e2c",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-cbe0a836e93f909f2825",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 2503,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 2476
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 47,
+      "text": "",
+      "textDigest": "sha256:c3d89e90ed6f85f06558a602baf6f22dc860196be1624385cca5d0d41ad9e216",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L47-L47"
+    },
+    "forecasts-cc58d8643f3d17e4b691": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 60,
+      "evidenceDigest": "sha256:4d62c9e1450dd4343277ea2192b17af525dc4d5e219e330b924caa2405a15322",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-cc58d8643f3d17e4b691",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 3383,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 2930
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 55,
+      "text": "",
+      "textDigest": "sha256:eeaf405e527d587a183f4fa5fada82a30adb0c22a13668e03402daff10986e04",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L55-L60"
+    },
+    "forecasts-cc65db9fa6bd3a33f4ba": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 118,
+      "evidenceDigest": "sha256:64eb7404b53c88e675a44353620b27d8617d155b2c9768f164a447ab8df0aa54",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-cc65db9fa6bd3a33f4ba",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 7985,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 7938
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 118,
+      "text": "",
+      "textDigest": "sha256:92a71a8e7336aea21cbd8885d6f7480eb68e0f91bebb8775c21f98ff0459de4b",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L118-L118"
+    },
+    "forecasts-cf87224657914cc333f2": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 16,
+      "evidenceDigest": "sha256:506cc760d274014f2be47d05a52dff7856f2a316ee09d01a9eb2aeb7bc164923",
+      "file": "database/init.sql",
+      "id": "forecasts-cf87224657914cc333f2",
+      "occurrence": {
+        "blob": "d6a730f8bea7d8b47fe81d22063aa8a4e2ade4c4",
+        "endByte": 1583,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 0
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 1,
+      "text": "",
+      "textDigest": "sha256:c888c357d74a2e37512309e826d90fc689be0c348fb3e1cbfe635ce5a46f879f",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/database/init.sql#L1-L16"
+    },
+    "forecasts-d3cdb716aaac8f6ed002": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 108,
+      "evidenceDigest": "sha256:647154c6a4a420d99375b037cdd0a886f1ad5d8d77aa8372c86ea4c289abe81e",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-d3cdb716aaac8f6ed002",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 7356,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 7161
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 108,
+      "text": "",
+      "textDigest": "sha256:f326d8864e983fb797be6dde658427fb57ccf16ae162771b949b182a0bc60400",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L108-L108"
+    },
+    "forecasts-d52cf4645c46f8e43578": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 114,
+      "evidenceDigest": "sha256:e3269e0707614ffe7d4f3800f86b29fba7e29e1f10e756001d012bd5f2ec6b6c",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-d52cf4645c46f8e43578",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 7719,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 7650
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 114,
+      "text": "",
+      "textDigest": "sha256:5215d8ba76be30ce93d12c5a64c1791940fa65495f0906a354d79d34a57d06fc",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L114-L114"
+    },
+    "forecasts-d988fd0a0bd0b1deecfb": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 18,
+      "evidenceDigest": "sha256:16fa08a8b95e74158832b41b0da0594d127f7181865507f88d40a013abece5df",
+      "file": "services/forecasts/src/main/kotlin/weather/KafkaConfiguration.kt",
+      "id": "forecasts-d988fd0a0bd0b1deecfb",
+      "occurrence": {
+        "blob": "b24a06cb1abeaf042d872cd7c5858e7d7d396a58",
+        "endByte": 1027,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 510
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 11,
+      "text": "",
+      "textDigest": "sha256:85112fbc327c75213e55769c5effaf4cc3706cb337658f7812b7bde80b534805",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/KafkaConfiguration.kt#L11-L18"
+    },
+    "forecasts-e0b522ecefdf6da700eb": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 49,
+      "evidenceDigest": "sha256:8ec0f7dccf1365ef588f2929b5327011f0de96c90ce655026eec035aeb601119",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-e0b522ecefdf6da700eb",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 2844,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 2555
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 49,
+      "text": "",
+      "textDigest": "sha256:02fa1dbd48009dc67afb3a01557dfc9e57cc3f4aaf3ac0e4dbe840a57b21504b",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L49-L49"
+    },
+    "forecasts-e9881531c62a3422e80b": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 64,
+      "evidenceDigest": "sha256:ac8d6b3e449cba0135c2126c5a0dc26db8ca47065df0496eacb108e91cf81cf1",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-e9881531c62a3422e80b",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 3838,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 3674
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 64,
+      "text": "",
+      "textDigest": "sha256:ed002b87ce35f1da1c252441c69c07df1c085c687ff82b3c8791f48dbac3f5a2",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L64-L64"
+    },
+    "forecasts-ea6dd04c278f12f668b5": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 66,
+      "evidenceDigest": "sha256:d0aca63cb362c98d9255ab7644f4d7f5f4dc4fff0156f80b60fd57dee464e334",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-ea6dd04c278f12f668b5",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 4039,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 3884
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 66,
+      "text": "",
+      "textDigest": "sha256:e83d80f3301f7564226d9660ba13fb89dd96448d478f871b7cc6298dd8f41f47",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L66-L66"
+    },
+    "forecasts-ff171b4088a1fea4d1c5": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 51,
+      "evidenceDigest": "sha256:8fded21808cf833a4738d5c84be655660c967268e6862aecc7fa7cb2289712e5",
+      "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+      "id": "forecasts-ff171b4088a1fea4d1c5",
+      "occurrence": {
+        "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+        "endByte": 2881,
+        "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+        "startByte": 2285
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "forecasts",
+      "startLine": 45,
+      "text": "",
+      "textDigest": "sha256:9e3b2dc60127c889d519018f1539c301c961388ecf2fea4dcfb277b312d69719",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L45-L51"
+    }
+  },
+  "state": {
+    "contentRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "coverage": {
+      "dashboard": {
+        "boundaries": [
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/dashboard.openapi.json",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+          "FILE_ONLY:exercises/replay.py",
+          "FILE_ONLY:exercises/validator-regression.mjs",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/dashboard/Dockerfile",
+          "FILE_ONLY:services/dashboard/package-lock.json",
+          "FILE_ONLY:services/dashboard/package.json",
+          "FILE_ONLY:services/dashboard/public/index.html",
+          "FILE_ONLY:services/dashboard/tsconfig.json",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "SCOPE_WATCH_CONSERVATIVE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "forecasts": {
+        "boundaries": [
+          "ANNOTATION_DECLARATION_UNAVAILABLE",
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:contracts/forecasts.openapi.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/forecasts/Dockerfile",
+          "FILE_ONLY:services/forecasts/pom.xml",
+          "FILE_ONLY:services/forecasts/src/main/resources/application.properties",
+          "NO_BEAN_OWNER",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "RUNTIME_REGISTRATION_UNPROVEN",
+          "SCOPE_WATCH_CONSERVATIVE",
+          "SOURCE_NAMES_NOT_COMPILER_RESOLVED",
+          "UNRESOLVED_ANNOTATION_VALUE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "places": {
+        "boundaries": [
+          "CLR_SIGNATURE_PROJECTED_TO_JVM_DESCRIPTOR_GRAMMAR",
+          "CSHARP_SOURCE_GENERATED_DOCUMENTS_NOT_INDEXED",
+          "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+          "GENERATED_SOURCE_BODIES_NOT_INDEXED",
+          "LAMBDA_EXECUTION_NOT_EXPANDED",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+          "SWITCH_FLOW_REQUIRES_SOURCE_REVIEW"
+        ],
+        "coverage": "PARTIAL"
+      }
+    },
+    "freshness": "UNVERIFIED",
+    "reasons": [
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:075eaf91a32efa41fabb141466eef5f868bab2be3a330c91f6459ad3fbf6d4f4/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:2670b888a7260cb79c4fea9ba99055838dd5fb9c0b6424324a66f731b76cf345/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:504b0babac4b6086256f5881975f96e395c4752c57a841887f5d7d19f8399f14/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:8cfa6609f990481eaff2383c5863cbd1f6d71d851f0fb8331d98ed21ec16122a/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:9d7396f3571d9e6903b744f17b28fbc3f6eeaa23340800217f19e6f1c3fb3a48/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:a83f5e37b1f441e91da6cfecbe89c9c46a23b9a98503e929c18ec3060f65fd96/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:a89632e1e09a12549ee8b46b7ad66049f0180801d91c29ddd8a2549101591572/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:dc696444abfd17803a99e40cab6476bc78a7a2dc05b37bca1f98f1dc1b9ffe4d/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:f9320dacc7fb65a75d47abe97bde64f17495db3abd5759532e053b6bd562b148/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:b57016f8fd0621d202cb2ee1e96f17cd3ba84d6a935e64660e40ac3d60be0ca4/164667"
+      }
+    ],
+    "targetRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "verification": "UNASSESSED"
+  }
+}

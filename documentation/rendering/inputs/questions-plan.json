@@ -1,0 +1,334 @@
+{
+  "schema": "codeclew-question-reading-plans/1.0",
+  "plans": [
+    {
+      "schema": "codeclew-question-reading-plan/1.0",
+      "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+      "subject": "scenario:dashboard-save-city",
+      "presentation": "QUESTIONS",
+      "language": "en",
+      "title": "Save a city",
+      "purpose": "Dashboard sends the city to Places and returns the save result.",
+      "sections": [
+        {
+          "id": "request",
+          "title": "Dashboard sends the save request",
+          "number": 1,
+          "blocks": [
+            {
+              "title": "Request",
+              "text": "Dashboard receives a city ID and sends the save request to Places.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-ecf46452e0e2d4142ff4",
+                  "textDigest": "sha256:da23a1c796a1dbe4366984219079e06916ed953275c3f981e75e67757a48df47"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-acefd929067d5d7fd3f8",
+                  "textDigest": "sha256:5333b150393704364447c4093f49015f5b28110cc8e04ba30b67296ff6db5fa3"
+                },
+                {
+                  "kind": "SOURCE",
+                  "service": "dashboard",
+                  "sourceId": "dashboard-3e51b17ac52447614116",
+                  "textDigest": "sha256:24e65777311802d2204bc41eedf3b814e869f777c2e65cb74d5c8be8c4d47e6a",
+                  "startLine": 105,
+                  "endLine": 105
+                }
+              ]
+            },
+            {
+              "title": "Address and contracts",
+              "text": "The selected Compose config sets PLACES_URL to http://places:8080, also the source default. The example target is POST http://places:8080/places. Production address and actual receiver routing are unverified; the saved service mapping is agent-proposed.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-acefd929067d5d7fd3f8",
+                  "textDigest": "sha256:5333b150393704364447c4093f49015f5b28110cc8e04ba30b67296ff6db5fa3"
+                },
+                {
+                  "kind": "SOURCE",
+                  "service": "dashboard",
+                  "sourceId": "dashboard-3e51b17ac52447614116",
+                  "textDigest": "sha256:24e65777311802d2204bc41eedf3b814e869f777c2e65cb74d5c8be8c4d47e6a",
+                  "startLine": 10,
+                  "endLine": 10
+                },
+                {
+                  "kind": "SOURCE",
+                  "service": "dashboard",
+                  "sourceId": "dashboard-67fd8b5d5f69c5f96061",
+                  "textDigest": "sha256:76d5d8226d233a558b901a06887bcce216e4738778edff8462367d827169c167",
+                  "startLine": 77,
+                  "endLine": 77
+                }
+              ],
+              "disclosure": "Address and contracts",
+              "preview": "Compose: POST http://places:8080/places \u00b7 production URL unknown.",
+              "links": [
+                {
+                  "subject": "service:dashboard",
+                  "operation": "dashboard-ad968c2137fedea90215",
+                  "label": "Dashboard entry and contract"
+                },
+                {
+                  "subject": "service:places",
+                  "operation": "places-691b340ea61828b197b6",
+                  "label": "Places handler and contract"
+                }
+              ]
+            },
+            {
+              "title": "If the exchange with Places fails",
+              "text": "Fetch, JSON decoding or the 10-second timeout can lead to `503 PLACES_UNAVAILABLE`.\nThe save may already have completed. Whether retry is safe is not established.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-cf37e81b84fb3c4f98a2",
+                  "textDigest": "sha256:5e9afd2e6bb0a768388940aa220e8c83d38dc3cb37bf58a6a248998d2652259b"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-9d18e4f6fd821425ecde",
+                  "textDigest": "sha256:beb74ce536265057c927cb281bd216abb7a18698389fdcf3842e930d61fb647f"
+                }
+              ],
+              "id": "exchange-error",
+              "tone": "ERROR",
+              "navTitle": "Exchange failure \u00b7 503"
+            }
+          ],
+          "navTitle": "Request",
+          "icon": "arrow-right",
+          "route": "POST /api/places    \u2192    POST /places"
+        },
+        {
+          "id": "validation",
+          "title": "Places checks the city",
+          "number": 2,
+          "blocks": [
+            {
+              "title": "Supported cities",
+              "text": "The supported city IDs are `oslo`, `helsinki` and `lisbon`.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-ecf46452e0e2d4142ff4",
+                  "textDigest": "sha256:da23a1c796a1dbe4366984219079e06916ed953275c3f981e75e67757a48df47"
+                }
+              ]
+            },
+            {
+              "title": "If the city is unsupported",
+              "text": "`400 UNSUPPORTED_CITY`. This branch does not save the city.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-11333090ea53ac65e7fb",
+                  "textDigest": "sha256:ab669d1f5d0e51f483b5adbd62b4b52453d71a26131cceb0e65ed9ede64dc42d"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-4b59eebe6c237238c7c7",
+                  "textDigest": "sha256:e2433660b3cb7b73724963beca4433f456ca95558b7884860c614cb9fbbe0f5a"
+                }
+              ],
+              "id": "unsupported-city",
+              "tone": "WARNING",
+              "navTitle": "Unsupported city \u00b7 400"
+            }
+          ],
+          "navTitle": "Check city"
+        },
+        {
+          "id": "save",
+          "title": "Places saves the city",
+          "number": 3,
+          "blocks": [
+            {
+              "title": "New city",
+              "text": "A new Place and its request for later publication (outbox) are saved in one database transaction.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-29033dc7ad40b6e51146",
+                  "textDigest": "sha256:a57b348d53e06a02fb1dae653f687eb48e9168db7849fc0f0d7e3e8270c8dcb9"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-e8898297962cd3e5ede9",
+                  "textDigest": "sha256:1c8454f9ac88cd1d9e7bdfd1f32c0e1ac6f37cbb1eb9d7f5e11ae5fc1ed98acc"
+                }
+              ],
+              "links": [
+                {
+                  "subject": "service:places",
+                  "operation": "section-entities",
+                  "label": "Place \u00b7 fields and context"
+                }
+              ]
+            },
+            {
+              "title": "If the city already exists",
+              "text": "An existing city creates neither a new Place nor a new outbox record.\nThe transaction commits in either case, and Places returns `200` with the city.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-d8d73624fb84cb42c190",
+                  "textDigest": "sha256:8e3eeeba28dfa387d3166350afb30fa2ba03bcee1017ff2e8c98bb76af14f917"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-8bb24d847af485cf881b",
+                  "textDigest": "sha256:4d537f5cbe90344cf03a195de020ed61d38bcfba562629f15684cb606046f520"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-85c6428d31b46191f479",
+                  "textDigest": "sha256:3b5e89988723b309efbe73c1f70aab2d73b975e2b46bca24dddf568f36a4247e"
+                }
+              ]
+            }
+          ],
+          "navTitle": "Save city",
+          "icon": "database"
+        },
+        {
+          "id": "result",
+          "title": "Dashboard returns the result",
+          "number": 4,
+          "blocks": [
+            {
+              "title": "Local response",
+              "text": "Places returns `200` with the city after saving. Dashboard forwards the status and parsed JSON to the client.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-85c6428d31b46191f479",
+                  "textDigest": "sha256:3b5e89988723b309efbe73c1f70aab2d73b975e2b46bca24dddf568f36a4247e"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-ed6ef06e7260780eb380",
+                  "textDigest": "sha256:bba97b40ab605d7c9aff36296c19832666543e52cf35e0d07200e4b9f9047d8d"
+                }
+              ]
+            },
+            {
+              "title": "What 200 means",
+              "text": "The `200` response describes the local save result. It does not confirm forecast readiness or completion of the whole message flow.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-1cd536e010d3cd375a7e",
+                  "textDigest": "sha256:a2e618b4fee4cf6a234b98d5141f36b6525b6728f236912c3671b8d4c7261533"
+                },
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-3aeab4fe16dd2fe0b49e",
+                  "textDigest": "sha256:603c4d1a30edc9044e7308c8b424ba4d30912329a151a6a103126ff277bfdf80"
+                }
+              ],
+              "tone": "INFO"
+            }
+          ],
+          "navTitle": "Result"
+        },
+        {
+          "id": "confidence",
+          "title": "Full description and sources",
+          "navTitle": "Sources and provenance",
+          "blocks": [
+            {
+              "title": "Object context",
+              "text": "Place contains Id, Name, Latitude and Longitude. SavePlace carries CityId; request_outbox holds a delivery record. Formal domain identity and ownership have not been declared in the saved evidence.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "service:places",
+                  "operation": "section-entities",
+                  "fragmentId": "claim-b4df91eec926f5311ba3",
+                  "textDigest": "sha256:210a03ea2fae06e4339930e231217be787d2ee38eb30cb299e23c90ed36ee27e"
+                }
+              ]
+            },
+            {
+              "title": "Story boundary",
+              "text": "An outbox record alone does not prove Kafka publication, delivery, processing or a forecast ready to display. Related accounts retain their own sources and limits; their links do not establish an observed execution sequence.",
+              "evidence": [
+                {
+                  "kind": "RETAINED",
+                  "subject": "scenario:dashboard-save-city",
+                  "operation": "dashboard-save-city",
+                  "fragmentId": "claim-1cd536e010d3cd375a7e",
+                  "textDigest": "sha256:a2e618b4fee4cf6a234b98d5141f36b6525b6728f236912c3671b8d4c7261533"
+                }
+              ],
+              "links": [
+                {
+                  "subject": "scenario:places-request-publisher",
+                  "operation": "process-overview",
+                  "label": "Related place-request publisher"
+                },
+                {
+                  "subject": "scenario:dashboard-forecast-updated-consumer",
+                  "operation": "process-overview",
+                  "label": "Related Dashboard forecast consumer"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "conclusion": {
+        "title": "Local outcome",
+        "text": "A 200 response does not establish message delivery or forecast readiness.",
+        "evidence": [
+          {
+            "kind": "RETAINED",
+            "subject": "scenario:dashboard-save-city",
+            "operation": "dashboard-save-city",
+            "fragmentId": "claim-1cd536e010d3cd375a7e",
+            "textDigest": "sha256:a2e618b4fee4cf6a234b98d5141f36b6525b6728f236912c3671b8d4c7261533"
+          }
+        ]
+      }
+    }
+  ]
+}

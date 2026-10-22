@@ -1,0 +1,36 @@
+{
+  "id": "forecasts-refresh-scheduled",
+  "interactions": [
+    "forecasts-refresh-to-external-met",
+    "forecasts-to-met-demo"
+  ],
+  "maxDepth": 4,
+  "maxNodes": 64,
+  "process": {
+    "linkedSubviews": [
+      "forecasts-publish-pending"
+    ],
+    "objects": [],
+    "outcomes": [
+      "Retain the source-described missing/expired selection, cached return, fixture/live provider, response and transform branches, and persistence/outbox outcomes."
+    ],
+    "participants": [
+      "forecasts",
+      "met-norway"
+    ],
+    "scope": "Forecasts.refreshExpired and the shared Forecasts.refresh provider/cache/persistence path.",
+    "trigger": "The source-declared refreshExpired entrypoint is invoked; whether the scheduler activates it at runtime is not established by this snapshot."
+  },
+  "root": {
+    "selector": {
+      "language": "kotlin",
+      "name": "refreshExpired",
+      "owner": "class:weather.Forecasts",
+      "parameterTypes": []
+    },
+    "service": "forecasts"
+  },
+  "schema": "codeclew-documentation-process/1.0",
+  "summary": "Source-level view of the refreshExpired entrypoint and its shared refresh path; runtime scheduling activation is unverified.",
+  "title": "Refresh cached and provider forecasts"
+}

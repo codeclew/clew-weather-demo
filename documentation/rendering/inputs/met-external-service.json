@@ -1,0 +1,15 @@
+{
+  "schema": "codeclew-documentation-external-service/1.0",
+  "id": "met-norway",
+  "title": "MET Norway Locationforecast",
+  "description": "Declared information for the external api.met.no Locationforecast boundary referenced by retained Forecasts.kt. Target implementation and live requests are not captured.",
+  "wiki": "https://api.met.no/weatherapi/locationforecast/2.0",
+  "declaration": {
+    "origin": "agent-proposal",
+    "rationale": "Demo-owned declaration based on retained Forecasts.kt at revision c289b28be4819eddf29d59a7c12f178559ec5229, line85: GET weatherapi/locationforecast/2.0/compact with lat/lon query. No target source acquisition or runtime claim."
+  },
+  "limitations": [
+    "Declared metadata; no MET source capture or runtime/API-response verification.",
+    "This isolated recompose does not replace the original accepted Weather publication."
+  ]
+}

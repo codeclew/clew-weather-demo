@@ -1,0 +1,957 @@
+{
+  "contracts": [],
+  "externalCalls": [],
+  "operation": {
+    "boundaries": [
+      "The Dashboard-to-Places receiver mapping is agent-proposed; runtime target binding and routing are unverified. This process is source-level, and its linked publisher and consumer views do not prove publication or delivery. The 503 wrapper does not reveal whether Places committed before the client error. No current compiler or runtime verification was performed for this draft.",
+      "CALL_TARGETS_UNRESOLVED",
+      "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+      "FILE_ONLY:compose.yaml",
+      "FILE_ONLY:contracts/dashboard.openapi.json",
+      "FILE_ONLY:contracts/events.schema.json",
+      "FILE_ONLY:database/init.sql",
+      "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+      "FILE_ONLY:exercises/replay.py",
+      "FILE_ONLY:exercises/validator-regression.mjs",
+      "FILE_ONLY:fixtures/helsinki.json",
+      "FILE_ONLY:fixtures/lisbon.json",
+      "FILE_ONLY:fixtures/met-oslo-recorded.json",
+      "FILE_ONLY:fixtures/oslo.json",
+      "FILE_ONLY:fixtures/provenance.json",
+      "FILE_ONLY:services/dashboard/Dockerfile",
+      "FILE_ONLY:services/dashboard/package-lock.json",
+      "FILE_ONLY:services/dashboard/package.json",
+      "FILE_ONLY:services/dashboard/public/index.html",
+      "FILE_ONLY:services/dashboard/tsconfig.json",
+      "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+      "ORDER_LEXICAL_ONLY",
+      "SCOPE_WATCH_CONSERVATIVE",
+      "Syntax evidence does not establish runtime dispatch or configuration. Expand known owners and helpers; retain explicit gaps for unresolved targets.",
+      "ANNOTATION_DECLARATION_UNAVAILABLE",
+      "CALL_TARGETS_UNRESOLVED",
+      "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+      "FILE_ONLY:compose.yaml",
+      "FILE_ONLY:contracts/events.schema.json",
+      "FILE_ONLY:contracts/forecasts.openapi.json",
+      "FILE_ONLY:database/init.sql",
+      "FILE_ONLY:fixtures/helsinki.json",
+      "FILE_ONLY:fixtures/lisbon.json",
+      "FILE_ONLY:fixtures/met-oslo-recorded.json",
+      "FILE_ONLY:fixtures/oslo.json",
+      "FILE_ONLY:fixtures/provenance.json",
+      "FILE_ONLY:services/forecasts/Dockerfile",
+      "FILE_ONLY:services/forecasts/pom.xml",
+      "FILE_ONLY:services/forecasts/src/main/resources/application.properties",
+      "NO_BEAN_OWNER",
+      "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+      "ORDER_LEXICAL_ONLY",
+      "RUNTIME_REGISTRATION_UNPROVEN",
+      "SCOPE_WATCH_CONSERVATIVE",
+      "SOURCE_NAMES_NOT_COMPILER_RESOLVED",
+      "UNRESOLVED_ANNOTATION_VALUE",
+      "Syntax evidence does not establish runtime dispatch or configuration. Expand known owners and helpers; retain explicit gaps for unresolved targets.",
+      "CLR_SIGNATURE_PROJECTED_TO_JVM_DESCRIPTOR_GRAMMAR",
+      "CSHARP_SOURCE_GENERATED_DOCUMENTS_NOT_INDEXED",
+      "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+      "GENERATED_SOURCE_BODIES_NOT_INDEXED",
+      "LAMBDA_EXECUTION_NOT_EXPANDED",
+      "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+      "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+      "SWITCH_FLOW_REQUIRES_SOURCE_REVIEW"
+    ],
+    "documentationLanguage": "en",
+    "events": [
+      {
+        "dependencyIds": [
+          "dashboard:symbol:1612e17d589cb9d0fa4ae1f7"
+        ],
+        "from": "caller",
+        "id": "claim-624069f7e9f5280c87d0",
+        "kind": "message",
+        "sourceIds": [
+          "dashboard-1612e17d589cb9d0fa4a"
+        ],
+        "text": "A caller enters requestRefresh with the place ID in the route parameters.",
+        "to": "service-dashboard"
+      },
+      {
+        "dependencyIds": [
+          "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+          "interaction:dashboard-request-refresh-to-places",
+          "process:dashboard-refresh-request"
+        ],
+        "from": "service-dashboard",
+        "id": "claim-200c312ea5553a634796",
+        "interaction": "dashboard-request-refresh-to-places",
+        "kind": "message",
+        "sourceIds": [
+          "dashboard-1612e17d589cb9d0fa4a"
+        ],
+        "text": "Dashboard sends a bodyless POST to /places/{id}/refresh, URL-encodes the ID and applies a 10-second timeout. This declared receiver mapping is agent-proposed; runtime routing is unverified.",
+        "to": "places"
+      },
+      {
+        "dependencyIds": [
+          "dashboard:flow:0c42e8da3e274553f5bc00ef",
+          "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+          "process:dashboard-refresh-request"
+        ],
+        "id": "claim-bf89f4017c8f27d8ccee",
+        "kind": "alt",
+        "sourceIds": [
+          "dashboard-0c42e8da3e274553f5bc",
+          "dashboard-1612e17d589cb9d0fa4a"
+        ],
+        "text": "Dashboard fetch and response.json complete"
+      },
+      {
+        "dependencyIds": [
+          "places:entrypoint:f471dd170980c48ef424033f",
+          "places:symbol:24afabf4ce6fb0dad4a762cb",
+          "places:symbol:65de4bdfa04d114b73dffbc2"
+        ],
+        "id": "claim-be2e6b692aac109c6242",
+        "kind": "alt",
+        "sourceIds": [
+          "places-24afabf4ce6fb0dad4a7",
+          "places-65de4bdfa04d114b73df"
+        ],
+        "text": "Places.Find returns null"
+      },
+      {
+        "dependencyIds": [
+          "places:entrypoint:f471dd170980c48ef424033f",
+          "places:symbol:24afabf4ce6fb0dad4a762cb",
+          "places:symbol:65de4bdfa04d114b73dffbc2"
+        ],
+        "from": "places",
+        "id": "claim-ac3adf09bf90577534a4",
+        "kind": "return",
+        "sourceIds": [
+          "places-24afabf4ce6fb0dad4a7",
+          "places-65de4bdfa04d114b73df"
+        ],
+        "text": "Refresh returns 404 PLACE_NOT_FOUND before Enqueue. This branch terminates without an outbox insert or 202 response.",
+        "to": "service-dashboard"
+      },
+      {
+        "dependencyIds": [
+          "places:entrypoint:f471dd170980c48ef424033f",
+          "places:symbol:24afabf4ce6fb0dad4a762cb",
+          "places:symbol:65de4bdfa04d114b73dffbc2"
+        ],
+        "id": "claim-42aa4fb6ca48ad946c02",
+        "kind": "else",
+        "sourceIds": [
+          "places-24afabf4ce6fb0dad4a7",
+          "places-65de4bdfa04d114b73df"
+        ],
+        "text": "Otherwise"
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:434ffab68fae2f991ebba252",
+          "places:symbol:51d94b76d870001475fd2c51",
+          "places:symbol:707eb762b8c1f4718a5b89e7"
+        ],
+        "from": "places",
+        "id": "claim-60cc4fa9d56726c50aff",
+        "kind": "message",
+        "sourceIds": [
+          "places-434ffab68fae2f991ebb",
+          "places-51d94b76d870001475fd",
+          "places-707eb762b8c1f4718a5b"
+        ],
+        "text": "For a found place, Enqueue opens a connection, begins a transaction, inserts a request_outbox row with a new GUID and place.requested v1 payload, then commits before returning.",
+        "to": "places-db"
+      },
+      {
+        "dependencyIds": [
+          "places:entrypoint:f471dd170980c48ef424033f",
+          "places:symbol:434ffab68fae2f991ebba252",
+          "places:symbol:65de4bdfa04d114b73dffbc2",
+          "process:dashboard-refresh-request"
+        ],
+        "from": "places",
+        "id": "claim-886463f628a8b0e2d764",
+        "kind": "return",
+        "sourceIds": [
+          "places-434ffab68fae2f991ebb",
+          "places-65de4bdfa04d114b73df"
+        ],
+        "text": "After Enqueue completes, Refresh returns 202 with placeId and status QUEUED. This response does not establish forecast readiness or completion.",
+        "to": "service-dashboard"
+      },
+      {
+        "dependencyIds": [
+          "places:entrypoint:f471dd170980c48ef424033f",
+          "places:symbol:24afabf4ce6fb0dad4a762cb",
+          "places:symbol:65de4bdfa04d114b73dffbc2"
+        ],
+        "id": "claim-be5a36243e0c1c1b9cb5",
+        "kind": "end",
+        "sourceIds": [
+          "places-24afabf4ce6fb0dad4a7",
+          "places-65de4bdfa04d114b73df"
+        ],
+        "text": ""
+      },
+      {
+        "dependencyIds": [
+          "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+          "process:dashboard-refresh-request"
+        ],
+        "from": "service-dashboard",
+        "id": "claim-8234b7c10edef661b73b",
+        "kind": "return",
+        "sourceIds": [
+          "dashboard-1612e17d589cb9d0fa4a"
+        ],
+        "text": "Dashboard forwards the upstream status and parsed JSON for the 404 or 202 response.",
+        "to": "caller"
+      },
+      {
+        "dependencyIds": [
+          "dashboard:flow:0c42e8da3e274553f5bc00ef",
+          "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+          "process:dashboard-refresh-request"
+        ],
+        "id": "claim-2e9fb6db0c16485c408a",
+        "kind": "else",
+        "sourceIds": [
+          "dashboard-0c42e8da3e274553f5bc",
+          "dashboard-1612e17d589cb9d0fa4a"
+        ],
+        "text": "Otherwise"
+      },
+      {
+        "dependencyIds": [
+          "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+          "process:dashboard-refresh-request"
+        ],
+        "from": "service-dashboard",
+        "id": "claim-1f8c580b51da0a4a1831",
+        "kind": "return",
+        "sourceIds": [
+          "dashboard-1612e17d589cb9d0fa4a"
+        ],
+        "text": "A fetch or response JSON exception returns 503 PLACES_UNAVAILABLE. This failure does not establish whether Places committed before the client error.",
+        "to": "caller"
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:707eb762b8c1f4718a5b89e7",
+          "process:dashboard-refresh-request"
+        ],
+        "id": "claim-14d8b7547eca33adf3e3",
+        "kind": "note",
+        "sourceIds": [
+          "places-707eb762b8c1f4718a5b"
+        ],
+        "text": "Open disposes and rethrows a connection-open failure; the captured bodies do not establish how that exception maps to an HTTP response."
+      },
+      {
+        "dependencyIds": [
+          "dashboard:flow:0c42e8da3e274553f5bc00ef",
+          "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+          "process:dashboard-refresh-request"
+        ],
+        "id": "claim-acbfccd09cb692dab482",
+        "kind": "end",
+        "sourceIds": [
+          "dashboard-0c42e8da3e274553f5bc",
+          "dashboard-1612e17d589cb9d0fa4a"
+        ],
+        "text": ""
+      }
+    ],
+    "explanation": [
+      {
+        "dependencyIds": [
+          "dashboard:symbol:1612e17d589cb9d0fa4ae1f7"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-624069f7e9f5280c87d0"
+        ],
+        "id": "claim-3ca1d13b5e26667d0ad1",
+        "sourceIds": [
+          "dashboard-1612e17d589cb9d0fa4a"
+        ],
+        "text": "A caller enters requestRefresh with the place ID in the route parameters."
+      },
+      {
+        "dependencyIds": [
+          "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+          "interaction:dashboard-request-refresh-to-places",
+          "process:dashboard-refresh-request"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-200c312ea5553a634796"
+        ],
+        "id": "claim-df76606a2d149b30be58",
+        "sourceIds": [
+          "dashboard-1612e17d589cb9d0fa4a"
+        ],
+        "text": "Dashboard sends a bodyless POST to /places/{id}/refresh, URL-encodes the ID and applies a 10-second timeout. This declared receiver mapping is agent-proposed; runtime routing is unverified."
+      },
+      {
+        "dependencyIds": [
+          "dashboard:flow:0c42e8da3e274553f5bc00ef",
+          "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+          "process:dashboard-refresh-request"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-bf89f4017c8f27d8ccee"
+        ],
+        "id": "claim-9f3b3886256f67405e35",
+        "sourceIds": [
+          "dashboard-0c42e8da3e274553f5bc",
+          "dashboard-1612e17d589cb9d0fa4a"
+        ],
+        "text": "Dashboard fetch and response.json complete"
+      },
+      {
+        "dependencyIds": [
+          "places:entrypoint:f471dd170980c48ef424033f",
+          "places:symbol:24afabf4ce6fb0dad4a762cb",
+          "places:symbol:65de4bdfa04d114b73dffbc2"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-be2e6b692aac109c6242"
+        ],
+        "id": "claim-e8aa07b2440de2a1d9e0",
+        "sourceIds": [
+          "places-24afabf4ce6fb0dad4a7",
+          "places-65de4bdfa04d114b73df"
+        ],
+        "text": "Places.Find returns null"
+      },
+      {
+        "dependencyIds": [
+          "places:entrypoint:f471dd170980c48ef424033f",
+          "places:symbol:24afabf4ce6fb0dad4a762cb",
+          "places:symbol:65de4bdfa04d114b73dffbc2"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-ac3adf09bf90577534a4"
+        ],
+        "id": "claim-b0a1d624ae98dd9f3ae2",
+        "sourceIds": [
+          "places-24afabf4ce6fb0dad4a7",
+          "places-65de4bdfa04d114b73df"
+        ],
+        "text": "Refresh returns 404 PLACE_NOT_FOUND before Enqueue. This branch terminates without an outbox insert or 202 response."
+      },
+      {
+        "dependencyIds": [
+          "places:entrypoint:f471dd170980c48ef424033f",
+          "places:symbol:24afabf4ce6fb0dad4a762cb",
+          "places:symbol:65de4bdfa04d114b73dffbc2"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-42aa4fb6ca48ad946c02"
+        ],
+        "id": "claim-9808e7aab17136287f42",
+        "sourceIds": [
+          "places-24afabf4ce6fb0dad4a7",
+          "places-65de4bdfa04d114b73df"
+        ],
+        "text": "The source describes an alternative branch."
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:434ffab68fae2f991ebba252",
+          "places:symbol:51d94b76d870001475fd2c51",
+          "places:symbol:707eb762b8c1f4718a5b89e7"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-60cc4fa9d56726c50aff"
+        ],
+        "id": "claim-b47b71ad73df0916f48a",
+        "sourceIds": [
+          "places-434ffab68fae2f991ebb",
+          "places-51d94b76d870001475fd",
+          "places-707eb762b8c1f4718a5b"
+        ],
+        "text": "For a found place, Enqueue opens a connection, begins a transaction, inserts a request_outbox row with a new GUID and place.requested v1 payload, then commits before returning."
+      },
+      {
+        "dependencyIds": [
+          "places:entrypoint:f471dd170980c48ef424033f",
+          "places:symbol:434ffab68fae2f991ebba252",
+          "places:symbol:65de4bdfa04d114b73dffbc2",
+          "process:dashboard-refresh-request"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-886463f628a8b0e2d764"
+        ],
+        "id": "claim-aaf2a0589fb39d200298",
+        "sourceIds": [
+          "places-434ffab68fae2f991ebb",
+          "places-65de4bdfa04d114b73df"
+        ],
+        "text": "After Enqueue completes, Refresh returns 202 with placeId and status QUEUED. This response does not establish forecast readiness or completion."
+      },
+      {
+        "dependencyIds": [
+          "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+          "process:dashboard-refresh-request"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-8234b7c10edef661b73b"
+        ],
+        "id": "claim-609689b9cb279c38694c",
+        "sourceIds": [
+          "dashboard-1612e17d589cb9d0fa4a"
+        ],
+        "text": "Dashboard forwards the upstream status and parsed JSON for the 404 or 202 response."
+      },
+      {
+        "dependencyIds": [
+          "dashboard:flow:0c42e8da3e274553f5bc00ef",
+          "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+          "process:dashboard-refresh-request"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-2e9fb6db0c16485c408a"
+        ],
+        "id": "claim-93878da1a220203f5cf2",
+        "sourceIds": [
+          "dashboard-0c42e8da3e274553f5bc",
+          "dashboard-1612e17d589cb9d0fa4a"
+        ],
+        "text": "The source describes an alternative branch."
+      },
+      {
+        "dependencyIds": [
+          "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+          "process:dashboard-refresh-request"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-1f8c580b51da0a4a1831"
+        ],
+        "id": "claim-e63a389553b760660bd2",
+        "sourceIds": [
+          "dashboard-1612e17d589cb9d0fa4a"
+        ],
+        "text": "A fetch or response JSON exception returns 503 PLACES_UNAVAILABLE. This failure does not establish whether Places committed before the client error."
+      },
+      {
+        "dependencyIds": [
+          "places:symbol:707eb762b8c1f4718a5b89e7",
+          "process:dashboard-refresh-request"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-14d8b7547eca33adf3e3"
+        ],
+        "id": "claim-429e7f8a3197dd1a9de6",
+        "sourceIds": [
+          "places-707eb762b8c1f4718a5b"
+        ],
+        "text": "Open disposes and rethrows a connection-open failure; the captured bodies do not establish how that exception maps to an HTTP response."
+      }
+    ],
+    "findings": [],
+    "id": "dashboard-refresh-request",
+    "interfaceContracts": [
+      {
+        "boundaries": [],
+        "id": "claim-5f2dd7b71ffd2632badb",
+        "kind": "http",
+        "rows": [
+          {
+            "dependencyIds": [
+              "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+              "interaction:dashboard-request-refresh-to-places",
+              "process:dashboard-refresh-request"
+            ],
+            "id": "claim-d4dbd66281ca8b62f472",
+            "label": "Request",
+            "sourceIds": [
+              "dashboard-1612e17d589cb9d0fa4a"
+            ],
+            "value": "Dashboard sends POST /places/{id}/refresh without a request body and encodes the path ID. The declared Dashboard-to-Places target mapping remains unverified at runtime."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:f471dd170980c48ef424033f",
+              "places:symbol:24afabf4ce6fb0dad4a762cb",
+              "places:symbol:434ffab68fae2f991ebba252",
+              "places:symbol:65de4bdfa04d114b73dffbc2"
+            ],
+            "id": "claim-c36d7880be5f58cf0562",
+            "label": "Places response",
+            "sourceIds": [
+              "places-24afabf4ce6fb0dad4a7",
+              "places-434ffab68fae2f991ebb",
+              "places-65de4bdfa04d114b73df"
+            ],
+            "value": "The controller returns 404 PLACE_NOT_FOUND before enqueue when Find returns null; otherwise it waits for Enqueue and returns 202 with placeId and QUEUED."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+              "places:symbol:707eb762b8c1f4718a5b89e7",
+              "process:dashboard-refresh-request"
+            ],
+            "id": "claim-32646f35e6af7a958cbf",
+            "label": "Dashboard failure cut",
+            "sourceIds": [
+              "dashboard-1612e17d589cb9d0fa4a",
+              "places-707eb762b8c1f4718a5b"
+            ],
+            "value": "A fetch or response JSON exception is returned as 503 PLACES_UNAVAILABLE. The handler does not report whether Places committed first; the Open method disposes and rethrows a connection-open failure."
+          }
+        ],
+        "title": "Source-visible refresh HTTP boundary"
+      }
+    ],
+    "participants": [
+      {
+        "id": "caller",
+        "label": "Caller",
+        "service": null
+      },
+      {
+        "id": "service-dashboard",
+        "label": "dashboard",
+        "service": "dashboard"
+      },
+      {
+        "id": "places",
+        "label": "Places",
+        "service": null
+      },
+      {
+        "id": "places-db",
+        "label": "Places PostgreSQL",
+        "service": null
+      }
+    ],
+    "summary": {
+      "dependencyIds": [
+        "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+        "interaction:dashboard-request-refresh-to-places",
+        "places:entrypoint:f471dd170980c48ef424033f",
+        "places:symbol:24afabf4ce6fb0dad4a762cb",
+        "places:symbol:434ffab68fae2f991ebba252",
+        "places:symbol:51d94b76d870001475fd2c51",
+        "places:symbol:65de4bdfa04d114b73dffbc2",
+        "places:symbol:707eb762b8c1f4718a5b89e7",
+        "process-component:dashboard-refresh-request:dashboard-forecast-updated-consumer",
+        "process-component:dashboard-refresh-request:dashboard-place-requested-consumer",
+        "process-component:dashboard-refresh-request:forecasts-place-requested-consumer",
+        "process-component:dashboard-refresh-request:forecasts-publish-pending",
+        "process-component:dashboard-refresh-request:places-request-publisher",
+        "process-scope:dashboard-refresh-request",
+        "process:dashboard-refresh-request"
+      ],
+      "id": "claim-1b8d09a3b8ea78a6fd83",
+      "sourceIds": [
+        "dashboard-1612e17d589cb9d0fa4a",
+        "places-24afabf4ce6fb0dad4a7",
+        "places-434ffab68fae2f991ebb",
+        "places-51d94b76d870001475fd",
+        "places-65de4bdfa04d114b73df",
+        "places-707eb762b8c1f4718a5b"
+      ],
+      "text": "A caller enters Dashboard.requestRefresh with a place ID. Dashboard URL-encodes the ID in a bodyless POST /places/{id}/refresh with a 10-second timeout; the saved Dashboard-to-Places mapping is agent-proposed, so runtime routing is unverified. Places.Refresh calls Find; Find returns the first ID match from List. If no place is found, Refresh returns 404 PLACE_NOT_FOUND before enqueue. Otherwise it awaits Enqueue, which opens a connection, begins a transaction, inserts a request_outbox row with a new GUID and a place.requested v1 payload, then commits before Refresh returns 202 with status QUEUED. QUEUED marks the response, not forecast completion. Dashboard forwards upstream status and parsed JSON; a fetch or JSON-decoding exception becomes 503 PLACES_UNAVAILABLE, which does not show whether Places committed first. Open disposes and rethrows on connection-open failure; other exception-to-HTTP handling is outside these bodies. The saved process links separate Places publisher and Dashboard/Forecasts consumer views, but this path does not establish publication or delivery. These wrappers show no idempotency key or repeated-request deduplication."
+    },
+    "title": "Request a place refresh and record its outbox boundary"
+  },
+  "sectionState": {
+    "contentRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "coverage": {
+      "dashboard": {
+        "boundaries": [
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/dashboard.openapi.json",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+          "FILE_ONLY:exercises/replay.py",
+          "FILE_ONLY:exercises/validator-regression.mjs",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/dashboard/Dockerfile",
+          "FILE_ONLY:services/dashboard/package-lock.json",
+          "FILE_ONLY:services/dashboard/package.json",
+          "FILE_ONLY:services/dashboard/public/index.html",
+          "FILE_ONLY:services/dashboard/tsconfig.json",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "SCOPE_WATCH_CONSERVATIVE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "forecasts": {
+        "boundaries": [
+          "ANNOTATION_DECLARATION_UNAVAILABLE",
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:contracts/forecasts.openapi.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/forecasts/Dockerfile",
+          "FILE_ONLY:services/forecasts/pom.xml",
+          "FILE_ONLY:services/forecasts/src/main/resources/application.properties",
+          "NO_BEAN_OWNER",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "RUNTIME_REGISTRATION_UNPROVEN",
+          "SCOPE_WATCH_CONSERVATIVE",
+          "SOURCE_NAMES_NOT_COMPILER_RESOLVED",
+          "UNRESOLVED_ANNOTATION_VALUE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "places": {
+        "boundaries": [
+          "CLR_SIGNATURE_PROJECTED_TO_JVM_DESCRIPTOR_GRAMMAR",
+          "CSHARP_SOURCE_GENERATED_DOCUMENTS_NOT_INDEXED",
+          "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+          "GENERATED_SOURCE_BODIES_NOT_INDEXED",
+          "LAMBDA_EXECUTION_NOT_EXPANDED",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+          "SWITCH_FLOW_REQUIRES_SOURCE_REVIEW"
+        ],
+        "coverage": "PARTIAL"
+      }
+    },
+    "freshness": "STALE",
+    "reasons": [
+      {
+        "after": "sha256:0963521b4ed1f85ab4680772b6a50fe7cbe788b298475434f3fe39fc37747a53",
+        "before": "sha256:3c4e6159a380e6fed6bffd10dabd2c6f173c09d87cb599eac8135c28603230b4",
+        "dependency": "process-component:forecasts-place-requested-consumer:forecasts-publish-pending",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:0aaf4102d88395ba680c05ec015219e41d3f9a4315a1bae7a24c5aea63622c30",
+        "before": "sha256:0379510c3aa5d74957e1ac5bcc0cd22bba17238a246e906c79aff227a87dad35",
+        "dependency": "process-component:dashboard-refresh-request:places-request-publisher",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:1b5f23cacf432a775fe22273fe53f9bb2abb1b7ff999910e15d1407181d123d9",
+        "before": "sha256:e3b4940ede42d2eec9d7fa36ad414d15386a51bc4526deebc02be7129635df8d",
+        "dependency": "process-component:forecasts-publish-pending:dashboard-forecast-updated-consumer",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:1d156761e8889b4827f48fc763696cb872479af3922679fcf5d751f3cd188f61",
+        "before": "sha256:ea0d101ab9e54e3b7d92116edac71f1b5d0605552fd0ca5169764b6d04e55afc",
+        "dependency": "process-component:forecasts-refresh-scheduled:forecasts-publish-pending",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:240a860aa931002b20db946fa8165158f51ebca227bf7b5f14d9ea3fab25bb5e",
+        "before": "sha256:385aef2544fb617e8affc4ed28f00d151bb5b22a1f0c5634dfdf042586911ffe",
+        "dependency": "scenario:dashboard-refresh-request",
+        "reason": "SCENARIO_SELECTION_CHANGED"
+      },
+      {
+        "after": "sha256:264048eefae0992504636e73f8e259fe3b5e0d9f0a1c88ddf83d4bf8c2ee1beb",
+        "before": "sha256:e763c42e2823999559412440a7627fc3d8439e9cb90672db14dcfd413637c6a8",
+        "dependency": "process-component:dashboard-refresh-request:dashboard-place-requested-consumer",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:2bbd58eb79f3df485dec903b343433429dde335a3300e76ffa9cb70666cf46d4",
+        "before": "sha256:d8cc9415bf58a0dcf0dfe15f3a082fa33ceac63ca053ff1404abf111fc0c37b2",
+        "dependency": "note:runtime-broker-outage",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:39acb7c9061bc46ca2cf3cb0466dd43e9bc6ee014a1f8f8ec1b3ddf60ee2ac9c",
+        "before": "sha256:5df83ce79a1a4a94bb7eb957bbde39d7f437a886373d5590bf1228b9f683def0",
+        "dependency": "process-component:forecasts-place-requested-consumer:forecasts-refresh-scheduled",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:56a7de9fd9790a2a2697cb2bb4b431370c4809dbc6e652d8fc98824685662387",
+        "before": "sha256:a450bd9089e7b4c3a14db51363f4c85cef05ed92ad80a9656d7dd99ee985f88c",
+        "dependency": "process-component:dashboard-refresh-request:forecasts-place-requested-consumer",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:56d9f77d10b660b1af8dbe67602c2b449af91b2a5a1dc4b80552ef69629a71f0",
+        "before": "sha256:46d5970fcd4974542754245bedc0d2650c6fdbf2a13e4610ed3b3cccf961d1b4",
+        "dependency": "process:dashboard-refresh-request",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:65db8e1405dc2ea0732c515493fe81f6033b7387d812d45afcc44e40836cd2a7",
+        "before": "sha256:e088d7abd80da07fd2d2cb493bf383dd93bdf18fb6bb454142ab1ce54830942d",
+        "dependency": "process-component:places-request-publisher:dashboard-place-requested-consumer",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:7f782db91f4f7f0e3a3fa8164b047a084a7cef74dbc286b3ab3b2b194240be70",
+        "before": "sha256:e3c43cdb49a39457ddfe0927e943033e1b8be653ab2b4663a5d8ff496200aa19",
+        "dependency": "process-component:dashboard-refresh-request:forecasts-publish-pending",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:a0281b7bbb70668c7c9b021bcd3463af9db49010a11a28a5b846ea12ba4662ff",
+        "before": "sha256:2ac587664d54a978d25fa9791b8d660620e5d586e1f883cdf546ed07d59d606f",
+        "dependency": "process-component:dashboard-refresh-request:dashboard-forecast-updated-consumer",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "after": "sha256:c37527537585450ab70a0eb61866248cfa06fcd73a078572e540cd2073bc6b64",
+        "before": "sha256:cba8f2a4546be6c86877b5ee7fc8ed834dc40a17dab8cec65f808621a766377f",
+        "dependency": "process-component:places-request-publisher:forecasts-place-requested-consumer",
+        "reason": "SUPPORTED_BEHAVIOR_CHANGED"
+      },
+      {
+        "reason": "INFLUENCE_SCOPE_CHANGED",
+        "scope": "sha256:9c5131d801e62758581e7ea31082b9b094d1eddb13d3a901ec4038d69d8a6221"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:b57016f8fd0621d202cb2ee1e96f17cd3ba84d6a935e64660e40ac3d60be0ca4/164667"
+      }
+    ],
+    "targetRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "verification": "UNASSESSED"
+  },
+  "sources": {
+    "dashboard-0c42e8da3e274553f5bc": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 82,
+      "evidenceDigest": "sha256:47316d5e148804ccdce748fdcaf57d63dbe82b0595705cb25a3a2af8cc5e4ac0",
+      "file": "services/dashboard/src/main.ts",
+      "id": "dashboard-0c42e8da3e274553f5bc",
+      "occurrence": {
+        "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+        "endByte": 3989,
+        "snapshot": "sha256:550435c6f8e16951bd815f9f7b54eda07bff8ad73a80a6df524ab2af077f4f6f",
+        "startByte": 3689
+      },
+      "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "service": "dashboard",
+      "startLine": 77,
+      "text": "",
+      "textDigest": "sha256:86f85aae3887cd983b2365a1102661ba85ccda1883fde5b6b91815e6d2aaf217",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/e635069293d58cb0d4f28c8211e748b8d58e6b37/services/dashboard/src/main.ts#L77-L82"
+    },
+    "dashboard-1612e17d589cb9d0fa4a": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 83,
+      "evidenceDigest": "sha256:07b2562a43241794675086882f0ea403c3516fac65894159a49f10ad93c81e3a",
+      "file": "services/dashboard/src/main.ts",
+      "id": "dashboard-1612e17d589cb9d0fa4a",
+      "occurrence": {
+        "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+        "endByte": 3991,
+        "snapshot": "sha256:550435c6f8e16951bd815f9f7b54eda07bff8ad73a80a6df524ab2af077f4f6f",
+        "startByte": 3566
+      },
+      "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "service": "dashboard",
+      "startLine": 76,
+      "text": "",
+      "textDigest": "sha256:8a1197a24ccae2bc108ed3180894b777ff122a2be4b0f3510f70588e0e3d8dbf",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/e635069293d58cb0d4f28c8211e748b8d58e6b37/services/dashboard/src/main.ts#L76-L83"
+    },
+    "places-24afabf4ce6fb0dad4a7": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 35,
+      "evidenceDigest": "sha256:487584dbc384e0e338e2012a06945189bb9ec2319685c5372d7d46398361d779",
+      "file": "services/places/PlacesRepository.cs",
+      "id": "places-24afabf4ce6fb0dad4a7",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 35,
+      "text": "",
+      "textDigest": "sha256:f692ab2520e99ad47d33ab10b9fb7635632605a44e9fe9fb71430be31e67dc1d",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L35-L35"
+    },
+    "places-434ffab68fae2f991ebb": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 51,
+      "evidenceDigest": "sha256:a7d9b5f982ccab84663c4722fed07685128ee25272a231c6881ead24473d40b2",
+      "file": "services/places/PlacesRepository.cs",
+      "id": "places-434ffab68fae2f991ebb",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 45,
+      "text": "",
+      "textDigest": "sha256:40ed706a263273c9e3bcb5f1333c4d2693b466f3572b750f00bcafbdc76eb5d6",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L45-L51"
+    },
+    "places-51d94b76d870001475fd": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 59,
+      "evidenceDigest": "sha256:b689dee06cb34ef50c8065d11fb20f73938f8871d06debf64b44ab39d3f606dc",
+      "file": "services/places/PlacesRepository.cs",
+      "id": "places-51d94b76d870001475fd",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 52,
+      "text": "",
+      "textDigest": "sha256:b760523f1391d08669d20d18510de700ebf367c42ddc23365d51e63bb03037c3",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L52-L59"
+    },
+    "places-65de4bdfa04d114b73df": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 25,
+      "evidenceDigest": "sha256:26c60cb63612bc6a088c1e7a6047c0097c5865a0f50a4e6c1be044e0b211ff93",
+      "file": "services/places/PlacesController.cs",
+      "id": "places-65de4bdfa04d114b73df",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 18,
+      "text": "",
+      "textDigest": "sha256:15621e3458e3e37377113dbf343bd3621c520edd48affea91206c49bec8b238f",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L18-L25"
+    },
+    "places-707eb762b8c1f4718a5b": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 25,
+      "evidenceDigest": "sha256:dd944e62ed29bc0de6b9010d3b98be1672082ccdb56a582c4993cf684a8e810d",
+      "file": "services/places/PlacesRepository.cs",
+      "id": "places-707eb762b8c1f4718a5b",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 20,
+      "text": "",
+      "textDigest": "sha256:3027a4abb6d1fb5ef007a0d0783be38a6766fe294e0a1dfac9990b2c00975ce4",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L20-L25"
+    }
+  },
+  "state": {
+    "contentRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "coverage": {
+      "dashboard": {
+        "boundaries": [
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/dashboard.openapi.json",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+          "FILE_ONLY:exercises/replay.py",
+          "FILE_ONLY:exercises/validator-regression.mjs",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/dashboard/Dockerfile",
+          "FILE_ONLY:services/dashboard/package-lock.json",
+          "FILE_ONLY:services/dashboard/package.json",
+          "FILE_ONLY:services/dashboard/public/index.html",
+          "FILE_ONLY:services/dashboard/tsconfig.json",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "SCOPE_WATCH_CONSERVATIVE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "forecasts": {
+        "boundaries": [
+          "ANNOTATION_DECLARATION_UNAVAILABLE",
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:contracts/forecasts.openapi.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/forecasts/Dockerfile",
+          "FILE_ONLY:services/forecasts/pom.xml",
+          "FILE_ONLY:services/forecasts/src/main/resources/application.properties",
+          "NO_BEAN_OWNER",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "RUNTIME_REGISTRATION_UNPROVEN",
+          "SCOPE_WATCH_CONSERVATIVE",
+          "SOURCE_NAMES_NOT_COMPILER_RESOLVED",
+          "UNRESOLVED_ANNOTATION_VALUE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "places": {
+        "boundaries": [
+          "CLR_SIGNATURE_PROJECTED_TO_JVM_DESCRIPTOR_GRAMMAR",
+          "CSHARP_SOURCE_GENERATED_DOCUMENTS_NOT_INDEXED",
+          "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+          "GENERATED_SOURCE_BODIES_NOT_INDEXED",
+          "LAMBDA_EXECUTION_NOT_EXPANDED",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+          "SWITCH_FLOW_REQUIRES_SOURCE_REVIEW"
+        ],
+        "coverage": "PARTIAL"
+      }
+    },
+    "freshness": "UNVERIFIED",
+    "reasons": [
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:b57016f8fd0621d202cb2ee1e96f17cd3ba84d6a935e64660e40ac3d60be0ca4/164667"
+      }
+    ],
+    "targetRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "verification": "UNASSESSED"
+  }
+}

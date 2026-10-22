@@ -78,6 +78,18 @@ class VariantTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'invalid source version'):
             V.validate_version(r'0\x13\x46')
 
+    def test_showcase_overlay_allows_only_the_explicit_entry_with_opt_in(self):
+        p = self.root / 'build'; p.mkdir()
+        (p / 'variant-identity.json').write_text('{}')
+        (p / 'review.html').write_text('<a href="/clew-weather-demo/rendering/">Showcase</a>')
+        with self.assertRaisesRegex(ValueError, 'escaped deployment base'):
+            V.verify_build(p)
+        self.assertEqual(V.verify_build(p, showcase_navigation=True)['status'], 'PASS')
+        for url in ['/clew-weather-demo/rendering/unknown', '/other-site/', '/assets/other.js']:
+            (p / 'review.html').write_text('<a href="' + url + '">Wrong</a>')
+            with self.assertRaisesRegex(ValueError, 'escaped deployment base'):
+                V.verify_build(p, showcase_navigation=True)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,0 +1,132 @@
+[
+  {
+    "id": "forecasts-04bc0feeea5752d3f197",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "startLine": 70,
+    "endLine": 125,
+    "textDigest": "sha256:5b529dac9719b7091155ea47958087ec0bd9b5e3c5230c6a19931343432e6112",
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "object": "ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa"
+  },
+  {
+    "id": "forecasts-0bd547c32f7c89ce6fcd",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "startLine": 85,
+    "endLine": 85,
+    "textDigest": "sha256:7b33cf4217049dc47926bd8c16330050d0bc0328804d2c236c75f19093e6b886",
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "object": "5664bebdadcf4eda6a424baf40c70905391048d592cc66fb42b7af94f764b6f8"
+  },
+  {
+    "id": "forecasts-0a7c82c05c787bc8ae49",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "startLine": 85,
+    "endLine": 85,
+    "textDigest": "sha256:306b433c244db0201bd07873c86e2ee5fdf7de04d3328f1236458d0dc0ad1c0a",
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "object": "3954e2e288dad4e2d62c45fa179234020e433a67bc06cd9bdbe66498f20aac0e"
+  },
+  {
+    "id": "forecasts-3dc590375dca39b7db4b",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "startLine": 85,
+    "endLine": 85,
+    "textDigest": "sha256:efb0b2bbe371f2ab1f637fcb46072f66c6b6190860c586e172faa8a9e5b93fae",
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "object": "7588bcfad55fa8413212931aa3bc8d22f646395d34f04831085f8ce0bd63d932"
+  },
+  {
+    "id": "forecasts-3216bac825e577b9cfe8",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "startLine": 85,
+    "endLine": 85,
+    "textDigest": "sha256:9037ffdd873f9b6c3ff16bab2421b7584ad3c262ffa4abd7960188b5a88dac8b",
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "object": "8bfc5a1f8c6aa47a99cb50990c2e76e661adea841838875f8aa7c9eb9bdf22c8"
+  },
+  {
+    "id": "forecasts-937575e531f9c7a0fa78",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "startLine": 85,
+    "endLine": 85,
+    "textDigest": "sha256:638c8b3fe7050d6dec2df8a1d70ab3c3f2a0edab13a1b53f548d37cc493e9ce0",
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "object": "cf9b6ee0a3d121aeaf0f85bd5ba331c046923d42975596e2d57ba65d828371c2"
+  },
+  {
+    "id": "forecasts-2a1f304796eeee9f05e8",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "startLine": 85,
+    "endLine": 85,
+    "textDigest": "sha256:ff591d320008b2dbdf6a8c94c21a2ad1bb6862aeb3ca7ad706cc145a97403e11",
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "object": "9ef8b8b0cadc280e321c1df629b3c949c5c8077ab607f604bada54d5009cec27"
+  },
+  {
+    "id": "forecasts-26326958212ef9877985",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "startLine": 85,
+    "endLine": 85,
+    "textDigest": "sha256:4977a08f32616eeea8ce84ff1a31751d93c315508343f1a440ec67db2533db61",
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "object": "d09e97be9aa1c08be44f3d2987384e652fd9a08ef040a6ab3f2e4dec80d0acc9"
+  },
+  {
+    "id": "forecasts-276a7eb7785ee7ca6d01",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "startLine": 76,
+    "endLine": 101,
+    "textDigest": "sha256:3eb73f20953c07352693f6467c9016d946ff2798fc636a7e24c43d18c0b9be82",
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "object": "84f5bce2f3984d3993a56a4ebbcde64d7c18d36d29a3eac286452351f3e63eba"
+  },
+  {
+    "id": "forecasts-65dc8cc9941c88123f41",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "startLine": 76,
+    "endLine": 101,
+    "textDigest": "sha256:320f0407bf300ec4386da033bce80d28b4f0919b3bdd08cf8a7f82008849d796",
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "object": "d484be7c18f5564e30dabe24cb20a8c32b54421e2beff699e613b9d2dd3b75c7"
+  },
+  {
+    "id": "forecasts-8765610e5364c9bc80db",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "startLine": 85,
+    "endLine": 85,
+    "textDigest": "sha256:8e8fb7423135ea0dccdaf732057a9bb1160bb166c5f5fff96cf69cc3cdfe8561",
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "object": "d26070b4f23cc5ee4342be45ba47c58daa6846174bc80d499d5b7bed59559134"
+  },
+  {
+    "id": "forecasts-3697d7f6e84dd5742597",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "startLine": 29,
+    "endLine": 140,
+    "textDigest": "sha256:95b37c9dcff9e8aa9ee929de552fd2fd7099af3a03acc21ff774033cca75066e",
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "object": "4690abc33b226f3841e5eaaf90ce58e0cd06f7a69c28f21647e0f14c2e20e5ab"
+  },
+  {
+    "id": "forecasts-12affee4d3938ff74782",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "startLine": 85,
+    "endLine": 85,
+    "textDigest": "sha256:1911f757191919d7cea4f0cba1626e8b8470d68c148fab35f7a96d2991552e5f",
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "object": "8cfa4b982d169586130505d750130e5e5d247eb6caf8d9d73945dfe5a0b2afb3"
+  }
+]

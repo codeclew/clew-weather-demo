@@ -1,0 +1,1319 @@
+{
+  "contracts": [
+    {
+      "digest": "sha256:14e0311af7bc78a8290539edd6ed922ce4c14c237a01713f4b8c157fe0b35fcc",
+      "id": "places:contract-operation:08d1b9df6781b2953a038bc2",
+      "kind": "CONTRACT_OPERATION",
+      "normalized": {
+        "authority": "DECLARED_OPENAPI",
+        "boundaries": [
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED"
+        ],
+        "declaredSource": "contracts/places.openapi.json",
+        "entrypoint": "places-3a33202464c8b4fff218",
+        "method": "GET",
+        "openapi": "3.1.0",
+        "operation": {
+          "operationId": "places_get_health",
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "properties": {
+                      "database": {
+                        "const": "READY"
+                      },
+                      "kafka": {
+                        "const": "READY"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              },
+              "description": "200"
+            },
+            "500": {
+              "description": "500"
+            }
+          }
+        },
+        "parameters": [],
+        "path": "/health",
+        "readerSelection": {
+          "compatibilityAnchor": "3.1",
+          "fullSpecificationValidation": false,
+          "outsideAdvertisedRange": false,
+          "reader": "BOUNDED_OPENAPI_PATH_OPERATION_READER",
+          "selectionMode": "DECLARED_COMPATIBILITY_PROFILE",
+          "supportedVersionRange": "OPENAPI_THROUGH_3_X"
+        },
+        "runtimeEnforcement": "UNVERIFIED",
+        "schema": "codeclew-documentation-contract-facts/1.0",
+        "security": null,
+        "securitySchemes": null,
+        "servers": null,
+        "sourceMapping": "SOURCE_ROUTE_MATCH_ONLY"
+      },
+      "service": "places",
+      "sourceIds": [
+        "places-770e53d99edf681987e1"
+      ],
+      "symbol": "method:class:Weather.Places.PlacesController#Health(LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;"
+    },
+    {
+      "digest": "sha256:b1332329a3f4b30acc3ffaf392bcd42ed603cd5a4f1722b7c4f2a65d3d8534bc",
+      "id": "places:contract-operation:0f29e92a853c76a6ea564769",
+      "kind": "CONTRACT_OPERATION",
+      "normalized": {
+        "authority": "DECLARED_OPENAPI",
+        "boundaries": [],
+        "declaredSource": "contracts/places.openapi.json",
+        "entrypoint": "places-8a2148bf5e312b0c5947",
+        "method": "GET",
+        "openapi": "3.1.0",
+        "operation": {
+          "operationId": "places_get_places",
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "enum": [
+                            "oslo",
+                            "helsinki",
+                            "lisbon"
+                          ],
+                          "type": "string"
+                        },
+                        "latitude": {
+                          "maximum": 90,
+                          "minimum": -90,
+                          "type": "number"
+                        },
+                        "longitude": {
+                          "maximum": 180,
+                          "minimum": -180,
+                          "type": "number"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name",
+                        "latitude",
+                        "longitude"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  }
+                }
+              },
+              "description": "200"
+            },
+            "500": {
+              "description": "500"
+            }
+          }
+        },
+        "parameters": [],
+        "path": "/places",
+        "readerSelection": {
+          "compatibilityAnchor": "3.1",
+          "fullSpecificationValidation": false,
+          "outsideAdvertisedRange": false,
+          "reader": "BOUNDED_OPENAPI_PATH_OPERATION_READER",
+          "selectionMode": "DECLARED_COMPATIBILITY_PROFILE",
+          "supportedVersionRange": "OPENAPI_THROUGH_3_X"
+        },
+        "runtimeEnforcement": "UNVERIFIED",
+        "schema": "codeclew-documentation-contract-facts/1.0",
+        "security": null,
+        "securitySchemes": null,
+        "servers": null,
+        "sourceMapping": "SOURCE_ROUTE_MATCH_ONLY"
+      },
+      "service": "places",
+      "sourceIds": [
+        "places-770e53d99edf681987e1"
+      ],
+      "symbol": "method:class:Weather.Places.PlacesController#List(LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;"
+    },
+    {
+      "digest": "sha256:01e33d77e61703ad9c2f666874c4f7704610d8b934a5792ae509abfaabb41bad",
+      "id": "places:contract-operation:6b165729e2d309a9b2687873",
+      "kind": "CONTRACT_OPERATION",
+      "normalized": {
+        "authority": "DECLARED_OPENAPI",
+        "boundaries": [
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED"
+        ],
+        "declaredSource": "contracts/places.openapi.json",
+        "entrypoint": "places-e06f41e67f62720ad106",
+        "method": "POST",
+        "openapi": "3.1.0",
+        "operation": {
+          "operationId": "places_post_places_id_refresh",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": {
+                "enum": [
+                  "oslo",
+                  "helsinki",
+                  "lisbon"
+                ],
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "202": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "properties": {
+                      "placeId": {
+                        "type": "string"
+                      },
+                      "status": {
+                        "const": "QUEUED"
+                      }
+                    },
+                    "required": [
+                      "placeId",
+                      "status"
+                    ],
+                    "type": "object"
+                  }
+                }
+              },
+              "description": "202"
+            },
+            "404": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "additionalProperties": true,
+                    "properties": {
+                      "error": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              },
+              "description": "404"
+            },
+            "500": {
+              "description": "500"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "enum": [
+                "oslo",
+                "helsinki",
+                "lisbon"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "path": "/places/{id}/refresh",
+        "readerSelection": {
+          "compatibilityAnchor": "3.1",
+          "fullSpecificationValidation": false,
+          "outsideAdvertisedRange": false,
+          "reader": "BOUNDED_OPENAPI_PATH_OPERATION_READER",
+          "selectionMode": "DECLARED_COMPATIBILITY_PROFILE",
+          "supportedVersionRange": "OPENAPI_THROUGH_3_X"
+        },
+        "runtimeEnforcement": "UNVERIFIED",
+        "schema": "codeclew-documentation-contract-facts/1.0",
+        "security": null,
+        "securitySchemes": null,
+        "servers": null,
+        "sourceMapping": "SOURCE_ROUTE_MATCH_ONLY"
+      },
+      "service": "places",
+      "sourceIds": [
+        "places-770e53d99edf681987e1"
+      ],
+      "symbol": "method:class:Weather.Places.PlacesController#Refresh(LSystem/String;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;"
+    },
+    {
+      "digest": "sha256:54e3edb3e65550eae5f2e31d666667d3aa0e00e066c8f0d7c6923f3a2b7830f2",
+      "id": "places:contract-operation:6e713b9442ae5dfc4b99b133",
+      "kind": "CONTRACT_OPERATION",
+      "normalized": {
+        "authority": "DECLARED_OPENAPI",
+        "boundaries": [],
+        "declaredSource": "contracts/places.openapi.json",
+        "entrypoint": "places-de7d5796a632782443dc",
+        "method": "GET",
+        "openapi": "3.1.0",
+        "operation": {
+          "operationId": "places_get_openapi.json",
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "additionalProperties": true,
+                    "type": "object"
+                  }
+                }
+              },
+              "description": "200"
+            },
+            "500": {
+              "description": "500"
+            }
+          }
+        },
+        "parameters": [],
+        "path": "/openapi.json",
+        "readerSelection": {
+          "compatibilityAnchor": "3.1",
+          "fullSpecificationValidation": false,
+          "outsideAdvertisedRange": false,
+          "reader": "BOUNDED_OPENAPI_PATH_OPERATION_READER",
+          "selectionMode": "DECLARED_COMPATIBILITY_PROFILE",
+          "supportedVersionRange": "OPENAPI_THROUGH_3_X"
+        },
+        "runtimeEnforcement": "UNVERIFIED",
+        "schema": "codeclew-documentation-contract-facts/1.0",
+        "security": null,
+        "securitySchemes": null,
+        "servers": null,
+        "sourceMapping": "SOURCE_ROUTE_MATCH_ONLY"
+      },
+      "service": "places",
+      "sourceIds": [
+        "places-770e53d99edf681987e1"
+      ],
+      "symbol": "method:class:Weather.Places.PlacesController#OpenApi(LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;"
+    },
+    {
+      "digest": "sha256:9900361e3e545d6846284b0207c072664f270a5d373c79c0aa19e785a61d2145",
+      "id": "places:contract-operation:fa5644a96e01681d7c2b0445",
+      "kind": "CONTRACT_OPERATION",
+      "normalized": {
+        "authority": "DECLARED_OPENAPI",
+        "boundaries": [],
+        "declaredSource": "contracts/places.openapi.json",
+        "entrypoint": "places-691b340ea61828b197b6",
+        "method": "POST",
+        "openapi": "3.1.0",
+        "operation": {
+          "operationId": "places_post_places",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "cityId": {
+                      "enum": [
+                        "oslo",
+                        "helsinki",
+                        "lisbon"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "cityId"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "properties": {
+                      "id": {
+                        "enum": [
+                          "oslo",
+                          "helsinki",
+                          "lisbon"
+                        ],
+                        "type": "string"
+                      },
+                      "latitude": {
+                        "maximum": 90,
+                        "minimum": -90,
+                        "type": "number"
+                      },
+                      "longitude": {
+                        "maximum": 180,
+                        "minimum": -180,
+                        "type": "number"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "latitude",
+                      "longitude"
+                    ],
+                    "type": "object"
+                  }
+                }
+              },
+              "description": "200"
+            },
+            "400": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "additionalProperties": true,
+                    "properties": {
+                      "error": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              },
+              "description": "400"
+            },
+            "415": {
+              "description": "415"
+            },
+            "500": {
+              "description": "500"
+            }
+          }
+        },
+        "parameters": [],
+        "path": "/places",
+        "readerSelection": {
+          "compatibilityAnchor": "3.1",
+          "fullSpecificationValidation": false,
+          "outsideAdvertisedRange": false,
+          "reader": "BOUNDED_OPENAPI_PATH_OPERATION_READER",
+          "selectionMode": "DECLARED_COMPATIBILITY_PROFILE",
+          "supportedVersionRange": "OPENAPI_THROUGH_3_X"
+        },
+        "runtimeEnforcement": "UNVERIFIED",
+        "schema": "codeclew-documentation-contract-facts/1.0",
+        "security": null,
+        "securitySchemes": null,
+        "servers": null,
+        "sourceMapping": "SOURCE_ROUTE_MATCH_ONLY"
+      },
+      "service": "places",
+      "sourceIds": [
+        "places-770e53d99edf681987e1"
+      ],
+      "symbol": "method:class:Weather.Places.PlacesController#Save(LWeather/Places/SavePlace;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;"
+    }
+  ],
+  "externalCalls": [],
+  "operation": {
+    "boundaries": [
+      "C# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted.",
+      "CALL_TARGETS_UNRESOLVED",
+      "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+      "FILE_ONLY:compose.yaml",
+      "FILE_ONLY:contracts/dashboard.openapi.json",
+      "FILE_ONLY:contracts/events.schema.json",
+      "FILE_ONLY:database/init.sql",
+      "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+      "FILE_ONLY:exercises/replay.py",
+      "FILE_ONLY:exercises/validator-regression.mjs",
+      "FILE_ONLY:fixtures/helsinki.json",
+      "FILE_ONLY:fixtures/lisbon.json",
+      "FILE_ONLY:fixtures/met-oslo-recorded.json",
+      "FILE_ONLY:fixtures/oslo.json",
+      "FILE_ONLY:fixtures/provenance.json",
+      "FILE_ONLY:services/dashboard/Dockerfile",
+      "FILE_ONLY:services/dashboard/package-lock.json",
+      "FILE_ONLY:services/dashboard/package.json",
+      "FILE_ONLY:services/dashboard/public/index.html",
+      "FILE_ONLY:services/dashboard/tsconfig.json",
+      "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+      "ORDER_LEXICAL_ONLY",
+      "SCOPE_WATCH_CONSERVATIVE",
+      "Syntax evidence does not establish runtime dispatch or configuration. Expand known owners and helpers; retain explicit gaps for unresolved targets.",
+      "ANNOTATION_DECLARATION_UNAVAILABLE",
+      "CALL_TARGETS_UNRESOLVED",
+      "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+      "FILE_ONLY:compose.yaml",
+      "FILE_ONLY:contracts/events.schema.json",
+      "FILE_ONLY:contracts/forecasts.openapi.json",
+      "FILE_ONLY:database/init.sql",
+      "FILE_ONLY:fixtures/helsinki.json",
+      "FILE_ONLY:fixtures/lisbon.json",
+      "FILE_ONLY:fixtures/met-oslo-recorded.json",
+      "FILE_ONLY:fixtures/oslo.json",
+      "FILE_ONLY:fixtures/provenance.json",
+      "FILE_ONLY:services/forecasts/Dockerfile",
+      "FILE_ONLY:services/forecasts/pom.xml",
+      "FILE_ONLY:services/forecasts/src/main/resources/application.properties",
+      "NO_BEAN_OWNER",
+      "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+      "ORDER_LEXICAL_ONLY",
+      "RUNTIME_REGISTRATION_UNPROVEN",
+      "SCOPE_WATCH_CONSERVATIVE",
+      "SOURCE_NAMES_NOT_COMPILER_RESOLVED",
+      "UNRESOLVED_ANNOTATION_VALUE",
+      "Syntax evidence does not establish runtime dispatch or configuration. Expand known owners and helpers; retain explicit gaps for unresolved targets.",
+      "CLR_SIGNATURE_PROJECTED_TO_JVM_DESCRIPTOR_GRAMMAR",
+      "CSHARP_SOURCE_GENERATED_DOCUMENTS_NOT_INDEXED",
+      "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+      "GENERATED_SOURCE_BODIES_NOT_INDEXED",
+      "LAMBDA_EXECUTION_NOT_EXPANDED",
+      "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+      "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+      "SWITCH_FLOW_REQUIRES_SOURCE_REVIEW"
+    ],
+    "documentationLanguage": "en",
+    "events": [
+      {
+        "dependencyIds": [
+          "places:entrypoint:ebc7f56be0a61c52f682dcc7",
+          "places:symbol:980888b04e77862e073cbcc8"
+        ],
+        "from": "caller",
+        "id": "claim-2c10e8edf250b88956af",
+        "kind": "message",
+        "sourceIds": [
+          "places-980888b04e77862e073c"
+        ],
+        "text": "GET /openapi.json enters the contract-file handler.",
+        "to": "service-places"
+      },
+      {
+        "dependencyIds": [
+          "places:entrypoint:ebc7f56be0a61c52f682dcc7",
+          "places:symbol:980888b04e77862e073cbcc8"
+        ],
+        "from": "service-places",
+        "id": "claim-91ea58b23330724e1635",
+        "kind": "message",
+        "sourceIds": [
+          "places-980888b04e77862e073c"
+        ],
+        "text": "Read /app/contracts/places.openapi.json using the request cancellation token.",
+        "to": "places-openapi-file"
+      },
+      {
+        "dependencyIds": [
+          "places:entrypoint:ebc7f56be0a61c52f682dcc7",
+          "places:flow:03ca9c0afeb32ca6a28e4bd2",
+          "places:symbol:980888b04e77862e073cbcc8"
+        ],
+        "from": "service-places",
+        "id": "claim-7ad05f9136a50e352564",
+        "kind": "return",
+        "sourceIds": [
+          "places-03ca9c0afeb32ca6a28e",
+          "places-980888b04e77862e073c"
+        ],
+        "text": "If the file read completes, return its contents with application/json content type.",
+        "to": "caller"
+      },
+      {
+        "dependencyIds": [
+          "places:entrypoint:ebc7f56be0a61c52f682dcc7",
+          "places:symbol:980888b04e77862e073cbcc8"
+        ],
+        "id": "claim-43a34b790e0e90735714",
+        "kind": "note",
+        "sourceIds": [
+          "places-980888b04e77862e073c"
+        ],
+        "text": "The shown handler has no fallback or catch around file reading; do not infer a successful 200 if the file cannot be read."
+      }
+    ],
+    "explanation": [
+      {
+        "dependencyIds": [
+          "places:entrypoint:ebc7f56be0a61c52f682dcc7",
+          "places:symbol:980888b04e77862e073cbcc8"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-2c10e8edf250b88956af"
+        ],
+        "id": "claim-b64f2270e3b8c9ba9c35",
+        "sourceIds": [
+          "places-980888b04e77862e073c"
+        ],
+        "text": "GET /openapi.json enters the contract-file handler."
+      },
+      {
+        "dependencyIds": [
+          "places:entrypoint:ebc7f56be0a61c52f682dcc7",
+          "places:symbol:980888b04e77862e073cbcc8"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-91ea58b23330724e1635"
+        ],
+        "id": "claim-2a1e8dabec6e8ad00822",
+        "sourceIds": [
+          "places-980888b04e77862e073c"
+        ],
+        "text": "Read /app/contracts/places.openapi.json using the request cancellation token."
+      },
+      {
+        "dependencyIds": [
+          "places:entrypoint:ebc7f56be0a61c52f682dcc7",
+          "places:flow:03ca9c0afeb32ca6a28e4bd2",
+          "places:symbol:980888b04e77862e073cbcc8"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-7ad05f9136a50e352564"
+        ],
+        "id": "claim-a83c4cd6415acb76fdf8",
+        "sourceIds": [
+          "places-03ca9c0afeb32ca6a28e",
+          "places-980888b04e77862e073c"
+        ],
+        "text": "If the file read completes, return its contents with application/json content type."
+      },
+      {
+        "dependencyIds": [
+          "places:entrypoint:ebc7f56be0a61c52f682dcc7",
+          "places:symbol:980888b04e77862e073cbcc8"
+        ],
+        "detail": false,
+        "eventIds": [
+          "claim-43a34b790e0e90735714"
+        ],
+        "id": "claim-dc7cadc5bbc3d63c6fc5",
+        "sourceIds": [
+          "places-980888b04e77862e073c"
+        ],
+        "text": "The shown handler has no fallback or catch around file reading; do not infer a successful 200 if the file cannot be read."
+      }
+    ],
+    "findings": [],
+    "id": "places-de7d5796a632782443dc",
+    "interfaceContracts": [
+      {
+        "boundaries": [],
+        "id": "claim-4d94becfd212ab4aab0c",
+        "kind": "http",
+        "rows": [
+          {
+            "dependencyIds": [
+              "places:contract-operation:08d1b9df6781b2953a038bc2",
+              "places:contract-operation:0f29e92a853c76a6ea564769",
+              "places:contract-operation:6b165729e2d309a9b2687873",
+              "places:contract-operation:6e713b9442ae5dfc4b99b133",
+              "places:contract-operation:fa5644a96e01681d7c2b0445",
+              "places:contract:91b280ed0ed0eda3e8e3231d"
+            ],
+            "id": "claim-ac29d437b50237fa4164",
+            "label": "Declared responses",
+            "sourceIds": [
+              "places-770e53d99edf681987e1"
+            ],
+            "value": "The contract declares 200 application/json with an object schema and a 500 response."
+          }
+        ],
+        "title": "OpenAPI: GET /openapi.json"
+      }
+    ],
+    "participants": [
+      {
+        "id": "caller",
+        "label": "Caller",
+        "service": null
+      },
+      {
+        "id": "service-places",
+        "label": "places",
+        "service": "places"
+      },
+      {
+        "id": "places-openapi-file",
+        "label": "OpenAPI contract file",
+        "service": null
+      }
+    ],
+    "summary": {
+      "dependencyIds": [
+        "places:contract-operation:08d1b9df6781b2953a038bc2",
+        "places:contract-operation:0f29e92a853c76a6ea564769",
+        "places:contract-operation:6b165729e2d309a9b2687873",
+        "places:contract-operation:6e713b9442ae5dfc4b99b133",
+        "places:contract-operation:fa5644a96e01681d7c2b0445",
+        "places:contract:91b280ed0ed0eda3e8e3231d",
+        "places:entrypoint:ebc7f56be0a61c52f682dcc7",
+        "places:symbol:980888b04e77862e073cbcc8"
+      ],
+      "id": "claim-4cd8b57b84a1b3f27c8a",
+      "sourceIds": [
+        "places-770e53d99edf681987e1",
+        "places-980888b04e77862e073c"
+      ],
+      "text": "PlacesController.OpenApi reads /app/contracts/places.openapi.json and returns its contents as application/json. The source shows no fallback or catch for a file-read failure, so a successful 200 response is not guaranteed by this code. The OpenAPI file itself declares 200 application/json and 500 responses for this route. Runtime file deployment and HTTP behavior remain unverified."
+    },
+    "title": "GET /openapi.json"
+  },
+  "sectionState": {
+    "contentRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "coverage": {
+      "dashboard": {
+        "boundaries": [
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/dashboard.openapi.json",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+          "FILE_ONLY:exercises/replay.py",
+          "FILE_ONLY:exercises/validator-regression.mjs",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/dashboard/Dockerfile",
+          "FILE_ONLY:services/dashboard/package-lock.json",
+          "FILE_ONLY:services/dashboard/package.json",
+          "FILE_ONLY:services/dashboard/public/index.html",
+          "FILE_ONLY:services/dashboard/tsconfig.json",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "SCOPE_WATCH_CONSERVATIVE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "forecasts": {
+        "boundaries": [
+          "ANNOTATION_DECLARATION_UNAVAILABLE",
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:contracts/forecasts.openapi.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/forecasts/Dockerfile",
+          "FILE_ONLY:services/forecasts/pom.xml",
+          "FILE_ONLY:services/forecasts/src/main/resources/application.properties",
+          "NO_BEAN_OWNER",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "RUNTIME_REGISTRATION_UNPROVEN",
+          "SCOPE_WATCH_CONSERVATIVE",
+          "SOURCE_NAMES_NOT_COMPILER_RESOLVED",
+          "UNRESOLVED_ANNOTATION_VALUE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "places": {
+        "boundaries": [
+          "CLR_SIGNATURE_PROJECTED_TO_JVM_DESCRIPTOR_GRAMMAR",
+          "CSHARP_SOURCE_GENERATED_DOCUMENTS_NOT_INDEXED",
+          "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+          "GENERATED_SOURCE_BODIES_NOT_INDEXED",
+          "LAMBDA_EXECUTION_NOT_EXPANDED",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+          "SWITCH_FLOW_REQUIRES_SOURCE_REVIEW"
+        ],
+        "coverage": "PARTIAL"
+      }
+    },
+    "freshness": "UNVERIFIED",
+    "reasons": [
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:b57016f8fd0621d202cb2ee1e96f17cd3ba84d6a935e64660e40ac3d60be0ca4/164667"
+      }
+    ],
+    "targetRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "verification": "UNASSESSED"
+  },
+  "sources": {
+    "places-03ca9c0afeb32ca6a28e": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 33,
+      "evidenceDigest": "sha256:26ba10c1ce73c49f6f6444b5fa050a3cdb54d6121aa966cf58c203dd2025b3a8",
+      "file": "services/places/PlacesController.cs",
+      "id": "places-03ca9c0afeb32ca6a28e",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 33,
+      "text": "",
+      "textDigest": "sha256:8f6f96ac638bece2483905713c323278bc5999d910a890d66a5a45c8a2b8dc43",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L33-L33"
+    },
+    "places-1223607978a77b621e14": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 60,
+      "evidenceDigest": "sha256:daf7c38d968d2eb2b70deeec6f22744afe636b37d42286c94232cfbad908d703",
+      "file": "services/places/PlacesRepository.cs",
+      "id": "places-1223607978a77b621e14",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 4,
+      "text": "",
+      "textDigest": "sha256:bc91c9d234edfb570e4206b621061eb47c44f1c58eb7711378bf468d0961c89b",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L4-L60"
+    },
+    "places-19710e183d3cbefd518f": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 32,
+      "evidenceDigest": "sha256:fe99edd16f599ac1c228fb0b7e824a412e21eecd9e257cc982889600b8432d17",
+      "file": "services/places/PlacesRepository.cs",
+      "id": "places-19710e183d3cbefd518f",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 32,
+      "text": "",
+      "textDigest": "sha256:67e2c98cf05d4dd35e8a8cb796ee1cd44f9f4996adce68a72d6099d2bee1435b",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L32-L32"
+    },
+    "places-19e12857365e6c3ab8c1": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 9,
+      "evidenceDigest": "sha256:dbf4b1ee230fc42a45d57314c5b3b8e6abe26a22b2871496cb301e4868ebf83f",
+      "file": "services/places/PlacesController.cs",
+      "id": "places-19e12857365e6c3ab8c1",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 8,
+      "text": "",
+      "textDigest": "sha256:71b87c0ef9e25e956fc9368c11620df0900a60e0b6825456037c871e6e1e5825",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L8-L9"
+    },
+    "places-1bdf9a8c438732fd9a47": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 24,
+      "evidenceDigest": "sha256:26c60cb63612bc6a088c1e7a6047c0097c5865a0f50a4e6c1be044e0b211ff93",
+      "file": "services/places/PlacesController.cs",
+      "id": "places-1bdf9a8c438732fd9a47",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 24,
+      "text": "",
+      "textDigest": "sha256:49c55b04f5673e38dfbbaea92cbaac13b6b534dfc4607111e68916bd38db7c13",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L24-L24"
+    },
+    "places-24afabf4ce6fb0dad4a7": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 35,
+      "evidenceDigest": "sha256:487584dbc384e0e338e2012a06945189bb9ec2319685c5372d7d46398361d779",
+      "file": "services/places/PlacesRepository.cs",
+      "id": "places-24afabf4ce6fb0dad4a7",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 35,
+      "text": "",
+      "textDigest": "sha256:f692ab2520e99ad47d33ab10b9fb7635632605a44e9fe9fb71430be31e67dc1d",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L35-L35"
+    },
+    "places-309961f88b197290c1b0": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 17,
+      "evidenceDigest": "sha256:736bebeb9058370d059c092f45e8d76f8469809174e7db77cf0de838d1e1663f",
+      "file": "services/places/PlacesController.cs",
+      "id": "places-309961f88b197290c1b0",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 10,
+      "text": "",
+      "textDigest": "sha256:b6a46a9557e67342266ccce88f28a634490cacba1ee8f705d71066775158f708",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L10-L17"
+    },
+    "places-3e148dc4ec1c8e6777da": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 42,
+      "evidenceDigest": "sha256:b6c1ad260d4c9cc6f129734468c93482c1c72beeb1679f570be27566db158350",
+      "file": "services/places/PlacesRepository.cs",
+      "id": "places-3e148dc4ec1c8e6777da",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 42,
+      "text": "",
+      "textDigest": "sha256:ffa99c1326314797767e4cfa984ce097acc388b52724f284b27cd4a6869eb2d8",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L42-L42"
+    },
+    "places-434ffab68fae2f991ebb": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 51,
+      "evidenceDigest": "sha256:a7d9b5f982ccab84663c4722fed07685128ee25272a231c6881ead24473d40b2",
+      "file": "services/places/PlacesRepository.cs",
+      "id": "places-434ffab68fae2f991ebb",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 45,
+      "text": "",
+      "textDigest": "sha256:40ed706a263273c9e3bcb5f1333c4d2693b466f3572b750f00bcafbdc76eb5d6",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L45-L51"
+    },
+    "places-4ae3f1a41f6b7e53d1d6": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 14,
+      "evidenceDigest": "sha256:736bebeb9058370d059c092f45e8d76f8469809174e7db77cf0de838d1e1663f",
+      "file": "services/places/PlacesController.cs",
+      "id": "places-4ae3f1a41f6b7e53d1d6",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 14,
+      "text": "",
+      "textDigest": "sha256:b0e543964f9cd74c08ddfbcd69b4c92bf6d547d1386e003f94d5b985c8422ab3",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L14-L14"
+    },
+    "places-5186c682af4611de338b": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 9,
+      "evidenceDigest": "sha256:dbf4b1ee230fc42a45d57314c5b3b8e6abe26a22b2871496cb301e4868ebf83f",
+      "file": "services/places/PlacesController.cs",
+      "id": "places-5186c682af4611de338b",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 9,
+      "text": "",
+      "textDigest": "sha256:384689fa5cb01fae59e9ecd9aaa649c9d740f20c03aba3342d816f4dbdab8ea9",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L9-L9"
+    },
+    "places-51d94b76d870001475fd": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 59,
+      "evidenceDigest": "sha256:b689dee06cb34ef50c8065d11fb20f73938f8871d06debf64b44ab39d3f606dc",
+      "file": "services/places/PlacesRepository.cs",
+      "id": "places-51d94b76d870001475fd",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 52,
+      "text": "",
+      "textDigest": "sha256:b760523f1391d08669d20d18510de700ebf367c42ddc23365d51e63bb03037c3",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L52-L59"
+    },
+    "places-5b61c76fee491604ae12": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 19,
+      "evidenceDigest": "sha256:75c9474f85c98bdd403702e984609a8b19373e97335f0d7b81de1cbb39947c11",
+      "file": "services/places/PlacesRepository.cs",
+      "id": "places-5b61c76fee491604ae12",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 14,
+      "text": "",
+      "textDigest": "sha256:6e15ae994a04aee68e10ebdca101e935dec48a386e7d970ba3e83dbc3c98c049",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L14-L19"
+    },
+    "places-65de4bdfa04d114b73df": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 25,
+      "evidenceDigest": "sha256:26c60cb63612bc6a088c1e7a6047c0097c5865a0f50a4e6c1be044e0b211ff93",
+      "file": "services/places/PlacesController.cs",
+      "id": "places-65de4bdfa04d114b73df",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 18,
+      "text": "",
+      "textDigest": "sha256:15621e3458e3e37377113dbf343bd3621c520edd48affea91206c49bec8b238f",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L18-L25"
+    },
+    "places-6c58eb605998ee97db0f": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 16,
+      "evidenceDigest": "sha256:736bebeb9058370d059c092f45e8d76f8469809174e7db77cf0de838d1e1663f",
+      "file": "services/places/PlacesController.cs",
+      "id": "places-6c58eb605998ee97db0f",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 16,
+      "text": "",
+      "textDigest": "sha256:51c4193c82c61b16382aea55f616d1bee8591a0d72d6d9a4dd61dbdd535eeecd",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L16-L16"
+    },
+    "places-6c7321d96988c6277e32": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 4,
+      "evidenceDigest": "sha256:ffae3f804b2d63735801e775715494949266fe330ef3eb89d98ea513a6b3729f",
+      "file": "services/places/PlacesController.cs",
+      "id": "places-6c7321d96988c6277e32",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 4,
+      "text": "",
+      "textDigest": "sha256:e9beb5f47adcac76bac2ce8efa8beff62f3b7f40a3a2273e49a18b576cc8f62a",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L4-L4"
+    },
+    "places-707eb762b8c1f4718a5b": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 25,
+      "evidenceDigest": "sha256:dd944e62ed29bc0de6b9010d3b98be1672082ccdb56a582c4993cf684a8e810d",
+      "file": "services/places/PlacesRepository.cs",
+      "id": "places-707eb762b8c1f4718a5b",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 20,
+      "text": "",
+      "textDigest": "sha256:3027a4abb6d1fb5ef007a0d0783be38a6766fe294e0a1dfac9990b2c00975ce4",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L20-L25"
+    },
+    "places-722b268c12cec9e1cb51": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 34,
+      "evidenceDigest": "sha256:4c2a37722e8f758d81ef32cc8048686f59a02936773d6194edf5248ea9b158b6",
+      "file": "services/places/RequestPublisher.cs",
+      "id": "places-722b268c12cec9e1cb51",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 18,
+      "text": "",
+      "textDigest": "sha256:5402c70e41f029dbb02eb020cc4e28fc9f0ba004f670d74c7915aa4b7906db7f",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/RequestPublisher.cs#L18-L34"
+    },
+    "places-770e53d99edf681987e1": {
+      "authority": "DECLARED_OPENAPI",
+      "endLine": 263,
+      "evidenceDigest": "sha256:8bf54d15969e26cd93a988c53ef0716f30fafcfde6a753027b9ba032679254c2",
+      "file": "contracts/places.openapi.json",
+      "id": "places-770e53d99edf681987e1",
+      "occurrence": {
+        "blob": "af640ee9b12b7382621644083ce16a2a7cfa797b",
+        "endByte": 6754,
+        "snapshot": "sha256:57ddb5db6bc8158cf0e4a19a6ab07ecfc2f25a9f16a0b4ef72bdced923e69ccc",
+        "startByte": 0
+      },
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 1,
+      "text": "",
+      "textDigest": "sha256:ab24febec1817f3cca9b6e58e2f161f489edcc7266670d7b71b9736134cdc8c5",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/contracts/places.openapi.json#L1-L263"
+    },
+    "places-7fb8137cf82d592b243e": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 17,
+      "evidenceDigest": "sha256:a7b6adeb542a9964a6258105f1f0b1e407cb53e303dcb96b4a4d4bc909ed0037",
+      "file": "services/places/RequestPublisher.cs",
+      "id": "places-7fb8137cf82d592b243e",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 7,
+      "text": "",
+      "textDigest": "sha256:cdb8aae092e7b0dcc178c111ad01e7c214015c8f589f814b2ce3f67cc83336a3",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/RequestPublisher.cs#L7-L17"
+    },
+    "places-93a350e119c095d25822": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 34,
+      "evidenceDigest": "sha256:fe99edd16f599ac1c228fb0b7e824a412e21eecd9e257cc982889600b8432d17",
+      "file": "services/places/PlacesRepository.cs",
+      "id": "places-93a350e119c095d25822",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 26,
+      "text": "",
+      "textDigest": "sha256:57e490d9a1f61cd4c65587b0846a749437c2527de8c9b83d77a69e19c4659230",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L26-L34"
+    },
+    "places-94d093f3220cad23f468": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 22,
+      "evidenceDigest": "sha256:26c60cb63612bc6a088c1e7a6047c0097c5865a0f50a4e6c1be044e0b211ff93",
+      "file": "services/places/PlacesController.cs",
+      "id": "places-94d093f3220cad23f468",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 22,
+      "text": "",
+      "textDigest": "sha256:9369d5713aca6842022c2dc07b6fd773a856285ff6d08e15d67132cb5b1d3f7a",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L22-L22"
+    },
+    "places-980888b04e77862e073c": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 33,
+      "evidenceDigest": "sha256:26ba10c1ce73c49f6f6444b5fa050a3cdb54d6121aa966cf58c203dd2025b3a8",
+      "file": "services/places/PlacesController.cs",
+      "id": "places-980888b04e77862e073c",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 32,
+      "text": "",
+      "textDigest": "sha256:e43bb552b94c9329c02c5849af04152f4bb8986cb58b4b37a84daeb1c407e65e",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L32-L33"
+    },
+    "places-9b1977404f23eec4b384": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 13,
+      "evidenceDigest": "sha256:f4546c673cab78035a4cda098f092c2b3cb7a3aa1e63b2bb20a197bd8804c5ee",
+      "file": "services/places/PlacesRepository.cs",
+      "id": "places-9b1977404f23eec4b384",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 7,
+      "text": "",
+      "textDigest": "sha256:d5ce762d009713537e8fe57d4fcabafae2be2a4b747c07abd8982f730f7bbe24",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L7-L13"
+    },
+    "places-9e8cdc503c6cd9f7b5e3": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 22,
+      "evidenceDigest": "sha256:26c60cb63612bc6a088c1e7a6047c0097c5865a0f50a4e6c1be044e0b211ff93",
+      "file": "services/places/PlacesController.cs",
+      "id": "places-9e8cdc503c6cd9f7b5e3",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 22,
+      "text": "",
+      "textDigest": "sha256:3ec1500b249fe69d52764f02e08a8a58668ec360dbba2cd64a654af852e6656e",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L22-L22"
+    },
+    "places-c4c78f2ff61478266b21": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 34,
+      "evidenceDigest": "sha256:42003231fcefb221d1faf13b3c85315f31925da008a2b2c3b8e5c6f6a524cc50",
+      "file": "services/places/PlacesController.cs",
+      "id": "places-c4c78f2ff61478266b21",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 5,
+      "text": "",
+      "textDigest": "sha256:6fb464381635249726d23d640c975b2e23058da1760d04f08d7dea1e7e2dcf78",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L5-L34"
+    },
+    "places-d3b23b700626394c74b7": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 44,
+      "evidenceDigest": "sha256:b6c1ad260d4c9cc6f129734468c93482c1c72beeb1679f570be27566db158350",
+      "file": "services/places/PlacesRepository.cs",
+      "id": "places-d3b23b700626394c74b7",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 36,
+      "text": "",
+      "textDigest": "sha256:e08fcbd4d59afeb24401daed09cd2a82b584a6284f64c91ec63f9f97a60b27d0",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L36-L44"
+    },
+    "places-d4d0aa9ce7bc37e81fa3": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 35,
+      "evidenceDigest": "sha256:40da54a9ce383d7e7fcf4f71d91747eb2314978b6bc7247158fd8c5e521fe634",
+      "file": "services/places/RequestPublisher.cs",
+      "id": "places-d4d0aa9ce7bc37e81fa3",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 5,
+      "text": "",
+      "textDigest": "sha256:b6dcc747daa4c7491b8b968592a2100bafd3c75304a1b68779074336da717e6f",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/RequestPublisher.cs#L5-L35"
+    },
+    "places-d563c7ecbbb7f4ab93d0": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 30,
+      "evidenceDigest": "sha256:18085b5c2227057b4727e727f0f4780aa729f432449de93343e7316b8332a7ec",
+      "file": "services/places/PlacesController.cs",
+      "id": "places-d563c7ecbbb7f4ab93d0",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 30,
+      "text": "",
+      "textDigest": "sha256:7ea015be2dffe2c595b09629061fe06a63cf3ab4399018c042f37c913f5ad7b6",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L30-L30"
+    },
+    "places-d9cadcac8ec9a824bbdf": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 3,
+      "evidenceDigest": "sha256:c70de7ef710baefdee6f66966ed18b9f20723da50be07ed85dd9dd555efef853",
+      "file": "services/places/PlacesController.cs",
+      "id": "places-d9cadcac8ec9a824bbdf",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 3,
+      "text": "",
+      "textDigest": "sha256:9470cec616b6be42e1d89013d3d4474b0776bee8cd189dfb1ebac7b8261ab010",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L3-L3"
+    },
+    "places-edfd73109baec00e38bd": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 31,
+      "evidenceDigest": "sha256:18085b5c2227057b4727e727f0f4780aa729f432449de93343e7316b8332a7ec",
+      "file": "services/places/PlacesController.cs",
+      "id": "places-edfd73109baec00e38bd",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 26,
+      "text": "",
+      "textDigest": "sha256:9f4627b31cb95cea42d48dd0f038a1cb90ca5f769cf07a7507d795c7cdac9040",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L26-L31"
+    },
+    "places-fb7eaacd787375afbd44": {
+      "authority": "EXACT_SNAPSHOT_TEXT",
+      "endLine": 14,
+      "evidenceDigest": "sha256:736bebeb9058370d059c092f45e8d76f8469809174e7db77cf0de838d1e1663f",
+      "file": "services/places/PlacesController.cs",
+      "id": "places-fb7eaacd787375afbd44",
+      "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "service": "places",
+      "startLine": 14,
+      "text": "",
+      "textDigest": "sha256:9369d5713aca6842022c2dc07b6fd773a856285ff6d08e15d67132cb5b1d3f7a",
+      "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L14-L14"
+    }
+  },
+  "state": {
+    "contentRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "coverage": {
+      "dashboard": {
+        "boundaries": [
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/dashboard.openapi.json",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+          "FILE_ONLY:exercises/replay.py",
+          "FILE_ONLY:exercises/validator-regression.mjs",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/dashboard/Dockerfile",
+          "FILE_ONLY:services/dashboard/package-lock.json",
+          "FILE_ONLY:services/dashboard/package.json",
+          "FILE_ONLY:services/dashboard/public/index.html",
+          "FILE_ONLY:services/dashboard/tsconfig.json",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "SCOPE_WATCH_CONSERVATIVE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "forecasts": {
+        "boundaries": [
+          "ANNOTATION_DECLARATION_UNAVAILABLE",
+          "CALL_TARGETS_UNRESOLVED",
+          "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+          "FILE_ONLY:compose.yaml",
+          "FILE_ONLY:contracts/events.schema.json",
+          "FILE_ONLY:contracts/forecasts.openapi.json",
+          "FILE_ONLY:database/init.sql",
+          "FILE_ONLY:fixtures/helsinki.json",
+          "FILE_ONLY:fixtures/lisbon.json",
+          "FILE_ONLY:fixtures/met-oslo-recorded.json",
+          "FILE_ONLY:fixtures/oslo.json",
+          "FILE_ONLY:fixtures/provenance.json",
+          "FILE_ONLY:services/forecasts/Dockerfile",
+          "FILE_ONLY:services/forecasts/pom.xml",
+          "FILE_ONLY:services/forecasts/src/main/resources/application.properties",
+          "NO_BEAN_OWNER",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+          "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+          "ORDER_LEXICAL_ONLY",
+          "RUNTIME_REGISTRATION_UNPROVEN",
+          "SCOPE_WATCH_CONSERVATIVE",
+          "SOURCE_NAMES_NOT_COMPILER_RESOLVED",
+          "UNRESOLVED_ANNOTATION_VALUE"
+        ],
+        "coverage": "SYNTAX"
+      },
+      "places": {
+        "boundaries": [
+          "CLR_SIGNATURE_PROJECTED_TO_JVM_DESCRIPTOR_GRAMMAR",
+          "CSHARP_SOURCE_GENERATED_DOCUMENTS_NOT_INDEXED",
+          "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+          "GENERATED_SOURCE_BODIES_NOT_INDEXED",
+          "LAMBDA_EXECUTION_NOT_EXPANDED",
+          "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+          "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+          "SWITCH_FLOW_REQUIRES_SOURCE_REVIEW"
+        ],
+        "coverage": "PARTIAL"
+      }
+    },
+    "freshness": "UNVERIFIED",
+    "reasons": [
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:2670b888a7260cb79c4fea9ba99055838dd5fb9c0b6424324a66f731b76cf345/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:504b0babac4b6086256f5881975f96e395c4752c57a841887f5d7d19f8399f14/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:8cfa6609f990481eaff2383c5863cbd1f6d71d851f0fb8331d98ed21ec16122a/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:a89632e1e09a12549ee8b46b7ad66049f0180801d91c29ddd8a2549101591572/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:f9320dacc7fb65a75d47abe97bde64f17495db3abd5759532e053b6bd562b148/164667"
+      },
+      {
+        "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+        "snapshot": "sha256:b57016f8fd0621d202cb2ee1e96f17cd3ba84d6a935e64660e40ac3d60be0ca4/164667"
+      }
+    ],
+    "targetRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "verification": "UNASSESSED"
+  }
+}

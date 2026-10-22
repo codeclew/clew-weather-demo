@@ -7,6 +7,7 @@ on:
       - 'docs/**'
       - 'documentation/reference/**'
       - 'documentation/docusaurus/**'
+      - 'documentation/rendering/**'
       - '.github/workflows/documentation.yml'
   workflow_dispatch:
 
@@ -45,7 +46,7 @@ jobs:
         run: |
           native_mode=$(python3 -I -S documentation/docusaurus/variant.py native-mode)
           if [ "$native_mode" = pinned ]; then
-            # Only the complete byte-identical published tree may retain its official release.
+            # Verify the unchanged frozen native tree before the declared site navigation composition.
             release_tag=v0.13.39
             release_commit=$(gh api "repos/codeclew/codeclew/commits/$release_tag" --jq .sha)
             test "$release_commit" = 7880663be0b8b8dcefd197768fbc1593f0dddb4b
@@ -83,14 +84,11 @@ jobs:
         run: |
           export CODECLEW_DOCS_GENERATOR_REVISION="$(python3 -c 'import json; print(json.load(open("../publication.json"))["identity"]["renderer"]["sourceRevision"])')"
           npm ci --no-audit --no-fund
-          npm run build
+          npm run build -- --config ../../rendering/docusaurus.config.mjs
       - name: Check deep deployment paths and assemble both versions
         run: |
-          python3 -I -S documentation/docusaurus/variant.py verify-build
-          mkdir pages-output
-          cp -R docs/. pages-output/
-          mkdir pages-output/docusaurus
-          cp -R documentation/docusaurus/project/build/. pages-output/docusaurus/
+          python3 -I -S documentation/docusaurus/variant.py verify-build --showcase-navigation
+          python3 -I -S documentation/rendering/build.py --output pages-output
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
