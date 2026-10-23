@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:5272aea46685317820371449ad91e23e6ca66ade6dda10c22b5886ba8f44a4c5",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:58a23a8b46d9f6cbd78e14a0f10ebc1a25958a432dc436e6b904dd2a04dfb2a2"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "fetchedAt is generated with Instant.now().toString() when the normalized forecast is constructed. It records fetch/construction time, separately from the provider update time.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

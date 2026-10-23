@@ -1,0 +1,21 @@
+{
+  "identity": "sha256:965d8f6c38da77dc2da6e8eb7eba2dc8af6018353fe1e27b5ec762ceb659c05e",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "id": "city-id",
+    "meaning": {
+      "$clewRef": "sha256:07435bbb9de4479dff06e9ccb31c30a625fcc953a86dca72a735b972b8fbf683"
+    },
+    "path": "cityId",
+    "readableName": {
+      "$clewRef": "sha256:c9faf4a1c535d08e0a9d472f27ceecba19c77e551724fc842444e88fcd9e3acf"
+    },
+    "representations": {
+      "$clewRef": "sha256:ebd691b4931b1dae0e60e57b4f2c8f54651e4d701ea461200e81eba8c4f80d2b"
+    },
+    "selectedProcessField": true,
+    "usage": {
+      "$clewRef": "sha256:cdc340dc420532bd416369275f7ff8e0e5c7591e18022e37ae3a9ebcd94956e6"
+    }
+  }
+}

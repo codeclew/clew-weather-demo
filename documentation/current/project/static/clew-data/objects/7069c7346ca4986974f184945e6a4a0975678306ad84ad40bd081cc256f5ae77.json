@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:7069c7346ca4986974f184945e6a4a0975678306ad84ad40bd081cc256f5ae77",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:db52407c2844c1febd6a231fa6f8bb7eae9870168e5027fb8db8bb73e7e8986e"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The declared JSON cityId corresponds to SavePlace.CityId; Save reads request.CityId and passes it to City(). Framework request binding is not an observed runtime result.",
+    "title": "Save a city: source interpretation",
+    "tone": null
+  }
+}

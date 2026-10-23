@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:90e0478ce2798aa873d62856c0e683030295d29f368d732b83d9ae52297d51a6",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": {
+      "$clewRef": "sha256:92f2d145d1ad6dbd19f1b8ad938d780496faad74efe80a0d2b8aef6de05aba1c"
+    },
+    "id": "claim-150e9c1f58f4000a687a",
+    "sourceIds": [
+      "forecasts-0dad2f6c74261ec67a63",
+      "forecasts-27cca3456e62e8b1d498",
+      "forecasts-59f31d25c0ed89f258ae",
+      "forecasts-77706d418ba7932d0d3f",
+      "forecasts-7d79014f99ba83eadfd7",
+      "forecasts-a38291144ad4bd8a411b",
+      "forecasts-ad28a606f0881dfe7cfc",
+      "forecasts-c0b9aa485ebf80a7fcc5",
+      "forecasts-cc58d8643f3d17e4b691"
+    ],
+    "text": "The controller declares GET /forecasts/{id}, GET /health, and GET /openapi.json. The forecast route returns the stored JSON payload as application/json or 404 when no row exists. The health handler executes SELECT 1 and returns database READY; it does not check Kafka. The OpenAPI declaration describes a 200 forecast payload, 404, and 500 response, restricts id to oslo, helsinki, or lisbon, and declares health fields database READY and kafka READY. The handler and contract therefore differ on the health body, and the contract’s 500 response is not an explicit local error mapping in these handlers. The OpenAPI route reads /app/contracts/forecasts.openapi.json; file or database exceptions are not locally converted by the shown handlers.\n\nA source-declared Kafka listener receives weather.place-requested. The validator requires a nonblank event id, version 1, type place.requested, one of the three place ids, a nonblank name, and numeric coordinates. The event schema additionally declares latitude and longitude bounds and disallows extra top-level properties; the captured validator does not check those rules. Application properties declare earliest offset reset, disabled auto-commit, and manual-immediate acknowledgments. Invalid parse or validation is recorded in rejected_messages and acknowledged; valid processing reaches acknowledgment after the transaction callback. Runtime listener registration, acknowledgment behavior, and framework status serialization remain unverified."
+  }
+}

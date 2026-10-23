@@ -1,0 +1,20 @@
+{
+  "identity": "sha256:21df71081b760c4d6e16008cb905099c86916e070e4d7a6a68547fa536ebc996",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "no-use-found-in-bounded-complete-scope",
+    "claim": {
+      "$clewRef": "sha256:1bac8f23c3915433c1f56b007b380fdbcd5a3c174148f30592a80d37860d68b4"
+    },
+    "condition": "forecast.updated v1 branch",
+    "consumer": "GET /api/weather",
+    "contract": "API projection, not the event contract",
+    "coveredScope": "Complete retained getWeather() query",
+    "kinds": [],
+    "processes": [],
+    "producer": "weather_cards",
+    "representation": "updated_at (stored only)",
+    "stage": "Weather API",
+    "unresolved": "Static source interpretation; runtime execution and delivery are not established."
+  }
+}

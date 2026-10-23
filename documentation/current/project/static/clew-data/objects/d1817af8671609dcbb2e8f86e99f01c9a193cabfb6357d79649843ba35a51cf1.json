@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:d1817af8671609dcbb2e8f86e99f01c9a193cabfb6357d79649843ba35a51cf1",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+      "interaction:dashboard-request-refresh-to-places",
+      "process-scope:dashboard-refresh-request",
+      "process:dashboard-refresh-request",
+      "scenario:dashboard-refresh-request"
+    ],
+    "id": "claim-c0eedab01870a67d1122",
+    "sourceIds": [
+      "dashboard-1612e17d589cb9d0fa4a"
+    ],
+    "text": "Dashboard.requestRefresh URL-encodes the place ID and sends POST /places/{id}/refresh, waiting up to ten seconds before forwarding the response status and JSON body. A fetch or JSON-decoding error returns 503 PLACES_UNAVAILABLE. The saved process links this call to Places.Refresh and the request-publisher/consumer views, but the HTTP target binding is an agent proposal. The links do not establish execution order, response outcome, provider refresh or Kafka delivery; runtime routing remains unknown."
+  }
+}

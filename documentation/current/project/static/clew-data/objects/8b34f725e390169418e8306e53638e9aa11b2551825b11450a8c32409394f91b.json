@@ -1,0 +1,26 @@
+{
+  "identity": "sha256:8b34f725e390169418e8306e53638e9aa11b2551825b11450a8c32409394f91b",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "places:symbol:51d94b76d870001475fd2c51"
+    ],
+    "id": "places:symbol:51d94b76d870001475fd2c51",
+    "name": "InsertRequest",
+    "owner": "class:Weather.Places.PlacesRepository",
+    "parameterTypes": [
+      "Npgsql.NpgsqlConnection",
+      "Npgsql.NpgsqlTransaction",
+      "Weather.Places.Place",
+      "System.Threading.CancellationToken"
+    ],
+    "publicBoundary": false,
+    "scope": "csproj:services/places/Places.csproj@net10.0",
+    "service": "places",
+    "sourceIds": [
+      "places-51d94b76d870001475fd"
+    ],
+    "status": "RECORDED",
+    "symbol": "method:class:Weather.Places.PlacesRepository#InsertRequest(LNpgsql/NpgsqlConnection;LNpgsql/NpgsqlTransaction;LWeather/Places/Place;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;"
+  }
+}

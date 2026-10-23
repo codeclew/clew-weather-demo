@@ -1,0 +1,1387 @@
+{
+  "schema": "codeclew-normalized-data/1.0",
+  "value": {
+    "activityTransitions": null,
+    "activityTransitionsSvg": false,
+    "analysisEvidence": {
+      "dashboard": {
+        "coverage": "SYNTAX",
+        "extractor": "codeclew-documentation-source/1.0",
+        "mappedSymbols": 0,
+        "provider": {
+          "status": "NOT_REQUESTED"
+        },
+        "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+        "runtimeMode": "COMMITTED_SOURCE_NO_BUILD",
+        "sampleFacts": []
+      }
+    },
+    "authoredTranslationGaps": [],
+    "boundaries": [
+      "CALL_TARGETS_UNRESOLVED",
+      "DECLARED_TRANSITION_NOT_REACHED:dashboard-request-refresh-to-places",
+      "DECLARED_TRANSITION_NOT_REACHED:forecasts-forecast-updated-to-dashboard",
+      "DECLARED_TRANSITION_NOT_REACHED:forecasts-refresh-to-external-met",
+      "DECLARED_TRANSITION_NOT_REACHED:places-place-requested-to-dashboard",
+      "DECLARED_TRANSITION_NOT_REACHED:places-place-requested-to-forecasts",
+      "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+      "FILE_ONLY:compose.yaml",
+      "FILE_ONLY:contracts/dashboard.openapi.json",
+      "FILE_ONLY:contracts/events.schema.json",
+      "FILE_ONLY:database/init.sql",
+      "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+      "FILE_ONLY:exercises/replay.py",
+      "FILE_ONLY:exercises/validator-regression.mjs",
+      "FILE_ONLY:fixtures/helsinki.json",
+      "FILE_ONLY:fixtures/lisbon.json",
+      "FILE_ONLY:fixtures/met-oslo-recorded.json",
+      "FILE_ONLY:fixtures/oslo.json",
+      "FILE_ONLY:fixtures/provenance.json",
+      "FILE_ONLY:services/dashboard/Dockerfile",
+      "FILE_ONLY:services/dashboard/package-lock.json",
+      "FILE_ONLY:services/dashboard/package.json",
+      "FILE_ONLY:services/dashboard/public/index.html",
+      "FILE_ONLY:services/dashboard/tsconfig.json",
+      "LINKED_PROCESS_STALE:dashboard-forecast-updated-consumer",
+      "LINKED_PROCESS_STALE:dashboard-place-requested-consumer",
+      "LINKED_PROCESS_STALE:forecasts-place-requested-consumer",
+      "LINKED_PROCESS_STALE:forecasts-publish-pending",
+      "LINKED_PROCESS_STALE:places-request-publisher",
+      "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+      "ORDER_LEXICAL_ONLY",
+      "SCOPE_WATCH_CONSERVATIVE",
+      "Static source interpretation; runtime activation and execution are not established.",
+      "UNACCEPTED_AGENT_PROPOSAL"
+    ],
+    "boundaryInventory": null,
+    "canonicalEntityLinks": {
+      "question-enqueue": {
+        "places": [
+          {
+            "documentationLanguage": "en",
+            "href": "../data-model/place.html",
+            "id": "place",
+            "title": "Place"
+          }
+        ]
+      }
+    },
+    "catalogue": [],
+    "contracts": [],
+    "coverage": {
+      "dashboard": "SYNTAX"
+    },
+    "entities": [],
+    "extractor": "codeclew-documentation-jvm/1.3",
+    "frozenLanguageAvailability": {
+      "requestedDocumentationLanguage": "en",
+      "translationComplete": true,
+      "translationGaps": {}
+    },
+    "frozenPublication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+    "gaps": {},
+    "interactions": [
+      {
+        "$clewRef": "sha256:175f36d8d281e373a64786ea1e9ab5e2dab6b7af8b40058e3c151dc0923d83ad"
+      },
+      {
+        "$clewRef": "sha256:4ded741f84c34dfd216d496e6d480ca67e809b8cc4970e4fc6afb5bc3fc6c296"
+      },
+      {
+        "$clewRef": "sha256:5253ad68fdd1d1fb2b3a788d974d605418b8cb621693fb3d213d74ca2d2bf16b"
+      },
+      {
+        "$clewRef": "sha256:6e4730373affdcc11f36db84d22f061b28aa2a81f5b1f75232912aaa1bebe1e7"
+      },
+      {
+        "$clewRef": "sha256:5f7167f498dee5aa096ae428e3da0471313755e134840a2752e424e13ebf73ab"
+      }
+    ],
+    "language": "en",
+    "lifecycleOperations": [],
+    "notes": [],
+    "operationContracts": {
+      "dashboard-refresh-request": [],
+      "process-overview": []
+    },
+    "operationExternalCalls": {
+      "dashboard-refresh-request": [],
+      "process-overview": []
+    },
+    "operationSources": {
+      "dashboard-refresh-request": {
+        "$clewRef": "sha256:313708365bdf5595426131e7855683cf71088e434b2e8a6d007373a3e67346f0"
+      },
+      "process-overview": {
+        "$clewRef": "sha256:5d5690c10ca1b23e237065497cbcee2ce5bea970752f9a991d12bdbd8fc3139d"
+      }
+    },
+    "operationStates": {
+      "dashboard-refresh-request": {
+        "$clewRef": "sha256:5a6a7b40bd8db5940788361f21fb7d7f2e4577bbca44ec06cd6809abe3482938"
+      },
+      "process-overview": {
+        "$clewRef": "sha256:7498ca9221d6a36b34d6f744884b2827326a8743acff08a48940d35a5d44c9d5"
+      }
+    },
+    "operations": [
+      {
+        "boundaries": {
+          "$clewRef": "sha256:6e4ce2922e774991ce9f1e4d5d14b8e556a57ea83e434eec0b828adee80e017e"
+        },
+        "documentationLanguage": "en",
+        "events": [
+          {
+            "dependencyIds": [
+              "dashboard:symbol:1612e17d589cb9d0fa4ae1f7"
+            ],
+            "from": "caller",
+            "id": "claim-624069f7e9f5280c87d0",
+            "kind": "message",
+            "sourceIds": [
+              "dashboard-1612e17d589cb9d0fa4a"
+            ],
+            "text": "A caller enters requestRefresh with the place ID in the route parameters.",
+            "to": "service-dashboard"
+          },
+          {
+            "$clewRef": "sha256:63d8323682ba773ac8bb82a6c24586291a57cd5ecb40778f978cf6e52d488d40"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:0c42e8da3e274553f5bc00ef",
+              "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+              "process:dashboard-refresh-request"
+            ],
+            "id": "claim-bf89f4017c8f27d8ccee",
+            "kind": "alt",
+            "sourceIds": [
+              "dashboard-0c42e8da3e274553f5bc",
+              "dashboard-1612e17d589cb9d0fa4a"
+            ],
+            "text": "Dashboard fetch and response.json complete"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:f471dd170980c48ef424033f",
+              "places:symbol:24afabf4ce6fb0dad4a762cb",
+              "places:symbol:65de4bdfa04d114b73dffbc2"
+            ],
+            "id": "claim-be2e6b692aac109c6242",
+            "kind": "alt",
+            "sourceIds": [
+              "places-24afabf4ce6fb0dad4a7",
+              "places-65de4bdfa04d114b73df"
+            ],
+            "text": "Places.Find returns null"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:f471dd170980c48ef424033f",
+              "places:symbol:24afabf4ce6fb0dad4a762cb",
+              "places:symbol:65de4bdfa04d114b73dffbc2"
+            ],
+            "from": "places",
+            "id": "claim-ac3adf09bf90577534a4",
+            "kind": "return",
+            "sourceIds": [
+              "places-24afabf4ce6fb0dad4a7",
+              "places-65de4bdfa04d114b73df"
+            ],
+            "text": "Refresh returns 404 PLACE_NOT_FOUND before Enqueue. This branch terminates without an outbox insert or 202 response.",
+            "to": "service-dashboard"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:f471dd170980c48ef424033f",
+              "places:symbol:24afabf4ce6fb0dad4a762cb",
+              "places:symbol:65de4bdfa04d114b73dffbc2"
+            ],
+            "id": "claim-42aa4fb6ca48ad946c02",
+            "kind": "else",
+            "sourceIds": [
+              "places-24afabf4ce6fb0dad4a7",
+              "places-65de4bdfa04d114b73df"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "$clewRef": "sha256:e4f12c47a979a44f2f545ab4499173c1f7e52c7b923fe0542870f579d7b88ca1"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:f471dd170980c48ef424033f",
+              "places:symbol:434ffab68fae2f991ebba252",
+              "places:symbol:65de4bdfa04d114b73dffbc2",
+              "process:dashboard-refresh-request"
+            ],
+            "from": "places",
+            "id": "claim-886463f628a8b0e2d764",
+            "kind": "return",
+            "sourceIds": [
+              "places-434ffab68fae2f991ebb",
+              "places-65de4bdfa04d114b73df"
+            ],
+            "text": "After Enqueue completes, Refresh returns 202 with placeId and status QUEUED. This response does not establish forecast readiness or completion.",
+            "to": "service-dashboard"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:f471dd170980c48ef424033f",
+              "places:symbol:24afabf4ce6fb0dad4a762cb",
+              "places:symbol:65de4bdfa04d114b73dffbc2"
+            ],
+            "id": "claim-be5a36243e0c1c1b9cb5",
+            "kind": "end",
+            "sourceIds": [
+              "places-24afabf4ce6fb0dad4a7",
+              "places-65de4bdfa04d114b73df"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+              "process:dashboard-refresh-request"
+            ],
+            "from": "service-dashboard",
+            "id": "claim-8234b7c10edef661b73b",
+            "kind": "return",
+            "sourceIds": [
+              "dashboard-1612e17d589cb9d0fa4a"
+            ],
+            "text": "Dashboard forwards the upstream status and parsed JSON for the 404 or 202 response.",
+            "to": "caller"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:0c42e8da3e274553f5bc00ef",
+              "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+              "process:dashboard-refresh-request"
+            ],
+            "id": "claim-2e9fb6db0c16485c408a",
+            "kind": "else",
+            "sourceIds": [
+              "dashboard-0c42e8da3e274553f5bc",
+              "dashboard-1612e17d589cb9d0fa4a"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+              "process:dashboard-refresh-request"
+            ],
+            "from": "service-dashboard",
+            "id": "claim-1f8c580b51da0a4a1831",
+            "kind": "return",
+            "sourceIds": [
+              "dashboard-1612e17d589cb9d0fa4a"
+            ],
+            "text": "A fetch or response JSON exception returns 503 PLACES_UNAVAILABLE. This failure does not establish whether Places committed before the client error.",
+            "to": "caller"
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:707eb762b8c1f4718a5b89e7",
+              "process:dashboard-refresh-request"
+            ],
+            "id": "claim-14d8b7547eca33adf3e3",
+            "kind": "note",
+            "sourceIds": [
+              "places-707eb762b8c1f4718a5b"
+            ],
+            "text": "Open disposes and rethrows a connection-open failure; the captured bodies do not establish how that exception maps to an HTTP response."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:0c42e8da3e274553f5bc00ef",
+              "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+              "process:dashboard-refresh-request"
+            ],
+            "id": "claim-acbfccd09cb692dab482",
+            "kind": "end",
+            "sourceIds": [
+              "dashboard-0c42e8da3e274553f5bc",
+              "dashboard-1612e17d589cb9d0fa4a"
+            ],
+            "text": ""
+          }
+        ],
+        "explanation": [
+          {
+            "dependencyIds": [
+              "dashboard:symbol:1612e17d589cb9d0fa4ae1f7"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-624069f7e9f5280c87d0"
+            ],
+            "id": "claim-3ca1d13b5e26667d0ad1",
+            "sourceIds": [
+              "dashboard-1612e17d589cb9d0fa4a"
+            ],
+            "text": "A caller enters requestRefresh with the place ID in the route parameters."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+              "interaction:dashboard-request-refresh-to-places",
+              "process:dashboard-refresh-request"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-200c312ea5553a634796"
+            ],
+            "id": "claim-df76606a2d149b30be58",
+            "sourceIds": [
+              "dashboard-1612e17d589cb9d0fa4a"
+            ],
+            "text": "Dashboard sends a bodyless POST to /places/{id}/refresh, URL-encodes the ID and applies a 10-second timeout. This declared receiver mapping is agent-proposed; runtime routing is unverified."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:0c42e8da3e274553f5bc00ef",
+              "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+              "process:dashboard-refresh-request"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-bf89f4017c8f27d8ccee"
+            ],
+            "id": "claim-9f3b3886256f67405e35",
+            "sourceIds": [
+              "dashboard-0c42e8da3e274553f5bc",
+              "dashboard-1612e17d589cb9d0fa4a"
+            ],
+            "text": "Dashboard fetch and response.json complete"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:f471dd170980c48ef424033f",
+              "places:symbol:24afabf4ce6fb0dad4a762cb",
+              "places:symbol:65de4bdfa04d114b73dffbc2"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-be2e6b692aac109c6242"
+            ],
+            "id": "claim-e8aa07b2440de2a1d9e0",
+            "sourceIds": [
+              "places-24afabf4ce6fb0dad4a7",
+              "places-65de4bdfa04d114b73df"
+            ],
+            "text": "Places.Find returns null"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:f471dd170980c48ef424033f",
+              "places:symbol:24afabf4ce6fb0dad4a762cb",
+              "places:symbol:65de4bdfa04d114b73dffbc2"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-ac3adf09bf90577534a4"
+            ],
+            "id": "claim-b0a1d624ae98dd9f3ae2",
+            "sourceIds": [
+              "places-24afabf4ce6fb0dad4a7",
+              "places-65de4bdfa04d114b73df"
+            ],
+            "text": "Refresh returns 404 PLACE_NOT_FOUND before Enqueue. This branch terminates without an outbox insert or 202 response."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:f471dd170980c48ef424033f",
+              "places:symbol:24afabf4ce6fb0dad4a762cb",
+              "places:symbol:65de4bdfa04d114b73dffbc2"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-42aa4fb6ca48ad946c02"
+            ],
+            "id": "claim-9808e7aab17136287f42",
+            "sourceIds": [
+              "places-24afabf4ce6fb0dad4a7",
+              "places-65de4bdfa04d114b73df"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:434ffab68fae2f991ebba252",
+              "places:symbol:51d94b76d870001475fd2c51",
+              "places:symbol:707eb762b8c1f4718a5b89e7"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-60cc4fa9d56726c50aff"
+            ],
+            "id": "claim-b47b71ad73df0916f48a",
+            "sourceIds": [
+              "places-434ffab68fae2f991ebb",
+              "places-51d94b76d870001475fd",
+              "places-707eb762b8c1f4718a5b"
+            ],
+            "text": "For a found place, Enqueue opens a connection, begins a transaction, inserts a request_outbox row with a new GUID and place.requested v1 payload, then commits before returning."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:f471dd170980c48ef424033f",
+              "places:symbol:434ffab68fae2f991ebba252",
+              "places:symbol:65de4bdfa04d114b73dffbc2",
+              "process:dashboard-refresh-request"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-886463f628a8b0e2d764"
+            ],
+            "id": "claim-aaf2a0589fb39d200298",
+            "sourceIds": [
+              "places-434ffab68fae2f991ebb",
+              "places-65de4bdfa04d114b73df"
+            ],
+            "text": "After Enqueue completes, Refresh returns 202 with placeId and status QUEUED. This response does not establish forecast readiness or completion."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+              "process:dashboard-refresh-request"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-8234b7c10edef661b73b"
+            ],
+            "id": "claim-609689b9cb279c38694c",
+            "sourceIds": [
+              "dashboard-1612e17d589cb9d0fa4a"
+            ],
+            "text": "Dashboard forwards the upstream status and parsed JSON for the 404 or 202 response."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:0c42e8da3e274553f5bc00ef",
+              "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+              "process:dashboard-refresh-request"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-2e9fb6db0c16485c408a"
+            ],
+            "id": "claim-93878da1a220203f5cf2",
+            "sourceIds": [
+              "dashboard-0c42e8da3e274553f5bc",
+              "dashboard-1612e17d589cb9d0fa4a"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+              "process:dashboard-refresh-request"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-1f8c580b51da0a4a1831"
+            ],
+            "id": "claim-e63a389553b760660bd2",
+            "sourceIds": [
+              "dashboard-1612e17d589cb9d0fa4a"
+            ],
+            "text": "A fetch or response JSON exception returns 503 PLACES_UNAVAILABLE. This failure does not establish whether Places committed before the client error."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:707eb762b8c1f4718a5b89e7",
+              "process:dashboard-refresh-request"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-14d8b7547eca33adf3e3"
+            ],
+            "id": "claim-429e7f8a3197dd1a9de6",
+            "sourceIds": [
+              "places-707eb762b8c1f4718a5b"
+            ],
+            "text": "Open disposes and rethrows a connection-open failure; the captured bodies do not establish how that exception maps to an HTTP response."
+          }
+        ],
+        "findings": [],
+        "id": "dashboard-refresh-request",
+        "interfaceContracts": [
+          {
+            "boundaries": [],
+            "id": "claim-5f2dd7b71ffd2632badb",
+            "kind": "http",
+            "rows": [
+              {
+                "dependencyIds": [
+                  "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+                  "interaction:dashboard-request-refresh-to-places",
+                  "process:dashboard-refresh-request"
+                ],
+                "id": "claim-d4dbd66281ca8b62f472",
+                "label": "Request",
+                "sourceIds": [
+                  "dashboard-1612e17d589cb9d0fa4a"
+                ],
+                "value": "Dashboard sends POST /places/{id}/refresh without a request body and encodes the path ID. The declared Dashboard-to-Places target mapping remains unverified at runtime."
+              },
+              {
+                "dependencyIds": [
+                  "places:entrypoint:f471dd170980c48ef424033f",
+                  "places:symbol:24afabf4ce6fb0dad4a762cb",
+                  "places:symbol:434ffab68fae2f991ebba252",
+                  "places:symbol:65de4bdfa04d114b73dffbc2"
+                ],
+                "id": "claim-c36d7880be5f58cf0562",
+                "label": "Places response",
+                "sourceIds": [
+                  "places-24afabf4ce6fb0dad4a7",
+                  "places-434ffab68fae2f991ebb",
+                  "places-65de4bdfa04d114b73df"
+                ],
+                "value": "The controller returns 404 PLACE_NOT_FOUND before enqueue when Find returns null; otherwise it waits for Enqueue and returns 202 with placeId and QUEUED."
+              },
+              {
+                "dependencyIds": [
+                  "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+                  "places:symbol:707eb762b8c1f4718a5b89e7",
+                  "process:dashboard-refresh-request"
+                ],
+                "id": "claim-32646f35e6af7a958cbf",
+                "label": "Dashboard failure cut",
+                "sourceIds": [
+                  "dashboard-1612e17d589cb9d0fa4a",
+                  "places-707eb762b8c1f4718a5b"
+                ],
+                "value": "A fetch or response JSON exception is returned as 503 PLACES_UNAVAILABLE. The handler does not report whether Places committed first; the Open method disposes and rethrows a connection-open failure."
+              }
+            ],
+            "title": "Source-visible refresh HTTP boundary"
+          }
+        ],
+        "participants": [
+          {
+            "id": "caller",
+            "label": "Caller",
+            "service": null
+          },
+          {
+            "id": "service-dashboard",
+            "label": "dashboard",
+            "service": "dashboard"
+          },
+          {
+            "id": "places",
+            "label": "Places",
+            "service": null
+          },
+          {
+            "id": "places-db",
+            "label": "Places PostgreSQL",
+            "service": null
+          }
+        ],
+        "summary": {
+          "$clewRef": "sha256:7f32804b1f44e42438944046cc92c38993a0587df59cf8a991725fd1b90be920"
+        },
+        "title": "Request a place refresh and record its outbox boundary"
+      },
+      {
+        "boundaries": {
+          "$clewRef": "sha256:0355e4ecd5f239d67e98f451bf93ab7684b3bb49bf164e4c86d47fe1602210e9"
+        },
+        "documentationLanguage": "en",
+        "events": [],
+        "explanation": [],
+        "findings": [],
+        "id": "process-overview",
+        "interfaceContracts": [],
+        "participants": [],
+        "summary": {
+          "$clewRef": "sha256:d1817af8671609dcbb2e8f86e99f01c9a193cabfb6357d79649843ba35a51cf1"
+        },
+        "title": "Dashboard refresh-request thread"
+      }
+    ],
+    "process": {
+      "authority": "Explicit saved request; generated interpretation is reviewed separately.",
+      "definition": {
+        "$clewRef": "sha256:240a860aa931002b20db946fa8165158f51ebca227bf7b5f14d9ea3fab25bb5e"
+      },
+      "definitionVersion": "sha256:56d9f77d10b660b1af8dbe67602c2b449af91b2a5a1dc4b80552ef69629a71f0",
+      "linkedSubviews": [
+        {
+          "accepted": null,
+          "authority": "REVIEWED_CHILD_INTERPRETATION_NOT_RUNTIME_PROOF",
+          "child": "dashboard-forecast-updated-consumer",
+          "dependencyIds": {
+            "$clewRef": "sha256:4714c815256b1a7d47661a911951fa0b6fa75c056ca4d79f28a7820a282ae86e"
+          },
+          "gap": "LINKED_PROCESS_STALE",
+          "href": "dashboard-forecast-updated-consumer.html",
+          "parent": "dashboard-refresh-request",
+          "status": "GAP"
+        },
+        {
+          "accepted": null,
+          "authority": "REVIEWED_CHILD_INTERPRETATION_NOT_RUNTIME_PROOF",
+          "child": "dashboard-place-requested-consumer",
+          "dependencyIds": {
+            "$clewRef": "sha256:c3e37f15c8a73aabc1819314c70df63cf2295821d71a7c761369119090f1bc64"
+          },
+          "gap": "LINKED_PROCESS_STALE",
+          "href": "dashboard-place-requested-consumer.html",
+          "parent": "dashboard-refresh-request",
+          "status": "GAP"
+        },
+        {
+          "accepted": null,
+          "authority": "REVIEWED_CHILD_INTERPRETATION_NOT_RUNTIME_PROOF",
+          "child": "forecasts-place-requested-consumer",
+          "dependencyIds": {
+            "$clewRef": "sha256:f9cc6cf3cd2d953619c4687d10a7da68508a9955f3786cfbddfa98c8154eac23"
+          },
+          "gap": "LINKED_PROCESS_STALE",
+          "href": "forecasts-place-requested-consumer.html",
+          "parent": "dashboard-refresh-request",
+          "status": "GAP"
+        },
+        {
+          "accepted": null,
+          "authority": "REVIEWED_CHILD_INTERPRETATION_NOT_RUNTIME_PROOF",
+          "child": "forecasts-publish-pending",
+          "dependencyIds": {
+            "$clewRef": "sha256:7525e41024e321fb76bde147cf999baf2816c0e1efc38840dfc4cf904774a090"
+          },
+          "gap": "LINKED_PROCESS_STALE",
+          "href": "forecasts-publish-pending.html",
+          "parent": "dashboard-refresh-request",
+          "status": "GAP"
+        },
+        {
+          "accepted": null,
+          "authority": "REVIEWED_CHILD_INTERPRETATION_NOT_RUNTIME_PROOF",
+          "child": "places-request-publisher",
+          "dependencyIds": {
+            "$clewRef": "sha256:3d222237c04d55484801bab2e8496a3b1ae1e1d93b6237dd36d4768d7c080109"
+          },
+          "gap": "LINKED_PROCESS_STALE",
+          "href": "places-request-publisher.html",
+          "parent": "dashboard-refresh-request",
+          "status": "GAP"
+        }
+      ],
+      "scope": {
+        "digest": "sha256:450785a68a38ca0f210a25176fd3287f0e395907fcea00c0b5cbc9d1f0725f49",
+        "id": "process-scope:dashboard-refresh-request",
+        "kind": "PROCESS_SCOPE",
+        "normalized": {
+          "$clewRef": "sha256:450785a68a38ca0f210a25176fd3287f0e395907fcea00c0b5cbc9d1f0725f49"
+        },
+        "service": "",
+        "sourceIds": [],
+        "symbol": "process-scope:dashboard-refresh-request"
+      }
+    },
+    "processCandidates": null,
+    "processExtraction": null,
+    "processOutline": {
+      "gap": "PROCESS_EVIDENCE_CHANGED_REVIEW_REQUIRED",
+      "pumlAvailable": false,
+      "root": {
+        "candidates": [
+          {
+            "observation": "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+            "observationDigest": "sha256:45f1f4c21a3eb23d43b79f5713e3c5ef914e119e2c0fde0248f3ca1157ee7df2",
+            "scope": null,
+            "service": "dashboard",
+            "symbol": "source:services/dashboard/src/main.ts/package:/requestRefresh/e49ec3442bac18d9abaa"
+          }
+        ],
+        "observation": "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+        "observationDigest": "sha256:45f1f4c21a3eb23d43b79f5713e3c5ef914e119e2c0fde0248f3ca1157ee7df2",
+        "scope": null,
+        "service": "dashboard",
+        "sourceIds": [
+          "dashboard-1612e17d589cb9d0fa4a"
+        ],
+        "sourceRecordDigests": {
+          "dashboard-1612e17d589cb9d0fa4a": "sha256:b41ac7155eba29b1e6a9dfe10348b626c22e19654978c7d35379a71fff4526a1"
+        },
+        "symbol": "source:services/dashboard/src/main.ts/package:/requestRefresh/e49ec3442bac18d9abaa"
+      },
+      "sourceIds": [
+        "dashboard-1612e17d589cb9d0fa4a"
+      ],
+      "status": "GAP",
+      "svgAvailable": false
+    },
+    "processThread": {
+      "authority": "DECLARED_MEANING_EXACT_RETAINED_SOURCE_NOT_COMPILER_CALL_GRAPH",
+      "boundaries": [
+        "The Dashboard-to-Places target is a declared HTTP boundary; compiler linkage and runtime routing are not established.",
+        "HTTP 202 QUEUED does not prove that a forecast refresh ran, completed, or was delivered to either consumer.",
+        "These wrappers do not establish idempotency or deduplication across repeated refresh requests."
+      ],
+      "boundaryContracts": [
+        {
+          "callStep": "dashboard-refresh-forward",
+          "evidence": {
+            "dashboard-request-refresh": {
+              "endLine": 83,
+              "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+              "service": "dashboard",
+              "source": {
+                "file": "services/dashboard/src/main.ts",
+                "id": "dashboard-1612e17d589cb9d0fa4a",
+                "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+                "textDigest": "sha256:8a1197a24ccae2bc108ed3180894b777ff122a2be4b0f3510f70588e0e3d8dbf",
+                "url": "https://github.com/codeclew/clew-weather-demo/blob/e635069293d58cb0d4f28c8211e748b8d58e6b37/services/dashboard/src/main.ts#L76-L83"
+              },
+              "sourceId": "dashboard-1612e17d589cb9d0fa4a",
+              "startLine": 76,
+              "textDigest": "sha256:8a1197a24ccae2bc108ed3180894b777ff122a2be4b0f3510f70588e0e3d8dbf"
+            },
+            "places-refresh": {
+              "endLine": 25,
+              "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+              "service": "places",
+              "source": {
+                "file": "services/places/PlacesController.cs",
+                "id": "places-65de4bdfa04d114b73df",
+                "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+                "textDigest": "sha256:15621e3458e3e37377113dbf343bd3621c520edd48affea91206c49bec8b238f",
+                "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L18-L25"
+              },
+              "sourceId": "places-65de4bdfa04d114b73df",
+              "startLine": 18,
+              "textDigest": "sha256:15621e3458e3e37377113dbf343bd3621c520edd48affea91206c49bec8b238f"
+            }
+          },
+          "failures": [
+            {
+              "evidenceRefs": [
+                "dashboard-request-refresh"
+              ],
+              "text": "Dashboard maps an exception from fetch or response JSON parsing to 503 with PLACES_UNAVAILABLE; this handler does not reveal whether Places completed or queued the request before that error."
+            },
+            {
+              "evidenceRefs": [
+                "places-refresh"
+              ],
+              "text": "The Places wrapper returns 404 before enqueue when the lookup yields no city."
+            }
+          ],
+          "guarantees": [
+            {
+              "evidenceRefs": [
+                "dashboard-request-refresh",
+                "places-refresh"
+              ],
+              "text": "The source shows no idempotency key or repeated-request deduplication in these wrappers; behavior beyond the boundary is unresolved."
+            },
+            {
+              "evidenceRefs": [
+                "places-refresh"
+              ],
+              "text": "HTTP 202 conveys QUEUED in this response body, not readiness or completion of the forecast."
+            }
+          ],
+          "id": "dashboard-refresh-http",
+          "operation": {
+            "evidenceRefs": [
+              "dashboard-request-refresh",
+              "places-refresh"
+            ],
+            "text": "Dashboard sends POST /places/{id}/refresh to the declared Places.Refresh target."
+          },
+          "receiverFragment": "places-refresh-handler",
+          "request": [
+            {
+              "evidenceRefs": [
+                "dashboard-request-refresh"
+              ],
+              "text": "Dashboard URL-encodes request.params.id into the path and sends POST without a request body. The wrapper shows no idempotency key."
+            },
+            {
+              "evidenceRefs": [
+                "places-refresh"
+              ],
+              "text": "Places receives the path id and cancellation token; it looks up the place before enqueue."
+            }
+          ],
+          "response": [
+            {
+              "evidenceRefs": [
+                "places-refresh"
+              ],
+              "text": "If no place is found, Places returns 404 with PLACE_NOT_FOUND and does not reach the enqueue call."
+            },
+            {
+              "evidenceRefs": [
+                "places-refresh"
+              ],
+              "text": "If the place is found, Places awaits repository.Enqueue and returns 202 with placeId and status QUEUED; that status does not establish forecast completion."
+            },
+            {
+              "evidenceRefs": [
+                "dashboard-request-refresh"
+              ],
+              "text": "Dashboard forwards the upstream status and parsed JSON response."
+            }
+          ],
+          "transport": "HTTP"
+        }
+      ],
+      "contractAuthority": "DECLARED_SOURCE_INTERPRETATION_NOT_WIRE_OR_RUNTIME_PROOF",
+      "contractSources": {
+        "dashboard-1612e17d589cb9d0fa4a": {
+          "$clewRef": "sha256:b41ac7155eba29b1e6a9dfe10348b626c22e19654978c7d35379a71fff4526a1"
+        },
+        "places-65de4bdfa04d114b73df": {
+          "$clewRef": "sha256:10944607b7dd3022e1223a7de9822b263e1bccb2a729b6118f97fc90f3c31306"
+        }
+      },
+      "declaredBranchCoverage": "NOT_PROVEN",
+      "methodOrder": [
+        "dashboard-request-refresh",
+        "places-refresh"
+      ],
+      "methods": {
+        "dashboard-request-refresh": {
+          "entrypoint": "dashboard-4301d0222c019e9d5339",
+          "label": "Dashboard requestRefresh handler",
+          "source": {
+            "$clewRef": "sha256:b41ac7155eba29b1e6a9dfe10348b626c22e19654978c7d35379a71fff4526a1"
+          },
+          "symbol": "source:services/dashboard/src/main.ts/package:/requestRefresh/e49ec3442bac18d9abaa"
+        },
+        "places-refresh": {
+          "$clewRef": "sha256:54ffe64ba936f4053351231e670bd3d5f7e6258614ea6db0000c4ab9ad733857"
+        }
+      },
+      "processId": "dashboard-refresh-request",
+      "processPages": {},
+      "rootMethod": "dashboard-request-refresh",
+      "schema": "codeclew-declared-process-thread/1.0",
+      "scope": "Dashboard.requestRefresh and the declared Places.Refresh HTTP boundary, through the controller response that labels accepted work QUEUED.",
+      "selectedEffectCompleteness": "NOT_PROVEN",
+      "serviceFragments": [
+        {
+          "entryMethod": "places-refresh",
+          "id": "places-refresh-handler",
+          "rootStep": "places-refresh-handler"
+        }
+      ],
+      "status": "SOURCE_BOUND_DECLARATION",
+      "steps": {
+        "$clewRef": "sha256:67be56b17d70c83f7f9694abb739f0be949fb9ea5a9c7c856f1ff23ec3d91de1"
+      }
+    },
+    "proseDisplayPolicy": "READABLE_ORIGINALS",
+    "questionReader": {
+      "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+      "conclusion": {
+        "$clewRef": "sha256:abb40713dd7f2f7224063ac109373ac65bd74947bda7cafe0898d81e584023ce"
+      },
+      "language": "en",
+      "presentation": "SEQUENTIAL",
+      "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+      "purpose": "Dashboard asks Places to queue a refresh and returns the request outcome.",
+      "schema": "codeclew-question-reading-plan/1.0",
+      "sections": [
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "$clewRef": "sha256:aab9df96703edfec0e143a8e7aca097184eec7a1dd2db105a201c18adefb8d51"
+                },
+                {
+                  "$clewRef": "sha256:90adafb5e479056c0203d521474aa7369144e1fcad394d4bf315d25c8ece61e8"
+                },
+                {
+                  "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+                  "endLine": 106,
+                  "kind": "SELECTED_SOURCE",
+                  "source": {
+                    "$clewRef": "sha256:489998b3bb96ff69dfe04f629b6281ed01757e4adcc670bc9d740381b32f543d"
+                  },
+                  "startLine": 106
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "Dashboard receives a place ID and asks Places to refresh its forecast.",
+              "title": "Request",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": "Address and contracts",
+              "evidence": [
+                {
+                  "$clewRef": "sha256:aab9df96703edfec0e143a8e7aca097184eec7a1dd2db105a201c18adefb8d51"
+                },
+                {
+                  "$clewRef": "sha256:3bc1903c644b0124ae3092d2451734a87eea79bad51d6e61457d4fa836c4ed3d"
+                },
+                {
+                  "$clewRef": "sha256:519bbbdbdd173473c63c9284a5547aee75496237c6db99086cd5f595db2e4c30"
+                }
+              ],
+              "id": null,
+              "links": [
+                {
+                  "href": "../services/dashboard.html#dashboard-4301d0222c019e9d5339",
+                  "label": "Dashboard entry and contract",
+                  "operation": "dashboard-4301d0222c019e9d5339",
+                  "subject": "service:dashboard"
+                },
+                {
+                  "href": "../services/places.html#places-e06f41e67f62720ad106",
+                  "label": "Places handler and contract",
+                  "operation": "places-e06f41e67f62720ad106",
+                  "subject": "service:places"
+                }
+              ],
+              "navTitle": null,
+              "preview": "Compose: POST http://places:8080/places/{id}/refresh · production URL unknown.",
+              "text": "Dashboard sends a bodyless POST to /places/{id}/refresh, URL-encodes the ID and applies a 10-second timeout. The selected Compose config sets PLACES_URL to http://places:8080; the source uses the same default. The example target is POST http://places:8080/places/{id}/refresh. Production address and runtime receiver routing are unverified.",
+              "title": "Address and contracts",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+                      "process:dashboard-refresh-request"
+                    ],
+                    "from": "service-dashboard",
+                    "id": "claim-1f8c580b51da0a4a1831",
+                    "kind": "return",
+                    "sourceIds": [
+                      "dashboard-1612e17d589cb9d0fa4a"
+                    ],
+                    "text": "A fetch or response JSON exception returns 503 PLACES_UNAVAILABLE. This failure does not establish whether Places committed before the client error.",
+                    "to": "caller"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-refresh-request",
+                  "sourceContext": {
+                    "$clewRef": "sha256:8c0e984c8072da5eb16b0a9deb187c413117806d43382b83a66c9079bda1e3d3"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:5d5690c10ca1b23e237065497cbcee2ce5bea970752f9a991d12bdbd8fc3139d"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:5a6a7b40bd8db5940788361f21fb7d7f2e4577bbca44ec06cd6809abe3482938"
+                  },
+                  "subject": "scenario:dashboard-refresh-request",
+                  "title": "Request a place refresh and record its outbox boundary"
+                },
+                {
+                  "$clewRef": "sha256:90adafb5e479056c0203d521474aa7369144e1fcad394d4bf315d25c8ece61e8"
+                }
+              ],
+              "id": "exchange-error",
+              "links": [],
+              "navTitle": "Exchange failure · 503",
+              "preview": null,
+              "text": "Fetch, JSON decoding or the 10-second timeout can lead to `503 PLACES_UNAVAILABLE`.\nPlaces may already have committed. This response does not establish whether the request was recorded or whether retry is safe.",
+              "title": "If the exchange with Places fails",
+              "tone": "ERROR"
+            }
+          ],
+          "icon": "arrow-right",
+          "id": "request",
+          "navTitle": "Request",
+          "number": 1,
+          "route": "POST /api/places/{id}/refresh  →  POST /places/{id}/refresh",
+          "title": "Dashboard sends the refresh request"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "places:entrypoint:f471dd170980c48ef424033f",
+                      "places:symbol:24afabf4ce6fb0dad4a762cb",
+                      "places:symbol:65de4bdfa04d114b73dffbc2"
+                    ],
+                    "id": "claim-be2e6b692aac109c6242",
+                    "kind": "alt",
+                    "sourceIds": [
+                      "places-24afabf4ce6fb0dad4a7",
+                      "places-65de4bdfa04d114b73df"
+                    ],
+                    "text": "Places.Find returns null"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-refresh-request",
+                  "sourceContext": {
+                    "$clewRef": "sha256:8c0e984c8072da5eb16b0a9deb187c413117806d43382b83a66c9079bda1e3d3"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:7ae4afc15533adefe6a0df1eabe92204ae3127ded90381d656b9784b65fc78de"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:5a6a7b40bd8db5940788361f21fb7d7f2e4577bbca44ec06cd6809abe3482938"
+                  },
+                  "subject": "scenario:dashboard-refresh-request",
+                  "title": "Request a place refresh and record its outbox boundary"
+                },
+                {
+                  "$clewRef": "sha256:2a04a1c288f26c77cbcc71434b4f15ea9af7e240c613ba6f5abb42b3f36340cc"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "Places checks whether the requested place exists.",
+              "title": "Lookup",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "places:entrypoint:f471dd170980c48ef424033f",
+                      "places:symbol:24afabf4ce6fb0dad4a762cb",
+                      "places:symbol:65de4bdfa04d114b73dffbc2"
+                    ],
+                    "from": "places",
+                    "id": "claim-ac3adf09bf90577534a4",
+                    "kind": "return",
+                    "sourceIds": [
+                      "places-24afabf4ce6fb0dad4a7",
+                      "places-65de4bdfa04d114b73df"
+                    ],
+                    "text": "Refresh returns 404 PLACE_NOT_FOUND before Enqueue. This branch terminates without an outbox insert or 202 response.",
+                    "to": "service-dashboard"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-refresh-request",
+                  "sourceContext": {
+                    "$clewRef": "sha256:8c0e984c8072da5eb16b0a9deb187c413117806d43382b83a66c9079bda1e3d3"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:7ae4afc15533adefe6a0df1eabe92204ae3127ded90381d656b9784b65fc78de"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:5a6a7b40bd8db5940788361f21fb7d7f2e4577bbca44ec06cd6809abe3482938"
+                  },
+                  "subject": "scenario:dashboard-refresh-request",
+                  "title": "Request a place refresh and record its outbox boundary"
+                }
+              ],
+              "id": "place-not-found",
+              "links": [],
+              "navTitle": "Place not found · 404",
+              "preview": null,
+              "text": "`404 PLACE_NOT_FOUND`. No refresh request is recorded.",
+              "title": "If the place is not found",
+              "tone": "WARNING"
+            }
+          ],
+          "icon": null,
+          "id": "lookup",
+          "navTitle": "Place lookup",
+          "number": 2,
+          "route": null,
+          "title": "Places looks up the place"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": {
+                "$clewRef": "sha256:11d1b7ac635f38c86083a41417cfc38c7d264896b139f3b4c7556447b4a123f1"
+              },
+              "id": null,
+              "links": [
+                {
+                  "href": "../services/places.html#section-entities",
+                  "label": "Place · domain context",
+                  "operation": "section-entities",
+                  "subject": "service:places"
+                }
+              ],
+              "navTitle": null,
+              "preview": null,
+              "text": "For an existing place, Places saves a request for later publication (outbox) in a database transaction.",
+              "title": "Record for later publication",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": "Transaction and event details",
+              "evidence": {
+                "$clewRef": "sha256:11d1b7ac635f38c86083a41417cfc38c7d264896b139f3b4c7556447b4a123f1"
+              },
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": "request_outbox · place.requested v1 · commit before 202",
+              "text": "Enqueue opens a connection, begins a transaction and calls InsertRequest. InsertRequest creates a new GUID and serializes a `place.requested` v1 event containing the Place into request_outbox. Enqueue then commits. This database write does not prove Kafka publication or delivery.",
+              "title": "Transaction and event details",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "$clewRef": "sha256:7f32804b1f44e42438944046cc92c38993a0587df59cf8a991725fd1b90be920"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-refresh-request",
+                  "sourceContext": {
+                    "$clewRef": "sha256:8c0e984c8072da5eb16b0a9deb187c413117806d43382b83a66c9079bda1e3d3"
+                  },
+                  "sources": {
+                    "dashboard-1612e17d589cb9d0fa4a": {
+                      "$clewRef": "sha256:b41ac7155eba29b1e6a9dfe10348b626c22e19654978c7d35379a71fff4526a1"
+                    },
+                    "places-24afabf4ce6fb0dad4a7": {
+                      "$clewRef": "sha256:09adfc4929d330ef0ace7773c10744a9ad2b7d33500cce7f3ebbce83b35cbccc"
+                    },
+                    "places-434ffab68fae2f991ebb": {
+                      "$clewRef": "sha256:2f738bb1b0e4cfed6f7710952bc1442794ebe32fe8703bd2bca4c9b79e4bbbc2"
+                    },
+                    "places-51d94b76d870001475fd": {
+                      "$clewRef": "sha256:89387464df117dd1f2cfdbd8113d90c803728d4fe220f507529703bd597dbf8e"
+                    },
+                    "places-65de4bdfa04d114b73df": {
+                      "$clewRef": "sha256:10944607b7dd3022e1223a7de9822b263e1bccb2a729b6118f97fc90f3c31306"
+                    },
+                    "places-707eb762b8c1f4718a5b": {
+                      "$clewRef": "sha256:d10889d7dec9ec7771472d1a44e755b28743b1800e345a02d390e4ce46d995b6"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:5a6a7b40bd8db5940788361f21fb7d7f2e4577bbca44ec06cd6809abe3482938"
+                  },
+                  "subject": "scenario:dashboard-refresh-request",
+                  "title": "Request a place refresh and record its outbox boundary"
+                },
+                {
+                  "$clewRef": "sha256:0bc46a26cf6bf702140b6fd5218142059568b52537c480622b4a3a58e70fc51e"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "Repeating the request may record another refresh request. This path offers no repeat-request deduplication guarantee.",
+              "title": "Repeated requests",
+              "tone": "INFO"
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "places:symbol:707eb762b8c1f4718a5b89e7",
+                      "process:dashboard-refresh-request"
+                    ],
+                    "id": "claim-14d8b7547eca33adf3e3",
+                    "kind": "note",
+                    "sourceIds": [
+                      "places-707eb762b8c1f4718a5b"
+                    ],
+                    "text": "Open disposes and rethrows a connection-open failure; the captured bodies do not establish how that exception maps to an HTTP response."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-refresh-request",
+                  "sourceContext": {
+                    "$clewRef": "sha256:8c0e984c8072da5eb16b0a9deb187c413117806d43382b83a66c9079bda1e3d3"
+                  },
+                  "sources": {
+                    "places-707eb762b8c1f4718a5b": {
+                      "$clewRef": "sha256:d10889d7dec9ec7771472d1a44e755b28743b1800e345a02d390e4ce46d995b6"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:5a6a7b40bd8db5940788361f21fb7d7f2e4577bbca44ec06cd6809abe3482938"
+                  },
+                  "subject": "scenario:dashboard-refresh-request",
+                  "title": "Request a place refresh and record its outbox boundary"
+                },
+                {
+                  "$clewRef": "sha256:2a04a1c288f26c77cbcc71434b4f15ea9af7e240c613ba6f5abb42b3f36340cc"
+                }
+              ],
+              "id": "enqueue-error",
+              "links": [],
+              "navTitle": "Recording failure",
+              "preview": null,
+              "text": "If saving the request fails, Places does not reach the `202` response. The captured code does not establish the HTTP response for a database failure.",
+              "title": "If recording the request fails",
+              "tone": "WARNING"
+            }
+          ],
+          "icon": "database",
+          "id": "enqueue",
+          "navTitle": "Record the request",
+          "number": 3,
+          "route": null,
+          "title": "Places records a refresh request"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "$clewRef": "sha256:0f4c7e4234efb52971a0c3f487153759867442307487c2482754b9562f8f6b4b"
+                },
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+                      "process:dashboard-refresh-request"
+                    ],
+                    "from": "service-dashboard",
+                    "id": "claim-8234b7c10edef661b73b",
+                    "kind": "return",
+                    "sourceIds": [
+                      "dashboard-1612e17d589cb9d0fa4a"
+                    ],
+                    "text": "Dashboard forwards the upstream status and parsed JSON for the 404 or 202 response.",
+                    "to": "caller"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-refresh-request",
+                  "sourceContext": {
+                    "$clewRef": "sha256:8c0e984c8072da5eb16b0a9deb187c413117806d43382b83a66c9079bda1e3d3"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:5d5690c10ca1b23e237065497cbcee2ce5bea970752f9a991d12bdbd8fc3139d"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:5a6a7b40bd8db5940788361f21fb7d7f2e4577bbca44ec06cd6809abe3482938"
+                  },
+                  "subject": "scenario:dashboard-refresh-request",
+                  "title": "Request a place refresh and record its outbox boundary"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "After the request is recorded, Places returns `202 QUEUED` with the place ID. Dashboard forwards the status and JSON response, including `404` when the place is missing.",
+              "title": "Queued response",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "$clewRef": "sha256:0f4c7e4234efb52971a0c3f487153759867442307487c2482754b9562f8f6b4b"
+                },
+                {
+                  "$clewRef": "sha256:a5f71b20b7f9c14560edc7bcf9045a0d6f298a5d85d92fed66caf34d32f64b1a"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "`202 QUEUED` describes the recorded refresh request. It does not confirm Kafka delivery, provider refresh or a forecast ready to display.",
+              "title": "Queued is not forecast ready",
+              "tone": "INFO"
+            }
+          ],
+          "icon": null,
+          "id": "result",
+          "navTitle": "Result",
+          "number": 4,
+          "route": null,
+          "title": "Dashboard returns the result"
+        },
+        {
+          "blocks": [
+            {
+              "$clewRef": "sha256:abb40713dd7f2f7224063ac109373ac65bd74947bda7cafe0898d81e584023ce"
+            }
+          ],
+          "icon": null,
+          "id": "confidence",
+          "navTitle": "Sources and provenance",
+          "number": null,
+          "route": null,
+          "title": "Full description and sources"
+        }
+      ],
+      "subject": "scenario:dashboard-refresh-request",
+      "title": "Request a forecast refresh"
+    },
+    "readerOptions": {
+      "showInternalProcesses": false
+    },
+    "relatedViews": [],
+    "renderer": "codeclew-documentation-html/1.16",
+    "requestedDocumentationLanguage": "en",
+    "revisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37"
+    },
+    "savedProcesses": [],
+    "sectionState": {
+      "$clewRef": "sha256:0aa97d84fbfe5214957c20a8b1bed0087eb083d271b4b05f7e0c0795f3621c24"
+    },
+    "sections": [],
+    "selectedEvidence": {
+      "$clewRef": "sha256:ca9e4ab3cdcbe2cee291a0df9c86fe72afd4d98160313803db7f0417ab3e0e97"
+    },
+    "selectedSnapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
+    "sourceAuthorities": {
+      "dashboard": "CAPTURED_SOURCE",
+      "forecasts": "RETAINED_SOURCE_NOT_REVERIFIED",
+      "places": "RETAINED_SOURCE_NOT_REVERIFIED"
+    },
+    "sources": {
+      "$clewRef": "sha256:313708365bdf5595426131e7855683cf71088e434b2e8a6d007373a3e67346f0"
+    },
+    "stateDiagram": null,
+    "stateDiagramSvg": false,
+    "subject": "scenario:dashboard-refresh-request",
+    "subtitle": "Service behavior and explicit evidence boundaries",
+    "targetRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "title": "Dashboard refresh-request thread",
+    "translationComplete": true,
+    "translationGaps": {},
+    "updateFailures": {},
+    "view": null
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:f828bd01659a4ef463c6073aa511e88e610003c150ce0eb39770a35268df9e5a",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:085e0e6e9e58c578001f3b0ea164d58e210c35211904501db9c9d4440b16f23c"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Longitude",
+    "title": "Authored readable name (agent proposal)",
+    "tone": null
+  }
+}

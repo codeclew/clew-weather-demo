@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:ea6e28c9107eaed4d51977cc099f0c0a170420626893fe562a558090c9457dd5",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:122cba8ae4504834ce7200983ed4376d49ba24c8cd07993900940718b707a395"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The browser tests !row.forecast before reading mode and periods. This is a tolerant pending branch, distinct from the required forecast.updated contract property.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

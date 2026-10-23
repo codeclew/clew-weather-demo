@@ -1,0 +1,39 @@
+{
+  "identity": "sha256:4556bcab0fd5fec52a5d4c12e05b35cfa63b45446a6cae670d89036fa8bb87c8",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "documentationLanguage": "en",
+    "fields": {
+      "$clewRef": "sha256:6ee4b3bd0aaf9ccbc223c720d9148a6102dae7c9cf290f539cc02ff015caf27b"
+    },
+    "id": "period",
+    "identity": {
+      "$clewRef": "sha256:afe5a81f405eea25b09bcf052045c99b60aa65127f8a12a72c15f15177dc7c9d"
+    },
+    "kind": "VALUE_OBJECT",
+    "processLinks": [
+      {
+        "anchor": "question-apply",
+        "label": "dashboard forecast updated consumer",
+        "subject": "scenario:dashboard-forecast-updated-consumer"
+      },
+      {
+        "anchor": "section-entities",
+        "label": "dashboard: field descriptions",
+        "subject": "service:dashboard"
+      },
+      {
+        "anchor": "section-entities",
+        "label": "forecasts: field descriptions",
+        "subject": "service:forecasts"
+      }
+    ],
+    "purpose": {
+      "$clewRef": "sha256:af8e2789268c64018fe1d12c7296d257bb28ee2ee1ce828a531fd01e237cd29c"
+    },
+    "relatedModels": [
+      "forecast"
+    ],
+    "title": "Period"
+  }
+}

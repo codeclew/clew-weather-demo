@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:44364458e86f1adda948257f670941193a89deaf4be349cea445ab9bf8bc4e2e",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 14,
+    "evidenceDigest": "sha256:d27ceef285a608d1f14838e73543d08d9db7748bd241cc5ce116754bdd329fb7",
+    "file": "services/dashboard/src/events.ts",
+    "id": "dashboard-191d583677e76ab3a5ca",
+    "occurrence": {
+      "blob": "ddda5719da0d973028010984703f3ee5163090f5",
+      "endByte": 964,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 909
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 14,
+    "text": "['oslo', 'helsinki', 'lisbon'].includes(event.place.id)",
+    "textDigest": "sha256:4be3fa665ec886a8e10a6926580579339b62588e8782c728ee3e40912a337115",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/events.ts#L14-L14"
+  }
+}

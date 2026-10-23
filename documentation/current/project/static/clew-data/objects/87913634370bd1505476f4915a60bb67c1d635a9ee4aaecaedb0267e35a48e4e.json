@@ -1,0 +1,27 @@
+{
+  "identity": "sha256:87913634370bd1505476f4915a60bb67c1d635a9ee4aaecaedb0267e35a48e4e",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "candidates": [
+      "places:symbol:722b268c12cec9e1cb51cbe8"
+    ],
+    "details": [
+      {
+        "descriptor": "(LConfluent/Kafka/IProducer`2;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;",
+        "id": "places:symbol:722b268c12cec9e1cb51cbe8",
+        "parameterTypes": [
+          "Confluent.Kafka.IProducer`2",
+          "System.Threading.CancellationToken"
+        ],
+        "sourceIds": [
+          "places-722b268c12cec9e1cb51"
+        ],
+        "symbol": "method:class:Weather.Places.RequestPublisher#PublishPending(LConfluent/Kafka/IProducer`2;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;"
+      }
+    ],
+    "sourceIds": [
+      "places-722b268c12cec9e1cb51"
+    ],
+    "status": "RESOLVED"
+  }
+}

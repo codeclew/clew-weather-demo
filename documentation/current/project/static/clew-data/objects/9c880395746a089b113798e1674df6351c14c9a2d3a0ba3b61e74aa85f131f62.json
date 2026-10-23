@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:9c880395746a089b113798e1674df6351c14c9a2d3a0ba3b61e74aa85f131f62",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 97,
+    "evidenceDigest": "sha256:b8467cbcecd34877556dd5bd64ebdd197c898a7e9740ded184e71f971327c55e",
+    "file": "services/dashboard/src/main.ts",
+    "id": "dashboard-8e13fe1feb2708d5e5bd",
+    "occurrence": {
+      "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+      "endByte": 4569,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 4363
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 95,
+    "text": "async function getHome(_request: FastifyRequest, reply: import('fastify').FastifyReply): Promise<void> {\n  reply.type('text/html').send(await readFile('/app/services/dashboard/public/index.html', 'utf8'))\n}",
+    "textDigest": "sha256:8aeb493b679280da38327ef590f0b93042b05598982fdd0b9722006f1f99bb13",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L95-L97"
+  }
+}

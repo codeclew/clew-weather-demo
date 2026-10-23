@@ -1,0 +1,36 @@
+{
+  "identity": "sha256:099da1559626cce9c5056f7cf7b3aa4fa9543e75642582b48a32d52ea359a9cd",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    {
+      "endLine": 23,
+      "id": "enqueue-refresh",
+      "kind": "ACTION",
+      "method": "places-refresh",
+      "startLine": 23,
+      "text": "Await repository.Enqueue(city, token); enqueue storage and subsequent delivery behavior are not established by this controller wrapper.",
+      "title": "Await repository enqueue"
+    },
+    {
+      "effects": [
+        {
+          "citation": {
+            "endLine": 24,
+            "method": "places-refresh",
+            "startLine": 24
+          },
+          "id": "refresh-202",
+          "kind": "RETURN",
+          "label": "Return HTTP 202 with QUEUED status."
+        }
+      ],
+      "endLine": 24,
+      "id": "queued-response",
+      "kind": "ACTION",
+      "method": "places-refresh",
+      "startLine": 24,
+      "text": "Return Accepted with placeId and status QUEUED. This response does not mean the forecast is ready.",
+      "title": "Return queued status"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "identity": "sha256:9671362293b6b7ce6f355857bcf47f666283d65258329719625286e167003249",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": {
+      "associationDigest": "sha256:52cccdaf98a9bf20eebd3c488ec399bf7cb7f548aa89cbec02cbb822443a371a",
+      "note": "runtime-validator-node24",
+      "noteDigest": "sha256:926c9ba7fc3e31b231ebf00713ec1b8a172ca82c05a47924afc6e3e39c1d14c8",
+      "outcome": "CONSISTENT",
+      "period": "v24.21.0",
+      "proposedCorrection": null,
+      "schema": "codeclew-documentation-note-assessment/1.0"
+    },
+    "boundaries": [
+      "This compares a finite historical Node observation with exact captured source text; it does not attest to a fresh execution, compiler result, every branch or universal timestamp validity."
+    ],
+    "documentationLanguage": "en",
+    "events": [],
+    "explanation": [],
+    "findings": [],
+    "id": "assessment-runtime-validator-node24",
+    "interfaceContracts": [],
+    "participants": [],
+    "summary": {
+      "$clewRef": "sha256:84a5af59c43bad8d008b9d00b32aae9c72634ffa0d6504758d398edbb4101231"
+    },
+    "title": "A hidden forecast slips through an unchecked exercise"
+  }
+}

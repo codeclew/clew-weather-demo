@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:31a09a3d85e023d50c58ebbdabb40081e3884b5e690a1de4c42cf61610c6e3dc",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:31727838dbc536b6cdeec28275975123ae4b9da3cf5c1b2e92d0d1fe413bc439"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "weather_cards is keyed by place_id and GET /api/weather returns that key as id. Card forecast may be pending/null, unlike the required forecast property of a forecast.updated event.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

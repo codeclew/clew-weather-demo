@@ -1,0 +1,36 @@
+{
+  "identity": "sha256:93181bb6cea9fb8262929aa7072732caf97aacadc58c03be35d195c9b30a7729",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    {
+      "endLine": 15,
+      "id": "await-save-repository",
+      "kind": "ACTION",
+      "method": "places-save",
+      "startLine": 15,
+      "text": "Await repository.Save(city, token); this wrapper does not establish its storage or commit semantics.",
+      "title": "Await the repository save"
+    },
+    {
+      "effects": [
+        {
+          "citation": {
+            "endLine": 16,
+            "method": "places-save",
+            "startLine": 16
+          },
+          "id": "save-200",
+          "kind": "RETURN",
+          "label": "Return HTTP 200 with the mapped city."
+        }
+      ],
+      "endLine": 16,
+      "id": "save-ok-response",
+      "kind": "ACTION",
+      "method": "places-save",
+      "startLine": 16,
+      "text": "Return Ok(city) after the repository call returns.",
+      "title": "Return the mapped city"
+    }
+  ]
+}

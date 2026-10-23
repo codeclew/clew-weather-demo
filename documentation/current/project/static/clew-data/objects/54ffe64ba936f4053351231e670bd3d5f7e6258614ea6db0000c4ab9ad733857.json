@@ -1,0 +1,12 @@
+{
+  "identity": "sha256:54ffe64ba936f4053351231e670bd3d5f7e6258614ea6db0000c4ab9ad733857",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "entrypoint": "places-e06f41e67f62720ad106",
+    "label": "Places Refresh controller",
+    "source": {
+      "$clewRef": "sha256:10944607b7dd3022e1223a7de9822b263e1bccb2a729b6118f97fc90f3c31306"
+    },
+    "symbol": "method:class:Weather.Places.PlacesController#Refresh(LSystem/String;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;"
+  }
+}

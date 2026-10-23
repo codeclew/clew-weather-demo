@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:c5c083bc2a0a454f6d470dc7ce933ad8b205f26e1fa43023e810e5e5e72755ea",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:040dcf86edd8b30ebae68ceb519337686b87e304aa01605c54feefd14f94ebd7"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Location latitude returned with the card.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

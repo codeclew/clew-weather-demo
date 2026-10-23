@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:6d34ae5a756fabde3e8f630891793a91f818bd5d59ac577fac6b77cbf1fb627e",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "forecasts:flow:44c1216c3e37f45f4ff9ceca",
+      "forecasts:source_annotations:3d7b217355f2e6a34064e800",
+      "forecasts:symbol:3d7b217355f2e6a34064e800"
+    ],
+    "id": "claim-9b868ca3064d7d31c7aa",
+    "kind": "note",
+    "sourceIds": [
+      "forecasts-3d7b217355f2e6a34064",
+      "forecasts-44c1216c3e37f45f4ff9"
+    ],
+    "text": "The database transaction does not make the Kafka effect atomic with its commit. If the send completes but the transaction later fails or the process stops before commit, the row can remain pending and be sent again."
+  }
+}

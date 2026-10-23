@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:fabcf790d6359bad92930830b294197d73c440e51b6a010808853eccb900f2e6",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 53,
+    "evidenceDigest": "sha256:75f28391188e016f4cd19d7e61a08699a7eaaa64d58b43b44c4b71414feec28d",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "id": "forecasts-ad28a606f0881dfe7cfc",
+    "occurrence": {
+      "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+      "endByte": 2924,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 1747
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 38,
+    "text": "@KafkaListener(topics = [\"weather.place-requested\"])\n    fun consume(record: ConsumerRecord<String, String>, acknowledgment: Acknowledgment) {\n        val event = try { json.readTree(record.value()).also { validatePlaceEvent(it) } } catch (error: Exception) {\n            jdbc.update(\"INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES(?,?,?,'INVALID_EVENT') ON CONFLICT DO NOTHING\", record.topic(), record.partition(), record.offset())\n            acknowledgment.acknowledge()\n            return\n        }\n        transaction.executeWithoutResult {\n            val inserted = jdbc.update(\"INSERT INTO inbox(event_id) VALUES(?) ON CONFLICT DO NOTHING\", event[\"id\"].asText())\n            if (inserted == 0) return@executeWithoutResult\n            val place = event[\"place\"]\n            jdbc.update(\"INSERT INTO places(id,name,latitude,longitude) VALUES(?,?,?,?) ON CONFLICT(id) DO UPDATE SET name=EXCLUDED.name,latitude=EXCLUDED.latitude,longitude=EXCLUDED.longitude\", place[\"id\"].asText(), place[\"name\"].asText(), place[\"latitude\"].asDouble(), place[\"longitude\"].asDouble())\n            refresh(place)\n        }\n        acknowledgment.acknowledge()\n    }",
+    "textDigest": "sha256:f6e86f56f6858e6c825ad010e8b1d1cd4816fc6beaba9bda5daa3a855915c37f",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L38-L53"
+  }
+}

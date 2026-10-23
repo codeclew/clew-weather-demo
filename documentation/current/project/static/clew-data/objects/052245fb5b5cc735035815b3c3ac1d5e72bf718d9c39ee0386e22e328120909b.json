@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:052245fb5b5cc735035815b3c3ac1d5e72bf718d9c39ee0386e22e328120909b",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:a7fa8750802f9f8cde98220ba591626959a1c31ac9838afb5f5aaa4b1229a3e3"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Dashboard’s stored projection for reading weather by location. A place can appear before its first forecast arrives.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

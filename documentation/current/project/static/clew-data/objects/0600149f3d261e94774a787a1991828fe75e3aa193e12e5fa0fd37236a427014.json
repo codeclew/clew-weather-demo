@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:0600149f3d261e94774a787a1991828fe75e3aa193e12e5fa0fd37236a427014",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contract": "forecast-updated",
+    "field": "place.latitude",
+    "label": "Event v1 · forecast-updated",
+    "mapping": {
+      "$clewRef": "sha256:7b95b7ac8271945e1f014428798f25992d19921ab9cadbf4da0f04c16a7a759b"
+    },
+    "nullability": "Derived from schema",
+    "relatedModel": null,
+    "requiredness": "Branch-conditional",
+    "typeLabel": "Derived from exact JSON Schema"
+  }
+}

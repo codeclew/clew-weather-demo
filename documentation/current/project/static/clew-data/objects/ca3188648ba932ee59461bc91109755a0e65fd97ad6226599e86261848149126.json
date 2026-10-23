@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:ca3188648ba932ee59461bc91109755a0e65fd97ad6226599e86261848149126",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "places-1223607978a77b621e14": {
+      "$clewRef": "sha256:134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d"
+    },
+    "places-770e53d99edf681987e1": {
+      "$clewRef": "sha256:d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959"
+    },
+    "places-c4c78f2ff61478266b21": {
+      "$clewRef": "sha256:351979e24a417de4797960a50c6bb0b27e90fbe64ebb5f7b32f302f1907e995c"
+    },
+    "places-d4d0aa9ce7bc37e81fa3": {
+      "$clewRef": "sha256:8365477e69b3327301c9058498f870922953982db968768e71a60cf8d2df982d"
+    }
+  }
+}

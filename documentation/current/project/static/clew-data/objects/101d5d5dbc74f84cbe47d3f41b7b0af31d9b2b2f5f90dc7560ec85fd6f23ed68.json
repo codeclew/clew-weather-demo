@@ -1,0 +1,30 @@
+{
+  "identity": "sha256:101d5d5dbc74f84cbe47d3f41b7b0af31d9b2b2f5f90dc7560ec85fd6f23ed68",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    "CALL_TARGETS_UNRESOLVED",
+    "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+    "FILE_ONLY:compose.yaml",
+    "FILE_ONLY:contracts/dashboard.openapi.json",
+    "FILE_ONLY:contracts/events.schema.json",
+    "FILE_ONLY:database/init.sql",
+    "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+    "FILE_ONLY:exercises/replay.py",
+    "FILE_ONLY:exercises/validator-regression.mjs",
+    "FILE_ONLY:fixtures/helsinki.json",
+    "FILE_ONLY:fixtures/lisbon.json",
+    "FILE_ONLY:fixtures/met-oslo-recorded.json",
+    "FILE_ONLY:fixtures/oslo.json",
+    "FILE_ONLY:fixtures/provenance.json",
+    "FILE_ONLY:services/dashboard/Dockerfile",
+    "FILE_ONLY:services/dashboard/package-lock.json",
+    "FILE_ONLY:services/dashboard/package.json",
+    "FILE_ONLY:services/dashboard/public/index.html",
+    "FILE_ONLY:services/dashboard/tsconfig.json",
+    "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+    "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+    "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+    "ORDER_LEXICAL_ONLY",
+    "SCOPE_WATCH_CONSERVATIVE"
+  ]
+}

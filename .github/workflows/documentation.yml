@@ -8,6 +8,8 @@ on:
       - 'documentation/reference/**'
       - 'documentation/docusaurus/**'
       - 'documentation/rendering/**'
+      - 'documentation/current/**'
+      - 'documentation/markdown-tables/**'
       - '.github/workflows/documentation.yml'
   workflow_dispatch:
 
@@ -75,6 +77,22 @@ jobs:
           esac
       - name: Verify frozen Docusaurus source and independent acceptance
         run: python3 -I -S documentation/docusaurus/variant.py verify
+      - name: Verify current official release and complete field preservation
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          release_tag=$(python3 -c 'import json; print("v"+json.load(open("documentation/current/publication.json"))["renderer"]["version"])')
+          release_commit=$(gh api "repos/codeclew/codeclew/commits/$release_tag" --jq .sha)
+          test "$(gh api "repos/codeclew/codeclew/releases/tags/$release_tag" --jq .tag_name)" = "$release_tag"
+          python3 -I -S documentation/current/verify.py --version "$release_tag" --revision "$release_commit"
+      - name: Build current Docusaurus documentation
+        working-directory: documentation/current/project
+        env:
+          CODECLEW_DOCS_URL: https://codeclew.github.io
+          CODECLEW_DOCS_BASE_URL: /clew-weather-demo/current/docusaurus/
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build -- --config ../docusaurus.config.mjs
       - name: Build the separate Docusaurus version
         working-directory: documentation/docusaurus/project
         env:

@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:b076801fa84cf68c847ac011415392df22b5da0111c08ec6827773b5011fb307",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 24,
+    "evidenceDigest": "sha256:64bab2a81c91a4fbb0993ae4ed6684c79ceb8d8a6fc4b47bf11978c1694dfa6a",
+    "file": "exercises/unchecked-place-forecast.ts",
+    "id": "dashboard-e4489d855283f7a832d1",
+    "occurrence": {
+      "blob": "6f2194a87f69be18be06c36b2e922debcbff3273",
+      "endByte": 1803,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 0
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 1,
+    "text": "type Place = { id: string; name: string; latitude: number; longitude: number }\ntype Period = { time: string; temperatureC: number; precipitationMm: number | null; symbol: string }\ntype Forecast = { updatedAt: string; fetchedAt: string; mode: 'fixture' | 'live'; periods: Period[] }\ntype Event = { id: string; type: string; version: number; place: Place; forecast?: Forecast }\n\nexport function validateEvent(value: unknown, topic: string): Event {\n  if (!value || typeof value !== 'object') throw new Error('INVALID_EVENT')\n  const event = value as Event\n  if (typeof event.id !== 'string' || event.version !== 1 || !event.place || typeof event.place.id !== 'string'\n      || !['oslo', 'helsinki', 'lisbon'].includes(event.place.id) || typeof event.place.name !== 'string'\n      || !Number.isFinite(event.place.latitude) || !Number.isFinite(event.place.longitude)) throw new Error('INVALID_EVENT')\n  if (topic === 'weather.forecast-updated') {\n    if (event.type !== 'forecast.updated' || !event.forecast || !Number.isFinite(Date.parse(event.forecast.updatedAt))\n        || !Number.isFinite(Date.parse(event.forecast.fetchedAt)) || !['fixture', 'live'].includes(event.forecast.mode)\n        || !Array.isArray(event.forecast.periods) || event.forecast.periods.length < 1 || event.forecast.periods.length > 6) throw new Error('INVALID_FORECAST')\n    for (const period of event.forecast.periods) {\n      if (!Number.isFinite(Date.parse(period.time)) || !Number.isFinite(period.temperatureC)\n          || !(period.precipitationMm === null || (Number.isFinite(period.precipitationMm) && period.precipitationMm >= 0))\n          || typeof period.symbol !== 'string') throw new Error('INVALID_PERIOD')\n    }\n  } else if (event.type !== 'place.requested') throw new Error('INVALID_PLACE_EVENT')\n  return event\n}\n\n",
+    "textDigest": "sha256:b1362877f635e840f2ff59bb514f7c1d7fe83d2e22f4afa5a3633430f23ac50d",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/exercises/unchecked-place-forecast.ts#L1-L24"
+  }
+}

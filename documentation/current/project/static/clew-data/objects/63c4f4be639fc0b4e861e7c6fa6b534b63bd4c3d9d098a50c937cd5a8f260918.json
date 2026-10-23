@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:63c4f4be639fc0b4e861e7c6fa6b534b63bd4c3d9d098a50c937cd5a8f260918",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:a85120309ebf9641ee2e342b353ff812c6b51a1b861a79ec2f139c6669f169ce"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Precipitation amount",
+    "title": "Authored readable name (agent proposal)",
+    "tone": null
+  }
+}

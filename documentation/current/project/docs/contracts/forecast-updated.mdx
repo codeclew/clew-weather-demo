@@ -1,0 +1,185 @@
+---
+title: "forecast.updated v1"
+slug: "/contracts/forecast-updated"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# forecast.updated v1
+
+Declared contract · runtime conformance is not established.
+
+Exact pointer:
+
+```text
+/oneOf/1
+```
+
+[contracts/events.schema.json:1–173 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4f5e368172c056412420d76a096c229f94968d52746b28b1a0c0b7b6faa971dc.mdx)
+
+## Properties {#properties}
+
+Requiredness follows the selected branch and required parents. Required and nullable are separate.
+
+### forecast.fetchedAt
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "format": "date-time",
+  "type": "string"
+}
+```
+
+### forecast.mode
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "enum": [
+    "fixture",
+    "live"
+  ],
+  "type": "string"
+}
+```
+
+### forecast.periods\[\].precipitationMm
+
+Required when branch matches: true · Accepts null: true
+
+```json
+{
+  "minimum": 0,
+  "type": [
+    "number",
+    "null"
+  ]
+}
+```
+
+### forecast.periods\[\].symbol
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "type": "string"
+}
+```
+
+### forecast.periods\[\].temperatureC
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "type": "number"
+}
+```
+
+### forecast.periods\[\].time
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "format": "date-time",
+  "type": "string"
+}
+```
+
+### forecast.updatedAt
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "format": "date-time",
+  "type": "string"
+}
+```
+
+### id
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "minLength": 1,
+  "type": "string"
+}
+```
+
+### place.id
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "enum": [
+    "oslo",
+    "helsinki",
+    "lisbon"
+  ],
+  "type": "string"
+}
+```
+
+### place.latitude
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "maximum": 90,
+  "minimum": -90,
+  "type": "number"
+}
+```
+
+### place.longitude
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "maximum": 180,
+  "minimum": -180,
+  "type": "number"
+}
+```
+
+### place.name
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "type": "string"
+}
+```
+
+### type
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "const": "forecast.updated"
+}
+```
+
+### version
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "const": 1
+}
+```
+

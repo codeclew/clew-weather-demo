@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:2804db6afbaee5debfee00dcb8f44805a25a3c630bf9a86be6be6d1dd987bbcc",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "digest": "sha256:b78bc0b7c5918d1fd9ea30b74e64b3b220a3e47123c9f662396e218e60cc22bd",
+    "id": "dashboard:contract-operation:c8f77692c3c0b8acd9232c7e",
+    "kind": "CONTRACT_OPERATION",
+    "normalized": {
+      "$clewRef": "sha256:b78bc0b7c5918d1fd9ea30b74e64b3b220a3e47123c9f662396e218e60cc22bd"
+    },
+    "service": "dashboard",
+    "sourceIds": [
+      "dashboard-1d4380bd7760bcafc13d"
+    ],
+    "symbol": "get /health"
+  }
+}

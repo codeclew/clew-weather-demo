@@ -1,0 +1,48 @@
+{
+  "identity": "sha256:23164053c9df9baa6c85943bb47c5f2b6f938784e784f4df18cffb79a79aaaaf",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "DECLARED_OPENAPI",
+    "boundaries": [
+      "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED"
+    ],
+    "declaredSource": "contracts/forecasts.openapi.json",
+    "entrypoint": "forecasts-c91896e4eb5ce5155f3d",
+    "method": "GET",
+    "openapi": "3.1.0",
+    "operation": {
+      "$clewRef": "sha256:a2e1c326f03ff9e470ac15242f2403c1fce0e0f58b9262e62460c89ce76bfecb"
+    },
+    "parameters": [
+      {
+        "in": "path",
+        "name": "id",
+        "required": true,
+        "schema": {
+          "enum": [
+            "oslo",
+            "helsinki",
+            "lisbon"
+          ],
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/forecasts/{id}",
+    "readerSelection": {
+      "compatibilityAnchor": "3.1",
+      "fullSpecificationValidation": false,
+      "outsideAdvertisedRange": false,
+      "reader": "BOUNDED_OPENAPI_PATH_OPERATION_READER",
+      "selectionMode": "DECLARED_COMPATIBILITY_PROFILE",
+      "supportedVersionRange": "OPENAPI_THROUGH_3_X"
+    },
+    "runtimeEnforcement": "UNVERIFIED",
+    "schema": "codeclew-documentation-contract-facts/1.0",
+    "security": null,
+    "securitySchemes": null,
+    "servers": null,
+    "sourceMapping": "SOURCE_ROUTE_MATCH_ONLY"
+  }
+}

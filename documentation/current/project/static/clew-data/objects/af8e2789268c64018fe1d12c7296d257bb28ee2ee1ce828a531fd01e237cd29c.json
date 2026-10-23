@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:af8e2789268c64018fe1d12c7296d257bb28ee2ee1ce828a531fd01e237cd29c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:fd2936fcb97ba714f6e655357398c9ba111fdac6188e4fbf7ef2917153836853"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "An embedded weather time point within Forecast.periods, with temperature, precipitation and a provider symbol.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

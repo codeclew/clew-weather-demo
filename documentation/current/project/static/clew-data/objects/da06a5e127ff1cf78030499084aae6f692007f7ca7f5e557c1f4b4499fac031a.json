@@ -1,0 +1,15 @@
+{
+  "identity": "sha256:da06a5e127ff1cf78030499084aae6f692007f7ca7f5e557c1f4b4499fac031a",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "claim": {
+      "$clewRef": "sha256:e4894efe0459de426b6734f86aa32cbb08ec16ff9eafef4ca477cd36f95d3111"
+    },
+    "values": {
+      "id": "helsinki",
+      "latitude": 60.17,
+      "longitude": 24.94,
+      "name": "Helsinki"
+    }
+  }
+}

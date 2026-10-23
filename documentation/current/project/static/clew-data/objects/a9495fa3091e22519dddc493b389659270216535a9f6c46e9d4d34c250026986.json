@@ -1,0 +1,26 @@
+{
+  "identity": "sha256:a9495fa3091e22519dddc493b389659270216535a9f6c46e9d4d34c250026986",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "candidates": [
+      {
+        "observation": "dashboard:symbol:a4627e5e868830287e83e0dc",
+        "observationDigest": "sha256:8bde561ef7592b43d690884334393a70a25e5179b2e3d4856f354b5346d1da15",
+        "scope": null,
+        "service": "dashboard",
+        "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5"
+      }
+    ],
+    "observation": "dashboard:symbol:a4627e5e868830287e83e0dc",
+    "observationDigest": "sha256:8bde561ef7592b43d690884334393a70a25e5179b2e3d4856f354b5346d1da15",
+    "scope": null,
+    "service": "dashboard",
+    "sourceIds": [
+      "dashboard-a4627e5e868830287e83"
+    ],
+    "sourceRecordDigests": {
+      "dashboard-a4627e5e868830287e83": "sha256:c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233"
+    },
+    "symbol": "source:services/dashboard/src/main.ts/package:/consumeMessage/2482433962fd72b699f5"
+  }
+}

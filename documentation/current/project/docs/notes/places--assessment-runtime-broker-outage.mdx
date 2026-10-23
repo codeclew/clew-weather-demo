@@ -1,0 +1,229 @@
+---
+title: "A broker outage leaves a saved place waiting in the outbox"
+slug: "/notes/places--assessment-runtime-broker-outage"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# A broker outage leaves a saved place waiting in the outbox
+
+<ClewPageContext />
+
+Original record: **broker-outage.json** · mixed
+
+## Separate agent assessment
+
+**Assessment conclusion: CONSISTENT** · Assessed label: 2026-10-13T07:33:08.044370+00:00
+
+Input binding: matches displayed capture · Meaning review: UNASSESSED · Freshness: UNVERIFIED
+
+During a broker outage, POST /places can still save a supported city: the controller awaits PlacesRepository.Save and returns 200. Save inserts the place and, only for a new row, writes a place.requested message to request\_outbox in the same database transaction; a duplicate creates no second request. The publisher selects the oldest pending row, sends it to weather.place-requested, then marks it published and commits. A failed send leaves it pending; ExecuteAsync logs PUBLISH\_RETRY and waits one second before retrying. The producer uses a 10-second message timeout and enables idempotence. GET /health checks SELECT 1 only, so database READY does not attest to broker health.
+
+The imported GitHub Actions run reports seven passing checks: the dashboard began empty; save returned 200 while the broker was down; one outbox row remained unpublished; health still returned database READY; a duplicate save kept one row; a retry marker appeared; and after broker recovery the row was published and a dashboard card contained a forecast. The run is https://github.com/codeclew/clew-weather-demo/actions/runs/38363357256 at revision d135990a1c8770928d3c7be2274ff60e7f5d75d3. Its five saved hashes matched compose.yaml, RequestPublisher.cs, PlacesRepository.cs, Forecasts.kt and Dashboard main.ts. This is imported historical evidence, not a fresh compiler or runtime run. It does not prove exactly-once delivery: a crash after broker delivery but before the database mark can permit a repeat.
+
+Checkout root: python3 -I -S -B exercises/broker-outage.py --output PASTE\_NEW\_DIRECTORY\_OUTSIDE\_CHECKOUT. Use a new output directory outside the checkout, not its ancestor. Requires Python 3, Git, Docker and Compose supporting \!override; free loopback ports 19080–19082 or three distinct ports via --dashboard-port, --places-port, --forecasts-port. The script creates a unique project, forces fixture mode, runs Compose up --build -d, stops/restarts Kafka, then Compose down --volumes --remove-orphans for that project only. Do not prestart a stack.
+
+- [services/places/PlacesController.cs:10–17 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0.mdx)
+- [services/places/PlacesRepository.cs:52–59 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/89387464df117dd1f2cfdbd8113d90c803728d4fe220f507529703bd597dbf8e.mdx)
+- [services/places/PlacesRepository.cs:14–19 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ac9cd70dddf6c07f241fea3e24665fbe31c3ebcace3aebc051cc81679106cb7c.mdx)
+- [services/places/RequestPublisher.cs:18–34 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/728b9ba12f04391993430660fb0e4a022375568be05cd19f8e9d4aca115e990d.mdx)
+- [services/places/RequestPublisher.cs:7–17 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/b970c6d235f9c5eb2f4e16bc78eda2a4ee3a68751103a8811054e9802c535d97.mdx)
+- [services/places/PlacesRepository.cs:36–44 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/379c0b710ffb354ec36825644e1d5c73ec611814e26c938687bac753bdb832c6.mdx)
+- [services/places/PlacesController.cs:26–31 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/efc0c91d8075be6474d60ff2dfdc8deccb39e21ff00789cc4a20f6b4f07406d2.mdx)
+
+Classification and original text remain human/imported declarations. Evidence tracking covers captured inputs; it cannot establish every implicit claim in arbitrary prose.
+
+<details>
+<summary>Original record · broker-outage.json</summary>
+
+Original text captured at this publication; human/imported authority, not a verified fact
+
+Captured text digest: `sha256:17319921d1eb6cc02800188b5275786181c8a0fd39258f4b41f096947d268361`
+
+```text
+{
+  "schema": "clew-weather-runtime-observation/1.0",
+  "id": "broker-outage",
+  "origin": "GITHUB_ACTIONS_TEST_OBSERVATION",
+  "compilerEvidence": false,
+  "originalRecordSha256": "114d2103efc72decc3ad929f2e0efb5eb3530fa71049ede4d7e9a18492e30845",
+  "runUrl": "https://github.com/codeclew/clew-weather-demo/actions/runs/38363357256",
+  "status": "PASSED",
+  "sourceRevision": "d135990a1c8770928d3c7be2274ff60e7f5d75d3",
+  "project": "clew-weather-outage-431a9af3e8d6",
+  "runnerSha256": "c36ff8bf2ca8ad555e80a28a8663b7856d3b861bd7c245176ea4b5e78ffb8714",
+  "sourceHashes": {
+    "compose.yaml": "76d5d8226d233a558b901a06887bcce216e4738778edff8462367d827169c167",
+    "services/places/RequestPublisher.cs": "1f6e0b7b1d1f54e318bcc903f875407e879ed591e29c0509423525e3772c099e",
+    "services/places/PlacesRepository.cs": "f77ef5110e62488caaa82deeeb599e33f8063303aad786b8763b1be3b6d5e578",
+    "services/forecasts/src/main/kotlin/weather/Forecasts.kt": "6ed6406eab325f8de2860e4fc8a0a0afca9499394732dcf9c7115bd8df711fe6",
+    "services/dashboard/src/main.ts": "24e65777311802d2204bc41eedf3b814e869f777c2e65cb74d5c8be8c4d47e6a"
+  },
+  "checks": [
+    {
+      "case": "fresh-dashboard-empty",
+      "passed": true,
+      "observed": {}
+    },
+    {
+      "case": "save-commits-with-broker-down",
+      "passed": true,
+      "observed": {
+        "status": 200,
+        "body": {
+          "id": "oslo",
+          "name": "Oslo",
+          "latitude": 59.93,
+          "longitude": 10.72
+        }
+      }
+    },
+    {
+      "case": "outbox-retained-unpublished-after-producer-timeout",
+      "passed": true,
+      "observed": {
+        "outbox": 1,
+        "published": 0
+      }
+    },
+    {
+      "case": "places-health-does-not-attest-broker",
+      "passed": true,
+      "observed": {
+        "status": 200,
+        "body": {
+          "database": "READY"
+        }
+      }
+    },
+    {
+      "case": "duplicate-save-does-not-create-another-outbox-row",
+      "passed": true,
+      "observed": {
+        "response": {
+          "status": 200,
+          "body": {
+            "id": "oslo",
+            "name": "Oslo",
+            "latitude": 59.93,
+            "longitude": 10.72
+          }
+        },
+        "counts": {
+          "outbox": 1,
+          "published": 0
+        }
+      }
+    },
+    {
+      "case": "broker-recovery-delivers-through-all-three-services",
+      "passed": true,
+      "observed": {
+        "counts": {
+          "outbox": 1,
+          "published": 1
+        },
+        "card": {
+          "id": "oslo",
+          "name": "Oslo",
+          "latitude": 59.93,
+          "longitude": 10.72,
+          "forecast": {
+            "mode": "fixture",
+            "periods": [
+              {
+                "time": "2026-10-12T20:00:00Z",
+                "symbol": "fair_night",
+                "temperatureC": 2,
+                "precipitationMm": 0
+              },
+              {
+                "time": "2026-10-12T21:00:00Z",
+                "symbol": "partlycloudy_night",
+                "temperatureC": 2.3,
+                "precipitationMm": 0
+              },
+              {
+                "time": "2026-10-12T22:00:00Z",
+                "symbol": "cloudy",
+                "temperatureC": 2.6,
+                "precipitationMm": 0
+              },
+              {
+                "time": "2026-10-12T23:00:00Z",
+                "symbol": "cloudy",
+                "temperatureC": 2.6,
+                "precipitationMm": 0
+              },
+              {
+                "time": "2026-10-13T00:00:00Z",
+                "symbol": "cloudy",
+                "temperatureC": 2.5,
+                "precipitationMm": 0
+              },
+              {
+                "time": "2026-10-13T01:00:00Z",
+                "symbol": "cloudy",
+                "temperatureC": 2.4,
+                "precipitationMm": 0
+              }
+            ],
+            "fetchedAt": "2026-10-13T07:34:47.468329316Z",
+            "updatedAt": "2026-10-12T20:34:59Z"
+          }
+        }
+      }
+    },
+    {
+      "case": "publisher-recorded-retry",
+      "passed": true,
+      "observed": {
+        "retryMarkerPresent": true
+      }
+    }
+  ],
+  "startedAt": "2026-10-13T07:33:08.044370+00:00",
+  "cleanup": "COMPLETED_OWN_PROJECT_ONLY",
+  "finishedAt": "2026-10-13T07:35:22.322626+00:00"
+}
+
+```
+
+
+</details>
+
+<details>
+<summary>Original metadata and associations</summary>
+
+```json
+{
+  "association": {
+    "classification": "mixed",
+    "id": "runtime-broker-outage",
+    "metadata": {
+      "compilerEvidence": false,
+      "sourceSha256": "e870c5d480cc89c45d5feeaf9154f7397402152b9131599b239c65fe2b810fbb"
+    },
+    "path": "notes/runtime-broker-outage-cloud-v1.md",
+    "period": "2026-10-13T07:33:08.044370+00:00",
+    "schema": "codeclew-documentation-note-association/1.0",
+    "service": "places",
+    "tags": [
+      "imported-context"
+    ],
+    "targets": [
+      "service:places/section-overview"
+    ],
+    "title": "broker-outage.json"
+  },
+  "associationDigest": "sha256:48e8e1c6bcb568332d6543c4e9875c114d7d4c4fb180940d4f03ccb48bcfe75d",
+  "authority": "HUMAN_OR_IMPORTED_UNVERIFIED",
+  "missingTargets": []
+}
+```
+
+
+</details>
+
+[Return to service context](../services/places.mdx#assessment-runtime-broker-outage)

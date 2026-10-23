@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:b0dd56bb974a9fbd2a0d255d8669ea2e05e13076a9eaacbbfb950f9d67576b64",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:58a23a8b46d9f6cbd78e14a0f10ebc1a25958a432dc436e6b904dd2a04dfb2a2"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "updatedAt is copied from provider properties.meta.updated_at and parsed with Instant.parse before the normalized forecast is emitted.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

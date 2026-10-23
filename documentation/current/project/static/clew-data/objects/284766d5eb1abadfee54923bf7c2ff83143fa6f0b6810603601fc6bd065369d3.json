@@ -1,0 +1,31 @@
+{
+  "identity": "sha256:284766d5eb1abadfee54923bf7c2ff83143fa6f0b6810603601fc6bd065369d3",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "fragment": {
+      "dependencyIds": [
+        "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+        "forecasts:symbol:04bc0feeea5752d3f1979c56"
+      ],
+      "id": "claim-15dcd2c1043ae6b5fd59",
+      "kind": "note",
+      "sourceIds": [
+        "forecasts-04bc0feeea5752d3f197"
+      ],
+      "text": "For fixture input or an accepted provider body, parse the document and transform up to six time-series points. Require numeric air temperature and at least one period; missing or nonnumeric precipitation becomes null and a missing symbol becomes unknown."
+    },
+    "kind": "RETAINED_CLAIM",
+    "operation": "forecasts-refresh-scheduled",
+    "sourceContext": {
+      "$clewRef": "sha256:5fb6e96cc0ea34d2e2444f45c0be31e55906dad5440252ff975867164d915b9c"
+    },
+    "sources": {
+      "$clewRef": "sha256:027fafb7b2c4df10d435bc8bb7c698315a07384da604de9787f7dd48385d7751"
+    },
+    "state": {
+      "$clewRef": "sha256:82e927e67dae99bd3754f5446485cef8d9189e74ab2df509b568c85e2ada45b3"
+    },
+    "subject": "scenario:forecasts-refresh-scheduled",
+    "title": "Refresh cached and provider forecasts"
+  }
+}

@@ -1,0 +1,5 @@
+project/node_modules
+project/build
+project/.docusaurus
+project/static/clew-reader-packs
+__pycache__

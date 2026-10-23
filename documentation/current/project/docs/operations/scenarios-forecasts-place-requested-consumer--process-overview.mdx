@@ -1,0 +1,35 @@
+---
+title: "Forecasts place-requested process overview"
+slug: "/operations/scenarios-forecasts-place-requested-consumer--process-overview"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Forecasts place-requested process overview
+
+<ClewPageContext />
+
+Retained account · STALE · UNASSESSED. Runtime behavior is not established by this export.
+
+Forecasts.consume is the source-declared listener for weather.place-requested; the handler parses and validates each record, then follows the separately accepted Forecasts.consume operation for rejection, inbox, upsert, refresh, and acknowledgment details. This overview links forecasts-refresh-scheduled and forecasts-publish-pending as related views. The saved process definition says those links establish neither cross-process order, shared transaction atomicity, acknowledgment timing, nor delivery. The process scope includes Forecasts only; Spring listener activation and runtime delivery remain unverified.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:38–53 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/fabcf790d6359bad92930830b294197d73c440e51b6a010808853eccb900f2e6.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- Source annotations do not prove Spring listener activation, broker delivery, transaction atomicity, or runtime acknowledgment timing.
+- CALL\_TARGETS\_UNRESOLVED
+- DECLARED\_TRANSITION\_NOT\_REACHED:places-place-requested-to-forecasts
+- ORDER\_LEXICAL\_ONLY
+- LINKED\_PROCESS\_UNASSESSED:forecasts-refresh-scheduled
+- LINKED\_PROCESS\_UNASSESSED:forecasts-publish-pending
+
+</details>
+

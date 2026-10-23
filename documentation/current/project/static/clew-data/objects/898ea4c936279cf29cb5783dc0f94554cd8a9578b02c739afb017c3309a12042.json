@@ -1,0 +1,28 @@
+{
+  "identity": "sha256:898ea4c936279cf29cb5783dc0f94554cd8a9578b02c739afb017c3309a12042",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "fragment": {
+      "$clewRef": "sha256:2dff891f2590f32f6e9370e598f7de63dece81da87064dd5d81e100178c20529"
+    },
+    "kind": "RETAINED_CLAIM",
+    "operation": "section-responsibilities",
+    "sourceContext": {
+      "boundaries": [
+        "This proposal documents four service sections from source-level TypeScript and the captured OpenAPI declaration. It does not establish runtime route or listener activation, deployed settings, database outcomes, or broker delivery and offset-commit guarantees. The OpenAPI document is read as source text; JSON Schema semantics are not fully interpreted."
+      ],
+      "publication": null,
+      "revisions": {
+        "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37"
+      }
+    },
+    "sources": {
+      "$clewRef": "sha256:8da4d9940387172772f4bbcf889595cb55394303e668c862ae1ca2572e527fca"
+    },
+    "state": {
+      "$clewRef": "sha256:15f7211f1f598995fb051feb10664ff5480a02ceae81f136c93451a2a9349f56"
+    },
+    "subject": "service:dashboard",
+    "title": "Dashboard responsibilities"
+  }
+}

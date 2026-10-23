@@ -1,0 +1,20 @@
+{
+  "identity": "sha256:2dade3de4f043e3c1189d0c9046ef3f452b45d93ecc01c3688f8156a283e4b6b",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "C# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted."
+    ],
+    "documentationLanguage": "en",
+    "events": [],
+    "explanation": [],
+    "findings": [],
+    "id": "section-ingress",
+    "interfaceContracts": [],
+    "participants": [],
+    "summary": {
+      "$clewRef": "sha256:f888c28637606eed52249b4a49d9fd3d3500567327a68d86d7784541533a2f1c"
+    },
+    "title": "Places ingress contracts"
+  }
+}

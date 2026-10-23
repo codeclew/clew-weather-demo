@@ -1,0 +1,1069 @@
+{
+  "schema": "codeclew-normalized-data/1.0",
+  "value": {
+    "activityTransitions": null,
+    "activityTransitionsSvg": false,
+    "analysisEvidence": {
+      "places": {
+        "coverage": "PARTIAL",
+        "extractor": "codeclew-documentation-jvm/1.3",
+        "mappedSymbols": 0,
+        "provider": {
+          "status": "NATIVE_ANALYSIS"
+        },
+        "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+        "runtimeMode": "RELEASE",
+        "sampleFacts": []
+      }
+    },
+    "authoredTranslationGaps": [],
+    "boundaries": [
+      "CLR_SIGNATURE_PROJECTED_TO_JVM_DESCRIPTOR_GRAMMAR",
+      "CSHARP_SOURCE_GENERATED_DOCUMENTS_NOT_INDEXED",
+      "DECLARED_TRANSITION_NOT_REACHED:places-place-requested-to-dashboard",
+      "DECLARED_TRANSITION_NOT_REACHED:places-place-requested-to-forecasts",
+      "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+      "EXTERNAL_CALL_BODY_NOT_EXPANDED",
+      "GENERATED_SOURCE_BODIES_NOT_INDEXED",
+      "LAMBDA_EXECUTION_NOT_EXPANDED",
+      "LINKED_PROCESS_STALE:dashboard-place-requested-consumer",
+      "LINKED_PROCESS_STALE:forecasts-place-requested-consumer",
+      "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+      "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+      "SWITCH_FLOW_REQUIRES_SOURCE_REVIEW",
+      "Static source interpretation; runtime activation and execution are not established."
+    ],
+    "boundaryInventory": null,
+    "canonicalEntityLinks": {
+      "question-record": {
+        "places": [
+          {
+            "documentationLanguage": "en",
+            "href": "../data-model/place.html",
+            "id": "place",
+            "title": "Place"
+          }
+        ]
+      }
+    },
+    "catalogue": [],
+    "contracts": [],
+    "coverage": {
+      "places": "PARTIAL"
+    },
+    "entities": [],
+    "extractor": "codeclew-documentation-jvm/1.3",
+    "frozenLanguageAvailability": {
+      "requestedDocumentationLanguage": "en",
+      "translationComplete": true,
+      "translationGaps": {}
+    },
+    "frozenPublication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+    "gaps": {},
+    "interactions": [
+      {
+        "$clewRef": "sha256:6e4730373affdcc11f36db84d22f061b28aa2a81f5b1f75232912aaa1bebe1e7"
+      },
+      {
+        "$clewRef": "sha256:5f7167f498dee5aa096ae428e3da0471313755e134840a2752e424e13ebf73ab"
+      }
+    ],
+    "language": "en",
+    "lifecycleOperations": [],
+    "notes": [],
+    "operationContracts": {
+      "places-request-publisher": [],
+      "process-overview": []
+    },
+    "operationExternalCalls": {
+      "places-request-publisher": [],
+      "process-overview": []
+    },
+    "operationSources": {
+      "places-request-publisher": {
+        "$clewRef": "sha256:a84950e56eed9a8d4ff4ea9619fcc846d0cb95c446be32533636aa957193faa2"
+      },
+      "process-overview": {
+        "$clewRef": "sha256:a84950e56eed9a8d4ff4ea9619fcc846d0cb95c446be32533636aa957193faa2"
+      }
+    },
+    "operationStates": {
+      "places-request-publisher": {
+        "$clewRef": "sha256:80a3d471b0896596761520253625c1508954ad0b77b4e8b9ee9668df32f91fc8"
+      },
+      "process-overview": {
+        "$clewRef": "sha256:80a3d471b0896596761520253625c1508954ad0b77b4e8b9ee9668df32f91fc8"
+      }
+    },
+    "operations": [
+      {
+        "boundaries": {
+          "$clewRef": "sha256:c5e3ff9683ccabaf6191f333e96b04468d6d884b82de165bf920176096a1c25a"
+        },
+        "documentationLanguage": "en",
+        "events": [
+          {
+            "dependencyIds": [
+              "places:flow:158b244bf277169193530f80",
+              "places:symbol:7fb8137cf82d592b243e54aa"
+            ],
+            "id": "claim-5e4fb5b4a179d1c43e2b",
+            "kind": "loop",
+            "sourceIds": [
+              "places-158b244bf27716919353",
+              "places-7fb8137cf82d592b243e"
+            ],
+            "text": "Repeat while the cancellation token is not signalled; each pass attempts one pending row, then waits one second."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:722b268c12cec9e1cb51cbe8"
+            ],
+            "from": "service-places",
+            "id": "claim-5d184223c32ec68b480c",
+            "kind": "message",
+            "sourceIds": [
+              "places-722b268c12cec9e1cb51"
+            ],
+            "text": "PublishPending opens a connection and transaction, then selects one eligible unpublished row in created_at order, limited to one and locked with SKIP LOCKED.",
+            "to": "places-db"
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:722b268c12cec9e1cb51cbe8"
+            ],
+            "id": "claim-d1bb4d8b8ebbde14e869",
+            "kind": "alt",
+            "sourceIds": [
+              "places-722b268c12cec9e1cb51"
+            ],
+            "text": "If the select returns no row, PublishPending returns for this pass; otherwise it sends the selected payload and records the completed send."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:722b268c12cec9e1cb51cbe8"
+            ],
+            "id": "claim-6e445dad38c309bfb434",
+            "kind": "note",
+            "sourceIds": [
+              "places-722b268c12cec9e1cb51"
+            ],
+            "text": "No row is sent when the reader is empty; the using scopes dispose the open transaction and connection on return."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:722b268c12cec9e1cb51cbe8"
+            ],
+            "id": "claim-84d4e111ed85e5a6774f",
+            "kind": "else",
+            "sourceIds": [
+              "places-722b268c12cec9e1cb51"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:722b268c12cec9e1cb51cbe8"
+            ],
+            "from": "service-places",
+            "id": "claim-02699e133726492dbc5b",
+            "kind": "message",
+            "sourceIds": [
+              "places-722b268c12cec9e1cb51"
+            ],
+            "text": "Extract place.id from the stored payload and await ProduceAsync to weather.place-requested with place.id as the message key and the original payload as the value.",
+            "to": "places-kafka"
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:722b268c12cec9e1cb51cbe8"
+            ],
+            "from": "service-places",
+            "id": "claim-e18eff8054f84ba9972c",
+            "kind": "message",
+            "sourceIds": [
+              "places-722b268c12cec9e1cb51"
+            ],
+            "text": "After ProduceAsync completes, update that outbox row to published=true and commit the database transaction.",
+            "to": "places-db"
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:722b268c12cec9e1cb51cbe8",
+              "places:symbol:7fb8137cf82d592b243e54aa"
+            ],
+            "id": "claim-f5798d4b4a45388d70ad",
+            "kind": "note",
+            "sourceIds": [
+              "places-722b268c12cec9e1cb51",
+              "places-7fb8137cf82d592b243e"
+            ],
+            "text": "A crash after the broker send but before the database commit can leave the row unpublished for a later send; producer idempotence does not make Kafka and PostgreSQL one atomic transaction."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:722b268c12cec9e1cb51cbe8"
+            ],
+            "id": "claim-dce06a22daeb4942f9b6",
+            "kind": "end",
+            "sourceIds": [
+              "places-722b268c12cec9e1cb51"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "places:flow:096b7f6a391d982235e434ce",
+              "places:symbol:7fb8137cf82d592b243e54aa"
+            ],
+            "id": "claim-a1da6f698c2bdfdf8068",
+            "kind": "alt",
+            "sourceIds": [
+              "places-096b7f6a391d982235e4",
+              "places-7fb8137cf82d592b243e"
+            ],
+            "text": "If PublishPending throws OperationCanceledException while the token is cancelled, the loop exits; other errors are handled by the general catch."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:7fb8137cf82d592b243e54aa"
+            ],
+            "id": "claim-36f270f7d835dff9dcca",
+            "kind": "note",
+            "sourceIds": [
+              "places-7fb8137cf82d592b243e"
+            ],
+            "text": "An OperationCanceledException observed while the token is cancelled breaks the loop."
+          },
+          {
+            "dependencyIds": [
+              "places:flow:096b7f6a391d982235e434ce",
+              "places:symbol:7fb8137cf82d592b243e54aa"
+            ],
+            "id": "claim-ed716f0ae11456c59aac",
+            "kind": "else",
+            "sourceIds": [
+              "places-096b7f6a391d982235e4",
+              "places-7fb8137cf82d592b243e"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:7fb8137cf82d592b243e54aa"
+            ],
+            "id": "claim-7f09695286f324c4f3f1",
+            "kind": "note",
+            "sourceIds": [
+              "places-7fb8137cf82d592b243e"
+            ],
+            "text": "Other exceptions are logged with PUBLISH_RETRY; normal completion and logged failures continue to the one-second delay. The delay also receives the token, so cancellation reaching that await can propagate."
+          },
+          {
+            "dependencyIds": [
+              "places:flow:096b7f6a391d982235e434ce",
+              "places:symbol:7fb8137cf82d592b243e54aa"
+            ],
+            "id": "claim-c085ca238c84599cabe4",
+            "kind": "end",
+            "sourceIds": [
+              "places-096b7f6a391d982235e4",
+              "places-7fb8137cf82d592b243e"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "places:flow:158b244bf277169193530f80",
+              "places:symbol:7fb8137cf82d592b243e54aa"
+            ],
+            "id": "claim-951105b75c05cb103403",
+            "kind": "end",
+            "sourceIds": [
+              "places-158b244bf27716919353",
+              "places-7fb8137cf82d592b243e"
+            ],
+            "text": ""
+          }
+        ],
+        "explanation": [
+          {
+            "dependencyIds": [
+              "places:flow:158b244bf277169193530f80",
+              "places:symbol:7fb8137cf82d592b243e54aa"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-5e4fb5b4a179d1c43e2b"
+            ],
+            "id": "claim-0d93efb063fd4006d1da",
+            "sourceIds": [
+              "places-158b244bf27716919353",
+              "places-7fb8137cf82d592b243e"
+            ],
+            "text": "Repeat while the cancellation token is not signalled; each pass attempts one pending row, then waits one second."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:722b268c12cec9e1cb51cbe8"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-5d184223c32ec68b480c"
+            ],
+            "id": "claim-d893211083e1a59aeede",
+            "sourceIds": [
+              "places-722b268c12cec9e1cb51"
+            ],
+            "text": "PublishPending opens a connection and transaction, then selects one eligible unpublished row in created_at order, limited to one and locked with SKIP LOCKED."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:722b268c12cec9e1cb51cbe8"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-d1bb4d8b8ebbde14e869"
+            ],
+            "id": "claim-66973c08186c64719aa9",
+            "sourceIds": [
+              "places-722b268c12cec9e1cb51"
+            ],
+            "text": "If the select returns no row, PublishPending returns for this pass; otherwise it sends the selected payload and records the completed send."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:722b268c12cec9e1cb51cbe8"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-6e445dad38c309bfb434"
+            ],
+            "id": "claim-d11327dd7195aa36d9c4",
+            "sourceIds": [
+              "places-722b268c12cec9e1cb51"
+            ],
+            "text": "No row is sent when the reader is empty; the using scopes dispose the open transaction and connection on return."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:722b268c12cec9e1cb51cbe8"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-84d4e111ed85e5a6774f"
+            ],
+            "id": "claim-100ed92f66d4af59785a",
+            "sourceIds": [
+              "places-722b268c12cec9e1cb51"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:722b268c12cec9e1cb51cbe8"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-02699e133726492dbc5b"
+            ],
+            "id": "claim-597f55c56c3da19421fa",
+            "sourceIds": [
+              "places-722b268c12cec9e1cb51"
+            ],
+            "text": "Extract place.id from the stored payload and await ProduceAsync to weather.place-requested with place.id as the message key and the original payload as the value."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:722b268c12cec9e1cb51cbe8"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-e18eff8054f84ba9972c"
+            ],
+            "id": "claim-7cbbcd7092cbfe9220bf",
+            "sourceIds": [
+              "places-722b268c12cec9e1cb51"
+            ],
+            "text": "After ProduceAsync completes, update that outbox row to published=true and commit the database transaction."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:722b268c12cec9e1cb51cbe8",
+              "places:symbol:7fb8137cf82d592b243e54aa"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-f5798d4b4a45388d70ad"
+            ],
+            "id": "claim-62eab67bf9b3750a09e0",
+            "sourceIds": [
+              "places-722b268c12cec9e1cb51",
+              "places-7fb8137cf82d592b243e"
+            ],
+            "text": "A crash after the broker send but before the database commit can leave the row unpublished for a later send; producer idempotence does not make Kafka and PostgreSQL one atomic transaction."
+          },
+          {
+            "dependencyIds": [
+              "places:flow:096b7f6a391d982235e434ce",
+              "places:symbol:7fb8137cf82d592b243e54aa"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-a1da6f698c2bdfdf8068"
+            ],
+            "id": "claim-88da12b5800b4d27510e",
+            "sourceIds": [
+              "places-096b7f6a391d982235e4",
+              "places-7fb8137cf82d592b243e"
+            ],
+            "text": "If PublishPending throws OperationCanceledException while the token is cancelled, the loop exits; other errors are handled by the general catch."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:7fb8137cf82d592b243e54aa"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-36f270f7d835dff9dcca"
+            ],
+            "id": "claim-ad6c2dc526c79304909a",
+            "sourceIds": [
+              "places-7fb8137cf82d592b243e"
+            ],
+            "text": "An OperationCanceledException observed while the token is cancelled breaks the loop."
+          },
+          {
+            "dependencyIds": [
+              "places:flow:096b7f6a391d982235e434ce",
+              "places:symbol:7fb8137cf82d592b243e54aa"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-ed716f0ae11456c59aac"
+            ],
+            "id": "claim-d12bc32abf4f60c34947",
+            "sourceIds": [
+              "places-096b7f6a391d982235e4",
+              "places-7fb8137cf82d592b243e"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:7fb8137cf82d592b243e54aa"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-7f09695286f324c4f3f1"
+            ],
+            "id": "claim-9f03834c082c8f61f9c7",
+            "sourceIds": [
+              "places-7fb8137cf82d592b243e"
+            ],
+            "text": "Other exceptions are logged with PUBLISH_RETRY; normal completion and logged failures continue to the one-second delay. The delay also receives the token, so cancellation reaching that await can propagate."
+          }
+        ],
+        "findings": [],
+        "id": "places-request-publisher",
+        "interfaceContracts": [],
+        "participants": [
+          {
+            "id": "caller",
+            "label": "Caller",
+            "service": null
+          },
+          {
+            "id": "service-places",
+            "label": "places",
+            "service": "places"
+          },
+          {
+            "id": "places-db",
+            "label": "Places PostgreSQL",
+            "service": null
+          },
+          {
+            "id": "places-kafka",
+            "label": "Kafka topic weather.place-requested",
+            "service": null
+          }
+        ],
+        "summary": {
+          "$clewRef": "sha256:a788f70cce333267d202e2ae6912507f99f0fe8a13c0cd784da174dff30dc930"
+        },
+        "title": "Place request publisher"
+      },
+      {
+        "boundaries": [
+          "DECLARED_TRANSITION_NOT_REACHED:places-place-requested-to-dashboard",
+          "DECLARED_TRANSITION_NOT_REACHED:places-place-requested-to-forecasts",
+          "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+          "EXTERNAL_CALL_BODY_NOT_EXPANDED",
+          "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+          "LINKED_PROCESS_UNASSESSED:dashboard-place-requested-consumer",
+          "LINKED_PROCESS_UNASSESSED:forecasts-place-requested-consumer"
+        ],
+        "documentationLanguage": "en",
+        "events": [],
+        "explanation": [],
+        "findings": [],
+        "id": "process-overview",
+        "interfaceContracts": [],
+        "participants": [],
+        "summary": {
+          "dependencyIds": [
+            "interaction:places-place-requested-to-dashboard",
+            "interaction:places-place-requested-to-forecasts",
+            "places:symbol:722b268c12cec9e1cb51cbe8",
+            "places:symbol:7fb8137cf82d592b243e54aa",
+            "process-component:places-request-publisher:dashboard-place-requested-consumer",
+            "process-component:places-request-publisher:forecasts-place-requested-consumer",
+            "process-scope:places-request-publisher",
+            "process:places-request-publisher"
+          ],
+          "id": "claim-8ef30e9e100101a18cf2",
+          "sourceIds": [
+            "places-722b268c12cec9e1cb51",
+            "places-7fb8137cf82d592b243e"
+          ],
+          "text": "ExecuteAsync creates a producer and repeatedly calls PublishPending until cancellation, logging other exceptions as PUBLISH_RETRY and waiting one second between attempts. Each publish opens a database transaction and selects one eligible unpublished row in created_at order with FOR UPDATE SKIP LOCKED; no row returns without sending. Otherwise it extracts the place ID from the payload, awaits a keyed send to weather.place-requested, marks the row published, and commits. A broker send followed by a transaction failure or crash can leave the row eligible for replay. The Dashboard and Forecasts topic mappings are agent-proposed; subscription, downstream processing and hosted-service activation remain unverified."
+        },
+        "title": "Publish pending place requests"
+      }
+    ],
+    "process": {
+      "authority": "Explicit saved request; generated interpretation is reviewed separately.",
+      "definition": {
+        "$clewRef": "sha256:1b213e6f847a2b51dee4ee349a83bfb79c6f8259c3d07b8b4c6dcddfe42b674c"
+      },
+      "definitionVersion": "sha256:62182603fdb3388a0c9d1c5640ddef6ec4d9896ca3820b885c1ac7bcf01f7f43",
+      "linkedSubviews": [
+        {
+          "accepted": null,
+          "authority": "REVIEWED_CHILD_INTERPRETATION_NOT_RUNTIME_PROOF",
+          "child": "dashboard-place-requested-consumer",
+          "dependencyIds": {
+            "$clewRef": "sha256:c3e37f15c8a73aabc1819314c70df63cf2295821d71a7c761369119090f1bc64"
+          },
+          "gap": "LINKED_PROCESS_STALE",
+          "href": "dashboard-place-requested-consumer.html",
+          "parent": "places-request-publisher",
+          "status": "GAP"
+        },
+        {
+          "accepted": null,
+          "authority": "REVIEWED_CHILD_INTERPRETATION_NOT_RUNTIME_PROOF",
+          "child": "forecasts-place-requested-consumer",
+          "dependencyIds": {
+            "$clewRef": "sha256:f9cc6cf3cd2d953619c4687d10a7da68508a9955f3786cfbddfa98c8154eac23"
+          },
+          "gap": "LINKED_PROCESS_STALE",
+          "href": "forecasts-place-requested-consumer.html",
+          "parent": "places-request-publisher",
+          "status": "GAP"
+        }
+      ],
+      "scope": {
+        "digest": "sha256:c9efa0d759ea8fb2a631a83babc7c008b712662d4478bde009f7f60f54f6175e",
+        "id": "process-scope:places-request-publisher",
+        "kind": "PROCESS_SCOPE",
+        "normalized": {
+          "dependencyIds": [
+            "dashboard:contract-scope:f86e10393733a9350be2eda4",
+            "dashboard:source_scope:a94d30979421b6ddbba5e94b",
+            "entity-scope:dashboard",
+            "entity-scope:forecasts",
+            "entity-scope:places",
+            "forecasts:contract-scope:f86e10393733a9350be2eda4",
+            "forecasts:source_scope:a94d30979421b6ddbba5e94b",
+            "note-scope:dashboard",
+            "note-scope:forecasts",
+            "note-scope:places",
+            "places:MODULE_SCOPE:55a4c630c66aa1b96be127e5",
+            "places:contract-scope:f86e10393733a9350be2eda4"
+          ],
+          "interactionMembership": [
+            "dashboard-request-refresh-to-places",
+            "dashboard-save-place-to-places",
+            "forecasts-forecast-updated-to-dashboard",
+            "forecasts-refresh-to-external-met",
+            "places-place-requested-to-dashboard",
+            "places-place-requested-to-forecasts"
+          ],
+          "participants": [
+            "places",
+            "forecasts",
+            "dashboard"
+          ],
+          "runtime": "UNKNOWN",
+          "unavailableParticipants": []
+        },
+        "service": "",
+        "sourceIds": [],
+        "symbol": "process-scope:places-request-publisher"
+      }
+    },
+    "processCandidates": null,
+    "processExtraction": null,
+    "processOutline": {
+      "gap": "PROCESS_EVIDENCE_CHANGED_REVIEW_REQUIRED",
+      "pumlAvailable": false,
+      "root": {
+        "candidates": [
+          {
+            "observation": "places:symbol:7fb8137cf82d592b243e54aa",
+            "observationDigest": "sha256:9cf9c3eb37192c0e79d27039d4476c77c5c5822895bd73dec2186628b6f7aa63",
+            "scope": "csproj:services/places/Places.csproj@net10.0",
+            "service": "places",
+            "symbol": "method:class:Weather.Places.RequestPublisher#ExecuteAsync(LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;"
+          }
+        ],
+        "observation": "places:symbol:7fb8137cf82d592b243e54aa",
+        "observationDigest": "sha256:9cf9c3eb37192c0e79d27039d4476c77c5c5822895bd73dec2186628b6f7aa63",
+        "scope": "csproj:services/places/Places.csproj@net10.0",
+        "service": "places",
+        "sourceIds": [
+          "places-7fb8137cf82d592b243e"
+        ],
+        "sourceRecordDigests": {
+          "places-7fb8137cf82d592b243e": "sha256:b970c6d235f9c5eb2f4e16bc78eda2a4ee3a68751103a8811054e9802c535d97"
+        },
+        "symbol": "method:class:Weather.Places.RequestPublisher#ExecuteAsync(LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;"
+      },
+      "sourceIds": [
+        "places-7fb8137cf82d592b243e"
+      ],
+      "status": "GAP",
+      "svgAvailable": false
+    },
+    "processThread": null,
+    "proseDisplayPolicy": "READABLE_ORIGINALS",
+    "questionReader": {
+      "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+      "conclusion": {
+        "$clewRef": "sha256:a6fa28f6c8d59af1d7eb15ccaf5fc8db04222e316a33c3b1199eaddd5bf650c4"
+      },
+      "language": "en",
+      "presentation": "SEQUENTIAL",
+      "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+      "purpose": "Places publishes saved outbox requests and records completed sends.",
+      "schema": "codeclew-question-reading-plan/1.0",
+      "sections": [
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "places:symbol:722b268c12cec9e1cb51cbe8"
+                    ],
+                    "from": "service-places",
+                    "id": "claim-5d184223c32ec68b480c",
+                    "kind": "message",
+                    "sourceIds": [
+                      "places-722b268c12cec9e1cb51"
+                    ],
+                    "text": "PublishPending opens a connection and transaction, then selects one eligible unpublished row in created_at order, limited to one and locked with SKIP LOCKED.",
+                    "to": "places-db"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "places-request-publisher",
+                  "sourceContext": {
+                    "$clewRef": "sha256:532c0cbde5ec5e323ccbcfcaa71f0009389b9d8d7e46005486ecccf091a92ca2"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:d06fc6143b37de355d3a64ebfa37beb447aad9a6c7ae80280250b3b62e0606dd"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:80a3d471b0896596761520253625c1508954ad0b77b4e8b9ee9668df32f91fc8"
+                  },
+                  "subject": "scenario:places-request-publisher",
+                  "title": "Place request publisher"
+                },
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "places:symbol:722b268c12cec9e1cb51cbe8"
+                    ],
+                    "id": "claim-6e445dad38c309bfb434",
+                    "kind": "note",
+                    "sourceIds": [
+                      "places-722b268c12cec9e1cb51"
+                    ],
+                    "text": "No row is sent when the reader is empty; the using scopes dispose the open transaction and connection on return."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "places-request-publisher",
+                  "sourceContext": {
+                    "$clewRef": "sha256:532c0cbde5ec5e323ccbcfcaa71f0009389b9d8d7e46005486ecccf091a92ca2"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:d06fc6143b37de355d3a64ebfa37beb447aad9a6c7ae80280250b3b62e0606dd"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:80a3d471b0896596761520253625c1508954ad0b77b4e8b9ee9668df32f91fc8"
+                  },
+                  "subject": "scenario:places-request-publisher",
+                  "title": "Place request publisher"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "The publishing loop attempts one eligible unpublished request at a time. If no row is selected, this pass sends nothing.",
+              "title": "Find work",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": "Selection and producer settings",
+              "evidence": {
+                "$clewRef": "sha256:4d8be77413c045636379e8f630113b588c70e62d2b9313e27ed28357a83c030a"
+              },
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": "One eligible row · created_at order · selected-source configuration",
+              "text": "The query orders by created_at, selects at most one row and uses FOR UPDATE SKIP LOCKED. The producer uses KAFKA_BOOTSTRAP or kafka:9092, enables idempotence and configures a 10-second message timeout. Runtime hosting activation is not established.",
+              "title": "Selection and producer settings",
+              "tone": null
+            }
+          ],
+          "icon": "database",
+          "id": "pending",
+          "navTitle": "Pending work",
+          "number": 1,
+          "route": null,
+          "title": "Places looks for a pending request"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "places:symbol:722b268c12cec9e1cb51cbe8"
+                    ],
+                    "from": "service-places",
+                    "id": "claim-02699e133726492dbc5b",
+                    "kind": "message",
+                    "sourceIds": [
+                      "places-722b268c12cec9e1cb51"
+                    ],
+                    "text": "Extract place.id from the stored payload and await ProduceAsync to weather.place-requested with place.id as the message key and the original payload as the value.",
+                    "to": "places-kafka"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "places-request-publisher",
+                  "sourceContext": {
+                    "$clewRef": "sha256:532c0cbde5ec5e323ccbcfcaa71f0009389b9d8d7e46005486ecccf091a92ca2"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:d06fc6143b37de355d3a64ebfa37beb447aad9a6c7ae80280250b3b62e0606dd"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:80a3d471b0896596761520253625c1508954ad0b77b4e8b9ee9668df32f91fc8"
+                  },
+                  "subject": "scenario:places-request-publisher",
+                  "title": "Place request publisher"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "The selected payload is sent to `weather.place-requested`, using the place ID as its message key. The code awaits the send before changing the outbox row.",
+              "title": "Publish",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "$clewRef": "sha256:df4895dcab1a0531e78ea951dc8ce326582a06acbbf8e80fa41ab8c8c8018204"
+                }
+              ],
+              "id": "publish-error",
+              "links": [],
+              "navTitle": "Publish failure",
+              "preview": null,
+              "text": "Other exceptions are logged as `PUBLISH_RETRY`. While the loop remains active, later passes can attempt pending work again.",
+              "title": "If the attempt fails",
+              "tone": "ERROR"
+            }
+          ],
+          "icon": "arrow-right",
+          "id": "send",
+          "navTitle": "Send event",
+          "number": 2,
+          "route": "Topic: weather.place-requested",
+          "title": "Places sends the stored event"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "places:symbol:722b268c12cec9e1cb51cbe8"
+                    ],
+                    "from": "service-places",
+                    "id": "claim-e18eff8054f84ba9972c",
+                    "kind": "message",
+                    "sourceIds": [
+                      "places-722b268c12cec9e1cb51"
+                    ],
+                    "text": "After ProduceAsync completes, update that outbox row to published=true and commit the database transaction.",
+                    "to": "places-db"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "places-request-publisher",
+                  "sourceContext": {
+                    "$clewRef": "sha256:532c0cbde5ec5e323ccbcfcaa71f0009389b9d8d7e46005486ecccf091a92ca2"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:d06fc6143b37de355d3a64ebfa37beb447aad9a6c7ae80280250b3b62e0606dd"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:80a3d471b0896596761520253625c1508954ad0b77b4e8b9ee9668df32f91fc8"
+                  },
+                  "subject": "scenario:places-request-publisher",
+                  "title": "Place request publisher"
+                }
+              ],
+              "id": null,
+              "links": [
+                {
+                  "href": "../services/places.html#section-entities",
+                  "label": "Place · fields and context",
+                  "operation": "section-entities",
+                  "subject": "service:places"
+                }
+              ],
+              "navTitle": null,
+              "preview": null,
+              "text": "After the send completes, the outbox row is marked published and the database transaction is committed.",
+              "title": "Record outcome",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "places:symbol:722b268c12cec9e1cb51cbe8",
+                      "places:symbol:7fb8137cf82d592b243e54aa"
+                    ],
+                    "id": "claim-f5798d4b4a45388d70ad",
+                    "kind": "note",
+                    "sourceIds": [
+                      "places-722b268c12cec9e1cb51",
+                      "places-7fb8137cf82d592b243e"
+                    ],
+                    "text": "A crash after the broker send but before the database commit can leave the row unpublished for a later send; producer idempotence does not make Kafka and PostgreSQL one atomic transaction."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "places-request-publisher",
+                  "sourceContext": {
+                    "$clewRef": "sha256:532c0cbde5ec5e323ccbcfcaa71f0009389b9d8d7e46005486ecccf091a92ca2"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:7df30dda668a40807bbb0da3ee43374a41a1458e76c0227a21a1a0e06b59a40b"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:80a3d471b0896596761520253625c1508954ad0b77b4e8b9ee9668df32f91fc8"
+                  },
+                  "subject": "scenario:places-request-publisher",
+                  "title": "Place request publisher"
+                }
+              ],
+              "id": "replay-window",
+              "links": [],
+              "navTitle": "Send-before-commit window",
+              "preview": null,
+              "text": "A completed broker send followed by a crash or database-commit failure can leave the row pending. It may be sent again; producer idempotence does not make Kafka and the database one atomic transaction.",
+              "title": "If the process stops between send and commit",
+              "tone": "WARNING"
+            }
+          ],
+          "icon": "database",
+          "id": "record",
+          "navTitle": "Record send",
+          "number": 3,
+          "route": null,
+          "title": "Places marks the request as published"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "places:flow:158b244bf277169193530f80",
+                      "places:symbol:7fb8137cf82d592b243e54aa"
+                    ],
+                    "id": "claim-5e4fb5b4a179d1c43e2b",
+                    "kind": "loop",
+                    "sourceIds": [
+                      "places-158b244bf27716919353",
+                      "places-7fb8137cf82d592b243e"
+                    ],
+                    "text": "Repeat while the cancellation token is not signalled; each pass attempts one pending row, then waits one second."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "places-request-publisher",
+                  "sourceContext": {
+                    "$clewRef": "sha256:532c0cbde5ec5e323ccbcfcaa71f0009389b9d8d7e46005486ecccf091a92ca2"
+                  },
+                  "sources": {
+                    "places-158b244bf27716919353": {
+                      "$clewRef": "sha256:a0297a2ef05d2d41e7c12a344c24091c5b8976f8b4240b03ed9698d1adaf5298"
+                    },
+                    "places-7fb8137cf82d592b243e": {
+                      "$clewRef": "sha256:b970c6d235f9c5eb2f4e16bc78eda2a4ee3a68751103a8811054e9802c535d97"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:80a3d471b0896596761520253625c1508954ad0b77b4e8b9ee9668df32f91fc8"
+                  },
+                  "subject": "scenario:places-request-publisher",
+                  "title": "Place request publisher"
+                },
+                {
+                  "$clewRef": "sha256:df4895dcab1a0531e78ea951dc8ce326582a06acbbf8e80fa41ab8c8c8018204"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "Normal completion and logged failures are followed by a one-second wait. Each pass attempts one pending row.",
+              "title": "Next attempt",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": "Cancellation details",
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "places:symbol:7fb8137cf82d592b243e54aa"
+                    ],
+                    "id": "claim-36f270f7d835dff9dcca",
+                    "kind": "note",
+                    "sourceIds": [
+                      "places-7fb8137cf82d592b243e"
+                    ],
+                    "text": "An OperationCanceledException observed while the token is cancelled breaks the loop."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "places-request-publisher",
+                  "sourceContext": {
+                    "$clewRef": "sha256:532c0cbde5ec5e323ccbcfcaa71f0009389b9d8d7e46005486ecccf091a92ca2"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:ff0da895393c9f0dfecd0e6ea8aabd314b3a671596dea38a957a76fb796b5571"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:80a3d471b0896596761520253625c1508954ad0b77b4e8b9ee9668df32f91fc8"
+                  },
+                  "subject": "scenario:places-request-publisher",
+                  "title": "Place request publisher"
+                },
+                {
+                  "$clewRef": "sha256:df4895dcab1a0531e78ea951dc8ce326582a06acbbf8e80fa41ab8c8c8018204"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": "Publish-attempt cancellation and delay cancellation take different paths",
+              "text": "Cancellation observed during the publish attempt exits the loop. Cancellation reaching the following delay can propagate from that await.",
+              "title": "Cancellation",
+              "tone": null
+            }
+          ],
+          "icon": null,
+          "id": "continue",
+          "navTitle": "Continue or stop",
+          "number": 4,
+          "route": null,
+          "title": "The loop continues or stops"
+        },
+        {
+          "blocks": [
+            {
+              "$clewRef": "sha256:a6fa28f6c8d59af1d7eb15ccaf5fc8db04222e316a33c3b1199eaddd5bf650c4"
+            }
+          ],
+          "icon": null,
+          "id": "confidence",
+          "navTitle": "Sources and provenance",
+          "number": null,
+          "route": null,
+          "title": "Full description and sources"
+        }
+      ],
+      "subject": "scenario:places-request-publisher",
+      "title": "Publish place requests"
+    },
+    "readerOptions": {
+      "showInternalProcesses": false
+    },
+    "relatedViews": [],
+    "renderer": "codeclew-documentation-html/1.16",
+    "requestedDocumentationLanguage": "en",
+    "revisions": {
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "savedProcesses": [],
+    "sectionState": {
+      "$clewRef": "sha256:d74dc3c90ce8322b04ba8bf237ce3a0b156c5d6fd48e766e9641a4dba017f4e7"
+    },
+    "sections": [],
+    "selectedEvidence": {
+      "$clewRef": "sha256:ca9e4ab3cdcbe2cee291a0df9c86fe72afd4d98160313803db7f0417ab3e0e97"
+    },
+    "selectedSnapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
+    "sourceAuthorities": {
+      "dashboard": "CAPTURED_SOURCE",
+      "forecasts": "RETAINED_SOURCE_NOT_REVERIFIED",
+      "places": "RETAINED_SOURCE_NOT_REVERIFIED"
+    },
+    "sources": {
+      "$clewRef": "sha256:a84950e56eed9a8d4ff4ea9619fcc846d0cb95c446be32533636aa957193faa2"
+    },
+    "stateDiagram": null,
+    "stateDiagramSvg": false,
+    "subject": "scenario:places-request-publisher",
+    "subtitle": "Service behavior and explicit evidence boundaries",
+    "targetRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "title": "Publish pending place requests",
+    "translationComplete": true,
+    "translationGaps": {},
+    "updateFailures": {},
+    "view": null
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:3e8d6f9cb90c61bd7c9845abf2e0bbb15840af1a30a0e8934d6aa06eeb73e0f8",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 40,
+    "evidenceDigest": "sha256:b6c1ad260d4c9cc6f129734468c93482c1c72beeb1679f570be27566db158350",
+    "file": "services/places/PlacesRepository.cs",
+    "id": "places-196df051366edbcf1193",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "places",
+    "startLine": 40,
+    "text": "new NpgsqlCommand(\"INSERT INTO places(id,name,latitude,longitude) VALUES($1,$2,$3,$4) ON CONFLICT DO NOTHING RETURNING id\", connection, transaction)",
+    "textDigest": "sha256:0edcd0f3ac7c8b05a0077bf166928f7c22d05ddc4e004bc1131af6eb4ea53c67",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L40-L40"
+  }
+}

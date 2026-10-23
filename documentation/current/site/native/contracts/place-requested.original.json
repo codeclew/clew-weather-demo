@@ -1,0 +1,101 @@
+{
+  "branchPointer": "/oneOf/0",
+  "documentationLanguage": "en",
+  "id": "place-requested",
+  "leaves": [
+    {
+      "field": "id",
+      "nullable": false,
+      "pointer": "/oneOf/0/properties/id",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "minLength": 1,
+        "type": "string"
+      }
+    },
+    {
+      "field": "place.id",
+      "nullable": false,
+      "pointer": "/oneOf/0/properties/place/properties/id",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "enum": [
+          "oslo",
+          "helsinki",
+          "lisbon"
+        ],
+        "type": "string"
+      }
+    },
+    {
+      "field": "place.latitude",
+      "nullable": false,
+      "pointer": "/oneOf/0/properties/place/properties/latitude",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "maximum": 90,
+        "minimum": -90,
+        "type": "number"
+      }
+    },
+    {
+      "field": "place.longitude",
+      "nullable": false,
+      "pointer": "/oneOf/0/properties/place/properties/longitude",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "maximum": 180,
+        "minimum": -180,
+        "type": "number"
+      }
+    },
+    {
+      "field": "place.name",
+      "nullable": false,
+      "pointer": "/oneOf/0/properties/place/properties/name",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "type": "string"
+      }
+    },
+    {
+      "field": "type",
+      "nullable": false,
+      "pointer": "/oneOf/0/properties/type",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "const": "place.requested"
+      }
+    },
+    {
+      "field": "version",
+      "nullable": false,
+      "pointer": "/oneOf/0/properties/version",
+      "requiredWhenBranchMatches": true,
+      "schema": {
+        "const": 1
+      }
+    }
+  ],
+  "requiredCondition": "Selected contract branch matches; required parents and array element are present. Array leaves expanded once, independent of cardinality.",
+  "source": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 173,
+    "evidenceDigest": "sha256:6716abb8876a62148052b34340f359b4e96bb9c3140f5c1dab5ccc831c227e7b",
+    "file": "contracts/events.schema.json",
+    "id": "dashboard-7d79014f99ba83eadfd7",
+    "occurrence": {
+      "blob": "b2d10a337934b28f711793c5e03557ee307e8b19",
+      "endByte": 3914,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 0
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 1,
+    "text": "{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n  \"oneOf\": [\n    {\n      \"type\": \"object\",\n      \"required\": [\n        \"id\",\n        \"type\",\n        \"version\",\n        \"place\"\n      ],\n      \"additionalProperties\": false,\n      \"properties\": {\n        \"id\": {\n          \"type\": \"string\",\n          \"minLength\": 1\n        },\n        \"type\": {\n          \"const\": \"place.requested\"\n        },\n        \"version\": {\n          \"const\": 1\n        },\n        \"place\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"id\",\n            \"name\",\n            \"latitude\",\n            \"longitude\"\n          ],\n          \"properties\": {\n            \"id\": {\n              \"type\": \"string\",\n              \"enum\": [\n                \"oslo\",\n                \"helsinki\",\n                \"lisbon\"\n              ]\n            },\n            \"name\": {\n              \"type\": \"string\"\n            },\n            \"latitude\": {\n              \"type\": \"number\",\n              \"minimum\": -90,\n              \"maximum\": 90\n            },\n            \"longitude\": {\n              \"type\": \"number\",\n              \"minimum\": -180,\n              \"maximum\": 180\n            }\n          }\n        }\n      }\n    },\n    {\n      \"type\": \"object\",\n      \"required\": [\n        \"id\",\n        \"type\",\n        \"version\",\n        \"place\",\n        \"forecast\"\n      ],\n      \"additionalProperties\": false,\n      \"properties\": {\n        \"id\": {\n          \"type\": \"string\",\n          \"minLength\": 1\n        },\n        \"type\": {\n          \"const\": \"forecast.updated\"\n        },\n        \"version\": {\n          \"const\": 1\n        },\n        \"place\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"id\",\n            \"name\",\n            \"latitude\",\n            \"longitude\"\n          ],\n          \"properties\": {\n            \"id\": {\n              \"type\": \"string\",\n              \"enum\": [\n                \"oslo\",\n                \"helsinki\",\n                \"lisbon\"\n              ]\n            },\n            \"name\": {\n              \"type\": \"string\"\n            },\n            \"latitude\": {\n              \"type\": \"number\",\n              \"minimum\": -90,\n              \"maximum\": 90\n            },\n            \"longitude\": {\n              \"type\": \"number\",\n              \"minimum\": -180,\n              \"maximum\": 180\n            }\n          }\n        },\n        \"forecast\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"updatedAt\",\n            \"fetchedAt\",\n            \"mode\",\n            \"periods\"\n          ],\n          \"properties\": {\n            \"updatedAt\": {\n              \"type\": \"string\",\n              \"format\": \"date-time\"\n            },\n            \"fetchedAt\": {\n              \"type\": \"string\",\n              \"format\": \"date-time\"\n            },\n            \"mode\": {\n              \"type\": \"string\",\n              \"enum\": [\n                \"fixture\",\n                \"live\"\n              ]\n            },\n            \"periods\": {\n              \"type\": \"array\",\n              \"minItems\": 1,\n              \"maxItems\": 6,\n              \"items\": {\n                \"type\": \"object\",\n                \"required\": [\n                  \"time\",\n                  \"temperatureC\",\n                  \"precipitationMm\",\n                  \"symbol\"\n                ],\n                \"properties\": {\n                  \"time\": {\n                    \"type\": \"string\",\n                    \"format\": \"date-time\"\n                  },\n                  \"temperatureC\": {\n                    \"type\": \"number\"\n                  },\n                  \"precipitationMm\": {\n                    \"type\": [\n                      \"number\",\n                      \"null\"\n                    ],\n                    \"minimum\": 0\n                  },\n                  \"symbol\": {\n                    \"type\": \"string\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ]\n}\n",
+    "textDigest": "sha256:cc9eba8df22972a4e017629c1da8a2062c63c2d0a2c242ce1dc4a698176429c5",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/contracts/events.schema.json#L1-L173"
+  },
+  "title": "place.requested v1"
+}

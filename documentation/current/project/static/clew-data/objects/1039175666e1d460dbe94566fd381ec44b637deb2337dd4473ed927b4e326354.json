@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:1039175666e1d460dbe94566fd381ec44b637deb2337dd4473ed927b4e326354",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "dashboard:flow:049a97e649d7feb212e6c67f",
+      "dashboard:flow:37dec2bf70bc69d603cb8d4b",
+      "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+      "dashboard:symbol:a4627e5e868830287e83e0dc"
+    ],
+    "from": "service-dashboard",
+    "id": "claim-8485c4c6795cffd18c51",
+    "kind": "message",
+    "sourceIds": [
+      "dashboard-049a97e649d7feb212e6",
+      "dashboard-37dec2bf70bc69d603cb",
+      "dashboard-8a4f6855cb7f1a476a04",
+      "dashboard-a4627e5e868830287e83"
+    ],
+    "text": "After applyEvent resolves on the valid path, commit this partition's offset plus one.",
+    "to": "dashboard-kafka"
+  }
+}

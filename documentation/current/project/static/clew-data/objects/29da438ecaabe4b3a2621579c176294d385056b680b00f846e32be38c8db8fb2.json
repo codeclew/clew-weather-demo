@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:29da438ecaabe4b3a2621579c176294d385056b680b00f846e32be38c8db8fb2",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:1a752044b34bb6043800fe892ceaa75c2a6c67b5b00e470dd339989bef74b8d3"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The receiver passes the event object to validation. That forwarding alone does not establish a named read of every child field.",
+    "title": "Source-bound reading summary",
+    "tone": null
+  }
+}

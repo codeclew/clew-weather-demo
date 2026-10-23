@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:de8db751681ac7e198227948fd5b66446c0d4819bc8985894aa7aef923d2bd6b",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:040dcf86edd8b30ebae68ceb519337686b87e304aa01605c54feefd14f94ebd7"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Forecast ordering timestamp",
+    "title": "Authored readable name (agent proposal)",
+    "tone": null
+  }
+}

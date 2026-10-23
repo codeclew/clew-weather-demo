@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:9642a38d669b0a1c211345c26814d469c968a95646e5b1fa1e204d35afd1c270",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "places:symbol:1223607978a77b621e144f3c",
+      "places:symbol:c4c78f2ff61478266b216b51",
+      "places:symbol:d4d0aa9ce7bc37e81fa3623b"
+    ],
+    "id": "claim-1313d06106ce668eb860",
+    "sourceIds": [
+      "places-1223607978a77b621e14",
+      "places-c4c78f2ff61478266b21",
+      "places-d4d0aa9ce7bc37e81fa3"
+    ],
+    "text": "Places maps the supported IDs oslo, helsinki, and lisbon to canonical Place records for Oslo, Helsinki, and Lisbon, exposes HTTP actions for listing, saving, and requesting a refresh, and checks database readiness. The repository stores places and durable request_outbox rows; RequestPublisher sends pending place.requested events to Kafka. This service source view does not document forecast recomputation or dashboard-card updates."
+  }
+}

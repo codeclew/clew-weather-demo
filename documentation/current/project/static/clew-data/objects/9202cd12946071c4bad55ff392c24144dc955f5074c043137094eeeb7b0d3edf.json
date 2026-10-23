@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:9202cd12946071c4bad55ff392c24144dc955f5074c043137094eeeb7b0d3edf",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 60,
+    "evidenceDigest": "sha256:5988e8a45b3b62c6830995d4467e0847040413cb4cf47ddc0e23ef4d2f7a3ba9",
+    "file": "exercises/dashboard-focus-regression.mjs",
+    "id": "dashboard-b9518ce965920380b644",
+    "occurrence": {
+      "blob": "2b53234178f7544297218bd3bb9a2b7acacfd04d",
+      "endByte": 2655,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 0
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 1,
+    "text": "import assert from 'node:assert/strict';\nimport { readFileSync } from 'node:fs';\nimport vm from 'node:vm';\n\nclass Element {\n  constructor(tag, document) {\n    this.tagName = tag;\n    this.document = document;\n    this.children = [];\n    this.dataset = {};\n    this.style = {};\n    this.textContent = '';\n  }\n  append(...children) { this.children.push(...children); }\n  contains(element) { return this === element || this.children.some(child => child.contains(element)); }\n  replaceChildren(...children) {\n    if (this.contains(this.document.activeElement)) this.document.activeElement = this.document.body;\n    this.children = children;\n  }\n  querySelectorAll(selector) {\n    return this.children.flatMap(child => [\n      ...(selector === '[data-refresh]' && child.dataset.refresh ? [child] : []),\n      ...child.querySelectorAll(selector),\n    ]);\n  }\n  focus() { this.document.activeElement = this; }\n}\nconst document = {};\ndocument.body = new Element('body', document);\ndocument.activeElement = document.body;\nconst cards = new Element('section', document);\nconst status = new Element('p', document);\ndocument.createElement = tag => new Element(tag, document);\ndocument.querySelector = selector => selector === '#cards' ? cards : status;\ndocument.querySelectorAll = () => [];\nlet rows = [{ id: 'oslo', name: 'Oslo', forecast: null }];\nlet poll;\nconst context = vm.createContext({ document, fetch: async () => ({ ok: true, json: async () => rows }), setInterval: callback => { poll = callback; } });\nconst html = readFileSync(new URL('../services/dashboard/public/index.html', import.meta.url), 'utf8');\nvm.runInContext(html.match(/<script>([\\s\\S]*)<\\/script>/)[1], context);\nawait vm.runInContext('update()', context);\nconst button = cards.querySelectorAll('[data-refresh]')[0];\nbutton.focus();\nawait poll();\nassert.equal(document.activeElement, button, 'unchanged polling preserves focused button');\nassert.equal(cards.querySelectorAll('[data-refresh]')[0], button, 'unchanged polling retains card controls');\nrows = [{ ...rows[0], name: 'Oslo updated' }];\nawait poll();\nconst replacement = cards.querySelectorAll('[data-refresh]')[0];\nassert.notEqual(replacement, button);\nassert.equal(document.activeElement, replacement, 'changed data restores focus to the same city action');\nconst outside = new Element('button', document);\noutside.focus();\nrows = [{ ...rows[0], name: 'Oslo updated again' }];\nawait poll();\nassert.equal(document.activeElement, outside, 'polling does not steal focus from outside cards');\nrows = [];\nawait poll();\nassert.equal(status.textContent, 'Choose a city');\nconsole.log('Dashboard focus regression: 6 assertions passed');\n",
+    "textDigest": "sha256:0f074811c4dac86f81b706c78fff4dc163aa9271e0a99292d1461a3e23907f68",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/exercises/dashboard-focus-regression.mjs#L1-L60"
+  }
+}

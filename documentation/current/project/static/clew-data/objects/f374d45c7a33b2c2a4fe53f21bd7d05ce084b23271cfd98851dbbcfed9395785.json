@@ -1,0 +1,26 @@
+{
+  "identity": "sha256:f374d45c7a33b2c2a4fe53f21bd7d05ce084b23271cfd98851dbbcfed9395785",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "documentationLanguage": "en",
+    "fields": {
+      "$clewRef": "sha256:ff6bc30332987e033ec34b9d8f3d8a7dba1481c3c386cb50574bc3bdd924fd82"
+    },
+    "id": "place",
+    "identity": {
+      "$clewRef": "sha256:14e8508c78dbbb0348ea669ebd11a7c4715bc5b28975ead8c6f4b1dbc39b2108"
+    },
+    "kind": "ENTITY",
+    "processLinks": {
+      "$clewRef": "sha256:11d3b3999a83f297d48cd3be93e78cc18781fa32a7bbb607eba5884e082fb283"
+    },
+    "purpose": {
+      "$clewRef": "sha256:04da2eb230b51329915ed0621756fa000fe87f6b92989357a86388c615098e7d"
+    },
+    "relatedModels": [
+      "forecast",
+      "weather-card"
+    ],
+    "title": "Place"
+  }
+}

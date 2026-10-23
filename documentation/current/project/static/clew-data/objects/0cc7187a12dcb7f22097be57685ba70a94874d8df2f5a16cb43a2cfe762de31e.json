@@ -1,0 +1,49 @@
+{
+  "identity": "sha256:0cc7187a12dcb7f22097be57685ba70a94874d8df2f5a16cb43a2cfe762de31e",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "CALL_TARGETS_UNRESOLVED",
+      "RUNTIME_REGISTRATION_UNPROVEN",
+      "SOURCE_ROUTE_NOT_COMPILER_RESOLVED"
+    ],
+    "dependencyIds": [
+      "dashboard:symbol:812cb9b6c2878af12cf90ce4",
+      "dashboard:syntax_detail:8b3e335d37b206223a1bc627"
+    ],
+    "id": "dashboard-310371b6c91f276ad642",
+    "kind": "HTTP_ENDPOINT",
+    "service": "dashboard",
+    "sourceIds": [
+      "dashboard-2aafc8fb394c5286444c",
+      "dashboard-32bc9889e473dbabe871",
+      "dashboard-4b53e17692ab14a59b2d",
+      "dashboard-812cb9b6c2878af12cf9"
+    ],
+    "symbol": "source:services/dashboard/src/main.ts/package:/getOpenApi/0ec2fcbeaf4f9f4919a7",
+    "trigger": {
+      "authority": "SOURCE_REGISTRATION_SYNTAX",
+      "methods": [
+        "GET"
+      ],
+      "name": "getOpenApi",
+      "owner": "package:",
+      "paths": [
+        "/openapi.json"
+      ],
+      "sourceRoutes": [
+        {
+          "authority": "SOURCE_SYNTAX",
+          "declaredPath": "/openapi.json",
+          "framework": "fastify",
+          "handler": "source:services/dashboard/src/main.ts/package:/getOpenApi/0ec2fcbeaf4f9f4919a7",
+          "method": "GET",
+          "path": "/openapi.json",
+          "receiver": "app",
+          "runtimeActivation": "UNVERIFIED",
+          "schema": "codeclew-typescript-source-route/1.0"
+        }
+      ]
+    }
+  }
+}

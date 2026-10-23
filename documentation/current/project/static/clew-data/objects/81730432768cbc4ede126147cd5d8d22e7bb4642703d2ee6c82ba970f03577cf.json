@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:81730432768cbc4ede126147cd5d8d22e7bb4642703d2ee6c82ba970f03577cf",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "places:symbol:707eb762b8c1f4718a5b89e7"
+    ],
+    "id": "places:symbol:707eb762b8c1f4718a5b89e7",
+    "name": "Open",
+    "owner": "class:Weather.Places.PlacesRepository",
+    "parameterTypes": [
+      "System.Threading.CancellationToken"
+    ],
+    "publicBoundary": false,
+    "scope": "csproj:services/places/Places.csproj@net10.0",
+    "service": "places",
+    "sourceIds": [
+      "places-707eb762b8c1f4718a5b"
+    ],
+    "status": "RECORDED",
+    "symbol": "method:class:Weather.Places.PlacesRepository#Open(LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;"
+  }
+}

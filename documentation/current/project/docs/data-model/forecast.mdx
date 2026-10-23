@@ -1,0 +1,358 @@
+---
+title: "Forecast"
+slug: "/data-model/forecast"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Forecast
+
+Agent proposal · Not reviewed.
+
+<p id="dm-return"></p>
+
+<ClewMarkdown text={"A normalized forecast for a Place: provider update time, fetch time, source mode and a short series of periods."} />
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+
+</details>
+
+## Identity and relationships {#identity-and-relationships}
+
+<ClewMarkdown text={"The forecasts table is keyed by place_id. There is no Forecast.id property. The outgoing event ID combines the place key and updatedAt; it identifies the event, not a separate Forecast.id."} />
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [database/init.sql:1–16 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/25e9e7284981c559c2b546321bcf62b234e4b849d0ae122ab17f2f3ae0e6879f.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+
+</details>
+
+<p className="clew-related-models">Related concepts: <ClewRelatedModelLink model="place">Place</ClewRelatedModelLink> · <ClewRelatedModelLink model="period">Period</ClewRelatedModelLink> · <ClewRelatedModelLink model="weather-card">Weather card</ClewRelatedModelLink></p>
+
+
+## Fields and representations {#fields-and-representations}
+
+<div className="dm-fields-scroll" tabIndex={0} role="region" aria-label="Field descriptions"><table className="dm-fields" role="table"><caption>Field descriptions</caption><thead><tr><th scope="col">Original field</th><th scope="col">Readable name</th><th scope="col">Comment</th></tr></thead><tbody><tr><th scope="row"><a href="#field-updatedat" data-clew-field-details=""><code>updatedAt</code></a></th><td data-label="Readable name">Provider update time</td><td data-label="Comment"><ClewMarkdown text={"Provider document update timestamp. Dashboard compares this value against the stored card ordering timestamp before accepting a forecast."} /><a className="dm-field-evidence-link" href="#field-updatedat" data-clew-field-details="">Evidence and representations</a></td></tr><tr><th scope="row"><a href="#field-fetchedat" data-clew-field-details=""><code>fetchedAt</code></a></th><td data-label="Readable name">Forecast normalization time</td><td data-label="Comment"><ClewMarkdown text={"Time the Forecasts service constructs the normalized forecast after reading provider or fixture data. It is required in the event, retained and returned, but not directly displayed by the inspected browser update function."} /><a className="dm-field-evidence-link" href="#field-fetchedat" data-clew-field-details="">Evidence and representations</a></td></tr><tr><th scope="row"><a href="#field-mode" data-clew-field-details=""><code>mode</code></a></th><td data-label="Readable name">Forecast source mode</td><td data-label="Comment"><ClewMarkdown text={"Whether the forecast was normalized from the fixture branch or the live MET provider branch."} /><a className="dm-field-evidence-link" href="#field-mode" data-clew-field-details="">Evidence and representations</a></td></tr><tr><th scope="row"><a href="#field-periods" data-clew-field-details=""><code>periods[]</code></a></th><td data-label="Readable name">Forecast periods</td><td data-label="Comment"><ClewMarkdown text={"Up to six provider time points normalized into embedded Period values. This is not an independently stored entity."} /><a className="dm-field-evidence-link" href="#field-periods" data-clew-field-details="">Evidence and representations</a></td></tr></tbody></table></div>
+
+### updatedAt {#field-updatedat}
+
+<ClewFieldDetails>
+<summary>Technical representations</summary>
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+
+</details>
+
+<details>
+<summary>Field label provenance: Readable name</summary>
+
+Provider update time
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+
+</details>
+
+
+</details>
+
+<div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Representation</th><th scope="col">Type / declared constraints</th><th scope="col">Requiredness / nullability</th><th scope="col">Retained mapping</th></tr></thead><tbody><tr><td data-label="Representation">Event v1 · forecast-updated</td><td data-label="Type / declared constraints">string · date-time · format: date-time</td><td data-label="Requiredness / nullability">Required when branch matches<br/>Not nullable</td><td data-label="Retained mapping">The contract property is separate from validator implementation and downstream use.</td></tr><tr><td data-label="Representation">Normalized JSON / TypeScript Forecast</td><td data-label="Type / declared constraints">string</td><td data-label="Requiredness / nullability">Present in the normalized Forecast<br/>Not nullable</td><td data-label="Retained mapping">Forecasts emits this property in the forecast JSON. Dashboard stores and returns that JSON as a whole.</td></tr></tbody></table></div>
+
+<details>
+<summary>Event v1 · forecast-updated</summary>
+
+Derived from exact JSON Schema · Branch-conditional · Derived from schema
+
+<ClewMarkdown text={"The contract property is separate from validator implementation and downstream use."} />
+
+[forecast.updated v1](../contracts/forecast-updated.mdx)
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "format": "date-time",
+  "type": "string"
+}
+```
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [contracts/events.schema.json:1–173 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4f5e368172c056412420d76a096c229f94968d52746b28b1a0c0b7b6faa971dc.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Normalized JSON / TypeScript Forecast</summary>
+
+string · Present in the normalized Forecast · Not nullable
+
+<ClewMarkdown text={"Forecasts emits this property in the forecast JSON. Dashboard stores and returns that JSON as a whole."} />
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+- [services/dashboard/src/events.ts:1–30 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e315f42d31e792e7aa347f9f1a24237c1af90d82a71f4fcc4ddb87e219ce6b80.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4.mdx)
+
+</details>
+
+
+</details>
+
+<ClewFieldTrace field="updatedat" />
+
+</ClewFieldDetails>
+
+### fetchedAt {#field-fetchedat}
+
+<ClewFieldDetails>
+<summary>Technical representations</summary>
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+- [services/dashboard/public/index.html:1–11 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/c2239e2c6403a3d1207383732a448da7982b4d8765aaa00a7aa74ac6b8bbdfd0.mdx)
+
+</details>
+
+<details>
+<summary>Field label provenance: Readable name</summary>
+
+Forecast normalization time
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+- [services/dashboard/public/index.html:1–11 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/c2239e2c6403a3d1207383732a448da7982b4d8765aaa00a7aa74ac6b8bbdfd0.mdx)
+
+</details>
+
+
+</details>
+
+<div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Representation</th><th scope="col">Type / declared constraints</th><th scope="col">Requiredness / nullability</th><th scope="col">Retained mapping</th></tr></thead><tbody><tr><td data-label="Representation">Event v1 · forecast-updated</td><td data-label="Type / declared constraints">string · date-time · format: date-time</td><td data-label="Requiredness / nullability">Required when branch matches<br/>Not nullable</td><td data-label="Retained mapping">The contract property is separate from validator implementation and downstream use.</td></tr><tr><td data-label="Representation">Normalized JSON / TypeScript Forecast</td><td data-label="Type / declared constraints">string</td><td data-label="Requiredness / nullability">Present in the normalized Forecast<br/>Not nullable</td><td data-label="Retained mapping">Forecasts emits this property in the forecast JSON. Dashboard stores and returns that JSON as a whole.</td></tr></tbody></table></div>
+
+<details>
+<summary>Event v1 · forecast-updated</summary>
+
+Derived from exact JSON Schema · Branch-conditional · Derived from schema
+
+<ClewMarkdown text={"The contract property is separate from validator implementation and downstream use."} />
+
+[forecast.updated v1](../contracts/forecast-updated.mdx)
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "format": "date-time",
+  "type": "string"
+}
+```
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [contracts/events.schema.json:1–173 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4f5e368172c056412420d76a096c229f94968d52746b28b1a0c0b7b6faa971dc.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Normalized JSON / TypeScript Forecast</summary>
+
+string · Present in the normalized Forecast · Not nullable
+
+<ClewMarkdown text={"Forecasts emits this property in the forecast JSON. Dashboard stores and returns that JSON as a whole."} />
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+- [services/dashboard/src/events.ts:1–30 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e315f42d31e792e7aa347f9f1a24237c1af90d82a71f4fcc4ddb87e219ce6b80.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4.mdx)
+
+</details>
+
+
+</details>
+
+<ClewFieldTrace field="fetchedat" />
+
+</ClewFieldDetails>
+
+### mode {#field-mode}
+
+<ClewFieldDetails>
+<summary>Technical representations</summary>
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+
+</details>
+
+<details>
+<summary>Field label provenance: Readable name</summary>
+
+Forecast source mode
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+
+</details>
+
+
+</details>
+
+<div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Representation</th><th scope="col">Type / declared constraints</th><th scope="col">Requiredness / nullability</th><th scope="col">Retained mapping</th></tr></thead><tbody><tr><td data-label="Representation">Event v1 · forecast-updated</td><td data-label="Type / declared constraints">string · enum: [&quot;fixture&quot;,&quot;live&quot;]</td><td data-label="Requiredness / nullability">Required when branch matches<br/>Not nullable</td><td data-label="Retained mapping">The contract property is separate from validator implementation and downstream use.</td></tr><tr><td data-label="Representation">Normalized JSON / TypeScript Forecast</td><td data-label="Type / declared constraints">&#39;fixture&#39; | &#39;live&#39;</td><td data-label="Requiredness / nullability">Present in the normalized Forecast<br/>Not nullable</td><td data-label="Retained mapping">Forecasts emits this property in the forecast JSON. Dashboard stores and returns that JSON as a whole.</td></tr></tbody></table></div>
+
+<details>
+<summary>Event v1 · forecast-updated</summary>
+
+Derived from exact JSON Schema · Branch-conditional · Derived from schema
+
+<ClewMarkdown text={"The contract property is separate from validator implementation and downstream use."} />
+
+[forecast.updated v1](../contracts/forecast-updated.mdx)
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "enum": [
+    "fixture",
+    "live"
+  ],
+  "type": "string"
+}
+```
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [contracts/events.schema.json:1–173 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4f5e368172c056412420d76a096c229f94968d52746b28b1a0c0b7b6faa971dc.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Normalized JSON / TypeScript Forecast</summary>
+
+'fixture' \| 'live' · Present in the normalized Forecast · Not nullable
+
+<ClewMarkdown text={"Forecasts emits this property in the forecast JSON. Dashboard stores and returns that JSON as a whole."} />
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+- [services/dashboard/src/events.ts:1–30 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e315f42d31e792e7aa347f9f1a24237c1af90d82a71f4fcc4ddb87e219ce6b80.mdx)
+- [services/dashboard/src/main.ts:25–36 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/e25bcebef26811aa899f62ef6c84dd58290175f35ad2c56c5c7717c64ecb7490.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/6b544bf0ad1c3b3e08134ac679b2457999d3b51d03d33fb20b501f57b597e0c4.mdx)
+
+</details>
+
+
+</details>
+
+<ClewFieldTrace field="mode" />
+
+</ClewFieldDetails>
+
+### periods\[\] {#field-periods}
+
+<ClewFieldDetails>
+<summary>Technical representations</summary>
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+
+</details>
+
+<details>
+<summary>Field label provenance: Readable name</summary>
+
+Forecast periods
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+
+</details>
+
+
+</details>
+
+<div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Representation</th><th scope="col">Type / declared constraints</th><th scope="col">Requiredness / nullability</th><th scope="col">Retained mapping</th></tr></thead><tbody><tr><td data-label="Representation">Forecast.periods</td><td data-label="Type / declared constraints">Period[]</td><td data-label="Requiredness / nullability">Event validator requires 1 to 6 elements<br/>Not nullable</td><td data-label="Retained mapping">The producer takes at most six provider time points, requires a nonempty result, and embeds them in the forecast JSON.</td></tr></tbody></table></div>
+
+<details>
+<summary>Forecast.periods</summary>
+
+Period\[\] · Event validator requires 1 to 6 elements · Not nullable
+
+<ClewMarkdown text={"The producer takes at most six provider time points, requires a nonempty result, and embeds them in the forecast JSON."} />
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+- [services/dashboard/src/events.ts:16–27 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/4ebf071996df03879a1293a8b7d501451be45c62012ab844b28d76b8adcebfbb.mdx)
+
+</details>
+
+
+</details>
+
+<ClewFieldTrace field="periods" />
+
+</ClewFieldDetails>
+
+## Field usage and focused flow {#field-usage}
+
+<ClewDataModel dataPath="/clew-data/widgets/model-forecast.json" />
+
+## Processes {#processes}
+
+- [dashboard forecast updated consumer](../scenarios/dashboard-forecast-updated-consumer.mdx#question-apply)
+- [forecasts place requested consumer](../scenarios/forecasts-place-requested-consumer.mdx#question-update)
+- [forecasts refresh scheduled](../scenarios/forecasts-refresh-scheduled.mdx#question-save)
+- [forecasts publish pending](../scenarios/forecasts-publish-pending.mdx#question-record)
+

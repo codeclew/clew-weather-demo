@@ -1,0 +1,83 @@
+{
+  "identity": "sha256:9585b98b682cf46457d3c6f0a7195376401ec7022b9f67bce856f953ae622c87",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "callStep": "dashboard-refresh-forward",
+    "evidence": {
+      "$clewRef": "sha256:9870889d860c87d254cf1beab50023f36ebbf860cd954f22642df34501103017"
+    },
+    "failures": [
+      {
+        "evidenceRefs": [
+          "dashboard-request-refresh"
+        ],
+        "text": "Dashboard maps an exception from fetch or response JSON parsing to 503 with PLACES_UNAVAILABLE; this handler does not reveal whether Places completed or queued the request before that error."
+      },
+      {
+        "evidenceRefs": [
+          "places-refresh"
+        ],
+        "text": "The Places wrapper returns 404 before enqueue when the lookup yields no city."
+      }
+    ],
+    "guarantees": [
+      {
+        "evidenceRefs": [
+          "dashboard-request-refresh",
+          "places-refresh"
+        ],
+        "text": "The source shows no idempotency key or repeated-request deduplication in these wrappers; behavior beyond the boundary is unresolved."
+      },
+      {
+        "evidenceRefs": [
+          "places-refresh"
+        ],
+        "text": "HTTP 202 conveys QUEUED in this response body, not readiness or completion of the forecast."
+      }
+    ],
+    "id": "dashboard-refresh-http",
+    "operation": {
+      "evidenceRefs": [
+        "dashboard-request-refresh",
+        "places-refresh"
+      ],
+      "text": "Dashboard sends POST /places/{id}/refresh to the declared Places.Refresh target."
+    },
+    "receiverFragment": "places-refresh-handler",
+    "request": [
+      {
+        "evidenceRefs": [
+          "dashboard-request-refresh"
+        ],
+        "text": "Dashboard URL-encodes request.params.id into the path and sends POST without a request body. The wrapper shows no idempotency key."
+      },
+      {
+        "evidenceRefs": [
+          "places-refresh"
+        ],
+        "text": "Places receives the path id and cancellation token; it looks up the place before enqueue."
+      }
+    ],
+    "response": [
+      {
+        "evidenceRefs": [
+          "places-refresh"
+        ],
+        "text": "If no place is found, Places returns 404 with PLACE_NOT_FOUND and does not reach the enqueue call."
+      },
+      {
+        "evidenceRefs": [
+          "places-refresh"
+        ],
+        "text": "If the place is found, Places awaits repository.Enqueue and returns 202 with placeId and status QUEUED; that status does not establish forecast completion."
+      },
+      {
+        "evidenceRefs": [
+          "dashboard-request-refresh"
+        ],
+        "text": "Dashboard forwards the upstream status and parsed JSON response."
+      }
+    ],
+    "transport": "HTTP"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:6c1582ad3df73297f4412d6dc07dd0df905c815597f7cd81f84a14fb9514bdbb",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "observed-static-use",
+    "claim": {
+      "$clewRef": "sha256:70355b186230a34d09f8f823d6cb3a4e0497ca2ff2e6b56e42613fe44b459e5f"
+    },
+    "condition": "place.requested v1 branch",
+    "consumer": "Forecasts.validatePlaceEvent",
+    "contract": "place-requested",
+    "coveredScope": "Forecasts validation",
+    "kinds": [
+      "validate"
+    ],
+    "processes": [],
+    "producer": "Places request event",
+    "representation": "event.place.name",
+    "stage": "Forecasts validation",
+    "unresolved": "Static source interpretation; runtime execution and delivery are not established."
+  }
+}

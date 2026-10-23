@@ -1,0 +1,25 @@
+---
+title: "exercises/unchecked-place-forecast.ts:17–19"
+slug: "/sources/3a81327dd5a0a202bcf0478842b7f1548cb29bc661119b27088099ca1bcd3487"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# exercises/unchecked-place-forecast.ts:17–19
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: e635069293d58cb0d4f28c8211e748b8d58e6b37
+
+Text digest: sha256:bfa7ddef28cbc219ab836bc0289f656d78635a8e062a44c8ef03c633a8284b0d
+
+## Retained text {#retained-text}
+
+```text
+if (!Number.isFinite(Date.parse(period.time)) || !Number.isFinite(period.temperatureC)
+          || !(period.precipitationMm === null || (Number.isFinite(period.precipitationMm) && period.precipitationMm >= 0))
+          || typeof period.symbol !== 'string') throw new Error('INVALID_PERIOD')
+```
+
+<ClewDownload path="/clew-data/objects/3a81327dd5a0a202bcf0478842b7f1548cb29bc661119b27088099ca1bcd3487.json">Complete original source binding</ClewDownload>

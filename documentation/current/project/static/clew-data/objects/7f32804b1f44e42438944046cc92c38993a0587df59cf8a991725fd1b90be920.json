@@ -1,0 +1,19 @@
+{
+  "identity": "sha256:7f32804b1f44e42438944046cc92c38993a0587df59cf8a991725fd1b90be920",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": {
+      "$clewRef": "sha256:1467ec7f1a31c9356babc2e20ecbf94fba8f3ebbf66129ddac53a627fa70eef2"
+    },
+    "id": "claim-1b8d09a3b8ea78a6fd83",
+    "sourceIds": [
+      "dashboard-1612e17d589cb9d0fa4a",
+      "places-24afabf4ce6fb0dad4a7",
+      "places-434ffab68fae2f991ebb",
+      "places-51d94b76d870001475fd",
+      "places-65de4bdfa04d114b73df",
+      "places-707eb762b8c1f4718a5b"
+    ],
+    "text": "A caller enters Dashboard.requestRefresh with a place ID. Dashboard URL-encodes the ID in a bodyless POST /places/{id}/refresh with a 10-second timeout; the saved Dashboard-to-Places mapping is agent-proposed, so runtime routing is unverified. Places.Refresh calls Find; Find returns the first ID match from List. If no place is found, Refresh returns 404 PLACE_NOT_FOUND before enqueue. Otherwise it awaits Enqueue, which opens a connection, begins a transaction, inserts a request_outbox row with a new GUID and a place.requested v1 payload, then commits before Refresh returns 202 with status QUEUED. QUEUED marks the response, not forecast completion. Dashboard forwards upstream status and parsed JSON; a fetch or JSON-decoding exception becomes 503 PLACES_UNAVAILABLE, which does not show whether Places committed first. Open disposes and rethrows on connection-open failure; other exception-to-HTTP handling is outside these bodies. The saved process links separate Places publisher and Dashboard/Forecasts consumer views, but this path does not establish publication or delivery. These wrappers show no idempotency key or repeated-request deduplication."
+  }
+}

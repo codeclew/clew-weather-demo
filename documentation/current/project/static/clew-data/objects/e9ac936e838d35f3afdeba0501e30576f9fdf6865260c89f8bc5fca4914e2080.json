@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:e9ac936e838d35f3afdeba0501e30576f9fdf6865260c89f8bc5fca4914e2080",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:58a7b287648459b56610207df1ee379d2af4355b104636dd0bf71bdb3378d513"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "symbol is retained inside JSON.stringify(event.forecast), stored as weather_cards.forecast. applyEvent does not perform a named business read of this child field; whole-object storage is still a real use.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:328f283dd1652948f547df08dbd906ea654bc68b334e9a8da4979cb8b81d31bf",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contract": null,
+    "field": null,
+    "label": "Supported-city selector → Place.id",
+    "mapping": {
+      "$clewRef": "sha256:5c117ce0b4b0b8b66ae5c41350d102f0603d252bfeab760cfe408bee45703de4"
+    },
+    "nullability": "An unsupported key returns null from the lookup",
+    "relatedModel": "place",
+    "requiredness": "A matching supported city is needed for the Save branch",
+    "typeLabel": "string selector for the returned Place"
+  }
+}

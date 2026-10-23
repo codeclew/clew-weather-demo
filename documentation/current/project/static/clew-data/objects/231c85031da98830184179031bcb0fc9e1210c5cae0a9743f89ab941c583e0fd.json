@@ -1,0 +1,21 @@
+{
+  "identity": "sha256:231c85031da98830184179031bcb0fc9e1210c5cae0a9743f89ab941c583e0fd",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "id": "time",
+    "meaning": {
+      "$clewRef": "sha256:c8bc436b6d8399504861a3d687ac032704666e103b3b60f544c130e6dafc8843"
+    },
+    "path": "time",
+    "readableName": {
+      "$clewRef": "sha256:3909a4e8c537a68f7ca01e75be8dcfa50e1571e3b6dec10b0af88a3486a945ba"
+    },
+    "representations": {
+      "$clewRef": "sha256:32ebcd29a10164200dd2fa79ebbb9d4882163e1cf8536391411af9a88683ea2e"
+    },
+    "selectedProcessField": true,
+    "usage": {
+      "$clewRef": "sha256:693f7f3b52aed74ccac01edb0285a26394c61ade23c0545ff89428c5bf46d0a7"
+    }
+  }
+}

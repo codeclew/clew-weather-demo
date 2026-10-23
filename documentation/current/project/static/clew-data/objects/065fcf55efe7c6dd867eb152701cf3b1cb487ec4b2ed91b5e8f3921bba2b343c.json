@@ -1,0 +1,24 @@
+{
+  "identity": "sha256:065fcf55efe7c6dd867eb152701cf3b1cb487ec4b2ed91b5e8f3921bba2b343c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+      "places:contract-operation:fa5644a96e01681d7c2b0445",
+      "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+      "places:symbol:309961f88b197290c1b04e50",
+      "scenario:dashboard-save-city"
+    ],
+    "detail": false,
+    "eventIds": [
+      "claim-9b18a215fbe88c5c129a"
+    ],
+    "id": "claim-ed6ef06e7260780eb380",
+    "sourceIds": [
+      "dashboard-7970ac3e2a8cf3f45b4a",
+      "places-309961f88b197290c1b0",
+      "places-770e53d99edf681987e1"
+    ],
+    "text": "Dashboard forwards the upstream status and parsed JSON body. The shown Places branches return 400 for an unsupported city or 200 after a supported save."
+  }
+}

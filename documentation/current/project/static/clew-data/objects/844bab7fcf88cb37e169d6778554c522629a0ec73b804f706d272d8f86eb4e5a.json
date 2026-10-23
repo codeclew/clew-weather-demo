@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:844bab7fcf88cb37e169d6778554c522629a0ec73b804f706d272d8f86eb4e5a",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:fd2936fcb97ba714f6e655357398c9ba111fdac6188e4fbf7ef2917153836853"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Forecast periods",
+    "title": "Authored readable name (agent proposal)",
+    "tone": null
+  }
+}

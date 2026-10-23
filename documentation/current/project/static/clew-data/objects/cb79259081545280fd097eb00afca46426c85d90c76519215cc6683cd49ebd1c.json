@@ -1,0 +1,12 @@
+{
+  "identity": "sha256:cb79259081545280fd097eb00afca46426c85d90c76519215cc6683cd49ebd1c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "entrypoint": "places-691b340ea61828b197b6",
+    "label": "Places Save controller",
+    "source": {
+      "$clewRef": "sha256:31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0"
+    },
+    "symbol": "method:class:Weather.Places.PlacesController#Save(LWeather/Places/SavePlace;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;"
+  }
+}

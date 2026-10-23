@@ -1,0 +1,34 @@
+---
+title: "services/dashboard/public/index.html:1–11"
+slug: "/sources/e2aefa0ef5b60c47780df39c33c065727314abc97f9d4dee8776810ca9ea58a9"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/dashboard/public/index.html:1–11
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: e635069293d58cb0d4f28c8211e748b8d58e6b37
+
+Text digest: sha256:f33bf2b36b9343a5e0e86d6501a03abc948e12032e43155b798ab23909dae948
+
+## Retained text {#retained-text}
+
+```text
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Weather</title>
+<style>body{font:16px system-ui,sans-serif;color:#193544;background:#f5f8fb;margin:0}main{max-width:980px;margin:auto;padding:32px 20px}h1{font-size:44px;margin-bottom:8px}button{font:inherit;background:#fff;border:1px solid #b8ccd6;border-radius:9px;padding:10px 16px;cursor:pointer}button:focus-visible{outline:3px solid #167fad;outline-offset:3px}nav{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}article{background:white;border:1px solid #dce5eb;border-radius:18px;padding:24px}h2{margin-top:0}.temperature{font-size:42px;margin:16px 0}.periods{display:flex;gap:14px;flex-wrap:wrap}.periods span{display:block;font-size:13px;color:#58707f}.badge{font-size:12px;background:#eaf2f7;padding:5px 9px;border-radius:8px}.rain{color:#106299;font-weight:650}footer{font-size:13px;color:#58707f;margin-top:34px}#status{min-height:24px}a{color:#106299}</style>
+<main><h1>Weather</h1><nav aria-label="Add a city"><button data-city="oslo">Oslo +</button><button data-city="helsinki">Helsinki +</button><button data-city="lisbon">Lisbon +</button></nav><p id="status" role="status"></p><section class="cards" id="cards" aria-live="polite"></section><footer>Weather data: <a href="https://www.met.no/">MET Norway</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. <span id="mode"></span></footer></main>
+<script>
+const status=document.querySelector('#status');
+let renderedRows=null;
+function temperature(value){return value===null?'—':`${value}°C`}
+async function update(){try{const response=await fetch('/api/weather');if(!response.ok)throw Error('READ_FAILED');const rows=await response.json();const cards=document.querySelector('#cards');const serialized=JSON.stringify(rows);if(serialized!==renderedRows){const focusedId=cards.contains(document.activeElement)?document.activeElement.dataset.refresh:null;cards.replaceChildren();for(const row of rows){const card=document.createElement('article');const title=document.createElement('h2');title.textContent=row.name;card.append(title);if(!row.forecast){const pending=document.createElement('p');pending.textContent='Forecast pending';card.append(pending)}else{const forecast=row.forecast;const badge=document.createElement('span');badge.className='badge';badge.textContent=forecast.mode==='fixture'?'Recorded fixture':'Live provider data';card.append(badge);const current=document.createElement('p');current.className='temperature';current.textContent=temperature(forecast.periods[0].temperatureC);card.append(current);const periods=document.createElement('div');periods.className='periods';for(const p of forecast.periods){const item=document.createElement('div');const time=document.createElement('span');time.textContent=new Date(p.time).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});const temp=document.createElement('strong');temp.textContent=temperature(p.temperatureC);const rain=document.createElement('span');rain.textContent=p.precipitationMm===null?'Rain unknown':`${p.precipitationMm} mm`;if(p.precipitationMm!==null&&p.precipitationMm>=0.2)rain.className='rain';item.append(time,temp,rain);periods.append(item)}card.append(periods);const updated=document.createElement('p');updated.style.fontSize='12px';updated.textContent=`Model updated ${new Date(forecast.updatedAt).toLocaleString()}`;card.append(updated)}const refresh=document.createElement('button');refresh.textContent='Refresh';refresh.dataset.refresh=row.id;refresh.onclick=async()=>{try{const r=await fetch(`/api/places/${encodeURIComponent(row.id)}/refresh`,{method:'POST'});if(!r.ok)throw Error('REFRESH_FAILED');status.textContent='Refresh queued'}catch{status.textContent='Refresh unavailable; retry shortly'}};card.append(refresh);cards.append(card)}renderedRows=serialized;if(focusedId){const replacement=Array.from(cards.querySelectorAll('[data-refresh]')).find(button=>button.dataset.refresh===focusedId);replacement?.focus()}}status.textContent=!rows.length?'Choose a city':rows.some(row=>!row.forecast)?'Forecast pending':'';}catch{status.textContent='Dashboard unavailable; retrying'}}
+for(const button of document.querySelectorAll('[data-city]'))button.onclick=async()=>{button.disabled=true;try{const response=await fetch('/api/places',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({cityId:button.dataset.city})});if(!response.ok)throw Error('SAVE_FAILED');status.textContent='City saved; forecast pending';await update()}catch{status.textContent='City unavailable; retry shortly'}finally{button.disabled=false}};
+update();setInterval(update,3000);
+</script></html>
+
+```
+
+<ClewDownload path="/clew-data/objects/e2aefa0ef5b60c47780df39c33c065727314abc97f9d4dee8776810ca9ea58a9.json">Complete original source binding</ClewDownload>

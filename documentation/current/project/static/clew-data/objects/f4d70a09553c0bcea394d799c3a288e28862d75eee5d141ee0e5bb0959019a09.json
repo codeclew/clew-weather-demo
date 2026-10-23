@@ -1,0 +1,41 @@
+{
+  "identity": "sha256:f4d70a09553c0bcea394d799c3a288e28862d75eee5d141ee0e5bb0959019a09",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    {
+      "condition": "city is null",
+      "guard": {
+        "endLine": 14,
+        "method": "places-save",
+        "startLine": 14
+      },
+      "id": "unsupported-city",
+      "steps": [
+        {
+          "effects": [
+            {
+              "citation": {
+                "endLine": 14,
+                "method": "places-save",
+                "startLine": 14
+              },
+              "id": "save-400",
+              "kind": "RETURN",
+              "label": "Return HTTP 400 for an unsupported city."
+            }
+          ],
+          "endLine": 14,
+          "id": "save-bad-request",
+          "kind": "ERROR",
+          "method": "places-save",
+          "startLine": 14,
+          "text": "Return BadRequest with error UNSUPPORTED_CITY.",
+          "title": "Return unsupported-city response"
+        }
+      ]
+    },
+    {
+      "$clewRef": "sha256:af2eb96afe9a2d7a39bc98df0e7ca199c2b58599a72b2fbc642935d9f195a61d"
+    }
+  ]
+}

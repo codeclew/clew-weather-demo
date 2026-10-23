@@ -1,0 +1,25 @@
+{
+  "identity": "sha256:195e28208d716c21cf678b9ad64d2af3581170a955bce66ea3e186b09c3ec822",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "places:contract-operation:08d1b9df6781b2953a038bc2",
+      "places:contract-operation:0f29e92a853c76a6ea564769",
+      "places:contract-operation:6b165729e2d309a9b2687873",
+      "places:contract-operation:6e713b9442ae5dfc4b99b133",
+      "places:contract-operation:fa5644a96e01681d7c2b0445",
+      "places:contract:91b280ed0ed0eda3e8e3231d",
+      "places:symbol:1223607978a77b621e144f3c",
+      "places:symbol:c4c78f2ff61478266b216b51",
+      "places:symbol:d4d0aa9ce7bc37e81fa3623b"
+    ],
+    "id": "claim-5285fd306cf620f4e823",
+    "sourceIds": [
+      "places-1223607978a77b621e14",
+      "places-770e53d99edf681987e1",
+      "places-c4c78f2ff61478266b21",
+      "places-d4d0aa9ce7bc37e81fa3"
+    ],
+    "text": "Six Places roots in the selected source revision c289b28be4819eddf29d59a7c12f178559ec5229: five HTTP actions and RequestPublisher.ExecuteAsync. Partial C# source coverage; runtime activation and cross-service outcomes are unverified.\n\nGET /places calls List, which reads rows ordered by name; failed database open disposes the connection and rethrows. GET /health runs SELECT 1, then returns 200 database READY. It checks the database, not Kafka.\n\nPOST /places maps cityId oslo, helsinki, and lisbon to places; others return 400 UNSUPPORTED_CITY. Supported IDs call Save and return 200. Save inserts with ON CONFLICT DO NOTHING RETURNING id in a transaction; only a new row creates a request_outbox event, so duplicates return 200 without a new request. The event is a new GUID with web-serialized place.requested v1 payload in that transaction.\n\nPOST /places/{id}/refresh finds by loading the list; missing IDs return 404 PLACE_NOT_FOUND. A found place is enqueued with a new event ID and returns 202 QUEUED without waiting for forecast recomputation. GET /openapi.json reads /app/contracts/places.openapi.json with no fallback. The contract declares GET /places 200/500, POST /places 200/400/415/500, refresh 202/404/500, and health and OpenAPI retrieval 200/500; its save body requires cityId. JSON Schema semantics are not fully interpreted, and file-read failure is not a successful 200 response.\n\nThe publisher selects one eligible unpublished row in created_at order with FOR UPDATE SKIP LOCKED; empty selection returns. It awaits ProduceAsync to weather.place-requested using place ID as key, then marks the database row published and commits. A crash between send completion and database commit can replay the event; producer idempotence does not make the two stores atomic. The producer uses idempotence, KAFKA_BOOTSTRAP or kafka:9092, and a 10-second message timeout. The loop logs other failures as PUBLISH_RETRY, waits one second, and retries; cancellation exits or can propagate from the delay."
+  }
+}

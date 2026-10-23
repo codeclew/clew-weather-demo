@@ -1,0 +1,21 @@
+{
+  "identity": "sha256:3aa037571d3a73c8c441f26379ac619a65d643b6c28670a448cf5931d55c139e",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "dashboard:flow:886390b176392fdbad06fc3a",
+      "dashboard:flow:a190efb9bca6603f1d2abc58",
+      "dashboard:symbol:021fcd0ff7baa53bd3c51930",
+      "dashboard:symbol:a4627e5e868830287e83e0dc"
+    ],
+    "id": "claim-43819f21ee5be6154fe6",
+    "kind": "alt",
+    "sourceIds": [
+      "dashboard-021fcd0ff7baa53bd3c5",
+      "dashboard-886390b176392fdbad06",
+      "dashboard-a190efb9bca6603f1d2a",
+      "dashboard-a4627e5e868830287e83"
+    ],
+    "text": "JSON parsing and validateEvent both succeed for the weather.place-requested topic, producing a valid place.requested event."
+  }
+}

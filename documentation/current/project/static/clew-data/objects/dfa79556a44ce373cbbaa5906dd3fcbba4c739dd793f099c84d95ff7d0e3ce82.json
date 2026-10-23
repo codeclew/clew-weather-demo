@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:dfa79556a44ce373cbbaa5906dd3fcbba4c739dd793f099c84d95ff7d0e3ce82",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:085e0e6e9e58c578001f3b0ea164d58e210c35211904501db9c9d4440b16f23c"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "City name",
+    "title": "Authored readable name (agent proposal)",
+    "tone": null
+  }
+}

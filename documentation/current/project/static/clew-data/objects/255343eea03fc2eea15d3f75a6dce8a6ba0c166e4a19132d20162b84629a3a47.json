@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:255343eea03fc2eea15d3f75a6dce8a6ba0c166e4a19132d20162b84629a3a47",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:58a470c9d9b4c0801355ebeca6b5be81a3eae832cc19917de061b18fde2961c4"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "cityId selects the supported city record; the Place name and coordinates come from that lookup.",
+    "title": "Source-bound reading summary",
+    "tone": null
+  }
+}

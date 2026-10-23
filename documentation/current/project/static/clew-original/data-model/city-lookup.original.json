@@ -1,0 +1,890 @@
+{
+  "documentationLanguage": "en",
+  "fields": [
+    {
+      "id": "id",
+      "meaning": {
+        "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+        "disclosure": null,
+        "evidence": [
+          {
+            "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+            "endLine": 3,
+            "kind": "SELECTED_SOURCE",
+            "source": {
+              "authority": "EXACT_SNAPSHOT_TEXT",
+              "endLine": 3,
+              "evidenceDigest": "sha256:c70de7ef710baefdee6f66966ed18b9f20723da50be07ed85dd9dd555efef853",
+              "file": "services/places/PlacesController.cs",
+              "id": "places-d9cadcac8ec9a824bbdf",
+              "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+              "service": "places",
+              "startLine": 3,
+              "text": "public record Place(string Id, string Name, double Latitude, double Longitude);",
+              "textDigest": "sha256:9470cec616b6be42e1d89013d3d4474b0776bee8cd189dfb1ebac7b8261ab010",
+              "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L3-L3"
+            },
+            "startLine": 3
+          },
+          {
+            "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+            "endLine": 13,
+            "kind": "SELECTED_SOURCE",
+            "source": {
+              "authority": "EXACT_SNAPSHOT_TEXT",
+              "endLine": 13,
+              "evidenceDigest": "sha256:f4546c673cab78035a4cda098f092c2b3cb7a3aa1e63b2bb20a197bd8804c5ee",
+              "file": "services/places/PlacesRepository.cs",
+              "id": "places-a3f9be5dab0dd63815f7",
+              "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+              "service": "places",
+              "startLine": 7,
+              "text": "id switch\n    {\n        \"oslo\" => new(\"oslo\", \"Oslo\", 59.93, 10.72),\n        \"helsinki\" => new(\"helsinki\", \"Helsinki\", 60.17, 24.94),\n        \"lisbon\" => new(\"lisbon\", \"Lisbon\", 38.72, -9.14),\n        _ => null\n    }",
+              "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+              "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L7-L13"
+            },
+            "startLine": 7
+          }
+        ],
+        "id": null,
+        "links": [],
+        "navTitle": null,
+        "preview": null,
+        "text": "The city selector and returned record key. Source property: Place.Id, C# string.",
+        "title": "City lookup: source interpretation",
+        "tone": null
+      },
+      "path": "id",
+      "readableName": {
+        "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+        "disclosure": null,
+        "evidence": [
+          {
+            "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+            "endLine": 3,
+            "kind": "SELECTED_SOURCE",
+            "source": {
+              "authority": "EXACT_SNAPSHOT_TEXT",
+              "endLine": 3,
+              "evidenceDigest": "sha256:c70de7ef710baefdee6f66966ed18b9f20723da50be07ed85dd9dd555efef853",
+              "file": "services/places/PlacesController.cs",
+              "id": "places-d9cadcac8ec9a824bbdf",
+              "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+              "service": "places",
+              "startLine": 3,
+              "text": "public record Place(string Id, string Name, double Latitude, double Longitude);",
+              "textDigest": "sha256:9470cec616b6be42e1d89013d3d4474b0776bee8cd189dfb1ebac7b8261ab010",
+              "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L3-L3"
+            },
+            "startLine": 3
+          },
+          {
+            "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+            "endLine": 13,
+            "kind": "SELECTED_SOURCE",
+            "source": {
+              "authority": "EXACT_SNAPSHOT_TEXT",
+              "endLine": 13,
+              "evidenceDigest": "sha256:f4546c673cab78035a4cda098f092c2b3cb7a3aa1e63b2bb20a197bd8804c5ee",
+              "file": "services/places/PlacesRepository.cs",
+              "id": "places-a3f9be5dab0dd63815f7",
+              "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+              "service": "places",
+              "startLine": 7,
+              "text": "id switch\n    {\n        \"oslo\" => new(\"oslo\", \"Oslo\", 59.93, 10.72),\n        \"helsinki\" => new(\"helsinki\", \"Helsinki\", 60.17, 24.94),\n        \"lisbon\" => new(\"lisbon\", \"Lisbon\", 38.72, -9.14),\n        _ => null\n    }",
+              "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+              "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L7-L13"
+            },
+            "startLine": 7
+          }
+        ],
+        "id": null,
+        "links": [],
+        "navTitle": null,
+        "preview": null,
+        "text": "City key",
+        "title": "Authored readable name (agent proposal)",
+        "tone": null
+      },
+      "representations": [
+        {
+          "contract": null,
+          "field": null,
+          "label": "C# Place.Id",
+          "mapping": {
+            "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+            "disclosure": null,
+            "evidence": [
+              {
+                "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+                "endLine": 3,
+                "kind": "SELECTED_SOURCE",
+                "source": {
+                  "authority": "EXACT_SNAPSHOT_TEXT",
+                  "endLine": 3,
+                  "evidenceDigest": "sha256:c70de7ef710baefdee6f66966ed18b9f20723da50be07ed85dd9dd555efef853",
+                  "file": "services/places/PlacesController.cs",
+                  "id": "places-d9cadcac8ec9a824bbdf",
+                  "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+                  "service": "places",
+                  "startLine": 3,
+                  "text": "public record Place(string Id, string Name, double Latitude, double Longitude);",
+                  "textDigest": "sha256:9470cec616b6be42e1d89013d3d4474b0776bee8cd189dfb1ebac7b8261ab010",
+                  "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L3-L3"
+                },
+                "startLine": 3
+              }
+            ],
+            "id": null,
+            "links": [],
+            "navTitle": null,
+            "preview": null,
+            "text": "The lowercase reference label id denotes the C# property Id. This table does not rename source properties or establish JSON serialization casing.",
+            "title": "City lookup: source interpretation",
+            "tone": null
+          },
+          "nullability": "Declared string; the record declaration alone does not prove runtime null validation.",
+          "relatedModel": null,
+          "requiredness": "Supplied as a constructor argument in every supported literal branch.",
+          "typeLabel": "string"
+        }
+      ],
+      "usage": []
+    },
+    {
+      "id": "name",
+      "meaning": {
+        "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+        "disclosure": null,
+        "evidence": [
+          {
+            "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+            "endLine": 3,
+            "kind": "SELECTED_SOURCE",
+            "source": {
+              "authority": "EXACT_SNAPSHOT_TEXT",
+              "endLine": 3,
+              "evidenceDigest": "sha256:c70de7ef710baefdee6f66966ed18b9f20723da50be07ed85dd9dd555efef853",
+              "file": "services/places/PlacesController.cs",
+              "id": "places-d9cadcac8ec9a824bbdf",
+              "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+              "service": "places",
+              "startLine": 3,
+              "text": "public record Place(string Id, string Name, double Latitude, double Longitude);",
+              "textDigest": "sha256:9470cec616b6be42e1d89013d3d4474b0776bee8cd189dfb1ebac7b8261ab010",
+              "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L3-L3"
+            },
+            "startLine": 3
+          },
+          {
+            "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+            "endLine": 13,
+            "kind": "SELECTED_SOURCE",
+            "source": {
+              "authority": "EXACT_SNAPSHOT_TEXT",
+              "endLine": 13,
+              "evidenceDigest": "sha256:f4546c673cab78035a4cda098f092c2b3cb7a3aa1e63b2bb20a197bd8804c5ee",
+              "file": "services/places/PlacesRepository.cs",
+              "id": "places-a3f9be5dab0dd63815f7",
+              "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+              "service": "places",
+              "startLine": 7,
+              "text": "id switch\n    {\n        \"oslo\" => new(\"oslo\", \"Oslo\", 59.93, 10.72),\n        \"helsinki\" => new(\"helsinki\", \"Helsinki\", 60.17, 24.94),\n        \"lisbon\" => new(\"lisbon\", \"Lisbon\", 38.72, -9.14),\n        _ => null\n    }",
+              "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+              "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L7-L13"
+            },
+            "startLine": 7
+          }
+        ],
+        "id": null,
+        "links": [],
+        "navTitle": null,
+        "preview": null,
+        "text": "The display name stored in the selected literal record. Source property: Place.Name, C# string.",
+        "title": "City lookup: source interpretation",
+        "tone": null
+      },
+      "path": "name",
+      "readableName": {
+        "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+        "disclosure": null,
+        "evidence": [
+          {
+            "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+            "endLine": 3,
+            "kind": "SELECTED_SOURCE",
+            "source": {
+              "authority": "EXACT_SNAPSHOT_TEXT",
+              "endLine": 3,
+              "evidenceDigest": "sha256:c70de7ef710baefdee6f66966ed18b9f20723da50be07ed85dd9dd555efef853",
+              "file": "services/places/PlacesController.cs",
+              "id": "places-d9cadcac8ec9a824bbdf",
+              "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+              "service": "places",
+              "startLine": 3,
+              "text": "public record Place(string Id, string Name, double Latitude, double Longitude);",
+              "textDigest": "sha256:9470cec616b6be42e1d89013d3d4474b0776bee8cd189dfb1ebac7b8261ab010",
+              "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L3-L3"
+            },
+            "startLine": 3
+          },
+          {
+            "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+            "endLine": 13,
+            "kind": "SELECTED_SOURCE",
+            "source": {
+              "authority": "EXACT_SNAPSHOT_TEXT",
+              "endLine": 13,
+              "evidenceDigest": "sha256:f4546c673cab78035a4cda098f092c2b3cb7a3aa1e63b2bb20a197bd8804c5ee",
+              "file": "services/places/PlacesRepository.cs",
+              "id": "places-a3f9be5dab0dd63815f7",
+              "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+              "service": "places",
+              "startLine": 7,
+              "text": "id switch\n    {\n        \"oslo\" => new(\"oslo\", \"Oslo\", 59.93, 10.72),\n        \"helsinki\" => new(\"helsinki\", \"Helsinki\", 60.17, 24.94),\n        \"lisbon\" => new(\"lisbon\", \"Lisbon\", 38.72, -9.14),\n        _ => null\n    }",
+              "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+              "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L7-L13"
+            },
+            "startLine": 7
+          }
+        ],
+        "id": null,
+        "links": [],
+        "navTitle": null,
+        "preview": null,
+        "text": "City name",
+        "title": "Authored readable name (agent proposal)",
+        "tone": null
+      },
+      "representations": [
+        {
+          "contract": null,
+          "field": null,
+          "label": "C# Place.Name",
+          "mapping": {
+            "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+            "disclosure": null,
+            "evidence": [
+              {
+                "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+                "endLine": 3,
+                "kind": "SELECTED_SOURCE",
+                "source": {
+                  "authority": "EXACT_SNAPSHOT_TEXT",
+                  "endLine": 3,
+                  "evidenceDigest": "sha256:c70de7ef710baefdee6f66966ed18b9f20723da50be07ed85dd9dd555efef853",
+                  "file": "services/places/PlacesController.cs",
+                  "id": "places-d9cadcac8ec9a824bbdf",
+                  "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+                  "service": "places",
+                  "startLine": 3,
+                  "text": "public record Place(string Id, string Name, double Latitude, double Longitude);",
+                  "textDigest": "sha256:9470cec616b6be42e1d89013d3d4474b0776bee8cd189dfb1ebac7b8261ab010",
+                  "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L3-L3"
+                },
+                "startLine": 3
+              }
+            ],
+            "id": null,
+            "links": [],
+            "navTitle": null,
+            "preview": null,
+            "text": "The lowercase reference label name denotes the C# property Name. This table does not rename source properties or establish JSON serialization casing.",
+            "title": "City lookup: source interpretation",
+            "tone": null
+          },
+          "nullability": "Declared string; the record declaration alone does not prove runtime null validation.",
+          "relatedModel": null,
+          "requiredness": "Supplied as a constructor argument in every supported literal branch.",
+          "typeLabel": "string"
+        }
+      ],
+      "usage": []
+    },
+    {
+      "id": "latitude",
+      "meaning": {
+        "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+        "disclosure": null,
+        "evidence": [
+          {
+            "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+            "endLine": 3,
+            "kind": "SELECTED_SOURCE",
+            "source": {
+              "authority": "EXACT_SNAPSHOT_TEXT",
+              "endLine": 3,
+              "evidenceDigest": "sha256:c70de7ef710baefdee6f66966ed18b9f20723da50be07ed85dd9dd555efef853",
+              "file": "services/places/PlacesController.cs",
+              "id": "places-d9cadcac8ec9a824bbdf",
+              "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+              "service": "places",
+              "startLine": 3,
+              "text": "public record Place(string Id, string Name, double Latitude, double Longitude);",
+              "textDigest": "sha256:9470cec616b6be42e1d89013d3d4474b0776bee8cd189dfb1ebac7b8261ab010",
+              "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L3-L3"
+            },
+            "startLine": 3
+          },
+          {
+            "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+            "endLine": 13,
+            "kind": "SELECTED_SOURCE",
+            "source": {
+              "authority": "EXACT_SNAPSHOT_TEXT",
+              "endLine": 13,
+              "evidenceDigest": "sha256:f4546c673cab78035a4cda098f092c2b3cb7a3aa1e63b2bb20a197bd8804c5ee",
+              "file": "services/places/PlacesRepository.cs",
+              "id": "places-a3f9be5dab0dd63815f7",
+              "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+              "service": "places",
+              "startLine": 7,
+              "text": "id switch\n    {\n        \"oslo\" => new(\"oslo\", \"Oslo\", 59.93, 10.72),\n        \"helsinki\" => new(\"helsinki\", \"Helsinki\", 60.17, 24.94),\n        \"lisbon\" => new(\"lisbon\", \"Lisbon\", 38.72, -9.14),\n        _ => null\n    }",
+              "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+              "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L7-L13"
+            },
+            "startLine": 7
+          }
+        ],
+        "id": null,
+        "links": [],
+        "navTitle": null,
+        "preview": null,
+        "text": "The latitude literal in the selected record; this lookup does not calculate it. Source property: Place.Latitude, C# double.",
+        "title": "City lookup: source interpretation",
+        "tone": null
+      },
+      "path": "latitude",
+      "readableName": {
+        "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+        "disclosure": null,
+        "evidence": [
+          {
+            "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+            "endLine": 3,
+            "kind": "SELECTED_SOURCE",
+            "source": {
+              "authority": "EXACT_SNAPSHOT_TEXT",
+              "endLine": 3,
+              "evidenceDigest": "sha256:c70de7ef710baefdee6f66966ed18b9f20723da50be07ed85dd9dd555efef853",
+              "file": "services/places/PlacesController.cs",
+              "id": "places-d9cadcac8ec9a824bbdf",
+              "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+              "service": "places",
+              "startLine": 3,
+              "text": "public record Place(string Id, string Name, double Latitude, double Longitude);",
+              "textDigest": "sha256:9470cec616b6be42e1d89013d3d4474b0776bee8cd189dfb1ebac7b8261ab010",
+              "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L3-L3"
+            },
+            "startLine": 3
+          },
+          {
+            "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+            "endLine": 13,
+            "kind": "SELECTED_SOURCE",
+            "source": {
+              "authority": "EXACT_SNAPSHOT_TEXT",
+              "endLine": 13,
+              "evidenceDigest": "sha256:f4546c673cab78035a4cda098f092c2b3cb7a3aa1e63b2bb20a197bd8804c5ee",
+              "file": "services/places/PlacesRepository.cs",
+              "id": "places-a3f9be5dab0dd63815f7",
+              "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+              "service": "places",
+              "startLine": 7,
+              "text": "id switch\n    {\n        \"oslo\" => new(\"oslo\", \"Oslo\", 59.93, 10.72),\n        \"helsinki\" => new(\"helsinki\", \"Helsinki\", 60.17, 24.94),\n        \"lisbon\" => new(\"lisbon\", \"Lisbon\", 38.72, -9.14),\n        _ => null\n    }",
+              "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+              "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L7-L13"
+            },
+            "startLine": 7
+          }
+        ],
+        "id": null,
+        "links": [],
+        "navTitle": null,
+        "preview": null,
+        "text": "Latitude",
+        "title": "Authored readable name (agent proposal)",
+        "tone": null
+      },
+      "representations": [
+        {
+          "contract": null,
+          "field": null,
+          "label": "C# Place.Latitude",
+          "mapping": {
+            "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+            "disclosure": null,
+            "evidence": [
+              {
+                "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+                "endLine": 3,
+                "kind": "SELECTED_SOURCE",
+                "source": {
+                  "authority": "EXACT_SNAPSHOT_TEXT",
+                  "endLine": 3,
+                  "evidenceDigest": "sha256:c70de7ef710baefdee6f66966ed18b9f20723da50be07ed85dd9dd555efef853",
+                  "file": "services/places/PlacesController.cs",
+                  "id": "places-d9cadcac8ec9a824bbdf",
+                  "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+                  "service": "places",
+                  "startLine": 3,
+                  "text": "public record Place(string Id, string Name, double Latitude, double Longitude);",
+                  "textDigest": "sha256:9470cec616b6be42e1d89013d3d4474b0776bee8cd189dfb1ebac7b8261ab010",
+                  "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L3-L3"
+                },
+                "startLine": 3
+              }
+            ],
+            "id": null,
+            "links": [],
+            "navTitle": null,
+            "preview": null,
+            "text": "The lowercase reference label latitude denotes the C# property Latitude. This table does not rename source properties or establish JSON serialization casing.",
+            "title": "City lookup: source interpretation",
+            "tone": null
+          },
+          "nullability": "Non-nullable value type.",
+          "relatedModel": null,
+          "requiredness": "Supplied as a constructor argument in every supported literal branch.",
+          "typeLabel": "double"
+        }
+      ],
+      "usage": []
+    },
+    {
+      "id": "longitude",
+      "meaning": {
+        "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+        "disclosure": null,
+        "evidence": [
+          {
+            "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+            "endLine": 3,
+            "kind": "SELECTED_SOURCE",
+            "source": {
+              "authority": "EXACT_SNAPSHOT_TEXT",
+              "endLine": 3,
+              "evidenceDigest": "sha256:c70de7ef710baefdee6f66966ed18b9f20723da50be07ed85dd9dd555efef853",
+              "file": "services/places/PlacesController.cs",
+              "id": "places-d9cadcac8ec9a824bbdf",
+              "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+              "service": "places",
+              "startLine": 3,
+              "text": "public record Place(string Id, string Name, double Latitude, double Longitude);",
+              "textDigest": "sha256:9470cec616b6be42e1d89013d3d4474b0776bee8cd189dfb1ebac7b8261ab010",
+              "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L3-L3"
+            },
+            "startLine": 3
+          },
+          {
+            "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+            "endLine": 13,
+            "kind": "SELECTED_SOURCE",
+            "source": {
+              "authority": "EXACT_SNAPSHOT_TEXT",
+              "endLine": 13,
+              "evidenceDigest": "sha256:f4546c673cab78035a4cda098f092c2b3cb7a3aa1e63b2bb20a197bd8804c5ee",
+              "file": "services/places/PlacesRepository.cs",
+              "id": "places-a3f9be5dab0dd63815f7",
+              "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+              "service": "places",
+              "startLine": 7,
+              "text": "id switch\n    {\n        \"oslo\" => new(\"oslo\", \"Oslo\", 59.93, 10.72),\n        \"helsinki\" => new(\"helsinki\", \"Helsinki\", 60.17, 24.94),\n        \"lisbon\" => new(\"lisbon\", \"Lisbon\", 38.72, -9.14),\n        _ => null\n    }",
+              "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+              "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L7-L13"
+            },
+            "startLine": 7
+          }
+        ],
+        "id": null,
+        "links": [],
+        "navTitle": null,
+        "preview": null,
+        "text": "The longitude literal in the selected record; this lookup does not calculate it. Source property: Place.Longitude, C# double.",
+        "title": "City lookup: source interpretation",
+        "tone": null
+      },
+      "path": "longitude",
+      "readableName": {
+        "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+        "disclosure": null,
+        "evidence": [
+          {
+            "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+            "endLine": 3,
+            "kind": "SELECTED_SOURCE",
+            "source": {
+              "authority": "EXACT_SNAPSHOT_TEXT",
+              "endLine": 3,
+              "evidenceDigest": "sha256:c70de7ef710baefdee6f66966ed18b9f20723da50be07ed85dd9dd555efef853",
+              "file": "services/places/PlacesController.cs",
+              "id": "places-d9cadcac8ec9a824bbdf",
+              "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+              "service": "places",
+              "startLine": 3,
+              "text": "public record Place(string Id, string Name, double Latitude, double Longitude);",
+              "textDigest": "sha256:9470cec616b6be42e1d89013d3d4474b0776bee8cd189dfb1ebac7b8261ab010",
+              "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L3-L3"
+            },
+            "startLine": 3
+          },
+          {
+            "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+            "endLine": 13,
+            "kind": "SELECTED_SOURCE",
+            "source": {
+              "authority": "EXACT_SNAPSHOT_TEXT",
+              "endLine": 13,
+              "evidenceDigest": "sha256:f4546c673cab78035a4cda098f092c2b3cb7a3aa1e63b2bb20a197bd8804c5ee",
+              "file": "services/places/PlacesRepository.cs",
+              "id": "places-a3f9be5dab0dd63815f7",
+              "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+              "service": "places",
+              "startLine": 7,
+              "text": "id switch\n    {\n        \"oslo\" => new(\"oslo\", \"Oslo\", 59.93, 10.72),\n        \"helsinki\" => new(\"helsinki\", \"Helsinki\", 60.17, 24.94),\n        \"lisbon\" => new(\"lisbon\", \"Lisbon\", 38.72, -9.14),\n        _ => null\n    }",
+              "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+              "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L7-L13"
+            },
+            "startLine": 7
+          }
+        ],
+        "id": null,
+        "links": [],
+        "navTitle": null,
+        "preview": null,
+        "text": "Longitude",
+        "title": "Authored readable name (agent proposal)",
+        "tone": null
+      },
+      "representations": [
+        {
+          "contract": null,
+          "field": null,
+          "label": "C# Place.Longitude",
+          "mapping": {
+            "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+            "disclosure": null,
+            "evidence": [
+              {
+                "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+                "endLine": 3,
+                "kind": "SELECTED_SOURCE",
+                "source": {
+                  "authority": "EXACT_SNAPSHOT_TEXT",
+                  "endLine": 3,
+                  "evidenceDigest": "sha256:c70de7ef710baefdee6f66966ed18b9f20723da50be07ed85dd9dd555efef853",
+                  "file": "services/places/PlacesController.cs",
+                  "id": "places-d9cadcac8ec9a824bbdf",
+                  "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+                  "service": "places",
+                  "startLine": 3,
+                  "text": "public record Place(string Id, string Name, double Latitude, double Longitude);",
+                  "textDigest": "sha256:9470cec616b6be42e1d89013d3d4474b0776bee8cd189dfb1ebac7b8261ab010",
+                  "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L3-L3"
+                },
+                "startLine": 3
+              }
+            ],
+            "id": null,
+            "links": [],
+            "navTitle": null,
+            "preview": null,
+            "text": "The lowercase reference label longitude denotes the C# property Longitude. This table does not rename source properties or establish JSON serialization casing.",
+            "title": "City lookup: source interpretation",
+            "tone": null
+          },
+          "nullability": "Non-nullable value type.",
+          "relatedModel": null,
+          "requiredness": "Supplied as a constructor argument in every supported literal branch.",
+          "typeLabel": "double"
+        }
+      ],
+      "usage": []
+    }
+  ],
+  "id": "city-lookup",
+  "identity": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": [
+      {
+        "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+        "endLine": 13,
+        "kind": "SELECTED_SOURCE",
+        "source": {
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "endLine": 13,
+          "evidenceDigest": "sha256:f4546c673cab78035a4cda098f092c2b3cb7a3aa1e63b2bb20a197bd8804c5ee",
+          "file": "services/places/PlacesRepository.cs",
+          "id": "places-a3f9be5dab0dd63815f7",
+          "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+          "service": "places",
+          "startLine": 7,
+          "text": "id switch\n    {\n        \"oslo\" => new(\"oslo\", \"Oslo\", 59.93, 10.72),\n        \"helsinki\" => new(\"helsinki\", \"Helsinki\", 60.17, 24.94),\n        \"lisbon\" => new(\"lisbon\", \"Lisbon\", 38.72, -9.14),\n        _ => null\n    }",
+          "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L7-L13"
+        },
+        "startLine": 7
+      },
+      {
+        "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+        "endLine": 60,
+        "kind": "SELECTED_SOURCE",
+        "source": {
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "endLine": 60,
+          "evidenceDigest": "sha256:daf7c38d968d2eb2b70deeec6f22744afe636b37d42286c94232cfbad908d703",
+          "file": "services/places/PlacesRepository.cs",
+          "id": "places-1223607978a77b621e14",
+          "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+          "service": "places",
+          "startLine": 4,
+          "text": "public class PlacesRepository\n{\n    private readonly string connectionString = Environment.GetEnvironmentVariable(\"DATABASE_URL\") ?? throw new InvalidOperationException(\"DATABASE_URL_REQUIRED\");\n    public static Place? City(string id) => id switch\n    {\n        \"oslo\" => new(\"oslo\", \"Oslo\", 59.93, 10.72),\n        \"helsinki\" => new(\"helsinki\", \"Helsinki\", 60.17, 24.94),\n        \"lisbon\" => new(\"lisbon\", \"Lisbon\", 38.72, -9.14),\n        _ => null\n    };\n    public async Task Ping(CancellationToken token)\n    {\n        await using var connection = await Open(token);\n        await using var command = new NpgsqlCommand(\"SELECT 1\", connection);\n        await command.ExecuteScalarAsync(token);\n    }\n    public async Task<NpgsqlConnection> Open(CancellationToken token)\n    {\n        var connection = new NpgsqlConnection(connectionString);\n        try { await connection.OpenAsync(token); return connection; }\n        catch { await connection.DisposeAsync(); throw; }\n    }\n    public async Task<IReadOnlyList<Place>> List(CancellationToken token)\n    {\n        await using var connection = await Open(token);\n        await using var command = new NpgsqlCommand(\"SELECT id,name,latitude,longitude FROM places ORDER BY name\", connection);\n        await using var reader = await command.ExecuteReaderAsync(token);\n        var result = new List<Place>();\n        while (await reader.ReadAsync(token)) result.Add(new(reader.GetString(0), reader.GetString(1), reader.GetDouble(2), reader.GetDouble(3)));\n        return result;\n    }\n    public async Task<Place?> Find(string id, CancellationToken token) => (await List(token)).FirstOrDefault(place => place.Id == id);\n    public async Task Save(Place city, CancellationToken token)\n    {\n        await using var connection = await Open(token);\n        await using var transaction = await connection.BeginTransactionAsync(token);\n        await using var command = new NpgsqlCommand(\"INSERT INTO places(id,name,latitude,longitude) VALUES($1,$2,$3,$4) ON CONFLICT DO NOTHING RETURNING id\", connection, transaction);\n        command.Parameters.AddWithValue(city.Id); command.Parameters.AddWithValue(city.Name); command.Parameters.AddWithValue(city.Latitude); command.Parameters.AddWithValue(city.Longitude);\n        if (await command.ExecuteScalarAsync(token) is not null) await InsertRequest(connection, transaction, city, token);\n        await transaction.CommitAsync(token);\n    }\n    public async Task Enqueue(Place city, CancellationToken token)\n    {\n        await using var connection = await Open(token);\n        await using var transaction = await connection.BeginTransactionAsync(token);\n        await InsertRequest(connection, transaction, city, token);\n        await transaction.CommitAsync(token);\n    }\n    private static async Task InsertRequest(NpgsqlConnection connection, NpgsqlTransaction transaction, Place city, CancellationToken token)\n    {\n        var id = Guid.NewGuid();\n        var json = JsonSerializer.Serialize(new { id, type = \"place.requested\", version = 1, place = city }, new JsonSerializerOptions(JsonSerializerDefaults.Web));\n        await using var command = new NpgsqlCommand(\"INSERT INTO request_outbox(id,payload) VALUES($1,$2::jsonb)\", connection, transaction);\n        command.Parameters.AddWithValue(id); command.Parameters.AddWithValue(json);\n        await command.ExecuteNonQueryAsync(token);\n    }\n}",
+          "textDigest": "sha256:bc91c9d234edfb570e4206b621061eb47c44f1c58eb7711378bf468d0961c89b",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L4-L60"
+        },
+        "startLine": 4
+      },
+      {
+        "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+        "endLine": 17,
+        "kind": "SELECTED_SOURCE",
+        "source": {
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "endLine": 17,
+          "evidenceDigest": "sha256:736bebeb9058370d059c092f45e8d76f8469809174e7db77cf0de838d1e1663f",
+          "file": "services/places/PlacesController.cs",
+          "id": "places-309961f88b197290c1b0",
+          "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+          "service": "places",
+          "startLine": 10,
+          "text": "[HttpPost(\"/places\")]\n    public async Task<IActionResult> Save([FromBody] SavePlace request, CancellationToken token)\n    {\n        var city = PlacesRepository.City(request.CityId);\n        if (city is null) return BadRequest(new { error = \"UNSUPPORTED_CITY\" });\n        await repository.Save(city, token);\n        return Ok(city);\n    }",
+          "textDigest": "sha256:b6a46a9557e67342266ccce88f28a634490cacba1ee8f705d71066775158f708",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L10-L17"
+        },
+        "startLine": 10
+      }
+    ],
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "This supported-city reference is separate from saved places in PostgreSQL. City(id) selects one of the literals below; List and Save query or update the places table separately. An unknown ID returns null. The inspected Places controller responds with 400 UNSUPPORTED_CITY before calling Save; that branch does not save a city. These are retained static source facts, not an observed request or a live database dump.",
+    "title": "City lookup: source interpretation",
+    "tone": null
+  },
+  "kind": "VALUE_OBJECT",
+  "processLinks": [
+    {
+      "anchor": "question-validation",
+      "label": "Save a city: Places checks the city",
+      "reference": {
+        "stages": [
+          "Places city lookup"
+        ]
+      },
+      "subject": "scenario:dashboard-save-city"
+    },
+    {
+      "anchor": "section-entities",
+      "label": "places: field descriptions",
+      "subject": "service:places"
+    }
+  ],
+  "purpose": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": [
+      {
+        "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+        "endLine": 17,
+        "kind": "SELECTED_SOURCE",
+        "source": {
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "endLine": 17,
+          "evidenceDigest": "sha256:736bebeb9058370d059c092f45e8d76f8469809174e7db77cf0de838d1e1663f",
+          "file": "services/places/PlacesController.cs",
+          "id": "places-309961f88b197290c1b0",
+          "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+          "service": "places",
+          "startLine": 10,
+          "text": "[HttpPost(\"/places\")]\n    public async Task<IActionResult> Save([FromBody] SavePlace request, CancellationToken token)\n    {\n        var city = PlacesRepository.City(request.CityId);\n        if (city is null) return BadRequest(new { error = \"UNSUPPORTED_CITY\" });\n        await repository.Save(city, token);\n        return Ok(city);\n    }",
+          "textDigest": "sha256:b6a46a9557e67342266ccce88f28a634490cacba1ee8f705d71066775158f708",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L10-L17"
+        },
+        "startLine": 10
+      },
+      {
+        "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+        "endLine": 13,
+        "kind": "SELECTED_SOURCE",
+        "source": {
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "endLine": 13,
+          "evidenceDigest": "sha256:f4546c673cab78035a4cda098f092c2b3cb7a3aa1e63b2bb20a197bd8804c5ee",
+          "file": "services/places/PlacesRepository.cs",
+          "id": "places-a3f9be5dab0dd63815f7",
+          "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+          "service": "places",
+          "startLine": 7,
+          "text": "id switch\n    {\n        \"oslo\" => new(\"oslo\", \"Oslo\", 59.93, 10.72),\n        \"helsinki\" => new(\"helsinki\", \"Helsinki\", 60.17, 24.94),\n        \"lisbon\" => new(\"lisbon\", \"Lisbon\", 38.72, -9.14),\n        _ => null\n    }",
+          "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L7-L13"
+        },
+        "startLine": 7
+      },
+      {
+        "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+        "endLine": 3,
+        "kind": "SELECTED_SOURCE",
+        "source": {
+          "authority": "EXACT_SNAPSHOT_TEXT",
+          "endLine": 3,
+          "evidenceDigest": "sha256:c70de7ef710baefdee6f66966ed18b9f20723da50be07ed85dd9dd555efef853",
+          "file": "services/places/PlacesController.cs",
+          "id": "places-d9cadcac8ec9a824bbdf",
+          "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+          "service": "places",
+          "startLine": 3,
+          "text": "public record Place(string Id, string Name, double Latitude, double Longitude);",
+          "textDigest": "sha256:9470cec616b6be42e1d89013d3d4474b0776bee8cd189dfb1ebac7b8261ab010",
+          "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L3-L3"
+        },
+        "startLine": 3
+      }
+    ],
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The supported-city lookup selects a literal Place record using request.CityId. Latitude and longitude come directly from that record. The inspected City lookup does not calculate coordinates or call a geocoding service.",
+    "title": "City lookup: source interpretation",
+    "tone": null
+  },
+  "records": [
+    {
+      "claim": {
+        "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+        "disclosure": null,
+        "evidence": [
+          {
+            "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+            "endLine": 9,
+            "kind": "SELECTED_SOURCE",
+            "source": {
+              "authority": "EXACT_SNAPSHOT_TEXT",
+              "endLine": 13,
+              "evidenceDigest": "sha256:f4546c673cab78035a4cda098f092c2b3cb7a3aa1e63b2bb20a197bd8804c5ee",
+              "file": "services/places/PlacesRepository.cs",
+              "id": "places-a3f9be5dab0dd63815f7",
+              "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+              "service": "places",
+              "startLine": 7,
+              "text": "id switch\n    {\n        \"oslo\" => new(\"oslo\", \"Oslo\", 59.93, 10.72),\n        \"helsinki\" => new(\"helsinki\", \"Helsinki\", 60.17, 24.94),\n        \"lisbon\" => new(\"lisbon\", \"Lisbon\", 38.72, -9.14),\n        _ => null\n    }",
+              "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+              "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L7-L13"
+            },
+            "startLine": 9
+          }
+        ],
+        "id": null,
+        "links": [],
+        "navTitle": null,
+        "preview": null,
+        "text": "City(\"oslo\") selects the literal Place(\"oslo\", \"Oslo\", 59.93, 10.72) in this switch branch.",
+        "title": "City lookup: source interpretation",
+        "tone": null
+      },
+      "values": {
+        "id": "oslo",
+        "latitude": 59.93,
+        "longitude": 10.72,
+        "name": "Oslo"
+      }
+    },
+    {
+      "claim": {
+        "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+        "disclosure": null,
+        "evidence": [
+          {
+            "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+            "endLine": 10,
+            "kind": "SELECTED_SOURCE",
+            "source": {
+              "authority": "EXACT_SNAPSHOT_TEXT",
+              "endLine": 13,
+              "evidenceDigest": "sha256:f4546c673cab78035a4cda098f092c2b3cb7a3aa1e63b2bb20a197bd8804c5ee",
+              "file": "services/places/PlacesRepository.cs",
+              "id": "places-a3f9be5dab0dd63815f7",
+              "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+              "service": "places",
+              "startLine": 7,
+              "text": "id switch\n    {\n        \"oslo\" => new(\"oslo\", \"Oslo\", 59.93, 10.72),\n        \"helsinki\" => new(\"helsinki\", \"Helsinki\", 60.17, 24.94),\n        \"lisbon\" => new(\"lisbon\", \"Lisbon\", 38.72, -9.14),\n        _ => null\n    }",
+              "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+              "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L7-L13"
+            },
+            "startLine": 10
+          }
+        ],
+        "id": null,
+        "links": [],
+        "navTitle": null,
+        "preview": null,
+        "text": "City(\"helsinki\") selects the literal Place(\"helsinki\", \"Helsinki\", 60.17, 24.94) in this switch branch.",
+        "title": "City lookup: source interpretation",
+        "tone": null
+      },
+      "values": {
+        "id": "helsinki",
+        "latitude": 60.17,
+        "longitude": 24.94,
+        "name": "Helsinki"
+      }
+    },
+    {
+      "claim": {
+        "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+        "disclosure": null,
+        "evidence": [
+          {
+            "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+            "endLine": 11,
+            "kind": "SELECTED_SOURCE",
+            "source": {
+              "authority": "EXACT_SNAPSHOT_TEXT",
+              "endLine": 13,
+              "evidenceDigest": "sha256:f4546c673cab78035a4cda098f092c2b3cb7a3aa1e63b2bb20a197bd8804c5ee",
+              "file": "services/places/PlacesRepository.cs",
+              "id": "places-a3f9be5dab0dd63815f7",
+              "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+              "service": "places",
+              "startLine": 7,
+              "text": "id switch\n    {\n        \"oslo\" => new(\"oslo\", \"Oslo\", 59.93, 10.72),\n        \"helsinki\" => new(\"helsinki\", \"Helsinki\", 60.17, 24.94),\n        \"lisbon\" => new(\"lisbon\", \"Lisbon\", 38.72, -9.14),\n        _ => null\n    }",
+              "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+              "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L7-L13"
+            },
+            "startLine": 11
+          }
+        ],
+        "id": null,
+        "links": [],
+        "navTitle": null,
+        "preview": null,
+        "text": "City(\"lisbon\") selects the literal Place(\"lisbon\", \"Lisbon\", 38.72, -9.14) in this switch branch.",
+        "title": "City lookup: source interpretation",
+        "tone": null
+      },
+      "values": {
+        "id": "lisbon",
+        "latitude": 38.72,
+        "longitude": -9.14,
+        "name": "Lisbon"
+      }
+    }
+  ],
+  "relatedModels": [
+    "place"
+  ],
+  "title": "City lookup"
+}

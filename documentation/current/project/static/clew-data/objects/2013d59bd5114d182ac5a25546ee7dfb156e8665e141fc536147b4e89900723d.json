@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:2013d59bd5114d182ac5a25546ee7dfb156e8665e141fc536147b4e89900723d",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "dashboard:source_scope:a94d30979421b6ddbba5e94b",
+      "dashboard:symbol:021fcd0ff7baa53bd3c51930",
+      "dashboard:symbol:7d0d09a16ac25de86e5beb53",
+      "dashboard:symbol:a4627e5e868830287e83e0dc",
+      "dashboard:symbol:ac3aadb76be6fea3e790cb85",
+      "note:runtime-kafka-replay"
+    ],
+    "id": "claim-4e378134ece75e00e6c7",
+    "sourceIds": [
+      "dashboard-021fcd0ff7baa53bd3c5",
+      "dashboard-7d0d09a16ac25de86e5b",
+      "dashboard-a4627e5e868830287e83",
+      "dashboard-ac3aadb76be6fea3e790"
+    ],
+    "text": "At 8d69f2b1d4a6d9770f87c720cd665dab30081815, imported runtime replay passed six: forecast-before-place, duplicate ID, older/equal timestamps, newer 0 °C/null rain, place-after-forecast.\n\nAt Dashboard revision e635069293d58cb0d4f28c8211e748b8d58e6b37, applyEvent inserts event IDs into inbox transactionally; duplicates commit before card writes. INSERT may create a card; conflicts update for null stored timestamp or newer incoming updatedAt. With a dated card, a distinct new event ID is recorded in inbox; older/equal forecast updatedAt leaves it unchanged; newer applies. Valid path: consumeMessage awaits applyEvent before offset+1 commit; invalid events persist rejected_messages before offset commit. Validation permits 0 °C and null/nonnegative rain; timestamps must match UTC shape and yield finite Date.parse output. Place upsert leaves forecast unchanged.\n\nThese six historical runtime passes are not a current rerun; they establish no universal ordering, restart/crash behavior, or exactly-once guarantee. No compiler result is claimed.\n\nFrom checkout root: Python 3, Docker Compose, free ports 8080–8082, fresh project/volumes, fixture mode, ready Dashboard API with empty array, no Lisbon card. Example project weather-replay-20261013-ab12; sibling output ../replay-ab12. Change the suffix if either exists. Start:\nFORECAST_MODE=fixture docker compose --project-name weather-replay-20261013-ab12 -f compose.yaml up --build -d\nReplay:\npython3 -I -S -B exercises/replay.py --project weather-replay-20261013-ab12 --dashboard-url http://127.0.0.1:8080 --output ../replay-ab12\nOutput must be new, outside and not above the checkout. Replay does not create or clean the stack. Cleanup:\ndocker compose --project-name weather-replay-20261013-ab12 -f compose.yaml down --volumes --remove-orphans\nCleanup targets only that project. For alternate ports use the same Compose override for up, replay with --compose-override, and down; set the matching Dashboard URL. Recipe source-checked, not executed here."
+  }
+}

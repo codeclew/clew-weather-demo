@@ -1,0 +1,1722 @@
+{
+  "schema": "codeclew-normalized-data/1.0",
+  "value": {
+    "activityTransitions": null,
+    "activityTransitionsSvg": false,
+    "analysisEvidence": {
+      "forecasts": {
+        "coverage": "SYNTAX",
+        "extractor": "codeclew-documentation-source/1.0",
+        "mappedSymbols": 0,
+        "provider": {
+          "status": "NOT_REQUESTED"
+        },
+        "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+        "runtimeMode": "COMMITTED_SOURCE_NO_BUILD",
+        "sampleFacts": []
+      }
+    },
+    "authoredTranslationGaps": [],
+    "boundaries": [
+      "ANNOTATION_DECLARATION_UNAVAILABLE",
+      "CALL_TARGETS_UNRESOLVED",
+      "DECLARED_TRANSITION_NOT_REACHED:forecasts-refresh-to-external-met",
+      "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+      "FILE_ONLY:compose.yaml",
+      "FILE_ONLY:contracts/events.schema.json",
+      "FILE_ONLY:contracts/forecasts.openapi.json",
+      "FILE_ONLY:database/init.sql",
+      "FILE_ONLY:fixtures/helsinki.json",
+      "FILE_ONLY:fixtures/lisbon.json",
+      "FILE_ONLY:fixtures/met-oslo-recorded.json",
+      "FILE_ONLY:fixtures/oslo.json",
+      "FILE_ONLY:fixtures/provenance.json",
+      "FILE_ONLY:services/forecasts/Dockerfile",
+      "FILE_ONLY:services/forecasts/pom.xml",
+      "FILE_ONLY:services/forecasts/src/main/resources/application.properties",
+      "LINKED_PROCESS_STALE:forecasts-publish-pending",
+      "NO_BEAN_OWNER",
+      "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+      "ORDER_LEXICAL_ONLY",
+      "RUNTIME_REGISTRATION_UNPROVEN",
+      "SCOPE_WATCH_CONSERVATIVE",
+      "SOURCE_NAMES_NOT_COMPILER_RESOLVED",
+      "Static source interpretation; runtime activation and execution are not established.",
+      "UNRESOLVED_ANNOTATION_VALUE"
+    ],
+    "boundaryInventory": null,
+    "canonicalEntityLinks": {
+      "question-save": {
+        "forecasts": [
+          {
+            "documentationLanguage": "en",
+            "href": "../data-model/forecast.html",
+            "id": "forecast",
+            "title": "Forecast"
+          }
+        ]
+      }
+    },
+    "catalogue": [],
+    "contracts": [],
+    "coverage": {
+      "forecasts": "SYNTAX"
+    },
+    "entities": [],
+    "extractor": "codeclew-documentation-jvm/1.3",
+    "frozenLanguageAvailability": {
+      "requestedDocumentationLanguage": "en",
+      "translationComplete": true,
+      "translationGaps": {}
+    },
+    "frozenPublication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+    "gaps": {},
+    "interactions": [
+      {
+        "$clewRef": "sha256:5253ad68fdd1d1fb2b3a788d974d605418b8cb621693fb3d213d74ca2d2bf16b"
+      }
+    ],
+    "language": "en",
+    "lifecycleOperations": [],
+    "notes": [],
+    "operationContracts": {
+      "forecasts-refresh-scheduled": [],
+      "process-overview": []
+    },
+    "operationExternalCalls": {
+      "forecasts-refresh-scheduled": [],
+      "process-overview": []
+    },
+    "operationSources": {
+      "forecasts-refresh-scheduled": {
+        "$clewRef": "sha256:0dc5b99eb87e1cfffef22ecfa1e2de3765f9318985b3d3f04a8820c3d297e3fb"
+      },
+      "process-overview": {
+        "$clewRef": "sha256:0dc5b99eb87e1cfffef22ecfa1e2de3765f9318985b3d3f04a8820c3d297e3fb"
+      }
+    },
+    "operationStates": {
+      "forecasts-refresh-scheduled": {
+        "$clewRef": "sha256:82e927e67dae99bd3754f5446485cef8d9189e74ab2df509b568c85e2ada45b3"
+      },
+      "process-overview": {
+        "$clewRef": "sha256:f67aad2a8ed6f03de8f7635517061f43344ca2f95f9782fb4a85e49cf23412d2"
+      }
+    },
+    "operations": [
+      {
+        "boundaries": {
+          "$clewRef": "sha256:b77ec88a840d0d63575af245ae353d43be45a097d9d14c54d4d6319f32f5c5b2"
+        },
+        "documentationLanguage": "en",
+        "events": [
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:1ea53b95922ad5791d930533",
+              "forecasts:symbol:1ea53b95922ad5791d930533",
+              "process-scope:forecasts-refresh-scheduled",
+              "process:forecasts-refresh-scheduled"
+            ],
+            "id": "claim-daadb1fd97fbd7cfc50e",
+            "kind": "note",
+            "sourceIds": [
+              "forecasts-1ea53b95922ad5791d93"
+            ],
+            "text": "The source annotates refreshExpired with fixedDelayString REFRESH_INTERVAL_MS defaulting to 60000 ms. This declaration does not establish that the runtime scheduler registers or activates it."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:1ea53b95922ad5791d930533",
+              "forecasts:symbol:1ea53b95922ad5791d930533"
+            ],
+            "from": "service-forecasts",
+            "id": "claim-be7f796c6aa7ea2742b4",
+            "kind": "message",
+            "sourceIds": [
+              "forecasts-1ea53b95922ad5791d93"
+            ],
+            "text": "Select places whose forecast expiry is null or earlier than now, ordered by place id, and read each place id, name, latitude, and longitude.",
+            "to": "forecast-db"
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:e9881531c62a3422e80b2b0f"
+            ],
+            "id": "claim-a21244c037f14c6674b3",
+            "kind": "opt",
+            "sourceIds": [
+              "forecasts-e9881531c62a3422e80b"
+            ],
+            "text": "The source passes a deferred row-mapping lambda to jdbc.query. If invoked for a returned row, the lambda builds a JSON object with id, name, latitude, and longitude; callback execution is not attested."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:e9881531c62a3422e80b2b0f"
+            ],
+            "id": "claim-2dbbc658a8088389c614",
+            "kind": "note",
+            "sourceIds": [
+              "forecasts-e9881531c62a3422e80b"
+            ],
+            "text": "Map the returned row columns into the place object consumed by the following per-place loop."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:e9881531c62a3422e80b2b0f"
+            ],
+            "id": "claim-764e4ceac0ae9e127c7b",
+            "kind": "end",
+            "sourceIds": [
+              "forecasts-e9881531c62a3422e80b"
+            ],
+            "text": ""
+          },
+          {
+            "$clewRef": "sha256:2e87ad33ae961927853656ac737818dcfe8ac42a9af52ddaeefa40f8f062591c"
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:ea6dd04c278f12f668b5cde7"
+            ],
+            "id": "claim-a8c80b744ab979619edb",
+            "kind": "alt",
+            "sourceIds": [
+              "forecasts-ea6dd04c278f12f668b5"
+            ],
+            "text": "The per-place transaction call returns normally, or it throws an Exception handled by the source catch block."
+          },
+          {
+            "$clewRef": "sha256:482f481392bad43386f50f3233c1ebe007003cc981caa84624b34a7429621fad"
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "from": "service-forecasts",
+            "id": "claim-e2da524eab4be8209a21",
+            "kind": "message",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "Read the cached forecast payload, expiry, and last-modified value for this place. If expiry is later than now, return without contacting the provider or writing a new forecast outbox event.",
+            "to": "forecast-db"
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "id": "claim-99c343f79a28b69af5b3",
+            "kind": "alt",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "A cached forecast is still valid, or refresh continues because no valid unexpired row was found."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "id": "claim-281fee2e5f6fa0450b9e",
+            "kind": "note",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "For an unexpired cached row, refresh returns immediately."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "id": "claim-84e2af10109035718cf7",
+            "kind": "else",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "id": "claim-3db9883f08bdfcaf5b5c",
+            "kind": "alt",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "Fixture mode reads /app/fixtures/{placeId}.json; otherwise the source requires live mode and a nonblank MET_USER_AGENT."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "id": "claim-87e5b2df525f7a76b89f",
+            "kind": "note",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "In fixture mode, read the place-specific fixture and continue through the common transformation and persistence path."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "id": "claim-863586be9f4afab2b854",
+            "kind": "else",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "$clewRef": "sha256:fc29be417578628533f110f1f837a290f64a960d087799e070f64285f1d197d3"
+          },
+          {
+            "$clewRef": "sha256:320372516cf598465dc3f69417a15b261d6f52d16697008732324003cbda2d8a"
+          },
+          {
+            "$clewRef": "sha256:5131295f5e10d080e04f111fdf387e9a85f50b19ca3defe3ea375b4d7aa818ec"
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "id": "claim-1bc23fb917b069f0d5a3",
+            "kind": "alt",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "A 304 with an existing cached row returns early; other statuses continue to the accepted-status check."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "from": "service-forecasts",
+            "id": "claim-2cec843959af31d947c7",
+            "kind": "message",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "When status is 304 and a cached row exists, update only expires_at and return from refresh; no payload transformation or forecast outbox insert follows this branch.",
+            "to": "forecast-db"
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "id": "claim-5a94583a8b9b3bd84d19",
+            "kind": "note",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "Return from refresh after updating cached expiry; skip the shared transformation and persistence steps that follow this branch."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "id": "claim-30f58835081684ff5146",
+            "kind": "else",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "id": "claim-4262418a09c744f1d293",
+            "kind": "alt",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "The status is 200 or 203, or the source status requirement throws."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "id": "claim-2a860053199aa59b247d",
+            "kind": "note",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "Require status 200 or 203, then read Last-Modified and decode the body as gzip when indicated or UTF-8 otherwise. Other statuses throw an error containing the provider status."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "id": "claim-4fea33efd3b973e63e95",
+            "kind": "else",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "$clewRef": "sha256:f3b9679a16510eab56899cb4a3b74750972ebd66840d271e846b18be05db622c"
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "id": "claim-ce905a2e8d09dec5bbe2",
+            "kind": "end",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "id": "claim-f0ddea3a75f63a112d30",
+            "kind": "end",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "id": "claim-0cd80c7acad45850c2ef",
+            "kind": "end",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "id": "claim-15dcd2c1043ae6b5fd59",
+            "kind": "note",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "For fixture input or an accepted provider body, parse the document and transform up to six time-series points. Require numeric air temperature and at least one period; missing or nonnumeric precipitation becomes null and a missing symbol becomes unknown."
+          },
+          {
+            "$clewRef": "sha256:ab03f77cc0268d36ed414c00baf5cd387eb6f30d646faa52d471764e066bba13"
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "id": "claim-dd9172b6a32ac72466ab",
+            "kind": "end",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:740f3405b57f36fc72f3f58e",
+              "forecasts:source_annotations:1ea53b95922ad5791d930533",
+              "forecasts:symbol:1ea53b95922ad5791d930533",
+              "process-scope:forecasts-refresh-scheduled"
+            ],
+            "id": "claim-0d142be2e156310fc852",
+            "kind": "end",
+            "sourceIds": [
+              "forecasts-1ea53b95922ad5791d93",
+              "forecasts-740f3405b57f36fc72f3"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:ea6dd04c278f12f668b5cde7"
+            ],
+            "id": "claim-304c758ea521f66f44e9",
+            "kind": "else",
+            "sourceIds": [
+              "forecasts-ea6dd04c278f12f668b5"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "$clewRef": "sha256:d921332066676bb3870bcbbd69f4a707a6768629df43c915de2dab3127acc0f5"
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:ea6dd04c278f12f668b5cde7"
+            ],
+            "id": "claim-da1a5ca77f7aacf81f53",
+            "kind": "end",
+            "sourceIds": [
+              "forecasts-ea6dd04c278f12f668b5"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:84ab2c89d2ea612342339614",
+              "forecasts:source_annotations:1ea53b95922ad5791d930533",
+              "forecasts:symbol:1ea53b95922ad5791d930533",
+              "process-scope:forecasts-refresh-scheduled"
+            ],
+            "id": "claim-fb58554e5781f063f61a",
+            "kind": "end",
+            "sourceIds": [
+              "forecasts-1ea53b95922ad5791d93",
+              "forecasts-84ab2c89d2ea61234233"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56",
+              "process:forecasts-refresh-scheduled"
+            ],
+            "id": "claim-680b596779dd9fc41005",
+            "kind": "note",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "The source writes a pending forecast outbox row; the saved process definition links pending-row delivery to a separate forecasts-publish-pending view. This refresh scenario documents the outbox write and does not claim successful delivery."
+          }
+        ],
+        "explanation": [
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:1ea53b95922ad5791d930533",
+              "forecasts:symbol:1ea53b95922ad5791d930533",
+              "process-scope:forecasts-refresh-scheduled",
+              "process:forecasts-refresh-scheduled"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-daadb1fd97fbd7cfc50e"
+            ],
+            "id": "claim-2b423213b264ad3506ca",
+            "sourceIds": [
+              "forecasts-1ea53b95922ad5791d93"
+            ],
+            "text": "The source annotates refreshExpired with fixedDelayString REFRESH_INTERVAL_MS defaulting to 60000 ms. This declaration does not establish that the runtime scheduler registers or activates it."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:1ea53b95922ad5791d930533",
+              "forecasts:symbol:1ea53b95922ad5791d930533"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-be7f796c6aa7ea2742b4"
+            ],
+            "id": "claim-a5beb79c3290875321ef",
+            "sourceIds": [
+              "forecasts-1ea53b95922ad5791d93"
+            ],
+            "text": "Select places whose forecast expiry is null or earlier than now, ordered by place id, and read each place id, name, latitude, and longitude."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:e9881531c62a3422e80b2b0f"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-a21244c037f14c6674b3"
+            ],
+            "id": "claim-cf4157928922f9592f8a",
+            "sourceIds": [
+              "forecasts-e9881531c62a3422e80b"
+            ],
+            "text": "The source passes a deferred row-mapping lambda to jdbc.query. If invoked for a returned row, the lambda builds a JSON object with id, name, latitude, and longitude; callback execution is not attested."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:e9881531c62a3422e80b2b0f"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-2dbbc658a8088389c614"
+            ],
+            "id": "claim-43cfac59d5e0413dbb7f",
+            "sourceIds": [
+              "forecasts-e9881531c62a3422e80b"
+            ],
+            "text": "Map the returned row columns into the place object consumed by the following per-place loop."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:84ab2c89d2ea612342339614",
+              "forecasts:source_annotations:1ea53b95922ad5791d930533",
+              "forecasts:symbol:1ea53b95922ad5791d930533",
+              "process-scope:forecasts-refresh-scheduled"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-ab640ccbee5fcb50994b"
+            ],
+            "id": "claim-e9d5f1e97fcd253ca238",
+            "sourceIds": [
+              "forecasts-1ea53b95922ad5791d93",
+              "forecasts-84ab2c89d2ea61234233"
+            ],
+            "text": "Process each selected place separately. The source passes refresh(place) to transaction.executeWithoutResult; transaction commit, rollback, and callback timing are not established by this syntax capture."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:ea6dd04c278f12f668b5cde7"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-a8c80b744ab979619edb"
+            ],
+            "id": "claim-0956b8ff5d8ffe733aca",
+            "sourceIds": [
+              "forecasts-ea6dd04c278f12f668b5"
+            ],
+            "text": "The per-place transaction call returns normally, or it throws an Exception handled by the source catch block."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:740f3405b57f36fc72f3f58e",
+              "forecasts:source_annotations:1ea53b95922ad5791d930533",
+              "forecasts:symbol:1ea53b95922ad5791d930533",
+              "process-scope:forecasts-refresh-scheduled"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-7c08544d56f01a17f6e1"
+            ],
+            "id": "claim-951dd6665f8603923d92",
+            "sourceIds": [
+              "forecasts-1ea53b95922ad5791d93",
+              "forecasts-740f3405b57f36fc72f3"
+            ],
+            "text": "The source passes refresh(place) to transaction.executeWithoutResult as a deferred lambda. This source view shows the lambda body but does not establish callback invocation or transaction outcomes."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-e2da524eab4be8209a21"
+            ],
+            "id": "claim-744cb0e39731645f8577",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "Read the cached forecast payload, expiry, and last-modified value for this place. If expiry is later than now, return without contacting the provider or writing a new forecast outbox event."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-99c343f79a28b69af5b3"
+            ],
+            "id": "claim-e23fb94810040ad583ee",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "A cached forecast is still valid, or refresh continues because no valid unexpired row was found."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-281fee2e5f6fa0450b9e"
+            ],
+            "id": "claim-921ece32f1c1ee82079d",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "For an unexpired cached row, refresh returns immediately."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-84e2af10109035718cf7"
+            ],
+            "id": "claim-c410b5dd3ab3ad97fb88",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-3db9883f08bdfcaf5b5c"
+            ],
+            "id": "claim-4105f3c8c0aea3f94cc4",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "Fixture mode reads /app/fixtures/{placeId}.json; otherwise the source requires live mode and a nonblank MET_USER_AGENT."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-87e5b2df525f7a76b89f"
+            ],
+            "id": "claim-7bcc873e58387ae2c328",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "In fixture mode, read the place-specific fixture and continue through the common transformation and persistence path."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-863586be9f4afab2b854"
+            ],
+            "id": "claim-f0cf57fd01ad5eb52789",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": {
+              "$clewRef": "sha256:b31481beb0444a93e08fdb0d36b22f40fd0b7041bcc19b0efb6d8bc339292181"
+            },
+            "detail": false,
+            "eventIds": [
+              "claim-e79167d838f4e7d95822"
+            ],
+            "id": "claim-8a3349a35d41d857c024",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197",
+              "forecasts-e98a76fbed8be126547f"
+            ],
+            "text": "The Forecasts source declares nextAttempt as a private in-memory ConcurrentHashMap field keyed by place id and storing Instant values. In live mode, reject the request when this place entry is later than now, then set it to now plus 60 seconds before sending. The capture does not establish how long a runtime instance is retained."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-667c70c9151b9422ff82"
+            ],
+            "id": "claim-c25c626c3d46574de3c8",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "Build the location forecast URL with latitude and longitude truncated down to four decimal places. Send a GET with a 20-second timeout, the configured User-Agent, Accept-Encoding gzip, and If-Modified-Since when the cached row has a last-modified value."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:source_annotations:1571fff289ff6226f149c918",
+              "forecasts:source_annotations:1ea53b95922ad5791d930533",
+              "forecasts:source_annotations:3b271aa33f7bd944bb5ab6a5",
+              "forecasts:source_annotations:3d7b217355f2e6a34064e800",
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:source_annotations:cc58d8643f3d17e4b6911d22",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56",
+              "forecasts:syntax_detail:e98a76fbed8be126547f33ea"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-ca44fb846a3ea5a91899"
+            ],
+            "id": "claim-88fb108b3723b5ea234b",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197",
+              "forecasts-e98a76fbed8be126547f"
+            ],
+            "text": "For every live response, set expiry from the Expires header or now plus one hour. Set nextAttempt from numeric Retry-After for status 429, defaulting to 60 seconds and enforcing a 60-second minimum; for other statuses set nextAttempt to expiry. These updates occur before the 304 and accepted-status branches."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-1bc23fb917b069f0d5a3"
+            ],
+            "id": "claim-2f3cd861d8a7de8cbe77",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "A 304 with an existing cached row returns early; other statuses continue to the accepted-status check."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-2cec843959af31d947c7"
+            ],
+            "id": "claim-ef568c2579d91eed7963",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "When status is 304 and a cached row exists, update only expires_at and return from refresh; no payload transformation or forecast outbox insert follows this branch."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-5a94583a8b9b3bd84d19"
+            ],
+            "id": "claim-e9d8cea9bb4c037e57b4",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "Return from refresh after updating cached expiry; skip the shared transformation and persistence steps that follow this branch."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-30f58835081684ff5146"
+            ],
+            "id": "claim-11b5cf1a9e799ff1a453",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-4262418a09c744f1d293"
+            ],
+            "id": "claim-4e4b07565b62190815a9",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "The status is 200 or 203, or the source status requirement throws."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-2a860053199aa59b247d"
+            ],
+            "id": "claim-0d75e5b06e5df1c5010e",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "Require status 200 or 203, then read Last-Modified and decode the body as gzip when indicated or UTF-8 otherwise. Other statuses throw an error containing the provider status."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-4fea33efd3b973e63e95"
+            ],
+            "id": "claim-d2c9644b6580482d7005",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:ea6dd04c278f12f668b5cde7",
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-94a23a87ffeebe48a0d6"
+            ],
+            "id": "claim-70199e131ffd9fcfb0e4",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197",
+              "forecasts-ea6dd04c278f12f668b5"
+            ],
+            "text": "For a status other than 200 or 203, the source requirement throws an error containing the provider status. The enclosing per-place catch logs the exception class, and this failed path does not reach the shared transformation or persistence steps."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-15dcd2c1043ae6b5fd59"
+            ],
+            "id": "claim-1391a4904f7fb2872ec6",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "For fixture input or an accepted provider body, parse the document and transform up to six time-series points. Require numeric air temperature and at least one period; missing or nonnumeric precipitation becomes null and a missing symbol becomes unknown."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-c9d954adf61cefc71f02"
+            ],
+            "id": "claim-bd3722be5e9e9ac27093",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "Parse updatedAt as an Instant and upsert the forecast row only when incoming updatedAt is at least the stored value. Then attempt a forecast.updated event insert with id placeId:updatedAt, version 1, place and forecast data, using ON CONFLICT DO NOTHING. The outbox attempt follows the upsert call even when the SQL predicate rejects an older value."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:ea6dd04c278f12f668b5cde7"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-304c758ea521f66f44e9"
+            ],
+            "id": "claim-4e056dae9fcb4fca05d6",
+            "sourceIds": [
+              "forecasts-ea6dd04c278f12f668b5"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:ea6dd04c278f12f668b5cde7",
+              "forecasts:source_annotations:1ea53b95922ad5791d930533",
+              "forecasts:symbol:1ea53b95922ad5791d930533",
+              "process-scope:forecasts-refresh-scheduled"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-a46a8902aa9055caa486"
+            ],
+            "id": "claim-c59e935723b08453fdc3",
+            "sourceIds": [
+              "forecasts-1ea53b95922ad5791d93",
+              "forecasts-ea6dd04c278f12f668b5"
+            ],
+            "text": "When the per-place transaction call throws an Exception, the source catches it, logs FORECAST_RETRY followed by the exception class, and continues to the next place. This method contains no explicit retry loop; another invocation is needed for another attempt, and runtime scheduling remains unverified."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+              "forecasts:symbol:04bc0feeea5752d3f1979c56",
+              "process:forecasts-refresh-scheduled"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-680b596779dd9fc41005"
+            ],
+            "id": "claim-9a5c56102b4343c74b6a",
+            "sourceIds": [
+              "forecasts-04bc0feeea5752d3f197"
+            ],
+            "text": "The source writes a pending forecast outbox row; the saved process definition links pending-row delivery to a separate forecasts-publish-pending view. This refresh scenario documents the outbox write and does not claim successful delivery."
+          }
+        ],
+        "findings": [],
+        "id": "forecasts-refresh-scheduled",
+        "interfaceContracts": [],
+        "participants": [
+          {
+            "id": "caller",
+            "label": "Caller",
+            "service": null
+          },
+          {
+            "id": "service-forecasts",
+            "label": "forecasts",
+            "service": "forecasts"
+          },
+          {
+            "id": "forecast-db",
+            "label": "Forecast database and outbox",
+            "service": null
+          },
+          {
+            "id": "weather-provider",
+            "label": "MET weather provider",
+            "service": null
+          }
+        ],
+        "summary": {
+          "$clewRef": "sha256:0e89a89382acd1c69273e2a766da26933e872a457cbfc23c82bf4d6096de8828"
+        },
+        "title": "Refresh cached and provider forecasts"
+      },
+      {
+        "boundaries": [
+          "CALL_TARGETS_UNRESOLVED",
+          "DECLARED_TRANSITION_NOT_REACHED:forecasts-refresh-to-external-met",
+          "ORDER_LEXICAL_ONLY",
+          "LINKED_PROCESS_UNASSESSED:forecasts-publish-pending"
+        ],
+        "documentationLanguage": "en",
+        "events": [],
+        "explanation": [],
+        "findings": [],
+        "id": "process-overview",
+        "interfaceContracts": [],
+        "participants": [],
+        "summary": {
+          "dependencyIds": [
+            "forecasts:source_annotations:1ea53b95922ad5791d930533",
+            "forecasts:symbol:1ea53b95922ad5791d930533",
+            "process-component:forecasts-refresh-scheduled:forecasts-publish-pending",
+            "process-scope:forecasts-refresh-scheduled",
+            "process:forecasts-refresh-scheduled",
+            "scenario:forecasts-refresh-scheduled"
+          ],
+          "id": "claim-1790691a4d0a66a34aad",
+          "sourceIds": [
+            "forecasts-1ea53b95922ad5791d93"
+          ],
+          "text": "The source declares a periodic refresh with a 60-second default, selects places with missing or expired forecasts, and attempts a refresh for each place. A per-place exception is logged as FORECAST_RETRY, allowing the loop to move on. The saved view covers cached returns, fixture/live-provider paths, response and transformation outcomes, and persistence/outbox effects. The linked forecasts-publish-pending view describes separate follow-on work; this captured process does not prove it ran afterward. The external-provider interaction is declared but not established by this evidence. Scheduler activation, provider responses, database commits, and event delivery remain unverified."
+        },
+        "title": "Refresh cached and provider forecasts"
+      }
+    ],
+    "process": {
+      "authority": "Explicit saved request; generated interpretation is reviewed separately.",
+      "definition": {
+        "$clewRef": "sha256:b9c23d0f98fdba75ef70a218a43cf23a5594b6744bceacb9c2d173dd4d8e83dc"
+      },
+      "definitionVersion": "sha256:5ea27c7d27c3d0fe58556665d6ed216635c535fffb9b010180b43721e19d7e38",
+      "linkedSubviews": [
+        {
+          "accepted": null,
+          "authority": "REVIEWED_CHILD_INTERPRETATION_NOT_RUNTIME_PROOF",
+          "child": "forecasts-publish-pending",
+          "dependencyIds": {
+            "$clewRef": "sha256:7525e41024e321fb76bde147cf999baf2816c0e1efc38840dfc4cf904774a090"
+          },
+          "gap": "LINKED_PROCESS_STALE",
+          "href": "forecasts-publish-pending.html",
+          "parent": "forecasts-refresh-scheduled",
+          "status": "GAP"
+        }
+      ],
+      "scope": {
+        "digest": "sha256:f9222086c63e250dc1b9438b14221c1e84f2519c6803373d1bb3f33196d90e09",
+        "id": "process-scope:forecasts-refresh-scheduled",
+        "kind": "PROCESS_SCOPE",
+        "normalized": {
+          "dependencyIds": [
+            "entity-scope:forecasts",
+            "forecasts:contract-scope:f86e10393733a9350be2eda4",
+            "forecasts:source_scope:a94d30979421b6ddbba5e94b",
+            "note-scope:forecasts"
+          ],
+          "interactionMembership": [
+            "dashboard-request-refresh-to-places",
+            "dashboard-save-place-to-places",
+            "forecasts-forecast-updated-to-dashboard",
+            "forecasts-refresh-to-external-met",
+            "places-place-requested-to-dashboard",
+            "places-place-requested-to-forecasts"
+          ],
+          "participants": [
+            "forecasts"
+          ],
+          "runtime": "UNKNOWN",
+          "unavailableParticipants": []
+        },
+        "service": "",
+        "sourceIds": [],
+        "symbol": "process-scope:forecasts-refresh-scheduled"
+      }
+    },
+    "processCandidates": null,
+    "processExtraction": null,
+    "processOutline": {
+      "authority": "STATIC_SOURCE_STRUCTURE_NOT_REVIEWED",
+      "causal": false,
+      "diagramStem": "scenario-forecasts-refresh-scheduled-process-outline-980821141baf91ea",
+      "origin": "flow",
+      "pumlAvailable": true,
+      "root": {
+        "candidates": [
+          {
+            "observation": "forecasts:symbol:1ea53b95922ad5791d930533",
+            "observationDigest": "sha256:fd78691541b7bbbb0d4cad67c7681ff458fe4e8ea3fde68fe51e825cbdc90e61",
+            "scope": null,
+            "service": "forecasts",
+            "symbol": "source:services/forecasts/src/main/kotlin/weather/Forecasts.kt/class:weather.Forecasts/refreshExpired/0dbcc5d669e2275a2697"
+          }
+        ],
+        "observation": "forecasts:symbol:1ea53b95922ad5791d930533",
+        "observationDigest": "sha256:fd78691541b7bbbb0d4cad67c7681ff458fe4e8ea3fde68fe51e825cbdc90e61",
+        "scope": null,
+        "service": "forecasts",
+        "sourceIds": [
+          "forecasts-1ea53b95922ad5791d93"
+        ],
+        "sourceRecordDigests": {
+          "forecasts-1ea53b95922ad5791d93": "sha256:ee1c73490c4cd4a1f4efaf310e65a12cc2a3c6bbb15ab76a4eb246cf1533dc35"
+        },
+        "symbol": "source:services/forecasts/src/main/kotlin/weather/Forecasts.kt/class:weather.Forecasts/refreshExpired/0dbcc5d669e2275a2697"
+      },
+      "sourceIds": [
+        "forecasts-1ea53b95922ad5791d93"
+      ],
+      "status": "STATIC_SOURCE_OUTLINE",
+      "svgAvailable": true,
+      "tree": "Entry: source:services/forecasts/src/main/kotlin/weather/Forecasts.kt/class:weather.Forecasts/refreshExpired/0dbcc5d669e2275a2697\n... (not established: FLOW_AUTHORITY_NOT_QUALIFIED; EVIDENCE_BOUNDARIES:FLOW_AUTHORITY_NOT_QUALIFIED)\n"
+    },
+    "processOutlineSources": {
+      "$clewRef": "sha256:807d69195f8943ca6ce28b67157560f4c37b1eec9f7d970efc70f32a88f55187"
+    },
+    "processThread": null,
+    "proseDisplayPolicy": "READABLE_ORIGINALS",
+    "questionReader": {
+      "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+      "conclusion": {
+        "$clewRef": "sha256:2baa14b31a718e3d58472c50648c9853d42fb443701a1789b3346b7b02fbd8ed"
+      },
+      "language": "en",
+      "presentation": "SEQUENTIAL",
+      "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+      "purpose": "Forecasts selects expired places, reads fixture or provider data and prepares an update event.",
+      "schema": "codeclew-question-reading-plan/1.0",
+      "sections": [
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "forecasts:source_annotations:1ea53b95922ad5791d930533",
+                      "forecasts:symbol:1ea53b95922ad5791d930533"
+                    ],
+                    "from": "service-forecasts",
+                    "id": "claim-be7f796c6aa7ea2742b4",
+                    "kind": "message",
+                    "sourceIds": [
+                      "forecasts-1ea53b95922ad5791d93"
+                    ],
+                    "text": "Select places whose forecast expiry is null or earlier than now, ordered by place id, and read each place id, name, latitude, and longitude.",
+                    "to": "forecast-db"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-refresh-scheduled",
+                  "sourceContext": {
+                    "$clewRef": "sha256:5fb6e96cc0ea34d2e2444f45c0be31e55906dad5440252ff975867164d915b9c"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:807d69195f8943ca6ce28b67157560f4c37b1eec9f7d970efc70f32a88f55187"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:82e927e67dae99bd3754f5446485cef8d9189e74ab2df509b568c85e2ada45b3"
+                  },
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "title": "Refresh cached and provider forecasts"
+                },
+                {
+                  "fragment": {
+                    "$clewRef": "sha256:2e87ad33ae961927853656ac737818dcfe8ac42a9af52ddaeefa40f8f062591c"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-refresh-scheduled",
+                  "sourceContext": {
+                    "$clewRef": "sha256:5fb6e96cc0ea34d2e2444f45c0be31e55906dad5440252ff975867164d915b9c"
+                  },
+                  "sources": {
+                    "forecasts-1ea53b95922ad5791d93": {
+                      "$clewRef": "sha256:ee1c73490c4cd4a1f4efaf310e65a12cc2a3c6bbb15ab76a4eb246cf1533dc35"
+                    },
+                    "forecasts-84ab2c89d2ea61234233": {
+                      "$clewRef": "sha256:afc9d1096fb08a657cb9b7dfe6672bff110cfa74625c7d51092f4873e0a6863d"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:82e927e67dae99bd3754f5446485cef8d9189e74ab2df509b568c85e2ada45b3"
+                  },
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "title": "Refresh cached and provider forecasts"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "Forecasts selects places with no forecast expiry or an expiry before now, ordered by place ID. Each selected place has its own refresh attempt.",
+              "title": "Choose work",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": "Schedule and execution scope",
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "forecasts:source_annotations:1ea53b95922ad5791d930533",
+                      "forecasts:symbol:1ea53b95922ad5791d930533",
+                      "process-scope:forecasts-refresh-scheduled",
+                      "process:forecasts-refresh-scheduled"
+                    ],
+                    "id": "claim-daadb1fd97fbd7cfc50e",
+                    "kind": "note",
+                    "sourceIds": [
+                      "forecasts-1ea53b95922ad5791d93"
+                    ],
+                    "text": "The source annotates refreshExpired with fixedDelayString REFRESH_INTERVAL_MS defaulting to 60000 ms. This declaration does not establish that the runtime scheduler registers or activates it."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-refresh-scheduled",
+                  "sourceContext": {
+                    "$clewRef": "sha256:5fb6e96cc0ea34d2e2444f45c0be31e55906dad5440252ff975867164d915b9c"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:807d69195f8943ca6ce28b67157560f4c37b1eec9f7d970efc70f32a88f55187"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:82e927e67dae99bd3754f5446485cef8d9189e74ab2df509b568c85e2ada45b3"
+                  },
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "title": "Refresh cached and provider forecasts"
+                },
+                {
+                  "$clewRef": "sha256:a6292ed1432ebfc3f0e4babce1318d5fcfc6d973350eeceed0565469e6ade3d8"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": "60-second declared delay · per-place callback · execution unverified",
+              "text": "The annotation declares a 60-second default fixed delay. Each place is passed to transaction.executeWithoutResult as a refresh callback inside a per-place try/catch. This syntax snapshot does not establish scheduler activation, callback execution or transaction commit/rollback.",
+              "title": "Schedule and per-place execution",
+              "tone": null
+            }
+          ],
+          "icon": null,
+          "id": "choose",
+          "navTitle": "Select places",
+          "number": 1,
+          "route": null,
+          "title": "Forecasts selects places to refresh"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+                      "forecasts:symbol:04bc0feeea5752d3f1979c56"
+                    ],
+                    "from": "service-forecasts",
+                    "id": "claim-e2da524eab4be8209a21",
+                    "kind": "message",
+                    "sourceIds": [
+                      "forecasts-04bc0feeea5752d3f197"
+                    ],
+                    "text": "Read the cached forecast payload, expiry, and last-modified value for this place. If expiry is later than now, return without contacting the provider or writing a new forecast outbox event.",
+                    "to": "forecast-db"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-refresh-scheduled",
+                  "sourceContext": {
+                    "$clewRef": "sha256:5fb6e96cc0ea34d2e2444f45c0be31e55906dad5440252ff975867164d915b9c"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:027fafb7b2c4df10d435bc8bb7c698315a07384da604de9787f7dd48385d7751"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:82e927e67dae99bd3754f5446485cef8d9189e74ab2df509b568c85e2ada45b3"
+                  },
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "title": "Refresh cached and provider forecasts"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "A forecast whose expiry is still in the future ends this refresh without contacting the provider or creating a new outbox event.",
+              "title": "Reuse fresh data",
+              "tone": null
+            }
+          ],
+          "icon": "database",
+          "id": "cache",
+          "navTitle": "Check cache",
+          "number": 2,
+          "route": null,
+          "title": "Forecasts checks the cached forecast"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+                      "forecasts:symbol:04bc0feeea5752d3f1979c56"
+                    ],
+                    "id": "claim-87e5b2df525f7a76b89f",
+                    "kind": "note",
+                    "sourceIds": [
+                      "forecasts-04bc0feeea5752d3f197"
+                    ],
+                    "text": "In fixture mode, read the place-specific fixture and continue through the common transformation and persistence path."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-refresh-scheduled",
+                  "sourceContext": {
+                    "$clewRef": "sha256:5fb6e96cc0ea34d2e2444f45c0be31e55906dad5440252ff975867164d915b9c"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:027fafb7b2c4df10d435bc8bb7c698315a07384da604de9787f7dd48385d7751"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:82e927e67dae99bd3754f5446485cef8d9189e74ab2df509b568c85e2ada45b3"
+                  },
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "title": "Refresh cached and provider forecasts"
+                },
+                {
+                  "$clewRef": "sha256:e5d0f430308cd3cfbcde9ffbee771d7cd90c80b166b3b06d66e3212ccec4eb5b"
+                },
+                {
+                  "$clewRef": "sha256:d98dd5629cd496566d256d1d2b04e6714feba03209d21b8faae1bd92c76778a9"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "Fixture mode reads the place’s saved forecast file. Live mode requests the weather provider, subject to required configuration and a per-place waiting period.",
+              "title": "Choose the input",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": "Provider request and retry timing",
+              "evidence": [
+                {
+                  "$clewRef": "sha256:e5d0f430308cd3cfbcde9ffbee771d7cd90c80b166b3b06d66e3212ccec4eb5b"
+                },
+                {
+                  "$clewRef": "sha256:d98dd5629cd496566d256d1d2b04e6714feba03209d21b8faae1bd92c76778a9"
+                },
+                {
+                  "fragment": {
+                    "$clewRef": "sha256:320372516cf598465dc3f69417a15b261d6f52d16697008732324003cbda2d8a"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-refresh-scheduled",
+                  "sourceContext": {
+                    "$clewRef": "sha256:5fb6e96cc0ea34d2e2444f45c0be31e55906dad5440252ff975867164d915b9c"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:027fafb7b2c4df10d435bc8bb7c698315a07384da604de9787f7dd48385d7751"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:82e927e67dae99bd3754f5446485cef8d9189e74ab2df509b568c85e2ada45b3"
+                  },
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "title": "Refresh cached and provider forecasts"
+                },
+                {
+                  "fragment": {
+                    "$clewRef": "sha256:5131295f5e10d080e04f111fdf387e9a85f50b19ca3defe3ea375b4d7aa818ec"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-refresh-scheduled",
+                  "sourceContext": {
+                    "$clewRef": "sha256:5fb6e96cc0ea34d2e2444f45c0be31e55906dad5440252ff975867164d915b9c"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:ce8ce32ee5be964ab4c2319a5733c32dc4552ef0b3b361cb4aa0133c7b10af54"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:82e927e67dae99bd3754f5446485cef8d9189e74ab2df509b568c85e2ada45b3"
+                  },
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "title": "Refresh cached and provider forecasts"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": "Required User-Agent · 20-second request timeout · per-place timing",
+              "text": "Live mode requires a nonblank MET_USER_AGENT. It stores nextAttempt in a private in-memory map keyed by place ID, checks it before the request and sets a 60-second deadline before sending. The GET uses coordinates truncated down to four decimal places, a 20-second timeout, User-Agent, gzip and an optional If-Modified-Since. Each response sets expiry from Expires or a one-hour fallback. For 429, numeric Retry-After sets the next attempt with a 60-second minimum; other statuses set it to expiry, before status handling. The lifetime of the runtime instance is not established.",
+              "title": "Provider request and retry timing",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "$clewRef": "sha256:e5d0f430308cd3cfbcde9ffbee771d7cd90c80b166b3b06d66e3212ccec4eb5b"
+                },
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+                      "forecasts:symbol:04bc0feeea5752d3f1979c56"
+                    ],
+                    "id": "claim-2a860053199aa59b247d",
+                    "kind": "note",
+                    "sourceIds": [
+                      "forecasts-04bc0feeea5752d3f197"
+                    ],
+                    "text": "Require status 200 or 203, then read Last-Modified and decode the body as gzip when indicated or UTF-8 otherwise. Other statuses throw an error containing the provider status."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-refresh-scheduled",
+                  "sourceContext": {
+                    "$clewRef": "sha256:5fb6e96cc0ea34d2e2444f45c0be31e55906dad5440252ff975867164d915b9c"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:027fafb7b2c4df10d435bc8bb7c698315a07384da604de9787f7dd48385d7751"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:82e927e67dae99bd3754f5446485cef8d9189e74ab2df509b568c85e2ada45b3"
+                  },
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "title": "Refresh cached and provider forecasts"
+                },
+                {
+                  "fragment": {
+                    "$clewRef": "sha256:f3b9679a16510eab56899cb4a3b74750972ebd66840d271e846b18be05db622c"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-refresh-scheduled",
+                  "sourceContext": {
+                    "$clewRef": "sha256:5fb6e96cc0ea34d2e2444f45c0be31e55906dad5440252ff975867164d915b9c"
+                  },
+                  "sources": {
+                    "forecasts-04bc0feeea5752d3f197": {
+                      "$clewRef": "sha256:ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa"
+                    },
+                    "forecasts-ea6dd04c278f12f668b5": {
+                      "$clewRef": "sha256:a5d4bf22b0f8c31ff9bfeb782f4242c6a3fbae92380ecfadc31c144d27b7f55f"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:82e927e67dae99bd3754f5446485cef8d9189e74ab2df509b568c85e2ada45b3"
+                  },
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "title": "Refresh cached and provider forecasts"
+                },
+                {
+                  "$clewRef": "sha256:d98dd5629cd496566d256d1d2b04e6714feba03209d21b8faae1bd92c76778a9"
+                }
+              ],
+              "id": "provider-error",
+              "links": [],
+              "navTitle": "Provider or rate-limit failure",
+              "preview": null,
+              "text": "Missing live configuration, an active wait or an unaccepted provider status prevents normal refresh. Statuses 200 and 203 can proceed; a 304 needs an existing cache entry for the reuse branch.",
+              "title": "If the provider cannot supply an accepted response",
+              "tone": "ERROR"
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+                      "forecasts:symbol:04bc0feeea5752d3f1979c56"
+                    ],
+                    "from": "service-forecasts",
+                    "id": "claim-2cec843959af31d947c7",
+                    "kind": "message",
+                    "sourceIds": [
+                      "forecasts-04bc0feeea5752d3f197"
+                    ],
+                    "text": "When status is 304 and a cached row exists, update only expires_at and return from refresh; no payload transformation or forecast outbox insert follows this branch.",
+                    "to": "forecast-db"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-refresh-scheduled",
+                  "sourceContext": {
+                    "$clewRef": "sha256:5fb6e96cc0ea34d2e2444f45c0be31e55906dad5440252ff975867164d915b9c"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:027fafb7b2c4df10d435bc8bb7c698315a07384da604de9787f7dd48385d7751"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:82e927e67dae99bd3754f5446485cef8d9189e74ab2df509b568c85e2ada45b3"
+                  },
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "title": "Refresh cached and provider forecasts"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "If the provider returns 304 and cached data exists, only cached expiry is updated. The refresh returns without transforming a new payload or adding a forecast-update event.",
+              "title": "If the provider returns 304 with cached data",
+              "tone": "INFO"
+            }
+          ],
+          "icon": "arrow-right",
+          "id": "read",
+          "navTitle": "Read forecast",
+          "number": 3,
+          "route": null,
+          "title": "Forecasts reads forecast data"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": {
+                "$clewRef": "sha256:6b401dafbcb44e9178d7a9fc54a3b9fe21ca0dd79d266d5f3d541eec61be99fb"
+              },
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "Fixture input and accepted provider bodies use the same transformation. Up to six periods are prepared; temperature must be numeric and the result must not be empty.",
+              "title": "Transform input",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": {
+                "$clewRef": "sha256:6b401dafbcb44e9178d7a9fc54a3b9fe21ca0dd79d266d5f3d541eec61be99fb"
+              },
+              "id": "forecast-invalid",
+              "links": [],
+              "navTitle": "Invalid forecast data",
+              "preview": null,
+              "text": "Parsing or validation errors prevent the normal write path. Missing or nonnumeric rain becomes null and a missing symbol becomes unknown; missing numeric temperature or an empty forecast is rejected.",
+              "title": "If forecast data is invalid",
+              "tone": "ERROR"
+            }
+          ],
+          "icon": null,
+          "id": "transform",
+          "navTitle": "Prepare forecast",
+          "number": 4,
+          "route": null,
+          "title": "Forecasts prepares the forecast periods"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "$clewRef": "sha256:f614384e92edfcd109929c723f86536077667eb80110928add230af32fcdf4e3"
+                },
+                {
+                  "$clewRef": "sha256:a6292ed1432ebfc3f0e4babce1318d5fcfc6d973350eeceed0565469e6ade3d8"
+                }
+              ],
+              "id": null,
+              "links": [
+                {
+                  "href": "../services/forecasts.html#section-entities",
+                  "label": "Forecast data · service context",
+                  "operation": "section-entities",
+                  "subject": "service:forecasts"
+                }
+              ],
+              "navTitle": null,
+              "preview": null,
+              "text": "The supplied callback attempts to save the forecast, then insert an update event for a separate publisher. A committed result is not established by this syntax snapshot.",
+              "title": "Prepare writes",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": "Timestamp and event rules",
+              "evidence": [
+                {
+                  "$clewRef": "sha256:f614384e92edfcd109929c723f86536077667eb80110928add230af32fcdf4e3"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": "Monotonic forecast upsert · conflict-suppressed outbox insert",
+              "text": "The forecast upsert accepts an incoming updatedAt at least as new as the stored value. The following forecast.updated outbox insert uses placeId:updatedAt as its ID and ignores conflicts. That insert is still attempted when the upsert rejects an older forecast. These source calls do not establish callback execution or an atomic committed outcome.",
+              "title": "Timestamp and event rules",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "$clewRef": "sha256:d921332066676bb3870bcbbd69f4a707a6768629df43c915de2dab3127acc0f5"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-refresh-scheduled",
+                  "sourceContext": {
+                    "$clewRef": "sha256:5fb6e96cc0ea34d2e2444f45c0be31e55906dad5440252ff975867164d915b9c"
+                  },
+                  "sources": {
+                    "forecasts-1ea53b95922ad5791d93": {
+                      "$clewRef": "sha256:ee1c73490c4cd4a1f4efaf310e65a12cc2a3c6bbb15ab76a4eb246cf1533dc35"
+                    },
+                    "forecasts-ea6dd04c278f12f668b5": {
+                      "$clewRef": "sha256:a5d4bf22b0f8c31ff9bfeb782f4242c6a3fbae92380ecfadc31c144d27b7f55f"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:82e927e67dae99bd3754f5446485cef8d9189e74ab2df509b568c85e2ada45b3"
+                  },
+                  "subject": "scenario:forecasts-refresh-scheduled",
+                  "title": "Refresh cached and provider forecasts"
+                }
+              ],
+              "id": "refresh-error",
+              "links": [],
+              "navTitle": "Refresh failure and later retry",
+              "preview": null,
+              "text": "The exception class is logged with `FORECAST_RETRY`, and processing continues to the next place. There is no immediate retry loop here; another attempt needs another invocation.",
+              "title": "If a per-place refresh fails",
+              "tone": "WARNING"
+            }
+          ],
+          "icon": "database",
+          "id": "save",
+          "navTitle": "Save and enqueue",
+          "number": 5,
+          "route": null,
+          "title": "Forecasts prepares the forecast and update event"
+        },
+        {
+          "blocks": [
+            {
+              "$clewRef": "sha256:2baa14b31a718e3d58472c50648c9853d42fb443701a1789b3346b7b02fbd8ed"
+            }
+          ],
+          "icon": null,
+          "id": "confidence",
+          "navTitle": "Sources and provenance",
+          "number": null,
+          "route": null,
+          "title": "Full description and sources"
+        }
+      ],
+      "subject": "scenario:forecasts-refresh-scheduled",
+      "title": "Refresh forecasts for expired places"
+    },
+    "readerOptions": {
+      "showInternalProcesses": false
+    },
+    "relatedViews": [],
+    "renderer": "codeclew-documentation-html/1.16",
+    "requestedDocumentationLanguage": "en",
+    "revisions": {
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "savedProcesses": [],
+    "sectionState": {
+      "$clewRef": "sha256:42456483de68b25146e060cbd2967fe4ce6a2e0a3da0fee71d358d2d07419f9e"
+    },
+    "sections": [],
+    "selectedEvidence": {
+      "$clewRef": "sha256:ca9e4ab3cdcbe2cee291a0df9c86fe72afd4d98160313803db7f0417ab3e0e97"
+    },
+    "selectedSnapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
+    "sourceAuthorities": {
+      "dashboard": "CAPTURED_SOURCE",
+      "forecasts": "RETAINED_SOURCE_NOT_REVERIFIED",
+      "places": "RETAINED_SOURCE_NOT_REVERIFIED"
+    },
+    "sources": {
+      "$clewRef": "sha256:0dc5b99eb87e1cfffef22ecfa1e2de3765f9318985b3d3f04a8820c3d297e3fb"
+    },
+    "stateDiagram": null,
+    "stateDiagramSvg": false,
+    "subject": "scenario:forecasts-refresh-scheduled",
+    "subtitle": "Service behavior and explicit evidence boundaries",
+    "targetRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "title": "Refresh cached and provider forecasts",
+    "translationComplete": true,
+    "translationGaps": {},
+    "updateFailures": {},
+    "view": null
+  }
+}

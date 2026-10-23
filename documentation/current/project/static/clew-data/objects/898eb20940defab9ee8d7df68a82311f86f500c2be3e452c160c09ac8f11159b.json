@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:898eb20940defab9ee8d7df68a82311f86f500c2be3e452c160c09ac8f11159b",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:e0055ac492ba74d35b06c0fcc00a2ed046e045c025ba1982d06d86b07659dff3"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Each Period.precipitationMm must be explicit null or a finite nonnegative number. Missing is rejected; nullable does not make the property optional.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

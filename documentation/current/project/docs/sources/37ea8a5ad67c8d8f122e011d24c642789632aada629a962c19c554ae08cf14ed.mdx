@@ -1,0 +1,25 @@
+---
+title: "services/dashboard/src/events.ts:25–27"
+slug: "/sources/37ea8a5ad67c8d8f122e011d24c642789632aada629a962c19c554ae08cf14ed"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/dashboard/src/events.ts:25–27
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: e635069293d58cb0d4f28c8211e748b8d58e6b37
+
+Text digest: sha256:daa4e7713f2e3ab04d7889cd341cf6accbe6a975c27049b1f2882057927171c2
+
+## Retained text {#retained-text}
+
+```text
+if (topic === 'weather.place-requested') {
+    if (event.type !== 'place.requested' || event.forecast !== undefined) throw new Error('INVALID_PLACE_EVENT')
+  } else throw new Error('UNKNOWN_TOPIC')
+```
+
+<ClewDownload path="/clew-data/objects/37ea8a5ad67c8d8f122e011d24c642789632aada629a962c19c554ae08cf14ed.json">Complete original source binding</ClewDownload>

@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:89387464df117dd1f2cfdbd8113d90c803728d4fe220f507529703bd597dbf8e",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 59,
+    "evidenceDigest": "sha256:b689dee06cb34ef50c8065d11fb20f73938f8871d06debf64b44ab39d3f606dc",
+    "file": "services/places/PlacesRepository.cs",
+    "id": "places-51d94b76d870001475fd",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "places",
+    "startLine": 52,
+    "text": "private static async Task InsertRequest(NpgsqlConnection connection, NpgsqlTransaction transaction, Place city, CancellationToken token)\n    {\n        var id = Guid.NewGuid();\n        var json = JsonSerializer.Serialize(new { id, type = \"place.requested\", version = 1, place = city }, new JsonSerializerOptions(JsonSerializerDefaults.Web));\n        await using var command = new NpgsqlCommand(\"INSERT INTO request_outbox(id,payload) VALUES($1,$2::jsonb)\", connection, transaction);\n        command.Parameters.AddWithValue(id); command.Parameters.AddWithValue(json);\n        await command.ExecuteNonQueryAsync(token);\n    }",
+    "textDigest": "sha256:b760523f1391d08669d20d18510de700ebf367c42ddc23365d51e63bb03037c3",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L52-L59"
+  }
+}

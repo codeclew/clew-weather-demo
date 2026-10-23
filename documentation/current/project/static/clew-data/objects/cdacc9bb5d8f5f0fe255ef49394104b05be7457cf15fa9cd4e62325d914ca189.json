@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:cdacc9bb5d8f5f0fe255ef49394104b05be7457cf15fa9cd4e62325d914ca189",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 19,
+    "evidenceDigest": "sha256:dd9f39d3e5b40530fb191debe0fd26bc00a5ce417ec63a31fa01098cf4e076b4",
+    "file": "services/dashboard/src/main.ts",
+    "id": "dashboard-05d6c53782065c056dee",
+    "occurrence": {
+      "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+      "endByte": 919,
+      "snapshot": "sha256:550435c6f8e16951bd815f9f7b54eda07bff8ad73a80a6df524ab2af077f4f6f",
+      "startByte": 811
+    },
+    "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+    "service": "dashboard",
+    "startLine": 19,
+    "text": "client.query('INSERT INTO inbox(event_id) VALUES($1) ON CONFLICT DO NOTHING RETURNING event_id', [event.id])",
+    "textDigest": "sha256:039224b7a0b7c1a4ae951a181507f2691af62143e32cd627e051adb89d428c39",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/e635069293d58cb0d4f28c8211e748b8d58e6b37/services/dashboard/src/main.ts#L19-L19"
+  }
+}

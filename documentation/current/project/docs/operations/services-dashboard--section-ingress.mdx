@@ -1,0 +1,38 @@
+---
+title: "Dashboard ingress contracts"
+slug: "/operations/services-dashboard--section-ingress"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Dashboard ingress contracts
+
+<ClewPageContext />
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+The captured OpenAPI declaration lists GET /, GET /api/weather, GET /health, GET /openapi.json, POST /api/places, and POST /api/places/&#123;id&#125;/refresh. It marks the place-save JSON body as required and declares response sets for the save and refresh routes; the source handler forwards the Places response status and JSON body, or maps a caught failure to 503. The refresh handler encodes the id in a bodyless POST. The weather handler selects saved cards ordered by name; the health handler runs SELECT 1 and rejects a false consumerReady flag. Startup source subscribes to weather.place-requested and weather.forecast-updated with fromBeginning true and passes eachMessage to consumeMessage with autoCommit false. The route and topic declarations are source evidence only.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/dashboard/src/main.ts:76–83 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b41ac7155eba29b1e6a9dfe10348b626c22e19654978c7d35379a71fff4526a1.mdx)
+- [contracts/dashboard.openapi.json:1–462 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/2cf069499a8284aa81909007590ed57f8b987703681fef870962f36c0681f13b.mdx)
+- [services/dashboard/src/main.ts:85–89 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/f2538d01a5740ce1abfc03ae7e7a7b2d8cd5252bbf39b4aa3f59a797afd655ae.mdx)
+- [services/dashboard/src/main.ts:67–74 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ab8df8a5fe7536b2fc32d2257bed77e48c54ce422b10c3afba79f26ac88b67a8.mdx)
+- [services/dashboard/src/main.ts:91–93 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/9dfc47272109627664d48b7bdfc7a9f5e84c42965146d7a0196095441dd45229.mdx)
+- [services/dashboard/src/main.ts:95–97 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/115f097e979ebca0d7af8b4670f23623a3cdcd8fe24627d5867e6a072e81272d.mdx)
+- [services/dashboard/src/main.ts:47–60 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233.mdx)
+- [services/dashboard/src/main.ts:99–111 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b8c6b94020ae709e61177a744a5a5315fccb0813ac9f4e37ca6a0be5140d129c.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- This proposal documents four service sections from source-level TypeScript and the captured OpenAPI declaration. It does not establish runtime route or listener activation, deployed settings, database outcomes, or broker delivery and offset-commit guarantees. The OpenAPI document is read as source text; JSON Schema semantics are not fully interpreted.
+
+</details>
+

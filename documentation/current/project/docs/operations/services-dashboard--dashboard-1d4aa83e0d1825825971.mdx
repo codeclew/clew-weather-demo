@@ -1,0 +1,335 @@
+---
+title: "GET /api/weather — saved cards"
+slug: "/operations/services-dashboard--dashboard-1d4aa83e0d1825825971"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# GET /api/weather — saved cards
+
+<ClewPageContext />
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+GET /api/weather selects local weather\_cards ordered by name and returns the saved rows. A database query failure propagates as an exception; the handler has no local error mapping, while the OpenAPI separately declares a 500 JSON response. The declared success body is an array of place cards with a nullable forecast; runtime schema enforcement is unverified.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [contracts/dashboard.openapi.json:1–462 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/2cf069499a8284aa81909007590ed57f8b987703681fef870962f36c0681f13b.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+- [services/dashboard/src/main.ts:63–63 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3cc4baeb413876e092ccdca9275f8a8289fd84877db8f97451d9194eb9694798.mdx)
+
+</details>
+
+## Declared GET /api/weather contract
+
+| Topic | Retained contract detail |
+| --- | --- |
+| Request | GET /api/weather has no declared parameters or request body. |
+| 200 response | The application/json body is an array of cards. Each requires id, name, latitude, longitude, and forecast; ids are oslo, helsinki, or lisbon; latitude is -90..90 and longitude -180..180. Forecast is null or an object requiring updatedAt, fetchedAt, mode (fixture or live), and one to six periods. Each period requires time, temperatureC, precipitationMm, and symbol; date-time fields are strings, precipitationMm is null or a number &gt;= 0. |
+| 500 response | The error response is application/json with an object containing a string error field. |
+| Declaration boundary | OpenAPI 3.1 declarations are parsed by a bounded reader; runtime enforcement and full JSON Schema validation are unverified. |
+
+<details>
+<summary>Contract source bindings</summary>
+
+**Request**
+
+- [contracts/dashboard.openapi.json:1–462 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/2cf069499a8284aa81909007590ed57f8b987703681fef870962f36c0681f13b.mdx)
+
+**200 response**
+
+- [contracts/dashboard.openapi.json:1–462 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/2cf069499a8284aa81909007590ed57f8b987703681fef870962f36c0681f13b.mdx)
+
+**500 response**
+
+- [contracts/dashboard.openapi.json:1–462 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/2cf069499a8284aa81909007590ed57f8b987703681fef870962f36c0681f13b.mdx)
+
+**Declaration boundary**
+
+- [contracts/dashboard.openapi.json:1–462 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/2cf069499a8284aa81909007590ed57f8b987703681fef870962f36c0681f13b.mdx)
+
+
+</details>
+
+## Declared interface schemas
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/475242e2ef07721c45d26c563b5cd15b52b47fb16494eab9b22738cd80b35c25">GET /openapi.json</ClewContextLink>
+
+<ClewContextLink path="/http/5e9ce2f78105d5d9215b07ddf87c8025176e932f11403c3b248ee8f2f77a9989">POST /api/places</ClewContextLink>
+
+<ClewContextLink path="/http/ed3ea26055386f7e8904ff37c1c9931e4943602283a96c6067a31ac32aa24dac">POST /api/places/&#123;id&#125;/refresh</ClewContextLink>
+
+<ClewContextLink path="/http/d3d56f55618a4d6b12c611f5055d16e80668439f39a23e30eb42437d1be85294">GET /</ClewContextLink>
+
+<ClewContextLink path="/http/589bef5f2c1640933430afb73226fc910c4cdb435b53197fdaef848d460a716b">GET /health</ClewContextLink>
+
+<ClewContextLink path="/http/5fda6cc4b385e34a2f5c5b6539f9420f1a95661ef0c3656b18ef951b4f2fe516">GET /api/weather</ClewContextLink>
+
+</div>
+
+
+## Interaction diagram
+
+Actors and nested branches from the retained account; not a runtime trace. Labels are shortened for readability. Full messages and notes follow.
+
+```mermaid
+sequenceDiagram
+participant p0 as dashboard
+participant p1 as Browser client
+participant p2 as Dashboard PostgreSQL
+p1->>p0: Request the saved weather cards
+alt The weather_cards query succeeds
+p0->>p2: Select local weather_cards ordered by name
+p2-->>p0: Return the selected card rows
+p0-->>p1: Return status 200 with the JSON array of<br/>cards
+end
+
+```
+
+<details>
+<summary>Full original sequence, branches and notes</summary>
+
+#### 1. message
+
+<ClewMarkdown text={"Request the saved weather cards"} />
+
+<details>
+<summary>Source bindings</summary>
+
+- [contracts/dashboard.openapi.json:1–462 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/2cf069499a8284aa81909007590ed57f8b987703681fef870962f36c0681f13b.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+
+</details>
+
+#### 2. alt
+
+<ClewMarkdown text={"The weather_cards query succeeds"} />
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+- [services/dashboard/src/main.ts:63–63 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3cc4baeb413876e092ccdca9275f8a8289fd84877db8f97451d9194eb9694798.mdx)
+
+</details>
+
+#### 3. message
+
+<ClewMarkdown text={"Select local weather_cards ordered by name"} />
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+- [services/dashboard/src/main.ts:63–63 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3cc4baeb413876e092ccdca9275f8a8289fd84877db8f97451d9194eb9694798.mdx)
+
+</details>
+
+#### 4. return
+
+<ClewMarkdown text={"Return the selected card rows"} />
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+- [services/dashboard/src/main.ts:63–63 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3cc4baeb413876e092ccdca9275f8a8289fd84877db8f97451d9194eb9694798.mdx)
+
+</details>
+
+#### 5. return
+
+<ClewMarkdown text={"Return status 200 with the JSON array of cards"} />
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/dashboard/src/main.ts:64–64 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/5bef0f7ba12f0d6e3531bb4d0ddcf4d773ab1c3f083596bbcf29d558d4aec3d5.mdx)
+- [contracts/dashboard.openapi.json:1–462 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/2cf069499a8284aa81909007590ed57f8b987703681fef870962f36c0681f13b.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+
+</details>
+
+#### 6. else
+
+<ClewMarkdown text={"Otherwise"} />
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+- [services/dashboard/src/main.ts:63–63 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3cc4baeb413876e092ccdca9275f8a8289fd84877db8f97451d9194eb9694798.mdx)
+
+</details>
+
+#### 7. note
+
+<ClewMarkdown text={"If the weather_cards query fails, its exception propagates; this handler has no local catch or response mapping. The OpenAPI separately declares a 500 JSON response."} />
+
+<details>
+<summary>Source bindings</summary>
+
+- [contracts/dashboard.openapi.json:1–462 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/2cf069499a8284aa81909007590ed57f8b987703681fef870962f36c0681f13b.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+- [services/dashboard/src/main.ts:63–63 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3cc4baeb413876e092ccdca9275f8a8289fd84877db8f97451d9194eb9694798.mdx)
+
+</details>
+
+#### 8. end
+
+<ClewMarkdown text={""} />
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+- [services/dashboard/src/main.ts:63–63 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3cc4baeb413876e092ccdca9275f8a8289fd84877db8f97451d9194eb9694798.mdx)
+
+</details>
+
+
+</details>
+
+## Implementation explanation
+
+<ClewMarkdown text={"Request the saved weather cards"} />
+
+<details>
+<summary>Source bindings</summary>
+
+- [contracts/dashboard.openapi.json:1–462 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/2cf069499a8284aa81909007590ed57f8b987703681fef870962f36c0681f13b.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+
+</details>
+
+<ClewMarkdown text={"The weather_cards query succeeds"} />
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+- [services/dashboard/src/main.ts:63–63 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3cc4baeb413876e092ccdca9275f8a8289fd84877db8f97451d9194eb9694798.mdx)
+
+</details>
+
+<ClewMarkdown text={"Select local weather_cards ordered by name"} />
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+- [services/dashboard/src/main.ts:63–63 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3cc4baeb413876e092ccdca9275f8a8289fd84877db8f97451d9194eb9694798.mdx)
+
+</details>
+
+<ClewMarkdown text={"Return the selected card rows"} />
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+- [services/dashboard/src/main.ts:63–63 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3cc4baeb413876e092ccdca9275f8a8289fd84877db8f97451d9194eb9694798.mdx)
+
+</details>
+
+<ClewMarkdown text={"Return status 200 with the JSON array of cards"} />
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/dashboard/src/main.ts:64–64 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/5bef0f7ba12f0d6e3531bb4d0ddcf4d773ab1c3f083596bbcf29d558d4aec3d5.mdx)
+- [contracts/dashboard.openapi.json:1–462 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/2cf069499a8284aa81909007590ed57f8b987703681fef870962f36c0681f13b.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+
+</details>
+
+<ClewMarkdown text={"The source describes an alternative branch."} />
+
+<details>
+<summary>Source bindings</summary>
+
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+- [services/dashboard/src/main.ts:63–63 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3cc4baeb413876e092ccdca9275f8a8289fd84877db8f97451d9194eb9694798.mdx)
+
+</details>
+
+<ClewMarkdown text={"If the weather_cards query fails, its exception propagates; this handler has no local catch or response mapping. The OpenAPI separately declares a 500 JSON response."} />
+
+<details>
+<summary>Source bindings</summary>
+
+- [contracts/dashboard.openapi.json:1–462 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/2cf069499a8284aa81909007590ed57f8b987703681fef870962f36c0681f13b.mdx)
+- [services/dashboard/src/main.ts:62–65 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3.mdx)
+- [services/dashboard/src/main.ts:63–63 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/3cc4baeb413876e092ccdca9275f8a8289fd84877db8f97451d9194eb9694798.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- CALL\_TARGETS\_UNRESOLVED
+- DIALECT\_DECLARED\_NOT\_COMPILER\_VALIDATED
+- FILE\_ONLY:compose.yaml
+- FILE\_ONLY:contracts/dashboard.openapi.json
+- FILE\_ONLY:contracts/events.schema.json
+- FILE\_ONLY:database/init.sql
+- FILE\_ONLY:exercises/dashboard-focus-regression.mjs
+- FILE\_ONLY:exercises/replay.py
+- FILE\_ONLY:exercises/validator-regression.mjs
+- FILE\_ONLY:fixtures/helsinki.json
+- FILE\_ONLY:fixtures/lisbon.json
+- FILE\_ONLY:fixtures/met-oslo-recorded.json
+- FILE\_ONLY:fixtures/oslo.json
+- FILE\_ONLY:fixtures/provenance.json
+- FILE\_ONLY:services/dashboard/Dockerfile
+- FILE\_ONLY:services/dashboard/package-lock.json
+- FILE\_ONLY:services/dashboard/package.json
+- FILE\_ONLY:services/dashboard/public/index.html
+- FILE\_ONLY:services/dashboard/tsconfig.json
+- OPENAPI\_JSON\_SCHEMA\_KEYWORDS\_NOT\_INTERPRETED
+- OPENAPI\_SCHEMA\_NULL\_TYPE\_NOT\_INTERPRETED
+- OPENAPI\_SCHEMA\_TYPE\_UNIONS\_NOT\_INTERPRETED
+- ORDER\_LEXICAL\_ONLY
+- SCOPE\_WATCH\_CONSERVATIVE
+- Syntax evidence does not establish runtime dispatch or configuration. Expand known owners and helpers; retain explicit gaps for unresolved targets.
+- ANNOTATION\_DECLARATION\_UNAVAILABLE
+- CALL\_TARGETS\_UNRESOLVED
+- DIALECT\_DECLARED\_NOT\_COMPILER\_VALIDATED
+- FILE\_ONLY:compose.yaml
+- FILE\_ONLY:contracts/events.schema.json
+- FILE\_ONLY:contracts/forecasts.openapi.json
+- FILE\_ONLY:database/init.sql
+- FILE\_ONLY:fixtures/helsinki.json
+- FILE\_ONLY:fixtures/lisbon.json
+- FILE\_ONLY:fixtures/met-oslo-recorded.json
+- FILE\_ONLY:fixtures/oslo.json
+- FILE\_ONLY:fixtures/provenance.json
+- FILE\_ONLY:services/forecasts/Dockerfile
+- FILE\_ONLY:services/forecasts/pom.xml
+- FILE\_ONLY:services/forecasts/src/main/resources/application.properties
+- NO\_BEAN\_OWNER
+- OPENAPI\_JSON\_SCHEMA\_KEYWORDS\_NOT\_INTERPRETED
+- OPENAPI\_SCHEMA\_NULL\_TYPE\_NOT\_INTERPRETED
+- OPENAPI\_SCHEMA\_TYPE\_UNIONS\_NOT\_INTERPRETED
+- ORDER\_LEXICAL\_ONLY
+- RUNTIME\_REGISTRATION\_UNPROVEN
+- SCOPE\_WATCH\_CONSERVATIVE
+- SOURCE\_NAMES\_NOT\_COMPILER\_RESOLVED
+- UNRESOLVED\_ANNOTATION\_VALUE
+- Syntax evidence does not establish runtime dispatch or configuration. Expand known owners and helpers; retain explicit gaps for unresolved targets.
+- CLR\_SIGNATURE\_PROJECTED\_TO\_JVM\_DESCRIPTOR\_GRAMMAR
+- CSHARP\_SOURCE\_GENERATED\_DOCUMENTS\_NOT\_INDEXED
+- EXCEPTION\_FLOW\_REQUIRES\_SOURCE\_REVIEW
+- GENERATED\_SOURCE\_BODIES\_NOT\_INDEXED
+- LAMBDA\_EXECUTION\_NOT\_EXPANDED
+- OPENAPI\_JSON\_SCHEMA\_KEYWORDS\_NOT\_INTERPRETED
+- SHORT\_CIRCUIT\_FLOW\_REQUIRES\_SOURCE\_REVIEW
+- SWITCH\_FLOW\_REQUIRES\_SOURCE\_REVIEW
+
+</details>
+

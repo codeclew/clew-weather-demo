@@ -1,0 +1,14 @@
+{
+  "identity": "sha256:0fc54910d959029162f740274a695691bf664a46a697a3de84065a8c42e8e18b",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "DECLARED_TRANSFER",
+    "claim": {
+      "$clewRef": "sha256:be397e21bf9f76b1c275f2fab401f5508848f5a72646e5a4f8621cd15edb350f"
+    },
+    "condition": "PLACES_URL resolves to the declared Places deployment and POST /places reaches the captured handler.",
+    "from": "Dashboard HTTP request",
+    "kind": "candidate",
+    "to": "Places city lookup"
+  }
+}

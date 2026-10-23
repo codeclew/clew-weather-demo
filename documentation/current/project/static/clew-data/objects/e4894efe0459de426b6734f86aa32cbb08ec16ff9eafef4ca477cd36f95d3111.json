@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:e4894efe0459de426b6734f86aa32cbb08ec16ff9eafef4ca477cd36f95d3111",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:de44c42c88fa832e8392535034c8338b02de2769fd94e5632dcd621bef1c2f27"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "City(\"helsinki\") selects the literal Place(\"helsinki\", \"Helsinki\", 60.17, 24.94) in this switch branch.",
+    "title": "City lookup: source interpretation",
+    "tone": null
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:d1be3d48a24369b4895f1ffa893bad51324e4c818d54bb7eb0a11e207d72611c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "observed-static-use",
+    "claim": {
+      "$clewRef": "sha256:6057cec115a508f0e46d1d4e53bbc4fe964f0891428efa579116a868adebf884"
+    },
+    "condition": "FORECAST_MODE=live only; no query use in fixture mode",
+    "consumer": "MET locationforecast/2.0/compact",
+    "contract": "place-requested",
+    "coveredScope": "Live provider query",
+    "kinds": [
+      "calculate-or-decide"
+    ],
+    "processes": [],
+    "producer": "Forecasts.refresh",
+    "representation": "lon URL query parameter",
+    "stage": "Live provider query",
+    "unresolved": "Static source interpretation; runtime execution and delivery are not established."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "identity": "sha256:9921dd0b76d38418036146da7185461e7a812661a509c95beda7165053cc77d8",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": {
+      "$clewRef": "sha256:9c570d22f9c4288b893df02c7d4c3409b4da10ae7722450291c71d9eed3240f3"
+    },
+    "coverage": "SYNTAX"
+  }
+}

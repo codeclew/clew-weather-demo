@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:31b8ea2650be0fb01bd99b6f16fe9f4db34d114e822ce2dcc3a6beca2f336a2f",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "digest": "sha256:f3dabbbd956d8bd60cb969cbf1d6be59f8a141ed1e62cdf64c873092a2b791c3",
+    "id": "dashboard:contract-operation:359dbcae66966113bf88b8f9",
+    "kind": "CONTRACT_OPERATION",
+    "normalized": {
+      "$clewRef": "sha256:f3dabbbd956d8bd60cb969cbf1d6be59f8a141ed1e62cdf64c873092a2b791c3"
+    },
+    "service": "dashboard",
+    "sourceIds": [
+      "dashboard-1d4380bd7760bcafc13d"
+    ],
+    "symbol": "get /openapi.json"
+  }
+}

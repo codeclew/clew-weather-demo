@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:8c3e54254c41dcf7239a0c7a0681a03ca9406c1b3b7e884ce7577ce56b01eff9",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:7dd03a91b4ca8f256d46c1ae74aeddd272e99e5f9686226e50045220a96b9f9f"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Time the Forecasts service constructs the normalized forecast after reading provider or fixture data. It is required in the event, retained and returned, but not directly displayed by the inspected browser update function.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:2e9763bb781b6d13753691501953b45bdc691971430c87457e5caa5e880ff9d9",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 100,
+    "evidenceDigest": "sha256:b6870d4e4f9b0ae5a30fdd05e3e048bd65d01fb21faf6ff51e5483e0767912e3",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "id": "forecasts-523090c501eeb42d4dd1",
+    "occurrence": {
+      "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+      "endByte": 6637,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 6543
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 100,
+    "text": "response.headers().firstValue(\"Content-Encoding\").orElse(\"\").equals(\"gzip\", ignoreCase = true)",
+    "textDigest": "sha256:e477282c1a3b21bdf2fedeb1eea2fe1aa6c682dd8ebf81ce96abf9e8aaad3941",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L100-L100"
+  }
+}

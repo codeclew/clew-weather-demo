@@ -1,0 +1,25 @@
+{
+  "identity": "sha256:e0fc6e28bf869a085380e1b355733d2ac1b935ea5d54cc88d5c7bd4bdc66b1ef",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:d9e002e11048a79c9c6a979c2182b1e40152ac3b52b3b338c8b0cdc22aa7a04b"
+    },
+    "id": null,
+    "links": [
+      {
+        "href": "../scenarios/places-request-publisher.html#process-overview",
+        "label": "Related place-request publisher",
+        "operation": "process-overview",
+        "subject": "scenario:places-request-publisher"
+      }
+    ],
+    "navTitle": null,
+    "preview": null,
+    "text": "Original source, event validation, database/offset ordering and review state remain attached below. This source interpretation does not prove runtime delivery. These two consumer topics have distinct payload checks and card-update rules.",
+    "title": "Evidence scope",
+    "tone": null
+  }
+}

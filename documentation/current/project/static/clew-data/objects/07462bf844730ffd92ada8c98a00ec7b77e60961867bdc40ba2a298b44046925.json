@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:07462bf844730ffd92ada8c98a00ec7b77e60961867bdc40ba2a298b44046925",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:085e0e6e9e58c578001f3b0ea164d58e210c35211904501db9c9d4440b16f23c"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The latitude coordinate stored with the place and forwarded in events. MET query use is live-only.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

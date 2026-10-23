@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:233a207639fdacbf35f2597bca253ac6053991040fac8b3181c0796a250490a6",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:4f947bd7e2c563bb40a9ba958dd74a87ad72799e4ae3795a598449a34cb88ace"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The city selector and returned record key. Source property: Place.Id, C# string.",
+    "title": "City lookup: source interpretation",
+    "tone": null
+  }
+}

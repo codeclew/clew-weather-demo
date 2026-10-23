@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:a8559233caccd99416ef0ffd3441614dea6841c96e824866847349c9f5f688a7",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:6f8c803b099588ceb6efe0a0c7d0f2ced47bc3ae085c7c6df06964d6c8573411"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Whether the forecast was normalized from the fixture branch or the live MET provider branch.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

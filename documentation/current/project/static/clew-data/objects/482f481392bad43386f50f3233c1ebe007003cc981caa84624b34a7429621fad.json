@@ -1,0 +1,19 @@
+{
+  "identity": "sha256:482f481392bad43386f50f3233c1ebe007003cc981caa84624b34a7429621fad",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "forecasts:flow:740f3405b57f36fc72f3f58e",
+      "forecasts:source_annotations:1ea53b95922ad5791d930533",
+      "forecasts:symbol:1ea53b95922ad5791d930533",
+      "process-scope:forecasts-refresh-scheduled"
+    ],
+    "id": "claim-7c08544d56f01a17f6e1",
+    "kind": "opt",
+    "sourceIds": [
+      "forecasts-1ea53b95922ad5791d93",
+      "forecasts-740f3405b57f36fc72f3"
+    ],
+    "text": "The source passes refresh(place) to transaction.executeWithoutResult as a deferred lambda. This source view shows the lambda body but does not establish callback invocation or transaction outcomes."
+  }
+}

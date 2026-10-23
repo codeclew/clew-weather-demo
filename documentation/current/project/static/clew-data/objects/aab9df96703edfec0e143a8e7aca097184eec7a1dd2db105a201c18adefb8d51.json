@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:aab9df96703edfec0e143a8e7aca097184eec7a1dd2db105a201c18adefb8d51",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "fragment": {
+      "$clewRef": "sha256:63d8323682ba773ac8bb82a6c24586291a57cd5ecb40778f978cf6e52d488d40"
+    },
+    "kind": "RETAINED_CLAIM",
+    "operation": "dashboard-refresh-request",
+    "sourceContext": {
+      "$clewRef": "sha256:8c0e984c8072da5eb16b0a9deb187c413117806d43382b83a66c9079bda1e3d3"
+    },
+    "sources": {
+      "$clewRef": "sha256:5d5690c10ca1b23e237065497cbcee2ce5bea970752f9a991d12bdbd8fc3139d"
+    },
+    "state": {
+      "$clewRef": "sha256:5a6a7b40bd8db5940788361f21fb7d7f2e4577bbca44ec06cd6809abe3482938"
+    },
+    "subject": "scenario:dashboard-refresh-request",
+    "title": "Request a place refresh and record its outbox boundary"
+  }
+}

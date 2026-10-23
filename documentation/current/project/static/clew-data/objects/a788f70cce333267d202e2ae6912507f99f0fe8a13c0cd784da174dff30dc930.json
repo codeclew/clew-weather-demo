@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:a788f70cce333267d202e2ae6912507f99f0fe8a13c0cd784da174dff30dc930",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "places:symbol:722b268c12cec9e1cb51cbe8",
+      "places:symbol:7fb8137cf82d592b243e54aa"
+    ],
+    "id": "claim-9a3b7c9fc0561319a1f3",
+    "sourceIds": [
+      "places-722b268c12cec9e1cb51",
+      "places-7fb8137cf82d592b243e"
+    ],
+    "text": "At source level, RequestPublisher.ExecuteAsync creates one Kafka producer using KAFKA_BOOTSTRAP or kafka:9092, with idempotence enabled and a 10-second message timeout. While the token is not cancelled, it calls PublishPending and waits one second between passes. PublishPending selects at most one eligible unpublished row in created_at order with FOR UPDATE SKIP LOCKED; if none is returned, it exits that pass without sending. For a selected row it extracts place.id from the stored JSON, awaits a send to weather.place-requested using that ID as the key, then sets published=true and commits the database transaction. Since send completion comes before the database commit, a crash between them can leave the row eligible for another send. The loop logs other exceptions as PUBLISH_RETRY; cancellation during PublishPending breaks the loop, while cancellation reaching the post-attempt delay can propagate. C# source coverage is PARTIAL; this code does not establish runtime hosting activation or delivery."
+  }
+}

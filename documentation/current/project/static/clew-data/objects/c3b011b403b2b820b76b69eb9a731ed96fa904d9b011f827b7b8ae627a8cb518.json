@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:c3b011b403b2b820b76b69eb9a731ed96fa904d9b011f827b7b8ae627a8cb518",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "forecasts": {
+      "$clewRef": "sha256:9921dd0b76d38418036146da7185461e7a812661a509c95beda7165053cc77d8"
+    },
+    "places": {
+      "boundaries": [
+        "CLR_SIGNATURE_PROJECTED_TO_JVM_DESCRIPTOR_GRAMMAR",
+        "CSHARP_SOURCE_GENERATED_DOCUMENTS_NOT_INDEXED",
+        "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+        "GENERATED_SOURCE_BODIES_NOT_INDEXED",
+        "LAMBDA_EXECUTION_NOT_EXPANDED",
+        "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+        "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+        "SWITCH_FLOW_REQUIRES_SOURCE_REVIEW"
+      ],
+      "coverage": "PARTIAL"
+    }
+  }
+}

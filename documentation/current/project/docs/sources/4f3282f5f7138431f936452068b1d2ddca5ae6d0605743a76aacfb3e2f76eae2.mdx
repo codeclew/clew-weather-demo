@@ -1,0 +1,34 @@
+---
+title: "services/forecasts/Dockerfile:1–11"
+slug: "/sources/4f3282f5f7138431f936452068b1d2ddca5ae6d0605743a76aacfb3e2f76eae2"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/forecasts/Dockerfile:1–11
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: c289b28be4819eddf29d59a7c12f178559ec5229
+
+Text digest: sha256:319881a5d98eadb646b8e79318a478b57ab09b86b5704b0148378e438f0c38ca
+
+## Retained text {#retained-text}
+
+```text
+FROM maven:3.9.12-eclipse-temurin-21 AS build
+WORKDIR /src
+COPY services/forecasts/pom.xml ./
+COPY services/forecasts/src ./src
+RUN mvn -B package -DskipTests
+FROM eclipse-temurin:21-jre
+WORKDIR /app
+COPY --from=build /src/target/forecasts-0.1.0.jar ./app.jar
+COPY contracts /app/contracts
+COPY fixtures /app/fixtures
+ENTRYPOINT ["java","-jar","app.jar"]
+
+```
+
+<ClewDownload path="/clew-data/objects/4f3282f5f7138431f936452068b1d2ddca5ae6d0605743a76aacfb3e2f76eae2.json">Complete original source binding</ClewDownload>

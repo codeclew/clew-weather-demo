@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:1988bf85041e02c4d52b1836648cd178a1f73092d2d7986b889c1683141c0032",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contract": "forecast-updated",
+    "field": "forecast.periods[].temperatureC",
+    "label": "Event v1 · forecast-updated",
+    "mapping": {
+      "$clewRef": "sha256:7b95b7ac8271945e1f014428798f25992d19921ab9cadbf4da0f04c16a7a759b"
+    },
+    "nullability": "Derived from schema",
+    "relatedModel": null,
+    "requiredness": "Branch-conditional",
+    "typeLabel": "Derived from exact JSON Schema"
+  }
+}

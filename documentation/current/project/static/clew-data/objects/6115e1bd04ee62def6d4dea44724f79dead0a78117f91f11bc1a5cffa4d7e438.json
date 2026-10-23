@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:6115e1bd04ee62def6d4dea44724f79dead0a78117f91f11bc1a5cffa4d7e438",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:fd2936fcb97ba714f6e655357398c9ba111fdac6188e4fbf7ef2917153836853"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "A normalized forecast for a Place: provider update time, fetch time, source mode and a short series of periods.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "identity": "sha256:2daa9c3474b792df1c093f2cbdd7b21541b7a10bdac2e56301afba41ada56356",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "linkedSubviews": [
+      "places-request-publisher",
+      "forecasts-place-requested-consumer",
+      "forecasts-publish-pending",
+      "dashboard-place-requested-consumer",
+      "dashboard-forecast-updated-consumer"
+    ],
+    "objects": [],
+    "outcomes": [
+      "The declared HTTP and Kafka relationships are retained with related process views; target resolution, network result, scheduling, provider delivery and message delivery are not established here."
+    ],
+    "participants": [
+      "dashboard",
+      "places",
+      "forecasts"
+    ],
+    "scope": "Dashboard.requestRefresh and its proposed Places.Refresh mapping, linked to the place-requested publisher, Forecasts consumer/publisher, and Dashboard consumer views.",
+    "thread": {
+      "$clewRef": "sha256:6a438be677a59c21292e5dcf478e91e026389972769480c63ea2dc2a0dd00abe"
+    },
+    "trigger": "A caller enters the source-declared Dashboard.requestRefresh handler."
+  }
+}

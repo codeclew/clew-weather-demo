@@ -1,0 +1,39 @@
+{
+  "identity": "sha256:1b19be39e13fad55d3972231a08c06573a8375afc5a70275bd3918561d39deed",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "id": "forecasts-publish-pending",
+    "interactions": [
+      "forecasts-forecast-updated-to-dashboard"
+    ],
+    "maxDepth": 4,
+    "maxNodes": 64,
+    "process": {
+      "linkedSubviews": [
+        "dashboard-forecast-updated-consumer"
+      ],
+      "objects": [],
+      "outcomes": [
+        "No pending row returns without publishing. A selected row is sent to Kafka and marked in the database transaction; failure or a crash can leave it eligible for replay."
+      ],
+      "participants": [
+        "forecasts",
+        "dashboard"
+      ],
+      "scope": "Forecasts.publishPending outbox selection, broker send, and database publication marking.",
+      "trigger": "The source-declared publishPending entrypoint is invoked; runtime scheduling activation is unverified."
+    },
+    "root": {
+      "selector": {
+        "language": "kotlin",
+        "name": "publishPending",
+        "owner": "class:weather.Forecasts",
+        "parameterTypes": []
+      },
+      "service": "forecasts"
+    },
+    "schema": "codeclew-documentation-process/1.0",
+    "summary": "Source-level view of Forecasts.publishPending and the forecast outbox transaction.",
+    "title": "Publish pending forecast updates"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "identity": "sha256:e62fbda8d5d96322271b069e10d5ae0f6a85b9719c6a4b41194e36b8f702bc14",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "CALL_TARGETS_UNRESOLVED",
+      "NO_BEAN_OWNER",
+      "RUNTIME_REGISTRATION_UNPROVEN",
+      "SOURCE_NAMES_NOT_COMPILER_RESOLVED"
+    ],
+    "dependencyIds": [
+      "forecasts:symbol:59f31d25c0ed89f258aed3fe",
+      "forecasts:source_annotations:59f31d25c0ed89f258aed3fe"
+    ],
+    "id": "forecasts-c91896e4eb5ce5155f3d",
+    "kind": "HTTP_ENDPOINT",
+    "service": "forecasts",
+    "sourceIds": [
+      "forecasts-59f31d25c0ed89f258ae"
+    ],
+    "symbol": "source:services/forecasts/src/main/kotlin/weather/ForecastController.kt/class:weather.ForecastController/get/e14be87877b119f7e216",
+    "trigger": {
+      "$clewRef": "sha256:70387362d02a658fc9fd1cfc443b90596e223627325baae67c3086d1e5679680"
+    }
+  }
+}

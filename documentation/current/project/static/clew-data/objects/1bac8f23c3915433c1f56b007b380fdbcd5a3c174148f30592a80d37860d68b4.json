@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:1bac8f23c3915433c1f56b007b380fdbcd5a3c174148f30592a80d37860d68b4",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:f677f7caa029c76cb7c93f15395a92efc0f78608f7288cc859df5018b17a63cd"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The query selects place_id AS id, name, latitude, longitude and forecast. It does not select updated_at separately; a card can have null forecast until a forecast is accepted.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

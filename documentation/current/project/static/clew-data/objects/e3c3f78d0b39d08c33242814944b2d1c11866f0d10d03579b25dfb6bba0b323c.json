@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:e3c3f78d0b39d08c33242814944b2d1c11866f0d10d03579b25dfb6bba0b323c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:040dcf86edd8b30ebae68ceb519337686b87e304aa01605c54feefd14f94ebd7"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Last accepted forecast",
+    "title": "Authored readable name (agent proposal)",
+    "tone": null
+  }
+}

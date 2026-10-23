@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:be397e21bf9f76b1c275f2fab401f5508848f5a72646e5a4f8621cd15edb350f",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:d75a90ff729e0d27ec39ec124bb902df962d936a715900a03a93dd170a51ee07"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Dashboard constructs POST ${placesUrl}/places, with Compose/default http://places:8080. Places declares HttpPost(\"/places\") and reads SavePlace.CityId. This is the declared receiver pairing; runtime routing, model binding and delivery remain unverified.",
+    "title": "Save a city: source interpretation",
+    "tone": null
+  }
+}

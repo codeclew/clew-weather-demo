@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:01b1ac3cc791243dafd4ecdd1334daa9fd1b6311107fa55ec7dbab0d8e0d9770",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:ba2d6311a6e883cdef8b27c663b65439905cf808644df35545a360b610d888b5"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Place.Longitude is derived from the literal supported-city lookup record, not supplied by the HTTP client. The request CityId selects that record; an unsupported key returns null and the handler returns 400 before persistence. The selected event contract describes these canonical Place fields; this stage has not emitted an event.",
+    "title": "Save a city: source interpretation",
+    "tone": null
+  }
+}

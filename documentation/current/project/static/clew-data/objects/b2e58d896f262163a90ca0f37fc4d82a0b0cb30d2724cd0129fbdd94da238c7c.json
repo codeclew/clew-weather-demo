@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:b2e58d896f262163a90ca0f37fc4d82a0b0cb30d2724cd0129fbdd94da238c7c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "linkedSubviews": [
+      "forecasts-publish-pending"
+    ],
+    "objects": [],
+    "outcomes": [
+      "Retain the source-described missing/expired selection, cached return, fixture/live provider, response and transform branches, and persistence/outbox outcomes."
+    ],
+    "participants": [
+      "forecasts"
+    ],
+    "scope": "Forecasts.refreshExpired and the shared Forecasts.refresh provider/cache/persistence path.",
+    "trigger": "The source-declared refreshExpired entrypoint is invoked; whether the scheduler activates it at runtime is not established by this snapshot."
+  }
+}

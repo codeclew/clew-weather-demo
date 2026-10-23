@@ -1,0 +1,46 @@
+---
+title: "exercises/validator-regression.mjs:1–23"
+slug: "/sources/4e79263abf80fbf833432043cb6b74035cf46f395ad731ee204419fb513afed2"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# exercises/validator-regression.mjs:1–23
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6
+
+Text digest: sha256:36125adc79657a5eff8653df8917e71536dd17589608d907cf20764e791c014d
+
+## Retained text {#retained-text}
+
+```text
+import assert from 'node:assert/strict'
+import { validateEvent as original } from './unchecked-place-forecast.ts'
+import { validateEvent as corrected } from '../services/dashboard/src/events.ts'
+
+const place = { id: 'oslo', name: 'Oslo', latitude: 59.91, longitude: 10.75 }
+const request = { id: 'validator-regression', type: 'place.requested', version: 1, place }
+const unchecked = { ...request, forecast: { arbitrary: 'unchecked' } }
+assert.equal(original(unchecked, 'weather.place-requested'), unchecked)
+assert.throws(() => corrected(unchecked, 'weather.place-requested'), /INVALID_PLACE_EVENT/)
+assert.equal(corrected(request, 'weather.place-requested'), request)
+assert.throws(() => corrected(request, 'unknown-topic'), /UNKNOWN_TOPIC/)
+
+const timestamp = '2026-10-12T12:00:00Z'
+const forecast = {
+  id: 'forecast-regression', type: 'forecast.updated', version: 1, place,
+  forecast: { updatedAt: timestamp, fetchedAt: timestamp, mode: 'fixture', periods: [
+    { time: timestamp, temperatureC: 0, precipitationMm: null, symbol: 'cloudy' }
+  ] }
+}
+assert.equal(corrected(forecast, 'weather.forecast-updated'), forecast)
+assert.throws(() => corrected({ ...forecast, forecast: { ...forecast.forecast, updatedAt: 0 } },
+  'weather.forecast-updated'), /INVALID_FORECAST/)
+console.log(JSON.stringify({ status: 'PASSED', assertions: 6, runtime: process.version }))
+
+```
+
+<ClewDownload path="/clew-data/objects/4e79263abf80fbf833432043cb6b74035cf46f395ad731ee204419fb513afed2.json">Complete original source binding</ClewDownload>

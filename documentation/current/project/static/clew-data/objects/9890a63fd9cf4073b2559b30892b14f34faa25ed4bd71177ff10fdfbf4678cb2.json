@@ -1,0 +1,39 @@
+{
+  "identity": "sha256:9890a63fd9cf4073b2559b30892b14f34faa25ed4bd71177ff10fdfbf4678cb2",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    {
+      "anchor": "question-apply",
+      "label": "dashboard forecast updated consumer",
+      "subject": "scenario:dashboard-forecast-updated-consumer"
+    },
+    {
+      "anchor": "question-update",
+      "label": "forecasts place requested consumer",
+      "replacesServiceEntities": "forecasts",
+      "subject": "scenario:forecasts-place-requested-consumer"
+    },
+    {
+      "anchor": "question-save",
+      "label": "forecasts refresh scheduled",
+      "replacesServiceEntities": "forecasts",
+      "subject": "scenario:forecasts-refresh-scheduled"
+    },
+    {
+      "anchor": "question-record",
+      "label": "forecasts publish pending",
+      "replacesServiceEntities": "forecasts",
+      "subject": "scenario:forecasts-publish-pending"
+    },
+    {
+      "anchor": "section-entities",
+      "label": "dashboard: field descriptions",
+      "subject": "service:dashboard"
+    },
+    {
+      "anchor": "section-entities",
+      "label": "forecasts: field descriptions",
+      "subject": "service:forecasts"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:3fd6e0154de0e76dd7f5030fd6198b1f6fcb97f00c9d7d4ba454f60a75b32969",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 17,
+    "evidenceDigest": "sha256:b91ac1b6efc41d79a55e8eafc7a491bd914c7c48eae67caab40bdc24f159b521",
+    "file": "services/forecasts/src/main/kotlin/weather/ForecastController.kt",
+    "id": "forecasts-77706d418ba7932d0d3f",
+    "occurrence": {
+      "blob": "d47ffdb98963d778367a656d920d2f938da883ed",
+      "endByte": 777,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 659
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 16,
+    "text": "@GetMapping(\"/health\")\n    fun health(): Map<String, String> { forecasts.ping(); return mapOf(\"database\" to \"READY\") }",
+    "textDigest": "sha256:0d2c3ad4170b1f645788156defa7ad5c1dbf690a777abab6cda1e50b3f69bde8",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/ForecastController.kt#L16-L17"
+  }
+}

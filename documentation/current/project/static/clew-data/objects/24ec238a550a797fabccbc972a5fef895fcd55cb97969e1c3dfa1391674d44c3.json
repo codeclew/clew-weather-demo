@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:24ec238a550a797fabccbc972a5fef895fcd55cb97969e1c3dfa1391674d44c3",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:ed850650be3156ac625369adcc701431eb9fae15bac8278a246c21471a3dc79c"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The forecast branch requires updatedAt to pass isTimestamp before applyEvent uses it for ordering.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

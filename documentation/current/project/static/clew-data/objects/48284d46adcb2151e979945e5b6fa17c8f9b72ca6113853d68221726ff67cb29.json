@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:48284d46adcb2151e979945e5b6fa17c8f9b72ca6113853d68221726ff67cb29",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:4ce24b656c13c11ebdd0b52554cedabf9f04ccbdd733f1fc84ea1013be7b9cff"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "validateEvent returns the same event object after its checks; consumeMessage then awaits applyEvent(event). The selected child fields travel in that object, while applyEvent reads or serializes them separately.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

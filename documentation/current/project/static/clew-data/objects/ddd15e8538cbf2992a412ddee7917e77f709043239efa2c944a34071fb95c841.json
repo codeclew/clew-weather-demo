@@ -1,0 +1,31 @@
+{
+  "identity": "sha256:ddd15e8538cbf2992a412ddee7917e77f709043239efa2c944a34071fb95c841",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "fragment": {
+      "dependencyIds": [
+        "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+        "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+      ],
+      "id": "claim-7f7f4bd35f189e470f38",
+      "kind": "note",
+      "sourceIds": [
+        "forecasts-ad28a606f0881dfe7cfc"
+      ],
+      "text": "If an exception exits the transaction call, execution does not reach the following acknowledge statement. This source view does not determine rollback or delivery outcomes."
+    },
+    "kind": "RETAINED_CLAIM",
+    "operation": "forecasts-place-requested-consumer",
+    "sourceContext": {
+      "$clewRef": "sha256:055fbc53fa5e386da69c07f2e57f7493e9a9334b274e50c79ba36522ed520107"
+    },
+    "sources": {
+      "$clewRef": "sha256:ece04c237a5ece3301bd67359a7f866dfb66ae729987ed4428849b9b49920ca3"
+    },
+    "state": {
+      "$clewRef": "sha256:f7e42ad5b473c8bcce1aa240a97a1ef0f124a9625011c2ac4db758c3a6e502d0"
+    },
+    "subject": "scenario:forecasts-place-requested-consumer",
+    "title": "Forecasts consumes proposed place-requested events"
+  }
+}

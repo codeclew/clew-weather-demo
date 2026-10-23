@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:24c5430c8ef9c4b12110d42908a0c0b363063cfd51ab4904819ad53131545605",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 14,
+    "evidenceDigest": "sha256:695737a866e4a5f5351be2c1761b17031006df8d4e5de2e92d2bd2b4ea945816",
+    "file": "fixtures/provenance.json",
+    "id": "forecasts-fffb2d68afb1381e47f6",
+    "occurrence": {
+      "blob": "535855e4e93ecaeae83c030482e8f3fc0292b378",
+      "endByte": 572,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 0
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 1,
+    "text": "{\n  \"schema\": \"weather-fixture-provenance/1.0\",\n  \"provider\": \"MET Norway\",\n  \"license\": \"CC BY 4.0\",\n  \"licenseUrl\": \"https://creativecommons.org/licenses/by/4.0/\",\n  \"sourceUrl\": \"https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=59.93&lon=10.72\",\n  \"recordedResponse\": \"met-oslo-recorded.json\",\n  \"fixtureDerivations\": {\n    \"oslo\": \"first six recorded points\",\n    \"helsinki\": \"synthetic zero-temperature boundary derived from recorded structure\",\n    \"lisbon\": \"synthetic temperature values derived from recorded structure\"\n  },\n  \"liveWeather\": false\n}\n",
+    "textDigest": "sha256:414e27ffff0ec31ee87be9a2d13fdaab70d56b4d22d5e00e5a9885a47af47c23",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/fixtures/provenance.json#L1-L14"
+  }
+}

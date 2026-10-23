@@ -1,0 +1,27 @@
+{
+  "identity": "sha256:b9c23d0f98fdba75ef70a218a43cf23a5594b6744bceacb9c2d173dd4d8e83dc",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "id": "forecasts-refresh-scheduled",
+    "interactions": [
+      "forecasts-refresh-to-external-met"
+    ],
+    "maxDepth": 4,
+    "maxNodes": 64,
+    "process": {
+      "$clewRef": "sha256:b2e58d896f262163a90ca0f37fc4d82a0b0cb30d2724cd0129fbdd94da238c7c"
+    },
+    "root": {
+      "selector": {
+        "language": "kotlin",
+        "name": "refreshExpired",
+        "owner": "class:weather.Forecasts",
+        "parameterTypes": []
+      },
+      "service": "forecasts"
+    },
+    "schema": "codeclew-documentation-process/1.0",
+    "summary": "Source-level view of the refreshExpired entrypoint and its shared refresh path; runtime scheduling activation is unverified.",
+    "title": "Refresh cached and provider forecasts"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:1bf02d955c7a1f22b5478a9338ccaf4aab10bdee69b8e5d7e9588aa3eeb88fe3",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:4f947bd7e2c563bb40a9ba958dd74a87ad72799e4ae3795a598449a34cb88ace"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The longitude literal in the selected record; this lookup does not calculate it. Source property: Place.Longitude, C# double.",
+    "title": "City lookup: source interpretation",
+    "tone": null
+  }
+}

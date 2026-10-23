@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:724806b7801a77268b7cf0cb0ea3ec87dada86dff005cbc818cee0b8cb3219ae",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+      "forecasts:source_annotations:3d7b217355f2e6a34064e800",
+      "forecasts:source_scope:a94d30979421b6ddbba5e94b",
+      "forecasts:symbol:04bc0feeea5752d3f1979c56",
+      "forecasts:symbol:3d7b217355f2e6a34064e800"
+    ],
+    "id": "claim-f4cf94d762a6b8c11cdb",
+    "sourceIds": [
+      "forecasts-04bc0feeea5752d3f197",
+      "forecasts-27cca3456e62e8b1d498",
+      "forecasts-3d7b217355f2e6a34064",
+      "forecasts-7d79014f99ba83eadfd7",
+      "forecasts-cf87224657914cc333f2"
+    ],
+    "text": "When refresh is needed, fixture mode reads /app/fixtures/{id}.json. Live mode requires FORECAST_MODE=live and a nonblank MET_USER_AGENT, truncates coordinates toward zero to four decimal places, and sends GET to the MET locationforecast compact endpoint with a 20-second timeout, User-Agent, gzip acceptance, and If-Modified-Since when cached metadata exists. A 304 with a cached row updates expiry and returns; only 200 and 203 continue to parse the response. The source derives expiry from Expires or defaults to one hour, uses Retry-After for a 429 with a 60-second minimum, and keeps per-place retry times in memory. It extracts at most six periods, requires numeric temperature and a nonempty period list, parses updatedAt, and attempts an upsert whose predicate accepts equal or newer updatedAt values; an older incoming value leaves the stored row unchanged. The source then attempts the forecast.updated outbox insert. These are source paths; no live provider call was made.\n\nAfter the forecast upsert, the source attempts an outbox row keyed by place id and updatedAt, with type forecast.updated, version 1, place, and forecast. The scheduled publisher selects at most one unpublished row ordered by id with FOR UPDATE SKIP LOCKED, sends weather.forecast-updated using place id as the Kafka key, waits up to 10 seconds, then marks the row published inside the transaction callback. It logs PUBLISH_RETRY on caught failures. A send that completes before a later database failure can leave the row eligible for another attempt; Kafka and PostgreSQL atomicity and runtime transaction behavior are not established."
+  }
+}

@@ -1,0 +1,105 @@
+---
+title: "A hidden forecast slips through an unchecked exercise"
+slug: "/notes/dashboard--assessment-runtime-validator-node24"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# A hidden forecast slips through an unchecked exercise
+
+<ClewPageContext />
+
+Original record: **validator-node24.json** · mixed
+
+## Historical runtime observation
+
+**Reported result: PASSED** · Repository revision `8d69f2b1d4a6d9770f87c720cd665dab30081815`
+
+6 assertions recorded · Node version: **v24.21.0**
+
+Imported, unverified record. This page does not report a current execution, compiler verification, or a general runtime guarantee.
+
+## Separate agent assessment
+
+**Assessment conclusion: CONSISTENT** · Assessed label: v24.21.0
+
+Input binding: matches displayed capture · Meaning review: UNASSESSED · Freshness: UNVERIFIED
+
+An unchecked place-event exercise accepts a place.requested event carrying arbitrary forecast data. On the production weather.place-requested path, validateEvent rejects that shape as INVALID\_PLACE\_EVENT because forecast must be absent. This difference is the contract gap the case is designed to expose.
+
+From the repository root, run node exercises/validator-regression.mjs. The imported Node v24.21.0 observation records six passing assertions: the exercise accepts that shape; production rejects it; a valid place event returns unchanged; an unknown topic yields UNKNOWN\_TOPIC; a forecast with 0°C and null precipitation returns unchanged; and numeric updatedAt=0 yields INVALID\_FORECAST. Production forecast validation checks updatedAt, fetchedAt and every period.time with isTimestamp: a UTC-shaped string with optional fractional seconds and a trailing Z must also parse to a finite date. Temperatures may be any finite value, including zero; precipitation may be null or finite and nonnegative.
+
+A bounded Codeclew Work places the exercise, production validator, timestamp helper and imported note in one recorded context with exact source text, making this comparison inspectable. The note records Node v24.21.0, an official-checksum-matched Node asset and repository revision 8d69f2b1d4a6d9770f87c720cd665dab30081815; the captured source excerpts are from revision e635069293d58cb0d4f28c8211e748b8d58e6b37. This is imported historical evidence, not a fresh Node or compiler run. The six assertions omit null-period input; the excerpts do not establish every branch, universal calendar validity, automatic runtime discovery or a general runtime guarantee.
+
+- [services/dashboard/src/events.ts:10–29 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/afddedfc8054e8c5495b73e95e3924f7b15f90f9b73caf09d7c1b7cdda664830.mdx)
+- [exercises/unchecked-place-forecast.ts:6–23 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0.mdx)
+- [services/dashboard/src/events.ts:6–8 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/f595401e33ffe1c87198d3297a901422e3d449fe00dd98adddc17aaca283d70e.mdx)
+
+Classification and original text remain human/imported declarations. Evidence tracking covers captured inputs; it cannot establish every implicit claim in arbitrary prose.
+
+<details>
+<summary>Original record · validator-node24.json</summary>
+
+Original text captured at this publication; human/imported authority, not a verified fact
+
+Captured text digest: `sha256:926c9ba7fc3e31b231ebf00713ec1b8a172ca82c05a47924afc6e3e39c1d14c8`
+
+```text
+{
+  "schema": "clew-weather-runtime-observation/1.0",
+  "id": "validator-node24",
+  "origin": "LOCAL_TEST_OBSERVATION",
+  "compilerEvidence": false,
+  "originalRecordSha256": "dd0db06bc40207580d6c1097e68fff4d0fe696172e7d861fe528e98468bc218a",
+  "status": "PASSED",
+  "nodeVersion": "v24.21.0",
+  "assetSha256": "bed7eea5325e1108f32ce5228ddd6a5f0f08a499ee42aa7442aea583702f6057",
+  "officialChecksumMatched": true,
+  "exerciseResult": {
+    "status": "PASSED",
+    "assertions": 6,
+    "runtime": "v24.21.0"
+  },
+  "repositoryRevision": "8d69f2b1d4a6d9770f87c720cd665dab30081815"
+}
+
+```
+
+
+</details>
+
+<details>
+<summary>Original metadata and associations</summary>
+
+```json
+{
+  "association": {
+    "classification": "mixed",
+    "id": "runtime-validator-node24",
+    "metadata": {
+      "compilerEvidence": false,
+      "sourceSha256": "0b92cf23a6811f7044e0c7a86d99c694638f63bab2f59b3376565bf1616ab2de"
+    },
+    "path": "notes/runtime-validator-node24.md",
+    "period": "v24.21.0",
+    "schema": "codeclew-documentation-note-association/1.0",
+    "service": "dashboard",
+    "tags": [
+      "imported-context"
+    ],
+    "targets": [
+      "service:dashboard/section-overview"
+    ],
+    "title": "validator-node24.json"
+  },
+  "associationDigest": "sha256:52cccdaf98a9bf20eebd3c488ec399bf7cb7f548aa89cbec02cbb822443a371a",
+  "authority": "HUMAN_OR_IMPORTED_UNVERIFIED",
+  "missingTargets": []
+}
+```
+
+
+</details>
+
+[Return to service context](../services/dashboard.mdx#assessment-runtime-validator-node24)

@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:7946d3df368c4c16175b91516f860fd536386ab5609e2c17975bf5cfe19f12ed",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:085e0e6e9e58c578001f3b0ea164d58e210c35211904501db9c9d4440b16f23c"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "A supported city key used to identify the place and route refreshes. It is distinct from an event ID.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

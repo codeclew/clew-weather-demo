@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:bedf73e95f382eb3936a5a86b42894628a64066989e1b6e774799527f0f35519",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:83f44b8ff28003c824938f06a61db62297b2688482bee422b00caeebddf60df7"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The forecast branch requires an array with one to six Period elements.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:6c58485da812d2fb47f41203a14d9a612173093fe8060766dfc2611232a7a0e5",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:487d1991a7544d693967443a3f5f01618319e023707fd39428ebba27c285c48c"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The declared Places POST /places 200 JSON schema requires name. The shown handler returns the selected Place through Ok(city), after awaited Save; Place.Name to JSON.name is the source interpretation of this representation. Dashboard parses and forwards the whole body. The browser checks response.ok without reading these returned Place properties. Actual wire conformance is unverified.",
+    "title": "Declared HTTP response and static source mapping",
+    "tone": null
+  }
+}

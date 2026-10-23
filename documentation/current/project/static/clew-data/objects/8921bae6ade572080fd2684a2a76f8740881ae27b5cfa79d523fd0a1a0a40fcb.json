@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:8921bae6ade572080fd2684a2a76f8740881ae27b5cfa79d523fd0a1a0a40fcb",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 69,
+    "evidenceDigest": "sha256:e766553b4fafdc5f8d7543cd21d740924684e302ab3ebfde15fa490ec8277b3d",
+    "file": "services/dashboard/src/main.ts",
+    "id": "dashboard-0a52ae14321115b04649",
+    "occurrence": {
+      "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+      "endByte": 3421,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 3252
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 69,
+    "text": "fetch(`${placesUrl}/places`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(request.body), signal: AbortSignal.timeout(10000) })",
+    "textDigest": "sha256:54b4153ec41a4d9137226bafc9203b376edd1683cf24243c168c12680c103020",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L69-L69"
+  }
+}

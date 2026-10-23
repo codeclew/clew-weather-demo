@@ -1,0 +1,39 @@
+---
+title: "Places POST /places request (declared)"
+slug: "/contracts/save-city-request"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Places POST /places request (declared)
+
+Declared contract · runtime conformance is not established.
+
+Exact pointer:
+
+```text
+/paths/~1places/post/requestBody/content/application~1json/schema
+```
+
+[contracts/places.openapi.json:1–263 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959.mdx)
+
+## Properties {#properties}
+
+Requiredness follows the selected branch and required parents. Required and nullable are separate.
+
+### cityId
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "enum": [
+    "oslo",
+    "helsinki",
+    "lisbon"
+  ],
+  "type": "string"
+}
+```
+

@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:04da2eb230b51329915ed0621756fa000fe87f6b92989357a86388c615098e7d",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:6690ed6811c2ba46c762fed0c60edaacf5c07ff72575dfa7f4ae340d9f687c82"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "A supported location for which the system requests and presents weather information.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

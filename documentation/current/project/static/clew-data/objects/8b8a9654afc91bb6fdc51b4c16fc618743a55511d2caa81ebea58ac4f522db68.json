@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:8b8a9654afc91bb6fdc51b4c16fc618743a55511d2caa81ebea58ac4f522db68",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 83,
+    "evidenceDigest": "sha256:0eea82bb91a27c9eb14b7d4c27a35efed526433faf26da123a593b7659563096",
+    "file": "compose.yaml",
+    "id": "dashboard-67fd8b5d5f69c5f96061",
+    "occurrence": {
+      "blob": "7b5bc183dc5a5f6c151f56519adc0bf29059b721",
+      "endByte": 2942,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 0
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 1,
+    "text": "name: clew-weather-demo\nservices:\n  postgres:\n    image: postgres:18.3\n    environment:\n      POSTGRES_USER: weather\n      POSTGRES_PASSWORD: weather\n    volumes:\n      - weather-data:/var/lib/postgresql\n      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro\n    healthcheck:\n      test: [CMD-SHELL, pg_isready -U weather]\n      interval: 3s\n      timeout: 3s\n      retries: 30\n  kafka:\n    image: apache/kafka:4.1.2\n    environment:\n      KAFKA_NODE_ID: 1\n      KAFKA_PROCESS_ROLES: broker,controller\n      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093\n      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092\n      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT\n      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER\n      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093\n      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1\n      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1\n      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1\n      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'\n    healthcheck:\n      test: [CMD-SHELL, '/opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list']\n      interval: 5s\n      timeout: 10s\n      retries: 30\n  kafka-init:\n    image: apache/kafka:4.1.2\n    entrypoint: [\"/bin/bash\", \"-ec\"]\n    command:\n      - |\n        for topic in weather.place-requested weather.forecast-updated; do\n          /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --create --if-not-exists --topic \"$$topic\" --partitions 1 --replication-factor 1\n          /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --describe --topic \"$$topic\"\n        done\n    depends_on:\n      kafka: {condition: service_healthy}\n  places:\n    build:\n      context: .\n      dockerfile: services/places/Dockerfile\n    environment:\n      DATABASE_URL: Host=postgres;Database=places;Username=weather;Password=weather\n      KAFKA_BOOTSTRAP: kafka:9092\n    ports: ['127.0.0.1:8081:8080']\n    depends_on:\n      postgres: {condition: service_healthy}\n      kafka-init: {condition: service_completed_successfully}\n  forecasts:\n    build:\n      context: .\n      dockerfile: services/forecasts/Dockerfile\n    environment:\n      DATABASE_URL: jdbc:postgresql://postgres:5432/forecasts\n      KAFKA_BOOTSTRAP: kafka:9092\n      FORECAST_MODE: ${FORECAST_MODE:-fixture}\n      MET_USER_AGENT: ${MET_USER_AGENT:-}\n    ports: ['127.0.0.1:8082:8080']\n    depends_on:\n      postgres: {condition: service_healthy}\n      kafka-init: {condition: service_completed_successfully}\n  dashboard:\n    build:\n      context: .\n      dockerfile: services/dashboard/Dockerfile\n    environment:\n      DATABASE_URL: postgres://weather:weather@postgres:5432/dashboard\n      KAFKA_BOOTSTRAP: kafka:9092\n      PLACES_URL: http://places:8080\n    ports: ['127.0.0.1:8080:8080']\n    depends_on:\n      postgres: {condition: service_healthy}\n      kafka-init: {condition: service_completed_successfully}\nvolumes:\n  weather-data:\n",
+    "textDigest": "sha256:76d5d8226d233a558b901a06887bcce216e4738778edff8462367d827169c167",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/compose.yaml#L1-L83"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:25cde8c46345f67133fef59c054bc9ecdfb9f872317107e1427fa1cb3a51d583",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 11,
+    "evidenceDigest": "sha256:49505fa60e7e98e3db1bc1bb4dd9f0ccb689ad07e28b37771bdc7a953d98578c",
+    "file": "services/places/PlacesRepository.cs",
+    "id": "places-7724db239cdcb4e08a8d",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "places",
+    "startLine": 11,
+    "text": "        \"lisbon\" => new(\"lisbon\", \"Lisbon\", 38.72, -9.14),",
+    "textDigest": "sha256:69066ff8dd343747643341dfeae4b4f10a4208df33ea8780254e1459220b95b9",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L11-L11"
+  }
+}

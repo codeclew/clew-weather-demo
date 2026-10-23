@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:70355b186230a34d09f8f823d6cb3a4e0497ca2ff2e6b56e42613fe44b459e5f",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:60b9c75f1383c90694af3311dfbb5f6532aaea6d286a6a3ef94a4d96ce36b60b"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "validatePlaceEvent checks the event envelope, supported place ID, nonblank name and numeric coordinates. Its coordinate checks do not enforce the contract latitude/longitude ranges.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

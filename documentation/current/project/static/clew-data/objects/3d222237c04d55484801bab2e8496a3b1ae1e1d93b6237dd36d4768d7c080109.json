@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:3d222237c04d55484801bab2e8496a3b1ae1e1d93b6237dd36d4768d7c080109",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    "interaction:places-place-requested-to-dashboard",
+    "interaction:places-place-requested-to-forecasts",
+    "places:flow:032367f1009e7c658244fb06",
+    "places:flow:052f3ca60ea3aeb0ce90717c",
+    "places:flow:096b7f6a391d982235e434ce",
+    "places:flow:158b244bf277169193530f80",
+    "places:flow:265aa313d2e9e405afaaaf6d",
+    "places:flow:8a873db759d917d427062da6",
+    "places:flow:a76a64b88dac4f141cb1d1ad",
+    "places:flow:cc00c8dcc5dc7d9e6eb271ae",
+    "places:flow:e303a7a61c15330ea8f811cb",
+    "places:symbol:7fb8137cf82d592b243e54aa",
+    "process-component:places-request-publisher:dashboard-place-requested-consumer",
+    "process-component:places-request-publisher:forecasts-place-requested-consumer",
+    "process-scope:places-request-publisher",
+    "process:places-request-publisher",
+    "scenario:places-request-publisher"
+  ]
+}

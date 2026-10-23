@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:825ddc7f1f2e88b807525e631d1be74c749b0ff81230cd0ca7eb661e6975f95d",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:040dcf86edd8b30ebae68ceb519337686b87e304aa01605c54feefd14f94ebd7"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Location longitude returned with the card.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

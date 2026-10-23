@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:3a60a6669a1771b86c79681eb9c3952ea198c73930638616b70a2d79cab82c63",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 14,
+    "evidenceDigest": "sha256:3f69a982f62dca1481e9c02de44d19ec36dd7b84b5b82787da032e0566bc9c49",
+    "file": "exercises/unchecked-place-forecast.ts",
+    "id": "dashboard-265d81ab12712d1b22bf",
+    "occurrence": {
+      "blob": "6f2194a87f69be18be06c36b2e922debcbff3273",
+      "endByte": 1126,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 1090
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 14,
+    "text": "Date.parse(event.forecast.fetchedAt)",
+    "textDigest": "sha256:20e8dd8f20ebf37b26fe477c2adc4b5cc2fb18a1bd665b75ff1d8841b5f09de1",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/exercises/unchecked-place-forecast.ts#L14-L14"
+  }
+}

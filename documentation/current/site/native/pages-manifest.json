@@ -1,0 +1,1123 @@
+{
+  "authoredTranslationComplete": true,
+  "authoredTranslationGaps": {},
+  "authority": "FROZEN_NARRATIVES_WITH_SEPARATE_SELECTED_SNAPSHOT_EVIDENCE",
+  "bindingsClosure": {
+    "copyRequirement": "Copy the manifest and every object in its declared closure; source publication and authoring backups remain separate.",
+    "digest": "sha256:6648872b36982e93fedbc29950a6efcc5a41934c75589ac8a0dec2a072521945",
+    "manifest": "frozen-bindings.json",
+    "objectRoot": "docs/evidence/objects",
+    "schema": "codeclew-documentation-bindings/1.6"
+  },
+  "contextDigest": "sha256:9ccf913e21f2edd096b2e7a9858e543668cbd72211e2b1c54c15d52d2dd866dd",
+  "dataModelReadingProfile": true,
+  "declaredContractTranslationComplete": true,
+  "declaredContractTranslationGaps": {},
+  "documentationLanguage": "en",
+  "exportIdentity": "sha256:5f1c704e7bd577660bac0ea0a1db190b2978dea1b723df63286d579f92f1e7de",
+  "files": [
+    {
+      "digest": "sha256:18e5e19c32ab0327c1c19acb9487f7b7998f98e2aa499c36d83e1b59c14f72e6",
+      "path": "catalog.html"
+    },
+    {
+      "digest": "sha256:8dff050b4e575788291fb4b9161fb2617a3985c33dd7592849765449622b38db",
+      "path": "contracts/forecast-updated.original.json"
+    },
+    {
+      "digest": "sha256:690fa2f8bb82b379a6392490b17037589d036208cdd23c1509f183451b8a4bb2",
+      "path": "contracts/place-requested.original.json"
+    },
+    {
+      "digest": "sha256:35dca983916faa15b49a4d19e5e5e0782d8997039d6193c3e41c6156d5191618",
+      "path": "contracts/save-city-request.original.json"
+    },
+    {
+      "digest": "sha256:35fef5994e7f03dd62040d729b8c453ddd16067fa3ab96b3b02e1a6bae2c61ae",
+      "path": "contracts/save-city-response.original.json"
+    },
+    {
+      "digest": "sha256:50e9180ef8af0926dae1f7f760f1eb3e0332cff636119c06a18db72aec195c1b",
+      "path": "data-model.html"
+    },
+    {
+      "digest": "sha256:580cc677255a173cae7c2975e764e4a0112532bb85021131c8c6b2ec5ea1aacb",
+      "path": "data-model.json"
+    },
+    {
+      "digest": "sha256:a088a0a469a372803de406d01254fe072c1b2bc83ae2119eec7f4a9d74e9948b",
+      "path": "data-model/city-lookup.html"
+    },
+    {
+      "digest": "sha256:317f83f9b24e8ec822297f24621e494b4ca33254194678ba82137826dbd36e96",
+      "path": "data-model/city-lookup.original.json"
+    },
+    {
+      "digest": "sha256:c9cb4b8de1ce9ebedc80e95943cf1b13d0089001d1b65219dc9e3d17b0366e2f",
+      "path": "data-model/forecast.html"
+    },
+    {
+      "digest": "sha256:7c2e926a9edbac4d16f81325ba34c4103ec15255e804b802112d3c9345668c3a",
+      "path": "data-model/forecast.original.json"
+    },
+    {
+      "digest": "sha256:810ec2b2bd3e399f6a5e2c9896875743c10fb9c2adc07ac0a89999103181ce77",
+      "path": "data-model/period.html"
+    },
+    {
+      "digest": "sha256:00729e82169c579cd93abd2ce09452a376feb94b7abef46c36bfb6b483ad07d4",
+      "path": "data-model/period.original.json"
+    },
+    {
+      "digest": "sha256:3c55df8e5c55843be9a37ab304831d8cbf48f9828d94f5156e16d15cfedce03c",
+      "path": "data-model/place.html"
+    },
+    {
+      "digest": "sha256:2f0a1a6feb8524014b4121759bf4c71891387b83e6ca084624a14c532d96d013",
+      "path": "data-model/place.original.json"
+    },
+    {
+      "digest": "sha256:7c81b9cd857951f171bb23d98f239717066e86caf180d95f050069b6919a383b",
+      "path": "data-model/save-city-request.html"
+    },
+    {
+      "digest": "sha256:d6596c64b773d89d618f23aa1f2c0b28a53cdc45f3aec210905768205510cfae",
+      "path": "data-model/save-city-request.original.json"
+    },
+    {
+      "digest": "sha256:bd59ee3169998caa43ee06f9945962105ab2bfe6b772ef4089cb5597185e5cf7",
+      "path": "data-model/weather-card.html"
+    },
+    {
+      "digest": "sha256:81e214954d63d743c2a12940a2aa03aa313cded3c61d8d26bb813ff6760171fc",
+      "path": "data-model/weather-card.original.json"
+    },
+    {
+      "digest": "sha256:d6a48375ff460c56ade0cd639aed5c41adb430b9bcdf84432e4f7ae9065eb489",
+      "path": "diagrams/scenario-dashboard-forecast-updated-consumer-dashboard-forecast-updated-consumer.mmd"
+    },
+    {
+      "digest": "sha256:35f5c0d9574535290bc545c474118d92f8efddacea4e61237720fc1de45ad403",
+      "path": "diagrams/scenario-dashboard-forecast-updated-consumer-process-overview.mmd"
+    },
+    {
+      "digest": "sha256:a32a0fc9acd19d1a003e6543a9576d47ea63ac84bbb547a9151f29f3b2687a35",
+      "path": "diagrams/scenario-dashboard-place-requested-consumer-dashboard-place-requested-consumer.mmd"
+    },
+    {
+      "digest": "sha256:35f5c0d9574535290bc545c474118d92f8efddacea4e61237720fc1de45ad403",
+      "path": "diagrams/scenario-dashboard-place-requested-consumer-process-overview.mmd"
+    },
+    {
+      "digest": "sha256:244c08e048c08a686afb47ea165484459de32af2a5a1e48289130a0ec887e05a",
+      "path": "diagrams/scenario-dashboard-refresh-request-dashboard-refresh-request.mmd"
+    },
+    {
+      "digest": "sha256:35f5c0d9574535290bc545c474118d92f8efddacea4e61237720fc1de45ad403",
+      "path": "diagrams/scenario-dashboard-refresh-request-process-overview.mmd"
+    },
+    {
+      "digest": "sha256:2cc00d8e6bf69da2bb4f6ab52e06329808cccacbdb09445dadc583ddc1d8e422",
+      "path": "diagrams/scenario-dashboard-save-city-dashboard-save-city.mmd"
+    },
+    {
+      "digest": "sha256:35f5c0d9574535290bc545c474118d92f8efddacea4e61237720fc1de45ad403",
+      "path": "diagrams/scenario-dashboard-save-city-process-overview.mmd"
+    },
+    {
+      "digest": "sha256:dafc53f3d104dbee2156770c83c95dfe40741274938da6d56ff4899da8f3be04",
+      "path": "diagrams/scenario-forecasts-place-requested-consumer-forecasts-place-requested-consumer.mmd"
+    },
+    {
+      "digest": "sha256:b52a28f55bee9848ab87952a8648f7fc39e85a01ab28da04af5f653704983475",
+      "path": "diagrams/scenario-forecasts-place-requested-consumer-process-outline-34c0d39227c959c7.puml"
+    },
+    {
+      "digest": "sha256:bd1fd2d78a8b82b245726a96999628adfa9d6ea147cfb184777196d3ca84cf63",
+      "path": "diagrams/scenario-forecasts-place-requested-consumer-process-outline-34c0d39227c959c7.svg"
+    },
+    {
+      "digest": "sha256:35f5c0d9574535290bc545c474118d92f8efddacea4e61237720fc1de45ad403",
+      "path": "diagrams/scenario-forecasts-place-requested-consumer-process-overview.mmd"
+    },
+    {
+      "digest": "sha256:2a63c4386bf8ab1d7e844c0b511d01a6847370651b55fad1db0a6fc6128154ac",
+      "path": "diagrams/scenario-forecasts-publish-pending-forecasts-publish-pending.mmd"
+    },
+    {
+      "digest": "sha256:02552e1e5c08b5c2edb32b789e3f0a47dc0948d84491da63862f58d5a8b816a6",
+      "path": "diagrams/scenario-forecasts-publish-pending-process-outline-ce0ef4972f0de714.puml"
+    },
+    {
+      "digest": "sha256:4d4924750a1e62ac03d0aa6ca5f17c3ed47caccb0e7545ba2a6371bdc027995e",
+      "path": "diagrams/scenario-forecasts-publish-pending-process-outline-ce0ef4972f0de714.svg"
+    },
+    {
+      "digest": "sha256:35f5c0d9574535290bc545c474118d92f8efddacea4e61237720fc1de45ad403",
+      "path": "diagrams/scenario-forecasts-publish-pending-process-overview.mmd"
+    },
+    {
+      "digest": "sha256:25d3fed69bbe35d318885d9822452cca09105e5b9dccddf6b0b01a01f525da66",
+      "path": "diagrams/scenario-forecasts-refresh-scheduled-forecasts-refresh-scheduled.mmd"
+    },
+    {
+      "digest": "sha256:e9fd6563306cb975e6c6be2466f30f29ac5937f5afd54ed47e5679f264b2bbaa",
+      "path": "diagrams/scenario-forecasts-refresh-scheduled-process-outline-980821141baf91ea.puml"
+    },
+    {
+      "digest": "sha256:32840a77bd72bd1e658225d33dfd4dfd192f37a5d8e505e1240d145ca5d56de7",
+      "path": "diagrams/scenario-forecasts-refresh-scheduled-process-outline-980821141baf91ea.svg"
+    },
+    {
+      "digest": "sha256:35f5c0d9574535290bc545c474118d92f8efddacea4e61237720fc1de45ad403",
+      "path": "diagrams/scenario-forecasts-refresh-scheduled-process-overview.mmd"
+    },
+    {
+      "digest": "sha256:38e4357519413204f89d7dde81eecf1ebc1fde4392969582bd6dd09a6ada6340",
+      "path": "diagrams/scenario-places-request-publisher-places-request-publisher.mmd"
+    },
+    {
+      "digest": "sha256:35f5c0d9574535290bc545c474118d92f8efddacea4e61237720fc1de45ad403",
+      "path": "diagrams/scenario-places-request-publisher-process-overview.mmd"
+    },
+    {
+      "digest": "sha256:8df576f43090fff0e0a93b968688431aca5d76ec6b16f9ed1c442f85531f5b76",
+      "path": "diagrams/service-dashboard-assessment-runtime-kafka-replay.mmd"
+    },
+    {
+      "digest": "sha256:8df576f43090fff0e0a93b968688431aca5d76ec6b16f9ed1c442f85531f5b76",
+      "path": "diagrams/service-dashboard-assessment-runtime-validator-node24.mmd"
+    },
+    {
+      "digest": "sha256:e2ae7269d048d3871c69f0839c9adb8f20e292e89692a720f0f2f61fd6bd1fd9",
+      "path": "diagrams/service-dashboard-dashboard-1d4aa83e0d1825825971.mmd"
+    },
+    {
+      "digest": "sha256:6e2c4b31f9707cb91df01a09e423ae007d8b05839e02191b76c92590ef74dd44",
+      "path": "diagrams/service-dashboard-dashboard-310371b6c91f276ad642.mmd"
+    },
+    {
+      "digest": "sha256:10a192e9e7b05ff39b526fc6073b987e26c62df55b95a91a628aba68797bde1c",
+      "path": "diagrams/service-dashboard-dashboard-32f3a8fe3000ac506a5a.mmd"
+    },
+    {
+      "digest": "sha256:d53d498a47940cb1f1b536cea4ed60ba6c093fa050d49bba4a77f042883d0acc",
+      "path": "diagrams/service-dashboard-dashboard-4301d0222c019e9d5339.mmd"
+    },
+    {
+      "digest": "sha256:87a4349190891d9cc2030cc7ea8d1e0138524070abf21d5bb4807cf54d2947a9",
+      "path": "diagrams/service-dashboard-dashboard-721012b8ddf1b26a39b9.mmd"
+    },
+    {
+      "digest": "sha256:1f7b20a7e2587f34acbc26843821e192de4df14c76d69d71f0c0630799c7975e",
+      "path": "diagrams/service-dashboard-dashboard-8f0c2429af695539e6cd.mmd"
+    },
+    {
+      "digest": "sha256:418d7323d290db38dd8d5048da4772a15ae2879fa9bfed2e522d7aa9adca076b",
+      "path": "diagrams/service-dashboard-dashboard-9e8af3ed64d9d5e72548.mmd"
+    },
+    {
+      "digest": "sha256:7288ca9267d1734f2626e2855eaabcebb9b48c10f60a7e568799b8a8facfbef5",
+      "path": "diagrams/service-dashboard-dashboard-aa92fac55661297c8e9a.mmd"
+    },
+    {
+      "digest": "sha256:5e2c556b013fa2be5379aef08550ac5049af07748ede4fbbd94a13cfe5148479",
+      "path": "diagrams/service-dashboard-dashboard-ad968c2137fedea90215.mmd"
+    },
+    {
+      "digest": "sha256:c5c3667953d53b206453c071acfbf24fe8da362e34fb707db02db3defe8b7d7d",
+      "path": "diagrams/service-dashboard-dashboard-d36957b096678dbe4785.mmd"
+    },
+    {
+      "digest": "sha256:c8d9588b4079adbb4c41af0e3a80a615eb2733a1036281f1c55572c90f005495",
+      "path": "diagrams/service-dashboard-dashboard-d527a6e620a1974b0e5a.mmd"
+    },
+    {
+      "digest": "sha256:4bde7ae055279128af6f828386df4dce8c123c2d618f59b8f39f4b21f2a691f0",
+      "path": "diagrams/service-dashboard-dashboard-f965de51f1f237949bc6.mmd"
+    },
+    {
+      "digest": "sha256:8df576f43090fff0e0a93b968688431aca5d76ec6b16f9ed1c442f85531f5b76",
+      "path": "diagrams/service-dashboard-section-egress.mmd"
+    },
+    {
+      "digest": "sha256:8df576f43090fff0e0a93b968688431aca5d76ec6b16f9ed1c442f85531f5b76",
+      "path": "diagrams/service-dashboard-section-entities.mmd"
+    },
+    {
+      "digest": "sha256:8df576f43090fff0e0a93b968688431aca5d76ec6b16f9ed1c442f85531f5b76",
+      "path": "diagrams/service-dashboard-section-ingress.mmd"
+    },
+    {
+      "digest": "sha256:8df576f43090fff0e0a93b968688431aca5d76ec6b16f9ed1c442f85531f5b76",
+      "path": "diagrams/service-dashboard-section-overview.mmd"
+    },
+    {
+      "digest": "sha256:8df576f43090fff0e0a93b968688431aca5d76ec6b16f9ed1c442f85531f5b76",
+      "path": "diagrams/service-dashboard-section-responsibilities.mmd"
+    },
+    {
+      "digest": "sha256:17792c1777fbffe35068ccb1e4dbf3b870fe32797eb1213371edf9ae63b494c8",
+      "path": "diagrams/service-forecasts-forecasts-23c1f84e75a5f47c4675.mmd"
+    },
+    {
+      "digest": "sha256:67f44971f05af48bac0176a907c0af8ede5b8980816e04f81173c308c89c4b0e",
+      "path": "diagrams/service-forecasts-forecasts-4e4e8e31400c498b7591.mmd"
+    },
+    {
+      "digest": "sha256:a7f6553dd393162f33d7dac6661c0f016f6c5b461e3fe57a98068ab0f1f27084",
+      "path": "diagrams/service-forecasts-forecasts-7113b27ca4694ebce3b6.mmd"
+    },
+    {
+      "digest": "sha256:065c91314e011bc3ef236ef7f1bc72e1c880bc55667d02e1cd79442fe0002b2b",
+      "path": "diagrams/service-forecasts-forecasts-a2617f9567b7eac19bf2.mmd"
+    },
+    {
+      "digest": "sha256:12e000d73decd127519e93d21b9b4b6a7b09e96fd2215e2481c59a94bbb9bbd5",
+      "path": "diagrams/service-forecasts-forecasts-bd578e14951373ddaddf.mmd"
+    },
+    {
+      "digest": "sha256:6a7ac37a7e1e708ff3902244ce37a8425158c2598dc1fd35fb2fe432a7ff20c6",
+      "path": "diagrams/service-forecasts-forecasts-c91896e4eb5ce5155f3d.mmd"
+    },
+    {
+      "digest": "sha256:8df576f43090fff0e0a93b968688431aca5d76ec6b16f9ed1c442f85531f5b76",
+      "path": "diagrams/service-forecasts-section-egress.mmd"
+    },
+    {
+      "digest": "sha256:8df576f43090fff0e0a93b968688431aca5d76ec6b16f9ed1c442f85531f5b76",
+      "path": "diagrams/service-forecasts-section-entities.mmd"
+    },
+    {
+      "digest": "sha256:8df576f43090fff0e0a93b968688431aca5d76ec6b16f9ed1c442f85531f5b76",
+      "path": "diagrams/service-forecasts-section-ingress.mmd"
+    },
+    {
+      "digest": "sha256:8df576f43090fff0e0a93b968688431aca5d76ec6b16f9ed1c442f85531f5b76",
+      "path": "diagrams/service-forecasts-section-overview.mmd"
+    },
+    {
+      "digest": "sha256:8df576f43090fff0e0a93b968688431aca5d76ec6b16f9ed1c442f85531f5b76",
+      "path": "diagrams/service-forecasts-section-responsibilities.mmd"
+    },
+    {
+      "digest": "sha256:8df576f43090fff0e0a93b968688431aca5d76ec6b16f9ed1c442f85531f5b76",
+      "path": "diagrams/service-places-assessment-runtime-broker-outage.mmd"
+    },
+    {
+      "digest": "sha256:08d79d1fa987b8aec3cae2c0d5b70bf445f34cb3da159c2a0504f80a6c5c0935",
+      "path": "diagrams/service-places-places-3a33202464c8b4fff218.mmd"
+    },
+    {
+      "digest": "sha256:a0c1a4b212e18a447da62e8868e112c497efed657e3ec3c84d4b2001f542af79",
+      "path": "diagrams/service-places-places-691b340ea61828b197b6.mmd"
+    },
+    {
+      "digest": "sha256:50f8f901d3b03ae8a8d7193dc0bd2d34f0dcb8d660dc634f77c3ef0abfe33f98",
+      "path": "diagrams/service-places-places-8a2148bf5e312b0c5947.mmd"
+    },
+    {
+      "digest": "sha256:5abafa6326eb715c6716eec8b1c982670469181d638569e9cda043a754dbd739",
+      "path": "diagrams/service-places-places-de7d5796a632782443dc.mmd"
+    },
+    {
+      "digest": "sha256:67c9a5d53095106285c44a75a9bedf5859780244e596998fc813ae6bb4319e50",
+      "path": "diagrams/service-places-places-e06f41e67f62720ad106.mmd"
+    },
+    {
+      "digest": "sha256:8df576f43090fff0e0a93b968688431aca5d76ec6b16f9ed1c442f85531f5b76",
+      "path": "diagrams/service-places-section-egress.mmd"
+    },
+    {
+      "digest": "sha256:8df576f43090fff0e0a93b968688431aca5d76ec6b16f9ed1c442f85531f5b76",
+      "path": "diagrams/service-places-section-entities.mmd"
+    },
+    {
+      "digest": "sha256:8df576f43090fff0e0a93b968688431aca5d76ec6b16f9ed1c442f85531f5b76",
+      "path": "diagrams/service-places-section-ingress.mmd"
+    },
+    {
+      "digest": "sha256:8df576f43090fff0e0a93b968688431aca5d76ec6b16f9ed1c442f85531f5b76",
+      "path": "diagrams/service-places-section-overview.mmd"
+    },
+    {
+      "digest": "sha256:8df576f43090fff0e0a93b968688431aca5d76ec6b16f9ed1c442f85531f5b76",
+      "path": "diagrams/service-places-section-responsibilities.mmd"
+    },
+    {
+      "digest": "sha256:141d105ec1876433df0791af64953dbf016aa7b720aebc40d6f568352097d94a",
+      "path": "docs/evidence/objects/141d105ec1876433df0791af64953dbf016aa7b720aebc40d6f568352097d94a.json"
+    },
+    {
+      "digest": "sha256:14f29c83e171d1f75ec82a7c7e59375f145d9ae644ce988af043add5430d74d3",
+      "path": "docs/evidence/objects/14f29c83e171d1f75ec82a7c7e59375f145d9ae644ce988af043add5430d74d3.json"
+    },
+    {
+      "digest": "sha256:22516ade88868148079cfe76ebae2d5a37dbd2f75b18300b8a989ca3dabeb016",
+      "path": "docs/evidence/objects/22516ade88868148079cfe76ebae2d5a37dbd2f75b18300b8a989ca3dabeb016.json"
+    },
+    {
+      "digest": "sha256:2526895d6b398d05bf8a144c0d4330aa9d7689e79f9c17c27607b3ee133d7f0b",
+      "path": "docs/evidence/objects/2526895d6b398d05bf8a144c0d4330aa9d7689e79f9c17c27607b3ee133d7f0b.json"
+    },
+    {
+      "digest": "sha256:30151dac4f3d6ee3c371d7eea25ae4a8ac9795b7f183356acc709177f751da31",
+      "path": "docs/evidence/objects/30151dac4f3d6ee3c371d7eea25ae4a8ac9795b7f183356acc709177f751da31.json"
+    },
+    {
+      "digest": "sha256:36fe3d560d7259fb9decb1eac97a65d31e8d92023fa0e1233c49eedcf69b514c",
+      "path": "docs/evidence/objects/36fe3d560d7259fb9decb1eac97a65d31e8d92023fa0e1233c49eedcf69b514c.json"
+    },
+    {
+      "digest": "sha256:37a321d595b0c5b686a9a54e6a1141362baf640e460b2c246a580a5a55659831",
+      "path": "docs/evidence/objects/37a321d595b0c5b686a9a54e6a1141362baf640e460b2c246a580a5a55659831.json"
+    },
+    {
+      "digest": "sha256:38c97538d087a48b80caf27ecfc3304ff0b98af4be47f8177ae6990f16d8b600",
+      "path": "docs/evidence/objects/38c97538d087a48b80caf27ecfc3304ff0b98af4be47f8177ae6990f16d8b600.json"
+    },
+    {
+      "digest": "sha256:392af6a67d894e0f6fdaf5a8ecb985ebf9446cc77d8685e01d20f9898534d409",
+      "path": "docs/evidence/objects/392af6a67d894e0f6fdaf5a8ecb985ebf9446cc77d8685e01d20f9898534d409.json"
+    },
+    {
+      "digest": "sha256:3c7bacecb138f0c68e80f138910036d34121d3e5e999d78a77549a86ca6a172d",
+      "path": "docs/evidence/objects/3c7bacecb138f0c68e80f138910036d34121d3e5e999d78a77549a86ca6a172d.json"
+    },
+    {
+      "digest": "sha256:40ce30e7380feb80bf0d84ea5d55404fe02217b2b817efa8341fdf71111c8985",
+      "path": "docs/evidence/objects/40ce30e7380feb80bf0d84ea5d55404fe02217b2b817efa8341fdf71111c8985.json"
+    },
+    {
+      "digest": "sha256:41f41bfe5e9ade28fdea519f5b426accbfdbe41a921a952128afde240208e1db",
+      "path": "docs/evidence/objects/41f41bfe5e9ade28fdea519f5b426accbfdbe41a921a952128afde240208e1db.json"
+    },
+    {
+      "digest": "sha256:446f92ad44b2eb9236a7e10df804c717b7f614b53004992075f976940e5eb6d8",
+      "path": "docs/evidence/objects/446f92ad44b2eb9236a7e10df804c717b7f614b53004992075f976940e5eb6d8.json"
+    },
+    {
+      "digest": "sha256:45ab563798a5976fca1ed56e15e2271b7b21d775d99bd758eb95c9a95489d99e",
+      "path": "docs/evidence/objects/45ab563798a5976fca1ed56e15e2271b7b21d775d99bd758eb95c9a95489d99e.json"
+    },
+    {
+      "digest": "sha256:4910f1fa1f0836d90bcf05b882ca1fdc2e4e23e4b6e69d574496acf31155d756",
+      "path": "docs/evidence/objects/4910f1fa1f0836d90bcf05b882ca1fdc2e4e23e4b6e69d574496acf31155d756.json"
+    },
+    {
+      "digest": "sha256:4c9afecb0bd36e23490615c23adb63ed29c7cb2a9a8fca46c7f9a76c4612b5c8",
+      "path": "docs/evidence/objects/4c9afecb0bd36e23490615c23adb63ed29c7cb2a9a8fca46c7f9a76c4612b5c8.json"
+    },
+    {
+      "digest": "sha256:4f0120e9ec08a162bd29b7b4528c9388a2e870cd6dde2bb162e4ba4d7ea33a13",
+      "path": "docs/evidence/objects/4f0120e9ec08a162bd29b7b4528c9388a2e870cd6dde2bb162e4ba4d7ea33a13.json"
+    },
+    {
+      "digest": "sha256:4f5c5201717143ea77f893ec8eebd3198b9f1ef52f5eb9afe9ce480e6b2d5374",
+      "path": "docs/evidence/objects/4f5c5201717143ea77f893ec8eebd3198b9f1ef52f5eb9afe9ce480e6b2d5374.json"
+    },
+    {
+      "digest": "sha256:5360c9c31bdb3393987a3ad2cb5cd7cf39c9e666641a9e9617bfc50336971865",
+      "path": "docs/evidence/objects/5360c9c31bdb3393987a3ad2cb5cd7cf39c9e666641a9e9617bfc50336971865.json"
+    },
+    {
+      "digest": "sha256:56f9b2c2769e25cadfebdb114ff3286334b43e158e4f5893f0225091d3dc21ae",
+      "path": "docs/evidence/objects/56f9b2c2769e25cadfebdb114ff3286334b43e158e4f5893f0225091d3dc21ae.json"
+    },
+    {
+      "digest": "sha256:59d2ca4c5464c6067b818bda3200fc9b8054f9b8d719e9e972b21c61db1e8c78",
+      "path": "docs/evidence/objects/59d2ca4c5464c6067b818bda3200fc9b8054f9b8d719e9e972b21c61db1e8c78.json"
+    },
+    {
+      "digest": "sha256:6245f47f7fe061d72245a7c92d48168af5e7f113def54c7c5df3096721a034a9",
+      "path": "docs/evidence/objects/6245f47f7fe061d72245a7c92d48168af5e7f113def54c7c5df3096721a034a9.json"
+    },
+    {
+      "digest": "sha256:710782776f48c791036c2fbd098279285ed67cad50a344a80ba2b32cae0e4d0c",
+      "path": "docs/evidence/objects/710782776f48c791036c2fbd098279285ed67cad50a344a80ba2b32cae0e4d0c.json"
+    },
+    {
+      "digest": "sha256:7d53a59ff7aff59e7d8b1afbd2959b3ac7582c7b2325f79ceab307a48596e5b7",
+      "path": "docs/evidence/objects/7d53a59ff7aff59e7d8b1afbd2959b3ac7582c7b2325f79ceab307a48596e5b7.json"
+    },
+    {
+      "digest": "sha256:7e0a85201cdd498f0e97edaafae8327b2c73f18586da7f01e1790629f593de18",
+      "path": "docs/evidence/objects/7e0a85201cdd498f0e97edaafae8327b2c73f18586da7f01e1790629f593de18.json"
+    },
+    {
+      "digest": "sha256:87e1cfca9a54b1bbe958077d58c4eb24dec363350a1d9896c89eaef827f2b8ca",
+      "path": "docs/evidence/objects/87e1cfca9a54b1bbe958077d58c4eb24dec363350a1d9896c89eaef827f2b8ca.json"
+    },
+    {
+      "digest": "sha256:92a1a7ee5fafbad2ddb011aaeff1def0dbd05f43723e9d919cb086ec6e9d6d60",
+      "path": "docs/evidence/objects/92a1a7ee5fafbad2ddb011aaeff1def0dbd05f43723e9d919cb086ec6e9d6d60.json"
+    },
+    {
+      "digest": "sha256:97ff5f7a12256027d7286273202ef04d9bfdfa1f95fdcf411c37d523813c596d",
+      "path": "docs/evidence/objects/97ff5f7a12256027d7286273202ef04d9bfdfa1f95fdcf411c37d523813c596d.json"
+    },
+    {
+      "digest": "sha256:a70f1bc5f07777f7d277f8c57cd8667bdcb5057e9d9e82c8c444b8ef2907f976",
+      "path": "docs/evidence/objects/a70f1bc5f07777f7d277f8c57cd8667bdcb5057e9d9e82c8c444b8ef2907f976.json"
+    },
+    {
+      "digest": "sha256:b322a808af9442c4cc169afca3d4938b2b5623e370da8a56b4bddc555c3be263",
+      "path": "docs/evidence/objects/b322a808af9442c4cc169afca3d4938b2b5623e370da8a56b4bddc555c3be263.json"
+    },
+    {
+      "digest": "sha256:b4ed126a6f957c017cffa9cb2f718fb1b5ae1227db0567bf147d6378cd6a9908",
+      "path": "docs/evidence/objects/b4ed126a6f957c017cffa9cb2f718fb1b5ae1227db0567bf147d6378cd6a9908.json"
+    },
+    {
+      "digest": "sha256:bb3bbc17110df2a0894844b68bee83146f718f7f0e3897fb4c0e4886c5df693e",
+      "path": "docs/evidence/objects/bb3bbc17110df2a0894844b68bee83146f718f7f0e3897fb4c0e4886c5df693e.json"
+    },
+    {
+      "digest": "sha256:c3e0b9bc71cafc3c0f76f420281f166f6c54f1c25199daeaf9c19ef68707121b",
+      "path": "docs/evidence/objects/c3e0b9bc71cafc3c0f76f420281f166f6c54f1c25199daeaf9c19ef68707121b.json"
+    },
+    {
+      "digest": "sha256:ce69fcf55b82bedf2c35955803f91351c5b268c65dc22126d3798f50fc0e611c",
+      "path": "docs/evidence/objects/ce69fcf55b82bedf2c35955803f91351c5b268c65dc22126d3798f50fc0e611c.json"
+    },
+    {
+      "digest": "sha256:d4a4b41e3c6b306cd64283fd90110b11234093d61402257ba9d4476b41304929",
+      "path": "docs/evidence/objects/d4a4b41e3c6b306cd64283fd90110b11234093d61402257ba9d4476b41304929.json"
+    },
+    {
+      "digest": "sha256:d85fcbc8584da0eb7afb06281f900ca5fad39440e158a3cf2b11703aed2f9e37",
+      "path": "docs/evidence/objects/d85fcbc8584da0eb7afb06281f900ca5fad39440e158a3cf2b11703aed2f9e37.json"
+    },
+    {
+      "digest": "sha256:d8ff73f398984d9b6471ff43211c33d8b71707b28ed761308c47fdec2ae48d1b",
+      "path": "docs/evidence/objects/d8ff73f398984d9b6471ff43211c33d8b71707b28ed761308c47fdec2ae48d1b.json"
+    },
+    {
+      "digest": "sha256:dda75869da76f8dd748a7efa814fed976acd5c6a905ea81a4bb7636d20ee59e4",
+      "path": "docs/evidence/objects/dda75869da76f8dd748a7efa814fed976acd5c6a905ea81a4bb7636d20ee59e4.json"
+    },
+    {
+      "digest": "sha256:e42c6c1bf1f125e4c7ac4c56507a58a27bf63a38f4db29c3b02e35b59187d630",
+      "path": "docs/evidence/objects/e42c6c1bf1f125e4c7ac4c56507a58a27bf63a38f4db29c3b02e35b59187d630.json"
+    },
+    {
+      "digest": "sha256:e46b9574001d0fd9bc4bd8ec6e5e2dc45c37adcc2f96873f15278c1dc8b433db",
+      "path": "docs/evidence/objects/e46b9574001d0fd9bc4bd8ec6e5e2dc45c37adcc2f96873f15278c1dc8b433db.json"
+    },
+    {
+      "digest": "sha256:e4eb17abd536ee36e5664373093a150f11508ca5c7768d703687b714588c7178",
+      "path": "docs/evidence/objects/e4eb17abd536ee36e5664373093a150f11508ca5c7768d703687b714588c7178.json"
+    },
+    {
+      "digest": "sha256:e53af59faa20029ef24771d74349f2ece2d2bed11ecbeb84ca64ffd6ab3195d4",
+      "path": "docs/evidence/objects/e53af59faa20029ef24771d74349f2ece2d2bed11ecbeb84ca64ffd6ab3195d4.json"
+    },
+    {
+      "digest": "sha256:e956efb4124f2312acddcade476ce9396f37462517b0e8fb6ffdcde2c62a99ca",
+      "path": "docs/evidence/objects/e956efb4124f2312acddcade476ce9396f37462517b0e8fb6ffdcde2c62a99ca.json"
+    },
+    {
+      "digest": "sha256:f1d4220bfe5ac4a317e2b4e9453008156fc37a9bfa4573e6408333264e8817f8",
+      "path": "docs/evidence/objects/f1d4220bfe5ac4a317e2b4e9453008156fc37a9bfa4573e6408333264e8817f8.json"
+    },
+    {
+      "digest": "sha256:f1dce06fd4294b0160cd35855edafa1193b8dfb2801744fb290366cb16df88b6",
+      "path": "docs/evidence/objects/f1dce06fd4294b0160cd35855edafa1193b8dfb2801744fb290366cb16df88b6.json"
+    },
+    {
+      "digest": "sha256:f5d08143a03ab872fe5c6b2d6cda042676e6c94feb2236328e70c777e8891504",
+      "path": "docs/evidence/objects/f5d08143a03ab872fe5c6b2d6cda042676e6c94feb2236328e70c777e8891504.json"
+    },
+    {
+      "digest": "sha256:f8a2e665e3031be421d05f3dec1790c4a643eb429e6a43e772d009f0ea1b96ad",
+      "path": "docs/evidence/objects/f8a2e665e3031be421d05f3dec1790c4a643eb429e6a43e772d009f0ea1b96ad.json"
+    },
+    {
+      "digest": "sha256:ff0576956c971ecafba955532e205090a788ba3ab04060a13e5449227ba23011",
+      "path": "docs/evidence/objects/ff0576956c971ecafba955532e205090a788ba3ab04060a13e5449227ba23011.json"
+    },
+    {
+      "digest": "sha256:6648872b36982e93fedbc29950a6efcc5a41934c75589ac8a0dec2a072521945",
+      "path": "frozen-bindings.json"
+    },
+    {
+      "digest": "sha256:d6afd235720caf8e083388466a2552d95df8ca42fba7cbc66247c2dd94ce44e9",
+      "path": "frozen-inputs.json"
+    },
+    {
+      "digest": "sha256:9446f1dea37bf859458ebe30b8b9de8146c0d79751d8efb5647db9dbedea3345",
+      "path": "frozen-publication.json"
+    },
+    {
+      "digest": "sha256:ea2cf0eb0822a1c19916bca801c9590a8ae75c6e2d92b9948e80c3e1a623d85b",
+      "path": "help.html"
+    },
+    {
+      "digest": "sha256:d625edff51fa8f7af667de5805115b27d12591b69f4ba0eba339259a7714e241",
+      "path": "history.html"
+    },
+    {
+      "digest": "sha256:2a6420c5acafb39f16e4b28d7c0a3df27a2f077962e6072a79f4f3bbb6177518",
+      "path": "index.html"
+    },
+    {
+      "digest": "sha256:2a6420c5acafb39f16e4b28d7c0a3df27a2f077962e6072a79f4f3bbb6177518",
+      "path": "overview.html"
+    },
+    {
+      "digest": "sha256:2255c1c2d1074696c794365b0ba9c350bf62d1eec8b176493e670c9564616b3d",
+      "path": "retained-overview.html"
+    },
+    {
+      "digest": "sha256:f61a42625fd4ac0aeea6a199b0b79e7e97e5183be0c79eb9b64f6f7a0186e317",
+      "path": "runbooks.html"
+    },
+    {
+      "digest": "sha256:ceddf8db358dbc44231af2fc2584b688b33dc58a4eb8b11502eaf5e497aa4f45",
+      "path": "scenarios/dashboard-forecast-updated-consumer.data-flow.original.json"
+    },
+    {
+      "digest": "sha256:a6caab180e7812769746551a3f7894f51213fff745fc46615a0e04caec147ab3",
+      "path": "scenarios/dashboard-forecast-updated-consumer.html"
+    },
+    {
+      "digest": "sha256:2221e37cf41a0cd45ad32704a8afed7b488d70d22f3c496c1107c85b95078df7",
+      "path": "scenarios/dashboard-forecast-updated-consumer.json"
+    },
+    {
+      "digest": "sha256:597045153448e07ee66461377a1fbf2c7b697787554c068d605e78bc9ded9c25",
+      "path": "scenarios/dashboard-forecast-updated-consumer.md"
+    },
+    {
+      "digest": "sha256:443241be024412ab4a4f5cde97027c7b532cef6345dc80e139672427f04ed9e6",
+      "path": "scenarios/dashboard-forecast-updated-consumer.operation-dashboard-forecast-updated-consumer.original.json"
+    },
+    {
+      "digest": "sha256:cee6bf1852de781d9271c2762a8e648c3ac4fc6a45317a9965d9122566a960f3",
+      "path": "scenarios/dashboard-forecast-updated-consumer.operation-process-overview.original.json"
+    },
+    {
+      "digest": "sha256:decffe029d02c7f33e5d810b3dcc785cf82a33de0aa53633e09d9dce7ccdc655",
+      "path": "scenarios/dashboard-forecast-updated-consumer.reading-guide.original.json"
+    },
+    {
+      "digest": "sha256:b7f0160e971ed6adb0d6e053e0551bf6d7e72de5c6a8685488e883da7d6fd11d",
+      "path": "scenarios/dashboard-place-requested-consumer.html"
+    },
+    {
+      "digest": "sha256:4074eeaa2b786ad3893f4726c025e3dc718676c372c5c61910fe853f952ad9a6",
+      "path": "scenarios/dashboard-place-requested-consumer.json"
+    },
+    {
+      "digest": "sha256:24f340202036d6e8a4cf7dbf1acefa0e7a6186c2577c326dcad5b031c623d0a9",
+      "path": "scenarios/dashboard-place-requested-consumer.md"
+    },
+    {
+      "digest": "sha256:268d2c7a108e2b96f691e9dc3fc0bb25bdf9d339dc9b69949f5c7e04ca311177",
+      "path": "scenarios/dashboard-place-requested-consumer.operation-dashboard-place-requested-consumer.original.json"
+    },
+    {
+      "digest": "sha256:2f61049bd2919f171e862b0d491d5172f86b334f11a1181bdb1857d8933229e9",
+      "path": "scenarios/dashboard-place-requested-consumer.operation-process-overview.original.json"
+    },
+    {
+      "digest": "sha256:329dbd38b9c4811859953289857fa06647dacaefb3eb69e033a27aad951aa830",
+      "path": "scenarios/dashboard-place-requested-consumer.reading-guide.original.json"
+    },
+    {
+      "digest": "sha256:8d6d8922e08ef7b069240dd1640f0a848da913542e90e74d6a10fdd54083a225",
+      "path": "scenarios/dashboard-refresh-request.html"
+    },
+    {
+      "digest": "sha256:13ffbfb2710648c066fdf2f49507fb0daa4221fbcb05dfca2cb12209983cd7d3",
+      "path": "scenarios/dashboard-refresh-request.json"
+    },
+    {
+      "digest": "sha256:81f50e7781f2c21573ce9c2d0a90bb6db97dedc2f4420893205a153e5658fd16",
+      "path": "scenarios/dashboard-refresh-request.md"
+    },
+    {
+      "digest": "sha256:49632b2bdce9f9db5f7af83044d85080579a0d7fdd60e96761c1f4b165ec5c34",
+      "path": "scenarios/dashboard-refresh-request.operation-dashboard-refresh-request.original.json"
+    },
+    {
+      "digest": "sha256:fcac2c48c22dc30962432a7b1b0e84ad69da8c73922734ef43a277ba4e93391b",
+      "path": "scenarios/dashboard-refresh-request.operation-process-overview.original.json"
+    },
+    {
+      "digest": "sha256:23370925c54aec854fe020c8e1d74ae00524acb12d7f8029eaa902fe0e74043f",
+      "path": "scenarios/dashboard-refresh-request.reading-guide.original.json"
+    },
+    {
+      "digest": "sha256:e1f214d3c38ddc40e57c10ff88eeb09078a710660d56491accceb58ed07d74b9",
+      "path": "scenarios/dashboard-save-city.data-flow.original.json"
+    },
+    {
+      "digest": "sha256:7d85de56bd8f3f38fa73259d9d2d5ca087de527c8a09b88682bc6158f5d5fcd6",
+      "path": "scenarios/dashboard-save-city.html"
+    },
+    {
+      "digest": "sha256:bc2c093b4991297923dab9753ab5ecdc55ef85ac2afad5203e82dd804a649282",
+      "path": "scenarios/dashboard-save-city.json"
+    },
+    {
+      "digest": "sha256:70f47593cb1378c756d2a9a0aad760078c1af2816e3113f081671701607ea235",
+      "path": "scenarios/dashboard-save-city.md"
+    },
+    {
+      "digest": "sha256:683a19b1cd5ab9ee1d4270e4e960502a2d7c0d07d807b72365c02b1fd7d5929d",
+      "path": "scenarios/dashboard-save-city.operation-dashboard-save-city.original.json"
+    },
+    {
+      "digest": "sha256:6004960393ee279f74539c809f04d22b3a421db39c46758e15a1278c13580dd2",
+      "path": "scenarios/dashboard-save-city.operation-process-overview.original.json"
+    },
+    {
+      "digest": "sha256:774e210ad897cfc208697cc4d53ced7d7ea22c69cfddc81ef8f3c42c111ab5a7",
+      "path": "scenarios/dashboard-save-city.reading-guide.original.json"
+    },
+    {
+      "digest": "sha256:3a292837cecfe4cad170d9ebdcb4b90a8808199eba39c99f99c90a5a5f234b2f",
+      "path": "scenarios/forecasts-place-requested-consumer.html"
+    },
+    {
+      "digest": "sha256:39ffa3f0d29a33c806100f2b7d9b1a801eb98b885d981a487b25424b800ec0cd",
+      "path": "scenarios/forecasts-place-requested-consumer.json"
+    },
+    {
+      "digest": "sha256:eb1b749b3397f95128cecf690bcf5aa513a99d5f21ab33e1eee50cfe7c945360",
+      "path": "scenarios/forecasts-place-requested-consumer.md"
+    },
+    {
+      "digest": "sha256:73220dbaa47b5d000308a636f853805495ce4d2b106c653bb522f7995edea354",
+      "path": "scenarios/forecasts-place-requested-consumer.operation-forecasts-place-requested-consumer.original.json"
+    },
+    {
+      "digest": "sha256:538165e7807fb95b396b1b09a78f0f27399843263cb91800890033cb6153fb3d",
+      "path": "scenarios/forecasts-place-requested-consumer.operation-process-overview.original.json"
+    },
+    {
+      "digest": "sha256:906f2c595b162d9b0086bb7b5cb13ec761bc670d35e909097c81b91db158e38a",
+      "path": "scenarios/forecasts-place-requested-consumer.reading-guide.original.json"
+    },
+    {
+      "digest": "sha256:c33bb6362f505f3199210c539124bf83bfdab9298ca287a770480edc37f5b1e0",
+      "path": "scenarios/forecasts-publish-pending.html"
+    },
+    {
+      "digest": "sha256:3223a2f7efc5b98fb46ebde2602e11151dc0466f550eddd61725d33d3dc8655c",
+      "path": "scenarios/forecasts-publish-pending.json"
+    },
+    {
+      "digest": "sha256:2a78565444d6de5aee9591eebad2ce0ad2f29cc50c966a92993c147464299d4b",
+      "path": "scenarios/forecasts-publish-pending.md"
+    },
+    {
+      "digest": "sha256:1b0daa5549ef21d08421c659392dbbd2aadb80632974b49a1d5b087dec6bd4a9",
+      "path": "scenarios/forecasts-publish-pending.operation-forecasts-publish-pending.original.json"
+    },
+    {
+      "digest": "sha256:3532ec8a902a73da5f4f71b9f75d52f5f2935381ccfe01a75329e2e2faab75de",
+      "path": "scenarios/forecasts-publish-pending.operation-process-overview.original.json"
+    },
+    {
+      "digest": "sha256:ce6541ba8730454656c14d58ed2738ff7e988d1547dae4eab3e9233d1533281c",
+      "path": "scenarios/forecasts-publish-pending.reading-guide.original.json"
+    },
+    {
+      "digest": "sha256:e0ac7bd7301100fc075a61cba890748b95e237d286a5050a62521641667c2255",
+      "path": "scenarios/forecasts-refresh-scheduled.html"
+    },
+    {
+      "digest": "sha256:0b878f32561db67ebb7fae9aa1bb8814ff156d3a9781ee1869acf1ea2076da05",
+      "path": "scenarios/forecasts-refresh-scheduled.json"
+    },
+    {
+      "digest": "sha256:b73a9c3b27a44f0be0bad8a380b9968142ba1b0ae1641a21c5fe3266b11fe989",
+      "path": "scenarios/forecasts-refresh-scheduled.md"
+    },
+    {
+      "digest": "sha256:d739404dd1fa89cec3252fcf9631c93405aa02f67a6cc5b70cbd2e14eda9f038",
+      "path": "scenarios/forecasts-refresh-scheduled.operation-forecasts-refresh-scheduled.original.json"
+    },
+    {
+      "digest": "sha256:7b634e9ddfa70c2413562760d39fa5c119e5d949156675d2bd88794cea2875ee",
+      "path": "scenarios/forecasts-refresh-scheduled.operation-process-overview.original.json"
+    },
+    {
+      "digest": "sha256:ac26b3bd8bbfd13547c6fc079096c691f2f5cfd86768b6a76ea08af42e93ff5a",
+      "path": "scenarios/forecasts-refresh-scheduled.reading-guide.original.json"
+    },
+    {
+      "digest": "sha256:4e92de23aa241f58c7b2fe99f10532da6ef147bd6a9235e806bf7fc4a4cfdeba",
+      "path": "scenarios/places-request-publisher.html"
+    },
+    {
+      "digest": "sha256:3219339bbe5914c053c4541f8cfb8a41493cbebb0c7f1353b05f119cceb3cc6f",
+      "path": "scenarios/places-request-publisher.json"
+    },
+    {
+      "digest": "sha256:79272dc0ed8575c55582842343f016dfe34d397fb428e416965d2d46857ef6c5",
+      "path": "scenarios/places-request-publisher.md"
+    },
+    {
+      "digest": "sha256:b70560ed2b71e2b5a2b47bac62abc8714893e9197faf052b64867fb135736c7f",
+      "path": "scenarios/places-request-publisher.operation-places-request-publisher.original.json"
+    },
+    {
+      "digest": "sha256:347ad696f03fbaa5151437bc9a00e914a3fa5bc85510d2f3e5d11311b88c22f9",
+      "path": "scenarios/places-request-publisher.operation-process-overview.original.json"
+    },
+    {
+      "digest": "sha256:b00569553d868aeacfebe0d5b8ab073a8453bf2baeae1be8080ae6543f4f519d",
+      "path": "scenarios/places-request-publisher.reading-guide.original.json"
+    },
+    {
+      "digest": "sha256:1338358a2fa20681d68c074112f0cbb03299ecfbd5da9bc16c6266a3d11b2232",
+      "path": "services/dashboard.html"
+    },
+    {
+      "digest": "sha256:b757f2cfbdbb21cd6c7c71c4afb585255c70b339d4b27a14f0cecfc50e9c652c",
+      "path": "services/dashboard.json"
+    },
+    {
+      "digest": "sha256:baae639e25590e3963f55ea3a30c396cb643f955d67244794563f00c8cb17c57",
+      "path": "services/dashboard.md"
+    },
+    {
+      "digest": "sha256:8603cd29c6d36cba6a5cd180f11d7a55ce8c8b50112136ff8977c782d779750a",
+      "path": "services/dashboard.note-runtime-kafka-replay.original.json"
+    },
+    {
+      "digest": "sha256:2485da188c0fd42431b1ecd2c09752b98d8918ba0cec22316758434f65d7a472",
+      "path": "services/dashboard.note-runtime-validator-node24.original.json"
+    },
+    {
+      "digest": "sha256:befebfdc51f9b848c2e939405f62d57f00d622df3410773349ffa61dcd0c5c49",
+      "path": "services/dashboard.operation-assessment-runtime-kafka-replay.original.json"
+    },
+    {
+      "digest": "sha256:fdd1a2a0ec3c104db3336a575e32999067a601b74e4c7263efcb3e1bfcb68b24",
+      "path": "services/dashboard.operation-assessment-runtime-validator-node24.original.json"
+    },
+    {
+      "digest": "sha256:eb51285d255b4003c7d1c6c1f9c0e235a469a498d1520195ef0251810db4174c",
+      "path": "services/dashboard.operation-dashboard-1d4aa83e0d1825825971.original.json"
+    },
+    {
+      "digest": "sha256:51f4142ca79c3214e3b98ea1d2a3fb60a8fad7100b4f11522135776ba8773e80",
+      "path": "services/dashboard.operation-dashboard-310371b6c91f276ad642.original.json"
+    },
+    {
+      "digest": "sha256:f3d00fc84c6f883d12243143ffefe7da4189d5801041d1111d6a76548dbfa606",
+      "path": "services/dashboard.operation-dashboard-32f3a8fe3000ac506a5a.original.json"
+    },
+    {
+      "digest": "sha256:4859b07d688538f99b8d5787295a668d4124025ef8d082f32e1268ce91ef13b2",
+      "path": "services/dashboard.operation-dashboard-4301d0222c019e9d5339.original.json"
+    },
+    {
+      "digest": "sha256:8621271be5d3db9abd10ec63dfe57cfda5650d9aa1a69a424bf2f48e92a52325",
+      "path": "services/dashboard.operation-dashboard-721012b8ddf1b26a39b9.original.json"
+    },
+    {
+      "digest": "sha256:3d628a4aff29a95c6b36c71524f16db6fb1e458ba55d7743ef4f4a922dcea232",
+      "path": "services/dashboard.operation-dashboard-8f0c2429af695539e6cd.original.json"
+    },
+    {
+      "digest": "sha256:8f7ac0706d5979e3ef0f3606e66748db51a363f28a4797e964102548eae444b6",
+      "path": "services/dashboard.operation-dashboard-9e8af3ed64d9d5e72548.original.json"
+    },
+    {
+      "digest": "sha256:a693025c25eed075b3248b0f9df6a2cb999373d21d5598df4b704e2d4c7f2631",
+      "path": "services/dashboard.operation-dashboard-aa92fac55661297c8e9a.original.json"
+    },
+    {
+      "digest": "sha256:1521348be86332e2fe171f0d845a4c102f0b8688881f51242b5ed235af500bb9",
+      "path": "services/dashboard.operation-dashboard-ad968c2137fedea90215.original.json"
+    },
+    {
+      "digest": "sha256:3304efef1a461498c541178603ee7fc561aeabae1698795089a5f1a4d855a085",
+      "path": "services/dashboard.operation-dashboard-d36957b096678dbe4785.original.json"
+    },
+    {
+      "digest": "sha256:2d36ac05ae8646f3b509fdb47c5453b45f011686e910e636fa2563a16e5411f3",
+      "path": "services/dashboard.operation-dashboard-d527a6e620a1974b0e5a.original.json"
+    },
+    {
+      "digest": "sha256:2b469bb218c72cd506b7d2ada19799b0f13c035adfbfb0a3b303b3b6b03f4347",
+      "path": "services/dashboard.operation-dashboard-f965de51f1f237949bc6.original.json"
+    },
+    {
+      "digest": "sha256:d5cf4a82eb5cf7b0c5cea92e358b9d94228bcc32967889d2124028bf05507b09",
+      "path": "services/dashboard.operation-section-egress.original.json"
+    },
+    {
+      "digest": "sha256:8ee7051e0eae7bf245c4373c6336d745d9b26aa1ae1be32db608c78a6a07af37",
+      "path": "services/dashboard.operation-section-entities.original.json"
+    },
+    {
+      "digest": "sha256:f3a060827ca82ea332a9fbbe72deed68d5e450e5e258bff0c29911d589083da8",
+      "path": "services/dashboard.operation-section-ingress.original.json"
+    },
+    {
+      "digest": "sha256:b8516288f59e267446b0a2a98fd33de5388e66a90f349ca9d1682ef7b6713203",
+      "path": "services/dashboard.operation-section-overview.original.json"
+    },
+    {
+      "digest": "sha256:b2a4557f07f1ccd2081538f8cd70c18407c52e8b7ae5a37a33250de69a9365dc",
+      "path": "services/dashboard.operation-section-responsibilities.original.json"
+    },
+    {
+      "digest": "sha256:2c409978d88fd115a8e4dbe2fd9313774910f235fcb6827e9f7d645c98e01342",
+      "path": "services/forecasts.html"
+    },
+    {
+      "digest": "sha256:ec131242bcb56baf3b9529712ea7dbfa484ea4a87e3461b796b1861f9ad5042a",
+      "path": "services/forecasts.json"
+    },
+    {
+      "digest": "sha256:bea605f2c9ca09c184589b252fd52fa6a278d2c35a4d5d0ea833b8d100f90563",
+      "path": "services/forecasts.md"
+    },
+    {
+      "digest": "sha256:1925263cdf383ce144733780501e7bedbccff3ca38e08940da70927cb305e944",
+      "path": "services/forecasts.operation-forecasts-23c1f84e75a5f47c4675.original.json"
+    },
+    {
+      "digest": "sha256:8e21cdc78ae3eb4b6f3e5555a7d2f5d9b3ccd4b1a7e1e9f6d6a7017192fee95a",
+      "path": "services/forecasts.operation-forecasts-4e4e8e31400c498b7591.original.json"
+    },
+    {
+      "digest": "sha256:f5194aea77307e1eb8c8867e6b1c846804b5b2b21ebd62e4a387538134dd54f4",
+      "path": "services/forecasts.operation-forecasts-7113b27ca4694ebce3b6.original.json"
+    },
+    {
+      "digest": "sha256:52cc3225f9ba692fdb5e082df130f5cb20b7e19f24bea74f794c3b9f4bc96346",
+      "path": "services/forecasts.operation-forecasts-a2617f9567b7eac19bf2.original.json"
+    },
+    {
+      "digest": "sha256:26c468bed798a81761ce4cc7b6e3252d9d7a8e4ba56dc4057ce8703789fc1ccf",
+      "path": "services/forecasts.operation-forecasts-bd578e14951373ddaddf.original.json"
+    },
+    {
+      "digest": "sha256:edda728bbc7be1bf2b13faeceba60708640776792a9b36e17e67aa9038ec7df6",
+      "path": "services/forecasts.operation-forecasts-c91896e4eb5ce5155f3d.original.json"
+    },
+    {
+      "digest": "sha256:5a8bd57a15e75a6783ec285deb4026ac5d052b1e950a02b19a1d0ad74af31d47",
+      "path": "services/forecasts.operation-section-egress.original.json"
+    },
+    {
+      "digest": "sha256:88b57e4fcec063a626cee28c7be6b7937333f8599010848c7e9604e0e432ccd2",
+      "path": "services/forecasts.operation-section-entities.original.json"
+    },
+    {
+      "digest": "sha256:bb35fa3bc94d877fa18ff48e1420cd8015a1fb51cef1b96826c1b49735b3a327",
+      "path": "services/forecasts.operation-section-ingress.original.json"
+    },
+    {
+      "digest": "sha256:60df5ce256d482c697d5fb25a2679206c9a1786e34b79562d0e3439eaf8800c4",
+      "path": "services/forecasts.operation-section-overview.original.json"
+    },
+    {
+      "digest": "sha256:f11791e2daa2598f3e993944c7e704e5b0daedc195a4e7cc885ceccf9f480137",
+      "path": "services/forecasts.operation-section-responsibilities.original.json"
+    },
+    {
+      "digest": "sha256:0e8b1b9ddd9c66a58ace1b4f5d743f92dc7f6cdd6584f686184baa5a31339e4e",
+      "path": "services/places.html"
+    },
+    {
+      "digest": "sha256:3ca411512a19bb4a567ddbb222b001d6710db87676e59a316ee0c2538ac0db6a",
+      "path": "services/places.json"
+    },
+    {
+      "digest": "sha256:e2cdca5dce9d498a55217da86f8a40d20adf7d7472a6de5e1d38b88f8fc04b19",
+      "path": "services/places.md"
+    },
+    {
+      "digest": "sha256:7838b66def78673c5e523065b03895c6b44327f66dde625924f675b9e2df9cb2",
+      "path": "services/places.note-runtime-broker-outage.original.json"
+    },
+    {
+      "digest": "sha256:39f055ae995ce4938323126110b4cce4a7c39a396354f9fb69ee7202ed2bafd0",
+      "path": "services/places.operation-assessment-runtime-broker-outage.original.json"
+    },
+    {
+      "digest": "sha256:9bd288c3939f7228cfe93a853c1c6a0bd3ea86d7ce5f8444e82b0c293008185d",
+      "path": "services/places.operation-places-3a33202464c8b4fff218.original.json"
+    },
+    {
+      "digest": "sha256:2f7f309016b1646e92e5da5aad695eb3e6344f7f387b02512e181f235d818b4b",
+      "path": "services/places.operation-places-691b340ea61828b197b6.original.json"
+    },
+    {
+      "digest": "sha256:df18b9e3fb074ac4b10f358bf9040dd58d9bcf95dc4882ddae0dcd610303a087",
+      "path": "services/places.operation-places-8a2148bf5e312b0c5947.original.json"
+    },
+    {
+      "digest": "sha256:9eca607c01ee60dd4affe67c5d9a780b4b0b49a77eb6c73e13e5378a37c32832",
+      "path": "services/places.operation-places-de7d5796a632782443dc.original.json"
+    },
+    {
+      "digest": "sha256:b2368f6a5f80e5b6aa4b44e32b1177a2edd876865f62a75e391d05550b219d68",
+      "path": "services/places.operation-places-e06f41e67f62720ad106.original.json"
+    },
+    {
+      "digest": "sha256:0ca6f2065ba6f41240195b5866df1c416b3d77a34b9eeacbe5bf08aa9ec390c3",
+      "path": "services/places.operation-section-egress.original.json"
+    },
+    {
+      "digest": "sha256:6509df31fd3a8af7731e3b9836dbbf2516569fd998b3fa8314e41377b15903da",
+      "path": "services/places.operation-section-entities.original.json"
+    },
+    {
+      "digest": "sha256:5ac14167abefff72defc0b5084bf133ec8618731da1883fc5b4178c696f53b45",
+      "path": "services/places.operation-section-ingress.original.json"
+    },
+    {
+      "digest": "sha256:238139ca6e160d021df062667e6d214b7d4e393b3df2587ad6d7dbe84fff8f18",
+      "path": "services/places.operation-section-overview.original.json"
+    },
+    {
+      "digest": "sha256:f28741cc350a7be72c6f7fce4ba8bf6585befa2dc38f4c7adbb1beda3dc570ab",
+      "path": "services/places.operation-section-responsibilities.original.json"
+    },
+    {
+      "digest": "sha256:e5763dba1cfe92a1fda341f02ad84a7838b743865267693917c2013e8d7ffabb",
+      "path": "status.json"
+    },
+    {
+      "digest": "sha256:9ca75b068633a8c344b9485ae34954b93bd9b28ffdb067fdbb8ebef59c8ea965",
+      "path": "system-reading-guide.json"
+    },
+    {
+      "digest": "sha256:9ca75b068633a8c344b9485ae34954b93bd9b28ffdb067fdbb8ebef59c8ea965",
+      "path": "system-reading-guide.original.json"
+    }
+  ],
+  "frozenBindingsDigest": "sha256:7e3540de505d85c8eab70b5d97243eeb14ae601f433e5d4b8157fb790a2fa64b",
+  "index": "index.html",
+  "inputDigest": "sha256:e14f03b3255df5946625b6ed2995158404bf1c58ea789f1d4b63ca48dd739a20",
+  "modelTranslationComplete": true,
+  "modelTranslationGaps": {},
+  "narrativeTranslationComplete": false,
+  "narrativeTranslationCoverage": [
+    "OPERATIONS",
+    "SECTIONS",
+    "NOTE_ASSESSMENTS",
+    "NOTE_ORIGINALS"
+  ],
+  "narrativeTranslationGaps": {
+    "service:dashboard": {
+      "original-note-runtime-kafka-replay": {
+        "authority": "ORIGINAL_AUTHORED_DESCRIPTION_UNCHANGED",
+        "availableLanguage": null,
+        "kind": "NOTE_ORIGINAL_TRANSLATION",
+        "noteId": "runtime-kafka-replay",
+        "originalPath": "services/dashboard.note-runtime-kafka-replay.original.json",
+        "requestedLanguage": "en",
+        "title": "kafka-replay.json"
+      },
+      "original-note-runtime-validator-node24": {
+        "authority": "ORIGINAL_AUTHORED_DESCRIPTION_UNCHANGED",
+        "availableLanguage": null,
+        "kind": "NOTE_ORIGINAL_TRANSLATION",
+        "noteId": "runtime-validator-node24",
+        "originalPath": "services/dashboard.note-runtime-validator-node24.original.json",
+        "requestedLanguage": "en",
+        "title": "validator-node24.json"
+      }
+    },
+    "service:places": {
+      "original-note-runtime-broker-outage": {
+        "authority": "ORIGINAL_AUTHORED_DESCRIPTION_UNCHANGED",
+        "availableLanguage": null,
+        "kind": "NOTE_ORIGINAL_TRANSLATION",
+        "noteId": "runtime-broker-outage",
+        "originalPath": "services/places.note-runtime-broker-outage.original.json",
+        "requestedLanguage": "en",
+        "title": "broker-outage.json"
+      }
+    }
+  },
+  "originalBindingsRecordDigest": "sha256:995e194e99c2755d3602c44eb07a66c936a61e7b0a453ff3c3258a40e6f8b8d5",
+  "originalFrozenBindingsDigest": "sha256:7e3540de505d85c8eab70b5d97243eeb14ae601f433e5d4b8157fb790a2fa64b",
+  "output": ".",
+  "pages": [
+    {
+      "html": "scenarios/dashboard-forecast-updated-consumer.html",
+      "json": "scenarios/dashboard-forecast-updated-consumer.json",
+      "subject": "scenario:dashboard-forecast-updated-consumer"
+    },
+    {
+      "html": "scenarios/dashboard-place-requested-consumer.html",
+      "json": "scenarios/dashboard-place-requested-consumer.json",
+      "subject": "scenario:dashboard-place-requested-consumer"
+    },
+    {
+      "html": "scenarios/dashboard-refresh-request.html",
+      "json": "scenarios/dashboard-refresh-request.json",
+      "subject": "scenario:dashboard-refresh-request"
+    },
+    {
+      "html": "scenarios/dashboard-save-city.html",
+      "json": "scenarios/dashboard-save-city.json",
+      "subject": "scenario:dashboard-save-city"
+    },
+    {
+      "html": "scenarios/forecasts-place-requested-consumer.html",
+      "json": "scenarios/forecasts-place-requested-consumer.json",
+      "subject": "scenario:forecasts-place-requested-consumer"
+    },
+    {
+      "html": "scenarios/forecasts-publish-pending.html",
+      "json": "scenarios/forecasts-publish-pending.json",
+      "subject": "scenario:forecasts-publish-pending"
+    },
+    {
+      "html": "scenarios/forecasts-refresh-scheduled.html",
+      "json": "scenarios/forecasts-refresh-scheduled.json",
+      "subject": "scenario:forecasts-refresh-scheduled"
+    },
+    {
+      "html": "scenarios/places-request-publisher.html",
+      "json": "scenarios/places-request-publisher.json",
+      "subject": "scenario:places-request-publisher"
+    },
+    {
+      "html": "services/dashboard.html",
+      "json": "services/dashboard.json",
+      "subject": "service:dashboard"
+    },
+    {
+      "html": "services/forecasts.html",
+      "json": "services/forecasts.json",
+      "subject": "service:forecasts"
+    },
+    {
+      "html": "services/places.html",
+      "json": "services/places.json",
+      "subject": "service:places"
+    }
+  ],
+  "proseAuthored": false,
+  "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+  "questionReadingProfile": true,
+  "readingGuideTranslationComplete": true,
+  "readingGuideTranslationGaps": {},
+  "requestedDocumentationLanguage": "en",
+  "schema": "codeclew-native-pages-full-manifest/1.0",
+  "snapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
+  "sourceExport": {
+    "authoredQuotations": "PRESERVED; this option removes automatic source attachments, not authored quotations or semantic identities",
+    "localEvidence": "UNCHANGED",
+    "mode": "embedded",
+    "policyDigest": "sha256:d0076767cc93e0097b1702ad4fb316ac4a31ed6dbe71a9b1d119993a8bb78d56",
+    "repositories": {},
+    "schema": "codeclew-source-export/1.0",
+    "subjects": []
+  },
+  "status": "PARTIAL"
+}

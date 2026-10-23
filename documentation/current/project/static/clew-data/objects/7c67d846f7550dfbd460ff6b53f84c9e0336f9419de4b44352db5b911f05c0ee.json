@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:7c67d846f7550dfbd460ff6b53f84c9e0336f9419de4b44352db5b911f05c0ee",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "id": "latitude",
+    "meaning": {
+      "$clewRef": "sha256:a1ed48144298c277d8704b6fc7e2afcef33080d08fa2f90134eeee86de6f750d"
+    },
+    "path": "latitude",
+    "readableName": {
+      "$clewRef": "sha256:2557cb68fa6d5d93e2533c23d725f596036abccb7d7508b3b6a39cc437fc7075"
+    },
+    "representations": {
+      "$clewRef": "sha256:8c8e30cf94c5f6f8ea8f53c0c05d59ed177cb705f34db61a95e75fd3c5110b7f"
+    },
+    "usage": []
+  }
+}

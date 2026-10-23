@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:518ff7dc73bbff5088b6d456a0a3d57458758e370ec78573b48851642567b986",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+    "forecasts:source_annotations:1571fff289ff6226f149c918",
+    "forecasts:source_annotations:1ea53b95922ad5791d930533",
+    "forecasts:source_annotations:3b271aa33f7bd944bb5ab6a5",
+    "forecasts:source_annotations:3d7b217355f2e6a34064e800",
+    "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+    "forecasts:source_annotations:cc58d8643f3d17e4b6911d22",
+    "forecasts:symbol:04bc0feeea5752d3f1979c56",
+    "forecasts:syntax_detail:0faab21eaf0b9a233e97b7e6",
+    "forecasts:syntax_detail:0fe858295941b31bc615fefa",
+    "forecasts:syntax_detail:2b758ee1c16726c56e968742",
+    "forecasts:syntax_detail:b86b8774a179db381547b795",
+    "forecasts:syntax_detail:bdedac7f9b2afb2a8e682034",
+    "forecasts:syntax_detail:cc65db9fa6bd3a33f4ba788a",
+    "forecasts:syntax_detail:d3cdb716aaac8f6ed002b7c1",
+    "forecasts:syntax_detail:d52cf4645c46f8e435787b58"
+  ]
+}

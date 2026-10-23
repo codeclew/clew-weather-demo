@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:068c2237cb785f1b37e9df0eea7ae181ac450e96ffb186f30b821bf7cf83e6a6",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:040dcf86edd8b30ebae68ceb519337686b87e304aa01605c54feefd14f94ebd7"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "updated_at",
+    "title": "Authored exact storage field binding (agent proposal)",
+    "tone": null
+  }
+}

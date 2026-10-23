@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:0f37b07d3703bbb96a6690d2c8261c5340cf638905b99d61df0903c34b6d217a",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:58a23a8b46d9f6cbd78e14a0f10ebc1a25958a432dc436e6b904dd2a04dfb2a2"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The producer takes at most six provider timeseries points, normalizes each as a Period, and requires a nonempty array.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

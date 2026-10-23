@@ -1,0 +1,23 @@
+---
+title: "services/forecasts/src/main/kotlin/weather/Forecasts.kt:64–64"
+slug: "/sources/386a0fb720842fd6729fad0e4673aa0774f9f24664de5e364371d92b70561cf4"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/forecasts/src/main/kotlin/weather/Forecasts.kt:64–64
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: c289b28be4819eddf29d59a7c12f178559ec5229
+
+Text digest: sha256:671ec1c14bd0b47b3c167d992e10f413a366fda3125265c51eb6133e7adef9d1
+
+## Retained text {#retained-text}
+
+```text
+jdbc.query("SELECT p.id,p.name,p.latitude,p.longitude FROM places p LEFT JOIN forecasts f ON f.place_id=p.id WHERE f.expires_at IS NULL OR f.expires_at<now() ORDER BY p.id", { row, _ -> json.createObjectNode().put("id", row.getString(1)).put("name", row.getString(2)).put("latitude", row.getDouble(3)).put("longitude", row.getDouble(4)) })
+```
+
+<ClewDownload path="/clew-data/objects/386a0fb720842fd6729fad0e4673aa0774f9f24664de5e364371d92b70561cf4.json">Complete original source binding</ClewDownload>

@@ -1,0 +1,71 @@
+{
+  "identity": "sha256:d74aaa7a37139ebc54f3f1847ad0620f08ac391208c64490b6d751c5bf82b7f1",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "anchor": "question-apply",
+    "documentationLanguage": "en",
+    "enabled": true,
+    "fields": [
+      {
+        "field": "id",
+        "model": "place"
+      },
+      {
+        "field": "name",
+        "model": "place"
+      },
+      {
+        "field": "latitude",
+        "model": "place"
+      },
+      {
+        "field": "longitude",
+        "model": "place"
+      },
+      {
+        "field": "updatedat",
+        "model": "forecast"
+      },
+      {
+        "field": "fetchedat",
+        "model": "forecast"
+      },
+      {
+        "field": "mode",
+        "model": "forecast"
+      },
+      {
+        "field": "time",
+        "model": "period"
+      },
+      {
+        "field": "temperature",
+        "model": "period"
+      },
+      {
+        "field": "precipitation",
+        "model": "period"
+      },
+      {
+        "field": "symbol",
+        "model": "period"
+      }
+    ],
+    "readingGuide": {
+      "$clewRef": "sha256:1c01f6cc5d8cb42d69af5280b10a91035f3f4f454e5123f43374e879a1dd2f7d"
+    },
+    "relatedModels": [
+      "weather-card"
+    ],
+    "stages": [
+      "Dashboard receive",
+      "Dashboard validation",
+      "Dashboard transaction"
+    ],
+    "subject": "scenario:dashboard-forecast-updated-consumer",
+    "title": "Forecast update: payload validation and card storage",
+    "transfers": {
+      "$clewRef": "sha256:ec74860cf85a7b1c6a8b9c6a5f142d77c3452896994473329988afb701f7089e"
+    }
+  }
+}

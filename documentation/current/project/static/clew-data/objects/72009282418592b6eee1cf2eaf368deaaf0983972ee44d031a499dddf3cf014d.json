@@ -1,0 +1,21 @@
+{
+  "identity": "sha256:72009282418592b6eee1cf2eaf368deaaf0983972ee44d031a499dddf3cf014d",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+    "interaction:dashboard-save-place-to-places",
+    "places:contract-operation:08d1b9df6781b2953a038bc2",
+    "places:contract-operation:0f29e92a853c76a6ea564769",
+    "places:contract-operation:6b165729e2d309a9b2687873",
+    "places:contract-operation:6e713b9442ae5dfc4b99b133",
+    "places:contract-operation:fa5644a96e01681d7c2b0445",
+    "places:contract:91b280ed0ed0eda3e8e3231d",
+    "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+    "places:symbol:309961f88b197290c1b04e50",
+    "places:symbol:51d94b76d870001475fd2c51",
+    "places:symbol:6c7321d96988c6277e32e39e",
+    "places:symbol:d3b23b700626394c74b7ef9e",
+    "process:dashboard-save-city",
+    "scenario:dashboard-save-city"
+  ]
+}

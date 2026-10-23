@@ -1,0 +1,43 @@
+{
+  "identity": "sha256:9ca0872ea7b0892727460a6ce6dcb92a77aedd31f1506018d5e2285c994a3cf4",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "The Dashboard-to-Places target is a declared HTTP boundary; compiler linkage and runtime routing are not established.",
+      "The selected wrappers do not establish repository commit, timeout completion, retry, or duplicate-request behavior."
+    ],
+    "boundaryContracts": {
+      "$clewRef": "sha256:79d3e98565964152215bb6f95d74c301ebe9a1c15d9eece190e89337321209ea"
+    },
+    "methods": [
+      {
+        "entrypoint": "dashboard-ad968c2137fedea90215",
+        "id": "dashboard-save",
+        "label": "Dashboard savePlace handler",
+        "service": "dashboard",
+        "sourceId": "dashboard-7970ac3e2a8cf3f45b4a",
+        "textDigest": "sha256:d36fd526184e291acfb7df17b6ebb41df8afb1f284fcdb448f552c1b457260a8"
+      },
+      {
+        "entrypoint": "places-691b340ea61828b197b6",
+        "id": "places-save",
+        "label": "Places Save controller",
+        "service": "places",
+        "sourceId": "places-309961f88b197290c1b0",
+        "textDigest": "sha256:b6a46a9557e67342266ccce88f28a634490cacba1ee8f705d71066775158f708"
+      }
+    ],
+    "rootMethod": "dashboard-save",
+    "scope": "Dashboard.savePlace and the declared Places.Save HTTP boundary, with controller-visible request and response branches.",
+    "serviceFragments": [
+      {
+        "entryMethod": "places-save",
+        "id": "places-save-handler",
+        "rootStep": "places-save-handler"
+      }
+    ],
+    "steps": {
+      "$clewRef": "sha256:8ef4cfc7aa79181d8363d186056cdb2ebdffc7ccabdc99c259b74dd9e232c499"
+    }
+  }
+}

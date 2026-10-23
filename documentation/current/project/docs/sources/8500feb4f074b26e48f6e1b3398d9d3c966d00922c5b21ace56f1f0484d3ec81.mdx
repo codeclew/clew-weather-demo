@@ -1,0 +1,23 @@
+---
+title: "services/places/PlacesRepository.cs:56–56"
+slug: "/sources/8500feb4f074b26e48f6e1b3398d9d3c966d00922c5b21ace56f1f0484d3ec81"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/places/PlacesRepository.cs:56–56
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: c289b28be4819eddf29d59a7c12f178559ec5229
+
+Text digest: sha256:0d03e315762cf76fba713654834edd0412bffab4987ab17b22b42e28e56ad180
+
+## Retained text {#retained-text}
+
+```text
+        await using var command = new NpgsqlCommand("INSERT INTO request_outbox(id,payload) VALUES($1,$2::jsonb)", connection, transaction);
+```
+
+<ClewDownload path="/clew-data/objects/8500feb4f074b26e48f6e1b3398d9d3c966d00922c5b21ace56f1f0484d3ec81.json">Complete original source binding</ClewDownload>

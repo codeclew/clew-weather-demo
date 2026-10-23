@@ -1,0 +1,15 @@
+{
+  "identity": "sha256:024e0212b8e07be86df2bae36fb6129975b5c84dbf9ef61e407ad586361da685",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "claim": {
+      "$clewRef": "sha256:1952b040efa3ff0e3c7ddee0d019afbc87399239517453832d11c5c4c62bc28c"
+    },
+    "values": {
+      "id": "lisbon",
+      "latitude": 38.72,
+      "longitude": -9.14,
+      "name": "Lisbon"
+    }
+  }
+}

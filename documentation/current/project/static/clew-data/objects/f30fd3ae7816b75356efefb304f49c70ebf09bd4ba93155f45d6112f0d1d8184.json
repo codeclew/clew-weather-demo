@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:f30fd3ae7816b75356efefb304f49c70ebf09bd4ba93155f45d6112f0d1d8184",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contract": null,
+    "field": null,
+    "label": "GET /api/weather row.forecast",
+    "mapping": {
+      "$clewRef": "sha256:16fde630e3ac4100f793b6d1f8655cc815438917428222fc0d5f387d7430e386"
+    },
+    "nullability": "May be null before a forecast arrives",
+    "relatedModel": "forecast",
+    "requiredness": "Explicitly selected by the SQL query",
+    "typeLabel": "Forecast-shaped JSON object | null"
+  }
+}

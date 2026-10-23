@@ -1,0 +1,10 @@
+{
+  "identity": "sha256:cfbfe052e72d6cd6d8e37f12aadb062128f163d2ba1f7b1d5cff75b33930bd9e",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "points": {
+      "$clewRef": "sha256:925bc55b4c50f5c2d9199b93604ea9499c116cf176c6a414eb154731ae426d2f"
+    },
+    "purpose": "See what the browser sends, what Places derives, and which values are stored or passed on. Choose View evidence to inspect a conclusion."
+  }
+}

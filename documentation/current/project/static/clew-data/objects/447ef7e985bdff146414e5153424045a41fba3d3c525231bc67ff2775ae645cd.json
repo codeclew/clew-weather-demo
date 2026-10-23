@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:447ef7e985bdff146414e5153424045a41fba3d3c525231bc67ff2775ae645cd",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "fragment": {
+      "$clewRef": "sha256:1039175666e1d460dbe94566fd381ec44b637deb2337dd4473ed927b4e326354"
+    },
+    "kind": "RETAINED_CLAIM",
+    "operation": "dashboard-forecast-updated-consumer",
+    "sourceContext": {
+      "$clewRef": "sha256:ebff0ac1bf65e82eab9a03d9ea1602d72b899d362a9b668fc7258a487be713bc"
+    },
+    "sources": {
+      "$clewRef": "sha256:4c2fcec2d8d6299d7802438f81c734222782bf57c81d29da68d5eea4d82660e1"
+    },
+    "state": {
+      "$clewRef": "sha256:16170ce006198916df899740035d9a945a227bcdae4ab0cc9cd5196297850f42"
+    },
+    "subject": "scenario:dashboard-forecast-updated-consumer",
+    "title": "Dashboard consumes forecast-updated events"
+  }
+}

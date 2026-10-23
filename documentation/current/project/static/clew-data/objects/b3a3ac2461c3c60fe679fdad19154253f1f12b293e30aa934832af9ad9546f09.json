@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:b3a3ac2461c3c60fe679fdad19154253f1f12b293e30aa934832af9ad9546f09",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:d79b22a8cb3874c23d48113bae73abfd6bcb53823d55a48db643be4ee94969d9"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The city buttons carry oslo, helsinki or lisbon in data-city. Their click handler sends JSON {cityId: button.dataset.city} to POST /api/places; it sends no name or coordinates. The browser later checks response.ok, not the returned Place fields.",
+    "title": "Save a city: source interpretation",
+    "tone": null
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:7dbebb10755b002300a3c2c3a803dd4810c3f8f2a9a27ee77833a8b438420c57",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:ba2d6311a6e883cdef8b27c663b65439905cf808644df35545a360b610d888b5"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Place.Latitude is derived from the literal supported-city lookup record, not supplied by the HTTP client. The request CityId selects that record; an unsupported key returns null and the handler returns 400 before persistence. The selected event contract describes these canonical Place fields; this stage has not emitted an event.",
+    "title": "Save a city: source interpretation",
+    "tone": null
+  }
+}

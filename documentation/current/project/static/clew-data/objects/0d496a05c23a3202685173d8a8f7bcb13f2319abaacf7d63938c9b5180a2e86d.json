@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:0d496a05c23a3202685173d8a8f7bcb13f2319abaacf7d63938c9b5180a2e86d",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 44,
+    "evidenceDigest": "sha256:d332169c60bcfe2b8bf441e2411ed8e28d3a45e131ee37abd4b5df63c93878f8",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "id": "forecasts-814ab3aaee1977605c70",
+    "occurrence": {
+      "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+      "endByte": 2276,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 1898
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 40,
+    "text": "val event = try { json.readTree(record.value()).also { validatePlaceEvent(it) } } catch (error: Exception) {\n            jdbc.update(\"INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES(?,?,?,'INVALID_EVENT') ON CONFLICT DO NOTHING\", record.topic(), record.partition(), record.offset())\n            acknowledgment.acknowledge()\n            return\n        }",
+    "textDigest": "sha256:d9950577c8d114841c3d08601124e187738c4beab658698ad46239e856a5bf9c",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L40-L44"
+  }
+}

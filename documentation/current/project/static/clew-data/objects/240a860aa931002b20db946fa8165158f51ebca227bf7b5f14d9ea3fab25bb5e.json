@@ -1,0 +1,34 @@
+{
+  "identity": "sha256:240a860aa931002b20db946fa8165158f51ebca227bf7b5f14d9ea3fab25bb5e",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "id": "dashboard-refresh-request",
+    "interactions": [
+      "dashboard-request-refresh-to-places",
+      "places-place-requested-to-forecasts",
+      "places-place-requested-to-dashboard",
+      "forecasts-refresh-to-external-met",
+      "forecasts-forecast-updated-to-dashboard"
+    ],
+    "maxDepth": 4,
+    "maxNodes": 64,
+    "process": {
+      "$clewRef": "sha256:2daa9c3474b792df1c093f2cbdd7b21541b7a10bdac2e56301afba41ada56356"
+    },
+    "root": {
+      "selector": {
+        "language": "typescript",
+        "name": "requestRefresh",
+        "owner": "package:",
+        "parameterTypes": [
+          ": FastifyRequest<{ Params: { id: string } }>",
+          ": FastifyReply"
+        ]
+      },
+      "service": "dashboard"
+    },
+    "schema": "codeclew-documentation-process/1.0",
+    "summary": "Source-level thread connecting the proposed POST /places/{id}/refresh mapping to the place-requested publisher, Forecasts consumer and publisher, and both Dashboard consumer views; linked views do not establish execution order or delivery.",
+    "title": "Dashboard refresh-request thread"
+  }
+}

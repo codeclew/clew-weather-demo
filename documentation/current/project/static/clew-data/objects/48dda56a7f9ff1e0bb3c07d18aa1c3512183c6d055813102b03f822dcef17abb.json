@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:48dda56a7f9ff1e0bb3c07d18aa1c3512183c6d055813102b03f822dcef17abb",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:487d1991a7544d693967443a3f5f01618319e023707fd39428ebba27c285c48c"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "After awaited Save returns normally, Places returns Ok(city), including this Place.Longitude value. Dashboard forwards the upstream status and parsed JSON without a response.ok check. The city-button handler checks HTTP success but does not read the returned Place fields; it displays \"City saved; forecast pending\" and then makes a separate weather read. Both a newly saved city and an existing city can return 200; this is not forecast or message-delivery completion. The separately bound declared HTTP 200 schema requires JSON.longitude; this is distinct from the event-envelope contract and does not prove runtime conformance.",
+    "title": "Save a city: source interpretation",
+    "tone": null
+  }
+}

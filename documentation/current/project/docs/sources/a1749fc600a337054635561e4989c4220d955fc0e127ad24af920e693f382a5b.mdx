@@ -1,0 +1,38 @@
+---
+title: "services/dashboard/Dockerfile:1–15"
+slug: "/sources/a1749fc600a337054635561e4989c4220d955fc0e127ad24af920e693f382a5b"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/dashboard/Dockerfile:1–15
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6
+
+Text digest: sha256:17fe04974f4fa342f3dd18a2aa63db82d6c3c9936fd0eb1cfe83944a6134856d
+
+## Retained text {#retained-text}
+
+```text
+FROM node:24.21.0-bookworm-slim AS build
+WORKDIR /app/services/dashboard
+COPY services/dashboard/package*.json ./
+RUN npm ci --ignore-scripts --no-audit --no-fund
+COPY services/dashboard/tsconfig.json ./
+COPY services/dashboard/src ./src
+RUN npm run build
+FROM node:24.21.0-bookworm-slim
+WORKDIR /app/services/dashboard
+COPY --from=build /app/services/dashboard/node_modules ./node_modules
+COPY --from=build /app/services/dashboard/package.json ./package.json
+COPY --from=build /app/services/dashboard/dist ./dist
+COPY services/dashboard/public ./public
+COPY contracts /app/contracts
+CMD ["node","dist/main.js"]
+
+```
+
+<ClewDownload path="/clew-data/objects/a1749fc600a337054635561e4989c4220d955fc0e127ad24af920e693f382a5b.json">Complete original source binding</ClewDownload>

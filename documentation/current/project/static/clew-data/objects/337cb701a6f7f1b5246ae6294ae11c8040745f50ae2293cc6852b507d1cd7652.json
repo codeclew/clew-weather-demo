@@ -1,0 +1,21 @@
+{
+  "identity": "sha256:337cb701a6f7f1b5246ae6294ae11c8040745f50ae2293cc6852b507d1cd7652",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "id": "name",
+    "meaning": {
+      "$clewRef": "sha256:c70e8a2454fa5316d919ac34493d1dfe5d226d86ba66c5d8851124610a0a62af"
+    },
+    "path": "name",
+    "readableName": {
+      "$clewRef": "sha256:dfa79556a44ce373cbbaa5906dd3fcbba4c739dd793f099c84d95ff7d0e3ce82"
+    },
+    "representations": {
+      "$clewRef": "sha256:07a62ac32bea6cac8912b8afecca6d5a208a97d43f81c22314334c167207c702"
+    },
+    "selectedProcessField": true,
+    "usage": {
+      "$clewRef": "sha256:4b8466787f1114a0f7d26dc16bbf484a9bf019568da9bd27648c435993055146"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "identity": "sha256:e0433c8abc9a95ed6ebc926e3546347719b067088736f85f63a54d82e56583c0",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "anchor": "question-request",
+    "documentationLanguage": "en",
+    "enabled": true,
+    "fields": [
+      {
+        "field": "city-id",
+        "model": "save-city-request"
+      },
+      {
+        "field": "id",
+        "model": "place"
+      },
+      {
+        "field": "name",
+        "model": "place"
+      },
+      {
+        "field": "latitude",
+        "model": "place"
+      },
+      {
+        "field": "longitude",
+        "model": "place"
+      }
+    ],
+    "readingGuide": {
+      "$clewRef": "sha256:cfbfe052e72d6cd6d8e37f12aadb062128f163d2ba1f7b1d5cff75b33930bd9e"
+    },
+    "relatedModels": [
+      "save-city-request",
+      "place"
+    ],
+    "stages": [
+      "Browser city choice",
+      "Dashboard HTTP request",
+      "Places city lookup",
+      "Places transaction and outbox",
+      "HTTP save result"
+    ],
+    "subject": "scenario:dashboard-save-city",
+    "title": "Save a city: city selector, derived Place and local HTTP outcome",
+    "transfers": {
+      "$clewRef": "sha256:bc24fb46905796c65c0db2997147f68f6965bbc91171f335bb5fc2c2bd0e0197"
+    }
+  }
+}

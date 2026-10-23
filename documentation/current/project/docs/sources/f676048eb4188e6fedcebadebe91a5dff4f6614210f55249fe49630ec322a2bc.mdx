@@ -1,0 +1,28 @@
+---
+title: "services/dashboard/src/main.ts:77–82"
+slug: "/sources/f676048eb4188e6fedcebadebe91a5dff4f6614210f55249fe49630ec322a2bc"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/dashboard/src/main.ts:77–82
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6
+
+Text digest: sha256:86f85aae3887cd983b2365a1102661ba85ccda1883fde5b6b91815e6d2aaf217
+
+## Retained text {#retained-text}
+
+```text
+try {
+    const response = await fetch(`${placesUrl}/places/${encodeURIComponent(request.params.id)}/refresh`, { method: 'POST', signal: AbortSignal.timeout(10000) })
+    reply.code(response.status).send(await response.json())
+  } catch {
+    reply.code(503).send({ error: 'PLACES_UNAVAILABLE' })
+  }
+```
+
+<ClewDownload path="/clew-data/objects/f676048eb4188e6fedcebadebe91a5dff4f6614210f55249fe49630ec322a2bc.json">Complete original source binding</ClewDownload>

@@ -1,0 +1,29 @@
+{
+  "identity": "sha256:185c4b8511afed7317ae95f32cd8037cc2a94d61c8b5337455e94459cb5e1db1",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "note:runtime-broker-outage",
+      "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+      "places:entrypoint:60965d356edea224ffadd0f9",
+      "places:symbol:309961f88b197290c1b04e50",
+      "places:symbol:51d94b76d870001475fd2c51",
+      "places:symbol:5b61c76fee491604ae120ab3",
+      "places:symbol:722b268c12cec9e1cb51cbe8",
+      "places:symbol:7fb8137cf82d592b243e54aa",
+      "places:symbol:d3b23b700626394c74b7ef9e",
+      "places:symbol:edfd73109baec00e38bd9ff0"
+    ],
+    "id": "claim-0a14fab1e7d3eab656c6",
+    "sourceIds": [
+      "places-309961f88b197290c1b0",
+      "places-51d94b76d870001475fd",
+      "places-5b61c76fee491604ae12",
+      "places-722b268c12cec9e1cb51",
+      "places-7fb8137cf82d592b243e",
+      "places-d3b23b700626394c74b7",
+      "places-edfd73109baec00e38bd"
+    ],
+    "text": "During a broker outage, POST /places can still save a supported city: the controller awaits PlacesRepository.Save and returns 200. Save inserts the place and, only for a new row, writes a place.requested message to request_outbox in the same database transaction; a duplicate creates no second request. The publisher selects the oldest pending row, sends it to weather.place-requested, then marks it published and commits. A failed send leaves it pending; ExecuteAsync logs PUBLISH_RETRY and waits one second before retrying. The producer uses a 10-second message timeout and enables idempotence. GET /health checks SELECT 1 only, so database READY does not attest to broker health.\n\nThe imported GitHub Actions run reports seven passing checks: the dashboard began empty; save returned 200 while the broker was down; one outbox row remained unpublished; health still returned database READY; a duplicate save kept one row; a retry marker appeared; and after broker recovery the row was published and a dashboard card contained a forecast. The run is https://github.com/codeclew/clew-weather-demo/actions/runs/38363357256 at revision d135990a1c8770928d3c7be2274ff60e7f5d75d3. Its five saved hashes matched compose.yaml, RequestPublisher.cs, PlacesRepository.cs, Forecasts.kt and Dashboard main.ts. This is imported historical evidence, not a fresh compiler or runtime run. It does not prove exactly-once delivery: a crash after broker delivery but before the database mark can permit a repeat.\n\nCheckout root: python3 -I -S -B exercises/broker-outage.py --output PASTE_NEW_DIRECTORY_OUTSIDE_CHECKOUT. Use a new output directory outside the checkout, not its ancestor. Requires Python 3, Git, Docker and Compose supporting !override; free loopback ports 19080–19082 or three distinct ports via --dashboard-port, --places-port, --forecasts-port. The script creates a unique project, forces fixture mode, runs Compose up --build -d, stops/restarts Kafka, then Compose down --volumes --remove-orphans for that project only. Do not prestart a stack."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:6b99f57b7da5c77f417067a6ceee8c5b9db496d5d7ebce1189e8d408a8e61631",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:6f8c803b099588ceb6efe0a0c7d0f2ced47bc3ae085c7c6df06964d6c8573411"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Forecast source mode",
+    "title": "Authored readable name (agent proposal)",
+    "tone": null
+  }
+}

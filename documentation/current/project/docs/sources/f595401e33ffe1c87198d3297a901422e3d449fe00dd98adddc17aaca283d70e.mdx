@@ -1,0 +1,25 @@
+---
+title: "services/dashboard/src/events.ts:6–8"
+slug: "/sources/f595401e33ffe1c87198d3297a901422e3d449fe00dd98adddc17aaca283d70e"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/dashboard/src/events.ts:6–8
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: e635069293d58cb0d4f28c8211e748b8d58e6b37
+
+Text digest: sha256:bd0c10a89f66df7387a1045bcebd602e0d98c2d25ba7ee7b091ddcad09114f4a
+
+## Retained text {#retained-text}
+
+```text
+function isTimestamp(value: unknown): value is string {
+  return typeof value === 'string' && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/.test(value) && Number.isFinite(Date.parse(value))
+}
+```
+
+<ClewDownload path="/clew-data/objects/f595401e33ffe1c87198d3297a901422e3d449fe00dd98adddc17aaca283d70e.json">Complete original source binding</ClewDownload>

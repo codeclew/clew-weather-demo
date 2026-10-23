@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:e26d5bf06f9c36e5592b755960e9809fdade8d514aa2606c828c1e701c456a04",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contract": null,
+    "field": null,
+    "label": "Stored column · weather_cards.name",
+    "mapping": {
+      "$clewRef": "sha256:ce4c05449787c1ec0b36f829113d7ca522a3a301c42c7df3a0489010b419c33f"
+    },
+    "nullability": "Not nullable",
+    "relatedModel": null,
+    "requiredness": "Required stored value",
+    "typeLabel": "text"
+  }
+}
