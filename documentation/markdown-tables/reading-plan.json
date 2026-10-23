@@ -1760,8 +1760,6 @@
                   "endLine": 17
                 }
               ],
-              "id": "input-table",
-              "navTitle": "Request fields",
               "disclosure": "Request fields",
               "preview": "cityId · selected city key; complete retained comment"
             },
