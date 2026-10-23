@@ -1,0 +1,102 @@
+{
+  "identity": "sha256:6ad09aa2389cf4c3203b26212c92689975b1b49d16bb25047c2bf3294a4e2578",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "places-03ca9c0afeb32ca6a28e": {
+      "$clewRef": "sha256:511591bc907a3b4cdbc0e66abfea8b19a5d53b4f98e218ca4a70c40318ed4678"
+    },
+    "places-1223607978a77b621e14": {
+      "$clewRef": "sha256:134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d"
+    },
+    "places-19710e183d3cbefd518f": {
+      "$clewRef": "sha256:bb9a7a97efd1e65fb99a5ba6e268c3174435f4d8a176e36673fe21838b881472"
+    },
+    "places-19e12857365e6c3ab8c1": {
+      "$clewRef": "sha256:520c410620b6ad262c72ef74b88eec85f0ccbb36220cd1fc7f251efacd0d2b7f"
+    },
+    "places-1bdf9a8c438732fd9a47": {
+      "$clewRef": "sha256:a1320ac96e5a69642416c6a1afc64d64ed93e72ea6d85947efd51acca1b41a5d"
+    },
+    "places-24afabf4ce6fb0dad4a7": {
+      "$clewRef": "sha256:09adfc4929d330ef0ace7773c10744a9ad2b7d33500cce7f3ebbce83b35cbccc"
+    },
+    "places-309961f88b197290c1b0": {
+      "$clewRef": "sha256:31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0"
+    },
+    "places-3e148dc4ec1c8e6777da": {
+      "$clewRef": "sha256:db4a337d739c657318d9b67686b2e3e0f578e38014c5f82691f44bed98f118a1"
+    },
+    "places-434ffab68fae2f991ebb": {
+      "$clewRef": "sha256:2f738bb1b0e4cfed6f7710952bc1442794ebe32fe8703bd2bca4c9b79e4bbbc2"
+    },
+    "places-4ae3f1a41f6b7e53d1d6": {
+      "$clewRef": "sha256:001a33800512f3a620b662354b83547eead4a882a77361b3c7d8b85de99fafab"
+    },
+    "places-5186c682af4611de338b": {
+      "$clewRef": "sha256:05ccbfcb55d81cd857c11a3fdc045651ebfc19e32e8abf4ca6b149a923363505"
+    },
+    "places-51d94b76d870001475fd": {
+      "$clewRef": "sha256:89387464df117dd1f2cfdbd8113d90c803728d4fe220f507529703bd597dbf8e"
+    },
+    "places-5b61c76fee491604ae12": {
+      "$clewRef": "sha256:ac9cd70dddf6c07f241fea3e24665fbe31c3ebcace3aebc051cc81679106cb7c"
+    },
+    "places-65de4bdfa04d114b73df": {
+      "$clewRef": "sha256:10944607b7dd3022e1223a7de9822b263e1bccb2a729b6118f97fc90f3c31306"
+    },
+    "places-6c58eb605998ee97db0f": {
+      "$clewRef": "sha256:060e15bdd239bc9c41e5e8121fc05aac611643d56844c1a2f491ca9f3442cffb"
+    },
+    "places-6c7321d96988c6277e32": {
+      "$clewRef": "sha256:5d0e0230101848f293cac0902245f465a92e8106f700b8853514a42687637309"
+    },
+    "places-707eb762b8c1f4718a5b": {
+      "$clewRef": "sha256:d10889d7dec9ec7771472d1a44e755b28743b1800e345a02d390e4ce46d995b6"
+    },
+    "places-722b268c12cec9e1cb51": {
+      "$clewRef": "sha256:728b9ba12f04391993430660fb0e4a022375568be05cd19f8e9d4aca115e990d"
+    },
+    "places-770e53d99edf681987e1": {
+      "$clewRef": "sha256:d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959"
+    },
+    "places-7fb8137cf82d592b243e": {
+      "$clewRef": "sha256:b970c6d235f9c5eb2f4e16bc78eda2a4ee3a68751103a8811054e9802c535d97"
+    },
+    "places-93a350e119c095d25822": {
+      "$clewRef": "sha256:e51d4c67bd27056cdebb28e9eb5ea481a943fc5f4d158a8ed72036c81cce0843"
+    },
+    "places-94d093f3220cad23f468": {
+      "$clewRef": "sha256:49ac56a63b7a243dcf3b92eaf871170f923e6a6c33566618c65dc8c7d62c5130"
+    },
+    "places-980888b04e77862e073c": {
+      "$clewRef": "sha256:ce35089eb32fb4ba4d00a1b4b0c657cff0127f739011c6e0b42e5ffb2db671ba"
+    },
+    "places-9b1977404f23eec4b384": {
+      "$clewRef": "sha256:67245c34fadc9a6bcd1038f1c2761a4382cb83fcee3ad8d02f408ccdeb1193dc"
+    },
+    "places-9e8cdc503c6cd9f7b5e3": {
+      "$clewRef": "sha256:9dc215489a5ce7b3d57940443d2a78b507b6e6f335c61d43f072f0fd276de730"
+    },
+    "places-c4c78f2ff61478266b21": {
+      "$clewRef": "sha256:351979e24a417de4797960a50c6bb0b27e90fbe64ebb5f7b32f302f1907e995c"
+    },
+    "places-d3b23b700626394c74b7": {
+      "$clewRef": "sha256:379c0b710ffb354ec36825644e1d5c73ec611814e26c938687bac753bdb832c6"
+    },
+    "places-d4d0aa9ce7bc37e81fa3": {
+      "$clewRef": "sha256:8365477e69b3327301c9058498f870922953982db968768e71a60cf8d2df982d"
+    },
+    "places-d563c7ecbbb7f4ab93d0": {
+      "$clewRef": "sha256:d203286611c588c4b0c038c3324009a087eb5da300f33fa1ac68974691bb5270"
+    },
+    "places-d9cadcac8ec9a824bbdf": {
+      "$clewRef": "sha256:9e47d817ca1d51924aad0c9840dc01a49fa438ad4b7d03faf2c22fbca713adc4"
+    },
+    "places-edfd73109baec00e38bd": {
+      "$clewRef": "sha256:efc0c91d8075be6474d60ff2dfdc8deccb39e21ff00789cc4a20f6b4f07406d2"
+    },
+    "places-fb7eaacd787375afbd44": {
+      "$clewRef": "sha256:88163caae761a5f78b16590efa0a544157f50d1ca4f24bff6a80a829931e9309"
+    }
+  }
+}

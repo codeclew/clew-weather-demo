@@ -1,0 +1,38 @@
+{
+  "identity": "sha256:0fe8a5577a3b07e2baf6748e050463e59c14f52f7554af49ac44dbb3971c9bdc",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [],
+    "dependencyIds": [
+      "places:symbol:980888b04e77862e073cbcc8",
+      "places:entrypoint:ebc7f56be0a61c52f682dcc7"
+    ],
+    "id": "places-de7d5796a632782443dc",
+    "kind": "HTTP_ENDPOINT",
+    "service": "places",
+    "sourceIds": [
+      "places-980888b04e77862e073c"
+    ],
+    "symbol": "method:class:Weather.Places.PlacesController#OpenApi(LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;",
+    "trigger": {
+      "apiVersions": [],
+      "authority": "ASPNETCORE_ROUTING_RULES",
+      "conditions": {
+        "authorization": {
+          "allowAnonymous": false,
+          "authorize": []
+        },
+        "consumes": [],
+        "produces": []
+      },
+      "methods": [
+        "GET"
+      ],
+      "pathResolution": "DERIVED",
+      "paths": [
+        "/openapi.json"
+      ],
+      "versionedPaths": null
+    }
+  }
+}

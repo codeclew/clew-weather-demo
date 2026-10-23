@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:23667bd241e7892d6004e366f4ec1a5693793dcd7042d4daff43f51f0acbbad1",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:eaa6eda89a47ce6e1e787fe8350ebf4a959d530a50ae608354a5bb487bcac259"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Forecasts emits this property in the forecast JSON. Dashboard stores and returns that JSON as a whole.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

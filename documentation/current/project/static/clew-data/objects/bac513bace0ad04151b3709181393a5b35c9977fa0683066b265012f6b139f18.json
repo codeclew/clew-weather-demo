@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:bac513bace0ad04151b3709181393a5b35c9977fa0683066b265012f6b139f18",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 36,
+    "evidenceDigest": "sha256:67499adc57cea38c6cc93229aa40ae0c7688fedb08f82dc1c98ec0127f25e282",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "id": "forecasts-3b271aa33f7bd944bb5a",
+    "occurrence": {
+      "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+      "endByte": 1741,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 1594
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 36,
+    "text": "fun get(id: String): String? = jdbc.query(\"SELECT payload::text FROM forecasts WHERE place_id=?\", { row, _ -> row.getString(1) }, id).firstOrNull()",
+    "textDigest": "sha256:0aa7579134568df5c57c16d9d0e69cb3560d1a0ae00a3e8a32a1bc7311fe9bb9",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L36-L36"
+  }
+}

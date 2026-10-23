@@ -1,0 +1,54 @@
+{
+  "identity": "sha256:6e74655beb00bbe4796a1ac5af69fb8d421300a9351af19a37026c42c9f01136",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "FRAMEWORK_DERIVED_SOURCE",
+    "conditions": {
+      "consumes": [],
+      "headers": [],
+      "params": [],
+      "produces": []
+    },
+    "frameworkDeclarations": [
+      {
+        "controller": true,
+        "kind": "HTTP_ENDPOINT",
+        "registration": "RUNTIME_CONDITIONAL",
+        "trigger": {
+          "authority": "SPRING_ANNOTATION_RULES",
+          "conditions": {
+            "consumes": [],
+            "headers": [],
+            "params": [],
+            "produces": []
+          },
+          "methods": [
+            "GET"
+          ],
+          "pathResolution": "DERIVED",
+          "paths": [
+            "/openapi.json"
+          ]
+        }
+      }
+    ],
+    "frameworkDerivation": {
+      "coverage": "PARTIAL",
+      "implementationDigest": "sha256:afdbd2484f030da4d481e109d5a74a62a9885136cf7c6832ee1869318477c464",
+      "inputAuthority": "SOURCE_ANNOTATIONS",
+      "inputDigest": "sha256:1d1f6f374c4d51c8e074287933e0e0656fa3aa83054eefe4de4ea39cde112651",
+      "inputSchema": "source-annotation-facts/1.0",
+      "moduleId": "spring",
+      "policyVersion": "spring-annotation-declarations/1.0"
+    },
+    "methods": [
+      "GET"
+    ],
+    "name": "openApi",
+    "owner": "class:weather.ForecastController",
+    "pathResolution": "DERIVED",
+    "paths": [
+      "/openapi.json"
+    ]
+  }
+}

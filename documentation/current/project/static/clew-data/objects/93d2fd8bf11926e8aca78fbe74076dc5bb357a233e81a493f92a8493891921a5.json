@@ -1,0 +1,30 @@
+{
+  "identity": "sha256:93d2fd8bf11926e8aca78fbe74076dc5bb357a233e81a493f92a8493891921a5",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "forecast": {
+      "$clewRef": "sha256:7973df7b5380dcba9b5b711e773a6564665d403e36833ae84e1ca2abbb8f4663"
+    },
+    "id": {
+      "enum": [
+        "oslo",
+        "helsinki",
+        "lisbon"
+      ],
+      "type": "string"
+    },
+    "latitude": {
+      "maximum": 90,
+      "minimum": -90,
+      "type": "number"
+    },
+    "longitude": {
+      "maximum": 180,
+      "minimum": -180,
+      "type": "number"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

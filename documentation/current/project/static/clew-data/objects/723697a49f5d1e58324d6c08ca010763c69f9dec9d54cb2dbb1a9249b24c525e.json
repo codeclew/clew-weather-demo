@@ -1,0 +1,27 @@
+{
+  "identity": "sha256:723697a49f5d1e58324d6c08ca010763c69f9dec9d54cb2dbb1a9249b24c525e",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "candidates": [
+      "places:symbol:65de4bdfa04d114b73dffbc2"
+    ],
+    "details": [
+      {
+        "descriptor": "(LSystem/String;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;",
+        "id": "places:symbol:65de4bdfa04d114b73dffbc2",
+        "parameterTypes": [
+          "System.String",
+          "System.Threading.CancellationToken"
+        ],
+        "sourceIds": [
+          "places-65de4bdfa04d114b73df"
+        ],
+        "symbol": "method:class:Weather.Places.PlacesController#Refresh(LSystem/String;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;"
+      }
+    ],
+    "sourceIds": [
+      "places-65de4bdfa04d114b73df"
+    ],
+    "status": "RESOLVED"
+  }
+}

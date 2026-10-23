@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:739baa2aa1a07715489da4a352d35068d3e737a84e61a3293b0de6949f0d7679",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    {
+      "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+      "snapshot": "sha256:2670b888a7260cb79c4fea9ba99055838dd5fb9c0b6424324a66f731b76cf345/164667"
+    },
+    {
+      "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+      "snapshot": "sha256:504b0babac4b6086256f5881975f96e395c4752c57a841887f5d7d19f8399f14/164667"
+    },
+    {
+      "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+      "snapshot": "sha256:8cfa6609f990481eaff2383c5863cbd1f6d71d851f0fb8331d98ed21ec16122a/164667"
+    },
+    {
+      "reason": "PINNED_SNAPSHOT_NOT_REVERIFIED",
+      "snapshot": "sha256:b57016f8fd0621d202cb2ee1e96f17cd3ba84d6a935e64660e40ac3d60be0ca4/164667"
+    }
+  ]
+}

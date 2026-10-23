@@ -1,0 +1,30 @@
+---
+title: "services/forecasts/src/main/kotlin/weather/Forecasts.kt:130–137"
+slug: "/sources/d16edda6870f49ad776f5d271642e7ceb0421909d445f9f593fa3fd1ecf610c2"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/forecasts/src/main/kotlin/weather/Forecasts.kt:130–137
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: c289b28be4819eddf29d59a7c12f178559ec5229
+
+Text digest: sha256:dfd12c6844254af3f47da8583caf9fb27730c9deb22341a8a9d5559e219f2eb5
+
+## Retained text {#retained-text}
+
+```text
+{
+                val rows = jdbc.queryForList("SELECT id,payload::text FROM forecast_outbox WHERE NOT published ORDER BY id LIMIT 1 FOR UPDATE SKIP LOCKED")
+                if (rows.isEmpty()) return@executeWithoutResult
+                val row = rows.first()
+                val event = json.readTree(row["payload"] as String)
+                kafka.send("weather.forecast-updated", event["place"]["id"].asText(), row["payload"] as String).get(10, TimeUnit.SECONDS)
+                jdbc.update("UPDATE forecast_outbox SET published=true WHERE id=?", row["id"])
+            }
+```
+
+<ClewDownload path="/clew-data/objects/d16edda6870f49ad776f5d271642e7ceb0421909d445f9f593fa3fd1ecf610c2.json">Complete original source binding</ClewDownload>

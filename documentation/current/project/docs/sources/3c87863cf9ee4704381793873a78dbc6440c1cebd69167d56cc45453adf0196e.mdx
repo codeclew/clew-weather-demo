@@ -1,0 +1,143 @@
+---
+title: "exercises/broker-outage.py:1–120"
+slug: "/sources/3c87863cf9ee4704381793873a78dbc6440c1cebd69167d56cc45453adf0196e"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# exercises/broker-outage.py:1–120
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6
+
+Text digest: sha256:c36ff8bf2ca8ad555e80a28a8663b7856d3b861bd7c245176ea4b5e78ffb8714
+
+## Retained text {#retained-text}
+
+```text
+import argparse
+import hashlib
+import os
+import uuid
+import datetime
+import json
+from pathlib import Path
+import subprocess
+import time
+import urllib.request
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--output', required=True, type=Path)
+parser.add_argument('--dashboard-port', type=int, default=19080)
+parser.add_argument('--places-port', type=int, default=19081)
+parser.add_argument('--forecasts-port', type=int, default=19082)
+args = parser.parse_args()
+REPO = Path(__file__).resolve().parents[1]
+OUT = args.output.expanduser().resolve()
+if OUT.exists() or OUT == REPO or REPO in OUT.parents or OUT in REPO.parents:
+    parser.error('use a new output directory outside the source checkout')
+ports = [args.dashboard_port, args.places_port, args.forecasts_port]
+if len(set(ports)) != 3 or any(port < 1024 or port > 65535 for port in ports):
+    parser.error('use three distinct ports between 1024 and 65535')
+OUT.mkdir(mode=0o700)
+project = 'clew-weather-outage-' + uuid.uuid4().hex[:12]
+override = OUT / 'compose.outage.yaml'
+override.write_text('services:\n' + ''.join(
+    f'  {service}:\n    ports: !override\n      - "127.0.0.1:{port}:8080"\n'
+    for service, port in zip(('dashboard', 'places', 'forecasts'), ports)))
+DC = ['docker', 'compose', '--project-name', project, '-f', str(REPO / 'compose.yaml'), '-f', str(override)]
+revision = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=REPO, text=True).strip()
+result = {'schema': 'clew-weather-isolated-outage-proof/1.0', 'status': 'RUNNING',
+          'sourceRevision': revision, 'project': project, 'compilerEvidence': False,
+          'runnerSha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+          'sourceHashes': {name: hashlib.sha256((REPO / name).read_bytes()).hexdigest()
+                           for name in ('compose.yaml', 'services/places/RequestPublisher.cs',
+                                        'services/places/PlacesRepository.cs',
+                                        'services/forecasts/src/main/kotlin/weather/Forecasts.kt',
+                                        'services/dashboard/src/main.ts')},
+          'checks': [], 'startedAt': datetime.datetime.now(datetime.timezone.utc).isoformat()}
+
+def execute(arguments, timeout=600):
+    environment = os.environ.copy()
+    environment['FORECAST_MODE'] = 'fixture'
+    return subprocess.check_output(DC + arguments, text=True, cwd=REPO, timeout=timeout, env=environment)
+
+def request(port, path, body=None):
+    req = urllib.request.Request(f"http://127.0.0.1:{port}{path}", data=None if body is None else json.dumps(body).encode(), headers={} if body is None else {"content-type": "application/json"})
+    with urllib.request.urlopen(req, timeout=5) as response:
+        return {"status": response.status, "body": json.loads(response.read())}
+
+def counts():
+    rows = execute(["exec", "-T", "postgres", "psql", "-U", "weather", "-d", "places", "-At", "-c", "SELECT count(*), count(*) FILTER (WHERE published) FROM request_outbox;"]).strip().split("|")
+    return {"outbox": int(rows[0]), "published": int(rows[1])}
+
+def check(name, condition, observed):
+    result["checks"].append({"case": name, "passed": bool(condition), "observed": observed})
+    assert condition, name
+
+try:
+    execute(['up', '--build', '-d'], timeout=1200)
+    deadline = time.monotonic() + 180
+    while True:
+        try:
+            request(args.dashboard_port, '/health')
+            request(args.places_port, '/health')
+            request(args.forecasts_port, '/health')
+            break
+        except (OSError, ValueError):
+            if time.monotonic() >= deadline:
+                raise RuntimeError('isolated services did not become ready')
+            time.sleep(1)
+    check("fresh-dashboard-empty", request(args.dashboard_port, "/api/weather")["body"] == [], {})
+    execute(["stop", "kafka"])
+    saved = request(args.places_port, "/places", {"cityId": "oslo"})
+    check("save-commits-with-broker-down", saved["status"] == 200 and saved["body"]["id"] == "oslo", saved)
+    time.sleep(12)
+    queued = counts()
+    health = request(args.places_port, "/health")
+    check("outbox-retained-unpublished-after-producer-timeout", queued == {"outbox": 1, "published": 0}, queued)
+    check("places-health-does-not-attest-broker", health["status"] == 200, health)
+    duplicate = request(args.places_port, "/places", {"cityId": "oslo"})
+    check("duplicate-save-does-not-create-another-outbox-row", duplicate["status"] == 200 and counts() == queued, {"response": duplicate, "counts": counts()})
+    execute(["start", "kafka"])
+    deadline = time.monotonic() + 90
+    while True:
+        rows = request(args.dashboard_port, "/api/weather")["body"]
+        card = next((row for row in rows if row["id"] == "oslo" and row.get("forecast")), None)
+        current = counts()
+        if card and current["published"] == 1:
+            break
+        assert time.monotonic() < deadline, "outage recovery deadline"
+        time.sleep(1)
+    check("broker-recovery-delivers-through-all-three-services", len(card["forecast"]["periods"]) == 6 and current == {"outbox": 1, "published": 1}, {"counts": current, "card": card})
+    logs = execute(["logs", "--no-color", "places"])
+    check("publisher-recorded-retry", "PUBLISH_RETRY" in logs, {"retryMarkerPresent": "PUBLISH_RETRY" in logs})
+    result["status"] = "PASSED"
+except Exception as error:
+    result["status"] = "FAILED"
+    result["error"] = repr(error)
+    raise
+finally:
+    try:
+        (OUT / 'runtime.log').write_text(execute(['logs', '--no-color', '--tail', '100', 'places', 'forecasts', 'dashboard'], timeout=30))
+    except Exception as error:
+        result['logCaptureError'] = repr(error)
+    try:
+        execute(['down', '--volumes', '--remove-orphans'], timeout=60)
+        result['cleanup'] = 'COMPLETED_OWN_PROJECT_ONLY'
+    except Exception as error:
+        result['cleanup'] = 'FAILED'
+        result['cleanupError'] = repr(error)
+        if result['status'] == 'PASSED':
+            result['status'] = 'FAILED_CLEANUP'
+    result['finishedAt'] = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    (OUT / 'result.json').write_text(json.dumps(result, indent=2) + '\n')
+    print(json.dumps({'status': result['status'], 'checks': len(result['checks']), 'cleanup': result['cleanup']}))
+    if result['status'] != 'PASSED':
+        raise SystemExit(1)
+
+```
+
+<ClewDownload path="/clew-data/objects/3c87863cf9ee4704381793873a78dbc6440c1cebd69167d56cc45453adf0196e.json">Complete original source binding</ClewDownload>

@@ -1,0 +1,24 @@
+{
+  "identity": "sha256:a9ec400ec1e85a3d7361bab03b26bdd1303c880d5b89cb7cc21c3c33b9b41260",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "observed-static-use",
+    "claim": {
+      "$clewRef": "sha256:bc80e7daa0c02fd834f853ed12862763e5d085b5ac44d87ba9780208373641cf"
+    },
+    "condition": "forecast.updated v1 branch",
+    "consumer": "Dashboard.consumeMessage → validateEvent",
+    "contract": "forecast-updated",
+    "coveredScope": "Dashboard receive",
+    "kinds": [
+      "forward"
+    ],
+    "processes": [
+      "scenario:dashboard-forecast-updated-consumer"
+    ],
+    "producer": "weather.forecast-updated message",
+    "representation": "message.value JSON → event.forecast.periods[].precipitationMm",
+    "stage": "Dashboard receive",
+    "unresolved": "Static source interpretation; runtime execution and delivery are not established."
+  }
+}

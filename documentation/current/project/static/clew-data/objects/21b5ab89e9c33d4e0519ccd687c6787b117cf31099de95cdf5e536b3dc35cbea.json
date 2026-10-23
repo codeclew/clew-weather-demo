@@ -1,0 +1,101 @@
+{
+  "identity": "sha256:21b5ab89e9c33d4e0519ccd687c6787b117cf31099de95cdf5e536b3dc35cbea",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "applicability": null,
+    "boundaries": [
+      "RUNTIME_DESTINATION_AND_ACTIVATION_UNKNOWN",
+      "WIRE_SERIALIZATION_NOT_ASSESSED",
+      "ENVIRONMENT_SCOPE_UNSPECIFIED",
+      "CLIENT_PATTERN_UNSUPPORTED_OR_AMBIGUOUS",
+      "UNACCEPTED_AGENT_PROPOSAL"
+    ],
+    "callSite": {
+      "candidates": [
+        "dashboard:flow:0a52ae14321115b046495f87"
+      ],
+      "details": [
+        {
+          "id": "dashboard:flow:0a52ae14321115b046495f87",
+          "selectedOrdinal": 0,
+          "sourceIds": [
+            "dashboard-0a52ae14321115b04649"
+          ],
+          "target": null,
+          "transport": null
+        }
+      ],
+      "sourceIds": [
+        "dashboard-0a52ae14321115b04649"
+      ],
+      "status": "RESOLVED"
+    },
+    "contractStatus": "NOT_ASSESSED",
+    "declaration": {
+      "$clewRef": "sha256:dcd080d2a75cc2675e71e02192a8cfb195fdefad670afe9089e61b6f6f42a751"
+    },
+    "declarationDigest": "sha256:dcd080d2a75cc2675e71e02192a8cfb195fdefad670afe9089e61b6f6f42a751",
+    "destination": {
+      "declared": null,
+      "observed": [],
+      "status": "UNRESOLVED"
+    },
+    "from": {
+      "candidates": [
+        "dashboard:symbol:7970ac3e2a8cf3f45b4a6217"
+      ],
+      "details": [
+        {
+          "descriptor": null,
+          "id": "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+          "parameterTypes": [
+            ": FastifyRequest",
+            ": FastifyReply"
+          ],
+          "sourceIds": [
+            "dashboard-7970ac3e2a8cf3f45b4a"
+          ],
+          "symbol": "source:services/dashboard/src/main.ts/package:/savePlace/7a5f9ccc269b81055666"
+        }
+      ],
+      "sourceIds": [
+        "dashboard-7970ac3e2a8cf3f45b4a"
+      ],
+      "status": "SOURCE_MATCH"
+    },
+    "id": "dashboard-save-place-to-places",
+    "method": {
+      "caller": {
+        "declared": "POST",
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": "POST",
+        "observed": [
+          "POST"
+        ],
+        "status": "MATCH"
+      }
+    },
+    "origin": "agent-proposal",
+    "path": {
+      "caller": {
+        "declared": "/places",
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": "/places",
+        "observed": [
+          "/places"
+        ],
+        "status": "MATCH"
+      }
+    },
+    "runtime": "UNKNOWN",
+    "to": {
+      "$clewRef": "sha256:d173942296bd1626fa332b726dc0cd76e82cff8193a8fb699431fe1aebe87834"
+    }
+  }
+}

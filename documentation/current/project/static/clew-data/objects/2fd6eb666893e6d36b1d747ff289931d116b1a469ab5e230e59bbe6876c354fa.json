@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:2fd6eb666893e6d36b1d747ff289931d116b1a469ab5e230e59bbe6876c354fa",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "dashboard:symbol:021fcd0ff7baa53bd3c51930",
+      "dashboard:symbol:7d0d09a16ac25de86e5beb53"
+    ],
+    "id": "claim-0e2d7ace81dc22974434",
+    "kind": "note",
+    "sourceIds": [
+      "dashboard-021fcd0ff7baa53bd3c5",
+      "dashboard-7d0d09a16ac25de86e5b"
+    ],
+    "text": "The common envelope requires an object, string id, version 1, a place with id oslo, helsinki, or lisbon, string name, and finite latitude and longitude. The forecast branch requires updatedAt and fetchedAt accepted by isTimestamp, mode fixture or live, and a periods array of length 1 through 6. Each period requires a valid time, finite temperatureC, precipitationMm null or finite and nonnegative, and a string symbol. isTimestamp accepts a UTC ISO-like value with seconds and optional fractional seconds, and also requires Date.parse to be finite."
+  }
+}

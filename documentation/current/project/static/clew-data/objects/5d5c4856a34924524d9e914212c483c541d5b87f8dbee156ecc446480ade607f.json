@@ -1,0 +1,20 @@
+{
+  "identity": "sha256:5d5c4856a34924524d9e914212c483c541d5b87f8dbee156ecc446480ade607f",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "id": "forecast",
+    "meaning": {
+      "$clewRef": "sha256:3da04fee3ed8acbbc7aa04f7b5c4ff3394b4b671ff729f74212de1d1607b9b56"
+    },
+    "path": "forecast",
+    "readableName": {
+      "$clewRef": "sha256:e3c3f78d0b39d08c33242814944b2d1c11866f0d10d03579b25dfb6bba0b323c"
+    },
+    "representations": {
+      "$clewRef": "sha256:0c89ee97b44b4487563ec2605653e569988cb2ade2708ba6c46ca2129f14d447"
+    },
+    "usage": {
+      "$clewRef": "sha256:8d55effad04373da48c38f07e6025b4049786e23c6b6af06ea9c857e6f82ce0b"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+---
+title: "services/places/RequestPublisher.cs:9–9"
+slug: "/sources/2e121e266497df655051e1c604a47175092ec08c81daade73f1d69f522dd3264"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/places/RequestPublisher.cs:9–9
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: c289b28be4819eddf29d59a7c12f178559ec5229
+
+Text digest: sha256:c0e050c92d11575cadc422433efba7ba8e882ea2cd1dcf87ed4fbdfe2267086a
+
+## Retained text {#retained-text}
+
+```text
+using var producer = new ProducerBuilder<string, string>(new ProducerConfig { BootstrapServers = Environment.GetEnvironmentVariable("KAFKA_BOOTSTRAP") ?? "kafka:9092", EnableIdempotence = true, MessageTimeoutMs = 10000 }).Build();
+```
+
+<ClewDownload path="/clew-data/objects/2e121e266497df655051e1c604a47175092ec08c81daade73f1d69f522dd3264.json">Complete original source binding</ClewDownload>

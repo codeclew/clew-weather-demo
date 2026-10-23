@@ -1,0 +1,31 @@
+{
+  "identity": "sha256:c1b4a1eb4b8011005de0142b5b8ab9c0c584b3270f9792fe5f24cd3b764a3251",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:9d6440848e7027038174e48168264ddfc557995c34409b5c995e958c6ed7d67a"
+    },
+    "id": null,
+    "links": [
+      {
+        "href": "../scenarios/dashboard-forecast-updated-consumer.html#process-overview",
+        "label": "Related Dashboard consumer",
+        "operation": "process-overview",
+        "subject": "scenario:dashboard-forecast-updated-consumer"
+      },
+      {
+        "href": "../scenarios/forecasts-refresh-scheduled.html#process-overview",
+        "label": "Related forecast refresh",
+        "operation": "process-overview",
+        "subject": "scenario:forecasts-refresh-scheduled"
+      }
+    ],
+    "navTitle": null,
+    "preview": null,
+    "text": "The source declares one pending-row attempt per invocation, not a running scheduler or observed delivery. It does not establish an atomic Kafka/database transaction, exactly-once delivery or downstream consumer completion.",
+    "title": "Evidence scope",
+    "tone": null
+  }
+}

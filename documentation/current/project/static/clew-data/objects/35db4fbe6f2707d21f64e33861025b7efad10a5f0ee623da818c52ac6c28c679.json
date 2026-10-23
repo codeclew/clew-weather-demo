@@ -1,0 +1,29 @@
+{
+  "identity": "sha256:35db4fbe6f2707d21f64e33861025b7efad10a5f0ee623da818c52ac6c28c679",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "children": {
+      "$clewRef": "sha256:a6e2a9c70cfe56f542075d5fff4df180e2bd6f1873af9c7dafeecc28f200d6c4"
+    },
+    "effects": [
+      {
+        "citation": {
+          "endLine": 78,
+          "method": "dashboard-request-refresh",
+          "startLine": 78
+        },
+        "id": "refresh-http-post",
+        "kind": "EXTERNAL_CALL",
+        "label": "Send POST /places/{id}/refresh to the declared Places target."
+      }
+    ],
+    "endLine": 83,
+    "id": "dashboard-refresh-forward",
+    "kind": "BOUNDARY",
+    "method": "dashboard-request-refresh",
+    "startLine": 76,
+    "target": "places-refresh",
+    "text": "Encode the path id, send POST /places/{id}/refresh with no body and a 10-second abort signal, then forward the upstream status and parsed JSON. A caught fetch or JSON parsing error returns 503 PLACES_UNAVAILABLE; completion at Places before an error is unresolved.",
+    "title": "Forward POST /places/{id}/refresh"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "identity": "sha256:b685fa27b9193a907ad24ffaa20fe37b94ed3539012078a734d6010a14031cee",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "dashboard:flow:049a97e649d7feb212e6c67f",
+      "dashboard:flow:654eeebd7e0618b0c6dd58f9",
+      "dashboard:flow:667235490ded3f35c51f99f1",
+      "dashboard:flow:a190efb9bca6603f1d2abc58",
+      "dashboard:flow:f4a336f51f8e91a3da04831a"
+    ],
+    "from": "service-dashboard",
+    "id": "claim-01c6eb303d1b7e50ee1f",
+    "kind": "message",
+    "sourceIds": [
+      "dashboard-049a97e649d7feb212e6",
+      "dashboard-654eeebd7e0618b0c6dd",
+      "dashboard-667235490ded3f35c51f",
+      "dashboard-a190efb9bca6603f1d2a",
+      "dashboard-f4a336f51f8e91a3da04"
+    ],
+    "text": "After the reject record is written, commit this partition’s offset plus one and return.",
+    "to": "dashboard-kafka"
+  }
+}

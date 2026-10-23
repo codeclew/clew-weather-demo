@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:7b95b7ac8271945e1f014428798f25992d19921ab9cadbf4da0f04c16a7a759b",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:fda0cb5d45ffad90b590e7e684215c80e3e95f04fad833d310a8b95bb94b8523"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The contract property is separate from validator implementation and downstream use.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

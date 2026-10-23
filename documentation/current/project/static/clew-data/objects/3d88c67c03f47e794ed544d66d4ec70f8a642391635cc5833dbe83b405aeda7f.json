@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:3d88c67c03f47e794ed544d66d4ec70f8a642391635cc5833dbe83b405aeda7f",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:7dd03a91b4ca8f256d46c1ae74aeddd272e99e5f9686226e50045220a96b9f9f"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Forecast normalization time",
+    "title": "Authored readable name (agent proposal)",
+    "tone": null
+  }
+}

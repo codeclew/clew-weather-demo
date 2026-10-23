@@ -1,0 +1,49 @@
+{
+  "identity": "sha256:6e64d23e4a8e775b8372eba951dc4f947d7b967c208ad3b8d8f2acf0ccc15b10",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "CALL_TARGETS_UNRESOLVED",
+      "RUNTIME_REGISTRATION_UNPROVEN",
+      "SOURCE_ROUTE_NOT_COMPILER_RESOLVED"
+    ],
+    "dependencyIds": [
+      "dashboard:symbol:1612e17d589cb9d0fa4ae1f7",
+      "dashboard:syntax_detail:f39dbb12c759236b05f35443"
+    ],
+    "id": "dashboard-4301d0222c019e9d5339",
+    "kind": "HTTP_ENDPOINT",
+    "service": "dashboard",
+    "sourceIds": [
+      "dashboard-1612e17d589cb9d0fa4a",
+      "dashboard-731cb9d36c67fba29195",
+      "dashboard-7f4b1e601021257bcb42",
+      "dashboard-93cc7d4275f31b58f24d"
+    ],
+    "symbol": "source:services/dashboard/src/main.ts/package:/requestRefresh/e49ec3442bac18d9abaa",
+    "trigger": {
+      "authority": "SOURCE_REGISTRATION_SYNTAX",
+      "methods": [
+        "POST"
+      ],
+      "name": "requestRefresh",
+      "owner": "package:",
+      "paths": [
+        "/api/places/{id}/refresh"
+      ],
+      "sourceRoutes": [
+        {
+          "authority": "SOURCE_SYNTAX",
+          "declaredPath": "/api/places/:id/refresh",
+          "framework": "fastify",
+          "handler": "source:services/dashboard/src/main.ts/package:/requestRefresh/e49ec3442bac18d9abaa",
+          "method": "POST",
+          "path": "/api/places/{id}/refresh",
+          "receiver": "app",
+          "runtimeActivation": "UNVERIFIED",
+          "schema": "codeclew-typescript-source-route/1.0"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:cc46d05653cc77e88c31e3e4def0a1d6da658c2016f454fb9bfc0959d68fde33",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:655243fea1bbf4b76c91e05f952724d14873f5fa79713a90614743c35d1ea174"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "updatedAt is checked and controls whether an existing row can update; temperatureC is checked, then stored inside the Forecast object.",
+    "title": "Source-bound reading summary",
+    "tone": null
+  }
+}

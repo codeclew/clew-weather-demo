@@ -44,10 +44,13 @@ def source(path, revision=CURRENT, line=None):
 
 
 def page(title, body, script=True):
+    current = (ROOT / 'documentation/current/publication.json').is_file()
+    native = 'current/native/overview.html' if current else 'overview.html'
+    mdx = 'current/docusaurus/' if current else 'docusaurus/review.html'
     return ('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
             '<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2032%2032%22%3E%3Ctext%20y=%2226%22%20font-size=%2228%22%3EW%3C/text%3E%3C/svg%3E"><title>' + html.escape(title) + ' · Weather rendering</title><link rel="stylesheet" href="' + SHOW + 'site.css">'
             '<header><nav aria-label="Showcase"><a class="brand" href="' + SHOW + '">Weather / Rendering</a>'
-            '<a href="' + BASE + 'overview.html">Native docs</a><a href="' + BASE + 'docusaurus/review.html">Docusaurus</a>'
+            '<a href="' + BASE + native + '">' + ('Latest HTML' if current else 'Native docs') + '</a><a href="' + BASE + mdx + '">' + ('Latest Docusaurus' if current else 'Docusaurus') + '</a>'
             '<a href="' + BASE + 'render-catalog/index.html">Historical catalogue</a></nav></header><main>'
             '<p id="errors" class="note warning" role="alert" hidden></p>' + body + '</main>'
             '<footer><div>Real retained examples. Source, authored interpretation and historical observations keep separate authority. '
@@ -317,6 +320,45 @@ def build(output):
                  limits='This is demo-owned metadata, not clew registration, freshness checking, semantic validation, meaning approval or runtime proof. Arbitrary CUSTOM_HTML is not an accepted reading-plan presentation.')
     custom['recipe']['source'] = [{'label': 'Actual authored HTML source', 'href': SHOW + 'source/custom-save-city.html.txt'}, {'label': 'Actual site composition source', 'href': SHOW + 'source/build.py.txt'}]
     custom['recipe']['availability'] = 'Replay the additive composition from the public Weather repository with Python 3.11+ and the frozen Docusaurus production build. No analyzer, model authoring or Codeclew upgrade is required.'
+    current_policy = ROOT / 'documentation/current/publication.json'
+    if current_policy.is_file():
+        current = read(current_policy)
+        renderer = current['renderer']
+        current_producer = 'installed official release' if renderer['selection'] == 'INSTALLED_RELEASE' and current['publicReleaseClaim'] else 'local source preview; not a public release'
+        current_identity = {'Renderer': renderer['version'] + ' · ' + current_producer,
+                            'Renderer revision': renderer['sourceRevision']}
+        current_inputs = [input_link('documentation/markdown-tables/' + name) for name in
+                          ['reading-plan.json', 'data-model-plan.json', 'rendered-data-model-plan.json', 'input-provenance.json']]
+        current_inputs.append(input_link('documentation/current/render.py', 'Actual current export recipe'))
+        current_inputs.append(input_link('documentation/reference/service-model-links.json', 'Explicit service-to-model navigation overlay'))
+        for id, title, path, description in [
+            ('current-standalone', 'Current standalone HTML · Save City', 'native/scenarios/dashboard-save-city.html', 'Read the current process with Markdown tables, complete field comments and source navigation.'),
+            ('current-docusaurus', 'Current Docusaurus · Save City', 'docusaurus/scenarios/dashboard-save-city', 'Read the current production MDX process, field tables and optional Data Flow.'),
+            ('current-readable', 'Current authored reading · Markdown table', 'docusaurus/scenarios/dashboard-save-city#question-request', 'Open Request fields to compare the original field, readable name and complete source-bound comment.'),
+            ('current-model-fields', 'Current domain fields · Place', 'docusaurus/data-model/place#fields-and-representations', 'Compare original field spelling, readable names and complete comments, then open exact evidence and representations.'),
+        ]:
+            row = add(id, 'Current release', title, description, BASE + 'current/' + path,
+                      identity=current_identity, supplied_inputs=current_inputs,
+                      outputs=[{'label': 'Current renderer and input identity', 'href': BASE + 'current/producer.json'},
+                               {'label': 'Current native export manifest', 'href': BASE + 'current/native/pages-manifest.json'}],
+                      sources=[source('docs/operations/markdown-and-field-tables.md', renderer['sourceRevision'])])
+            row['currentRender'] = True
+            producer_description = 'an installed official release' if current['publicReleaseClaim'] else 'a local source preview (not a public release)'
+            row['recipe']['availability'] = 'Newly rendered from the retained publication and snapshot using ' + producer_description + '. Reproduction requires the operational documentation store; no recapture or runtime replay was performed.'
+            row['recipe']['command'] = 'python3 -I -S documentation/current/render.py --root DOCS_ROOT --clew INSTALLED_CLEW --version VERSION --release-commit RELEASE_COMMIT --output EMPTY_OUTPUT_DIRECTORY'
+            row['recipe']['commandAuthority'] = 'This command is a template with path placeholders. The actual export recipe and producer record are linked below.'
+            if id == 'current-readable':
+                row['openDisclosure'] = 'Request fields'
+                row['action'] = 'Choose Show Markdown table above the reader. It opens Request fields in step 1 and scrolls to the complete table.'
+        equivalents = {'block-readable': 'current-readable', 'format-standalone': 'current-standalone',
+                       'format-docusaurus': 'current-docusaurus', 'page-model': 'current-model-fields'}
+        for row in rows:
+            if row['id'] in equivalents:
+                row['currentEquivalent'] = equivalents[row['id']]
+                if row['id'] == 'block-readable':
+                    row['currentLinkLabel'] = 'Open current Markdown table example'
+                row['title'] = 'Historical · ' + row['title']
+                row['status'] = 'HISTORICAL_EXAMPLE'
     custom_map = read(HERE / 'custom-map.json')
     for reference in custom_map['sources']:
         original = read(ROOT / 'documentation/docusaurus/project/static/clew-data/objects' / (reference['object'] + '.json'))['value']
@@ -330,6 +372,12 @@ def build(output):
 <div class="grid section"><article class="card"><span class="badge">Two PageFormat values</span><h3>Formats are containers</h3><p>Standalone HTML and Docusaurus are full Pages export formats. Native declaration selection, Flow DSL and OperationAnswer are specialized families with their own inputs.</p><a href="#inventory-heading">Browse rendering families</a></article><article class="card"><span class="badge">Optional input</span><h3>Data Flow is opt-in</h3><p>Process Data Flow and field-use matrices come from an explicit model plan. Historical typed entity-dataflow diagrams are a separate visual kind.</p><a href="recipe.html?id=option-data-flow">Inspect the model-plan recipe</a></article><article class="card"><span class="badge gap">Visible gaps</span><h3>Coverage has boundaries</h3><p>The catalogue retains 93 historical entries. Newer support and unrepresented cases are listed separately. No exhaustive cross-product or full-coverage badge is claimed.</p><a href="recipe.html?id=dsl-operation-queue">Why operation-queue has no example</a></article></div>
 <section class="section" aria-labelledby="inventory-heading"><h2 id="inventory-heading">Explore the capability inventory</h2><p>Search a page type, block, diagram, option or specialized family. Every entry links to its creation record; unsupported and undemonstrated cases explain their limits.</p><div class="filters"><label class="search">Find a capability<input id="search" type="search" placeholder="Try: Kafka, field, source, sequence"></label><label>Category<select id="category"><option value="">All categories</option></select></label><label>Availability<select id="status"><option value="">All entries</option><option value="DEMO_EXAMPLE">Current demo example</option><option value="HISTORICAL_EXAMPLE">Historical example</option><option value="DEMO_GAP">Not demonstrated</option><option value="UNSUPPORTED">Unsupported prototype</option></select></label></div><p id="count" class="count" role="status"></p><div id="inventory" class="inventory"></div></section>'''
     (target / 'index.html').write_text(page('Capabilities and creation recipes', index))
+    if current_policy.is_file():
+        file = target / 'index.html'
+        content = file.read_text().replace('data-format="format-standalone"', 'data-format="current-standalone"').replace('data-format="format-docusaurus"', 'data-format="current-docusaurus"')
+        content = content.replace('<section class="panel section" aria-labelledby="compare">',
+            '<section class="panel section"><h2>Current Codeclew ' + html.escape(renderer['version']) + '</h2><p>Markdown and complete domain field tables · ' + html.escape(current_producer) + '. Historical examples below retain their original producer identities.</p><div class="actions"><a class="button" href="' + BASE + 'current/native/overview.html">Latest HTML</a><a class="button secondary" href="' + BASE + 'current/docusaurus/">Latest Docusaurus</a><a href="' + BASE + 'current/">Renderer and inputs</a></div></section><section class="panel section" aria-labelledby="compare">', 1)
+        file.write_text(content)
     heading = '<a href="' + SHOW + '">← Capability showcase</a><h1 id="page-title"></h1><p id="page-description" class="lead"></p>'
     (target / 'recipe.html').write_text(page('How it was made', heading + '<article id="recipe" class="panel"></article>'))
     (target / 'view.html').write_text(page('Retained example', heading + '<div id="viewer-actions" class="actions viewer-bar"></div><p id="try-action" class="note"></p><iframe id="example-frame" class="viewer" title="Retained example"></iframe>'))
@@ -338,8 +386,13 @@ def build(output):
                 'scope': 'Additive demo composition. Current product support is separate from the producer identity of every retained example.',
                 'priorAcceptanceAppliesToNewPages': False, 'capabilities': rows,
                 'composition': {'repository': WEATHER, 'commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
+                                'workingTreeDirty': bool(subprocess.check_output(['git', 'status', '--porcelain'], cwd=ROOT, text=True).strip()),
                                 'sourceFiles': {name: sha(HERE / name) for name in ['build.py', 'site.css', 'app.js', 'custom-save-city.html', 'custom-map.json', 'docusaurus.config.mjs']}},
                 'customMapping': 'source/custom-map.json', 'frozenInputsRegenerated': False}
+    if current_policy.is_file():
+        manifest['currentPublication'] = {'renderer': renderer, 'publicReleaseClaim': current['publicReleaseClaim'],
+                                          'producer': BASE + 'current/producer.json',
+                                          'defaultExamples': {'standalone': 'current-standalone', 'docusaurus': 'current-docusaurus', 'markdown': 'current-readable'}}
     write(target / 'manifest.json', manifest)
     return manifest
 
@@ -349,20 +402,62 @@ def compose(output, docusaurus):
     # Existing exporter-owned sources and their acceptance policies are never edited.
     shutil.copytree(ROOT / 'docs', output, dirs_exist_ok=True)
     shutil.copytree(docusaurus, output / 'docusaurus')
-    edits = []
-    for path in ['index.html', 'overview.html', 'catalog.html']:
+    current_build = ROOT / 'documentation/current/project/build'
+    if current_build.is_dir():
+        shutil.copytree(ROOT / 'documentation/current/site', output / 'current')
+        shutil.copytree(current_build, output / 'current/docusaurus')
+    edits, mdx_edits = [], []
+    current = current_build.is_dir()
+    native_paths = ['index.html', 'overview.html', 'catalog.html']
+    if current:
+        native_paths = sorted({*native_paths, *(item['path'] for item in read(ROOT / 'docs/pages-manifest.json')['files'] if item['path'].endswith('.html'))})
+    for path in native_paths:
         file = output / path
         before = file.read_text()
-        marker = '<div class="reader-links">'
-        if before.count(marker) != 1:
-            raise ValueError('Native navigation insertion point changed: ' + path)
-        addition = '<a data-weather-showcase="true" href="' + SHOW + '">Rendering showcase</a>'
-        after = before.replace(marker, marker + addition, 1)
+        if current:
+            destination = BASE + 'current/native/' + path if (output / 'current/native' / path).is_file() else BASE + 'current/native/overview.html'
+            addition = historical_navigation('Historical HTML · official Codeclew 0.13.39', destination,
+                                             path in {'index.html', 'overview.html', 'catalog.html'})
+            body = re.search(r'<body[^>]*>', before)
+            assert body, path
+            after = before[:body.end()] + addition + before[body.end():]
+        else:
+            marker = '<div class="reader-links">'
+            if before.count(marker) != 1:
+                raise ValueError('Native navigation insertion point changed: ' + path)
+            addition = '<a data-weather-showcase="true" href="' + SHOW + '">Rendering showcase</a>'
+            after = before.replace(marker, marker + addition, 1)
         file.write_text(after)
         edits.append({'path': path, 'beforeSha256': hashlib.sha256(before.encode()).hexdigest(), 'afterSha256': sha(file), 'insertion': addition})
     assert SHOW in (output / 'docusaurus/review.html').read_text(), 'Build Docusaurus with the additive config overlay first'
-    write(output / 'rendering/navigation-overlay.json', {'schema': 'weather-showcase-navigation/1.0', 'scope': 'Native entry navigation links and a React-consistent Docusaurus config overlay. Frozen project sources/inputs remain unchanged.', 'changes': edits, 'docusaurusConfigOverlay': {'path': 'documentation/rendering/docusaurus.config.mjs', 'sha256': sha(HERE / 'docusaurus.config.mjs')}})
+    if current:
+        for file in sorted((output / 'docusaurus').rglob('*.html')):
+            rel = file.relative_to(output / 'docusaurus')
+            destination = BASE + 'current/docusaurus/' + ('' if rel.as_posix() == 'index.html' else rel.with_suffix('').as_posix())
+            if not (current_build / rel).is_file():
+                destination = BASE + 'current/docusaurus/'
+            before = file.read_text()
+            body = re.search(r'<body[^>]*>', before)
+            assert body, str(rel)
+            addition = historical_navigation('Historical Docusaurus · Codeclew 0.13.46 source candidate', destination,
+                                             rel.as_posix() in {'index.html', 'review.html', 'catalog.html'})
+            file.write_text(before[:body.end()] + addition + before[body.end():])
+            mdx_edits.append({'path': 'docusaurus/' + rel.as_posix(), 'beforeSha256': hashlib.sha256(before.encode()).hexdigest(), 'afterSha256': sha(file), 'insertion': addition})
+    write(output / 'rendering/navigation-overlay.json', {'schema': 'weather-showcase-navigation/1.0', 'scope': 'Current reader entry redirects and historical-reader banners are additive navigation overlays. Frozen source, descriptions, evidence and producer identities remain unchanged.', 'changes': edits, 'docusaurusChanges': mdx_edits, 'docusaurusConfigOverlay': {'path': 'documentation/rendering/docusaurus.config.mjs', 'sha256': sha(HERE / 'docusaurus.config.mjs')}})
     return manifest
+
+
+def historical_navigation(label, destination, redirect):
+    banner = ('<aside data-weather-history="true" style="padding:12px 16px;border-bottom:1px solid #d9bc76;background:#fff8e7;color:#453710;font:14px/1.5 system-ui;overflow-wrap:anywhere">'
+              '<strong>' + html.escape(label) + '</strong> · Original descriptions and producer identity retained. '
+              '<a data-weather-current href="' + html.escape(destination) + '" style="color:#075fbd">Open the current reader</a> · '
+              '<a href="' + SHOW + '" style="color:#075fbd">Rendering showcase</a> · '
+              '<a href="' + BASE + 'overview.html?historical=1" style="color:#075fbd">Historical HTML overview</a></aside>')
+    destination_json = json.dumps(destination)
+    script = '<script data-weather-navigation="true">{const target=new URL(' + destination_json + ',location.href);target.search=location.search;target.searchParams.delete("historical");target.hash=location.hash;document.querySelector("[data-weather-current]").href=target.href;'
+    if redirect:
+        script += 'if(!new URLSearchParams(location.search).has("historical"))location.replace(target.href);'
+    return banner + script + '}</script>'
 
 
 class Links(HTMLParser):
@@ -410,6 +505,8 @@ def verify(output):
         resolved = output / unquote(relative)
         if resolved.is_dir():
             resolved /= 'index.html'
+        elif not resolved.exists() and not resolved.suffix and resolved.with_suffix('.html').is_file():
+            resolved = resolved.with_suffix('.html')
         if not resolved.is_file():
             missing.append({'from': origin, 'url': url, 'reason': 'missing file'})
             continue
@@ -456,8 +553,14 @@ def verify(output):
             actual = actual.replace(addition, b'', 1)
         assert actual == original.read_bytes(), rel
         preserved += 1
+    for item in overlay.get('docusaurusChanges', []):
+        actual = (output / item['path']).read_bytes()
+        addition = item['insertion'].encode()
+        assert actual.count(addition) == 1
+        assert hashlib.sha256(actual.replace(addition, b'', 1)).hexdigest() == item['beforeSha256']
     result = {'status': 'PASS' if not missing else 'FAIL', 'capabilities': len(manifest['capabilities']), 'historicalEntries': 93, 'checkedLocalLinks': checked,
               'missingLinks': missing, 'dynamicPayloadAnchors': dynamic, 'preservedNativeFiles': preserved, 'navigationOnlyChanges': list(overlays),
+              'historicalMdxNavigationOverlays': len(overlay.get('docusaurusChanges', [])),
               'limits': 'Focused composition, preservation and local link checks; independent browser acceptance remains separate.'}
     write(output / 'rendering/verification.json', result)
     return result

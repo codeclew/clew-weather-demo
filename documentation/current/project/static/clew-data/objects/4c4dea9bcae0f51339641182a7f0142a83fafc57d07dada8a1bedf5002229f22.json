@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:4c4dea9bcae0f51339641182a7f0142a83fafc57d07dada8a1bedf5002229f22",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 19,
+    "evidenceDigest": "sha256:73a272121d494ff60b3960049d17d51c39bbf05a8cb9d87843e0f4921394d3cd",
+    "file": "exercises/unchecked-place-forecast.ts",
+    "id": "dashboard-48801b9ec6a5e672b976",
+    "occurrence": {
+      "blob": "6f2194a87f69be18be06c36b2e922debcbff3273",
+      "endByte": 1692,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 1400
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 17,
+    "text": "if (!Number.isFinite(Date.parse(period.time)) || !Number.isFinite(period.temperatureC)\n          || !(period.precipitationMm === null || (Number.isFinite(period.precipitationMm) && period.precipitationMm >= 0))\n          || typeof period.symbol !== 'string') throw new Error('INVALID_PERIOD')",
+    "textDigest": "sha256:bfa7ddef28cbc219ab836bc0289f656d78635a8e062a44c8ef03c633a8284b0d",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/exercises/unchecked-place-forecast.ts#L17-L19"
+  }
+}

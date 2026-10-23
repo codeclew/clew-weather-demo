@@ -1,0 +1,31 @@
+---
+title: "Places egress contracts"
+slug: "/operations/services-places--section-egress"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Places egress contracts
+
+<ClewPageContext />
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+A new supported place insert and its request\_outbox event are written in one PostgreSQL transaction. ON CONFLICT DO NOTHING means a duplicate place does not create another event. Refresh of a found place creates a new outbox event in its own transaction. The payload contains a new GUID, type place.requested, version 1, and the Place, serialized with web JSON defaults. RequestPublisher selects one eligible unpublished row in created\_at order with FOR UPDATE SKIP LOCKED, sends it to weather.place-requested with Place.Id as the Kafka key, then marks the row published and commits. A failure after Kafka accepts the event but before the database commit can lead to a replay; producer idempotence does not make the Kafka send and database update one transaction.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/places/PlacesRepository.cs:4–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d.mdx)
+- [services/places/RequestPublisher.cs:5–35 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/8365477e69b3327301c9058498f870922953982db968768e71a60cf8d2df982d.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- C\# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted.
+
+</details>
+

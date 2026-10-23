@@ -1,0 +1,24 @@
+{
+  "identity": "sha256:7eae9895dd8201ed32bf09e19695ac1300575348e7b848bb19bfba8ab1dae17e",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "observed-static-use",
+    "claim": {
+      "$clewRef": "sha256:24ec238a550a797fabccbc972a5fef895fcd55cb97969e1c3dfa1391674d44c3"
+    },
+    "condition": "forecast.updated v1 branch",
+    "consumer": "Dashboard.validateEvent",
+    "contract": "forecast-updated",
+    "coveredScope": "Dashboard validation",
+    "kinds": [
+      "validate"
+    ],
+    "processes": [
+      "scenario:dashboard-forecast-updated-consumer"
+    ],
+    "producer": "Dashboard.consumeMessage",
+    "representation": "event.forecast.updatedAt",
+    "stage": "Dashboard validation",
+    "unresolved": "Static source interpretation; runtime execution and delivery are not established."
+  }
+}

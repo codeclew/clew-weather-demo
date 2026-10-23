@@ -1,0 +1,27 @@
+{
+  "identity": "sha256:c2e1de9ad93e35c6647b8bfa13d7c5430a707f804a24dc82d3f108fd41e3c3cd",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "linkedSubviews": [
+      "places-request-publisher",
+      "forecasts-place-requested-consumer",
+      "forecasts-publish-pending",
+      "dashboard-place-requested-consumer",
+      "dashboard-forecast-updated-consumer"
+    ],
+    "objects": [],
+    "outcomes": [
+      "The declared HTTP and Kafka relationships are retained as separate views; target resolution, network result and downstream delivery are not established here."
+    ],
+    "participants": [
+      "dashboard",
+      "places",
+      "forecasts"
+    ],
+    "scope": "Dashboard.savePlace and its proposed Places.Save mapping, linked to the place-requested publisher, Forecasts consumer/publisher, and Dashboard consumer views.",
+    "thread": {
+      "$clewRef": "sha256:9ca0872ea7b0892727460a6ce6dcb92a77aedd31f1506018d5e2285c994a3cf4"
+    },
+    "trigger": "A caller enters the source-declared Dashboard.savePlace handler."
+  }
+}

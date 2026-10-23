@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:3bf8082a29180ab985d257114ce978bc1934eeb5c05cd166ea89df8e6043c959",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 22,
+    "evidenceDigest": "sha256:4c2a37722e8f758d81ef32cc8048686f59a02936773d6194edf5248ea9b158b6",
+    "file": "services/places/RequestPublisher.cs",
+    "id": "places-64ed581e7c34656680e3",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "places",
+    "startLine": 22,
+    "text": "await using var command = new NpgsqlCommand(\"SELECT id,payload::text FROM request_outbox WHERE NOT published ORDER BY created_at LIMIT 1 FOR UPDATE SKIP LOCKED\", connection, transaction);",
+    "textDigest": "sha256:c625ea3ef49ce795681ce820e7ea29eb62d2d5e3dad1f2625c4b786ab7b71373",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/RequestPublisher.cs#L22-L22"
+  }
+}

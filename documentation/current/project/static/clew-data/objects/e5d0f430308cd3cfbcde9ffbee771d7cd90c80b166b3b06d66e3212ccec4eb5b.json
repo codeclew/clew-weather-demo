@@ -1,0 +1,31 @@
+{
+  "identity": "sha256:e5d0f430308cd3cfbcde9ffbee771d7cd90c80b166b3b06d66e3212ccec4eb5b",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "fragment": {
+      "dependencyIds": [
+        "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+        "forecasts:symbol:04bc0feeea5752d3f1979c56"
+      ],
+      "id": "claim-3db9883f08bdfcaf5b5c",
+      "kind": "alt",
+      "sourceIds": [
+        "forecasts-04bc0feeea5752d3f197"
+      ],
+      "text": "Fixture mode reads /app/fixtures/{placeId}.json; otherwise the source requires live mode and a nonblank MET_USER_AGENT."
+    },
+    "kind": "RETAINED_CLAIM",
+    "operation": "forecasts-refresh-scheduled",
+    "sourceContext": {
+      "$clewRef": "sha256:5fb6e96cc0ea34d2e2444f45c0be31e55906dad5440252ff975867164d915b9c"
+    },
+    "sources": {
+      "$clewRef": "sha256:027fafb7b2c4df10d435bc8bb7c698315a07384da604de9787f7dd48385d7751"
+    },
+    "state": {
+      "$clewRef": "sha256:82e927e67dae99bd3754f5446485cef8d9189e74ab2df509b568c85e2ada45b3"
+    },
+    "subject": "scenario:forecasts-refresh-scheduled",
+    "title": "Refresh cached and provider forecasts"
+  }
+}

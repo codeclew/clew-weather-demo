@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:9f9ee9706f481ee1033af625856f86c3a13084bd9bcc11c5e014319b4ea8a0f1",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 34,
+    "evidenceDigest": "sha256:10cc78c8d7399beea5c9ead745a44e769df8234eefbd29a054b9c57f87fca7e3",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "id": "forecasts-168d04e66e2a1c05ef5e",
+    "occurrence": {
+      "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+      "endByte": 1521,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 1388
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 34,
+    "text": "private val http = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).followRedirects(HttpClient.Redirect.NORMAL).build()",
+    "textDigest": "sha256:6c301127c7e75a39389f21c266b877dd40cda8746828f5861172d71a62ee6fac",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L34-L34"
+  }
+}

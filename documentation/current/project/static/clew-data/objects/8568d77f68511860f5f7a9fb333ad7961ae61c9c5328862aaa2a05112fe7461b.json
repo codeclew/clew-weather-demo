@@ -1,0 +1,29 @@
+{
+  "identity": "sha256:8568d77f68511860f5f7a9fb333ad7961ae61c9c5328862aaa2a05112fe7461b",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "children": {
+      "$clewRef": "sha256:91c2b0aea957e00061096dacc1089cc8d1fba6ee57b3995ad702df0b1cde7271"
+    },
+    "effects": [
+      {
+        "citation": {
+          "endLine": 69,
+          "method": "dashboard-save",
+          "startLine": 69
+        },
+        "id": "save-http-post",
+        "kind": "EXTERNAL_CALL",
+        "label": "Send POST /places to the declared Places target."
+      }
+    ],
+    "endLine": 74,
+    "id": "dashboard-save-forward",
+    "kind": "BOUNDARY",
+    "method": "dashboard-save",
+    "startLine": 67,
+    "target": "places-save",
+    "text": "Serialize request.body as JSON, send it with application/json and a 10-second abort signal, then forward the response status and parsed JSON. A caught fetch or JSON parsing error returns 503 PLACES_UNAVAILABLE; completion at Places before an error is unresolved.",
+    "title": "Forward POST /places"
+  }
+}

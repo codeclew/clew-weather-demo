@@ -1,0 +1,24 @@
+{
+  "identity": "sha256:39230e2d5184803d7c9fc8efe739d87b32113151867d97cbf4d4b3650f0f3344",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "places:symbol:24afabf4ce6fb0dad4a762cb"
+    ],
+    "id": "places:symbol:24afabf4ce6fb0dad4a762cb",
+    "name": "Find",
+    "owner": "class:Weather.Places.PlacesRepository",
+    "parameterTypes": [
+      "System.String",
+      "System.Threading.CancellationToken"
+    ],
+    "publicBoundary": false,
+    "scope": "csproj:services/places/Places.csproj@net10.0",
+    "service": "places",
+    "sourceIds": [
+      "places-24afabf4ce6fb0dad4a7"
+    ],
+    "status": "RECORDED",
+    "symbol": "method:class:Weather.Places.PlacesRepository#Find(LSystem/String;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task`1;"
+  }
+}

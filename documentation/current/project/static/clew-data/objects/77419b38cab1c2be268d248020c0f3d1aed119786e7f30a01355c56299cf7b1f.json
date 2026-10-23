@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:77419b38cab1c2be268d248020c0f3d1aed119786e7f30a01355c56299cf7b1f",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 138,
+    "evidenceDigest": "sha256:cf9e50ce21978bc037491ba250487c4a1d0415f9c5426a0b3b237d92801cb220",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "id": "forecasts-44c1216c3e37f45f4ff9",
+    "occurrence": {
+      "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+      "endByte": 9641,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 8910
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 129,
+    "text": "try {\n            transaction.executeWithoutResult {\n                val rows = jdbc.queryForList(\"SELECT id,payload::text FROM forecast_outbox WHERE NOT published ORDER BY id LIMIT 1 FOR UPDATE SKIP LOCKED\")\n                if (rows.isEmpty()) return@executeWithoutResult\n                val row = rows.first()\n                val event = json.readTree(row[\"payload\"] as String)\n                kafka.send(\"weather.forecast-updated\", event[\"place\"][\"id\"].asText(), row[\"payload\"] as String).get(10, TimeUnit.SECONDS)\n                jdbc.update(\"UPDATE forecast_outbox SET published=true WHERE id=?\", row[\"id\"])\n            }\n        } catch (error: Exception) { System.err.println(\"PUBLISH_RETRY:\" + error.javaClass.simpleName) }",
+    "textDigest": "sha256:d2ab0210e9c057452b8575d2e5482371407c5d44d2907e48d26a32bde6a48c6c",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L129-L138"
+  }
+}

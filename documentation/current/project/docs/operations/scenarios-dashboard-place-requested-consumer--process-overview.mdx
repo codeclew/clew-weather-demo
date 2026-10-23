@@ -1,0 +1,32 @@
+---
+title: "Dashboard place-requested consumer view"
+slug: "/operations/scenarios-dashboard-place-requested-consumer--process-overview"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Dashboard place-requested consumer view
+
+<ClewPageContext />
+
+Retained account · STALE · UNASSESSED. Runtime behavior is not established by this export.
+
+The same Dashboard.consumeMessage handler parses JSON and validates each event against its topic. Invalid messages attempt an INVALID\_EVENT rejected\_messages insert (ON CONFLICT DO NOTHING), commit partition offset plus one, and return; valid messages call applyEvent, then commit offset plus one. The saved cross-service declaration maps weather.place-requested to this handler as an agent-proposed interaction. Topic resolution, consumer subscription and runtime delivery remain unverified, as do applyEvent's effects for this event.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/dashboard/src/main.ts:47–60 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- CALL\_TARGETS\_UNRESOLVED
+- DECLARED\_TRANSITION\_NOT\_REACHED:places-place-requested-to-dashboard
+- ORDER\_LEXICAL\_ONLY
+
+</details>
+

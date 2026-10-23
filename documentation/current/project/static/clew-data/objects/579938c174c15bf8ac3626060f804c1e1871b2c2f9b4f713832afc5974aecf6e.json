@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:579938c174c15bf8ac3626060f804c1e1871b2c2f9b4f713832afc5974aecf6e",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "fragment": {
+      "$clewRef": "sha256:0457f54932ab8655d9e385cd579b948f9f9c36f9d0872f1827af5819c4f063f8"
+    },
+    "kind": "RETAINED_CLAIM",
+    "operation": "forecasts-publish-pending",
+    "sourceContext": {
+      "$clewRef": "sha256:5fb6e96cc0ea34d2e2444f45c0be31e55906dad5440252ff975867164d915b9c"
+    },
+    "sources": {
+      "$clewRef": "sha256:5e7f69d05f657a5bd705ac0add0204626bf3a970ca0d5abeea491f19267c5253"
+    },
+    "state": {
+      "$clewRef": "sha256:762764a54456cc5ae0daa0b83a1d9e177129d2eeafdc77ed710d87a41aaef72e"
+    },
+    "subject": "scenario:forecasts-publish-pending",
+    "title": "Publish pending forecast updates"
+  }
+}

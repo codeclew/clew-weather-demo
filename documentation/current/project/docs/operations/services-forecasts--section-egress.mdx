@@ -1,0 +1,37 @@
+---
+title: "Forecasts egress contracts"
+slug: "/operations/services-forecasts--section-egress"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Forecasts egress contracts
+
+<ClewPageContext />
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+When refresh is needed, fixture mode reads /app/fixtures/&#123;id&#125;.json. Live mode requires FORECAST\_MODE=live and a nonblank MET\_USER\_AGENT, truncates coordinates toward zero to four decimal places, and sends GET to the MET locationforecast compact endpoint with a 20-second timeout, User-Agent, gzip acceptance, and If-Modified-Since when cached metadata exists. A 304 with a cached row updates expiry and returns; only 200 and 203 continue to parse the response. The source derives expiry from Expires or defaults to one hour, uses Retry-After for a 429 with a 60-second minimum, and keeps per-place retry times in memory. It extracts at most six periods, requires numeric temperature and a nonempty period list, parses updatedAt, and attempts an upsert whose predicate accepts equal or newer updatedAt values; an older incoming value leaves the stored row unchanged. The source then attempts the forecast.updated outbox insert. These are source paths; no live provider call was made.
+
+After the forecast upsert, the source attempts an outbox row keyed by place id and updatedAt, with type forecast.updated, version 1, place, and forecast. The scheduled publisher selects at most one unpublished row ordered by id with FOR UPDATE SKIP LOCKED, sends weather.forecast-updated using place id as the Kafka key, waits up to 10 seconds, then marks the row published inside the transaction callback. It logs PUBLISH\_RETRY on caught failures. A send that completes before a later database failure can leave the row eligible for another attempt; Kafka and PostgreSQL atomicity and runtime transaction behavior are not established.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:70–125 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa.mdx)
+- [services/forecasts/src/main/resources/application.properties:1–16 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/7dc31ff2f89df6313b31ccd5e53de88f58ca342c20783e2f8e34d13d0d872b55.mdx)
+- [services/forecasts/src/main/kotlin/weather/Forecasts.kt:127–139 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/1bd07596f6d98195ae25427eb2eb0175e2e0db2969f1b348800d52ddabc630ab.mdx)
+- [contracts/events.schema.json:1–173 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/02aca9b5de2e5fecc6239e85b2f8203c7f42eabce144a6c852ec3faed9d1a218.mdx)
+- [database/init.sql:1–16 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/6c81c74b2345ce780cb749bc5fd0e843fc65ce33af41498bf0a3bd3aa572b6cf.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- Kotlin and Spring source evidence does not establish runtime listener or scheduler registration, callback invocation, or database transaction commit and rollback behavior. Captured application configuration is source text, not proof of deployed settings.
+- OpenAPI and event JSON Schema are read as source text; JSON Schema keywords, unions, and null types are not fully interpreted.
+
+</details>
+

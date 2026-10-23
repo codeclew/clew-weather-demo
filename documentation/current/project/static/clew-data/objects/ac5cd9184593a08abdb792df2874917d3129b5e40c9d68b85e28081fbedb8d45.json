@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:ac5cd9184593a08abdb792df2874917d3129b5e40c9d68b85e28081fbedb8d45",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contract": "save-city-response",
+    "field": "id",
+    "label": "Places POST /places 200 response",
+    "mapping": {
+      "$clewRef": "sha256:048cbfac2a5fa2dbcf0bed8d3350c58c7e4587ba5b87a3e6201ca0ba1743286f"
+    },
+    "nullability": "Derived from the exact response property schema",
+    "relatedModel": null,
+    "requiredness": "Required when the response branch matches",
+    "typeLabel": "Derived from the declared HTTP 200 JSON Schema"
+  }
+}

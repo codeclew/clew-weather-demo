@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:ca45cd4579a9359012a131d4571eb3005aedce66142a41864d7419920a354800",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 35,
+    "evidenceDigest": "sha256:99b918bbbd17c1d4f9dc85c60c5b12c92da5be9fde142d63dab6b76f81bf59fa",
+    "file": "services/dashboard/src/main.ts",
+    "id": "dashboard-b2f7fd0e0db7cc6be872",
+    "occurrence": {
+      "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+      "endByte": 2013,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 1712
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 33,
+    "text": "client.query(`INSERT INTO weather_cards(place_id,name,latitude,longitude) VALUES($1,$2,$3,$4)\n        ON CONFLICT(place_id) DO UPDATE SET name=EXCLUDED.name,latitude=EXCLUDED.latitude,longitude=EXCLUDED.longitude`,\n      [event.place.id, event.place.name, event.place.latitude, event.place.longitude])",
+    "textDigest": "sha256:cdff3034a69a461f9303eb9823451e5eccf37546644947cc0f1ab23cdafde9c5",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L33-L35"
+  }
+}

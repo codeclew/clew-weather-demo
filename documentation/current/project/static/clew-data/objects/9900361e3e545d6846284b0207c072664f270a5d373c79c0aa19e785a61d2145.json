@@ -1,0 +1,31 @@
+{
+  "identity": "sha256:9900361e3e545d6846284b0207c072664f270a5d373c79c0aa19e785a61d2145",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "DECLARED_OPENAPI",
+    "boundaries": [],
+    "declaredSource": "contracts/places.openapi.json",
+    "entrypoint": "places-691b340ea61828b197b6",
+    "method": "POST",
+    "openapi": "3.1.0",
+    "operation": {
+      "$clewRef": "sha256:6eb71ae82b05b3bdf72e9347772037dba56618644aacb212ad6f0ab795256e98"
+    },
+    "parameters": [],
+    "path": "/places",
+    "readerSelection": {
+      "compatibilityAnchor": "3.1",
+      "fullSpecificationValidation": false,
+      "outsideAdvertisedRange": false,
+      "reader": "BOUNDED_OPENAPI_PATH_OPERATION_READER",
+      "selectionMode": "DECLARED_COMPATIBILITY_PROFILE",
+      "supportedVersionRange": "OPENAPI_THROUGH_3_X"
+    },
+    "runtimeEnforcement": "UNVERIFIED",
+    "schema": "codeclew-documentation-contract-facts/1.0",
+    "security": null,
+    "securitySchemes": null,
+    "servers": null,
+    "sourceMapping": "SOURCE_ROUTE_MATCH_ONLY"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "identity": "sha256:25dfc9d67fd4f89918bb0b7e204aa53b195bc049b0635f11e2d3e4a45619875e",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "SOURCE_INTERPRETATION",
+    "claim": {
+      "$clewRef": "sha256:2731d3f69260b3e9254322aae28ffdd641abc423f61bef93167f789a7007cd84"
+    },
+    "condition": "Message JSON parses; validateEvent is called with that value and the topic.",
+    "from": "Dashboard receive",
+    "kind": "transfer",
+    "to": "Dashboard validation"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "identity": "sha256:32e840c5f64da030c31275b6843d5cc25aceebee8f682ce00ac153934ddd579c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "This proposal documents four service sections from source-level TypeScript and the captured OpenAPI declaration. It does not establish runtime route or listener activation, deployed settings, database outcomes, or broker delivery and offset-commit guarantees. The OpenAPI document is read as source text; JSON Schema semantics are not fully interpreted."
+    ],
+    "documentationLanguage": "en",
+    "events": [],
+    "explanation": [],
+    "findings": [],
+    "id": "section-egress",
+    "interfaceContracts": [],
+    "participants": [],
+    "summary": {
+      "$clewRef": "sha256:b13066ddcff7771c3dcab4fb9daa5257d4c625ba545ca12579ff44c3e8029a3b"
+    },
+    "title": "Dashboard egress contracts"
+  }
+}

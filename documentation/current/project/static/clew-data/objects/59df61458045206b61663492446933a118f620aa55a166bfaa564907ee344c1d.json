@@ -1,0 +1,25 @@
+{
+  "identity": "sha256:59df61458045206b61663492446933a118f620aa55a166bfaa564907ee344c1d",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "gaps": [
+      "PUBLIC_BOUNDARY_INVENTORY_IS_BOUNDED_BY_SELECTED_MODULES",
+      "DYNAMIC_REGISTRATION_AND_RUNTIME_ACTIVATION_UNVERIFIED"
+    ],
+    "internalCallableCount": 6,
+    "internalCallablePreviewLimits": {
+      "maxBytes": 8192,
+      "maxItems": 8
+    },
+    "internalCallables": {
+      "$clewRef": "sha256:2d81f0bce5dd98e4b87ba38c72c706d0cd8e15fde8dbc6aa06c71fb8e97fdb25"
+    },
+    "omittedInternalCallables": 0,
+    "publicBoundaries": {
+      "$clewRef": "sha256:3555705111a25b05bf33240fdb16fff2d211cdfb968e6e04eed8384b0a793dad"
+    },
+    "sourceBoundaries": {
+      "$clewRef": "sha256:9c570d22f9c4288b893df02c7d4c3409b4da10ae7722450291c71d9eed3240f3"
+    }
+  }
+}

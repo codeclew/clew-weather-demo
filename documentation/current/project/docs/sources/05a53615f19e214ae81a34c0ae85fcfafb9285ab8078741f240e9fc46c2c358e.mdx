@@ -1,0 +1,214 @@
+---
+title: "contracts/forecasts.openapi.json:1–191"
+slug: "/sources/05a53615f19e214ae81a34c0ae85fcfafb9285ab8078741f240e9fc46c2c358e"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# contracts/forecasts.openapi.json:1–191
+
+Authority: DECLARED\_OPENAPI
+
+Revision: c289b28be4819eddf29d59a7c12f178559ec5229
+
+Text digest: sha256:cf1ce22267df655852f605196edc7833a815c9a893b71128a954081038370b80
+
+## Retained text {#retained-text}
+
+```text
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "forecasts",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/forecasts/{id}": {
+      "get": {
+        "operationId": "forecasts_get_forecasts_id",
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "updatedAt",
+                    "fetchedAt",
+                    "mode",
+                    "periods"
+                  ],
+                  "properties": {
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "fetchedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "mode": {
+                      "type": "string",
+                      "enum": [
+                        "fixture",
+                        "live"
+                      ]
+                    },
+                    "periods": {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 6,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "time",
+                          "temperatureC",
+                          "precipitationMm",
+                          "symbol"
+                        ],
+                        "properties": {
+                          "time": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "temperatureC": {
+                            "type": "number"
+                          },
+                          "precipitationMm": {
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "minimum": 0
+                          },
+                          "symbol": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "404"
+          },
+          "500": {
+            "description": "500",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "oslo",
+                "helsinki",
+                "lisbon"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "/health": {
+      "get": {
+        "operationId": "forecasts_get_health",
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "database": {
+                      "const": "READY"
+                    },
+                    "kafka": {
+                      "const": "READY"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "500",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/openapi.json": {
+      "get": {
+        "operationId": "forecasts_get_openapi.json",
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "500",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+```
+
+<ClewDownload path="/clew-data/objects/05a53615f19e214ae81a34c0ae85fcfafb9285ab8078741f240e9fc46c2c358e.json">Complete original source binding</ClewDownload>

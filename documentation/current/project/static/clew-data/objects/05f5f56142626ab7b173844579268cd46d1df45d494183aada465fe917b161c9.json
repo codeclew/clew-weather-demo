@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:05f5f56142626ab7b173844579268cd46d1df45d494183aada465fe917b161c9",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:040dcf86edd8b30ebae68ceb519337686b87e304aa01605c54feefd14f94ebd7"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Location name",
+    "title": "Authored readable name (agent proposal)",
+    "tone": null
+  }
+}

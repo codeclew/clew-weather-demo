@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:da1659a8327b8aecd7e61977894445c5f3ee2983c3a8452cc29f6c75241a70a1",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 101,
+    "evidenceDigest": "sha256:73579907e6edd15edd21ced4978a3e1952a108df6637b199dbdad1783e1fe341",
+    "file": "services/dashboard/src/main.ts",
+    "id": "dashboard-c6847106e1de64958d0c",
+    "occurrence": {
+      "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+      "endByte": 4761,
+      "snapshot": "sha256:550435c6f8e16951bd815f9f7b54eda07bff8ad73a80a6df524ab2af077f4f6f",
+      "startByte": 4653
+    },
+    "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+    "service": "dashboard",
+    "startLine": 101,
+    "text": "consumer.subscribe({ topics: ['weather.place-requested', 'weather.forecast-updated'], fromBeginning: true })",
+    "textDigest": "sha256:08c2cf1e88c294cf49b57d0ef82e986746b037da293596965359f8b040b98aab",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/e635069293d58cb0d4f28c8211e748b8d58e6b37/services/dashboard/src/main.ts#L101-L101"
+  }
+}

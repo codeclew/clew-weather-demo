@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:798ba865e262f56ea62bbf4b349c34dffa1c05ee9934bf1e87f10e29bc48be66",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:58a23a8b46d9f6cbd78e14a0f10ebc1a25958a432dc436e6b904dd2a04dfb2a2"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Period.time is copied from the provider point time string. Dashboard later performs timestamp validation.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

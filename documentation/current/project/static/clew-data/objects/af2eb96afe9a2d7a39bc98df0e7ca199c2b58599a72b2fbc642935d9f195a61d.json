@@ -1,0 +1,11 @@
+{
+  "identity": "sha256:af2eb96afe9a2d7a39bc98df0e7ca199c2b58599a72b2fbc642935d9f195a61d",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "condition": null,
+    "id": "supported-city",
+    "steps": {
+      "$clewRef": "sha256:93181bb6cea9fb8262929aa7072732caf97aacadc58c03be35d195c9b30a7729"
+    }
+  }
+}

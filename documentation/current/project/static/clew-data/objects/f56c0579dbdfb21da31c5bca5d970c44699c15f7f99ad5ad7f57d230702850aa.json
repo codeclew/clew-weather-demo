@@ -1,0 +1,24 @@
+{
+  "identity": "sha256:f56c0579dbdfb21da31c5bca5d970c44699c15f7f99ad5ad7f57d230702850aa",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "places:symbol:d3b23b700626394c74b7ef9e"
+    ],
+    "id": "places:symbol:d3b23b700626394c74b7ef9e",
+    "name": "Save",
+    "owner": "class:Weather.Places.PlacesRepository",
+    "parameterTypes": [
+      "Weather.Places.Place",
+      "System.Threading.CancellationToken"
+    ],
+    "publicBoundary": false,
+    "scope": "csproj:services/places/Places.csproj@net10.0",
+    "service": "places",
+    "sourceIds": [
+      "places-d3b23b700626394c74b7"
+    ],
+    "status": "RECORDED",
+    "symbol": "method:class:Weather.Places.PlacesRepository#Save(LWeather/Places/Place;LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "identity": "sha256:646e3c397e1e5599235f27c62a0bd099a1ee1a6f5443f4ea004129d548ac4623",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "no-use-found-in-bounded-complete-scope",
+    "claim": {
+      "$clewRef": "sha256:c95ca34af909bc9e428a756a372dc03d938813c5590850cac525926eddf34991"
+    },
+    "condition": "Inspected browser implementation only",
+    "consumer": "Dashboard browser update()",
+    "contract": "forecast-updated",
+    "coveredScope": "Complete retained update() function; direct display expressions only",
+    "kinds": [],
+    "processes": [],
+    "producer": "Weather API response",
+    "representation": "row.latitude",
+    "stage": "Direct UI display",
+    "unresolved": "Static source interpretation; runtime execution and delivery are not established."
+  }
+}

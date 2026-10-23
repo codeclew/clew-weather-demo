@@ -1,0 +1,13 @@
+{
+  "identity": "sha256:9d9acb0a4487c98acd1085c500d6a1e8db173b6f030981a0aa959d19c9f1a918",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+    "endLine": 119,
+    "kind": "SELECTED_SOURCE",
+    "source": {
+      "$clewRef": "sha256:ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa"
+    },
+    "startLine": 116
+  }
+}

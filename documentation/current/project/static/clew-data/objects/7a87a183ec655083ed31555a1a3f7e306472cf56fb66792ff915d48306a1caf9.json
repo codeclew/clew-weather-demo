@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:7a87a183ec655083ed31555a1a3f7e306472cf56fb66792ff915d48306a1caf9",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:831d3c0e561ef71d436fd7329eeb4dad6078b8b7edd3e5823bf60cfdb22d56e0"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The selected place field is checked for supported ID, string name or finite numeric coordinate. These implementation checks do not enforce the contract coordinate ranges.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

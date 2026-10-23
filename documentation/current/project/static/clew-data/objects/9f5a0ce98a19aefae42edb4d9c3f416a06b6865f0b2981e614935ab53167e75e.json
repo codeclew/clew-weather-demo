@@ -1,0 +1,21 @@
+{
+  "identity": "sha256:9f5a0ce98a19aefae42edb4d9c3f416a06b6865f0b2981e614935ab53167e75e",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+      "forecasts:source_scope:a94d30979421b6ddbba5e94b",
+      "forecasts:symbol:04bc0feeea5752d3f1979c56",
+      "forecasts:symbol:3697d7f6e84dd57425971c2b"
+    ],
+    "id": "claim-e450542af87a8ab1482a",
+    "sourceIds": [
+      "forecasts-04bc0feeea5752d3f197",
+      "forecasts-3697d7f6e84dd5742597",
+      "forecasts-7d79014f99ba83eadfd7",
+      "forecasts-9abefb87ce9da5369dcc",
+      "forecasts-cf87224657914cc333f2"
+    ],
+    "text": "The Forecasts source assembles JSON rather than declaring a separate forecast DTO in the captured implementation. A forecast object contains updatedAt, fetchedAt, mode, and periods. Each period contains time, temperatureC, symbol, and precipitationMm; the source writes null precipitation when the provider omits a numeric amount. A forecast.updated event carries an id formed from place id and updatedAt, type, version 1, place, and forecast. The event schema and OpenAPI document declare one to six periods and date-time strings; their JSON Schema keywords are not fully interpreted here.\n\nThe Forecasts database schema stores places, a forecasts row keyed by place_id with updated_at, JSON payload, expires_at, and last_modified, inbox event IDs, forecast_outbox payloads with a published flag, and rejected message coordinates keyed by topic, partition, and offset. These are persistence and delivery records, distinct from the JSON forecast and event shapes."
+  }
+}

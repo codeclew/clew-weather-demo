@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:13e1d5341ecf3a76c6dde21143df89db0b9eae80cfb4d6817aa875678a3568c3",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "fragment": {
+      "$clewRef": "sha256:0e89a89382acd1c69273e2a766da26933e872a457cbfc23c82bf4d6096de8828"
+    },
+    "kind": "RETAINED_CLAIM",
+    "operation": "forecasts-refresh-scheduled",
+    "sourceContext": {
+      "$clewRef": "sha256:5fb6e96cc0ea34d2e2444f45c0be31e55906dad5440252ff975867164d915b9c"
+    },
+    "sources": {
+      "$clewRef": "sha256:2c169429b8b4cc12382cbad0fa30bef43380ec040223688177797c4b8ecb33bf"
+    },
+    "state": {
+      "$clewRef": "sha256:82e927e67dae99bd3754f5446485cef8d9189e74ab2df509b568c85e2ada45b3"
+    },
+    "subject": "scenario:forecasts-refresh-scheduled",
+    "title": "Refresh cached and provider forecasts"
+  }
+}

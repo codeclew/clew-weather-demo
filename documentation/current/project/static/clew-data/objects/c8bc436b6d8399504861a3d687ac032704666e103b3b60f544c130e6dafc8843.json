@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:c8bc436b6d8399504861a3d687ac032704666e103b3b60f544c130e6dafc8843",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:a85120309ebf9641ee2e342b353ff812c6b51a1b861a79ec2f139c6669f169ce"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Time represented by this provider period; checked as a timestamp at Dashboard ingestion.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

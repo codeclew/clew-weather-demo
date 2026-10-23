@@ -1,0 +1,19 @@
+{
+  "identity": "sha256:0355e4ecd5f239d67e98f451bf93ab7684b3bb49bf164e4c86d47fe1602210e9",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    "CALL_TARGETS_UNRESOLVED",
+    "DECLARED_TRANSITION_NOT_REACHED:dashboard-request-refresh-to-places",
+    "DECLARED_TRANSITION_NOT_REACHED:forecasts-forecast-updated-to-dashboard",
+    "DECLARED_TRANSITION_NOT_REACHED:forecasts-refresh-to-external-met",
+    "DECLARED_TRANSITION_NOT_REACHED:places-place-requested-to-dashboard",
+    "DECLARED_TRANSITION_NOT_REACHED:places-place-requested-to-forecasts",
+    "ORDER_LEXICAL_ONLY",
+    "UNACCEPTED_AGENT_PROPOSAL",
+    "LINKED_PROCESS_UNASSESSED:places-request-publisher",
+    "LINKED_PROCESS_UNASSESSED:forecasts-place-requested-consumer",
+    "LINKED_PROCESS_UNASSESSED:forecasts-publish-pending",
+    "LINKED_PROCESS_UNASSESSED:dashboard-place-requested-consumer",
+    "LINKED_PROCESS_UNASSESSED:dashboard-forecast-updated-consumer"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:b576155bfcd8941658a9e05d353c6712c6b19408226b6e04be0d00f2eec929f4",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": {
+      "$clewRef": "sha256:016cca55baf8523d20edaad84a49bdd51c9d6696f6c7e9eb3b9d347f383cafc0"
+    },
+    "href": "../scenarios/dashboard-refresh-request.html#process-overview",
+    "id": "dashboard-refresh-request",
+    "state": {
+      "$clewRef": "sha256:7498ca9221d6a36b34d6f744884b2827326a8743acff08a48940d35a5d44c9d5"
+    },
+    "status": "AUTHORED",
+    "title": "Dashboard refresh-request thread",
+    "trigger": "A caller enters the source-declared Dashboard.requestRefresh handler."
+  }
+}

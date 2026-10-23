@@ -1,0 +1,20 @@
+{
+  "identity": "sha256:f435331faa109402c4ca1945f16dde93eb6f9aab9d77fbb7db66b2a05437f4ce",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "C# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted."
+    ],
+    "documentationLanguage": "en",
+    "events": [],
+    "explanation": [],
+    "findings": [],
+    "id": "section-overview",
+    "interfaceContracts": [],
+    "participants": [],
+    "summary": {
+      "$clewRef": "sha256:195e28208d716c21cf678b9ad64d2af3581170a955bce66ea3e186b09c3ec822"
+    },
+    "title": "Places service"
+  }
+}

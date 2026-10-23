@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:ce4c05449787c1ec0b36f829113d7ca522a3a301c42c7df3a0489010b419c33f",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:6c1c934b28e298a6f204d3c1b6224687cea1db609b0d7498e6ac5928f11af8b5"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The name column receives the explicit event.place.name value.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:d5220d4c299e179817479e1fff8f9bda211d81bc518fb64503e74db792801340",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "digest": "sha256:9bfcaa2edcc29dd95810fe426dcc3e030f7bad03a051f96f7833bc0fa4e79e83",
+    "id": "forecasts:contract-operation:ee6a6874e4feb07b195cbf57",
+    "kind": "CONTRACT_OPERATION",
+    "normalized": {
+      "$clewRef": "sha256:9bfcaa2edcc29dd95810fe426dcc3e030f7bad03a051f96f7833bc0fa4e79e83"
+    },
+    "service": "forecasts",
+    "sourceIds": [
+      "forecasts-0dad2f6c74261ec67a63"
+    ],
+    "symbol": "source:services/forecasts/src/main/kotlin/weather/ForecastController.kt/class:weather.ForecastController/health/b6919665be4a52d40ebc"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "identity": "sha256:1eaf035fdc179701cc6679b23d133af4ec790c842dcadf323a03a6bea1fcc7d7",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "operationId": "places_post_places_id_refresh",
+    "parameters": [
+      {
+        "in": "path",
+        "name": "id",
+        "required": true,
+        "schema": {
+          "enum": [
+            "oslo",
+            "helsinki",
+            "lisbon"
+          ],
+          "type": "string"
+        }
+      }
+    ],
+    "responses": {
+      "202": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "placeId": {
+                  "type": "string"
+                },
+                "status": {
+                  "const": "QUEUED"
+                }
+              },
+              "required": [
+                "placeId",
+                "status"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "description": "202"
+      },
+      "404": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "additionalProperties": true,
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "description": "404"
+      },
+      "500": {
+        "description": "500"
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:a5d4bf22b0f8c31ff9bfeb782f4242c6a3fbae92380ecfadc31c144d27b7f55f",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 66,
+    "evidenceDigest": "sha256:d0aca63cb362c98d9255ab7644f4d7f5f4dc4fff0156f80b60fd57dee464e334",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "id": "forecasts-ea6dd04c278f12f668b5",
+    "occurrence": {
+      "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+      "endByte": 4039,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 3884
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 66,
+    "text": "try { transaction.executeWithoutResult { refresh(place) } } catch (error: Exception) { System.err.println(\"FORECAST_RETRY:\" + error.javaClass.simpleName) }",
+    "textDigest": "sha256:e83d80f3301f7564226d9660ba13fb89dd96448d478f871b7cc6298dd8f41f47",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L66-L66"
+  }
+}

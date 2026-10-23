@@ -1,0 +1,24 @@
+{
+  "identity": "sha256:5131295f5e10d080e04f111fdf387e9a85f50b19ca3defe3ea375b4d7aa818ec",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+      "forecasts:source_annotations:1571fff289ff6226f149c918",
+      "forecasts:source_annotations:1ea53b95922ad5791d930533",
+      "forecasts:source_annotations:3b271aa33f7bd944bb5ab6a5",
+      "forecasts:source_annotations:3d7b217355f2e6a34064e800",
+      "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+      "forecasts:source_annotations:cc58d8643f3d17e4b6911d22",
+      "forecasts:symbol:04bc0feeea5752d3f1979c56",
+      "forecasts:syntax_detail:e98a76fbed8be126547f33ea"
+    ],
+    "id": "claim-ca44fb846a3ea5a91899",
+    "kind": "note",
+    "sourceIds": [
+      "forecasts-04bc0feeea5752d3f197",
+      "forecasts-e98a76fbed8be126547f"
+    ],
+    "text": "For every live response, set expiry from the Expires header or now plus one hour. Set nextAttempt from numeric Retry-After for status 429, defaulting to 60 seconds and enforcing a 60-second minimum; for other statuses set nextAttempt to expiry. These updates occur before the 304 and accepted-status branches."
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "identity": "sha256:67d55574476a81659dbf11ea75fbebf445bd872e81f3f14e6e825f7943f5eac4",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    {
+      "condition": "city is null",
+      "guard": {
+        "endLine": 22,
+        "method": "places-refresh",
+        "startLine": 22
+      },
+      "id": "place-not-found",
+      "steps": [
+        {
+          "effects": [
+            {
+              "citation": {
+                "endLine": 22,
+                "method": "places-refresh",
+                "startLine": 22
+              },
+              "id": "refresh-404",
+              "kind": "RETURN",
+              "label": "Return HTTP 404 for a missing place."
+            }
+          ],
+          "endLine": 22,
+          "id": "refresh-not-found",
+          "kind": "ERROR",
+          "method": "places-refresh",
+          "startLine": 22,
+          "text": "Return NotFound with error PLACE_NOT_FOUND before enqueue.",
+          "title": "Return place-not-found response"
+        }
+      ]
+    },
+    {
+      "$clewRef": "sha256:1781f321b16df75bfe3a0a6bd99d1166ed9b1ecbd74f26ef4d3951bab23f2ccd"
+    }
+  ]
+}

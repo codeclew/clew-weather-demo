@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:d10889d7dec9ec7771472d1a44e755b28743b1800e345a02d390e4ce46d995b6",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 25,
+    "evidenceDigest": "sha256:dd944e62ed29bc0de6b9010d3b98be1672082ccdb56a582c4993cf684a8e810d",
+    "file": "services/places/PlacesRepository.cs",
+    "id": "places-707eb762b8c1f4718a5b",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "places",
+    "startLine": 20,
+    "text": "public async Task<NpgsqlConnection> Open(CancellationToken token)\n    {\n        var connection = new NpgsqlConnection(connectionString);\n        try { await connection.OpenAsync(token); return connection; }\n        catch { await connection.DisposeAsync(); throw; }\n    }",
+    "textDigest": "sha256:3027a4abb6d1fb5ef007a0d0783be38a6766fe294e0a1dfac9990b2c00975ce4",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L20-L25"
+  }
+}

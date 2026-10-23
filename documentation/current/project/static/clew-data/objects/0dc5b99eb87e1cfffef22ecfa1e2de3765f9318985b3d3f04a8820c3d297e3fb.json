@@ -1,0 +1,27 @@
+{
+  "identity": "sha256:0dc5b99eb87e1cfffef22ecfa1e2de3765f9318985b3d3f04a8820c3d297e3fb",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "forecasts-04bc0feeea5752d3f197": {
+      "$clewRef": "sha256:ca9432fec2a98615bce1212fc0e5541dcddd9f87f2124c7af78487e0179ddffa"
+    },
+    "forecasts-1ea53b95922ad5791d93": {
+      "$clewRef": "sha256:ee1c73490c4cd4a1f4efaf310e65a12cc2a3c6bbb15ab76a4eb246cf1533dc35"
+    },
+    "forecasts-740f3405b57f36fc72f3": {
+      "$clewRef": "sha256:181fa6c9d9cc1e3e7ddeb4efe5cd89a564e8b1eb6511eb73f297139264c4609d"
+    },
+    "forecasts-84ab2c89d2ea61234233": {
+      "$clewRef": "sha256:afc9d1096fb08a657cb9b7dfe6672bff110cfa74625c7d51092f4873e0a6863d"
+    },
+    "forecasts-e9881531c62a3422e80b": {
+      "$clewRef": "sha256:d88100a3e64655a7f2f776447263dde9b9a986a7fdba57965ea9c7565783ffbf"
+    },
+    "forecasts-e98a76fbed8be126547f": {
+      "$clewRef": "sha256:b325b07220fc25f8eb6c7811f29686ee179f573e860c82a95641074c7f3d0907"
+    },
+    "forecasts-ea6dd04c278f12f668b5": {
+      "$clewRef": "sha256:a5d4bf22b0f8c31ff9bfeb782f4242c6a3fbae92380ecfadc31c144d27b7f55f"
+    }
+  }
+}

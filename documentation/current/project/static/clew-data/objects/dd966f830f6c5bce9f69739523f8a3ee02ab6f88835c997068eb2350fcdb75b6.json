@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:dd966f830f6c5bce9f69739523f8a3ee02ab6f88835c997068eb2350fcdb75b6",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "forecasts:symbol:d988fd0a0bd0b1deecfb3c0f"
+    ],
+    "id": "forecasts:symbol:d988fd0a0bd0b1deecfb3c0f",
+    "name": "kafkaListenerContainerFactory",
+    "owner": "class:weather.KafkaConfiguration",
+    "parameterTypes": [
+      "consumerFactory: ConsumerFactory<String, String>"
+    ],
+    "publicBoundary": false,
+    "scope": "",
+    "service": "forecasts",
+    "sourceIds": [
+      "forecasts-d988fd0a0bd0b1deecfb"
+    ],
+    "status": "RECORDED",
+    "symbol": "source:services/forecasts/src/main/kotlin/weather/KafkaConfiguration.kt/class:weather.KafkaConfiguration/kafkaListenerContainerFactory/544b6c1b257e84c98c3a"
+  }
+}

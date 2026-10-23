@@ -1,0 +1,25 @@
+{
+  "identity": "sha256:a2e1c326f03ff9e470ac15242f2403c1fce0e0f58b9262e62460c89ce76bfecb",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "operationId": "forecasts_get_forecasts_id",
+    "parameters": [
+      {
+        "in": "path",
+        "name": "id",
+        "required": true,
+        "schema": {
+          "enum": [
+            "oslo",
+            "helsinki",
+            "lisbon"
+          ],
+          "type": "string"
+        }
+      }
+    ],
+    "responses": {
+      "$clewRef": "sha256:be643c597137318db7fee7d322a461a6886af22a52c4d4f2d2616f7331aaf3c0"
+    }
+  }
+}

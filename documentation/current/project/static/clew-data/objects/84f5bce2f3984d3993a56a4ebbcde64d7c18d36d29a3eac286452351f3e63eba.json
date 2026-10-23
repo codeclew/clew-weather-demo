@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:84f5bce2f3984d3993a56a4ebbcde64d7c18d36d29a3eac286452351f3e63eba",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 101,
+    "evidenceDigest": "sha256:02d3aca152b76c1cf625c99eecf150a211405fad46a4d8bdde092817a0e6b948",
+    "file": "services/forecasts/src/main/kotlin/weather/Forecasts.kt",
+    "id": "forecasts-276a7eb7785ee7ca6d01",
+    "occurrence": {
+      "blob": "7ed34fcd2d3540241148596c97a5d66fe5f2578a",
+      "endByte": 6788,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 4499
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 76,
+    "text": "if (mode == \"fixture\") {\n            Files.readString(Path.of(\"/app/fixtures/$id.json\"))\n        } else {\n            require(mode == \"live\")\n            val agent = System.getenv(\"MET_USER_AGENT\")?.takeIf { it.isNotBlank() } ?: error(\"MET_USER_AGENT_REQUIRED\")\n            if (nextAttempt[id]?.isAfter(Instant.now()) == true) error(\"PROVIDER_BACKOFF\")\n            nextAttempt[id] = Instant.now().plusSeconds(60)\n            val lat = BigDecimal.valueOf(place[\"latitude\"].asDouble()).setScale(4, RoundingMode.DOWN).toPlainString()\n            val lon = BigDecimal.valueOf(place[\"longitude\"].asDouble()).setScale(4, RoundingMode.DOWN).toPlainString()\n            val builder = HttpRequest.newBuilder(URI.create(\"https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=$lat&lon=$lon\")).timeout(Duration.ofSeconds(20)).header(\"User-Agent\", agent).header(\"Accept-Encoding\", \"gzip\")\n            val modified = cached?.get(\"last_modified\") as String?\n            if (modified != null) builder.header(\"If-Modified-Since\", modified)\n            val response = http.send(builder.GET().build(), HttpResponse.BodyHandlers.ofByteArray())\n            expires = response.headers().firstValue(\"Expires\").map { ZonedDateTime.parse(it, DateTimeFormatter.RFC_1123_DATE_TIME).toInstant() }.orElse(Instant.now().plusSeconds(3600))\n            nextAttempt[id] = if (response.statusCode() == 429) {\n                val seconds = response.headers().firstValue(\"Retry-After\").orElse(\"60\").toLongOrNull() ?: 60L\n                Instant.now().plusSeconds(seconds.coerceAtLeast(60L))\n            } else expires\n            if (response.statusCode() == 304 && cached != null) {\n                jdbc.update(\"UPDATE forecasts SET expires_at=? WHERE place_id=?\", java.sql.Timestamp.from(expires), id)\n                return\n            }\n            require(response.statusCode() == 200 || response.statusCode() == 203) { \"PROVIDER_HTTP_\" + response.statusCode() }\n            lastModified = response.headers().firstValue(\"Last-Modified\").orElse(null)\n            if (response.headers().firstValue(\"Content-Encoding\").orElse(\"\").equals(\"gzip\", ignoreCase = true)) GZIPInputStream(ByteArrayInputStream(response.body())).bufferedReader().use { it.readText() } else response.body().toString(Charsets.UTF_8)\n        }",
+    "textDigest": "sha256:3eb73f20953c07352693f6467c9016d946ff2798fc636a7e24c43d18c0b9be82",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/Forecasts.kt#L76-L101"
+  }
+}

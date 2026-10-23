@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:8398733280eed9d0a19284aadcfbcc1ba6015a16c36fef06edc96a92eaf64fe0",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 40,
+    "evidenceDigest": "sha256:2d84ed9da85e3d527c8fd501aa516259303ba42443daaf5a6e87ead43113b46c",
+    "file": "services/dashboard/src/main.ts",
+    "id": "dashboard-8a070f0f153e2cc2cdcb",
+    "occurrence": {
+      "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+      "endByte": 2171,
+      "snapshot": "sha256:550435c6f8e16951bd815f9f7b54eda07bff8ad73a80a6df524ab2af077f4f6f",
+      "startByte": 2147
+    },
+    "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+    "service": "dashboard",
+    "startLine": 40,
+    "text": "client.query('ROLLBACK')",
+    "textDigest": "sha256:1dbaf6fc535d55bc324d740f61b4574579536d750f721d0db9b9c72e5ffea6fb",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/e635069293d58cb0d4f28c8211e748b8d58e6b37/services/dashboard/src/main.ts#L40-L40"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "identity": "sha256:71eae05014f14c660eeb70fee42929dcccb4db83d66c8e94d29d9d00759a8f77",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "claim": {
+      "$clewRef": "sha256:255343eea03fc2eea15d3f75a6dce8a6ba0c166e4a19132d20162b84629a3a47"
+    },
+    "fields": [
+      {
+        "field": "city-id",
+        "model": "save-city-request"
+      },
+      {
+        "field": "id",
+        "model": "place"
+      },
+      {
+        "field": "name",
+        "model": "place"
+      },
+      {
+        "field": "latitude",
+        "model": "place"
+      },
+      {
+        "field": "longitude",
+        "model": "place"
+      }
+    ],
+    "stages": [
+      "Browser city choice",
+      "Places city lookup"
+    ]
+  }
+}

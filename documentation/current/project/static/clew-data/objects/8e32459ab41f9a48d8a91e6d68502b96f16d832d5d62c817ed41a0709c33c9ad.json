@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:8e32459ab41f9a48d8a91e6d68502b96f16d832d5d62c817ed41a0709c33c9ad",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:11a2bcd1341d758372d2e82107e79d76095e28625c22ebf9e30b5a0493e08e39"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "This request has no durable request ID in the captured shape. cityId selects Place.id. A new outbox event gets a separate Guid; a 200 response is not an acknowledgement of Kafka publication or forecast readiness.",
+    "title": "Save a city: source interpretation",
+    "tone": null
+  }
+}

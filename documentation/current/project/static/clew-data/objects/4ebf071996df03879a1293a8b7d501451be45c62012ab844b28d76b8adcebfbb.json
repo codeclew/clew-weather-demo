@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:4ebf071996df03879a1293a8b7d501451be45c62012ab844b28d76b8adcebfbb",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 27,
+    "evidenceDigest": "sha256:2bacd8f295d2e89b957a764414e49c4999092e2cda31aec7d9ef68397ec705ac",
+    "file": "services/dashboard/src/events.ts",
+    "id": "dashboard-cb18ba8c0e515e1a650f",
+    "occurrence": {
+      "blob": "ddda5719da0d973028010984703f3ee5163090f5",
+      "endByte": 2090,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 1132
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 16,
+    "text": "if (topic === 'weather.forecast-updated') {\n    if (event.type !== 'forecast.updated' || !event.forecast || !isTimestamp(event.forecast.updatedAt)\n        || !isTimestamp(event.forecast.fetchedAt) || !['fixture', 'live'].includes(event.forecast.mode)\n        || !Array.isArray(event.forecast.periods) || event.forecast.periods.length < 1 || event.forecast.periods.length > 6) throw new Error('INVALID_FORECAST')\n    for (const period of event.forecast.periods) {\n      if (!isTimestamp(period.time) || !Number.isFinite(period.temperatureC)\n          || !(period.precipitationMm === null || (Number.isFinite(period.precipitationMm) && period.precipitationMm >= 0))\n          || typeof period.symbol !== 'string') throw new Error('INVALID_PERIOD')\n    }\n  } else if (topic === 'weather.place-requested') {\n    if (event.type !== 'place.requested' || event.forecast !== undefined) throw new Error('INVALID_PLACE_EVENT')\n  } else throw new Error('UNKNOWN_TOPIC')",
+    "textDigest": "sha256:4e230e0b760038316fc613c6a1cca165b5fff4b845eb6fe0e46d11eaac357016",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/events.ts#L16-L27"
+  }
+}

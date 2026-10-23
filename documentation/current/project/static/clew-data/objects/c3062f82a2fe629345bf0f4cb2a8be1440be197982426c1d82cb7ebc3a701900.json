@@ -1,0 +1,96 @@
+{
+  "identity": "sha256:c3062f82a2fe629345bf0f4cb2a8be1440be197982426c1d82cb7ebc3a701900",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "200": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "properties": {
+              "id": {
+                "enum": [
+                  "oslo",
+                  "helsinki",
+                  "lisbon"
+                ],
+                "type": "string"
+              },
+              "latitude": {
+                "maximum": 90,
+                "minimum": -90,
+                "type": "number"
+              },
+              "longitude": {
+                "maximum": 180,
+                "minimum": -180,
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "latitude",
+              "longitude"
+            ],
+            "type": "object"
+          }
+        }
+      },
+      "description": "200"
+    },
+    "400": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "additionalProperties": true,
+            "properties": {
+              "error": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        }
+      },
+      "description": "400"
+    },
+    "415": {
+      "description": "415"
+    },
+    "500": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "additionalProperties": true,
+            "properties": {
+              "error": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        }
+      },
+      "description": "500"
+    },
+    "503": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "additionalProperties": true,
+            "properties": {
+              "error": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        }
+      },
+      "description": "503"
+    }
+  }
+}

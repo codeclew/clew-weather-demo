@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:6578150752dd1d0e5c0ad8141ad334ec1345e8239877e31f34458f44df6b3640",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contract": null,
+    "field": null,
+    "label": "C# Place.Id",
+    "mapping": {
+      "$clewRef": "sha256:c29a813662a2558e33d5b4ab17825314c659c45b761a7befdf08f4b1629a5d1a"
+    },
+    "nullability": "Declared string; the record declaration alone does not prove runtime null validation.",
+    "relatedModel": null,
+    "requiredness": "Supplied as a constructor argument in every supported literal branch.",
+    "typeLabel": "string"
+  }
+}

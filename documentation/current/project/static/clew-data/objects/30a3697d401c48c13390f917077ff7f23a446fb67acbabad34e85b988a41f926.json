@@ -1,0 +1,32 @@
+{
+  "identity": "sha256:30a3697d401c48c13390f917077ff7f23a446fb67acbabad34e85b988a41f926",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "gaps": [
+      "PUBLIC_BOUNDARY_INVENTORY_IS_BOUNDED_BY_SELECTED_MODULES",
+      "DYNAMIC_REGISTRATION_AND_RUNTIME_ACTIVATION_UNVERIFIED"
+    ],
+    "internalCallableCount": 10,
+    "internalCallablePreviewLimits": {
+      "maxBytes": 8192,
+      "maxItems": 8
+    },
+    "internalCallables": {
+      "$clewRef": "sha256:45a96921809dcd664e48fb89cbd561f0062c8c31659a229ffba748d2d6eb4c7e"
+    },
+    "omittedInternalCallables": 2,
+    "publicBoundaries": {
+      "$clewRef": "sha256:0fa7bc727c3fe49de559b8579136f956b74fa8cabec7c75f1ac17532c851b57f"
+    },
+    "sourceBoundaries": [
+      "CLR_SIGNATURE_PROJECTED_TO_JVM_DESCRIPTOR_GRAMMAR",
+      "CSHARP_SOURCE_GENERATED_DOCUMENTS_NOT_INDEXED",
+      "EXCEPTION_FLOW_REQUIRES_SOURCE_REVIEW",
+      "GENERATED_SOURCE_BODIES_NOT_INDEXED",
+      "LAMBDA_EXECUTION_NOT_EXPANDED",
+      "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+      "SHORT_CIRCUIT_FLOW_REQUIRES_SOURCE_REVIEW",
+      "SWITCH_FLOW_REQUIRES_SOURCE_REVIEW"
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "identity": "sha256:70eae204b9f7a15dab044f07215b14fa17a8e6b000cd54dae5d904e6f0bed0b0",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "202": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "properties": {
+              "placeId": {
+                "type": "string"
+              },
+              "status": {
+                "const": "QUEUED"
+              }
+            },
+            "required": [
+              "placeId",
+              "status"
+            ],
+            "type": "object"
+          }
+        }
+      },
+      "description": "202"
+    },
+    "404": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "additionalProperties": true,
+            "properties": {
+              "error": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        }
+      },
+      "description": "404"
+    },
+    "500": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "additionalProperties": true,
+            "properties": {
+              "error": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        }
+      },
+      "description": "500"
+    },
+    "503": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "additionalProperties": true,
+            "properties": {
+              "error": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        }
+      },
+      "description": "503"
+    }
+  }
+}

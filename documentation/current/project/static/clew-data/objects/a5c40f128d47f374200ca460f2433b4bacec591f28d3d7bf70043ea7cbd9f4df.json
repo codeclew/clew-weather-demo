@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:a5c40f128d47f374200ca460f2433b4bacec591f28d3d7bf70043ea7cbd9f4df",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 9,
+    "evidenceDigest": "sha256:b17dd0cba7c56e9b08fb9240f8997c49ba2e780f23d7e19a14633e57e305772a",
+    "file": "services/forecasts/src/main/kotlin/weather/ForecastController.kt",
+    "id": "forecasts-aae87384ed684f6366cd",
+    "occurrence": {
+      "blob": "d47ffdb98963d778367a656d920d2f938da883ed",
+      "endByte": 312,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 297
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 9,
+    "text": "@RestController",
+    "textDigest": "sha256:30ac9efe3c23e826380a75d9390c8256cfd59112d694b75137cd0307289ed709",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/ForecastController.kt#L9-L9"
+  }
+}

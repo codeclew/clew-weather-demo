@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:a3988dd862640e85b5e3204c627acdc78fb52bdfb0907733ca8d59393c3c147c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:6f8c803b099588ceb6efe0a0c7d0f2ced47bc3ae085c7c6df06964d6c8573411"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Provider update time",
+    "title": "Authored readable name (agent proposal)",
+    "tone": null
+  }
+}

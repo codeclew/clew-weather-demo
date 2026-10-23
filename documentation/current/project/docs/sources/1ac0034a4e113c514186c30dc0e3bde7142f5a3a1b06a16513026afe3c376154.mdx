@@ -1,0 +1,24 @@
+---
+title: "services/dashboard/src/main.ts:53–54"
+slug: "/sources/1ac0034a4e113c514186c30dc0e3bde7142f5a3a1b06a16513026afe3c376154"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/dashboard/src/main.ts:53–54
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6
+
+Text digest: sha256:db0908cc89ab5e14b48824ddc0145c7c82b67b5315d6014438691e0795b41a4b
+
+## Retained text {#retained-text}
+
+```text
+pool.query(`INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES($1,$2,$3,'INVALID_EVENT')
+      ON CONFLICT DO NOTHING`, [topic, partition, message.offset])
+```
+
+<ClewDownload path="/clew-data/objects/1ac0034a4e113c514186c30dc0e3bde7142f5a3a1b06a16513026afe3c376154.json">Complete original source binding</ClewDownload>

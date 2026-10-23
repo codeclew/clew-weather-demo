@@ -1,0 +1,27 @@
+{
+  "identity": "sha256:80b90d85e011415bc7bc2dba42515dff032ee5c960b792e3088eed2593f9549a",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+      "places:contract-operation:08d1b9df6781b2953a038bc2",
+      "places:contract-operation:0f29e92a853c76a6ea564769",
+      "places:contract-operation:6b165729e2d309a9b2687873",
+      "places:contract-operation:6e713b9442ae5dfc4b99b133",
+      "places:contract-operation:fa5644a96e01681d7c2b0445",
+      "places:contract:91b280ed0ed0eda3e8e3231d",
+      "places:symbol:6c7321d96988c6277e32e39e"
+    ],
+    "detail": false,
+    "eventIds": [
+      "claim-867c3a6ea923dd9ac3b0"
+    ],
+    "id": "claim-ecf46452e0e2d4142ff4",
+    "sourceIds": [
+      "dashboard-7970ac3e2a8cf3f45b4a",
+      "places-6c7321d96988c6277e32",
+      "places-770e53d99edf681987e1"
+    ],
+    "text": "A caller enters savePlace with a JSON body. The declared Places request body requires only cityId, a string in the oslo, helsinki, or lisbon enum; SavePlace exposes that value as CityId."
+  }
+}

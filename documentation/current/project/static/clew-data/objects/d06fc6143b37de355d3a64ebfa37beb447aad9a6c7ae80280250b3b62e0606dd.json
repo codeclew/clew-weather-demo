@@ -1,0 +1,9 @@
+{
+  "identity": "sha256:d06fc6143b37de355d3a64ebfa37beb447aad9a6c7ae80280250b3b62e0606dd",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "places-722b268c12cec9e1cb51": {
+      "$clewRef": "sha256:728b9ba12f04391993430660fb0e4a022375568be05cd19f8e9d4aca115e990d"
+    }
+  }
+}

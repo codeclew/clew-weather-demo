@@ -1,0 +1,29 @@
+{
+  "identity": "sha256:75febb248ec829ebd28f3ffa766dba27be04a6926b508e24cb80f0bff073a01b",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": {
+      "associationDigest": "sha256:e9da18a838e29f6e56b9cc5fa4db8ff79edc71b4f8eb4dd8fba7e40d1edde582",
+      "note": "runtime-kafka-replay",
+      "noteDigest": "sha256:a2abe10da156776847ebcb52cdbd2e3ef91ba31f5d279510844339de230ffe9c",
+      "outcome": "CONSISTENT",
+      "period": "2026-10-13T01:19:20.188431+00:00",
+      "proposedCorrection": null,
+      "schema": "codeclew-documentation-note-assessment/1.0"
+    },
+    "boundaries": [
+      "Six historical runtime passes are evidence, but no current rerun, compiler result, or exactly-once guarantee is claimed."
+    ],
+    "documentationLanguage": "en",
+    "events": [],
+    "explanation": [],
+    "findings": [],
+    "id": "assessment-runtime-kafka-replay",
+    "interfaceContracts": [],
+    "participants": [],
+    "summary": {
+      "$clewRef": "sha256:2013d59bd5114d182ac5a25546ee7dfb156e8665e141fc536147b4e89900723d"
+    },
+    "title": "An event with an older updatedAt leaves a newer Dashboard forecast unchanged"
+  }
+}

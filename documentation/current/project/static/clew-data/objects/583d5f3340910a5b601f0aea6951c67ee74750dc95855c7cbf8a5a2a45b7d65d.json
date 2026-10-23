@@ -1,0 +1,21 @@
+{
+  "identity": "sha256:583d5f3340910a5b601f0aea6951c67ee74750dc95855c7cbf8a5a2a45b7d65d",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "Kotlin and Spring source evidence does not establish runtime listener or scheduler registration, callback invocation, or database transaction commit and rollback behavior. Captured application configuration is source text, not proof of deployed settings.",
+      "OpenAPI and event JSON Schema are read as source text; JSON Schema keywords, unions, and null types are not fully interpreted."
+    ],
+    "documentationLanguage": "en",
+    "events": [],
+    "explanation": [],
+    "findings": [],
+    "id": "section-egress",
+    "interfaceContracts": [],
+    "participants": [],
+    "summary": {
+      "$clewRef": "sha256:724806b7801a77268b7cf0cb0ea3ec87dada86dff005cbc818cee0b8cb3219ae"
+    },
+    "title": "Forecasts egress contracts"
+  }
+}

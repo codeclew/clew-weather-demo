@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:728b9ba12f04391993430660fb0e4a022375568be05cd19f8e9d4aca115e990d",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 34,
+    "evidenceDigest": "sha256:4c2a37722e8f758d81ef32cc8048686f59a02936773d6194edf5248ea9b158b6",
+    "file": "services/places/RequestPublisher.cs",
+    "id": "places-722b268c12cec9e1cb51",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "places",
+    "startLine": 18,
+    "text": "public async Task PublishPending(IProducer<string, string> producer, CancellationToken token)\n    {\n        await using var connection = await repository.Open(token);\n        await using var transaction = await connection.BeginTransactionAsync(token);\n        await using var command = new NpgsqlCommand(\"SELECT id,payload::text FROM request_outbox WHERE NOT published ORDER BY created_at LIMIT 1 FOR UPDATE SKIP LOCKED\", connection, transaction);\n        Guid id; string payload;\n        await using (var reader = await command.ExecuteReaderAsync(token))\n        {\n            if (!await reader.ReadAsync(token)) return;\n            id = reader.GetGuid(0); payload = reader.GetString(1);\n        }\n        var placeId = JsonDocument.Parse(payload).RootElement.GetProperty(\"place\").GetProperty(\"id\").GetString()!;\n        await producer.ProduceAsync(\"weather.place-requested\", new Message<string, string> { Key = placeId, Value = payload }, token);\n        await using var mark = new NpgsqlCommand(\"UPDATE request_outbox SET published=true WHERE id=$1\", connection, transaction);\n        mark.Parameters.AddWithValue(id); await mark.ExecuteNonQueryAsync(token);\n        await transaction.CommitAsync(token);\n    }",
+    "textDigest": "sha256:5402c70e41f029dbb02eb020cc4e28fc9f0ba004f670d74c7915aa4b7906db7f",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/RequestPublisher.cs#L18-L34"
+  }
+}

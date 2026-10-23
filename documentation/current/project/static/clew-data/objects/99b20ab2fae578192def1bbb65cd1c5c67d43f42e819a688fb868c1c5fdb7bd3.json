@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:99b20ab2fae578192def1bbb65cd1c5c67d43f42e819a688fb868c1c5fdb7bd3",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 9,
+    "evidenceDigest": "sha256:a7b6adeb542a9964a6258105f1f0b1e407cb53e303dcb96b4a4d4bc909ed0037",
+    "file": "services/places/RequestPublisher.cs",
+    "id": "places-265aa313d2e9e405afaa",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "places",
+    "startLine": 9,
+    "text": "Environment.GetEnvironmentVariable(\"KAFKA_BOOTSTRAP\") ?? \"kafka:9092\"",
+    "textDigest": "sha256:ca675d0981ac8d285518ad98765b61a6ed9515797b0d4781250006c0768d14a3",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/RequestPublisher.cs#L9-L9"
+  }
+}

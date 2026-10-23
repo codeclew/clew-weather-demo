@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:fd904e3d5eb664d9ba08b4db607626bcf2f7fe0e0ac16ad00afcdd123f3ffaf3",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:3be88f371b17934d368ea688544a383c8f0034f64c8b1e976f1f358dd59e61dd"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "City(\"oslo\") selects the literal Place(\"oslo\", \"Oslo\", 59.93, 10.72) in this switch branch.",
+    "title": "City lookup: source interpretation",
+    "tone": null
+  }
+}

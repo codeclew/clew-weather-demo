@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:6842c078a3383051bfa4cb64b34f98a186a01575eb525f84d67b85e6df169928",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "contract": null,
+    "field": null,
+    "label": "Places / Forecasts places table",
+    "mapping": {
+      "$clewRef": "sha256:120f90ee127405ea433e19892abc189d2dd7e8725da4fd4a3764ef2c65a668fb"
+    },
+    "nullability": "Not nullable",
+    "relatedModel": null,
+    "requiredness": "Present in stored row",
+    "typeLabel": "text PRIMARY KEY"
+  }
+}

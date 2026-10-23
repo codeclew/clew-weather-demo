@@ -1,0 +1,1792 @@
+{
+  "schema": "codeclew-normalized-data/1.0",
+  "value": {
+    "activityTransitions": null,
+    "activityTransitionsSvg": false,
+    "analysisEvidence": {
+      "dashboard": {
+        "coverage": "SYNTAX",
+        "extractor": "codeclew-documentation-source/1.0",
+        "mappedSymbols": 0,
+        "provider": {
+          "status": "NOT_REQUESTED"
+        },
+        "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+        "runtimeMode": "COMMITTED_SOURCE_NO_BUILD",
+        "sampleFacts": []
+      }
+    },
+    "authoredTranslationGaps": [],
+    "boundaries": [
+      "CALL_TARGETS_UNRESOLVED",
+      "DECLARED_TRANSITION_NOT_REACHED:dashboard-save-place-to-places",
+      "DECLARED_TRANSITION_NOT_REACHED:forecasts-forecast-updated-to-dashboard",
+      "DECLARED_TRANSITION_NOT_REACHED:places-place-requested-to-dashboard",
+      "DECLARED_TRANSITION_NOT_REACHED:places-place-requested-to-forecasts",
+      "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+      "FILE_ONLY:compose.yaml",
+      "FILE_ONLY:contracts/dashboard.openapi.json",
+      "FILE_ONLY:contracts/events.schema.json",
+      "FILE_ONLY:database/init.sql",
+      "FILE_ONLY:exercises/dashboard-focus-regression.mjs",
+      "FILE_ONLY:exercises/replay.py",
+      "FILE_ONLY:exercises/validator-regression.mjs",
+      "FILE_ONLY:fixtures/helsinki.json",
+      "FILE_ONLY:fixtures/lisbon.json",
+      "FILE_ONLY:fixtures/met-oslo-recorded.json",
+      "FILE_ONLY:fixtures/oslo.json",
+      "FILE_ONLY:fixtures/provenance.json",
+      "FILE_ONLY:services/dashboard/Dockerfile",
+      "FILE_ONLY:services/dashboard/package-lock.json",
+      "FILE_ONLY:services/dashboard/package.json",
+      "FILE_ONLY:services/dashboard/public/index.html",
+      "FILE_ONLY:services/dashboard/tsconfig.json",
+      "LINKED_PROCESS_STALE:dashboard-forecast-updated-consumer",
+      "LINKED_PROCESS_STALE:dashboard-place-requested-consumer",
+      "LINKED_PROCESS_STALE:forecasts-place-requested-consumer",
+      "LINKED_PROCESS_STALE:forecasts-publish-pending",
+      "LINKED_PROCESS_STALE:places-request-publisher",
+      "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+      "ORDER_LEXICAL_ONLY",
+      "SCOPE_WATCH_CONSERVATIVE",
+      "Static source interpretation; runtime activation and execution are not established.",
+      "UNACCEPTED_AGENT_PROPOSAL"
+    ],
+    "boundaryInventory": null,
+    "canonicalEntityLinks": {
+      "question-save": {
+        "places": [
+          {
+            "documentationLanguage": "en",
+            "href": "../data-model/place.html",
+            "id": "place",
+            "title": "Place"
+          }
+        ]
+      }
+    },
+    "catalogue": [],
+    "contracts": [],
+    "coverage": {
+      "dashboard": "SYNTAX"
+    },
+    "entities": [],
+    "extractor": "codeclew-documentation-jvm/1.3",
+    "frozenLanguageAvailability": {
+      "requestedDocumentationLanguage": "en",
+      "translationComplete": true,
+      "translationGaps": {}
+    },
+    "frozenPublication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+    "gaps": {},
+    "interactions": [
+      {
+        "$clewRef": "sha256:21b5ab89e9c33d4e0519ccd687c6787b117cf31099de95cdf5e536b3dc35cbea"
+      },
+      {
+        "$clewRef": "sha256:4ded741f84c34dfd216d496e6d480ca67e809b8cc4970e4fc6afb5bc3fc6c296"
+      },
+      {
+        "$clewRef": "sha256:6e4730373affdcc11f36db84d22f061b28aa2a81f5b1f75232912aaa1bebe1e7"
+      },
+      {
+        "$clewRef": "sha256:5f7167f498dee5aa096ae428e3da0471313755e134840a2752e424e13ebf73ab"
+      }
+    ],
+    "language": "en",
+    "lifecycleOperations": [],
+    "modelReferences": [
+      {
+        "anchor": "question-validation",
+        "documentationLanguage": "en",
+        "href": "../data-model/city-lookup.html",
+        "id": "city-lookup",
+        "stages": [
+          "Places city lookup"
+        ],
+        "title": "City lookup"
+      }
+    ],
+    "notes": [],
+    "operationContracts": {
+      "dashboard-save-city": [],
+      "process-overview": []
+    },
+    "operationExternalCalls": {
+      "dashboard-save-city": [],
+      "process-overview": []
+    },
+    "operationSources": {
+      "dashboard-save-city": {
+        "$clewRef": "sha256:f7af809ca5ed75295b81fae4d297b3830ccc27814ac30964c286dc4852f28aa7"
+      },
+      "process-overview": {
+        "$clewRef": "sha256:de66434bd1260a61a99cdf6689d1967278211a25f17e7b143b13f8ade98307a8"
+      }
+    },
+    "operationStates": {
+      "dashboard-save-city": {
+        "$clewRef": "sha256:1ade2833affd21c2594b8a65814dd40a3662f96f5ab0b85edb71e877a81945d9"
+      },
+      "process-overview": {
+        "$clewRef": "sha256:47d60d2e4382b533001b13341d4306aa4972c61b3b18a93de22609af694eb6d5"
+      }
+    },
+    "operations": [
+      {
+        "boundaries": {
+          "$clewRef": "sha256:8e082867d5caa71b5e3614b994bf80af363b1b4362f49453fdad17c07570ce9f"
+        },
+        "documentationLanguage": "en",
+        "events": [
+          {
+            "dependencyIds": [
+              "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+              "places:contract-operation:08d1b9df6781b2953a038bc2",
+              "places:contract-operation:0f29e92a853c76a6ea564769",
+              "places:contract-operation:6b165729e2d309a9b2687873",
+              "places:contract-operation:6e713b9442ae5dfc4b99b133",
+              "places:contract-operation:fa5644a96e01681d7c2b0445",
+              "places:contract:91b280ed0ed0eda3e8e3231d",
+              "places:symbol:6c7321d96988c6277e32e39e"
+            ],
+            "from": "caller",
+            "id": "claim-867c3a6ea923dd9ac3b0",
+            "kind": "message",
+            "sourceIds": [
+              "dashboard-7970ac3e2a8cf3f45b4a",
+              "places-6c7321d96988c6277e32",
+              "places-770e53d99edf681987e1"
+            ],
+            "text": "A caller enters savePlace with a JSON body. The declared Places request body requires only cityId, a string in the oslo, helsinki, or lisbon enum; SavePlace exposes that value as CityId.",
+            "to": "service-dashboard"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+              "interaction:dashboard-save-place-to-places",
+              "scenario:dashboard-save-city"
+            ],
+            "from": "service-dashboard",
+            "id": "claim-ea66fc67117c852a5204",
+            "interaction": "dashboard-save-place-to-places",
+            "kind": "message",
+            "sourceIds": [
+              "dashboard-7970ac3e2a8cf3f45b4a"
+            ],
+            "text": "Dashboard POSTs JSON.stringify(request.body) to /places with content-type application/json and AbortSignal.timeout(10000). The saved interaction is an agent-proposed target mapping, not proof of runtime routing.",
+            "to": "places"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:8fbb54c4bae55833802a2fce",
+              "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+              "scenario:dashboard-save-city"
+            ],
+            "id": "claim-4fb435287aa6213d6050",
+            "kind": "alt",
+            "sourceIds": [
+              "dashboard-7970ac3e2a8cf3f45b4a",
+              "dashboard-8fbb54c4bae55833802a"
+            ],
+            "text": "Dashboard fetch and response.json complete"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:symbol:309961f88b197290c1b04e50",
+              "scenario:dashboard-save-city"
+            ],
+            "id": "claim-2ffb3392163a7f4d7efe",
+            "kind": "alt",
+            "sourceIds": [
+              "places-309961f88b197290c1b0"
+            ],
+            "text": "PlacesRepository.City returns null for CityId"
+          },
+          {
+            "dependencyIds": [
+              "places:contract-operation:fa5644a96e01681d7c2b0445",
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:symbol:309961f88b197290c1b04e50"
+            ],
+            "from": "places",
+            "id": "claim-9598ebe173333356a7d5",
+            "kind": "return",
+            "sourceIds": [
+              "places-309961f88b197290c1b0",
+              "places-770e53d99edf681987e1"
+            ],
+            "text": "Places returns HTTP 400 with error UNSUPPORTED_CITY.",
+            "to": "service-dashboard"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:symbol:309961f88b197290c1b04e50",
+              "scenario:dashboard-save-city"
+            ],
+            "id": "claim-fda7a7fc7f2484b9f443",
+            "kind": "else",
+            "sourceIds": [
+              "places-309961f88b197290c1b0"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:symbol:309961f88b197290c1b04e50",
+              "places:symbol:d3b23b700626394c74b7ef9e",
+              "scenario:dashboard-save-city"
+            ],
+            "from": "places",
+            "id": "claim-206662371b21832b8908",
+            "kind": "message",
+            "sourceIds": [
+              "places-309961f88b197290c1b0",
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "For a supported city, repository.Save opens a connection, begins a transaction, and inserts the place with ON CONFLICT DO NOTHING RETURNING id.",
+            "to": "places-db"
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:d3b23b700626394c74b7ef9e",
+              "scenario:dashboard-save-city"
+            ],
+            "id": "claim-b80eef221dfda271fc4d",
+            "kind": "alt",
+            "sourceIds": [
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "The place INSERT returns a new id"
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:51d94b76d870001475fd2c51",
+              "places:symbol:d3b23b700626394c74b7ef9e",
+              "scenario:dashboard-save-city"
+            ],
+            "from": "places",
+            "id": "claim-c3f082c7c33e8cbbb7cd",
+            "kind": "message",
+            "sourceIds": [
+              "places-51d94b76d870001475fd",
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "Within the same transaction, InsertRequest creates a UUID and inserts a JSONB outbox payload with type place.requested, version 1, and the place.",
+            "to": "places-db"
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:d3b23b700626394c74b7ef9e",
+              "scenario:dashboard-save-city"
+            ],
+            "id": "claim-e52f5ff3c423edff90bc",
+            "kind": "else",
+            "sourceIds": [
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:d3b23b700626394c74b7ef9e",
+              "scenario:dashboard-save-city"
+            ],
+            "id": "claim-7dc7e55eff21ec3ff190",
+            "kind": "note",
+            "sourceIds": [
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "If the INSERT returns null after a conflict, InsertRequest is skipped, so this call adds no outbox row."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:d3b23b700626394c74b7ef9e",
+              "scenario:dashboard-save-city"
+            ],
+            "id": "claim-d573e35cc6c11b6abc5a",
+            "kind": "end",
+            "sourceIds": [
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:51d94b76d870001475fd2c51",
+              "places:symbol:d3b23b700626394c74b7ef9e",
+              "scenario:dashboard-save-city"
+            ],
+            "from": "places",
+            "id": "claim-7ec326c9475caf47aec9",
+            "kind": "message",
+            "sourceIds": [
+              "places-51d94b76d870001475fd",
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "repository.Save commits the transaction after the optional outbox insert; the new place and its outbox row share that transaction.",
+            "to": "places-db"
+          },
+          {
+            "dependencyIds": [
+              "places:contract-operation:fa5644a96e01681d7c2b0445",
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:symbol:309961f88b197290c1b04e50",
+              "scenario:dashboard-save-city"
+            ],
+            "from": "places",
+            "id": "claim-b2c2a256aeb68b422a06",
+            "kind": "return",
+            "sourceIds": [
+              "places-309961f88b197290c1b0",
+              "places-770e53d99edf681987e1"
+            ],
+            "text": "After repository.Save returns, the controller returns HTTP 200 with the mapped city.",
+            "to": "service-dashboard"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:symbol:309961f88b197290c1b04e50",
+              "scenario:dashboard-save-city"
+            ],
+            "id": "claim-1b063f26de1df2988c9f",
+            "kind": "end",
+            "sourceIds": [
+              "places-309961f88b197290c1b0"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+              "places:contract-operation:fa5644a96e01681d7c2b0445",
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:symbol:309961f88b197290c1b04e50",
+              "scenario:dashboard-save-city"
+            ],
+            "from": "service-dashboard",
+            "id": "claim-9b18a215fbe88c5c129a",
+            "kind": "return",
+            "sourceIds": [
+              "dashboard-7970ac3e2a8cf3f45b4a",
+              "places-309961f88b197290c1b0",
+              "places-770e53d99edf681987e1"
+            ],
+            "text": "Dashboard forwards the upstream status and parsed JSON body. The shown Places branches return 400 for an unsupported city or 200 after a supported save.",
+            "to": "caller"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:8fbb54c4bae55833802a2fce",
+              "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+              "scenario:dashboard-save-city"
+            ],
+            "id": "claim-fb0dd41468e0b1f39096",
+            "kind": "else",
+            "sourceIds": [
+              "dashboard-7970ac3e2a8cf3f45b4a",
+              "dashboard-8fbb54c4bae55833802a"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:7970ac3e2a8cf3f45b4a6217"
+            ],
+            "from": "service-dashboard",
+            "id": "claim-62ecc1e2e5ebf8b783cf",
+            "kind": "return",
+            "sourceIds": [
+              "dashboard-7970ac3e2a8cf3f45b4a"
+            ],
+            "text": "A fetch or response.json exception, including an abort from the 10-second signal, is caught and mapped to HTTP 503 PLACES_UNAVAILABLE.",
+            "to": "caller"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+              "places:symbol:51d94b76d870001475fd2c51",
+              "places:symbol:d3b23b700626394c74b7ef9e",
+              "scenario:dashboard-save-city"
+            ],
+            "id": "claim-097b234b1c456213cf3d",
+            "kind": "note",
+            "sourceIds": [
+              "dashboard-7970ac3e2a8cf3f45b4a",
+              "places-51d94b76d870001475fd",
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "The exception may occur before or after Places commits, so this 503 is not a database outcome. The handler has no retry branch. A later call can follow the no-outbox conflict path whenever the place INSERT returns null, including for a preexisting city or another request; the source does not identify which request caused that state."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:8fbb54c4bae55833802a2fce",
+              "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+              "scenario:dashboard-save-city"
+            ],
+            "id": "claim-08aed576a52a09ce13e2",
+            "kind": "end",
+            "sourceIds": [
+              "dashboard-7970ac3e2a8cf3f45b4a",
+              "dashboard-8fbb54c4bae55833802a"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "interaction:forecasts-forecast-updated-to-dashboard",
+              "interaction:places-place-requested-to-dashboard",
+              "interaction:places-place-requested-to-forecasts",
+              "places:symbol:51d94b76d870001475fd2c51",
+              "process:dashboard-save-city",
+              "scenario:dashboard-save-city"
+            ],
+            "id": "claim-264815f9722d1cf4918d",
+            "kind": "note",
+            "sourceIds": [
+              "places-51d94b76d870001475fd"
+            ],
+            "text": "The saved process links the Places publisher, Forecasts consumer/publisher, and Dashboard consumer views as separate subviews. This HTTP narrative does not establish their activation, routing, retry behavior, or message delivery, and the outbox insert is not a synchronous broker acknowledgement."
+          }
+        ],
+        "explanation": [
+          {
+            "$clewRef": "sha256:80b90d85e011415bc7bc2dba42515dff032ee5c960b792e3088eed2593f9549a"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+              "interaction:dashboard-save-place-to-places",
+              "scenario:dashboard-save-city"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-ea66fc67117c852a5204"
+            ],
+            "id": "claim-acefd929067d5d7fd3f8",
+            "sourceIds": [
+              "dashboard-7970ac3e2a8cf3f45b4a"
+            ],
+            "text": "Dashboard POSTs JSON.stringify(request.body) to /places with content-type application/json and AbortSignal.timeout(10000). The saved interaction is an agent-proposed target mapping, not proof of runtime routing."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:8fbb54c4bae55833802a2fce",
+              "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+              "scenario:dashboard-save-city"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-4fb435287aa6213d6050"
+            ],
+            "id": "claim-1c0d918032c1448884ab",
+            "sourceIds": [
+              "dashboard-7970ac3e2a8cf3f45b4a",
+              "dashboard-8fbb54c4bae55833802a"
+            ],
+            "text": "Dashboard fetch and response.json complete"
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:symbol:309961f88b197290c1b04e50",
+              "scenario:dashboard-save-city"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-2ffb3392163a7f4d7efe"
+            ],
+            "id": "claim-11333090ea53ac65e7fb",
+            "sourceIds": [
+              "places-309961f88b197290c1b0"
+            ],
+            "text": "PlacesRepository.City returns null for CityId"
+          },
+          {
+            "dependencyIds": [
+              "places:contract-operation:fa5644a96e01681d7c2b0445",
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:symbol:309961f88b197290c1b04e50"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-9598ebe173333356a7d5"
+            ],
+            "id": "claim-4b59eebe6c237238c7c7",
+            "sourceIds": [
+              "places-309961f88b197290c1b0",
+              "places-770e53d99edf681987e1"
+            ],
+            "text": "Places returns HTTP 400 with error UNSUPPORTED_CITY."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:symbol:309961f88b197290c1b04e50",
+              "scenario:dashboard-save-city"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-fda7a7fc7f2484b9f443"
+            ],
+            "id": "claim-1d0941f2e1db3b78d74f",
+            "sourceIds": [
+              "places-309961f88b197290c1b0"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:symbol:309961f88b197290c1b04e50",
+              "places:symbol:d3b23b700626394c74b7ef9e",
+              "scenario:dashboard-save-city"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-206662371b21832b8908"
+            ],
+            "id": "claim-29033dc7ad40b6e51146",
+            "sourceIds": [
+              "places-309961f88b197290c1b0",
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "For a supported city, repository.Save opens a connection, begins a transaction, and inserts the place with ON CONFLICT DO NOTHING RETURNING id."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:d3b23b700626394c74b7ef9e",
+              "scenario:dashboard-save-city"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-b80eef221dfda271fc4d"
+            ],
+            "id": "claim-9857e884f1b88a305429",
+            "sourceIds": [
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "The place INSERT returns a new id"
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:51d94b76d870001475fd2c51",
+              "places:symbol:d3b23b700626394c74b7ef9e",
+              "scenario:dashboard-save-city"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-c3f082c7c33e8cbbb7cd"
+            ],
+            "id": "claim-e8898297962cd3e5ede9",
+            "sourceIds": [
+              "places-51d94b76d870001475fd",
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "Within the same transaction, InsertRequest creates a UUID and inserts a JSONB outbox payload with type place.requested, version 1, and the place."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:d3b23b700626394c74b7ef9e",
+              "scenario:dashboard-save-city"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-e52f5ff3c423edff90bc"
+            ],
+            "id": "claim-56b92a6573c79999196a",
+            "sourceIds": [
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:d3b23b700626394c74b7ef9e",
+              "scenario:dashboard-save-city"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-7dc7e55eff21ec3ff190"
+            ],
+            "id": "claim-d8d73624fb84cb42c190",
+            "sourceIds": [
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "If the INSERT returns null after a conflict, InsertRequest is skipped, so this call adds no outbox row."
+          },
+          {
+            "dependencyIds": [
+              "places:symbol:51d94b76d870001475fd2c51",
+              "places:symbol:d3b23b700626394c74b7ef9e",
+              "scenario:dashboard-save-city"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-7ec326c9475caf47aec9"
+            ],
+            "id": "claim-8bb24d847af485cf881b",
+            "sourceIds": [
+              "places-51d94b76d870001475fd",
+              "places-d3b23b700626394c74b7"
+            ],
+            "text": "repository.Save commits the transaction after the optional outbox insert; the new place and its outbox row share that transaction."
+          },
+          {
+            "dependencyIds": [
+              "places:contract-operation:fa5644a96e01681d7c2b0445",
+              "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+              "places:symbol:309961f88b197290c1b04e50",
+              "scenario:dashboard-save-city"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-b2c2a256aeb68b422a06"
+            ],
+            "id": "claim-85c6428d31b46191f479",
+            "sourceIds": [
+              "places-309961f88b197290c1b0",
+              "places-770e53d99edf681987e1"
+            ],
+            "text": "After repository.Save returns, the controller returns HTTP 200 with the mapped city."
+          },
+          {
+            "$clewRef": "sha256:065fcf55efe7c6dd867eb152701cf3b1cb487ec4b2ed91b5e8f3921bba2b343c"
+          },
+          {
+            "dependencyIds": [
+              "dashboard:flow:8fbb54c4bae55833802a2fce",
+              "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+              "scenario:dashboard-save-city"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-fb0dd41468e0b1f39096"
+            ],
+            "id": "claim-53595f83ae1bc9e06a41",
+            "sourceIds": [
+              "dashboard-7970ac3e2a8cf3f45b4a",
+              "dashboard-8fbb54c4bae55833802a"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "dashboard:symbol:7970ac3e2a8cf3f45b4a6217"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-62ecc1e2e5ebf8b783cf"
+            ],
+            "id": "claim-cf37e81b84fb3c4f98a2",
+            "sourceIds": [
+              "dashboard-7970ac3e2a8cf3f45b4a"
+            ],
+            "text": "A fetch or response.json exception, including an abort from the 10-second signal, is caught and mapped to HTTP 503 PLACES_UNAVAILABLE."
+          },
+          {
+            "$clewRef": "sha256:75ba990d0ddd9efbab699d91d7e840652f1b9c4328fd5816633365e626f56987"
+          },
+          {
+            "$clewRef": "sha256:5a50fd43d20e17a57774b0dc1f09f9f34923412fe651b5a131af8c8e6a8e23dc"
+          }
+        ],
+        "findings": [],
+        "id": "dashboard-save-city",
+        "interfaceContracts": [
+          {
+            "boundaries": [],
+            "id": "claim-7b9fbaf123a6cd2d5eaa",
+            "kind": "http",
+            "rows": [
+              {
+                "dependencyIds": [
+                  "places:contract-operation:08d1b9df6781b2953a038bc2",
+                  "places:contract-operation:0f29e92a853c76a6ea564769",
+                  "places:contract-operation:6b165729e2d309a9b2687873",
+                  "places:contract-operation:6e713b9442ae5dfc4b99b133",
+                  "places:contract-operation:fa5644a96e01681d7c2b0445",
+                  "places:contract:91b280ed0ed0eda3e8e3231d"
+                ],
+                "id": "claim-222510c6d58e81af02b2",
+                "label": "Request",
+                "sourceIds": [
+                  "places-770e53d99edf681987e1"
+                ],
+                "value": "The declared required JSON body is an object with no additional properties and one required cityId string, restricted to oslo, helsinki, or lisbon."
+              },
+              {
+                "dependencyIds": [
+                  "places:contract-operation:08d1b9df6781b2953a038bc2",
+                  "places:contract-operation:0f29e92a853c76a6ea564769",
+                  "places:contract-operation:6b165729e2d309a9b2687873",
+                  "places:contract-operation:6e713b9442ae5dfc4b99b133",
+                  "places:contract-operation:fa5644a96e01681d7c2b0445",
+                  "places:contract:91b280ed0ed0eda3e8e3231d",
+                  "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+                  "places:symbol:309961f88b197290c1b04e50"
+                ],
+                "id": "claim-5d0920dd7187a8409a25",
+                "label": "Declared responses",
+                "sourceIds": [
+                  "places-309961f88b197290c1b0",
+                  "places-770e53d99edf681987e1"
+                ],
+                "value": "The OpenAPI operation declares a 200 Place JSON object and a 400 JSON error object, plus 415 and 500 status codes. The captured controller explicitly returns 400 for an unsupported mapping and 200 after repository.Save; the declaration does not prove runtime enforcement or exception-to-status mapping."
+              },
+              {
+                "dependencyIds": [
+                  "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+                  "interaction:dashboard-save-place-to-places",
+                  "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+                  "places:symbol:309961f88b197290c1b04e50",
+                  "scenario:dashboard-save-city"
+                ],
+                "id": "claim-cbf515baf38e0544b746",
+                "label": "Routing boundary",
+                "sourceIds": [
+                  "dashboard-7970ac3e2a8cf3f45b4a",
+                  "places-309961f88b197290c1b0"
+                ],
+                "value": "The saved process records Dashboard.savePlace to Places.Save as an agent-proposed POST /places interaction. Runtime receiver binding and routing remain unverified."
+              }
+            ],
+            "title": "Declared Places POST /places contract"
+          }
+        ],
+        "participants": [
+          {
+            "id": "caller",
+            "label": "Caller",
+            "service": null
+          },
+          {
+            "id": "service-dashboard",
+            "label": "dashboard",
+            "service": "dashboard"
+          },
+          {
+            "id": "places",
+            "label": "Places",
+            "service": null
+          },
+          {
+            "id": "places-db",
+            "label": "Places PostgreSQL",
+            "service": null
+          }
+        ],
+        "summary": {
+          "$clewRef": "sha256:37917416392cfc68e354e8ec93c9443def5dca0ce16b041ca5e8cf273faab0f4"
+        },
+        "title": "Save a city through Dashboard and record the outbox boundary"
+      },
+      {
+        "boundaries": [
+          "CALL_TARGETS_UNRESOLVED",
+          "DECLARED_TRANSITION_NOT_REACHED:dashboard-save-place-to-places",
+          "DECLARED_TRANSITION_NOT_REACHED:forecasts-forecast-updated-to-dashboard",
+          "DECLARED_TRANSITION_NOT_REACHED:places-place-requested-to-dashboard",
+          "DECLARED_TRANSITION_NOT_REACHED:places-place-requested-to-forecasts",
+          "ORDER_LEXICAL_ONLY",
+          "UNACCEPTED_AGENT_PROPOSAL",
+          "LINKED_PROCESS_UNASSESSED:places-request-publisher",
+          "LINKED_PROCESS_UNASSESSED:forecasts-place-requested-consumer",
+          "LINKED_PROCESS_UNASSESSED:forecasts-publish-pending",
+          "LINKED_PROCESS_UNASSESSED:dashboard-place-requested-consumer",
+          "LINKED_PROCESS_UNASSESSED:dashboard-forecast-updated-consumer"
+        ],
+        "documentationLanguage": "en",
+        "events": [],
+        "explanation": [],
+        "findings": [],
+        "id": "process-overview",
+        "interfaceContracts": [],
+        "participants": [],
+        "summary": {
+          "dependencyIds": [
+            "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+            "interaction:dashboard-save-place-to-places",
+            "process-scope:dashboard-save-city",
+            "process:dashboard-save-city",
+            "scenario:dashboard-save-city"
+          ],
+          "id": "claim-f4428d6034256c2a3d69",
+          "sourceIds": [
+            "dashboard-7970ac3e2a8cf3f45b4a"
+          ],
+          "text": "savePlace posts the JSON request body to placesUrl/places with an application/json content type, waits up to ten seconds, and forwards the response status and JSON body. A fetch or JSON-decoding error returns 503 PLACES_UNAVAILABLE. The saved process links this request to the proposed Places.Save mapping and separate request-publisher and event-consumer views. The target service binding and network result are unverified; linked event views do not establish downstream processing, delivery or execution order."
+        },
+        "title": "Dashboard save-city thread"
+      }
+    ],
+    "process": {
+      "authority": "Explicit saved request; generated interpretation is reviewed separately.",
+      "definition": {
+        "$clewRef": "sha256:90614c1e242e8449c5218dcd98fe43e3a854b509999621a48c0659c3de0de762"
+      },
+      "definitionVersion": "sha256:1dcff0e3b12718496f0f49944aa66ab9b100c8aa190376080b63b76d98a021ab",
+      "linkedSubviews": [
+        {
+          "accepted": null,
+          "authority": "REVIEWED_CHILD_INTERPRETATION_NOT_RUNTIME_PROOF",
+          "child": "dashboard-forecast-updated-consumer",
+          "dependencyIds": {
+            "$clewRef": "sha256:4714c815256b1a7d47661a911951fa0b6fa75c056ca4d79f28a7820a282ae86e"
+          },
+          "gap": "LINKED_PROCESS_STALE",
+          "href": "dashboard-forecast-updated-consumer.html",
+          "parent": "dashboard-save-city",
+          "status": "GAP"
+        },
+        {
+          "accepted": null,
+          "authority": "REVIEWED_CHILD_INTERPRETATION_NOT_RUNTIME_PROOF",
+          "child": "dashboard-place-requested-consumer",
+          "dependencyIds": {
+            "$clewRef": "sha256:c3e37f15c8a73aabc1819314c70df63cf2295821d71a7c761369119090f1bc64"
+          },
+          "gap": "LINKED_PROCESS_STALE",
+          "href": "dashboard-place-requested-consumer.html",
+          "parent": "dashboard-save-city",
+          "status": "GAP"
+        },
+        {
+          "accepted": null,
+          "authority": "REVIEWED_CHILD_INTERPRETATION_NOT_RUNTIME_PROOF",
+          "child": "forecasts-place-requested-consumer",
+          "dependencyIds": {
+            "$clewRef": "sha256:f9cc6cf3cd2d953619c4687d10a7da68508a9955f3786cfbddfa98c8154eac23"
+          },
+          "gap": "LINKED_PROCESS_STALE",
+          "href": "forecasts-place-requested-consumer.html",
+          "parent": "dashboard-save-city",
+          "status": "GAP"
+        },
+        {
+          "accepted": null,
+          "authority": "REVIEWED_CHILD_INTERPRETATION_NOT_RUNTIME_PROOF",
+          "child": "forecasts-publish-pending",
+          "dependencyIds": {
+            "$clewRef": "sha256:7525e41024e321fb76bde147cf999baf2816c0e1efc38840dfc4cf904774a090"
+          },
+          "gap": "LINKED_PROCESS_STALE",
+          "href": "forecasts-publish-pending.html",
+          "parent": "dashboard-save-city",
+          "status": "GAP"
+        },
+        {
+          "accepted": null,
+          "authority": "REVIEWED_CHILD_INTERPRETATION_NOT_RUNTIME_PROOF",
+          "child": "places-request-publisher",
+          "dependencyIds": {
+            "$clewRef": "sha256:3d222237c04d55484801bab2e8496a3b1ae1e1d93b6237dd36d4768d7c080109"
+          },
+          "gap": "LINKED_PROCESS_STALE",
+          "href": "places-request-publisher.html",
+          "parent": "dashboard-save-city",
+          "status": "GAP"
+        }
+      ],
+      "scope": {
+        "digest": "sha256:450785a68a38ca0f210a25176fd3287f0e395907fcea00c0b5cbc9d1f0725f49",
+        "id": "process-scope:dashboard-save-city",
+        "kind": "PROCESS_SCOPE",
+        "normalized": {
+          "$clewRef": "sha256:450785a68a38ca0f210a25176fd3287f0e395907fcea00c0b5cbc9d1f0725f49"
+        },
+        "service": "",
+        "sourceIds": [],
+        "symbol": "process-scope:dashboard-save-city"
+      }
+    },
+    "processCandidates": null,
+    "processDataFlow": {
+      "$clewRef": "sha256:02137f67b998bb036ad5ffb9e49cfd0459cff97fed63735557ce9ec2c78fe15c"
+    },
+    "processExtraction": null,
+    "processOutline": {
+      "gap": "PROCESS_EVIDENCE_CHANGED_REVIEW_REQUIRED",
+      "pumlAvailable": false,
+      "root": {
+        "candidates": [
+          {
+            "observation": "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+            "observationDigest": "sha256:decedbfdcc7f4ab1a1aca6ebaea0cdb56aa1065f2c5c13adf5cb7aa946eeaadc",
+            "scope": null,
+            "service": "dashboard",
+            "symbol": "source:services/dashboard/src/main.ts/package:/savePlace/7a5f9ccc269b81055666"
+          }
+        ],
+        "observation": "dashboard:symbol:7970ac3e2a8cf3f45b4a6217",
+        "observationDigest": "sha256:decedbfdcc7f4ab1a1aca6ebaea0cdb56aa1065f2c5c13adf5cb7aa946eeaadc",
+        "scope": null,
+        "service": "dashboard",
+        "sourceIds": [
+          "dashboard-7970ac3e2a8cf3f45b4a"
+        ],
+        "sourceRecordDigests": {
+          "dashboard-7970ac3e2a8cf3f45b4a": "sha256:ab8df8a5fe7536b2fc32d2257bed77e48c54ce422b10c3afba79f26ac88b67a8"
+        },
+        "symbol": "source:services/dashboard/src/main.ts/package:/savePlace/7a5f9ccc269b81055666"
+      },
+      "sourceIds": [
+        "dashboard-7970ac3e2a8cf3f45b4a"
+      ],
+      "status": "GAP",
+      "svgAvailable": false
+    },
+    "processThread": {
+      "authority": "DECLARED_MEANING_EXACT_RETAINED_SOURCE_NOT_COMPILER_CALL_GRAPH",
+      "boundaries": [
+        "The Dashboard-to-Places target is a declared HTTP boundary; compiler linkage and runtime routing are not established.",
+        "The selected wrappers do not establish repository commit, timeout completion, retry, or duplicate-request behavior."
+      ],
+      "boundaryContracts": [
+        {
+          "callStep": "dashboard-save-forward",
+          "evidence": {
+            "dashboard-save": {
+              "endLine": 74,
+              "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+              "service": "dashboard",
+              "source": {
+                "file": "services/dashboard/src/main.ts",
+                "id": "dashboard-7970ac3e2a8cf3f45b4a",
+                "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+                "textDigest": "sha256:d36fd526184e291acfb7df17b6ebb41df8afb1f284fcdb448f552c1b457260a8",
+                "url": "https://github.com/codeclew/clew-weather-demo/blob/e635069293d58cb0d4f28c8211e748b8d58e6b37/services/dashboard/src/main.ts#L67-L74"
+              },
+              "sourceId": "dashboard-7970ac3e2a8cf3f45b4a",
+              "startLine": 67,
+              "textDigest": "sha256:d36fd526184e291acfb7df17b6ebb41df8afb1f284fcdb448f552c1b457260a8"
+            },
+            "places-save": {
+              "endLine": 17,
+              "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+              "service": "places",
+              "source": {
+                "file": "services/places/PlacesController.cs",
+                "id": "places-309961f88b197290c1b0",
+                "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+                "textDigest": "sha256:b6a46a9557e67342266ccce88f28a634490cacba1ee8f705d71066775158f708",
+                "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesController.cs#L10-L17"
+              },
+              "sourceId": "places-309961f88b197290c1b0",
+              "startLine": 10,
+              "textDigest": "sha256:b6a46a9557e67342266ccce88f28a634490cacba1ee8f705d71066775158f708"
+            }
+          },
+          "failures": [
+            {
+              "evidenceRefs": [
+                "places-save"
+              ],
+              "text": "Places returns 400 with error UNSUPPORTED_CITY when CityId maps to no city."
+            },
+            {
+              "evidenceRefs": [
+                "dashboard-save"
+              ],
+              "text": "Dashboard maps an exception from fetch or response JSON parsing to 503 with PLACES_UNAVAILABLE; this handler does not reveal whether Places completed the save before that error."
+            }
+          ],
+          "guarantees": [
+            {
+              "evidenceRefs": [
+                "dashboard-save",
+                "places-save"
+              ],
+              "text": "The source shows no request idempotency key in these handlers; retry and duplicate-save semantics are unresolved at this boundary."
+            },
+            {
+              "evidenceRefs": [
+                "places-save"
+              ],
+              "text": "A successful Places response follows the awaited repository.Save call, but its storage and commit outcome are outside this wrapper contract."
+            }
+          ],
+          "id": "dashboard-save-http",
+          "operation": {
+            "evidenceRefs": [
+              "dashboard-save",
+              "places-save"
+            ],
+            "text": "Dashboard sends POST /places to the declared Places.Save target."
+          },
+          "receiverFragment": "places-save-handler",
+          "request": [
+            {
+              "evidenceRefs": [
+                "dashboard-save"
+              ],
+              "text": "Dashboard serializes request.body as JSON and sets content-type to application/json. The body schema is not established by these two handler bodies."
+            },
+            {
+              "evidenceRefs": [
+                "places-save"
+              ],
+              "text": "Places reads SavePlace.CityId; an unsupported mapped city returns 400 with UNSUPPORTED_CITY."
+            }
+          ],
+          "response": [
+            {
+              "evidenceRefs": [
+                "places-save"
+              ],
+              "text": "For a supported mapped city, Places awaits repository.Save and then returns 200 with the city. The repository effect is not proven by the controller wrapper."
+            },
+            {
+              "evidenceRefs": [
+                "dashboard-save"
+              ],
+              "text": "Dashboard forwards the upstream status and JSON body after parsing the response."
+            }
+          ],
+          "transport": "HTTP"
+        }
+      ],
+      "contractAuthority": "DECLARED_SOURCE_INTERPRETATION_NOT_WIRE_OR_RUNTIME_PROOF",
+      "contractSources": {
+        "dashboard-7970ac3e2a8cf3f45b4a": {
+          "$clewRef": "sha256:ab8df8a5fe7536b2fc32d2257bed77e48c54ce422b10c3afba79f26ac88b67a8"
+        },
+        "places-309961f88b197290c1b0": {
+          "$clewRef": "sha256:31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0"
+        }
+      },
+      "declaredBranchCoverage": "NOT_PROVEN",
+      "methodOrder": [
+        "dashboard-save",
+        "places-save"
+      ],
+      "methods": {
+        "dashboard-save": {
+          "entrypoint": "dashboard-ad968c2137fedea90215",
+          "label": "Dashboard savePlace handler",
+          "source": {
+            "$clewRef": "sha256:ab8df8a5fe7536b2fc32d2257bed77e48c54ce422b10c3afba79f26ac88b67a8"
+          },
+          "symbol": "source:services/dashboard/src/main.ts/package:/savePlace/7a5f9ccc269b81055666"
+        },
+        "places-save": {
+          "$clewRef": "sha256:cb79259081545280fd097eb00afca46426c85d90c76519215cc6683cd49ebd1c"
+        }
+      },
+      "processId": "dashboard-save-city",
+      "processPages": {},
+      "rootMethod": "dashboard-save",
+      "schema": "codeclew-declared-process-thread/1.0",
+      "scope": "Dashboard.savePlace and the declared Places.Save HTTP boundary, with controller-visible request and response branches.",
+      "selectedEffectCompleteness": "NOT_PROVEN",
+      "serviceFragments": [
+        {
+          "entryMethod": "places-save",
+          "id": "places-save-handler",
+          "rootStep": "places-save-handler"
+        }
+      ],
+      "status": "SOURCE_BOUND_DECLARATION",
+      "steps": {
+        "$clewRef": "sha256:8ef4cfc7aa79181d8363d186056cdb2ebdffc7ccabdc99c259b74dd9e232c499"
+      }
+    },
+    "proseDisplayPolicy": "READABLE_ORIGINALS",
+    "questionReader": {
+      "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+      "conclusion": {
+        "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+        "disclosure": null,
+        "evidence": {
+          "$clewRef": "sha256:5356fffefc1a2bf884b34f227fbd99887bf921822d9c00d993f30815b1990e69"
+        },
+        "id": null,
+        "links": [],
+        "navTitle": null,
+        "preview": null,
+        "text": "A 200 response does not establish message delivery or forecast readiness.",
+        "title": "Local outcome",
+        "tone": null
+      },
+      "language": "en",
+      "presentation": "SEQUENTIAL",
+      "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+      "purpose": "Dashboard sends the city to Places and returns the save result.",
+      "schema": "codeclew-question-reading-plan/1.0",
+      "sections": [
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "$clewRef": "sha256:3e4e0a203f7db77b846b6544dfd0b057922b6283e2b91247d77f103f1d183e32"
+                },
+                {
+                  "$clewRef": "sha256:9a74e651894a38ad42793dd922aacd31c0728ab7c309bfd64dfa9463c70c897c"
+                },
+                {
+                  "authority": "SELECTED_SAVED_SOURCE_NOT_RUNTIME_PROOF",
+                  "endLine": 105,
+                  "kind": "SELECTED_SOURCE",
+                  "source": {
+                    "$clewRef": "sha256:489998b3bb96ff69dfe04f629b6281ed01757e4adcc670bc9d740381b32f543d"
+                  },
+                  "startLine": 105
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "Dashboard receives a city ID and sends the save request to Places.",
+              "title": "Request",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": "Request fields",
+              "evidence": {
+                "$clewRef": "sha256:d3240030965d1ca91e501bb32d25807ce2b87b8940682274b12bef571ec6fcb2"
+              },
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": "cityId · selected city key; complete retained comment",
+              "text": "This additional reference table uses the retained request-field description. The original process steps are unchanged.\n\n| Original field | Readable name | Comment |\n| --- | --- | --- |\n| `cityId` | Selected city key | The selected city key sent by the browser. This request carries only cityId; Places derives the Place name and coordinates from its supported-city lookup. It is not an event ID, and it is not a client-supplied Place object. |\n\nThis is a source-bound description, not an observed HTTP run.",
+              "title": "Request fields — Markdown table",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": "Address and contracts",
+              "evidence": [
+                {
+                  "$clewRef": "sha256:9a74e651894a38ad42793dd922aacd31c0728ab7c309bfd64dfa9463c70c897c"
+                },
+                {
+                  "$clewRef": "sha256:3bc1903c644b0124ae3092d2451734a87eea79bad51d6e61457d4fa836c4ed3d"
+                },
+                {
+                  "$clewRef": "sha256:519bbbdbdd173473c63c9284a5547aee75496237c6db99086cd5f595db2e4c30"
+                }
+              ],
+              "id": null,
+              "links": [
+                {
+                  "href": "../services/dashboard.html#dashboard-ad968c2137fedea90215",
+                  "label": "Dashboard entry and contract",
+                  "operation": "dashboard-ad968c2137fedea90215",
+                  "subject": "service:dashboard"
+                },
+                {
+                  "href": "../services/places.html#places-691b340ea61828b197b6",
+                  "label": "Places handler and contract",
+                  "operation": "places-691b340ea61828b197b6",
+                  "subject": "service:places"
+                }
+              ],
+              "navTitle": null,
+              "preview": "Compose: POST http://places:8080/places · production URL unknown.",
+              "text": "The selected Compose config sets PLACES_URL to http://places:8080, also the source default. The example target is POST http://places:8080/places. Production address and actual receiver routing are unverified; the saved service mapping is agent-proposed.",
+              "title": "Address and contracts",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "dashboard:symbol:7970ac3e2a8cf3f45b4a6217"
+                    ],
+                    "detail": false,
+                    "eventIds": [
+                      "claim-62ecc1e2e5ebf8b783cf"
+                    ],
+                    "id": "claim-cf37e81b84fb3c4f98a2",
+                    "sourceIds": [
+                      "dashboard-7970ac3e2a8cf3f45b4a"
+                    ],
+                    "text": "A fetch or response.json exception, including an abort from the 10-second signal, is caught and mapped to HTTP 503 PLACES_UNAVAILABLE."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-save-city",
+                  "sourceContext": {
+                    "$clewRef": "sha256:2500520baf99b1d310b6288dd07e56c5fb4474fc6d95aae8ba0d0ca371a5f557"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:de66434bd1260a61a99cdf6689d1967278211a25f17e7b143b13f8ade98307a8"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:1ade2833affd21c2594b8a65814dd40a3662f96f5ab0b85edb71e877a81945d9"
+                  },
+                  "subject": "scenario:dashboard-save-city",
+                  "title": "Save a city through Dashboard and record the outbox boundary"
+                },
+                {
+                  "fragment": {
+                    "$clewRef": "sha256:75ba990d0ddd9efbab699d91d7e840652f1b9c4328fd5816633365e626f56987"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-save-city",
+                  "sourceContext": {
+                    "$clewRef": "sha256:2500520baf99b1d310b6288dd07e56c5fb4474fc6d95aae8ba0d0ca371a5f557"
+                  },
+                  "sources": {
+                    "dashboard-7970ac3e2a8cf3f45b4a": {
+                      "$clewRef": "sha256:ab8df8a5fe7536b2fc32d2257bed77e48c54ce422b10c3afba79f26ac88b67a8"
+                    },
+                    "places-51d94b76d870001475fd": {
+                      "$clewRef": "sha256:89387464df117dd1f2cfdbd8113d90c803728d4fe220f507529703bd597dbf8e"
+                    },
+                    "places-d3b23b700626394c74b7": {
+                      "$clewRef": "sha256:379c0b710ffb354ec36825644e1d5c73ec611814e26c938687bac753bdb832c6"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:1ade2833affd21c2594b8a65814dd40a3662f96f5ab0b85edb71e877a81945d9"
+                  },
+                  "subject": "scenario:dashboard-save-city",
+                  "title": "Save a city through Dashboard and record the outbox boundary"
+                }
+              ],
+              "id": "exchange-error",
+              "links": [],
+              "navTitle": "Exchange failure · 503",
+              "preview": null,
+              "text": "Fetch, JSON decoding or the 10-second timeout can lead to `503 PLACES_UNAVAILABLE`.\nThe save may already have completed. Whether retry is safe is not established.",
+              "title": "If the exchange with Places fails",
+              "tone": "ERROR"
+            }
+          ],
+          "icon": "arrow-right",
+          "id": "request",
+          "navTitle": "Request",
+          "number": 1,
+          "route": "POST /api/places    →    POST /places",
+          "title": "Dashboard sends the save request"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "$clewRef": "sha256:3e4e0a203f7db77b846b6544dfd0b057922b6283e2b91247d77f103f1d183e32"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "The supported city IDs are `oslo`, `helsinki` and `lisbon`.",
+              "title": "Supported cities",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+                      "places:symbol:309961f88b197290c1b04e50",
+                      "scenario:dashboard-save-city"
+                    ],
+                    "detail": false,
+                    "eventIds": [
+                      "claim-2ffb3392163a7f4d7efe"
+                    ],
+                    "id": "claim-11333090ea53ac65e7fb",
+                    "sourceIds": [
+                      "places-309961f88b197290c1b0"
+                    ],
+                    "text": "PlacesRepository.City returns null for CityId"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-save-city",
+                  "sourceContext": {
+                    "$clewRef": "sha256:2500520baf99b1d310b6288dd07e56c5fb4474fc6d95aae8ba0d0ca371a5f557"
+                  },
+                  "sources": {
+                    "places-309961f88b197290c1b0": {
+                      "$clewRef": "sha256:31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:1ade2833affd21c2594b8a65814dd40a3662f96f5ab0b85edb71e877a81945d9"
+                  },
+                  "subject": "scenario:dashboard-save-city",
+                  "title": "Save a city through Dashboard and record the outbox boundary"
+                },
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "places:contract-operation:fa5644a96e01681d7c2b0445",
+                      "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+                      "places:symbol:309961f88b197290c1b04e50"
+                    ],
+                    "detail": false,
+                    "eventIds": [
+                      "claim-9598ebe173333356a7d5"
+                    ],
+                    "id": "claim-4b59eebe6c237238c7c7",
+                    "sourceIds": [
+                      "places-309961f88b197290c1b0",
+                      "places-770e53d99edf681987e1"
+                    ],
+                    "text": "Places returns HTTP 400 with error UNSUPPORTED_CITY."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-save-city",
+                  "sourceContext": {
+                    "$clewRef": "sha256:2500520baf99b1d310b6288dd07e56c5fb4474fc6d95aae8ba0d0ca371a5f557"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:7c15e6b4e4658a72a141555dc6b44cf3b224364f1b64f2b79d0627fd1fb77790"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:1ade2833affd21c2594b8a65814dd40a3662f96f5ab0b85edb71e877a81945d9"
+                  },
+                  "subject": "scenario:dashboard-save-city",
+                  "title": "Save a city through Dashboard and record the outbox boundary"
+                }
+              ],
+              "id": "unsupported-city",
+              "links": [],
+              "navTitle": "Unsupported city · 400",
+              "preview": null,
+              "text": "`400 UNSUPPORTED_CITY`. This branch does not save the city.",
+              "title": "If the city is unsupported",
+              "tone": "WARNING"
+            }
+          ],
+          "icon": null,
+          "id": "validation",
+          "navTitle": "Check city",
+          "number": 2,
+          "route": null,
+          "title": "Places checks the city"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "places:entrypoint:17bfec4e1ad29c7ec0342f46",
+                      "places:symbol:309961f88b197290c1b04e50",
+                      "places:symbol:d3b23b700626394c74b7ef9e",
+                      "scenario:dashboard-save-city"
+                    ],
+                    "detail": false,
+                    "eventIds": [
+                      "claim-206662371b21832b8908"
+                    ],
+                    "id": "claim-29033dc7ad40b6e51146",
+                    "sourceIds": [
+                      "places-309961f88b197290c1b0",
+                      "places-d3b23b700626394c74b7"
+                    ],
+                    "text": "For a supported city, repository.Save opens a connection, begins a transaction, and inserts the place with ON CONFLICT DO NOTHING RETURNING id."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-save-city",
+                  "sourceContext": {
+                    "$clewRef": "sha256:2500520baf99b1d310b6288dd07e56c5fb4474fc6d95aae8ba0d0ca371a5f557"
+                  },
+                  "sources": {
+                    "places-309961f88b197290c1b0": {
+                      "$clewRef": "sha256:31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0"
+                    },
+                    "places-d3b23b700626394c74b7": {
+                      "$clewRef": "sha256:379c0b710ffb354ec36825644e1d5c73ec611814e26c938687bac753bdb832c6"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:1ade2833affd21c2594b8a65814dd40a3662f96f5ab0b85edb71e877a81945d9"
+                  },
+                  "subject": "scenario:dashboard-save-city",
+                  "title": "Save a city through Dashboard and record the outbox boundary"
+                },
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "places:symbol:51d94b76d870001475fd2c51",
+                      "places:symbol:d3b23b700626394c74b7ef9e",
+                      "scenario:dashboard-save-city"
+                    ],
+                    "detail": false,
+                    "eventIds": [
+                      "claim-c3f082c7c33e8cbbb7cd"
+                    ],
+                    "id": "claim-e8898297962cd3e5ede9",
+                    "sourceIds": [
+                      "places-51d94b76d870001475fd",
+                      "places-d3b23b700626394c74b7"
+                    ],
+                    "text": "Within the same transaction, InsertRequest creates a UUID and inserts a JSONB outbox payload with type place.requested, version 1, and the place."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-save-city",
+                  "sourceContext": {
+                    "$clewRef": "sha256:2500520baf99b1d310b6288dd07e56c5fb4474fc6d95aae8ba0d0ca371a5f557"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:96a5f1683e52bded755809281304aef81e490e33da567589f45bf7d481d36bec"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:1ade2833affd21c2594b8a65814dd40a3662f96f5ab0b85edb71e877a81945d9"
+                  },
+                  "subject": "scenario:dashboard-save-city",
+                  "title": "Save a city through Dashboard and record the outbox boundary"
+                }
+              ],
+              "id": null,
+              "links": [
+                {
+                  "href": "../services/places.html#section-entities",
+                  "label": "Place · fields and context",
+                  "operation": "section-entities",
+                  "subject": "service:places"
+                }
+              ],
+              "navTitle": null,
+              "preview": null,
+              "text": "A new Place and its request for later publication (outbox) are saved in one database transaction.",
+              "title": "New city",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "places:symbol:d3b23b700626394c74b7ef9e",
+                      "scenario:dashboard-save-city"
+                    ],
+                    "detail": false,
+                    "eventIds": [
+                      "claim-7dc7e55eff21ec3ff190"
+                    ],
+                    "id": "claim-d8d73624fb84cb42c190",
+                    "sourceIds": [
+                      "places-d3b23b700626394c74b7"
+                    ],
+                    "text": "If the INSERT returns null after a conflict, InsertRequest is skipped, so this call adds no outbox row."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-save-city",
+                  "sourceContext": {
+                    "$clewRef": "sha256:2500520baf99b1d310b6288dd07e56c5fb4474fc6d95aae8ba0d0ca371a5f557"
+                  },
+                  "sources": {
+                    "places-d3b23b700626394c74b7": {
+                      "$clewRef": "sha256:379c0b710ffb354ec36825644e1d5c73ec611814e26c938687bac753bdb832c6"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:1ade2833affd21c2594b8a65814dd40a3662f96f5ab0b85edb71e877a81945d9"
+                  },
+                  "subject": "scenario:dashboard-save-city",
+                  "title": "Save a city through Dashboard and record the outbox boundary"
+                },
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "places:symbol:51d94b76d870001475fd2c51",
+                      "places:symbol:d3b23b700626394c74b7ef9e",
+                      "scenario:dashboard-save-city"
+                    ],
+                    "detail": false,
+                    "eventIds": [
+                      "claim-7ec326c9475caf47aec9"
+                    ],
+                    "id": "claim-8bb24d847af485cf881b",
+                    "sourceIds": [
+                      "places-51d94b76d870001475fd",
+                      "places-d3b23b700626394c74b7"
+                    ],
+                    "text": "repository.Save commits the transaction after the optional outbox insert; the new place and its outbox row share that transaction."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-save-city",
+                  "sourceContext": {
+                    "$clewRef": "sha256:2500520baf99b1d310b6288dd07e56c5fb4474fc6d95aae8ba0d0ca371a5f557"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:96a5f1683e52bded755809281304aef81e490e33da567589f45bf7d481d36bec"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:1ade2833affd21c2594b8a65814dd40a3662f96f5ab0b85edb71e877a81945d9"
+                  },
+                  "subject": "scenario:dashboard-save-city",
+                  "title": "Save a city through Dashboard and record the outbox boundary"
+                },
+                {
+                  "$clewRef": "sha256:3e58da5809386dbde92bca817b43c5179004c927d1765817e319152760c43590"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "An existing city creates neither a new Place nor a new outbox record.\nThe transaction commits in either case, and Places returns `200` with the city.",
+              "title": "If the city already exists",
+              "tone": null
+            }
+          ],
+          "icon": "database",
+          "id": "save",
+          "navTitle": "Save city",
+          "number": 3,
+          "route": null,
+          "title": "Places saves the city"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "$clewRef": "sha256:3e58da5809386dbde92bca817b43c5179004c927d1765817e319152760c43590"
+                },
+                {
+                  "fragment": {
+                    "$clewRef": "sha256:065fcf55efe7c6dd867eb152701cf3b1cb487ec4b2ed91b5e8f3921bba2b343c"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-save-city",
+                  "sourceContext": {
+                    "$clewRef": "sha256:2500520baf99b1d310b6288dd07e56c5fb4474fc6d95aae8ba0d0ca371a5f557"
+                  },
+                  "sources": {
+                    "dashboard-7970ac3e2a8cf3f45b4a": {
+                      "$clewRef": "sha256:ab8df8a5fe7536b2fc32d2257bed77e48c54ce422b10c3afba79f26ac88b67a8"
+                    },
+                    "places-309961f88b197290c1b0": {
+                      "$clewRef": "sha256:31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0"
+                    },
+                    "places-770e53d99edf681987e1": {
+                      "$clewRef": "sha256:d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:1ade2833affd21c2594b8a65814dd40a3662f96f5ab0b85edb71e877a81945d9"
+                  },
+                  "subject": "scenario:dashboard-save-city",
+                  "title": "Save a city through Dashboard and record the outbox boundary"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "Places returns `200` with the city after saving. Dashboard forwards the status and parsed JSON to the client.",
+              "title": "Local response",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "$clewRef": "sha256:4ad4a49b27a2e24a9120471933207438e7aafd97218ecbb33762c7b07bd43b42"
+                },
+                {
+                  "fragment": {
+                    "$clewRef": "sha256:37917416392cfc68e354e8ec93c9443def5dca0ce16b041ca5e8cf273faab0f4"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "dashboard-save-city",
+                  "sourceContext": {
+                    "$clewRef": "sha256:2500520baf99b1d310b6288dd07e56c5fb4474fc6d95aae8ba0d0ca371a5f557"
+                  },
+                  "sources": {
+                    "dashboard-7970ac3e2a8cf3f45b4a": {
+                      "$clewRef": "sha256:ab8df8a5fe7536b2fc32d2257bed77e48c54ce422b10c3afba79f26ac88b67a8"
+                    },
+                    "places-309961f88b197290c1b0": {
+                      "$clewRef": "sha256:31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0"
+                    },
+                    "places-51d94b76d870001475fd": {
+                      "$clewRef": "sha256:89387464df117dd1f2cfdbd8113d90c803728d4fe220f507529703bd597dbf8e"
+                    },
+                    "places-6c7321d96988c6277e32": {
+                      "$clewRef": "sha256:5d0e0230101848f293cac0902245f465a92e8106f700b8853514a42687637309"
+                    },
+                    "places-770e53d99edf681987e1": {
+                      "$clewRef": "sha256:d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959"
+                    },
+                    "places-d3b23b700626394c74b7": {
+                      "$clewRef": "sha256:379c0b710ffb354ec36825644e1d5c73ec611814e26c938687bac753bdb832c6"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:1ade2833affd21c2594b8a65814dd40a3662f96f5ab0b85edb71e877a81945d9"
+                  },
+                  "subject": "scenario:dashboard-save-city",
+                  "title": "Save a city through Dashboard and record the outbox boundary"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "The `200` response describes the local save result. It does not confirm forecast readiness or completion of the whole message flow.",
+              "title": "What 200 means",
+              "tone": "INFO"
+            }
+          ],
+          "icon": null,
+          "id": "result",
+          "navTitle": "Result",
+          "number": 4,
+          "route": null,
+          "title": "Dashboard returns the result"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "$clewRef": "sha256:521f5abd20171a14ec7a3df487b5cb4c0807fecd8bd414f0f8f3ba692c4a64b0"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "section-entities",
+                  "sourceContext": {
+                    "boundaries": [
+                      "C# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted."
+                    ],
+                    "publication": null,
+                    "revisions": {
+                      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+                    }
+                  },
+                  "sources": {
+                    "places-1223607978a77b621e14": {
+                      "$clewRef": "sha256:134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d"
+                    },
+                    "places-6c7321d96988c6277e32": {
+                      "$clewRef": "sha256:5d0e0230101848f293cac0902245f465a92e8106f700b8853514a42687637309"
+                    },
+                    "places-d9cadcac8ec9a824bbdf": {
+                      "$clewRef": "sha256:9e47d817ca1d51924aad0c9840dc01a49fa438ad4b7d03faf2c22fbca713adc4"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:7449d8aac6ed9736ab4f2ef7e21f8258b178915b39babe38cf3cc40fb100aac1"
+                  },
+                  "subject": "service:places",
+                  "title": "Places domain entities"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "Place contains Id, Name, Latitude and Longitude. SavePlace carries CityId; request_outbox holds a delivery record. Formal domain identity and ownership have not been declared in the saved evidence.",
+              "title": "Object context",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": {
+                "$clewRef": "sha256:5356fffefc1a2bf884b34f227fbd99887bf921822d9c00d993f30815b1990e69"
+              },
+              "id": null,
+              "links": [
+                {
+                  "href": "../scenarios/places-request-publisher.html#process-overview",
+                  "label": "Related place-request publisher",
+                  "operation": "process-overview",
+                  "subject": "scenario:places-request-publisher"
+                },
+                {
+                  "href": "../scenarios/dashboard-forecast-updated-consumer.html#process-overview",
+                  "label": "Related Dashboard forecast consumer",
+                  "operation": "process-overview",
+                  "subject": "scenario:dashboard-forecast-updated-consumer"
+                }
+              ],
+              "navTitle": null,
+              "preview": null,
+              "text": "An outbox record alone does not prove Kafka publication, delivery, processing or a forecast ready to display. Related accounts retain their own sources and limits; their links do not establish an observed execution sequence.",
+              "title": "Story boundary",
+              "tone": null
+            }
+          ],
+          "icon": null,
+          "id": "confidence",
+          "navTitle": "Sources and provenance",
+          "number": null,
+          "route": null,
+          "title": "Full description and sources"
+        }
+      ],
+      "subject": "scenario:dashboard-save-city",
+      "title": "Save a city"
+    },
+    "readerOptions": {
+      "showInternalProcesses": false
+    },
+    "relatedViews": [],
+    "renderer": "codeclew-documentation-html/1.16",
+    "requestedDocumentationLanguage": "en",
+    "revisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37"
+    },
+    "savedProcesses": [],
+    "sectionState": {
+      "$clewRef": "sha256:65a2c1d462fd40a198a7f6f4e7aebf22971d6dc9c024ee6660e408ea5a953db2"
+    },
+    "sections": [],
+    "selectedEvidence": {
+      "$clewRef": "sha256:ca9e4ab3cdcbe2cee291a0df9c86fe72afd4d98160313803db7f0417ab3e0e97"
+    },
+    "selectedSnapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
+    "sourceAuthorities": {
+      "dashboard": "CAPTURED_SOURCE",
+      "forecasts": "RETAINED_SOURCE_NOT_REVERIFIED",
+      "places": "RETAINED_SOURCE_NOT_REVERIFIED"
+    },
+    "sources": {
+      "$clewRef": "sha256:f7af809ca5ed75295b81fae4d297b3830ccc27814ac30964c286dc4852f28aa7"
+    },
+    "stateDiagram": null,
+    "stateDiagramSvg": false,
+    "subject": "scenario:dashboard-save-city",
+    "subtitle": "Service behavior and explicit evidence boundaries",
+    "targetRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "title": "Dashboard save-city thread",
+    "translationComplete": true,
+    "translationGaps": {},
+    "updateFailures": {},
+    "view": null
+  }
+}

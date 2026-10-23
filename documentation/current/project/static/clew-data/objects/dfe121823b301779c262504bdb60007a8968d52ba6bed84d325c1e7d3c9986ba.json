@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:dfe121823b301779c262504bdb60007a8968d52ba6bed84d325c1e7d3c9986ba",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 19,
+    "evidenceDigest": "sha256:fda197aaefb6533a27597cdde96ef89cab11ebc1cb7daa2f18d2fab34725816b",
+    "file": "services/forecasts/src/main/kotlin/weather/KafkaConfiguration.kt",
+    "id": "forecasts-0a68de01eac394b18e12",
+    "occurrence": {
+      "blob": "b24a06cb1abeaf042d872cd7c5858e7d7d396a58",
+      "endByte": 1029,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 438
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 9,
+    "text": "@Configuration(proxyBeanMethods = false)\nclass KafkaConfiguration {\n    @Bean\n    fun kafkaListenerContainerFactory(consumerFactory: ConsumerFactory<String, String>): ConcurrentKafkaListenerContainerFactory<String, String> {\n        val factory = ConcurrentKafkaListenerContainerFactory<String, String>()\n        factory.setConsumerFactory(consumerFactory)\n        factory.containerProperties.ackMode = ContainerProperties.AckMode.MANUAL_IMMEDIATE\n        factory.setCommonErrorHandler(DefaultErrorHandler(FixedBackOff(1000L, FixedBackOff.UNLIMITED_ATTEMPTS)))\n        return factory\n    }\n}",
+    "textDigest": "sha256:59ae3226d0b6bee5010e777de5b5aeac7125f2dc7e240f1f57a5da977961942f",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/kotlin/weather/KafkaConfiguration.kt#L9-L19"
+  }
+}

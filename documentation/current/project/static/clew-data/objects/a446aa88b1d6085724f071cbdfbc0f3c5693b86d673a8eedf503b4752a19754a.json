@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:a446aa88b1d6085724f071cbdfbc0f3c5693b86d673a8eedf503b4752a19754a",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:b555c14fdccf393c495f1f3b1be2d5e8ce800cf038625d68f9596fd345d31cfd"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The declared POST /places JSON body requires cityId, one of oslo, helsinki or lisbon, and disallows extra properties. This is the receiving contract, not proof that Dashboard validates the request.",
+    "title": "Save a city: source interpretation",
+    "tone": null
+  }
+}

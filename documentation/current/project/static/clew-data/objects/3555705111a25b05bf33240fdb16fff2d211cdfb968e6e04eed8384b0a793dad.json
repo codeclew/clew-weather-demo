@@ -1,0 +1,24 @@
+{
+  "identity": "sha256:3555705111a25b05bf33240fdb16fff2d211cdfb968e6e04eed8384b0a793dad",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    {
+      "$clewRef": "sha256:e62fbda8d5d96322271b069e10d5ae0f6a85b9719c6a4b41194e36b8f702bc14"
+    },
+    {
+      "$clewRef": "sha256:09d8dd7bb3092b197a1ba40c7a011747bd28edbf0b233c2f96eacfbfc2ff7186"
+    },
+    {
+      "$clewRef": "sha256:c9f9735f28537c82259b581034a1bf7bc8fa7a66da55f16600f1afdf9df3aaa1"
+    },
+    {
+      "$clewRef": "sha256:3024f2813d102f65ea2d06e1a089d1e0286b557e0dd9e38a2c996b1d2c4ecb18"
+    },
+    {
+      "$clewRef": "sha256:30e2d1e1aaf835141b72ae71fe671c23f376a3219c8df0d58fa4594da4f904a2"
+    },
+    {
+      "$clewRef": "sha256:d4e62b490fa7cbb75a5f049a16e31b3df994f9e9131ac6c73bb7d71496739e03"
+    }
+  ]
+}

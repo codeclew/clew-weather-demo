@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:b8dc463366eb36cce8213986d0bb780fa6183c7757bb9791b558998dfa4a93ba",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:adccdea103b80cca749461fa65bf2c8cf70941d5306f0479c7324ed6f2c66d4e"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The supported-city lookup selects a literal Place record using request.CityId. Latitude and longitude come directly from that record. The inspected City lookup does not calculate coordinates or call a geocoding service.",
+    "title": "City lookup: source interpretation",
+    "tone": null
+  }
+}

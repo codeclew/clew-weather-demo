@@ -1,0 +1,34 @@
+{
+  "identity": "sha256:1bebc7c7f2e5efb30de0842d84d05ac194c7d3a3562e45bc46fa5de722884d1c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "DECLARED_OPENAPI",
+    "boundaries": [
+      "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED"
+    ],
+    "declaredSource": "contracts/dashboard.openapi.json",
+    "entrypoint": null,
+    "method": "GET",
+    "openapi": "3.1.0",
+    "operation": {
+      "$clewRef": "sha256:6c9138c18734100c034d6906ddda816563d2a9900826479d299e031893188424"
+    },
+    "parameters": [],
+    "path": "/api/weather",
+    "readerSelection": {
+      "compatibilityAnchor": "3.1",
+      "fullSpecificationValidation": false,
+      "outsideAdvertisedRange": false,
+      "reader": "BOUNDED_OPENAPI_PATH_OPERATION_READER",
+      "selectionMode": "DECLARED_COMPATIBILITY_PROFILE",
+      "supportedVersionRange": "OPENAPI_THROUGH_3_X"
+    },
+    "runtimeEnforcement": "UNVERIFIED",
+    "schema": "codeclew-documentation-contract-facts/1.0",
+    "security": null,
+    "securitySchemes": null,
+    "servers": null,
+    "sourceMapping": "NO_SOURCE_ROUTE_MATCH"
+  }
+}

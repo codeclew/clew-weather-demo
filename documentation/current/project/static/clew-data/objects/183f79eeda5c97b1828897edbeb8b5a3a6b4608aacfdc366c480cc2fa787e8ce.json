@@ -1,0 +1,30 @@
+{
+  "identity": "sha256:183f79eeda5c97b1828897edbeb8b5a3a6b4608aacfdc366c480cc2fa787e8ce",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "branchPointer": "/paths/~1places/post/requestBody/content/application~1json/schema",
+    "documentationLanguage": "en",
+    "id": "save-city-request",
+    "leaves": [
+      {
+        "field": "cityId",
+        "nullable": false,
+        "pointer": "/paths/~1places/post/requestBody/content/application~1json/schema/properties/cityId",
+        "requiredWhenBranchMatches": true,
+        "schema": {
+          "enum": [
+            "oslo",
+            "helsinki",
+            "lisbon"
+          ],
+          "type": "string"
+        }
+      }
+    ],
+    "requiredCondition": "Selected contract branch matches; required parents and array element are present. Array leaves expanded once, independent of cardinality.",
+    "source": {
+      "$clewRef": "sha256:d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959"
+    },
+    "title": "Places POST /places request (declared)"
+  }
+}

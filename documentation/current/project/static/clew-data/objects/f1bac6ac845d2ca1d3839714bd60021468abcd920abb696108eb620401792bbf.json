@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:f1bac6ac845d2ca1d3839714bd60021468abcd920abb696108eb620401792bbf",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "places:symbol:5b61c76fee491604ae120ab3"
+    ],
+    "id": "places:symbol:5b61c76fee491604ae120ab3",
+    "name": "Ping",
+    "owner": "class:Weather.Places.PlacesRepository",
+    "parameterTypes": [
+      "System.Threading.CancellationToken"
+    ],
+    "publicBoundary": false,
+    "scope": "csproj:services/places/Places.csproj@net10.0",
+    "service": "places",
+    "sourceIds": [
+      "places-5b61c76fee491604ae12"
+    ],
+    "status": "RECORDED",
+    "symbol": "method:class:Weather.Places.PlacesRepository#Ping(LSystem/Threading/CancellationToken;)LSystem/Threading/Tasks/Task;"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "identity": "sha256:2baa14b31a718e3d58472c50648c9853d42fb443701a1789b3346b7b02fbd8ed",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:5e86bf35db7ce4926cd517f5750f31ea3860c82973a6fc46b317a10513eddb55"
+    },
+    "id": null,
+    "links": [
+      {
+        "href": "../scenarios/forecasts-place-requested-consumer.html#process-overview",
+        "label": "Related place-request consumer",
+        "operation": "process-overview",
+        "subject": "scenario:forecasts-place-requested-consumer"
+      },
+      {
+        "href": "../scenarios/forecasts-publish-pending.html#process-overview",
+        "label": "Pending forecast publisher",
+        "operation": "process-overview",
+        "subject": "scenario:forecasts-publish-pending"
+      }
+    ],
+    "navTitle": null,
+    "preview": null,
+    "text": "The 60-second schedule is a source declaration, not proof of activation. Provider behavior, deferred callback execution and transaction outcomes remain bounded by the retained evidence. A pending event is not proof of Kafka delivery or a completed Dashboard update.",
+    "title": "Evidence scope",
+    "tone": null
+  }
+}

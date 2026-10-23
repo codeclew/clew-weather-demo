@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:a1ed48144298c277d8704b6fc7e2afcef33080d08fa2f90134eeee86de6f750d",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:4f947bd7e2c563bb40a9ba958dd74a87ad72799e4ae3795a598449a34cb88ace"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The latitude literal in the selected record; this lookup does not calculate it. Source property: Place.Latitude, C# double.",
+    "title": "City lookup: source interpretation",
+    "tone": null
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:7dc31ff2f89df6313b31ccd5e53de88f58ca342c20783e2f8e34d13d0d872b55",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 16,
+    "evidenceDigest": "sha256:de7bc93df5d049f201b8bfa5b5c80bff789e8c1cd7dc44178d6d7594b672e1fd",
+    "file": "services/forecasts/src/main/resources/application.properties",
+    "id": "forecasts-27cca3456e62e8b1d498",
+    "occurrence": {
+      "blob": "22d8a5a23f018da5722a1bb71c3173de834008f5",
+      "endByte": 935,
+      "snapshot": "sha256:34e943cd4cacb091768f46eaf8c99085c35c984784552ac335293714c4bd35b3",
+      "startByte": 0
+    },
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "forecasts",
+    "startLine": 1,
+    "text": "server.port=8080\nspring.datasource.url=${DATABASE_URL}\nspring.datasource.username=weather\nspring.datasource.password=weather\nspring.kafka.bootstrap-servers=${KAFKA_BOOTSTRAP:kafka:9092}\nspring.kafka.consumer.group-id=weather-forecasts-v1\nspring.kafka.consumer.auto-offset-reset=earliest\nspring.kafka.consumer.enable-auto-commit=false\nspring.kafka.consumer.key-deserializer=org.apache.kafka.common.serialization.StringDeserializer\nspring.kafka.consumer.value-deserializer=org.apache.kafka.common.serialization.StringDeserializer\nspring.kafka.listener.ack-mode=manual_immediate\nspring.kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer\nspring.kafka.producer.value-serializer=org.apache.kafka.common.serialization.StringSerializer\nspring.kafka.producer.properties.enable.idempotence=true\nspring.kafka.producer.properties.delivery.timeout.ms=10000\nspring.kafka.producer.properties.request.timeout.ms=5000\n",
+    "textDigest": "sha256:97bb018b627d24427adae2e9b1c3dfe157a0bdd7d7f609c87a3d14696c00d84c",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/forecasts/src/main/resources/application.properties#L1-L16"
+  }
+}

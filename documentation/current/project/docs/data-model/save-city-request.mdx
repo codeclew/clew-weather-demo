@@ -1,0 +1,162 @@
+---
+title: "Save city request"
+slug: "/data-model/save-city-request"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Save city request
+
+Agent proposal · Not reviewed.
+
+<p id="dm-return"></p>
+
+<ClewMarkdown text={"A request to save one supported city. It carries a city selector, not a complete Place; the HTTP save result is separate from later message delivery."} />
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/dashboard/public/index.html:1–11 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/c2239e2c6403a3d1207383732a448da7982b4d8765aaa00a7aa74ac6b8bbdfd0.mdx)
+- [services/places/PlacesController.cs:10–17 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0.mdx)
+- [services/places/PlacesRepository.cs:7–13 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/c267a4a78e8949194aeb00d9acfa74a5a9a90a34ddabb3a97ae3d4a7eed0a2fa.mdx)
+- [services/places/PlacesRepository.cs:52–59 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/89387464df117dd1f2cfdbd8113d90c803728d4fe220f507529703bd597dbf8e.mdx)
+
+</details>
+
+## Identity and relationships {#identity-and-relationships}
+
+<ClewMarkdown text={"This request has no durable request ID in the captured shape. cityId selects Place.id. A new outbox event gets a separate Guid; a 200 response is not an acknowledgement of Kafka publication or forecast readiness."} />
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/places/PlacesController.cs:4–4 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/5d0e0230101848f293cac0902245f465a92e8106f700b8853514a42687637309.mdx)
+- [services/places/PlacesRepository.cs:7–13 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/c267a4a78e8949194aeb00d9acfa74a5a9a90a34ddabb3a97ae3d4a7eed0a2fa.mdx)
+- [services/places/PlacesRepository.cs:52–59 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/89387464df117dd1f2cfdbd8113d90c803728d4fe220f507529703bd597dbf8e.mdx)
+- [services/dashboard/src/main.ts:67–74 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/a068efa2e0a64c9eb023eeed6eb678ff1c25a3e9e5cd12aa831e6494dabd8ff6.mdx)
+
+</details>
+
+<p className="clew-related-models">Related concepts: <ClewRelatedModelLink model="place">Place</ClewRelatedModelLink></p>
+
+
+## Fields and representations {#fields-and-representations}
+
+<div className="dm-fields-scroll" tabIndex={0} role="region" aria-label="Field descriptions"><table className="dm-fields" role="table"><caption>Field descriptions</caption><thead><tr><th scope="col">Original field</th><th scope="col">Readable name</th><th scope="col">Comment</th></tr></thead><tbody><tr><th scope="row"><a href="#field-city-id" data-clew-field-details=""><code>cityId</code></a></th><td data-label="Readable name">Selected city key</td><td data-label="Comment"><ClewMarkdown text={"The selected city key sent by the browser. This request carries only cityId; Places derives the Place name and coordinates from its supported-city lookup. It is not an event ID, and it is not a client-supplied Place object."} /><a className="dm-field-evidence-link" href="#field-city-id" data-clew-field-details="">Evidence and representations</a></td></tr></tbody></table></div>
+
+### cityId {#field-city-id}
+
+<ClewFieldDetails>
+<summary>Technical representations</summary>
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/dashboard/public/index.html:1–11 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/c2239e2c6403a3d1207383732a448da7982b4d8765aaa00a7aa74ac6b8bbdfd0.mdx)
+- [services/places/PlacesRepository.cs:7–13 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/c267a4a78e8949194aeb00d9acfa74a5a9a90a34ddabb3a97ae3d4a7eed0a2fa.mdx)
+- [services/places/PlacesController.cs:10–17 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0.mdx)
+
+</details>
+
+<details>
+<summary>Field label provenance: Readable name</summary>
+
+Selected city key
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/dashboard/public/index.html:1–11 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/c2239e2c6403a3d1207383732a448da7982b4d8765aaa00a7aa74ac6b8bbdfd0.mdx)
+- [services/places/PlacesRepository.cs:7–13 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/c267a4a78e8949194aeb00d9acfa74a5a9a90a34ddabb3a97ae3d4a7eed0a2fa.mdx)
+- [services/places/PlacesController.cs:10–17 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0.mdx)
+
+</details>
+
+
+</details>
+
+<div className="clew-table-scroll"><table className="clew-schema-table"><thead><tr><th scope="col">Representation</th><th scope="col">Type / declared constraints</th><th scope="col">Requiredness / nullability</th><th scope="col">Retained mapping</th></tr></thead><tbody><tr><td data-label="Representation">Declared Places save request</td><td data-label="Type / declared constraints">string · enum: [&quot;oslo&quot;,&quot;helsinki&quot;,&quot;lisbon&quot;]</td><td data-label="Requiredness / nullability">Required when branch matches<br/>Not nullable</td><td data-label="Retained mapping">The declared POST /places JSON body requires cityId, one of oslo, helsinki or lisbon, and disallows extra properties. This is the receiving contract, not proof that Dashboard validates the request.</td></tr><tr><td data-label="Representation">Places SavePlace DTO</td><td data-label="Type / declared constraints">string (C# CityId)</td><td data-label="Requiredness / nullability">Read when the captured Save handler runs<br/>Framework binding/rejection paths are not established here</td><td data-label="Retained mapping">The declared JSON cityId corresponds to SavePlace.CityId; Save reads request.CityId and passes it to City(). Framework request binding is not an observed runtime result.</td></tr><tr><td data-label="Representation">Supported-city selector → Place.id</td><td data-label="Type / declared constraints">string selector for the returned Place</td><td data-label="Requiredness / nullability">A matching supported city is needed for the Save branch<br/>An unsupported key returns null from the lookup</td><td data-label="Retained mapping">CityId selects a literal Place from City(). Place.id is the supported city key, while name, latitude and longitude come from the lookup constants. No request name or coordinate is forwarded into those values.</td></tr></tbody></table></div>
+
+<details>
+<summary>Declared Places save request</summary>
+
+Derived from the request schema · Declared required request property · Derived from the schema
+
+<ClewMarkdown text={"The declared POST /places JSON body requires cityId, one of oslo, helsinki or lisbon, and disallows extra properties. This is the receiving contract, not proof that Dashboard validates the request."} />
+
+[Places POST /places request (declared)](../contracts/save-city-request.mdx)
+
+Required when branch matches: true · Accepts null: false
+
+```json
+{
+  "enum": [
+    "oslo",
+    "helsinki",
+    "lisbon"
+  ],
+  "type": "string"
+}
+```
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [contracts/places.openapi.json:1–263 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959.mdx)
+- [services/dashboard/src/main.ts:67–74 · revision 7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6](../sources/a068efa2e0a64c9eb023eeed6eb678ff1c25a3e9e5cd12aa831e6494dabd8ff6.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Places SavePlace DTO</summary>
+
+string (C\# CityId) · Read when the captured Save handler runs · Framework binding/rejection paths are not established here
+
+<ClewMarkdown text={"The declared JSON cityId corresponds to SavePlace.CityId; Save reads request.CityId and passes it to City(). Framework request binding is not an observed runtime result."} />
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/places/PlacesController.cs:4–4 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/5d0e0230101848f293cac0902245f465a92e8106f700b8853514a42687637309.mdx)
+- [services/places/PlacesController.cs:10–17 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0.mdx)
+- [contracts/places.openapi.json:1–263 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959.mdx)
+
+</details>
+
+
+</details>
+
+<details>
+<summary>Supported-city selector → Place.id</summary>
+
+string selector for the returned Place · A matching supported city is needed for the Save branch · An unsupported key returns null from the lookup
+
+<ClewMarkdown text={"CityId selects a literal Place from City(). Place.id is the supported city key, while name, latitude and longitude come from the lookup constants. No request name or coordinate is forwarded into those values."} />
+
+<details>
+<summary>Evidence and scope</summary>
+
+- [services/places/PlacesRepository.cs:7–13 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/c267a4a78e8949194aeb00d9acfa74a5a9a90a34ddabb3a97ae3d4a7eed0a2fa.mdx)
+- [services/places/PlacesController.cs:10–17 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/31d65799d2ab0d5586875469994de48826eff9efa7554c342d97a36030a8d9a0.mdx)
+
+</details>
+
+
+</details>
+
+<ClewFieldTrace field="city-id" />
+
+</ClewFieldDetails>
+
+## Field usage and focused flow {#field-usage}
+
+<ClewDataModel dataPath="/clew-data/widgets/model-save-city-request.json" />
+
+## Processes {#processes}
+
+- [Save a city — request and local save](../scenarios/dashboard-save-city.mdx#question-request)
+

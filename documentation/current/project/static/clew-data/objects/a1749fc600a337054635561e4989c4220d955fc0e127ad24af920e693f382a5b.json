@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:a1749fc600a337054635561e4989c4220d955fc0e127ad24af920e693f382a5b",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 15,
+    "evidenceDigest": "sha256:3ae66b83d1302bcc40f2825a9656320038807ffd71223fddc7d07154399d27f9",
+    "file": "services/dashboard/Dockerfile",
+    "id": "dashboard-29da36a46fc9030155a5",
+    "occurrence": {
+      "blob": "026c82313f0ef7733021fcfaf2266df76a3dae3b",
+      "endByte": 612,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 0
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 1,
+    "text": "FROM node:24.21.0-bookworm-slim AS build\nWORKDIR /app/services/dashboard\nCOPY services/dashboard/package*.json ./\nRUN npm ci --ignore-scripts --no-audit --no-fund\nCOPY services/dashboard/tsconfig.json ./\nCOPY services/dashboard/src ./src\nRUN npm run build\nFROM node:24.21.0-bookworm-slim\nWORKDIR /app/services/dashboard\nCOPY --from=build /app/services/dashboard/node_modules ./node_modules\nCOPY --from=build /app/services/dashboard/package.json ./package.json\nCOPY --from=build /app/services/dashboard/dist ./dist\nCOPY services/dashboard/public ./public\nCOPY contracts /app/contracts\nCMD [\"node\",\"dist/main.js\"]\n",
+    "textDigest": "sha256:17fe04974f4fa342f3dd18a2aa63db82d6c3c9936fd0eb1cfe83944a6134856d",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/Dockerfile#L1-L15"
+  }
+}

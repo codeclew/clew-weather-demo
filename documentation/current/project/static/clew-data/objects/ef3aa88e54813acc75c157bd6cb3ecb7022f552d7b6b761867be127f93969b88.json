@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:ef3aa88e54813acc75c157bd6cb3ecb7022f552d7b6b761867be127f93969b88",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 105,
+    "evidenceDigest": "sha256:a7192512a5d2a79acfc695281c18c58c71b9f307ffb41b4684749f38e8bfde51",
+    "file": "services/dashboard/src/main.ts",
+    "id": "dashboard-1aafff1dd842cd07a029",
+    "occurrence": {
+      "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+      "endByte": 4932,
+      "snapshot": "sha256:550435c6f8e16951bd815f9f7b54eda07bff8ad73a80a6df524ab2af077f4f6f",
+      "startByte": 4898
+    },
+    "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+    "service": "dashboard",
+    "startLine": 105,
+    "text": "app.post('/api/places', savePlace)",
+    "textDigest": "sha256:b274397c18a17432eafbefaa43ffd6fd4bbc1f36e40b5f2e7b1044eeb279d9d8",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/e635069293d58cb0d4f28c8211e748b8d58e6b37/services/dashboard/src/main.ts#L105-L105"
+  }
+}

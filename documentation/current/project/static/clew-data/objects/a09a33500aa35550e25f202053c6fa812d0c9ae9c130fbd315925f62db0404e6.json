@@ -1,0 +1,351 @@
+{
+  "identity": "sha256:a09a33500aa35550e25f202053c6fa812d0c9ae9c130fbd315925f62db0404e6",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dashboard-016f47de2a6db77dec04": {
+      "$clewRef": "sha256:5bef0f7ba12f0d6e3531bb4d0ddcf4d773ab1c3f083596bbcf29d558d4aec3d5"
+    },
+    "dashboard-021fcd0ff7baa53bd3c5": {
+      "$clewRef": "sha256:afddedfc8054e8c5495b73e95e3924f7b15f90f9b73caf09d7c1b7cdda664830"
+    },
+    "dashboard-049a97e649d7feb212e6": {
+      "$clewRef": "sha256:fb056517f94476af3c7964b81f570f4579e6b57b469923f270bb1b5b7f3ec245"
+    },
+    "dashboard-0515cb5fe6fd4b05a4fc": {
+      "$clewRef": "sha256:1406b64c5c04f8f6deaf82910b71fda12bd11be99df2f44f28bce19081172bf1"
+    },
+    "dashboard-05406ed5368276e7a613": {
+      "$clewRef": "sha256:7c9d65b306fd0e50c3e42f37eb893cddcb3f527b33c7b7f384bcabaf8e37be8c"
+    },
+    "dashboard-05d6c53782065c056dee": {
+      "$clewRef": "sha256:cdacc9bb5d8f5f0fe255ef49394104b05be7457cf15fa9cd4e62325d914ca189"
+    },
+    "dashboard-08046fd43308cb3155be": {
+      "$clewRef": "sha256:1d70a12a03f3b80dbb63907c4d59e282b54f9dc82a35750e81f806a6b74f2917"
+    },
+    "dashboard-08ec37502003233eb28b": {
+      "$clewRef": "sha256:f95cfa4f2ac7f2f0e9b3fb3d086ef9ccd3d59541fcc8224cf1d10e0ebca87337"
+    },
+    "dashboard-0a52ae14321115b04649": {
+      "$clewRef": "sha256:42c79a62306d69f6e03417a48b78e31b68aa10ef4b9eb483f5b99a2c42feb556"
+    },
+    "dashboard-0c42e8da3e274553f5bc": {
+      "$clewRef": "sha256:6e99c286bdd3d582e94aaa493006d53aa3167c95d52d54d1270c79548caf0867"
+    },
+    "dashboard-0c9e2425ea81d2e2e4f7": {
+      "$clewRef": "sha256:9c56ac5341b33a45ae80ad458e3f2e616169e87ddcafb2ce44f0d643a042881d"
+    },
+    "dashboard-0e727ee03a01470009ee": {
+      "$clewRef": "sha256:1a4bd6fae968bd7ce2055accd586504e7fbeb9bec769d3c9b980109638e931c6"
+    },
+    "dashboard-118d806d369151054229": {
+      "$clewRef": "sha256:35ec21685190e64603e7da3a3f17597274cb2c14b70c455f6a1e6529f6800249"
+    },
+    "dashboard-1198b0d44dde70fcd803": {
+      "$clewRef": "sha256:5ccb742ced5e1c66ddfe6c5af65e88b1a09e6ddc6bf6c0919245330f4808986f"
+    },
+    "dashboard-133e80654ecc67aa9a31": {
+      "$clewRef": "sha256:499dc8e55282117f57ff61a3963e0c2d65a8df022c3de390c50dcbb7767d89cb"
+    },
+    "dashboard-139adbb04294b10bfedf": {
+      "$clewRef": "sha256:bd8873253fa9602355ca1a19243b1d458a1e77a4f3c120dc6b6c91822fa35bb6"
+    },
+    "dashboard-1465618c5ba0bb960fb1": {
+      "$clewRef": "sha256:b3d49b4c42d1ee4f45240ac8a2f2b1bab2f1041ee5c0b7e4cecc13e3887168b0"
+    },
+    "dashboard-1612e17d589cb9d0fa4a": {
+      "$clewRef": "sha256:b41ac7155eba29b1e6a9dfe10348b626c22e19654978c7d35379a71fff4526a1"
+    },
+    "dashboard-19b25f150e9433bc9b72": {
+      "$clewRef": "sha256:40b3ffde8c2b30e87bdca3ec00bd53f738009a41859d53dcd88cf02ae5554483"
+    },
+    "dashboard-19e884dd0fd36b653b1a": {
+      "$clewRef": "sha256:ed9a89955e006db5c20017aad4d426863a8fab87101965320d5d7c494c5cf649"
+    },
+    "dashboard-1aafff1dd842cd07a029": {
+      "$clewRef": "sha256:ef3aa88e54813acc75c157bd6cb3ecb7022f552d7b6b761867be127f93969b88"
+    },
+    "dashboard-1d4380bd7760bcafc13d": {
+      "$clewRef": "sha256:2cf069499a8284aa81909007590ed57f8b987703681fef870962f36c0681f13b"
+    },
+    "dashboard-1db17a7767cbf1b12d50": {
+      "$clewRef": "sha256:f2538d01a5740ce1abfc03ae7e7a7b2d8cd5252bbf39b4aa3f59a797afd655ae"
+    },
+    "dashboard-1f5c9b6fabfdb83f3a27": {
+      "$clewRef": "sha256:79ddc0f8e1ed0c68daab9a62a0cca0b0b93b61cfdd8bf0731b800e163c081f41"
+    },
+    "dashboard-21314369bd35a5f6a1c4": {
+      "$clewRef": "sha256:e2aefa0ef5b60c47780df39c33c065727314abc97f9d4dee8776810ca9ea58a9"
+    },
+    "dashboard-223f1fc24249023e2f0c": {
+      "$clewRef": "sha256:0d7f9694bf15c2f0fad3b5dd9e8a2efe63803bb7240515ecfb8f9ae2489d6303"
+    },
+    "dashboard-23984addf00afef900a2": {
+      "$clewRef": "sha256:df9cdc7b2bc1ca9cf6122d22c2c35f025650b1a53788a3cb08891113a857b24a"
+    },
+    "dashboard-24db9c53afcbb4e3c95b": {
+      "$clewRef": "sha256:ca30d5450662411a0f321f4bb0db3863eb158380f4617bf02280910731a13829"
+    },
+    "dashboard-282ee420abe115949937": {
+      "$clewRef": "sha256:e309060e6d4922aabac57c6703ab9d1a1a8c828e9e859ceede9a32986b1801dc"
+    },
+    "dashboard-2b29c802929055001335": {
+      "$clewRef": "sha256:2c66817e9154ddb20fb23277ff15e3b4e442414533b29db0eef994ea2a03df94"
+    },
+    "dashboard-2b5fd504b0e44e1aac6d": {
+      "$clewRef": "sha256:c3e82f4315b81987f7d5c607bb160712f1ea3a5aa99dde4598e479aa32627ccd"
+    },
+    "dashboard-2c732614425111f1a7e9": {
+      "$clewRef": "sha256:8a119af28ac8db50b7f790471b59dd042a6ab6f87aa26fb880123f8857558266"
+    },
+    "dashboard-2ecb7931b1d79223f6d2": {
+      "$clewRef": "sha256:5269dfe643b96784a08f65a2af6d7fc81f8d1ca5ccd8225937e41c08b01fe897"
+    },
+    "dashboard-37dec2bf70bc69d603cb": {
+      "$clewRef": "sha256:03b9efe6bc6d50d833e9a96c49365da011a0e4f6ed708994589122816819a21f"
+    },
+    "dashboard-3d63e1a01907b4d631f3": {
+      "$clewRef": "sha256:97c24e4dc7bd66939e6948de2324904b04a24f298b496ef20320468a182eedcb"
+    },
+    "dashboard-3fdc360a9fa865a2c723": {
+      "$clewRef": "sha256:37ea8a5ad67c8d8f122e011d24c642789632aada629a962c19c554ae08cf14ed"
+    },
+    "dashboard-41d01107b6ced5e4d4ff": {
+      "$clewRef": "sha256:de7db9630ac9f0f8031d4071a88cf062aea6e0a90514aed3f30ccab4eaa757bb"
+    },
+    "dashboard-42427f786485db9cd29b": {
+      "$clewRef": "sha256:1c22633fc97cd2cfbe94cfdbd6182a6bae785d780e411350ca4d4114f8ef458d"
+    },
+    "dashboard-48801b9ec6a5e672b976": {
+      "$clewRef": "sha256:3a81327dd5a0a202bcf0478842b7f1548cb29bc661119b27088099ca1bcd3487"
+    },
+    "dashboard-4cafc6a4fb1ad99644a7": {
+      "$clewRef": "sha256:6ec068cdbd0a650c3c4c8e059aa033abcb47fc19bc17b289662196b11ce23640"
+    },
+    "dashboard-4f5f126e3bf63fdac028": {
+      "$clewRef": "sha256:60c523b876459c2468c28ef3998fae18a4a76e016db8f86932d5ff5273c81272"
+    },
+    "dashboard-52639c83831bdd8eeef3": {
+      "$clewRef": "sha256:2d8c243eba3442f47ad4aee6eed76927d006fa51ed7a2d08ad65e64030d1b9be"
+    },
+    "dashboard-5402c6a44ee72e4cc62b": {
+      "$clewRef": "sha256:8f8c49e0961b72680b993799a3a787a6c891d00da794b19e43e3db794b0f65f3"
+    },
+    "dashboard-59af65c3fbaf8bc5b036": {
+      "$clewRef": "sha256:690f120dd2b2fd34d9ee5356c866f50358a51ed54fdcb57af0a47cdcf8164a05"
+    },
+    "dashboard-59f03a0653cc7a3798b8": {
+      "$clewRef": "sha256:51eb13746a4ec715b7f498f982fc29c26b082e21cf20eed410ae88e3807a0f13"
+    },
+    "dashboard-5f3ddc5ec529c16f3f11": {
+      "$clewRef": "sha256:93bfdfa8b5f1d920fce5b370a4f6f2a256a16ed0c25f8253d464c0f273505c99"
+    },
+    "dashboard-612a99808c3d0cb46608": {
+      "$clewRef": "sha256:b22ba71f8330d1da4e56f2ae09953c25f916a4b9a543b519e699ea7cb0edbf22"
+    },
+    "dashboard-654eeebd7e0618b0c6dd": {
+      "$clewRef": "sha256:04307c94ed8910824028310d5a54e4062e623b9b852e4e1ed79879721fe73f84"
+    },
+    "dashboard-667235490ded3f35c51f": {
+      "$clewRef": "sha256:7aade9ed3c0bb735283355f77a431ea3c8729271662e54ebab578098032c7df9"
+    },
+    "dashboard-669efa08e0ffd0238cee": {
+      "$clewRef": "sha256:6d8aa7559bd69c992406b0ad1b9e6c2c78c89f131c5f420133af516f75fa3adb"
+    },
+    "dashboard-70034b35041093512519": {
+      "$clewRef": "sha256:a10f268c5bd504c57256d1e23e40f2967bf5f0cc856aed4a51fd32fea3013612"
+    },
+    "dashboard-70d916800072dfb17217": {
+      "$clewRef": "sha256:06a614c8c1ba5997f691087ab64fb8757e2b2b0ff5e7ff5a9d2b450158d4f9a6"
+    },
+    "dashboard-71c9fcc726ade626d673": {
+      "$clewRef": "sha256:3de8491a9dac90fc982899631f7e165433410b8eecdd1948746f0c4855d314a9"
+    },
+    "dashboard-786254751cf3c563244b": {
+      "$clewRef": "sha256:6d683bdc24c04e85356c7a024326d35d01b37fb180c4b4648e5c1f3d146e99b2"
+    },
+    "dashboard-789fa3dab2524e3b2fe2": {
+      "$clewRef": "sha256:ba743bf8e936d129e5d731fdb79a4793b5028645d2d93594f266a04c7fde43fb"
+    },
+    "dashboard-7970ac3e2a8cf3f45b4a": {
+      "$clewRef": "sha256:ab8df8a5fe7536b2fc32d2257bed77e48c54ce422b10c3afba79f26ac88b67a8"
+    },
+    "dashboard-7cb7305f79a1861d9dc7": {
+      "$clewRef": "sha256:82baae9e891028786b477265a59e1647e0a7f9caa4407265ebb90d0ccabdf51c"
+    },
+    "dashboard-7d0d09a16ac25de86e5b": {
+      "$clewRef": "sha256:f595401e33ffe1c87198d3297a901422e3d449fe00dd98adddc17aaca283d70e"
+    },
+    "dashboard-7d79014f99ba83eadfd7": {
+      "$clewRef": "sha256:dec95b6c15be91b214b5461a9c4a4de2c6778f4dc08926144af59dd3b4127499"
+    },
+    "dashboard-812cb9b6c2878af12cf9": {
+      "$clewRef": "sha256:9dfc47272109627664d48b7bdfc7a9f5e84c42965146d7a0196095441dd45229"
+    },
+    "dashboard-82ca6f23f0ad8605f057": {
+      "$clewRef": "sha256:6283e91063480812a39e2708d5aa73b5677fbda0d76e632eda0dcd45d0c8c4d6"
+    },
+    "dashboard-854efdf0a86011aa192f": {
+      "$clewRef": "sha256:748a3145ae4e083b0f8cbb6e8d98c8eb342cdde71ac8e1ecb8cb42142be6192c"
+    },
+    "dashboard-886390b176392fdbad06": {
+      "$clewRef": "sha256:4798bc09cdd58e52e7e56aae4740dbb99954e40e39ad7c17923a447e491e2712"
+    },
+    "dashboard-898727b9cdc23f7837e5": {
+      "$clewRef": "sha256:a68a759254041e1222f1b3acbee6dd2f618f57c0f0854e6edc261ffc148b6604"
+    },
+    "dashboard-8a070f0f153e2cc2cdcb": {
+      "$clewRef": "sha256:8398733280eed9d0a19284aadcfbcc1ba6015a16c36fef06edc96a92eaf64fe0"
+    },
+    "dashboard-8a4f6855cb7f1a476a04": {
+      "$clewRef": "sha256:596449b04f878bf0394c5492523a6a54d943d9f3a2a63e24cba4e4ca8dce043a"
+    },
+    "dashboard-8e13fe1feb2708d5e5bd": {
+      "$clewRef": "sha256:115f097e979ebca0d7af8b4670f23623a3cdcd8fe24627d5867e6a072e81272d"
+    },
+    "dashboard-8fbb54c4bae55833802a": {
+      "$clewRef": "sha256:baa3248d99ea30a6c17da11fe53dc9898eb6ec9f54f08b597247f295b7f98989"
+    },
+    "dashboard-92efe6e56a77af9d10a0": {
+      "$clewRef": "sha256:b76c9c4fe68ef99c93cd4231295d055f5730288cd582449dcd78c9622ce7ab87"
+    },
+    "dashboard-96e481025d0bc821956a": {
+      "$clewRef": "sha256:84f1e98c69560b314ced968c97e0f640ce52cdfe843e9bd7edf795f8ac550621"
+    },
+    "dashboard-97ab60a8c9fe2177983d": {
+      "$clewRef": "sha256:02df8a8a878b0d1bcccbe95254b51299f27778a573059d554ef15d4b5bc4d3f0"
+    },
+    "dashboard-9ad8a8c97e47d2d6b4a6": {
+      "$clewRef": "sha256:58a50c61560998fb41561d61168e0d6f7a3244bf6147ae87ffaa422266bb1e08"
+    },
+    "dashboard-9e928e7e01e6f4f57297": {
+      "$clewRef": "sha256:edf1b642af6214c18a6d57b93d0e225af6d7c19d052d2a15319724076438e338"
+    },
+    "dashboard-a08f971e4d9fa546b11e": {
+      "$clewRef": "sha256:a76abe78abe240a901395f28b66c80ab6414061c8b8302d2fa75a90cd7d385da"
+    },
+    "dashboard-a190efb9bca6603f1d2a": {
+      "$clewRef": "sha256:cb1d1d3100a0984649d98da9a16956ac42fc63a19ea6841dad22f15a13784ba7"
+    },
+    "dashboard-a35f99e7fc0d3624f4b0": {
+      "$clewRef": "sha256:28be6fc718e18e8500a01c3d863507ec7f1b2d7c5f97da384867d919b4e4ecd0"
+    },
+    "dashboard-a4174281df61bd1eb551": {
+      "$clewRef": "sha256:f1322a73286fcc84a0579276fff1799765d29c26268b7b48e0f758b21ab912d1"
+    },
+    "dashboard-a4627e5e868830287e83": {
+      "$clewRef": "sha256:c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233"
+    },
+    "dashboard-aa3168f1d50baf01de96": {
+      "$clewRef": "sha256:443921237f5507689b10de3d589f0eacfe57312bec802c6e14eea6c88ecf7cbe"
+    },
+    "dashboard-aa928ac6576338bb0b18": {
+      "$clewRef": "sha256:a185cd3784485dfc3e136c62c34e70b819c1cf87d46b4c0a36781e0c808d35ec"
+    },
+    "dashboard-abf9e21fadfeffe92fcd": {
+      "$clewRef": "sha256:069e11a3b57fe94d612d8b40ff93b59e7d2061a45c9ce711d9c418d5835ae381"
+    },
+    "dashboard-ac3aadb76be6fea3e790": {
+      "$clewRef": "sha256:bf524d202ba882540036918136ea088912da8bc6f340ab23d8a90bfb0aacab71"
+    },
+    "dashboard-ac8e82987faf46cbdbcc": {
+      "$clewRef": "sha256:43bda6a648cf14d5b141fb29efc4ba79b0ec7618f4f9d27987092a42276773fe"
+    },
+    "dashboard-b05a5fad821839a42cc6": {
+      "$clewRef": "sha256:63c5130c42b275bafe10ded54f4897263cc2a156732c1bf4689ea3369fad6cef"
+    },
+    "dashboard-b09c6660b33ff9d4d104": {
+      "$clewRef": "sha256:f865349a078107726248178334c212c28474b6872a24418e9df7be13205ff92b"
+    },
+    "dashboard-b223aa825b8f19aeeeab": {
+      "$clewRef": "sha256:4a58c3966d1b840c1265fbd8d786d1afd46de4588b9235592f182f53f3efea15"
+    },
+    "dashboard-b2f7fd0e0db7cc6be872": {
+      "$clewRef": "sha256:8a600c6422069268bfb7681828b39afd5f77fd44d52854088341e44dd3349397"
+    },
+    "dashboard-b4ce9e14327c00f246bf": {
+      "$clewRef": "sha256:731fb90962ad840677fb54411c9b7f0d0b8b03c56b165a386ce35b7cf54d88ba"
+    },
+    "dashboard-b5b1b463ad0398712327": {
+      "$clewRef": "sha256:d7ec7cb1dca1be352924e7f976052b96787bf94c5aefb5e8978688b15194bc2d"
+    },
+    "dashboard-b77af1a39fc570804b81": {
+      "$clewRef": "sha256:d324e9e85df47a94842b62d5335833610763086dcb985bce02be45e8c3625606"
+    },
+    "dashboard-ba648b1e1f16618112ba": {
+      "$clewRef": "sha256:0d838820b4764b6d662c8a2d313c9ffbc9915655d0061eef5b858e85da87a98c"
+    },
+    "dashboard-bb8da6794fd6a206607e": {
+      "$clewRef": "sha256:192ac15b0239693f16a30524f39144164d6c2ad3f0062e3edea0c58d91456ea7"
+    },
+    "dashboard-bc57152944dfa54c072b": {
+      "$clewRef": "sha256:b8c6b94020ae709e61177a744a5a5315fccb0813ac9f4e37ca6a0be5140d129c"
+    },
+    "dashboard-bcc268250ac3365e936b": {
+      "$clewRef": "sha256:d70390c59f999c361905a722ee4b2b2f718eda32266ab1f1de584785c8d45f2e"
+    },
+    "dashboard-bd13763562f5c8fca4da": {
+      "$clewRef": "sha256:5fbb40a6690a2e0ec9028ef5c692d8e5c69289dd336644863c75e093b71181a4"
+    },
+    "dashboard-c00945001e34de6614a0": {
+      "$clewRef": "sha256:5ded879bffca4444775113931feb50cab6762eb26cbd5878e529e342f553ee1b"
+    },
+    "dashboard-c5c282421f8bbbf4078a": {
+      "$clewRef": "sha256:05862343ff22500cb88b3fb25fa1de93bc01827b6c45ef5b5e6e5d9e93cf25f6"
+    },
+    "dashboard-c6847106e1de64958d0c": {
+      "$clewRef": "sha256:da1659a8327b8aecd7e61977894445c5f3ee2983c3a8452cc29f6c75241a70a1"
+    },
+    "dashboard-cb18ba8c0e515e1a650f": {
+      "$clewRef": "sha256:1bebaa185b698264b919df27521ad36ef4b4df48db052250e96a94cd76ec9f4c"
+    },
+    "dashboard-cf87224657914cc333f2": {
+      "$clewRef": "sha256:3ad6c48ca9955bf3294e416633c41e7189d10ff1260271efaf018e87b0c15e97"
+    },
+    "dashboard-cfe766397f14fd43379e": {
+      "$clewRef": "sha256:2a00ac07dfb902f89d0fdff12975fea7dafa798e30565536662c9c0734218223"
+    },
+    "dashboard-cff844982b5e3d90e6a6": {
+      "$clewRef": "sha256:59cea723d16e0ad1b44423f0c90bfc496864459444ff7e356dbb27508b9e6f2a"
+    },
+    "dashboard-d4af166cd6cf671b39e7": {
+      "$clewRef": "sha256:afca8fb55207e6f6e8f42dbafe711ec815ad36173905e4ab273d4833273c4f4f"
+    },
+    "dashboard-d8679d974cbdca55fe16": {
+      "$clewRef": "sha256:b811d68ec726aeb53287f481b58ebe7448f0186b75bd42d11ecc1dee94c65aac"
+    },
+    "dashboard-dbdad91eaadc03955829": {
+      "$clewRef": "sha256:eaf972e7a4259881d552b2e750bf0912f2db5d6c87d4026bff49f628e8ff0129"
+    },
+    "dashboard-e009a40b8f180befced5": {
+      "$clewRef": "sha256:0df062f3ce874bf34a6ca6587e650178f2eb445f035717c293279068eeaac343"
+    },
+    "dashboard-e67af5a2ad85af409bd6": {
+      "$clewRef": "sha256:d9cc6bd5d1c5891aacac7f245646839b97a9ce345a4d4f8e2b65d60b6fb1e27c"
+    },
+    "dashboard-ecae56b17e4bb5956440": {
+      "$clewRef": "sha256:9d162f310c10b95f496d0846906e2eab3a2f47866cd294d0ef3427f07b16fd85"
+    },
+    "dashboard-ed09a9c3381f5ed3557f": {
+      "$clewRef": "sha256:fb358ae597d219d0f72bad801288e6eb88b5b7b9cd7db3e79f8398d94348f0dc"
+    },
+    "dashboard-f3bcad13842060db4065": {
+      "$clewRef": "sha256:ebfe7a72fc9bcc13148469b87414b54f514d4059aeef3f3fbefbabe99d7b7ee3"
+    },
+    "dashboard-f4a336f51f8e91a3da04": {
+      "$clewRef": "sha256:7fdaf9f2a9021a175f7a56f3d1da7a449de99be9aa83f25efd9106bc89d18e90"
+    },
+    "dashboard-f7123948f9ac9571ee5e": {
+      "$clewRef": "sha256:d5dc1340c585b487fed8c0d3cd3c32a66cf4541056c08b036e47ca4a09b56974"
+    },
+    "dashboard-fe4a04d5c5b60afe170e": {
+      "$clewRef": "sha256:3cc4baeb413876e092ccdca9275f8a8289fd84877db8f97451d9194eb9694798"
+    },
+    "dashboard-fe9fc2018876b96b8176": {
+      "$clewRef": "sha256:78fe92a9bc12b007d73deefe324b94d5b84ce2ff830ae221bcf3132997ff9f65"
+    },
+    "places-770e53d99edf681987e1": {
+      "$clewRef": "sha256:d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:e51d4c67bd27056cdebb28e9eb5ea481a943fc5f4d158a8ed72036c81cce0843",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 34,
+    "evidenceDigest": "sha256:fe99edd16f599ac1c228fb0b7e824a412e21eecd9e257cc982889600b8432d17",
+    "file": "services/places/PlacesRepository.cs",
+    "id": "places-93a350e119c095d25822",
+    "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+    "service": "places",
+    "startLine": 26,
+    "text": "public async Task<IReadOnlyList<Place>> List(CancellationToken token)\n    {\n        await using var connection = await Open(token);\n        await using var command = new NpgsqlCommand(\"SELECT id,name,latitude,longitude FROM places ORDER BY name\", connection);\n        await using var reader = await command.ExecuteReaderAsync(token);\n        var result = new List<Place>();\n        while (await reader.ReadAsync(token)) result.Add(new(reader.GetString(0), reader.GetString(1), reader.GetDouble(2), reader.GetDouble(3)));\n        return result;\n    }",
+    "textDigest": "sha256:57e490d9a1f61cd4c65587b0846a749437c2527de8c9b83d77a69e19c4659230",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/c289b28be4819eddf29d59a7c12f178559ec5229/services/places/PlacesRepository.cs#L26-L34"
+  }
+}

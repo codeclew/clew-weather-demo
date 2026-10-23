@@ -1,0 +1,20 @@
+{
+  "identity": "sha256:c286d2c7605eae0a84478aec2152c4954c0d3acce9af57fb784ea72f24561f76",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "This proposal documents four service sections from source-level TypeScript and the captured OpenAPI declaration. It does not establish runtime route or listener activation, deployed settings, database outcomes, or broker delivery and offset-commit guarantees. The OpenAPI document is read as source text; JSON Schema semantics are not fully interpreted."
+    ],
+    "documentationLanguage": "en",
+    "events": [],
+    "explanation": [],
+    "findings": [],
+    "id": "section-entities",
+    "interfaceContracts": [],
+    "participants": [],
+    "summary": {
+      "$clewRef": "sha256:0dc169285ebf5541a5a4db9c494e8ff933123ca235c5806e44e1c7aa02b2b6da"
+    },
+    "title": "Dashboard domain entities"
+  }
+}

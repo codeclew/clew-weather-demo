@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:cb1d1d3100a0984649d98da9a16956ac42fc63a19ea6841dad22f15a13784ba7",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 57,
+    "evidenceDigest": "sha256:712b5d029ac189539585a5b1b12c2d3809919372b39ab66fd314e3b5220c1bb2",
+    "file": "services/dashboard/src/main.ts",
+    "id": "dashboard-a190efb9bca6603f1d2a",
+    "occurrence": {
+      "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+      "endByte": 2781,
+      "snapshot": "sha256:550435c6f8e16951bd815f9f7b54eda07bff8ad73a80a6df524ab2af077f4f6f",
+      "startByte": 2375
+    },
+    "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+    "service": "dashboard",
+    "startLine": 50,
+    "text": "try {\n    event = validateEvent(JSON.parse(message.value?.toString() ?? ''), topic)\n  } catch {\n    await pool.query(`INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES($1,$2,$3,'INVALID_EVENT')\n      ON CONFLICT DO NOTHING`, [topic, partition, message.offset])\n    await consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])\n    return\n  }",
+    "textDigest": "sha256:e476207f0df860c247defa08bc88050d5b17b483570a4d2cd9e6a3dd7d03c626",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/e635069293d58cb0d4f28c8211e748b8d58e6b37/services/dashboard/src/main.ts#L50-L57"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "identity": "sha256:84a5af59c43bad8d008b9d00b32aae9c72634ffa0d6504758d398edbb4101231",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "dashboard:symbol:021fcd0ff7baa53bd3c51930",
+      "dashboard:symbol:1465618c5ba0bb960fb12cbc",
+      "dashboard:symbol:7d0d09a16ac25de86e5beb53",
+      "note:runtime-validator-node24"
+    ],
+    "id": "claim-71014dcdd32c4a3f23f7",
+    "sourceIds": [
+      "dashboard-021fcd0ff7baa53bd3c5",
+      "dashboard-1465618c5ba0bb960fb1",
+      "dashboard-7d0d09a16ac25de86e5b"
+    ],
+    "text": "An unchecked place-event exercise accepts a place.requested event carrying arbitrary forecast data. On the production weather.place-requested path, validateEvent rejects that shape as INVALID_PLACE_EVENT because forecast must be absent. This difference is the contract gap the case is designed to expose.\n\nFrom the repository root, run node exercises/validator-regression.mjs. The imported Node v24.21.0 observation records six passing assertions: the exercise accepts that shape; production rejects it; a valid place event returns unchanged; an unknown topic yields UNKNOWN_TOPIC; a forecast with 0°C and null precipitation returns unchanged; and numeric updatedAt=0 yields INVALID_FORECAST. Production forecast validation checks updatedAt, fetchedAt and every period.time with isTimestamp: a UTC-shaped string with optional fractional seconds and a trailing Z must also parse to a finite date. Temperatures may be any finite value, including zero; precipitation may be null or finite and nonnegative.\n\nA bounded Codeclew Work places the exercise, production validator, timestamp helper and imported note in one recorded context with exact source text, making this comparison inspectable. The note records Node v24.21.0, an official-checksum-matched Node asset and repository revision 8d69f2b1d4a6d9770f87c720cd665dab30081815; the captured source excerpts are from revision e635069293d58cb0d4f28c8211e748b8d58e6b37. This is imported historical evidence, not a fresh Node or compiler run. The six assertions omit null-period input; the excerpts do not establish every branch, universal calendar validity, automatic runtime discovery or a general runtime guarantee."
+  }
+}

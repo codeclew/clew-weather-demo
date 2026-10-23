@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:cfd94a06b92175ed96dd0c0339e1e78855605dc6dc8674c869f47848da418c3f",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "branchPointer": "/oneOf/1",
+    "documentationLanguage": "en",
+    "id": "forecast-updated",
+    "leaves": {
+      "$clewRef": "sha256:13debf34a11d5845d188423b419f73e11e514124b43e57eb96aba1d1833b9baf"
+    },
+    "requiredCondition": "Selected contract branch matches; required parents and array element are present. Array leaves expanded once, independent of cardinality.",
+    "source": {
+      "$clewRef": "sha256:4f5e368172c056412420d76a096c229f94968d52746b28b1a0c0b7b6faa971dc"
+    },
+    "title": "forecast.updated v1"
+  }
+}

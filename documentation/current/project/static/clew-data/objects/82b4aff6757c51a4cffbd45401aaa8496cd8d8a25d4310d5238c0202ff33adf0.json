@@ -1,0 +1,49 @@
+{
+  "identity": "sha256:82b4aff6757c51a4cffbd45401aaa8496cd8d8a25d4310d5238c0202ff33adf0",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": [
+      "CALL_TARGETS_UNRESOLVED",
+      "RUNTIME_REGISTRATION_UNPROVEN",
+      "SOURCE_ROUTE_NOT_COMPILER_RESOLVED"
+    ],
+    "dependencyIds": [
+      "dashboard:symbol:f3bcad13842060db4065d19b",
+      "dashboard:syntax_detail:836039c08a4b1bf2a60eb667"
+    ],
+    "id": "dashboard-1d4aa83e0d1825825971",
+    "kind": "HTTP_ENDPOINT",
+    "service": "dashboard",
+    "sourceIds": [
+      "dashboard-22cc1ea3c5c08711992d",
+      "dashboard-4614b285f3d2db2edfb8",
+      "dashboard-9699d157aaaacaac920b",
+      "dashboard-f3bcad13842060db4065"
+    ],
+    "symbol": "source:services/dashboard/src/main.ts/package:/getWeather/6f5c4b46a1381056433d",
+    "trigger": {
+      "authority": "SOURCE_REGISTRATION_SYNTAX",
+      "methods": [
+        "GET"
+      ],
+      "name": "getWeather",
+      "owner": "package:",
+      "paths": [
+        "/api/weather"
+      ],
+      "sourceRoutes": [
+        {
+          "authority": "SOURCE_SYNTAX",
+          "declaredPath": "/api/weather",
+          "framework": "fastify",
+          "handler": "source:services/dashboard/src/main.ts/package:/getWeather/6f5c4b46a1381056433d",
+          "method": "GET",
+          "path": "/api/weather",
+          "receiver": "app",
+          "runtimeActivation": "UNVERIFIED",
+          "schema": "codeclew-typescript-source-route/1.0"
+        }
+      ]
+    }
+  }
+}

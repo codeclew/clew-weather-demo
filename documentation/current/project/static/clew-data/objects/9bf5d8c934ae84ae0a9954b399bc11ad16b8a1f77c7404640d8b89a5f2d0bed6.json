@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:9bf5d8c934ae84ae0a9954b399bc11ad16b8a1f77c7404640d8b89a5f2d0bed6",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:70e68582eb00327d85e060892954b49e880e766db2212d8f928be81ca22beae5"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Fixture mode selects /app/fixtures/{id}.json using Place.id; the same ID keys forecast storage and the emitted event.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "identity": "sha256:fbbdbbb318645a380d9f3efc2b3914b3e6416d696cd18450c27663b36cf950d6",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "claim": {
+      "$clewRef": "sha256:fd904e3d5eb664d9ba08b4db607626bcf2f7fe0e0ac16ad00afcdd123f3ffaf3"
+    },
+    "values": {
+      "id": "oslo",
+      "latitude": 59.93,
+      "longitude": 10.72,
+      "name": "Oslo"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "identity": "sha256:b5bc8662f46251e2fa83a207ca6c13bd36c0f540bf1ee1057767557ef972e948",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "assessment": "observed-static-use",
+    "claim": {
+      "$clewRef": "sha256:76de97f85acc8510d6490488d56bf10e37d06f182da7a2fceac7970ffa7ba266"
+    },
+    "condition": "The captured Save handler has been invoked with its bound DTO",
+    "consumer": "PlacesRepository.City",
+    "contract": "save-city-request",
+    "coveredScope": "Captured Save a city source ranges only; no publisher or forecast consumer expansion",
+    "kinds": [
+      "validate",
+      "identify-or-route"
+    ],
+    "processes": [
+      "scenario:dashboard-save-city"
+    ],
+    "producer": "SavePlace.CityId",
+    "representation": "request.CityId → supported-city switch",
+    "stage": "Places city lookup",
+    "unresolved": "Framework model-binding failures and runtime dispatch are outside the shown body; this is source interpretation."
+  }
+}

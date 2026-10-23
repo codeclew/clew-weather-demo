@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:0658a7e8cc04fb5c43efd026a373bfb01de3018f02da3d8a4623d4a7de0b1b70",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 111,
+    "evidenceDigest": "sha256:29d937df0330e03cdce8ecab9be3a3e519c8f29b91eaed1c63c3c80a4d857cda",
+    "file": "services/dashboard/src/main.ts",
+    "id": "dashboard-bc57152944dfa54c072b",
+    "occurrence": {
+      "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+      "endByte": 5191,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 4578
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 99,
+    "text": "async function start(): Promise<void> {\n  await consumer.connect()\n  await consumer.subscribe({ topics: ['weather.place-requested', 'weather.forecast-updated'], fromBeginning: true })\n  await consumer.run({ autoCommit: false, eachMessage: consumeMessage })\n  consumerReady = true\n  app.get('/api/weather', getWeather)\n  app.post('/api/places', savePlace)\n  app.post<{ Params: { id: string } }>('/api/places/:id/refresh', requestRefresh)\n  app.get('/health', getHealth)\n  app.get('/openapi.json', getOpenApi)\n  app.get('/', getHome)\n  await app.listen({ port: Number(process.env.PORT ?? 8080), host: '0.0.0.0' })\n}",
+    "textDigest": "sha256:e62fed56d05e20de4911ed5a13ee187cd1779ed829116b5940245d256b4a3351",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L99-L111"
+  }
+}

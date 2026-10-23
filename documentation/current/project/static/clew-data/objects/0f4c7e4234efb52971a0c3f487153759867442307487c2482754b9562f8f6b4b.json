@@ -1,0 +1,36 @@
+{
+  "identity": "sha256:0f4c7e4234efb52971a0c3f487153759867442307487c2482754b9562f8f6b4b",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "fragment": {
+      "dependencyIds": [
+        "places:entrypoint:f471dd170980c48ef424033f",
+        "places:symbol:434ffab68fae2f991ebba252",
+        "places:symbol:65de4bdfa04d114b73dffbc2",
+        "process:dashboard-refresh-request"
+      ],
+      "from": "places",
+      "id": "claim-886463f628a8b0e2d764",
+      "kind": "return",
+      "sourceIds": [
+        "places-434ffab68fae2f991ebb",
+        "places-65de4bdfa04d114b73df"
+      ],
+      "text": "After Enqueue completes, Refresh returns 202 with placeId and status QUEUED. This response does not establish forecast readiness or completion.",
+      "to": "service-dashboard"
+    },
+    "kind": "RETAINED_CLAIM",
+    "operation": "dashboard-refresh-request",
+    "sourceContext": {
+      "$clewRef": "sha256:8c0e984c8072da5eb16b0a9deb187c413117806d43382b83a66c9079bda1e3d3"
+    },
+    "sources": {
+      "$clewRef": "sha256:4c7b4f6bd217f86936d72e5ee287dbcc41ff770878e6ce049b2ca00e41e64bed"
+    },
+    "state": {
+      "$clewRef": "sha256:5a6a7b40bd8db5940788361f21fb7d7f2e4577bbca44ec06cd6809abe3482938"
+    },
+    "subject": "scenario:dashboard-refresh-request",
+    "title": "Request a place refresh and record its outbox boundary"
+  }
+}

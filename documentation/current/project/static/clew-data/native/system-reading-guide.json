@@ -1,0 +1,240 @@
+{
+  "schema": "codeclew-normalized-data/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "conclusion": {
+      "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+      "disclosure": null,
+      "evidence": [
+        {
+          "$clewRef": "sha256:c8298d352a644bb3310f330f0b1459ca8ed633facea82d53264160468e205cbb"
+        },
+        {
+          "$clewRef": "sha256:e3062241dd101c90f34b76295d640bb8d6e46280524ccd64beb86a904e6fe1de"
+        }
+      ],
+      "id": null,
+      "links": [
+        {
+          "href": "../scenarios/dashboard-refresh-request.html#process-overview",
+          "label": "Inspect outcomes, errors and evidence",
+          "operation": "process-overview",
+          "subject": "scenario:dashboard-refresh-request"
+        }
+      ],
+      "navTitle": null,
+      "preview": null,
+      "text": "These are source-based accounts, not an execution trace. A saved place or queued refresh does not establish a completed provider request or a newly displayed forecast. Runtime scheduling, database outcomes, Kafka delivery and deployed bindings remain unverified within their respective retained evidence scopes.",
+      "title": "Saving or queuing is not forecast completion",
+      "tone": null
+    },
+    "language": "en",
+    "presentation": null,
+    "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+    "purpose": "Weather connects saved places, stored forecasts and weather cards. Start with the user outcome, then follow the service and process descriptions behind it.",
+    "schema": "codeclew-system-reading-plan/1.0",
+    "sections": [
+      {
+        "blocks": [
+          {
+            "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+            "disclosure": null,
+            "evidence": [
+              {
+                "$clewRef": "sha256:c8298d352a644bb3310f330f0b1459ca8ed633facea82d53264160468e205cbb"
+              },
+              {
+                "$clewRef": "sha256:898ea4c936279cf29cb5783dc0f94554cd8a9578b02c739afb017c3309a12042"
+              }
+            ],
+            "id": null,
+            "links": [
+              {
+                "href": "../scenarios/dashboard-save-city.html#process-overview",
+                "label": "Follow saving a city",
+                "operation": "process-overview",
+                "subject": "scenario:dashboard-save-city"
+              }
+            ],
+            "navTitle": null,
+            "preview": null,
+            "text": "Ask Dashboard to save Oslo, Helsinki or Lisbon through Places. A new place also records a request for follow-on processing; saving it does not mean a fresh forecast is already displayed.",
+            "title": "Save a supported city",
+            "tone": null
+          },
+          {
+            "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+            "disclosure": null,
+            "evidence": [
+              {
+                "$clewRef": "sha256:c8298d352a644bb3310f330f0b1459ca8ed633facea82d53264160468e205cbb"
+              }
+            ],
+            "id": null,
+            "links": [
+              {
+                "href": "../scenarios/dashboard-refresh-request.html#process-overview",
+                "label": "Follow a refresh request",
+                "operation": "process-overview",
+                "subject": "scenario:dashboard-refresh-request"
+              }
+            ],
+            "navTitle": null,
+            "preview": null,
+            "text": "Dashboard forwards a refresh request to Places. For an existing place, the retained handler describes recording a request and returning 202 QUEUED; provider work and an updated card are separate outcomes.",
+            "title": "Request a forecast refresh",
+            "tone": null
+          },
+          {
+            "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+            "disclosure": null,
+            "evidence": [
+              {
+                "$clewRef": "sha256:898ea4c936279cf29cb5783dc0f94554cd8a9578b02c739afb017c3309a12042"
+              },
+              {
+                "$clewRef": "sha256:e3062241dd101c90f34b76295d640bb8d6e46280524ccd64beb86a904e6fe1de"
+              }
+            ],
+            "id": null,
+            "links": [
+              {
+                "href": "../scenarios/dashboard-forecast-updated-consumer.html#process-overview",
+                "label": "Follow a forecast-card update",
+                "operation": "process-overview",
+                "subject": "scenario:dashboard-forecast-updated-consumer"
+              }
+            ],
+            "navTitle": null,
+            "preview": null,
+            "text": "Dashboard serves local saved-place cards and applies place and forecast events. Forecasts serves stored forecast payloads; the source does not guarantee immediate delivery to the displayed card.",
+            "title": "Read saved weather cards",
+            "tone": null
+          }
+        ],
+        "icon": null,
+        "id": "outcomes",
+        "navTitle": null,
+        "number": null,
+        "route": null,
+        "title": "What you can do"
+      },
+      {
+        "blocks": [
+          {
+            "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+            "disclosure": null,
+            "evidence": [
+              {
+                "$clewRef": "sha256:898ea4c936279cf29cb5783dc0f94554cd8a9578b02c739afb017c3309a12042"
+              }
+            ],
+            "id": null,
+            "links": [
+              {
+                "href": "../services/dashboard.html#section-overview",
+                "label": "Read Dashboard",
+                "operation": "section-overview",
+                "subject": "service:dashboard"
+              }
+            ],
+            "navTitle": null,
+            "preview": null,
+            "text": "Serves saved weather cards, forwards save and refresh requests, and consumes place and forecast events to update its local cards.",
+            "title": "Dashboard",
+            "tone": null
+          },
+          {
+            "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+            "disclosure": null,
+            "evidence": [
+              {
+                "fragment": {
+                  "$clewRef": "sha256:9642a38d669b0a1c211345c26814d469c968a95646e5b1fa1e204d35afd1c270"
+                },
+                "kind": "RETAINED_CLAIM",
+                "operation": "section-responsibilities",
+                "sourceContext": {
+                  "boundaries": [
+                    "C# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted."
+                  ],
+                  "publication": null,
+                  "revisions": {
+                    "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+                  }
+                },
+                "sources": {
+                  "places-1223607978a77b621e14": {
+                    "$clewRef": "sha256:134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d"
+                  },
+                  "places-c4c78f2ff61478266b21": {
+                    "$clewRef": "sha256:351979e24a417de4797960a50c6bb0b27e90fbe64ebb5f7b32f302f1907e995c"
+                  },
+                  "places-d4d0aa9ce7bc37e81fa3": {
+                    "$clewRef": "sha256:8365477e69b3327301c9058498f870922953982db968768e71a60cf8d2df982d"
+                  }
+                },
+                "state": {
+                  "$clewRef": "sha256:7449d8aac6ed9736ab4f2ef7e21f8258b178915b39babe38cf3cc40fb100aac1"
+                },
+                "subject": "service:places",
+                "title": "Places responsibilities"
+              }
+            ],
+            "id": null,
+            "links": [
+              {
+                "href": "../services/places.html#section-responsibilities",
+                "label": "Read Places responsibilities",
+                "operation": "section-responsibilities",
+                "subject": "service:places"
+              }
+            ],
+            "navTitle": null,
+            "preview": null,
+            "text": "Maps supported city IDs to Place records, stores places and durable request-outbox rows, and publishes pending place requests. This retained service view covers place storage and request publication; forecast computation and card updates are documented separately.",
+            "title": "Places",
+            "tone": null
+          },
+          {
+            "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+            "disclosure": null,
+            "evidence": [
+              {
+                "$clewRef": "sha256:e3062241dd101c90f34b76295d640bb8d6e46280524ccd64beb86a904e6fe1de"
+              }
+            ],
+            "id": null,
+            "links": [
+              {
+                "href": "../services/forecasts.html#section-responsibilities",
+                "label": "Read Forecasts responsibilities",
+                "operation": "section-responsibilities",
+                "subject": "service:forecasts"
+              },
+              {
+                "href": "../scenarios/forecasts-refresh-scheduled.html#process-overview",
+                "label": "Follow forecast refresh work",
+                "operation": "process-overview",
+                "subject": "scenario:forecasts-refresh-scheduled"
+              }
+            ],
+            "navTitle": null,
+            "preview": null,
+            "text": "Serves stored forecasts and consumes place requests. Its source describes cache-aware refresh from fixtures or MET, plus scheduled refresh and event-publication work; deployment activation is unverified.",
+            "title": "Forecasts",
+            "tone": null
+          }
+        ],
+        "icon": null,
+        "id": "responsibilities",
+        "navTitle": null,
+        "number": null,
+        "route": null,
+        "title": "How the services fit together"
+      }
+    ],
+    "subject": "system:overview",
+    "title": "Save places and follow their weather"
+  }
+}

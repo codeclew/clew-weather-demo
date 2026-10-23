@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:cdd29d7b804ba1d3630ac8a4ade833b5c568450de54528f6bcce59a4862cafca",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:8e09e137e0a3ab06359a23385d1c5a0ae90e4534c8497500d3a1fd396a6e0a70"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The producer takes at most six provider time points, requires a nonempty result, and embeds them in the forecast JSON.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

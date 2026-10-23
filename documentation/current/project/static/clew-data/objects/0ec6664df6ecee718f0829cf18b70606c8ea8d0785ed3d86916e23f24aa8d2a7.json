@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:0ec6664df6ecee718f0829cf18b70606c8ea8d0785ed3d86916e23f24aa8d2a7",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "boundaries": {
+      "$clewRef": "sha256:41cf43bdb4e78933b4cda1e7d680fbaf47d9056f7fb237e100c243ca6101f8bd"
+    },
+    "href": "../scenarios/dashboard-save-city.html#process-overview",
+    "id": "dashboard-save-city",
+    "state": {
+      "$clewRef": "sha256:47d60d2e4382b533001b13341d4306aa4972c61b3b18a93de22609af694eb6d5"
+    },
+    "status": "AUTHORED",
+    "title": "Dashboard save-city thread",
+    "trigger": "A caller enters the source-declared Dashboard.savePlace handler."
+  }
+}

@@ -1,0 +1,569 @@
+---
+title: "Places"
+slug: "/services/places"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+<span id="service-overview"></span>
+
+# Places
+
+<aside className="translation-gap gap-card">
+
+Some retained descriptions have another or unknown prose language. Their originals remain readable; evidence, diagrams and review states are unchanged. Availability in the selected language is not established for the listed descriptions.
+
+<details>
+<summary>Descriptions without established availability in the selected language: 1</summary>
+
+- broker-outage.json · unknown · <ClewDownload path="/clew-original/services/places.note-runtime-broker-outage.original.json">Original description and evidence (JSON)</ClewDownload>
+
+</details>
+</aside>
+
+<ClewPageContext />
+
+<ClewStatus freshness="UNVERIFIED" verification="UNASSESSED" />
+
+Service behavior and explicit evidence boundaries
+
+## Overview {#section-overview}
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+Six Places roots in the selected source revision c289b28be4819eddf29d59a7c12f178559ec5229: five HTTP actions and RequestPublisher.ExecuteAsync. Partial C\# source coverage; runtime activation and cross-service outcomes are unverified.
+
+GET /places calls List, which reads rows ordered by name; failed database open disposes the connection and rethrows. GET /health runs SELECT 1, then returns 200 database READY. It checks the database, not Kafka.
+
+POST /places maps cityId oslo, helsinki, and lisbon to places; others return 400 UNSUPPORTED\_CITY. Supported IDs call Save and return 200. Save inserts with ON CONFLICT DO NOTHING RETURNING id in a transaction; only a new row creates a request\_outbox event, so duplicates return 200 without a new request. The event is a new GUID with web-serialized place.requested v1 payload in that transaction.
+
+POST /places/&#123;id&#125;/refresh finds by loading the list; missing IDs return 404 PLACE\_NOT\_FOUND. A found place is enqueued with a new event ID and returns 202 QUEUED without waiting for forecast recomputation. GET /openapi.json reads /app/contracts/places.openapi.json with no fallback. The contract declares GET /places 200/500, POST /places 200/400/415/500, refresh 202/404/500, and health and OpenAPI retrieval 200/500; its save body requires cityId. JSON Schema semantics are not fully interpreted, and file-read failure is not a successful 200 response.
+
+The publisher selects one eligible unpublished row in created\_at order with FOR UPDATE SKIP LOCKED; empty selection returns. It awaits ProduceAsync to weather.place-requested using place ID as key, then marks the database row published and commits. A crash between send completion and database commit can replay the event; producer idempotence does not make the two stores atomic. The producer uses idempotence, KAFKA\_BOOTSTRAP or kafka:9092, and a 10-second message timeout. The loop logs other failures as PUBLISH\_RETRY, waits one second, and retries; cancellation exits or can propagate from the delay.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/places/PlacesRepository.cs:4–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d.mdx)
+- [contracts/places.openapi.json:1–263 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959.mdx)
+- [services/places/PlacesController.cs:5–34 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/351979e24a417de4797960a50c6bb0b27e90fbe64ebb5f7b32f302f1907e995c.mdx)
+- [services/places/RequestPublisher.cs:5–35 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/8365477e69b3327301c9058498f870922953982db968768e71a60cf8d2df982d.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- C\# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted.
+
+</details>
+
+## Responsibilities {#section-responsibilities}
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+Places maps the supported IDs oslo, helsinki, and lisbon to canonical Place records for Oslo, Helsinki, and Lisbon, exposes HTTP actions for listing, saving, and requesting a refresh, and checks database readiness. The repository stores places and durable request\_outbox rows; RequestPublisher sends pending place.requested events to Kafka. This service source view does not document forecast recomputation or dashboard-card updates.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/places/PlacesRepository.cs:4–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d.mdx)
+- [services/places/PlacesController.cs:5–34 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/351979e24a417de4797960a50c6bb0b27e90fbe64ebb5f7b32f302f1907e995c.mdx)
+- [services/places/RequestPublisher.cs:5–35 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/8365477e69b3327301c9058498f870922953982db968768e71a60cf8d2df982d.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- C\# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted.
+
+</details>
+
+## Domain entities {#section-entities}
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+Place is the service's domain record with Id, Name, Latitude, and Longitude. SavePlace is an HTTP request DTO containing CityId. The repository persists those place fields in the places table and stores JSON request payloads in request\_outbox; the outbox row is a delivery record rather than a domain entity. The static City mapping maps IDs oslo, helsinki, and lisbon to the names and coordinates for Oslo, Helsinki, and Lisbon.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/places/PlacesRepository.cs:4–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d.mdx)
+- [services/places/PlacesController.cs:4–4 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/5d0e0230101848f293cac0902245f465a92e8106f700b8853514a42687637309.mdx)
+- [services/places/PlacesController.cs:3–3 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/9e47d817ca1d51924aad0c9840dc01a49fa438ad4b7d03faf2c22fbca713adc4.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- C\# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted.
+
+</details>
+
+- [Save city request · Field descriptions](../data-model/save-city-request.mdx#fields-and-representations)
+
+- [Place · Field descriptions](../data-model/place.mdx#fields-and-representations)
+
+- [City lookup · Field descriptions](../data-model/city-lookup.mdx#fields-and-representations)
+
+## Ingress contracts {#section-ingress}
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+The controller exposes GET /places, POST /places, POST /places/&#123;id&#125;/refresh, GET /health, and GET /openapi.json. Listing returns the repository result; saving maps SavePlace.CityId and returns 400 UNSUPPORTED\_CITY for an unknown ID or saves and returns the Place; refresh returns 404 PLACE\_NOT\_FOUND for a missing ID or enqueues the place and returns 202 QUEUED. Health runs the repository's database ping and returns database READY. OpenAPI retrieval reads /app/contracts/places.openapi.json. The declared contract lists 200/500 for GET routes, 200/400/415/500 for save, and 202/404/500 for refresh; it requires cityId in the save body and declares the three supported IDs.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [contracts/places.openapi.json:1–263 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959.mdx)
+- [services/places/PlacesController.cs:5–34 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/351979e24a417de4797960a50c6bb0b27e90fbe64ebb5f7b32f302f1907e995c.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- C\# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted.
+
+</details>
+
+### Declared HTTP interface schemas
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/87bdfe805b90ff664e9fc182216739d849835c6c30af7a07a61f2e924a3ac715">GET /health</ClewContextLink>
+
+<ClewContextLink path="/http/21f85a173ea2df11931c2a8c3d4c8953ac99f281ef337c409d8436421d347b61">GET /places</ClewContextLink>
+
+<ClewContextLink path="/http/323c07ab1fab7684d72321edf709e7e56345afa1fed70fa7e429deef72d255dc">POST /places/&#123;id&#125;/refresh</ClewContextLink>
+
+<ClewContextLink path="/http/d3ee0d34d91fd8813ea24869ec083fb1661ae843ae68a8370d87dd837a061341">GET /openapi.json</ClewContextLink>
+
+<ClewContextLink path="/http/4faae4a057439031a1013fae51fc548d28f7ae661a688f8923ca2d1474e2a60a">POST /places</ClewContextLink>
+
+</div>
+
+### Captured public inputs
+
+#### GET /health {#entry-places-3a33202464c8b4fff218}
+
+HTTP\_ENDPOINT
+
+<details>
+<summary>Declared trigger details</summary>
+
+```json
+{
+  "apiVersions": [],
+  "authority": "ASPNETCORE_ROUTING_RULES",
+  "conditions": {
+    "authorization": {
+      "allowAnonymous": false,
+      "authorize": []
+    },
+    "consumes": [],
+    "produces": []
+  },
+  "methods": [
+    "GET"
+  ],
+  "pathResolution": "DERIVED",
+  "paths": [
+    "/health"
+  ],
+  "versionedPaths": null
+}
+```
+
+
+</details>
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/87bdfe805b90ff664e9fc182216739d849835c6c30af7a07a61f2e924a3ac715">GET /health</ClewContextLink>
+
+</div>
+
+
+#### POST /places {#entry-places-691b340ea61828b197b6}
+
+HTTP\_ENDPOINT
+
+<details>
+<summary>Declared trigger details</summary>
+
+```json
+{
+  "apiVersions": [],
+  "authority": "ASPNETCORE_ROUTING_RULES",
+  "conditions": {
+    "authorization": {
+      "allowAnonymous": false,
+      "authorize": []
+    },
+    "consumes": [],
+    "produces": []
+  },
+  "methods": [
+    "POST"
+  ],
+  "pathResolution": "DERIVED",
+  "paths": [
+    "/places"
+  ],
+  "versionedPaths": null
+}
+```
+
+
+</details>
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/4faae4a057439031a1013fae51fc548d28f7ae661a688f8923ca2d1474e2a60a">POST /places</ClewContextLink>
+
+</div>
+
+
+#### GET /places {#entry-places-8a2148bf5e312b0c5947}
+
+HTTP\_ENDPOINT
+
+<details>
+<summary>Declared trigger details</summary>
+
+```json
+{
+  "apiVersions": [],
+  "authority": "ASPNETCORE_ROUTING_RULES",
+  "conditions": {
+    "authorization": {
+      "allowAnonymous": false,
+      "authorize": []
+    },
+    "consumes": [],
+    "produces": []
+  },
+  "methods": [
+    "GET"
+  ],
+  "pathResolution": "DERIVED",
+  "paths": [
+    "/places"
+  ],
+  "versionedPaths": null
+}
+```
+
+
+</details>
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/21f85a173ea2df11931c2a8c3d4c8953ac99f281ef337c409d8436421d347b61">GET /places</ClewContextLink>
+
+</div>
+
+
+#### GET /openapi.json {#entry-places-de7d5796a632782443dc}
+
+HTTP\_ENDPOINT
+
+<details>
+<summary>Declared trigger details</summary>
+
+```json
+{
+  "apiVersions": [],
+  "authority": "ASPNETCORE_ROUTING_RULES",
+  "conditions": {
+    "authorization": {
+      "allowAnonymous": false,
+      "authorize": []
+    },
+    "consumes": [],
+    "produces": []
+  },
+  "methods": [
+    "GET"
+  ],
+  "pathResolution": "DERIVED",
+  "paths": [
+    "/openapi.json"
+  ],
+  "versionedPaths": null
+}
+```
+
+
+</details>
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/d3ee0d34d91fd8813ea24869ec083fb1661ae843ae68a8370d87dd837a061341">GET /openapi.json</ClewContextLink>
+
+</div>
+
+
+#### POST /places/&#123;id&#125;/refresh {#entry-places-e06f41e67f62720ad106}
+
+HTTP\_ENDPOINT
+
+<details>
+<summary>Declared trigger details</summary>
+
+```json
+{
+  "apiVersions": [],
+  "authority": "ASPNETCORE_ROUTING_RULES",
+  "conditions": {
+    "authorization": {
+      "allowAnonymous": false,
+      "authorize": []
+    },
+    "consumes": [],
+    "produces": []
+  },
+  "methods": [
+    "POST"
+  ],
+  "pathResolution": "DERIVED",
+  "paths": [
+    "/places/{id}/refresh"
+  ],
+  "versionedPaths": null
+}
+```
+
+
+</details>
+
+<div className="clew-context-links">
+
+<ClewContextLink path="/http/323c07ab1fab7684d72321edf709e7e56345afa1fed70fa7e429deef72d255dc">POST /places/&#123;id&#125;/refresh</ClewContextLink>
+
+</div>
+
+
+## Egress contracts {#section-egress}
+
+<article className="clew-topic" id="topic-outgoing-weather.place-requested" tabIndex={-1}>
+
+### Outgoing Kafka topic · weather.place-requested
+
+<ClewProcessReturn topic="weather.place-requested" direction="outgoing" />
+
+<div className="clew-topic-path" aria-label="Declared asynchronous handoff">
+
+<div>
+
+<ClewContextLink path="/services/places#section-egress" fromProcess="" fromQuestion="" query={{"direction":"outgoing","topic":"weather.place-requested"}}>Places</ClewContextLink>
+
+PublishPending
+
+</div>
+
+<span aria-hidden="true">→</span>
+
+<div>
+
+**weather.place-requested**
+
+Kafka topic · asynchronous
+
+</div>
+
+<span aria-hidden="true">→</span>
+
+<div>
+
+<ClewContextLink path="/services/dashboard#section-ingress" fromProcess="" fromQuestion="" query={{"direction":"incoming","topic":"weather.place-requested"}}>Dashboard</ClewContextLink>
+
+consumeMessage
+
+<ClewContextLink path="/services/forecasts#section-ingress" fromProcess="" fromQuestion="" query={{"direction":"incoming","topic":"weather.place-requested"}}>Forecasts</ClewContextLink>
+
+consume
+
+</div>
+
+</div>
+
+Proposed handoff; runtime delivery has not been verified.
+
+Saved consumer view: <ClewContextLink path="/scenarios/dashboard-place-requested-consumer#process-overview" fromProcess="" fromQuestion="" query={{}}>Add a place to Dashboard</ClewContextLink>
+
+Saved consumer view: <ClewContextLink path="/scenarios/forecasts-place-requested-consumer#process-overview" fromProcess="" fromQuestion="" query={{}}>Refresh a forecast after a place request</ClewContextLink>
+
+Saved publisher view: <ClewContextLink path="/scenarios/places-request-publisher#process-overview" fromProcess="" fromQuestion="" query={{}}>Publish place requests</ClewContextLink>
+
+<details>
+<summary>Retained source and declaration context</summary>
+
+Topic names and the payload's event type are separate values. These references retain their own revisions; source matches do not prove topic resolution or delivery.
+
+- [services/places/RequestPublisher.cs:30–30 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/19b51220c3de5da3aa47f6979d68cf5cf893c3b3ff20cb789136be772ef4998c.mdx)
+- [services/places/RequestPublisher.cs:18–34 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/728b9ba12f04391993430660fb0e4a022375568be05cd19f8e9d4aca115e990d.mdx)
+- [services/places/RequestPublisher.cs:30–30 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/50fa1b3b3fa3c19a6fea30932984d495a1c04c271d10c755e8be7b51d6ae9511.mdx)
+- [services/places/RequestPublisher.cs:5–35 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/8365477e69b3327301c9058498f870922953982db968768e71a60cf8d2df982d.mdx)
+- [services/places/RequestPublisher.cs:30–30 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/5bdce740d2964abf6968a77eb00e0fc2fb1eda5f1edc5f3a05ab3838d2305d3e.mdx)
+
+```json
+[
+  {
+    "boundaries": [
+      "RUNTIME_DESTINATION_AND_ACTIVATION_UNKNOWN",
+      "WIRE_SERIALIZATION_NOT_ASSESSED",
+      "MESSAGE_DELIVERY_ORDER_RETRY_AND_CONSUMER_ACTIVATION_UNKNOWN",
+      "ENVIRONMENT_SCOPE_UNSPECIFIED",
+      "CLIENT_PATTERN_UNSUPPORTED_OR_AMBIGUOUS",
+      "UNACCEPTED_AGENT_PROPOSAL"
+    ],
+    "from": {
+      "callSite": {
+        "observation": "places:flow:941152b2ec99892568c9e40a"
+      },
+      "selector": {
+        "language": "csharp",
+        "name": "PublishPending",
+        "owner": "class:Weather.Places.RequestPublisher",
+        "parameterTypes": [
+          "Confluent.Kafka.IProducer`2",
+          "System.Threading.CancellationToken"
+        ]
+      },
+      "service": "places"
+    },
+    "interaction": "places-place-requested-to-dashboard",
+    "origin": "agent-proposal",
+    "rationale": "Agent-proposed weather.place-requested subscriber mapping. The captured Places producer call location is exact; topic resolution, consumer subscription and runtime delivery remain unverified.",
+    "runtime": "UNKNOWN",
+    "to": {
+      "selector": {
+        "language": "typescript",
+        "name": "consumeMessage",
+        "owner": "package:",
+        "parameterTypes": [
+          ": EachMessagePayload"
+        ]
+      },
+      "service": "dashboard"
+    },
+    "topic": {
+      "caller": {
+        "declared": "weather.place-requested",
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": "weather.place-requested",
+        "observed": [],
+        "status": "UNRESOLVED"
+      }
+    }
+  },
+  {
+    "boundaries": [
+      "RUNTIME_DESTINATION_AND_ACTIVATION_UNKNOWN",
+      "WIRE_SERIALIZATION_NOT_ASSESSED",
+      "MESSAGE_DELIVERY_ORDER_RETRY_AND_CONSUMER_ACTIVATION_UNKNOWN",
+      "ENVIRONMENT_SCOPE_UNSPECIFIED",
+      "CLIENT_PATTERN_UNSUPPORTED_OR_AMBIGUOUS",
+      "UNACCEPTED_AGENT_PROPOSAL"
+    ],
+    "from": {
+      "callSite": {
+        "observation": "places:flow:941152b2ec99892568c9e40a"
+      },
+      "selector": {
+        "language": "csharp",
+        "name": "PublishPending",
+        "owner": "class:Weather.Places.RequestPublisher",
+        "parameterTypes": [
+          "Confluent.Kafka.IProducer`2",
+          "System.Threading.CancellationToken"
+        ]
+      },
+      "service": "places"
+    },
+    "interaction": "places-place-requested-to-forecasts",
+    "origin": "agent-proposal",
+    "rationale": "Agent-proposed weather.place-requested subscriber mapping. The captured Places producer call location is exact; topic resolution, consumer subscription and runtime delivery remain unverified.",
+    "runtime": "UNKNOWN",
+    "to": {
+      "selector": {
+        "language": "kotlin",
+        "name": "consume",
+        "owner": "class:weather.Forecasts",
+        "parameterTypes": [
+          "record: ConsumerRecord<String, String>",
+          "acknowledgment: Acknowledgment"
+        ]
+      },
+      "service": "forecasts"
+    },
+    "topic": {
+      "caller": {
+        "declared": "weather.place-requested",
+        "observed": [],
+        "status": "UNRESOLVED"
+      },
+      "receiver": {
+        "declared": "weather.place-requested",
+        "observed": [],
+        "status": "UNRESOLVED"
+      }
+    }
+  }
+]
+```
+
+
+</details>
+
+</article>
+
+Retained account · UNVERIFIED · UNASSESSED. Runtime behavior is not established by this export.
+
+A new supported place insert and its request\_outbox event are written in one PostgreSQL transaction. ON CONFLICT DO NOTHING means a duplicate place does not create another event. Refresh of a found place creates a new outbox event in its own transaction. The payload contains a new GUID, type place.requested, version 1, and the Place, serialized with web JSON defaults. RequestPublisher selects one eligible unpublished row in created\_at order with FOR UPDATE SKIP LOCKED, sends it to weather.place-requested with Place.Id as the Kafka key, then marks the row published and commits. A failure after Kafka accepts the event but before the database commit can lead to a replay; producer idempotence does not make the Kafka send and database update one transaction.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/places/PlacesRepository.cs:4–60 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/134e36e39b6fda8e9ee70b514147c124e73f7567d3b214272b0d7c85159ae83d.mdx)
+- [services/places/RequestPublisher.cs:5–35 · revision c289b28be4819eddf29d59a7c12f178559ec5229](../sources/8365477e69b3327301c9058498f870922953982db968768e71a60cf8d2df982d.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- C\# source coverage is PARTIAL. The selected snapshot supports source-level explanations; it does not establish runtime registration, HTTP serialization, deployment configuration, or downstream forecast recomputation. The OpenAPI projection is read as source text and its JSON Schema keywords are not fully interpreted.
+
+</details>
+
+## Notes and assessments
+
+### A broker outage leaves a saved place waiting in the outbox {#assessment-runtime-broker-outage}
+
+[Open the retained record and separate assessment](../notes/places--assessment-runtime-broker-outage.mdx)
+
+## Original operations
+
+- [A broker outage leaves a saved place waiting in the outbox](../operations/services-places--assessment-runtime-broker-outage.mdx)
+- [GET /health](../operations/services-places--places-3a33202464c8b4fff218.mdx)
+- [POST /places](../operations/services-places--places-691b340ea61828b197b6.mdx)
+- [GET /places](../operations/services-places--places-8a2148bf5e312b0c5947.mdx)
+- [GET /openapi.json](../operations/services-places--places-de7d5796a632782443dc.mdx)
+- [POST /places/&#123;id&#125;/refresh](../operations/services-places--places-e06f41e67f62720ad106.mdx)
+- [Places egress contracts](../operations/services-places--section-egress.mdx)
+- [Places domain entities](../operations/services-places--section-entities.mdx)
+- [Places ingress contracts](../operations/services-places--section-ingress.mdx)
+- [Places service](../operations/services-places--section-overview.mdx)
+- [Places responsibilities](../operations/services-places--section-responsibilities.mdx)
+
+<ClewDownload path="/clew-data/native/services/places.json">Saved data and complete provenance (reference format)</ClewDownload>
+

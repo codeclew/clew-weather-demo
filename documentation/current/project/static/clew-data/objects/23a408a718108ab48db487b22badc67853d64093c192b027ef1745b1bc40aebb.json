@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:23a408a718108ab48db487b22badc67853d64093c192b027ef1745b1bc40aebb",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:ba2d6311a6e883cdef8b27c663b65439905cf808644df35545a360b610d888b5"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The lookup chooses the supported city key as Place.Id. The request CityId selects that record; an unsupported key returns null and the handler returns 400 before persistence. The selected event contract describes these canonical Place fields; this stage has not emitted an event.",
+    "title": "Save a city: source interpretation",
+    "tone": null
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:d023db43c764026216dd3afd3eb19a6089851fe363b7077a014ce01d754cedcc",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:58a7b287648459b56610207df1ee379d2af4355b104636dd0bf71bdb3378d513"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "event.forecast.updatedAt supplies weather_cards.updated_at. The SQL update accepts only a strictly greater timestamp, and the complete Forecast JSON is stored alongside it.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

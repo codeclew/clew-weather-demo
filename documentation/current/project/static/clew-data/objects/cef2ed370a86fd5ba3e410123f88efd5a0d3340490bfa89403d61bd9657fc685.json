@@ -1,0 +1,19 @@
+{
+  "identity": "sha256:cef2ed370a86fd5ba3e410123f88efd5a0d3340490bfa89403d61bd9657fc685",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "forecasts:flow:44c1216c3e37f45f4ff9ceca",
+      "forecasts:source_annotations:3d7b217355f2e6a34064e800",
+      "forecasts:symbol:3d7b217355f2e6a34064e800",
+      "process:forecasts-publish-pending"
+    ],
+    "id": "claim-eb08b23cad64d49b0c2d",
+    "kind": "note",
+    "sourceIds": [
+      "forecasts-3d7b217355f2e6a34064",
+      "forecasts-44c1216c3e37f45f4ff9"
+    ],
+    "text": "An exception from the transaction path, send wait, or database update is caught and logged as PUBLISH_RETRY followed by the exception class name. A later attempt depends on another invocation; this method contains no immediate retry loop."
+  }
+}

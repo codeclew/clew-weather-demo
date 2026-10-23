@@ -1,0 +1,36 @@
+---
+title: "services/dashboard/src/main.ts:47–60"
+slug: "/sources/c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/dashboard/src/main.ts:47–60
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: e635069293d58cb0d4f28c8211e748b8d58e6b37
+
+Text digest: sha256:e2ec368962cff169b81a5e04e5d2dbbf4ed970c39b3fa3a967106efa22e66840
+
+## Retained text {#retained-text}
+
+```text
+async function consumeMessage(payload: EachMessagePayload): Promise<void> {
+  const { topic, partition, message } = payload
+  let event
+  try {
+    event = validateEvent(JSON.parse(message.value?.toString() ?? ''), topic)
+  } catch {
+    await pool.query(`INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES($1,$2,$3,'INVALID_EVENT')
+      ON CONFLICT DO NOTHING`, [topic, partition, message.offset])
+    await consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])
+    return
+  }
+  await applyEvent(event)
+  await consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])
+}
+```
+
+<ClewDownload path="/clew-data/objects/c8b3521f73ba74f836cc640aa7a8cad2b6e1012251c1b736f186c06a9b475233.json">Complete original source binding</ClewDownload>

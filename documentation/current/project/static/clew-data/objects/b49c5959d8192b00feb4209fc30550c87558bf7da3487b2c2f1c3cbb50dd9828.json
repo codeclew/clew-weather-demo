@@ -1,0 +1,21 @@
+{
+  "identity": "sha256:b49c5959d8192b00feb4209fc30550c87558bf7da3487b2c2f1c3cbb50dd9828",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "dashboard:flow:049a97e649d7feb212e6c67f",
+      "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+      "dashboard:symbol:a4627e5e868830287e83e0dc",
+      "dashboard:symbol:ac3aadb76be6fea3e790cb85"
+    ],
+    "id": "claim-b438013a6e503a7046eb",
+    "kind": "note",
+    "sourceIds": [
+      "dashboard-049a97e649d7feb212e6",
+      "dashboard-8a4f6855cb7f1a476a04",
+      "dashboard-a4627e5e868830287e83",
+      "dashboard-ac3aadb76be6fea3e790"
+    ],
+    "text": "For an existing card with an equal or newer stored timestamp, the SQL update condition affects no row. The transaction still commits the inbox insert and returns OLDER_OR_EQUAL without changing the card; consumeMessage then commits offset plus one."
+  }
+}

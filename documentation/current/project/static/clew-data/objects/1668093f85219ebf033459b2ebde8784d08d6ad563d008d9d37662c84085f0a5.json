@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:1668093f85219ebf033459b2ebde8784d08d6ad563d008d9d37662c84085f0a5",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:e6429ae829cdbfb13d1ae02a82bc58014d1c9b145e1551498e641a7a993b5bbb"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The browser POST /api/places and captured Fastify route declare a matching HTTP path. The submitted body carries cityId. This is a declared route pairing, not observed browser-to-handler delivery.",
+    "title": "Save a city: source interpretation",
+    "tone": null
+  }
+}

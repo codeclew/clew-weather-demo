@@ -1,0 +1,17 @@
+{
+  "identity": "sha256:b84a56ca5278f3bf142c799d04c6feb66c826676fd08e316c35e8d3304fea6f4",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "branchPointer": "/oneOf/0",
+    "documentationLanguage": "en",
+    "id": "place-requested",
+    "leaves": {
+      "$clewRef": "sha256:39bfb15c65d55feb8e6084082a7c04b4b36e53061fbb353196cd193e90da359c"
+    },
+    "requiredCondition": "Selected contract branch matches; required parents and array element are present. Array leaves expanded once, independent of cardinality.",
+    "source": {
+      "$clewRef": "sha256:4f5e368172c056412420d76a096c229f94968d52746b28b1a0c0b7b6faa971dc"
+    },
+    "title": "place.requested v1"
+  }
+}

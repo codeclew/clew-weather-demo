@@ -1,0 +1,22 @@
+{
+  "identity": "sha256:b810f7a12494e1d703bbc1556ba42c6ec258223a559df5363cde528ff72d9d0f",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "fragment": {
+      "$clewRef": "sha256:d561a24f15bfb42100555fbc13eee8ef76fa63352657fb45d1e71b548a577f19"
+    },
+    "kind": "RETAINED_CLAIM",
+    "operation": "dashboard-place-requested-consumer",
+    "sourceContext": {
+      "$clewRef": "sha256:ebff0ac1bf65e82eab9a03d9ea1602d72b899d362a9b668fc7258a487be713bc"
+    },
+    "sources": {
+      "$clewRef": "sha256:e1987d13276f451a4d66704c468579bd7c6a8f38ff9106f83695d5cf7f3c3a93"
+    },
+    "state": {
+      "$clewRef": "sha256:c18ddf3d31574006b39d94c64c9a7a78332f997376da5da26175e611d7f1ea2d"
+    },
+    "subject": "scenario:dashboard-place-requested-consumer",
+    "title": "Dashboard consumes place-requested events"
+  }
+}

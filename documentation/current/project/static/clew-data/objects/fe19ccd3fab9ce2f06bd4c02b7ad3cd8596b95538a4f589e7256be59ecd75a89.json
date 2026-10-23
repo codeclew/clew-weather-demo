@@ -1,0 +1,23 @@
+{
+  "identity": "sha256:fe19ccd3fab9ce2f06bd4c02b7ad3cd8596b95538a4f589e7256be59ecd75a89",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EXACT_SNAPSHOT_TEXT",
+    "endLine": 89,
+    "evidenceDigest": "sha256:6ff23503fc5eae1fab6d27b28819e02d8763bc80bbcf94df7164a4d3ebfbb2d5",
+    "file": "services/dashboard/src/main.ts",
+    "id": "dashboard-1db17a7767cbf1b12d50",
+    "occurrence": {
+      "blob": "c923fc2bb1630bbc208fef832886773dd7d8ae03",
+      "endByte": 4211,
+      "snapshot": "sha256:43b5c9130bbd0db10f6066921b94401c6ada501bc60e9a78951066ed1466e56a",
+      "startByte": 4000
+    },
+    "revision": "7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6",
+    "service": "dashboard",
+    "startLine": 85,
+    "text": "async function getHealth(): Promise<{ database: string; kafka: string }> {\n  await pool.query('SELECT 1')\n  if (!consumerReady) throw new Error('KAFKA_NOT_READY')\n  return { database: 'READY', kafka: 'READY' }\n}",
+    "textDigest": "sha256:aeaecf489ba122eb4924fea3907cfb073937b99b0fe0f01886b37fa2384f82ae",
+    "url": "https://github.com/codeclew/clew-weather-demo/blob/7e602ace02c04006fb7b2a2f5ecd88ba3c4005c6/services/dashboard/src/main.ts#L85-L89"
+  }
+}

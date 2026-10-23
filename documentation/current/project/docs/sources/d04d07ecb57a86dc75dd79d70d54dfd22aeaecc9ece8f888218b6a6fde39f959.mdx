@@ -1,0 +1,286 @@
+---
+title: "contracts/places.openapi.json:1–263"
+slug: "/sources/d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# contracts/places.openapi.json:1–263
+
+Authority: DECLARED\_OPENAPI
+
+Revision: c289b28be4819eddf29d59a7c12f178559ec5229
+
+Text digest: sha256:ab24febec1817f3cca9b6e58e2f161f489edcc7266670d7b71b9736134cdc8c5
+
+## Retained text {#retained-text}
+
+```text
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "places",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/places": {
+      "get": {
+        "operationId": "places_get_places",
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "name",
+                      "latitude",
+                      "longitude"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "enum": [
+                          "oslo",
+                          "helsinki",
+                          "lisbon"
+                        ]
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "latitude": {
+                        "type": "number",
+                        "minimum": -90,
+                        "maximum": 90
+                      },
+                      "longitude": {
+                        "type": "number",
+                        "minimum": -180,
+                        "maximum": 180
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "500"
+          }
+        }
+      },
+      "post": {
+        "operationId": "places_post_places",
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "name",
+                    "latitude",
+                    "longitude"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "enum": [
+                        "oslo",
+                        "helsinki",
+                        "lisbon"
+                      ]
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "latitude": {
+                      "type": "number",
+                      "minimum": -90,
+                      "maximum": 90
+                    },
+                    "longitude": {
+                      "type": "number",
+                      "minimum": -180,
+                      "maximum": 180
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "415"
+          },
+          "500": {
+            "description": "500"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "cityId"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "cityId": {
+                    "type": "string",
+                    "enum": [
+                      "oslo",
+                      "helsinki",
+                      "lisbon"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/places/{id}/refresh": {
+      "post": {
+        "operationId": "places_post_places_id_refresh",
+        "responses": {
+          "202": {
+            "description": "202",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "placeId",
+                    "status"
+                  ],
+                  "properties": {
+                    "placeId": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "const": "QUEUED"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "404",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "500"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "oslo",
+                "helsinki",
+                "lisbon"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "/health": {
+      "get": {
+        "operationId": "places_get_health",
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "database": {
+                      "const": "READY"
+                    },
+                    "kafka": {
+                      "const": "READY"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "500"
+          }
+        }
+      }
+    },
+    "/openapi.json": {
+      "get": {
+        "operationId": "places_get_openapi.json",
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "500"
+          }
+        }
+      }
+    }
+  }
+}
+
+```
+
+<ClewDownload path="/clew-data/objects/d04d07ecb57a86dc75dd79d70d54dfd22aeaecc9ece8f888218b6a6fde39f959.json">Complete original source binding</ClewDownload>

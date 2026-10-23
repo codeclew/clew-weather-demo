@@ -1,0 +1,41 @@
+---
+title: "Dashboard save-city thread"
+slug: "/operations/scenarios-dashboard-save-city--process-overview"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# Dashboard save-city thread
+
+<ClewPageContext />
+
+Retained account · STALE · UNASSESSED. Runtime behavior is not established by this export.
+
+savePlace posts the JSON request body to placesUrl/places with an application/json content type, waits up to ten seconds, and forwards the response status and JSON body. A fetch or JSON-decoding error returns 503 PLACES\_UNAVAILABLE. The saved process links this request to the proposed Places.Save mapping and separate request-publisher and event-consumer views. The target service binding and network result are unverified; linked event views do not establish downstream processing, delivery or execution order.
+
+<details>
+<summary>Summary source bindings</summary>
+
+- [services/dashboard/src/main.ts:67–74 · revision e635069293d58cb0d4f28c8211e748b8d58e6b37](../sources/ab8df8a5fe7536b2fc32d2257bed77e48c54ce422b10c3afba79f26ac88b67a8.mdx)
+
+</details>
+
+<details>
+<summary>Retained boundaries</summary>
+
+- CALL\_TARGETS\_UNRESOLVED
+- DECLARED\_TRANSITION\_NOT\_REACHED:dashboard-save-place-to-places
+- DECLARED\_TRANSITION\_NOT\_REACHED:forecasts-forecast-updated-to-dashboard
+- DECLARED\_TRANSITION\_NOT\_REACHED:places-place-requested-to-dashboard
+- DECLARED\_TRANSITION\_NOT\_REACHED:places-place-requested-to-forecasts
+- ORDER\_LEXICAL\_ONLY
+- UNACCEPTED\_AGENT\_PROPOSAL
+- LINKED\_PROCESS\_UNASSESSED:places-request-publisher
+- LINKED\_PROCESS\_UNASSESSED:forecasts-place-requested-consumer
+- LINKED\_PROCESS\_UNASSESSED:forecasts-publish-pending
+- LINKED\_PROCESS\_UNASSESSED:dashboard-place-requested-consumer
+- LINKED\_PROCESS\_UNASSESSED:dashboard-forecast-updated-consumer
+
+</details>
+

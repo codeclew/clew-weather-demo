@@ -1,0 +1,21 @@
+{
+  "identity": "sha256:f888c28637606eed52249b4a49d9fd3d3500567327a68d86d7784541533a2f1c",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "places:contract-operation:08d1b9df6781b2953a038bc2",
+      "places:contract-operation:0f29e92a853c76a6ea564769",
+      "places:contract-operation:6b165729e2d309a9b2687873",
+      "places:contract-operation:6e713b9442ae5dfc4b99b133",
+      "places:contract-operation:fa5644a96e01681d7c2b0445",
+      "places:contract:91b280ed0ed0eda3e8e3231d",
+      "places:symbol:c4c78f2ff61478266b216b51"
+    ],
+    "id": "claim-0112b4d397205f45673e",
+    "sourceIds": [
+      "places-770e53d99edf681987e1",
+      "places-c4c78f2ff61478266b21"
+    ],
+    "text": "The controller exposes GET /places, POST /places, POST /places/{id}/refresh, GET /health, and GET /openapi.json. Listing returns the repository result; saving maps SavePlace.CityId and returns 400 UNSUPPORTED_CITY for an unknown ID or saves and returns the Place; refresh returns 404 PLACE_NOT_FOUND for a missing ID or enqueues the place and returns 202 QUEUED. Health runs the repository's database ping and returns database READY. OpenAPI retrieval reads /app/contracts/places.openapi.json. The declared contract lists 200/500 for GET routes, 200/400/415/500 for save, and 202/404/500 for refresh; it requires cityId in the save body and declares the three supported IDs."
+  }
+}

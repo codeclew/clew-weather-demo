@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:ad2b680fcb403835d62c745b5d321c3ded77a4e24b8b293a3d6a3bce0d9732c6",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:a85120309ebf9641ee2e342b353ff812c6b51a1b861a79ec2f139c6669f169ce"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Air temperature",
+    "title": "Authored readable name (agent proposal)",
+    "tone": null
+  }
+}

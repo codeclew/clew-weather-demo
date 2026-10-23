@@ -41,4 +41,14 @@ for name,value in [("data-model-plan.json",plan),("reading-plan.json",reading)]:
  (HERE/name).write_text(json.dumps(value,ensure_ascii=False,indent=2)+"\n")
 receipt={"status":"AUTHORED_INPUTS_PREPARED_NOT_MEANING_APPROVAL","origin":"agent-proposal","originalPlanSha256":hashlib.sha256(original.read_bytes()).hexdigest(),"originalReadingPlanSha256":hashlib.sha256(reading_path.read_bytes()).hexdigest(),"fields":count,"models":len(plan["models"]),"preservation":"All original field comments, paths, representations, evidence and process reading blocks remain exact. One new request-field disclosure block is additive; numbered process steps remain exact.","storageFieldBinding":"weather-card/ordering explicitly displays updated_at; original path 'updated_at (stored only)' and its full comment are retained.","newClaims":"Readable labels condense retained comments and keep identical evidence arrays; they remain authored proposals, not compiler-derived meanings.","publication":plan["publication"],"snapshot":plan["snapshot"]}
 (HERE/"input-provenance.json").write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+"\n")
+
+# Reuse the established explicit service associations without changing model content.
+rendered=copy.deepcopy(plan)
+models={m["id"]:m for m in rendered["models"]}
+for service,ids in json.loads((ROOT/"documentation/reference/service-model-links.json").read_text()).items():
+ for mid in ids:
+  link={"subject":"service:"+service,"anchor":"section-entities","label":service+": field descriptions"}
+  if link not in models[mid].setdefault("processLinks",[]):models[mid]["processLinks"].append(link)
+(HERE/"rendered-data-model-plan.json").write_text(json.dumps(rendered,ensure_ascii=False,indent=2)+"\n")
+
 print(json.dumps({"status":"READY","models":6,"fields":23,"readingReference":"question-request / Request fields disclosure"}))

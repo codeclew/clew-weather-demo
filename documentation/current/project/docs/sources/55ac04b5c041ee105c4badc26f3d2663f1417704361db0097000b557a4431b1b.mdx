@@ -1,0 +1,23 @@
+---
+title: "services/places/RequestPublisher.cs:31–31"
+slug: "/sources/55ac04b5c041ee105c4badc26f3d2663f1417704361db0097000b557a4431b1b"
+hide_title: true
+---
+
+import {ClewMarkdown, ClewFieldDetails, ClewProcess, ClewDataModel, ClewDownload, ClewModelLink, ClewRelatedModelLink, ClewFieldTrace, ClewContextLink, ClewPageContext, ClewProcessReturn, ClewStatus, ClewRetainedPage, ClewCatalog, ClewAnchor} from '@site/src/components/ClewReaders';
+
+# services/places/RequestPublisher.cs:31–31
+
+Authority: EXACT\_SNAPSHOT\_TEXT
+
+Revision: c289b28be4819eddf29d59a7c12f178559ec5229
+
+Text digest: sha256:7577af3b9936ac32b45bc13f30f6fb5ae389bf9d0e292bbc67b638c20fa8c599
+
+## Retained text {#retained-text}
+
+```text
+await using var mark = new NpgsqlCommand("UPDATE request_outbox SET published=true WHERE id=$1", connection, transaction);
+```
+
+<ClewDownload path="/clew-data/objects/55ac04b5c041ee105c4badc26f3d2663f1417704361db0097000b557a4431b1b.json">Complete original source binding</ClewDownload>

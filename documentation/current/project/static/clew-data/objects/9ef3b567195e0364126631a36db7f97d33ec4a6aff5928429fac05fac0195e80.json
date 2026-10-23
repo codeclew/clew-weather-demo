@@ -1,0 +1,92 @@
+{
+  "identity": "sha256:9ef3b567195e0364126631a36db7f97d33ec4a6aff5928429fac05fac0195e80",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "callStep": "dashboard-save-forward",
+    "evidence": {
+      "dashboard-save": {
+        "endLine": 74,
+        "revision": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+        "service": "dashboard",
+        "sourceId": "dashboard-7970ac3e2a8cf3f45b4a",
+        "startLine": 67,
+        "textDigest": "sha256:d36fd526184e291acfb7df17b6ebb41df8afb1f284fcdb448f552c1b457260a8"
+      },
+      "places-save": {
+        "endLine": 17,
+        "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+        "service": "places",
+        "sourceId": "places-309961f88b197290c1b0",
+        "startLine": 10,
+        "textDigest": "sha256:b6a46a9557e67342266ccce88f28a634490cacba1ee8f705d71066775158f708"
+      }
+    },
+    "failures": [
+      {
+        "evidenceRefs": [
+          "places-save"
+        ],
+        "text": "Places returns 400 with error UNSUPPORTED_CITY when CityId maps to no city."
+      },
+      {
+        "evidenceRefs": [
+          "dashboard-save"
+        ],
+        "text": "Dashboard maps an exception from fetch or response JSON parsing to 503 with PLACES_UNAVAILABLE; this handler does not reveal whether Places completed the save before that error."
+      }
+    ],
+    "guarantees": [
+      {
+        "evidenceRefs": [
+          "dashboard-save",
+          "places-save"
+        ],
+        "text": "The source shows no request idempotency key in these handlers; retry and duplicate-save semantics are unresolved at this boundary."
+      },
+      {
+        "evidenceRefs": [
+          "places-save"
+        ],
+        "text": "A successful Places response follows the awaited repository.Save call, but its storage and commit outcome are outside this wrapper contract."
+      }
+    ],
+    "id": "dashboard-save-http",
+    "operation": {
+      "evidenceRefs": [
+        "dashboard-save",
+        "places-save"
+      ],
+      "text": "Dashboard sends POST /places to the declared Places.Save target."
+    },
+    "receiverFragment": "places-save-handler",
+    "request": [
+      {
+        "evidenceRefs": [
+          "dashboard-save"
+        ],
+        "text": "Dashboard serializes request.body as JSON and sets content-type to application/json. The body schema is not established by these two handler bodies."
+      },
+      {
+        "evidenceRefs": [
+          "places-save"
+        ],
+        "text": "Places reads SavePlace.CityId; an unsupported mapped city returns 400 with UNSUPPORTED_CITY."
+      }
+    ],
+    "response": [
+      {
+        "evidenceRefs": [
+          "places-save"
+        ],
+        "text": "For a supported mapped city, Places awaits repository.Save and then returns 200 with the city. The repository effect is not proven by the controller wrapper."
+      },
+      {
+        "evidenceRefs": [
+          "dashboard-save"
+        ],
+        "text": "Dashboard forwards the upstream status and JSON body after parsing the response."
+      }
+    ],
+    "transport": "HTTP"
+  }
+}

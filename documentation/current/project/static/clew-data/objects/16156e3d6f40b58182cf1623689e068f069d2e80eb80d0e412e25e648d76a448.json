@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:16156e3d6f40b58182cf1623689e068f069d2e80eb80d0e412e25e648d76a448",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:6c1c934b28e298a6f204d3c1b6224687cea1db609b0d7498e6ac5928f11af8b5"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "place_id is the primary key and is populated from event.place.id.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

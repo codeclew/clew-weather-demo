@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:cad2800fc75c34e10de6a709accf1f4c98bb74eec2910b090ddd99115713813d",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:040dcf86edd8b30ebae68ceb519337686b87e304aa01605c54feefd14f94ebd7"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "Relational timestamp used to accept only a strictly newer forecast. It is not separately selected by GET /api/weather.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

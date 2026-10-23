@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:a2380154fbc7d28889c1657febf31ac98641d06594e31a1ba66d7a08c5ae91bf",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:040dcf86edd8b30ebae68ceb519337686b87e304aa01605c54feefd14f94ebd7"
+    },
+    "id": null,
+    "links": [],
+    "navTitle": null,
+    "preview": null,
+    "text": "The location key returned as card id by the API.",
+    "title": "Source interpretation",
+    "tone": null
+  }
+}

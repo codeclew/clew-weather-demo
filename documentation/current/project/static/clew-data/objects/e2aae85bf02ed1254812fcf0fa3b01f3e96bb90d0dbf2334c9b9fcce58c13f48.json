@@ -1,0 +1,14 @@
+{
+  "identity": "sha256:e2aae85bf02ed1254812fcf0fa3b01f3e96bb90d0dbf2334c9b9fcce58c13f48",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "SOURCE_INTERPRETATION",
+    "claim": {
+      "$clewRef": "sha256:44f5a6f5d5a6dbedcdc38223cec79a4f1e8560c1a38f3ef0c6fa16da10d04633"
+    },
+    "condition": "City() returns a non-null supported Place; Save(city) is awaited.",
+    "from": "Places city lookup",
+    "kind": "transfer",
+    "to": "Places transaction and outbox"
+  }
+}

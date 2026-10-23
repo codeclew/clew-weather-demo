@@ -1,0 +1,31 @@
+{
+  "identity": "sha256:a6fa28f6c8d59af1d7eb15ccaf5fc8db04222e316a33c3b1199eaddd5bf650c4",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+    "disclosure": null,
+    "evidence": {
+      "$clewRef": "sha256:4d8be77413c045636379e8f630113b588c70e62d2b9313e27ed28357a83c030a"
+    },
+    "id": null,
+    "links": [
+      {
+        "href": "../scenarios/forecasts-place-requested-consumer.html#process-overview",
+        "label": "Related Forecasts consumer",
+        "operation": "process-overview",
+        "subject": "scenario:forecasts-place-requested-consumer"
+      },
+      {
+        "href": "../scenarios/dashboard-place-requested-consumer.html#process-overview",
+        "label": "Related Dashboard consumer",
+        "operation": "process-overview",
+        "subject": "scenario:dashboard-place-requested-consumer"
+      }
+    ],
+    "navTitle": null,
+    "preview": null,
+    "text": "This is a pinned source interpretation with PARTIAL C# coverage. It does not establish worker activation, broker delivery or consumer execution. Related consumer accounts have their own sources and review state; their links do not prove execution order.",
+    "title": "Evidence scope",
+    "tone": null
+  }
+}

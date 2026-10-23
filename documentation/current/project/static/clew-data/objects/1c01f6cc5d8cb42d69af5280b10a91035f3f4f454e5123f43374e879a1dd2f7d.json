@@ -1,0 +1,10 @@
+{
+  "identity": "sha256:1c01f6cc5d8cb42d69af5280b10a91035f3f4f454e5123f43374e879a1dd2f7d",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "points": {
+      "$clewRef": "sha256:390c4fbcc4391392b9349312a4f1ca5faeda8c8274f4e49b3b32b54d0daaa030"
+    },
+    "purpose": "Compare fields that Dashboard checks or uses with values it only carries inside the event or Forecast object. Choose View evidence to verify one conclusion."
+  }
+}

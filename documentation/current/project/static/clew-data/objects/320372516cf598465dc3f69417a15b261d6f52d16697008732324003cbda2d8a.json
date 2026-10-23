@@ -1,0 +1,18 @@
+{
+  "identity": "sha256:320372516cf598465dc3f69417a15b261d6f52d16697008732324003cbda2d8a",
+  "schema": "codeclew-export-object/1.0",
+  "value": {
+    "dependencyIds": [
+      "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+      "forecasts:symbol:04bc0feeea5752d3f1979c56"
+    ],
+    "from": "service-forecasts",
+    "id": "claim-667c70c9151b9422ff82",
+    "kind": "message",
+    "sourceIds": [
+      "forecasts-04bc0feeea5752d3f197"
+    ],
+    "text": "Build the location forecast URL with latitude and longitude truncated down to four decimal places. Send a GET with a 20-second timeout, the configured User-Agent, Accept-Encoding gzip, and If-Modified-Since when the cached row has a last-modified value.",
+    "to": "weather-provider"
+  }
+}

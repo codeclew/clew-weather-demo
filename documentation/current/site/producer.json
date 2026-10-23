@@ -1,0 +1,59 @@
+{
+  "schema": "weather-current-render/1.0",
+  "renderer": {
+    "selection": "INSTALLED_RELEASE",
+    "version": "0.13.50",
+    "sourceRevision": "5050e4a62c6964687bde861dfe418178f03fdaf8"
+  },
+  "publicReleaseClaim": true,
+  "runtimeReexecuted": false,
+  "runtime": {
+    "runtimeMode": "RELEASE",
+    "runtimeKey": "sha256:4cfd8e10997207e6e9ed8ddce4f6587408b2367fa13acfdc90cd30ed1d82e467",
+    "runtimeManifestDigest": "sha256:c9d88e619db6e4d5792fb8521b0e69dab1ad586f37f212ec3045ca8a3def80d3"
+  },
+  "releasePackage": {
+    "architecture": "arm64",
+    "operatingSystem": "macos",
+    "profile": "core",
+    "schema": "codeclew-release/2.0",
+    "sourceRevision": "5050e4a62c6964687bde861dfe418178f03fdaf8",
+    "sourceTree": "7d740f9241441f65301f7e7792c7cd684b8dbc20",
+    "status": "PILOT_READY",
+    "version": "v0.13.50"
+  },
+  "releasePackageMetadataSha256": "49ffe3b1408d4e7ac313aed3814f967da3b20e824388755d08fbd6f02dc937ea",
+  "snapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
+  "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+  "inputSha256": {
+    "documentation/markdown-tables/reading-plan.json": "9284dd6690eccc871684dc41d462c05dc0fa7d47b980909e34afe95fa375b02a",
+    "documentation/markdown-tables/data-model-plan.json": "95ef19fa725c031a1e59963cd14a91a27f32c487412189f9c4e005b45a42f850",
+    "documentation/markdown-tables/rendered-data-model-plan.json": "9514d954519bb94639f37d4bc59932b11e44158b317398b30d25eeb3f0f756ae",
+    "documentation/reference/service-model-links.json": "e1db4493387507eb9b8311fd76d0e2ae806d84447c8a491bd55b35ae7104e4b1"
+  },
+  "navigationOverlay": "The rendered model plan appends the existing explicit service-model-links.json associations as section-entities processLinks. Original field content and model ownership claims are unchanged.",
+  "scope": "Presentation of the retained publication; no recapture or model authoring. Labels retain agent-proposal authority.",
+  "independentPresentationAcceptance": {
+    "status": "PASS",
+    "acceptedPreviewRuntimeRevision": "e439fa0a8ff6d468da93ad8ab70ce69d3ba81b7e",
+    "officialReleaseRevision": "5050e4a62c6964687bde861dfe418178f03fdaf8",
+    "comparison": "Every exporter-owned file path and digest matches the independently accepted local presentation.",
+    "native": {
+      "identicalOwnedFiles": 245
+    },
+    "docusaurus": {
+      "identicalOwnedFiles": 3558
+    },
+    "scope": "Independent local desktop and mobile HTML/MDX table, field/source, service navigation and catalogue journeys approved by root and UX reviewer. This byte parity covers exporter-owned files; catalogue composition is separately verified."
+  },
+  "manifestProjections": {
+    "documentation/current/site/native/pages-manifest.json": {
+      "originalSha256": "9f6ba729ed43c95edd9891af0a2b0afc92fbd3c6759ea9e0efa0260c115cb23f",
+      "projection": "Only output staging directory replaced with dot; exporter-owned file bytes are unchanged."
+    },
+    "documentation/current/project/export-manifest.json": {
+      "originalSha256": "6ed628f06c5b3c42f4093e4bd779cf7861c301f20499f2b16861e660be87170c",
+      "projection": "Only output staging directory replaced with dot; exporter-owned file bytes are unchanged."
+    }
+  }
+}

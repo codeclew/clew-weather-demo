@@ -1,0 +1,16 @@
+{
+  "identity": "sha256:226e47fcfd7a973eb3fc1f0756441e5659bcdde7812077f723cdfd3a7518658d",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    "forecasts:flow:5c27f4aee13a3c5fa345b9f2",
+    "forecasts:source_annotations:04bc0feeea5752d3f1979c56",
+    "forecasts:source_annotations:1571fff289ff6226f149c918",
+    "forecasts:source_annotations:1ea53b95922ad5791d930533",
+    "forecasts:source_annotations:3b271aa33f7bd944bb5ab6a5",
+    "forecasts:source_annotations:3d7b217355f2e6a34064e800",
+    "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+    "forecasts:source_annotations:cc58d8643f3d17e4b6911d22",
+    "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+    "forecasts:syntax_detail:814ab3aaee1977605c70638e"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "identity": "sha256:a12763c5b4a6deb7efe557c6f4c84973c3261fad1967af26683cc2ba47a3c519",
+  "schema": "codeclew-export-object/1.0",
+  "value": [
+    "dashboard:flow:049a97e649d7feb212e6c67f",
+    "dashboard:flow:37dec2bf70bc69d603cb8d4b",
+    "dashboard:flow:59f03a0653cc7a3798b8ceaf",
+    "dashboard:flow:654eeebd7e0618b0c6dd58f9",
+    "dashboard:flow:8a4f6855cb7f1a476a0484e4",
+    "dashboard:flow:a190efb9bca6603f1d2abc58",
+    "dashboard:symbol:021fcd0ff7baa53bd3c51930",
+    "dashboard:symbol:7d0d09a16ac25de86e5beb53",
+    "dashboard:symbol:a4627e5e868830287e83e0dc",
+    "dashboard:symbol:ac3aadb76be6fea3e790cb85",
+    "interaction:forecasts-forecast-updated-to-dashboard",
+    "process-scope:dashboard-forecast-updated-consumer",
+    "process:dashboard-forecast-updated-consumer",
+    "scenario:dashboard-forecast-updated-consumer"
+  ]
+}

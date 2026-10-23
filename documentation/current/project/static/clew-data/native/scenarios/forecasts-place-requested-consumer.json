@@ -1,0 +1,1721 @@
+{
+  "schema": "codeclew-normalized-data/1.0",
+  "value": {
+    "activityTransitions": null,
+    "activityTransitionsSvg": false,
+    "analysisEvidence": {
+      "forecasts": {
+        "coverage": "SYNTAX",
+        "extractor": "codeclew-documentation-source/1.0",
+        "mappedSymbols": 0,
+        "provider": {
+          "status": "NOT_REQUESTED"
+        },
+        "revision": "c289b28be4819eddf29d59a7c12f178559ec5229",
+        "runtimeMode": "COMMITTED_SOURCE_NO_BUILD",
+        "sampleFacts": []
+      }
+    },
+    "authoredTranslationGaps": [],
+    "boundaries": [
+      "ANNOTATION_DECLARATION_UNAVAILABLE",
+      "CALL_TARGETS_UNRESOLVED",
+      "DECLARED_TRANSITION_NOT_REACHED:places-place-requested-to-forecasts",
+      "DIALECT_DECLARED_NOT_COMPILER_VALIDATED",
+      "FILE_ONLY:compose.yaml",
+      "FILE_ONLY:contracts/events.schema.json",
+      "FILE_ONLY:contracts/forecasts.openapi.json",
+      "FILE_ONLY:database/init.sql",
+      "FILE_ONLY:fixtures/helsinki.json",
+      "FILE_ONLY:fixtures/lisbon.json",
+      "FILE_ONLY:fixtures/met-oslo-recorded.json",
+      "FILE_ONLY:fixtures/oslo.json",
+      "FILE_ONLY:fixtures/provenance.json",
+      "FILE_ONLY:services/forecasts/Dockerfile",
+      "FILE_ONLY:services/forecasts/pom.xml",
+      "FILE_ONLY:services/forecasts/src/main/resources/application.properties",
+      "LINKED_PROCESS_STALE:forecasts-publish-pending",
+      "LINKED_PROCESS_STALE:forecasts-refresh-scheduled",
+      "NO_BEAN_OWNER",
+      "OPENAPI_JSON_SCHEMA_KEYWORDS_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_NULL_TYPE_NOT_INTERPRETED",
+      "OPENAPI_SCHEMA_TYPE_UNIONS_NOT_INTERPRETED",
+      "ORDER_LEXICAL_ONLY",
+      "RUNTIME_REGISTRATION_UNPROVEN",
+      "SCOPE_WATCH_CONSERVATIVE",
+      "SOURCE_NAMES_NOT_COMPILER_RESOLVED",
+      "Static source interpretation; runtime activation and execution are not established.",
+      "UNRESOLVED_ANNOTATION_VALUE"
+    ],
+    "boundaryInventory": null,
+    "canonicalEntityLinks": {
+      "question-update": {
+        "forecasts": [
+          {
+            "documentationLanguage": "en",
+            "href": "../data-model/forecast.html",
+            "id": "forecast",
+            "title": "Forecast"
+          }
+        ]
+      }
+    },
+    "catalogue": [],
+    "contracts": [],
+    "coverage": {
+      "forecasts": "SYNTAX"
+    },
+    "entities": [],
+    "extractor": "codeclew-documentation-jvm/1.3",
+    "frozenLanguageAvailability": {
+      "requestedDocumentationLanguage": "en",
+      "translationComplete": true,
+      "translationGaps": {}
+    },
+    "frozenPublication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+    "gaps": {},
+    "interactions": [
+      {
+        "$clewRef": "sha256:5f7167f498dee5aa096ae428e3da0471313755e134840a2752e424e13ebf73ab"
+      }
+    ],
+    "language": "en",
+    "lifecycleOperations": [],
+    "notes": [],
+    "operationContracts": {
+      "forecasts-place-requested-consumer": [],
+      "process-overview": []
+    },
+    "operationExternalCalls": {
+      "forecasts-place-requested-consumer": [],
+      "process-overview": []
+    },
+    "operationSources": {
+      "forecasts-place-requested-consumer": {
+        "$clewRef": "sha256:23df36d2b671cdc5749bd0a952b5560f34cb275cfa6bf7fe7b8a1584833f3be3"
+      },
+      "process-overview": {
+        "$clewRef": "sha256:23df36d2b671cdc5749bd0a952b5560f34cb275cfa6bf7fe7b8a1584833f3be3"
+      }
+    },
+    "operationStates": {
+      "forecasts-place-requested-consumer": {
+        "$clewRef": "sha256:f7e42ad5b473c8bcce1aa240a97a1ef0f124a9625011c2ac4db758c3a6e502d0"
+      },
+      "process-overview": {
+        "$clewRef": "sha256:f7e42ad5b473c8bcce1aa240a97a1ef0f124a9625011c2ac4db758c3a6e502d0"
+      }
+    },
+    "operations": [
+      {
+        "boundaries": {
+          "$clewRef": "sha256:b230ffef03675332efa4523f44c176ac496163f12f704bda41594b918f8ada65"
+        },
+        "documentationLanguage": "en",
+        "events": [
+          {
+            "$clewRef": "sha256:46eddf5951b8e3cd7e46d1946199921fb60435a94ae11ccfbca7934fa9d1b41d"
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:a38d386449227ba051cf74c0",
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:source_annotations:cc58d8643f3d17e4b6911d22",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:cc58d8643f3d17e4b6911d22"
+            ],
+            "id": "claim-1c9bc983c30538bf0fa7",
+            "kind": "alt",
+            "sourceIds": [
+              "forecasts-a38d386449227ba051cf",
+              "forecasts-ad28a606f0881dfe7cfc",
+              "forecasts-cc58d8643f3d17e4b691"
+            ],
+            "text": "JSON parsing and validatePlaceEvent complete successfully."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:cc58d8643f3d17e4b6911d22",
+              "forecasts:symbol:cc58d8643f3d17e4b6911d22"
+            ],
+            "id": "claim-d25513b48dac4388b4d0",
+            "kind": "note",
+            "sourceIds": [
+              "forecasts-cc58d8643f3d17e4b691"
+            ],
+            "text": "The source validator checks version 1, type place.requested, a nonblank id, an allowed place id, a nonblank name, and numeric latitude and longitude."
+          },
+          {
+            "$clewRef": "sha256:9a1fee7ff6c2089546a5b2227f4db234549d63e97baa706e668841eaf6c59669"
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:source_annotations:cc58d8643f3d17e4b6911d22",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:cc58d8643f3d17e4b6911d22"
+            ],
+            "id": "claim-55beb28e83cea1ff4fab",
+            "kind": "note",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc",
+              "forecasts-cc58d8643f3d17e4b691"
+            ],
+            "text": "The source shows the parsed node passed through an also lambda to validatePlaceEvent(it)."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:5c0f3b18ff82fe4d811047e9",
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:source_annotations:cc58d8643f3d17e4b6911d22",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:cc58d8643f3d17e4b6911d22"
+            ],
+            "id": "claim-b043ca3cd77fd3c2ef9a",
+            "kind": "end",
+            "sourceIds": [
+              "forecasts-5c0f3b18ff82fe4d8110",
+              "forecasts-ad28a606f0881dfe7cfc",
+              "forecasts-cc58d8643f3d17e4b691"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "id": "claim-898d4395fda8bbea2ebe",
+            "kind": "alt",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "The transaction.executeWithoutResult call returns normally."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:b7a8f5b7842c514f7f597c4f",
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "id": "claim-5f38affd9fa4e69b97d9",
+            "kind": "opt",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc",
+              "forecasts-b7a8f5b7842c514f7f59"
+            ],
+            "text": "The source passes a deferred callback to transaction.executeWithoutResult; this group records the callback body and does not establish framework invocation or transaction outcome."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "from": "service-forecasts",
+            "id": "claim-88ee8ed1a55e7d160751",
+            "kind": "message",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "Run the transaction callback and insert event.id into inbox with conflicts ignored.",
+            "to": "forecasts-db"
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:5bda17b9322e1d09244c248e",
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "id": "claim-ce19c48c5eb260d4c9a4",
+            "kind": "alt",
+            "sourceIds": [
+              "forecasts-5bda17b9322e1d09244c",
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "The inbox insert reports an existing event id."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:cbe0a836e93f909f2825846f",
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "id": "claim-db0f2dc7e144f804eacf",
+            "kind": "note",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc",
+              "forecasts-cbe0a836e93f909f2825"
+            ],
+            "text": "When the inbox insert reports an existing event id, return from the transaction callback before the place upsert and refresh call."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:5bda17b9322e1d09244c248e",
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "id": "claim-21457651ddc2d117e2a4",
+            "kind": "else",
+            "sourceIds": [
+              "forecasts-5bda17b9322e1d09244c",
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "from": "service-forecasts",
+            "id": "claim-62e3bf0be94ab18acda9",
+            "kind": "message",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "Upsert the place fields by place id, then invoke refresh(place) in the callback.",
+            "to": "forecasts-db"
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:5bda17b9322e1d09244c248e",
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "id": "claim-509a74a79a19fbd559b3",
+            "kind": "end",
+            "sourceIds": [
+              "forecasts-5bda17b9322e1d09244c",
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:b7a8f5b7842c514f7f597c4f",
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "id": "claim-3ebd6b17f922e32d7b3f",
+            "kind": "end",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc",
+              "forecasts-b7a8f5b7842c514f7f59"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "from": "service-forecasts",
+            "id": "claim-bfd0020370ecbe09d76d",
+            "kind": "message",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "Acknowledge the record after the transaction call returns.",
+            "to": "forecasts-kafka"
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "id": "claim-94be037157fd60c965b9",
+            "kind": "else",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "id": "claim-7f7f4bd35f189e470f38",
+            "kind": "note",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "If an exception exits the transaction call, execution does not reach the following acknowledge statement. This source view does not determine rollback or delivery outcomes."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "id": "claim-be677971759b103df93b",
+            "kind": "end",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:a38d386449227ba051cf74c0",
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:source_annotations:cc58d8643f3d17e4b6911d22",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:cc58d8643f3d17e4b6911d22"
+            ],
+            "id": "claim-ab1d07a58d6bad16fbec",
+            "kind": "else",
+            "sourceIds": [
+              "forecasts-a38d386449227ba051cf",
+              "forecasts-ad28a606f0881dfe7cfc",
+              "forecasts-cc58d8643f3d17e4b691"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "from": "service-forecasts",
+            "id": "claim-7d173d2dfd2989fec180",
+            "kind": "message",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "Write a rejected_messages row with the source topic, partition, offset, and reason INVALID_EVENT; conflicts are ignored.",
+            "to": "forecasts-db"
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "id": "claim-c7a9df1c980f91c3cc11",
+            "kind": "alt",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "The rejection write returns normally."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "from": "service-forecasts",
+            "id": "claim-f25761458ddb5b334254",
+            "kind": "message",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "After the rejection write returns, acknowledge the record.",
+            "to": "forecasts-kafka"
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:6197b7e7ffd42134c6751cb6",
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "id": "claim-6ff854a4fff8ae7fb240",
+            "kind": "note",
+            "sourceIds": [
+              "forecasts-6197b7e7ffd42134c675",
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "After the record is acknowledged, the catch branch returns from the listener."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "id": "claim-3d9ba62bec9179ab4431",
+            "kind": "else",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "Otherwise"
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "id": "claim-d960008f5e7cb1bb8abc",
+            "kind": "note",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "If the rejection write throws, the acknowledge call is not reached and the exception propagates from this source path."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "id": "claim-795f8c611af1d3313a57",
+            "kind": "end",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:a38d386449227ba051cf74c0",
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:source_annotations:cc58d8643f3d17e4b6911d22",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:cc58d8643f3d17e4b6911d22"
+            ],
+            "id": "claim-24ab4f0e113f8408217b",
+            "kind": "end",
+            "sourceIds": [
+              "forecasts-a38d386449227ba051cf",
+              "forecasts-ad28a606f0881dfe7cfc",
+              "forecasts-cc58d8643f3d17e4b691"
+            ],
+            "text": ""
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+              "process-component:forecasts-place-requested-consumer:forecasts-publish-pending",
+              "process-component:forecasts-place-requested-consumer:forecasts-refresh-scheduled",
+              "process-scope:forecasts-place-requested-consumer",
+              "process:forecasts-place-requested-consumer"
+            ],
+            "id": "claim-1bdb927b6a974f0e9774",
+            "kind": "note",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "The accepted Consume weather.place-requested service operation retains the detailed handler body. The saved process links forecasts-refresh-scheduled and forecasts-publish-pending as related views; those links do not prove cross-process sequencing or exactly-once behavior."
+          }
+        ],
+        "explanation": [
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+              "interaction:places-place-requested-to-forecasts",
+              "process-scope:forecasts-place-requested-consumer",
+              "process:forecasts-place-requested-consumer"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-16277baad799ac0ea5f1"
+            ],
+            "id": "claim-56f8193e3348e44a672a",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "The maintained process proposes the weather.place-requested mapping from Places.PublishPending to Forecasts.consume; this association does not verify topic configuration or runtime delivery."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:a38d386449227ba051cf74c0",
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:source_annotations:cc58d8643f3d17e4b6911d22",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:cc58d8643f3d17e4b6911d22"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-1c9bc983c30538bf0fa7"
+            ],
+            "id": "claim-f0d596ed759cdc959401",
+            "sourceIds": [
+              "forecasts-a38d386449227ba051cf",
+              "forecasts-ad28a606f0881dfe7cfc",
+              "forecasts-cc58d8643f3d17e4b691"
+            ],
+            "text": "JSON parsing and validatePlaceEvent complete successfully."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:cc58d8643f3d17e4b6911d22",
+              "forecasts:symbol:cc58d8643f3d17e4b6911d22"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-d25513b48dac4388b4d0"
+            ],
+            "id": "claim-879ac861f9f9efecb414",
+            "sourceIds": [
+              "forecasts-cc58d8643f3d17e4b691"
+            ],
+            "text": "The source validator checks version 1, type place.requested, a nonblank id, an allowed place id, a nonblank name, and numeric latitude and longitude."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:5c0f3b18ff82fe4d811047e9",
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:source_annotations:cc58d8643f3d17e4b6911d22",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:cc58d8643f3d17e4b6911d22"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-a6e7c5dc1f930d20d436"
+            ],
+            "id": "claim-bbf73bd5e794508c27eb",
+            "sourceIds": [
+              "forecasts-5c0f3b18ff82fe4d8110",
+              "forecasts-ad28a606f0881dfe7cfc",
+              "forecasts-cc58d8643f3d17e4b691"
+            ],
+            "text": "The source expression contains a deferred also lambda that calls validatePlaceEvent. The exact invocation semantics are not established by this syntax record."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:source_annotations:cc58d8643f3d17e4b6911d22",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:cc58d8643f3d17e4b6911d22"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-55beb28e83cea1ff4fab"
+            ],
+            "id": "claim-b604afcf5c6714aae7a9",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc",
+              "forecasts-cc58d8643f3d17e4b691"
+            ],
+            "text": "The source shows the parsed node passed through an also lambda to validatePlaceEvent(it)."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-898d4395fda8bbea2ebe"
+            ],
+            "id": "claim-c7fd4752f5b17ce2ee67",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "The transaction.executeWithoutResult call returns normally."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:b7a8f5b7842c514f7f597c4f",
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-5f38affd9fa4e69b97d9"
+            ],
+            "id": "claim-3341ac8318cf51e5514c",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc",
+              "forecasts-b7a8f5b7842c514f7f59"
+            ],
+            "text": "The source passes a deferred callback to transaction.executeWithoutResult; this group records the callback body and does not establish framework invocation or transaction outcome."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-88ee8ed1a55e7d160751"
+            ],
+            "id": "claim-2b09e3a9c2e683770fe2",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "Run the transaction callback and insert event.id into inbox with conflicts ignored."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:5bda17b9322e1d09244c248e",
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-ce19c48c5eb260d4c9a4"
+            ],
+            "id": "claim-223b485ddad9bc457038",
+            "sourceIds": [
+              "forecasts-5bda17b9322e1d09244c",
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "The inbox insert reports an existing event id."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:cbe0a836e93f909f2825846f",
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-db0f2dc7e144f804eacf"
+            ],
+            "id": "claim-d49610918bcbde9ceb9c",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc",
+              "forecasts-cbe0a836e93f909f2825"
+            ],
+            "text": "When the inbox insert reports an existing event id, return from the transaction callback before the place upsert and refresh call."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:5bda17b9322e1d09244c248e",
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-21457651ddc2d117e2a4"
+            ],
+            "id": "claim-066150ec129ae2c421ce",
+            "sourceIds": [
+              "forecasts-5bda17b9322e1d09244c",
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-62e3bf0be94ab18acda9"
+            ],
+            "id": "claim-32d5157ef8dc724f38a2",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "Upsert the place fields by place id, then invoke refresh(place) in the callback."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-bfd0020370ecbe09d76d"
+            ],
+            "id": "claim-528dbdb88399cf4c2801",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "Acknowledge the record after the transaction call returns."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-94be037157fd60c965b9"
+            ],
+            "id": "claim-ff06fc63ba87128e9698",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-7f7f4bd35f189e470f38"
+            ],
+            "id": "claim-252d75a482e28ee5d148",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "If an exception exits the transaction call, execution does not reach the following acknowledge statement. This source view does not determine rollback or delivery outcomes."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:a38d386449227ba051cf74c0",
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:source_annotations:cc58d8643f3d17e4b6911d22",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:cc58d8643f3d17e4b6911d22"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-ab1d07a58d6bad16fbec"
+            ],
+            "id": "claim-665101c3b3f09acd9f87",
+            "sourceIds": [
+              "forecasts-a38d386449227ba051cf",
+              "forecasts-ad28a606f0881dfe7cfc",
+              "forecasts-cc58d8643f3d17e4b691"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-7d173d2dfd2989fec180"
+            ],
+            "id": "claim-999833a02c34d0310be3",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "Write a rejected_messages row with the source topic, partition, offset, and reason INVALID_EVENT; conflicts are ignored."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-c7a9df1c980f91c3cc11"
+            ],
+            "id": "claim-7ed009340ad247558a7e",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "The rejection write returns normally."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-f25761458ddb5b334254"
+            ],
+            "id": "claim-44a13d8011ae9724432a",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "After the rejection write returns, acknowledge the record."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:flow:6197b7e7ffd42134c6751cb6",
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-6ff854a4fff8ae7fb240"
+            ],
+            "id": "claim-08a593a0e26040121620",
+            "sourceIds": [
+              "forecasts-6197b7e7ffd42134c675",
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "After the record is acknowledged, the catch branch returns from the listener."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-3d9ba62bec9179ab4431"
+            ],
+            "id": "claim-61e8786a7033dbeaba03",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "The source describes an alternative branch."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-d960008f5e7cb1bb8abc"
+            ],
+            "id": "claim-4cd19400073cdf242e9b",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "If the rejection write throws, the acknowledge call is not reached and the exception propagates from this source path."
+          },
+          {
+            "dependencyIds": [
+              "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+              "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+              "process-component:forecasts-place-requested-consumer:forecasts-publish-pending",
+              "process-component:forecasts-place-requested-consumer:forecasts-refresh-scheduled",
+              "process-scope:forecasts-place-requested-consumer",
+              "process:forecasts-place-requested-consumer"
+            ],
+            "detail": false,
+            "eventIds": [
+              "claim-1bdb927b6a974f0e9774"
+            ],
+            "id": "claim-01d4aab766a4b09f260d",
+            "sourceIds": [
+              "forecasts-ad28a606f0881dfe7cfc"
+            ],
+            "text": "The accepted Consume weather.place-requested service operation retains the detailed handler body. The saved process links forecasts-refresh-scheduled and forecasts-publish-pending as related views; those links do not prove cross-process sequencing or exactly-once behavior."
+          }
+        ],
+        "findings": [],
+        "id": "forecasts-place-requested-consumer",
+        "interfaceContracts": [
+          {
+            "boundaries": [],
+            "id": "claim-92c6df84c6cd374df7a0",
+            "kind": "kafka",
+            "rows": [
+              {
+                "dependencyIds": [
+                  "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+                  "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+                  "interaction:places-place-requested-to-forecasts",
+                  "process-scope:forecasts-place-requested-consumer",
+                  "process:forecasts-place-requested-consumer"
+                ],
+                "id": "claim-2003d839d7e2daa0f097",
+                "label": "Topic association",
+                "sourceIds": [
+                  "forecasts-ad28a606f0881dfe7cfc"
+                ],
+                "value": "The saved process proposes weather.place-requested as a mapping from Places.PublishPending to Forecasts.consume. The annotation names this listener topic; broker configuration and runtime delivery remain unverified."
+              },
+              {
+                "dependencyIds": [
+                  "forecasts:source_annotations:cc58d8643f3d17e4b6911d22",
+                  "forecasts:symbol:cc58d8643f3d17e4b6911d22"
+                ],
+                "id": "claim-c6a792ae61dd4247d12c",
+                "label": "Source validation",
+                "sourceIds": [
+                  "forecasts-cc58d8643f3d17e4b691"
+                ],
+                "value": "validatePlaceEvent requires version 1, type place.requested, a nonblank event id, a place id in oslo, helsinki, or lisbon, a nonblank name, and numeric latitude and longitude. These are source-level checks, not proof of runtime schema enforcement."
+              },
+              {
+                "dependencyIds": [
+                  "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+                  "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+                  "process-component:forecasts-place-requested-consumer:forecasts-publish-pending",
+                  "process-component:forecasts-place-requested-consumer:forecasts-refresh-scheduled",
+                  "process-scope:forecasts-place-requested-consumer",
+                  "process:forecasts-place-requested-consumer"
+                ],
+                "id": "claim-6b98f37ac587ea830a6b",
+                "label": "Process boundaries",
+                "sourceIds": [
+                  "forecasts-ad28a606f0881dfe7cfc"
+                ],
+                "value": "The saved process links forecasts-refresh-scheduled and forecasts-publish-pending views. The links do not establish cross-process order, transaction atomicity, acknowledgment timing, or message delivery."
+              }
+            ],
+            "title": "weather.place-requested consumer path"
+          }
+        ],
+        "participants": [
+          {
+            "id": "caller",
+            "label": "Caller",
+            "service": null
+          },
+          {
+            "id": "service-forecasts",
+            "label": "forecasts",
+            "service": "forecasts"
+          },
+          {
+            "id": "places",
+            "label": "Places service",
+            "service": null
+          },
+          {
+            "id": "forecasts-kafka",
+            "label": "Kafka topic weather.place-requested",
+            "service": null
+          },
+          {
+            "id": "forecasts-db",
+            "label": "Forecasts PostgreSQL",
+            "service": null
+          }
+        ],
+        "summary": {
+          "$clewRef": "sha256:22f9c7c38e8335198d0e62b990e230d154c2a724806ce6b0d2550d5dda469b7c"
+        },
+        "title": "Forecasts consumes proposed place-requested events"
+      },
+      {
+        "boundaries": [
+          "Source annotations do not prove Spring listener activation, broker delivery, transaction atomicity, or runtime acknowledgment timing.",
+          "CALL_TARGETS_UNRESOLVED",
+          "DECLARED_TRANSITION_NOT_REACHED:places-place-requested-to-forecasts",
+          "ORDER_LEXICAL_ONLY",
+          "LINKED_PROCESS_UNASSESSED:forecasts-refresh-scheduled",
+          "LINKED_PROCESS_UNASSESSED:forecasts-publish-pending"
+        ],
+        "documentationLanguage": "en",
+        "events": [],
+        "explanation": [],
+        "findings": [],
+        "id": "process-overview",
+        "interfaceContracts": [],
+        "participants": [],
+        "summary": {
+          "dependencyIds": [
+            "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+            "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+            "process-component:forecasts-place-requested-consumer:forecasts-publish-pending",
+            "process-component:forecasts-place-requested-consumer:forecasts-refresh-scheduled",
+            "process-scope:forecasts-place-requested-consumer",
+            "process:forecasts-place-requested-consumer"
+          ],
+          "id": "claim-f3628eb43a6a42414560",
+          "sourceIds": [
+            "forecasts-ad28a606f0881dfe7cfc"
+          ],
+          "text": "Forecasts.consume is the source-declared listener for weather.place-requested; the handler parses and validates each record, then follows the separately accepted Forecasts.consume operation for rejection, inbox, upsert, refresh, and acknowledgment details. This overview links forecasts-refresh-scheduled and forecasts-publish-pending as related views. The saved process definition says those links establish neither cross-process order, shared transaction atomicity, acknowledgment timing, nor delivery. The process scope includes Forecasts only; Spring listener activation and runtime delivery remain unverified."
+        },
+        "title": "Forecasts place-requested process overview"
+      }
+    ],
+    "process": {
+      "authority": "Explicit saved request; generated interpretation is reviewed separately.",
+      "definition": {
+        "$clewRef": "sha256:37580e5b341d3f8232b925b6fd299e7d2219f4a2ee54d3ad711211ce42405474"
+      },
+      "definitionVersion": "sha256:112056befba65bb047f6da64b88007aeaf6075e62224c1afc32728fcb548df22",
+      "linkedSubviews": [
+        {
+          "accepted": null,
+          "authority": "REVIEWED_CHILD_INTERPRETATION_NOT_RUNTIME_PROOF",
+          "child": "forecasts-publish-pending",
+          "dependencyIds": {
+            "$clewRef": "sha256:7525e41024e321fb76bde147cf999baf2816c0e1efc38840dfc4cf904774a090"
+          },
+          "gap": "LINKED_PROCESS_STALE",
+          "href": "forecasts-publish-pending.html",
+          "parent": "forecasts-place-requested-consumer",
+          "status": "GAP"
+        },
+        {
+          "accepted": null,
+          "authority": "REVIEWED_CHILD_INTERPRETATION_NOT_RUNTIME_PROOF",
+          "child": "forecasts-refresh-scheduled",
+          "dependencyIds": [
+            "forecasts:flow:0e932570fa47533e42e198b8",
+            "forecasts:flow:178f2af15005604d54a85688",
+            "forecasts:flow:1bffd5ddb5535d8357c2398d",
+            "forecasts:flow:1f05869d6881638f4c2ea5d7",
+            "forecasts:flow:25e9ed645d5ab76f59f519f0",
+            "forecasts:flow:29bc95d2388fee83a60b910c",
+            "forecasts:flow:36b8291ca4c6946a852cca58",
+            "forecasts:flow:39a2a6536356c688b43bea08",
+            "forecasts:flow:51443a1b24ef0ac8a39edd44",
+            "forecasts:flow:59e33c5566d9892236eb26f0",
+            "forecasts:flow:6c2a71be26e64c23bb614da2",
+            "forecasts:flow:6da523895b5ea7e3fa37d634",
+            "forecasts:flow:7143d642cc7b414a9d04a683",
+            "forecasts:flow:740f3405b57f36fc72f3f58e",
+            "forecasts:flow:753a2493f40f83b7cb7b2850",
+            "forecasts:flow:80a4cfa013d93a0b966aba81",
+            "forecasts:flow:81d5c47f30684fe4cb181278",
+            "forecasts:flow:84ab2c89d2ea612342339614",
+            "forecasts:flow:8befa3d49d40838b17695f70",
+            "forecasts:flow:9447fd114db53b5f418fe645",
+            "forecasts:flow:a54249611ce24192dd12b4e7",
+            "forecasts:flow:a7d79b1d9537016d180312e3",
+            "forecasts:flow:b701f49fbcd1d12d9d2ce5f0",
+            "forecasts:flow:bd5d298e8015e8c6e05df8e6",
+            "forecasts:flow:ca07b13424cbaa8387f09176",
+            "forecasts:flow:cd651ff0965fec9047d3e282",
+            "forecasts:flow:d3b01e6ef447f463c191febd",
+            "forecasts:flow:e9881531c62a3422e80b2b0f",
+            "forecasts:flow:ea6dd04c278f12f668b5cde7",
+            "forecasts:flow:ed74aca5885bf5ea9c706a28",
+            "forecasts:flow:f73c4b6d25bca568b6e55e61",
+            "forecasts:flow:fc05f3e871357c9c81e09de7",
+            "forecasts:symbol:1ea53b95922ad5791d930533",
+            "interaction:forecasts-refresh-to-external-met",
+            "process-component:forecasts-refresh-scheduled:forecasts-publish-pending",
+            "process-scope:forecasts-refresh-scheduled",
+            "process:forecasts-refresh-scheduled",
+            "scenario:forecasts-refresh-scheduled"
+          ],
+          "gap": "LINKED_PROCESS_STALE",
+          "href": "forecasts-refresh-scheduled.html",
+          "parent": "forecasts-place-requested-consumer",
+          "status": "GAP"
+        }
+      ],
+      "scope": {
+        "digest": "sha256:f9222086c63e250dc1b9438b14221c1e84f2519c6803373d1bb3f33196d90e09",
+        "id": "process-scope:forecasts-place-requested-consumer",
+        "kind": "PROCESS_SCOPE",
+        "normalized": {
+          "dependencyIds": [
+            "entity-scope:forecasts",
+            "forecasts:contract-scope:f86e10393733a9350be2eda4",
+            "forecasts:source_scope:a94d30979421b6ddbba5e94b",
+            "note-scope:forecasts"
+          ],
+          "interactionMembership": [
+            "dashboard-request-refresh-to-places",
+            "dashboard-save-place-to-places",
+            "forecasts-forecast-updated-to-dashboard",
+            "forecasts-refresh-to-external-met",
+            "places-place-requested-to-dashboard",
+            "places-place-requested-to-forecasts"
+          ],
+          "participants": [
+            "forecasts"
+          ],
+          "runtime": "UNKNOWN",
+          "unavailableParticipants": []
+        },
+        "service": "",
+        "sourceIds": [],
+        "symbol": "process-scope:forecasts-place-requested-consumer"
+      }
+    },
+    "processCandidates": null,
+    "processExtraction": null,
+    "processOutline": {
+      "authority": "STATIC_SOURCE_STRUCTURE_NOT_REVIEWED",
+      "causal": false,
+      "diagramStem": "scenario-forecasts-place-requested-consumer-process-outline-34c0d39227c959c7",
+      "origin": "flow",
+      "pumlAvailable": true,
+      "root": {
+        "candidates": [
+          {
+            "observation": "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+            "observationDigest": "sha256:7ea6df154866d8bf27ec09b95dffebdc8e0bfd9f42a813c2406e7523c94e70bb",
+            "scope": null,
+            "service": "forecasts",
+            "symbol": "source:services/forecasts/src/main/kotlin/weather/Forecasts.kt/class:weather.Forecasts/consume/5a16ece51f5fff27c58e"
+          }
+        ],
+        "observation": "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+        "observationDigest": "sha256:7ea6df154866d8bf27ec09b95dffebdc8e0bfd9f42a813c2406e7523c94e70bb",
+        "scope": null,
+        "service": "forecasts",
+        "sourceIds": [
+          "forecasts-ad28a606f0881dfe7cfc"
+        ],
+        "sourceRecordDigests": {
+          "forecasts-ad28a606f0881dfe7cfc": "sha256:fabcf790d6359bad92930830b294197d73c440e51b6a010808853eccb900f2e6"
+        },
+        "symbol": "source:services/forecasts/src/main/kotlin/weather/Forecasts.kt/class:weather.Forecasts/consume/5a16ece51f5fff27c58e"
+      },
+      "sourceIds": [
+        "forecasts-ad28a606f0881dfe7cfc"
+      ],
+      "status": "STATIC_SOURCE_OUTLINE",
+      "svgAvailable": true,
+      "tree": "Entry: source:services/forecasts/src/main/kotlin/weather/Forecasts.kt/class:weather.Forecasts/consume/5a16ece51f5fff27c58e\n... (not established: FLOW_AUTHORITY_NOT_QUALIFIED; EVIDENCE_BOUNDARIES:FLOW_AUTHORITY_NOT_QUALIFIED)\n"
+    },
+    "processOutlineSources": {
+      "$clewRef": "sha256:ece04c237a5ece3301bd67359a7f866dfb66ae729987ed4428849b9b49920ca3"
+    },
+    "processThread": null,
+    "proseDisplayPolicy": "READABLE_ORIGINALS",
+    "questionReader": {
+      "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+      "conclusion": {
+        "$clewRef": "sha256:dce42f8a5b2aa613b9298b891e1d4845143fa3bbb5cf4dd982186a7afd2dd6c2"
+      },
+      "language": "en",
+      "presentation": "SEQUENTIAL",
+      "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
+      "purpose": "Forecasts validates a place-requested event and prepares the place update and refresh.",
+      "schema": "codeclew-question-reading-plan/1.0",
+      "sections": [
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "$clewRef": "sha256:46eddf5951b8e3cd7e46d1946199921fb60435a94ae11ccfbca7934fa9d1b41d"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-place-requested-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:055fbc53fa5e386da69c07f2e57f7493e9a9334b274e50c79ba36522ed520107"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:ece04c237a5ece3301bd67359a7f866dfb66ae729987ed4428849b9b49920ca3"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:f7e42ad5b473c8bcce1aa240a97a1ef0f124a9625011c2ac4db758c3a6e502d0"
+                  },
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "title": "Forecasts consumes proposed place-requested events"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "The saved process proposes a mapping from the Places publisher to this consumer on `weather.place-requested`. Broker routing and delivery are not established.",
+              "title": "Declared input",
+              "tone": null
+            }
+          ],
+          "icon": "arrow-right",
+          "id": "receive",
+          "navTitle": "Receive request",
+          "number": 1,
+          "route": "Declared topic: weather.place-requested",
+          "title": "Forecasts receives a place request"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "forecasts:flow:a38d386449227ba051cf74c0",
+                      "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+                      "forecasts:source_annotations:cc58d8643f3d17e4b6911d22",
+                      "forecasts:symbol:ad28a606f0881dfe7cfc0b1a",
+                      "forecasts:symbol:cc58d8643f3d17e4b6911d22"
+                    ],
+                    "id": "claim-1c9bc983c30538bf0fa7",
+                    "kind": "alt",
+                    "sourceIds": [
+                      "forecasts-a38d386449227ba051cf",
+                      "forecasts-ad28a606f0881dfe7cfc",
+                      "forecasts-cc58d8643f3d17e4b691"
+                    ],
+                    "text": "JSON parsing and validatePlaceEvent complete successfully."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-place-requested-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:055fbc53fa5e386da69c07f2e57f7493e9a9334b274e50c79ba36522ed520107"
+                  },
+                  "sources": {
+                    "forecasts-a38d386449227ba051cf": {
+                      "$clewRef": "sha256:97e0dd89fa86dcb90cc283f4c25f9200d6f06d20fb3ddd9728645de580dd22fc"
+                    },
+                    "forecasts-ad28a606f0881dfe7cfc": {
+                      "$clewRef": "sha256:fabcf790d6359bad92930830b294197d73c440e51b6a010808853eccb900f2e6"
+                    },
+                    "forecasts-cc58d8643f3d17e4b691": {
+                      "$clewRef": "sha256:9233bcae5aa5673c061ebdb857c39ce75ee4724473f2f75c21b7387f0fc94e1b"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:f7e42ad5b473c8bcce1aa240a97a1ef0f124a9625011c2ac4db758c3a6e502d0"
+                  },
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "title": "Forecasts consumes proposed place-requested events"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "The listener is written to parse and validate the event before preparing database work.",
+              "title": "Validate input",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": "Validation details",
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "forecasts:source_annotations:cc58d8643f3d17e4b6911d22",
+                      "forecasts:symbol:cc58d8643f3d17e4b6911d22"
+                    ],
+                    "id": "claim-d25513b48dac4388b4d0",
+                    "kind": "note",
+                    "sourceIds": [
+                      "forecasts-cc58d8643f3d17e4b691"
+                    ],
+                    "text": "The source validator checks version 1, type place.requested, a nonblank id, an allowed place id, a nonblank name, and numeric latitude and longitude."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-place-requested-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:055fbc53fa5e386da69c07f2e57f7493e9a9334b274e50c79ba36522ed520107"
+                  },
+                  "sources": {
+                    "forecasts-cc58d8643f3d17e4b691": {
+                      "$clewRef": "sha256:9233bcae5aa5673c061ebdb857c39ce75ee4724473f2f75c21b7387f0fc94e1b"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:f7e42ad5b473c8bcce1aa240a97a1ef0f124a9625011c2ac4db758c3a6e502d0"
+                  },
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "title": "Forecasts consumes proposed place-requested events"
+                },
+                {
+                  "fragment": {
+                    "$clewRef": "sha256:9a1fee7ff6c2089546a5b2227f4db234549d63e97baa706e668841eaf6c59669"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-place-requested-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:055fbc53fa5e386da69c07f2e57f7493e9a9334b274e50c79ba36522ed520107"
+                  },
+                  "sources": {
+                    "forecasts-5c0f3b18ff82fe4d8110": {
+                      "$clewRef": "sha256:47e4ea3df3f628f54c8dde414c838593d9efdf9d54a4f79f3c08f48519ca7d51"
+                    },
+                    "forecasts-ad28a606f0881dfe7cfc": {
+                      "$clewRef": "sha256:fabcf790d6359bad92930830b294197d73c440e51b6a010808853eccb900f2e6"
+                    },
+                    "forecasts-cc58d8643f3d17e4b691": {
+                      "$clewRef": "sha256:9233bcae5aa5673c061ebdb857c39ce75ee4724473f2f75c21b7387f0fc94e1b"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:f7e42ad5b473c8bcce1aa240a97a1ef0f124a9625011c2ac4db758c3a6e502d0"
+                  },
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "title": "Forecasts consumes proposed place-requested events"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": "Required event and place fields · syntax-backed callback limits",
+              "text": "The validator checks version 1, type place.requested, a nonblank event ID, an allowed place ID, a nonblank name and numeric coordinates. The syntax record shows validation in an also callback; it does not attest callback invocation.",
+              "title": "Validator and callback details",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+                      "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+                    ],
+                    "from": "service-forecasts",
+                    "id": "claim-7d173d2dfd2989fec180",
+                    "kind": "message",
+                    "sourceIds": [
+                      "forecasts-ad28a606f0881dfe7cfc"
+                    ],
+                    "text": "Write a rejected_messages row with the source topic, partition, offset, and reason INVALID_EVENT; conflicts are ignored.",
+                    "to": "forecasts-db"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-place-requested-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:055fbc53fa5e386da69c07f2e57f7493e9a9334b274e50c79ba36522ed520107"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:ece04c237a5ece3301bd67359a7f866dfb66ae729987ed4428849b9b49920ca3"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:f7e42ad5b473c8bcce1aa240a97a1ef0f124a9625011c2ac4db758c3a6e502d0"
+                  },
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "title": "Forecasts consumes proposed place-requested events"
+                },
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+                      "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+                    ],
+                    "from": "service-forecasts",
+                    "id": "claim-f25761458ddb5b334254",
+                    "kind": "message",
+                    "sourceIds": [
+                      "forecasts-ad28a606f0881dfe7cfc"
+                    ],
+                    "text": "After the rejection write returns, acknowledge the record.",
+                    "to": "forecasts-kafka"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-place-requested-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:055fbc53fa5e386da69c07f2e57f7493e9a9334b274e50c79ba36522ed520107"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:ece04c237a5ece3301bd67359a7f866dfb66ae729987ed4428849b9b49920ca3"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:f7e42ad5b473c8bcce1aa240a97a1ef0f124a9625011c2ac4db758c3a6e502d0"
+                  },
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "title": "Forecasts consumes proposed place-requested events"
+                },
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+                      "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+                    ],
+                    "id": "claim-d960008f5e7cb1bb8abc",
+                    "kind": "note",
+                    "sourceIds": [
+                      "forecasts-ad28a606f0881dfe7cfc"
+                    ],
+                    "text": "If the rejection write throws, the acknowledge call is not reached and the exception propagates from this source path."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-place-requested-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:055fbc53fa5e386da69c07f2e57f7493e9a9334b274e50c79ba36522ed520107"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:ece04c237a5ece3301bd67359a7f866dfb66ae729987ed4428849b9b49920ca3"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:f7e42ad5b473c8bcce1aa240a97a1ef0f124a9625011c2ac4db758c3a6e502d0"
+                  },
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "title": "Forecasts consumes proposed place-requested events"
+                }
+              ],
+              "id": "invalid-event",
+              "links": [],
+              "navTitle": "Invalid event",
+              "preview": null,
+              "text": "The listener writes an `INVALID_EVENT` rejection, then acknowledges the record and returns. If writing the rejection fails, acknowledgement is not reached and the error propagates.",
+              "title": "If parsing or validation fails",
+              "tone": "ERROR"
+            }
+          ],
+          "icon": null,
+          "id": "validate",
+          "navTitle": "Validate event",
+          "number": 2,
+          "route": null,
+          "title": "Forecasts checks the event"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+                      "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+                    ],
+                    "from": "service-forecasts",
+                    "id": "claim-88ee8ed1a55e7d160751",
+                    "kind": "message",
+                    "sourceIds": [
+                      "forecasts-ad28a606f0881dfe7cfc"
+                    ],
+                    "text": "Run the transaction callback and insert event.id into inbox with conflicts ignored.",
+                    "to": "forecasts-db"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-place-requested-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:055fbc53fa5e386da69c07f2e57f7493e9a9334b274e50c79ba36522ed520107"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:ece04c237a5ece3301bd67359a7f866dfb66ae729987ed4428849b9b49920ca3"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:f7e42ad5b473c8bcce1aa240a97a1ef0f124a9625011c2ac4db758c3a6e502d0"
+                  },
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "title": "Forecasts consumes proposed place-requested events"
+                },
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+                      "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+                    ],
+                    "from": "service-forecasts",
+                    "id": "claim-62e3bf0be94ab18acda9",
+                    "kind": "message",
+                    "sourceIds": [
+                      "forecasts-ad28a606f0881dfe7cfc"
+                    ],
+                    "text": "Upsert the place fields by place id, then invoke refresh(place) in the callback.",
+                    "to": "forecasts-db"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-place-requested-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:055fbc53fa5e386da69c07f2e57f7493e9a9334b274e50c79ba36522ed520107"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:ece04c237a5ece3301bd67359a7f866dfb66ae729987ed4428849b9b49920ca3"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:f7e42ad5b473c8bcce1aa240a97a1ef0f124a9625011c2ac4db758c3a6e502d0"
+                  },
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "title": "Forecasts consumes proposed place-requested events"
+                },
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "forecasts:flow:b7a8f5b7842c514f7f597c4f",
+                      "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+                      "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+                    ],
+                    "id": "claim-5f38affd9fa4e69b97d9",
+                    "kind": "opt",
+                    "sourceIds": [
+                      "forecasts-ad28a606f0881dfe7cfc",
+                      "forecasts-b7a8f5b7842c514f7f59"
+                    ],
+                    "text": "The source passes a deferred callback to transaction.executeWithoutResult; this group records the callback body and does not establish framework invocation or transaction outcome."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-place-requested-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:055fbc53fa5e386da69c07f2e57f7493e9a9334b274e50c79ba36522ed520107"
+                  },
+                  "sources": {
+                    "forecasts-ad28a606f0881dfe7cfc": {
+                      "$clewRef": "sha256:fabcf790d6359bad92930830b294197d73c440e51b6a010808853eccb900f2e6"
+                    },
+                    "forecasts-b7a8f5b7842c514f7f59": {
+                      "$clewRef": "sha256:4e9f622c29b7004ef06a46c8f890c5d19566d4f728694d74e89ca982402eeb60"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:f7e42ad5b473c8bcce1aa240a97a1ef0f124a9625011c2ac4db758c3a6e502d0"
+                  },
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "title": "Forecasts consumes proposed place-requested events"
+                }
+              ],
+              "id": null,
+              "links": [
+                {
+                  "href": "../services/forecasts.html#section-entities",
+                  "label": "Forecast data · service context",
+                  "operation": "section-entities",
+                  "subject": "service:forecasts"
+                }
+              ],
+              "navTitle": null,
+              "preview": null,
+              "text": "The supplied transaction callback remembers the event ID, updates the place and calls the shared forecast-refresh path. This snapshot does not prove callback execution or transaction commit.",
+              "title": "New event",
+              "tone": null
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "forecasts:flow:cbe0a836e93f909f2825846f",
+                      "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+                      "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+                    ],
+                    "id": "claim-db0f2dc7e144f804eacf",
+                    "kind": "note",
+                    "sourceIds": [
+                      "forecasts-ad28a606f0881dfe7cfc",
+                      "forecasts-cbe0a836e93f909f2825"
+                    ],
+                    "text": "When the inbox insert reports an existing event id, return from the transaction callback before the place upsert and refresh call."
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-place-requested-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:055fbc53fa5e386da69c07f2e57f7493e9a9334b274e50c79ba36522ed520107"
+                  },
+                  "sources": {
+                    "forecasts-ad28a606f0881dfe7cfc": {
+                      "$clewRef": "sha256:fabcf790d6359bad92930830b294197d73c440e51b6a010808853eccb900f2e6"
+                    },
+                    "forecasts-cbe0a836e93f909f2825": {
+                      "$clewRef": "sha256:7e91c34807cc22ec484f72d2e4506c85976f38cfff61cce5f7dece6d263b8506"
+                    }
+                  },
+                  "state": {
+                    "$clewRef": "sha256:f7e42ad5b473c8bcce1aa240a97a1ef0f124a9625011c2ac4db758c3a6e502d0"
+                  },
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "title": "Forecasts consumes proposed place-requested events"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "If the event ID already exists, the callback returns before updating the place or calling refresh.",
+              "title": "If the event ID already exists",
+              "tone": "INFO"
+            },
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "$clewRef": "sha256:ddd15e8538cbf2992a412ddee7917e77f709043239efa2c944a34071fb95c841"
+                }
+              ],
+              "id": "transaction-error",
+              "links": [],
+              "navTitle": "Transaction failure",
+              "preview": null,
+              "text": "An exception escaping the transaction call prevents the following acknowledgement. Rollback and delivery outcomes are not established by these source records.",
+              "title": "If transaction work fails",
+              "tone": "ERROR"
+            }
+          ],
+          "icon": "database",
+          "id": "update",
+          "navTitle": "Update and refresh",
+          "number": 3,
+          "route": null,
+          "title": "Forecasts prepares the place update"
+        },
+        {
+          "blocks": [
+            {
+              "authority": "EDITORIAL_READING_GUIDE_NOT_ACCEPTED_PROSE",
+              "disclosure": null,
+              "evidence": [
+                {
+                  "fragment": {
+                    "dependencyIds": [
+                      "forecasts:source_annotations:ad28a606f0881dfe7cfc0b1a",
+                      "forecasts:symbol:ad28a606f0881dfe7cfc0b1a"
+                    ],
+                    "from": "service-forecasts",
+                    "id": "claim-bfd0020370ecbe09d76d",
+                    "kind": "message",
+                    "sourceIds": [
+                      "forecasts-ad28a606f0881dfe7cfc"
+                    ],
+                    "text": "Acknowledge the record after the transaction call returns.",
+                    "to": "forecasts-kafka"
+                  },
+                  "kind": "RETAINED_CLAIM",
+                  "operation": "forecasts-place-requested-consumer",
+                  "sourceContext": {
+                    "$clewRef": "sha256:055fbc53fa5e386da69c07f2e57f7493e9a9334b274e50c79ba36522ed520107"
+                  },
+                  "sources": {
+                    "$clewRef": "sha256:ece04c237a5ece3301bd67359a7f866dfb66ae729987ed4428849b9b49920ca3"
+                  },
+                  "state": {
+                    "$clewRef": "sha256:f7e42ad5b473c8bcce1aa240a97a1ef0f124a9625011c2ac4db758c3a6e502d0"
+                  },
+                  "subject": "scenario:forecasts-place-requested-consumer",
+                  "title": "Forecasts consumes proposed place-requested events"
+                },
+                {
+                  "$clewRef": "sha256:ddd15e8538cbf2992a412ddee7917e77f709043239efa2c944a34071fb95c841"
+                }
+              ],
+              "id": null,
+              "links": [],
+              "navTitle": null,
+              "preview": null,
+              "text": "The listener calls acknowledgement after the transaction call returns. That call is not proof of an atomic database-and-Kafka commit or exactly-once delivery.",
+              "title": "Record progress",
+              "tone": null
+            }
+          ],
+          "icon": null,
+          "id": "acknowledge",
+          "navTitle": "Acknowledge",
+          "number": 4,
+          "route": null,
+          "title": "Forecasts acknowledges the record"
+        },
+        {
+          "blocks": [
+            {
+              "$clewRef": "sha256:dce42f8a5b2aa613b9298b891e1d4845143fa3bbb5cf4dd982186a7afd2dd6c2"
+            }
+          ],
+          "icon": null,
+          "id": "confidence",
+          "navTitle": "Sources and provenance",
+          "number": null,
+          "route": null,
+          "title": "Full description and sources"
+        }
+      ],
+      "subject": "scenario:forecasts-place-requested-consumer",
+      "title": "Refresh a forecast after a place request"
+    },
+    "readerOptions": {
+      "showInternalProcesses": false
+    },
+    "relatedViews": [],
+    "renderer": "codeclew-documentation-html/1.16",
+    "requestedDocumentationLanguage": "en",
+    "revisions": {
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "savedProcesses": [],
+    "sectionState": {
+      "$clewRef": "sha256:df9f0f9f0b8bd11aae4458594879ada9f28ec38cc60255992eabec652d154a01"
+    },
+    "sections": [],
+    "selectedEvidence": {
+      "$clewRef": "sha256:ca9e4ab3cdcbe2cee291a0df9c86fe72afd4d98160313803db7f0417ab3e0e97"
+    },
+    "selectedSnapshot": "sha256:9b865365a0095af0f38eb4a8440069643404e40f2ec19c5b9397a126a84f1b40/86956",
+    "sourceAuthorities": {
+      "dashboard": "CAPTURED_SOURCE",
+      "forecasts": "RETAINED_SOURCE_NOT_REVERIFIED",
+      "places": "RETAINED_SOURCE_NOT_REVERIFIED"
+    },
+    "sources": {
+      "$clewRef": "sha256:23df36d2b671cdc5749bd0a952b5560f34cb275cfa6bf7fe7b8a1584833f3be3"
+    },
+    "stateDiagram": null,
+    "stateDiagramSvg": false,
+    "subject": "scenario:forecasts-place-requested-consumer",
+    "subtitle": "Service behavior and explicit evidence boundaries",
+    "targetRevisions": {
+      "dashboard": "e635069293d58cb0d4f28c8211e748b8d58e6b37",
+      "forecasts": "c289b28be4819eddf29d59a7c12f178559ec5229",
+      "places": "c289b28be4819eddf29d59a7c12f178559ec5229"
+    },
+    "title": "Forecasts place-requested consumer",
+    "translationComplete": true,
+    "translationGaps": {},
+    "updateFailures": {},
+    "view": null
+  }
+}
