@@ -1732,6 +1732,40 @@
               ]
             },
             {
+              "title": "Request fields — Markdown table",
+              "text": "This additional reference table uses the retained request-field description. The original process steps are unchanged.\n\n| Original field | Readable name | Comment |\n| --- | --- | --- |\n| `cityId` | Selected city key | The selected city key sent by the browser. This request carries only cityId; Places derives the Place name and coordinates from its supported-city lookup. It is not an event ID, and it is not a client-supplied Place object. |\n\nThis is a source-bound description, not an observed HTTP run.",
+              "evidence": [
+                {
+                  "kind": "SOURCE",
+                  "service": "dashboard",
+                  "sourceId": "dashboard-21314369bd35a5f6a1c4",
+                  "textDigest": "sha256:f33bf2b36b9343a5e0e86d6501a03abc948e12032e43155b798ab23909dae948",
+                  "startLine": 3,
+                  "endLine": 9
+                },
+                {
+                  "kind": "SOURCE",
+                  "service": "places",
+                  "sourceId": "places-a3f9be5dab0dd63815f7",
+                  "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
+                  "startLine": 7,
+                  "endLine": 13
+                },
+                {
+                  "kind": "SOURCE",
+                  "service": "places",
+                  "sourceId": "places-309961f88b197290c1b0",
+                  "textDigest": "sha256:b6a46a9557e67342266ccce88f28a634490cacba1ee8f705d71066775158f708",
+                  "startLine": 10,
+                  "endLine": 17
+                }
+              ],
+              "id": "input-table",
+              "navTitle": "Request fields",
+              "disclosure": "Request fields",
+              "preview": "cityId · selected city key; complete retained comment"
+            },
+            {
               "title": "Address and contracts",
               "text": "The selected Compose config sets PLACES_URL to http://places:8080, also the source default. The example target is POST http://places:8080/places. Production address and actual receiver routing are unverified; the saved service mapping is agent-proposed.",
               "evidence": [
@@ -1957,43 +1991,6 @@
             }
           ],
           "navTitle": "Result"
-        },
-        {
-          "id": "input-table",
-          "title": "Save City request fields",
-          "navTitle": "Request fields",
-          "blocks": [
-            {
-              "title": "Request fields — Markdown table",
-              "text": "This additional reference table uses the retained request-field description. The original process steps are unchanged.\n\n| Original field | Readable name | Comment |\n| --- | --- | --- |\n| `cityId` | Selected city key | The selected city key sent by the browser. This request carries only cityId; Places derives the Place name and coordinates from its supported-city lookup. It is not an event ID, and it is not a client-supplied Place object. |\n\nThis is a source-bound description, not an observed HTTP run.",
-              "evidence": [
-                {
-                  "kind": "SOURCE",
-                  "service": "dashboard",
-                  "sourceId": "dashboard-21314369bd35a5f6a1c4",
-                  "textDigest": "sha256:f33bf2b36b9343a5e0e86d6501a03abc948e12032e43155b798ab23909dae948",
-                  "startLine": 3,
-                  "endLine": 9
-                },
-                {
-                  "kind": "SOURCE",
-                  "service": "places",
-                  "sourceId": "places-a3f9be5dab0dd63815f7",
-                  "textDigest": "sha256:98c559a6d784c6b46fd97a6a9042f88be753dd7c90a12d70e6bf76c28268d360",
-                  "startLine": 7,
-                  "endLine": 13
-                },
-                {
-                  "kind": "SOURCE",
-                  "service": "places",
-                  "sourceId": "places-309961f88b197290c1b0",
-                  "textDigest": "sha256:b6a46a9557e67342266ccce88f28a634490cacba1ee8f705d71066775158f708",
-                  "startLine": 10,
-                  "endLine": 17
-                }
-              ]
-            }
-          ]
         },
         {
           "id": "confidence",

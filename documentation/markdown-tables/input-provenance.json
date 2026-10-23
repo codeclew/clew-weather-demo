@@ -5,7 +5,7 @@
   "originalReadingPlanSha256": "ac8e47e098005956b90b63a9c81e5dd118c4e10a09d3ec4060b20d9d81d624b0",
   "fields": 23,
   "models": 6,
-  "preservation": "All original field comments, paths, representations, evidence and process reading blocks remain exact. One new unnumbered reference section is additive.",
+  "preservation": "All original field comments, paths, representations, evidence and process reading blocks remain exact. One new request-field disclosure block is additive; numbered process steps remain exact.",
   "storageFieldBinding": "weather-card/ordering explicitly displays updated_at; original path 'updated_at (stored only)' and its full comment are retained.",
   "newClaims": "Readable labels condense retained comments and keep identical evidence arrays; they remain authored proposals, not compiler-derived meanings.",
   "publication": "14e7b47bb795b5ff5f95ebd9b24b783d1fd18e6eeda962b31cd5edc5e6bf38a8",
