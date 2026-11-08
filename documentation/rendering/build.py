@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 import posixpath
 import re
+import runpy
 import shutil
 import subprocess
 from urllib.parse import unquote, urlsplit
@@ -24,6 +25,7 @@ WEATHER = 'https://github.com/codeclew/clew-weather-demo'
 PRODUCT = 'https://github.com/codeclew/codeclew'
 read = lambda p: json.loads(p.read_text())
 sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
+HUMAN = runpy.run_path(str(HERE.parent / 'human/verify.py'))
 
 
 def write(path, value):
@@ -47,11 +49,14 @@ def page(title, body, script=True):
     current = (ROOT / 'documentation/current/publication.json').is_file()
     native = 'current/native/overview.html' if current else 'overview.html'
     mdx = 'current/docusaurus/' if current else 'docusaurus/review.html'
+    human = HUMAN['verify'](ROOT)
+    human_link = ('<a href="' + BASE + 'human/' + html.escape(human['entrypoint'])
+                  + '">Human docs</a>') if human else ''
     return ('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
             '<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2032%2032%22%3E%3Ctext%20y=%2226%22%20font-size=%2228%22%3EW%3C/text%3E%3C/svg%3E"><title>' + html.escape(title) + ' · Weather rendering</title><link rel="stylesheet" href="' + SHOW + 'site.css">'
             '<header><nav aria-label="Showcase"><a class="brand" href="' + SHOW + '">Weather / Rendering</a>'
             '<a href="' + BASE + native + '">' + ('Latest HTML' if current else 'Native docs') + '</a><a href="' + BASE + mdx + '">' + ('Latest Docusaurus' if current else 'Docusaurus') + '</a>'
-            '<a href="' + BASE + 'render-catalog/index.html">Historical catalogue</a></nav></header><main>'
+            + human_link + '<a href="' + BASE + 'render-catalog/index.html">Historical catalogue</a></nav></header><main>'
             '<p id="errors" class="note warning" role="alert" hidden></p>' + body + '</main>'
             '<footer><div>Real retained examples. Source, authored interpretation and historical observations keep separate authority. '
             '<a href="' + SHOW + 'manifest.json">Capability manifest</a> · <a href="' + SHOW + 'source/build.py.txt">Composition source</a></div></footer>'
@@ -397,11 +402,22 @@ def build(output):
     return manifest
 
 
+def stage_human(output):
+    human = HUMAN['verify'](ROOT)
+    if human:
+        if (output / 'human').exists():
+            raise ValueError('Human destination already exists in frozen site')
+        shutil.copytree(ROOT / 'documentation/human/site', output / 'human')
+        shutil.copy2(ROOT / 'documentation/human/publication.json', output / 'human/publication.json')
+    return human
+
+
 def compose(output, docusaurus):
     manifest = build(output)
     # Existing exporter-owned sources and their acceptance policies are never edited.
     shutil.copytree(ROOT / 'docs', output, dirs_exist_ok=True)
     shutil.copytree(docusaurus, output / 'docusaurus')
+    stage_human(output)
     current_build = ROOT / 'documentation/current/project/build'
     if current_build.is_dir():
         shutil.copytree(ROOT / 'documentation/current/site', output / 'current')
@@ -473,14 +489,17 @@ class Links(HTMLParser):
 
 
 def verify(output):
+    if HUMAN['verify'](ROOT):
+        HUMAN['verify'](ROOT, exported=output / 'human', required=True)
     manifest = read(output / 'rendering/manifest.json')
     assert manifest['historicalCount'] == 93
     assert {x['historicalRecord']['id'] for x in manifest['capabilities'] if 'historicalRecord' in x} == {x['id'] for x in read(ROOT / 'docs/render-catalog/catalogue.json')['items']}
     assert not manifest['priorAcceptanceAppliesToNewPages']
     urls = []
-    for page_path in (output / 'rendering').rglob('*.html'):
-        parser = Links(); parser.feed(page_path.read_text())
-        urls.extend((page_path.relative_to(output).as_posix(), url) for url in parser.urls)
+    for folder in ['rendering', 'human']:
+        for page_path in (output / folder).rglob('*.html'):
+            parser = Links(); parser.feed(page_path.read_text())
+            urls.extend((page_path.relative_to(output).as_posix(), url) for url in parser.urls)
     for row in manifest['capabilities']:
         if row['example']:
             urls.append(('rendering/index.html', row['example']))

@@ -9,6 +9,7 @@ on:
       - 'documentation/docusaurus/**'
       - 'documentation/rendering/**'
       - 'documentation/current/**'
+      - 'documentation/human/**'
       - 'documentation/markdown-tables/**'
       - '.github/workflows/documentation.yml'
   workflow_dispatch:
@@ -42,6 +43,14 @@ jobs:
         run: |
           python3 -I -S documentation/reference/test_verify.py
           python3 -I -S documentation/docusaurus/test_variant.py
+          python3 -I -S documentation/human/test_verify.py
+      - name: Verify accepted public human-page export
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -f documentation/human/publication.json ]; then
+            python3 -I -S documentation/human/verify.py --official-release
+          fi
       - name: Validate pinned publication mode and complete reference coverage
         env:
           GH_TOKEN: ${{ github.token }}
