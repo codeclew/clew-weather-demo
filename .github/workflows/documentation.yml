@@ -44,6 +44,7 @@ jobs:
           python3 -I -S documentation/reference/test_verify.py
           python3 -I -S documentation/docusaurus/test_variant.py
           python3 -I -S documentation/human/test_verify.py
+          python3 -I -S documentation/rendering/test_hub.py
       - name: Verify accepted public human-page export
         env:
           GH_TOKEN: ${{ github.token }}

@@ -13,6 +13,25 @@ The original publication retains its renderer schema, not its producer release
 or commit; that provenance gap is visible. Current support is researched at public
 0.13.48, not attributed retroactively to historical examples.
 
+## Reader entry point
+
+The site root is a static reader hub produced by `hub.py` during composition.
+It recommends the accepted public human export and links to prior HTML Pages,
+Docusaurus and classic-reader publications with distinct version and freshness
+labels. Renderer versions and the human source revision come from the retained
+publication records. The hub does not regenerate descriptions or evidence.
+
+The original root `index.html` is retained byte-for-byte as `retained-index.html`.
+The explicit `entryReplacement` in `rendering/navigation-overlay.json` records
+both hashes; verification checks both the new entry and the retained original.
+All other frozen-file preservation checks remain in force. If no human export is
+present, composition retains the previous entry behavior.
+
+Run `python3 -I -S documentation/rendering/test_hub.py` for focused entry,
+archive-preservation and tamper checks. The complete deployment recipe, including
+both pinned Docusaurus builds and publication guards, is authoritative in
+`.github/workflows/documentation.yml`.
+
 ## Build the additive production site
 
 Use Python 3.11+ and Node 24. Preserve the existing lockfile and frozen project:
@@ -39,10 +58,11 @@ The custom page source and its claim map live here, outside replaceable exporter
 outputs. The Docusaurus navbar is built through an explicit React-consistent config
 overlay; frozen MDX, config and exporter file indexes remain unchanged.
 
-Only native `index.html`, `overview.html` and `catalog.html` gain an entry link
-during staging. `rendering/navigation-overlay.json` identifies the exact insertion
-and original/result hashes. Removing that insertion reconstructs the original
-native bytes, checked for every native file. Producer manifests continue to describe
+Historical native reader pages gain reversible navigation overlays during staging;
+the root entry follows the separate hub rule above.
+`rendering/navigation-overlay.json` identifies each exact insertion and
+original/result hashes. Removing each insertion reconstructs the original native
+bytes, checked for every native file. Producer manifests continue to describe
 the frozen originals; this demo-owned composition is recorded separately. Existing
 critic reports are not approval of new showcase pages or navigation.
 
