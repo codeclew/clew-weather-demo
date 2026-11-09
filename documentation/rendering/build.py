@@ -26,6 +26,7 @@ PRODUCT = 'https://github.com/codeclew/codeclew'
 read = lambda p: json.loads(p.read_text())
 sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
 HUMAN = runpy.run_path(str(HERE.parent / 'human/verify.py'))
+HUB = runpy.run_path(str(HERE / 'hub.py'))
 
 
 def write(path, value):
@@ -47,6 +48,7 @@ def source(path, revision=CURRENT, line=None):
 
 def page(title, body, script=True):
     current = (ROOT / 'documentation/current/publication.json').is_file()
+    version = html.escape(read(ROOT / 'documentation/current/publication.json')['renderer']['version']) if current else ''
     native = 'current/native/overview.html' if current else 'overview.html'
     mdx = 'current/docusaurus/' if current else 'docusaurus/review.html'
     human = HUMAN['verify'](ROOT)
@@ -54,8 +56,8 @@ def page(title, body, script=True):
                   + '">Human docs</a>') if human else ''
     return ('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
             '<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2032%2032%22%3E%3Ctext%20y=%2226%22%20font-size=%2228%22%3EW%3C/text%3E%3C/svg%3E"><title>' + html.escape(title) + ' · Weather rendering</title><link rel="stylesheet" href="' + SHOW + 'site.css">'
-            '<header><nav aria-label="Showcase"><a class="brand" href="' + SHOW + '">Weather / Rendering</a>'
-            '<a href="' + BASE + native + '">' + ('Latest HTML' if current else 'Native docs') + '</a><a href="' + BASE + mdx + '">' + ('Latest Docusaurus' if current else 'Docusaurus') + '</a>'
+            '<header><nav aria-label="Showcase"><a class="brand" href="' + BASE + '">Weather / Documentation</a><a href="' + SHOW + '">Rendering</a>'
+            '<a href="' + BASE + native + '">' + ('HTML Pages · ' + version if current else 'Native docs') + '</a><a href="' + BASE + mdx + '">' + ('Docusaurus · ' + version if current else 'Docusaurus') + '</a>'
             + human_link + '<a href="' + BASE + 'render-catalog/index.html">Historical catalogue</a></nav></header><main>'
             '<p id="errors" class="note warning" role="alert" hidden></p>' + body + '</main>'
             '<footer><div>Real retained examples. Source, authored interpretation and historical observations keep separate authority. '
@@ -417,7 +419,7 @@ def compose(output, docusaurus):
     # Existing exporter-owned sources and their acceptance policies are never edited.
     shutil.copytree(ROOT / 'docs', output, dirs_exist_ok=True)
     shutil.copytree(docusaurus, output / 'docusaurus')
-    stage_human(output)
+    human = stage_human(output)
     current_build = ROOT / 'documentation/current/project/build'
     if current_build.is_dir():
         shutil.copytree(ROOT / 'documentation/current/site', output / 'current')
@@ -427,6 +429,9 @@ def compose(output, docusaurus):
     native_paths = ['index.html', 'overview.html', 'catalog.html']
     if current:
         native_paths = sorted({*native_paths, *(item['path'] for item in read(ROOT / 'docs/pages-manifest.json')['files'] if item['path'].endswith('.html'))})
+    entry_replacement = HUB['stage'](output, ROOT, human)
+    if entry_replacement:
+        native_paths.remove('index.html')
     for path in native_paths:
         file = output / path
         before = file.read_text()
@@ -459,7 +464,7 @@ def compose(output, docusaurus):
                                              rel.as_posix() in {'index.html', 'review.html', 'catalog.html'})
             file.write_text(before[:body.end()] + addition + before[body.end():])
             mdx_edits.append({'path': 'docusaurus/' + rel.as_posix(), 'beforeSha256': hashlib.sha256(before.encode()).hexdigest(), 'afterSha256': sha(file), 'insertion': addition})
-    write(output / 'rendering/navigation-overlay.json', {'schema': 'weather-showcase-navigation/1.0', 'scope': 'Current reader entry redirects and historical-reader banners are additive navigation overlays. Frozen source, descriptions, evidence and producer identities remain unchanged.', 'changes': edits, 'docusaurusChanges': mdx_edits, 'docusaurusConfigOverlay': {'path': 'documentation/rendering/docusaurus.config.mjs', 'sha256': sha(HERE / 'docusaurus.config.mjs')}})
+    write(output / 'rendering/navigation-overlay.json', {'schema': 'weather-showcase-navigation/1.0', 'scope': 'The root index is a reader hub; its original is retained verbatim. Other reader redirects and historical banners are reversible navigation overlays. Frozen source, descriptions, evidence and producer identities remain unchanged.', 'changes': edits, 'entryReplacement': entry_replacement, 'docusaurusChanges': mdx_edits, 'docusaurusConfigOverlay': {'path': 'documentation/rendering/docusaurus.config.mjs', 'sha256': sha(HERE / 'docusaurus.config.mjs')}})
     return manifest
 
 
@@ -500,6 +505,9 @@ def verify(output):
         for page_path in (output / folder).rglob('*.html'):
             parser = Links(); parser.feed(page_path.read_text())
             urls.extend((page_path.relative_to(output).as_posix(), url) for url in parser.urls)
+    if (output / 'human').is_dir():
+        parser = Links(); parser.feed((output / 'index.html').read_text())
+        urls.extend(('index.html', url) for url in parser.urls)
     for row in manifest['capabilities']:
         if row['example']:
             urls.append(('rendering/index.html', row['example']))
@@ -560,12 +568,15 @@ def verify(output):
         checked += 1
     overlay = read(output / 'rendering/navigation-overlay.json')
     overlays = {x['path']: x for x in overlay['changes']}
+    entry_replacement = overlay.get('entryReplacement')
+    HUB['verify'](output, entry_replacement)
     preserved = 0
     for original in (ROOT / 'docs').rglob('*'):
         if not original.is_file():
             continue
         rel = str(original.relative_to(ROOT / 'docs'))
-        actual = (output / rel).read_bytes()
+        retained = entry_replacement['original'] if entry_replacement and rel == 'index.html' else rel
+        actual = (output / retained).read_bytes()
         if rel in overlays:
             addition = overlays[rel]['insertion'].encode()
             assert actual.count(addition) == 1
