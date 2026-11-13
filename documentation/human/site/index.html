@@ -1,4 +1,4 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#12334e"><title>Weather demo: локальная документация — Weather demo — документация сервисов</title><link rel="icon" type="image/svg+xml" href="favicon.svg"><style>/* Shared engineering documentation shell: bounded global navigation, local contents. */
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="codeclew-docset" content="weather-docs"><meta name="codeclew-docset-version" content="weather-r1"><meta name="codeclew-registry-digest" content="sha256:51a01dfd74e64fb1a320c592976694622b15d35f18dc7c1b46fe1a81955b4c0a"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#12334e"><title>Weather service guide — Weather service guide</title><link rel="icon" type="image/svg+xml" href="favicon.svg"><style>/* Shared engineering documentation shell: bounded global navigation, local contents. */
 :root{--ink:#12334e;--muted:#526980;--line:#dce5e9;--green:#087dc1;--green-soft:#e9f5fd;--canvas:#fdfaf2;--accent:#087dc1;--sans:"Avenir Next","Segoe UI",system-ui,sans-serif}
 *{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font:15px/1.65 var(--sans)}a{color:#087dc1}button,input,select{font:inherit}a,button,input,summary{touch-action:manipulation}*:focus-visible{outline:3px solid #087dc1;outline-offset:3px}[hidden]{display:none!important}
 .reader-nav{position:sticky;top:0;z-index:35;display:flex;align-items:center;gap:24px;min-height:66px;padding:10px 28px;background:#fffdf8;border-bottom:1px solid var(--line);color:var(--ink);font-size:13px}.reader-nav a{color:var(--ink);text-decoration:none;white-space:nowrap}.reader-nav a:hover{color:#087dc1;text-decoration:underline}.reader-brand{display:flex;align-items:center;gap:9px;font-size:20px;font-weight:800;letter-spacing:-.6px}.reader-brand svg{width:31px;height:31px}.reader-links{display:flex;gap:20px;align-items:center}.reader-search{margin-left:auto}.reader-search input{width:min(280px,24vw);border:1px solid var(--line);border-radius:7px;padding:8px 12px;background:#fff;font-size:12px;color:var(--ink)}.reader-nav [aria-current=page]{color:#087dc1;text-decoration:underline;text-underline-offset:7px}
@@ -145,7 +145,7 @@ body .route-heading .http-route-paths,body .route-heading .http-route-paths code
 .sequence-direction{display:block;font-size:13px;color:var(--muted,#435364)}
 .sequence-text li>p{margin:4px 0 0;font-size:14px}
 @media(max-width:700px){.clew-sequence{padding:14px}.sequence-scroll,.sequence-hint{display:none}.sequence-text summary{font-size:14px}}
-.page-sources{border-top:1px solid #ccd5df;margin-top:32px;padding-top:8px}.page-sources small{display:block;color:#435364;font-size:12px}.page-sources li{margin:12px 0}.source-excerpt{margin:8px 0}.source-excerpt summary{cursor:pointer;overflow-wrap:anywhere}.source-excerpt pre{white-space:pre;overflow:auto;max-height:28rem;padding:12px;background:#f1f4f7;font-size:13px}.source-excerpt code{font:inherit}</style></head><body class="markdown-reader" data-reader-page="index.md"><a class="skip-link" href="#clew-reader-main">К содержанию</a><header class="reader-nav"><a class="reader-brand" href="index.html"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 -12 132 132">
+.route-catalog,.route-context{margin:1.3rem 0}.route-service-list{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;list-style:none;padding:0}.route-card h3,.markdown-reader .reader-guide .route-card h3{margin:0 0 .7rem;font-size:1.05rem}.route-filter-panel{margin:1rem 0}.route-filters,.route-refinement-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin-top:1rem}.route-refinements{grid-column:1/-1}.route-refinement-fields{grid-template-columns:repeat(3,minmax(0,1fr))}.route-facet{min-width:0;border:1px solid #ccd5df;padding:.7rem}.route-facet legend{font-weight:600}.route-options{max-height:12rem;overflow:auto}.route-filters label{display:flex;align-items:flex-start;gap:.4rem;margin:.4rem 0;overflow-wrap:anywhere}.route-filters input{flex:none;margin-top:.3rem}.route-options label[hidden]{display:none}.route-service-search{box-sizing:border-box;width:100%;min-width:0;padding:.45rem;margin:.35rem 0 .7rem}.route-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:1rem}.route-cards{display:grid;gap:1rem}.route-card{border:1px solid #ccd5df;border-radius:.6rem;padding:1rem;min-width:0}.route-card [hidden],.route-card[hidden]{display:none}.route-state,.route-gap{font-size:.9em;margin:.5rem 0}.route-origin{margin:.6rem 0}.route-details{margin-top:.6rem}.route-help{font-size:.9em;margin:.6rem 0}.route-visits{margin:.6rem 0}.route-link-unavailable{color:#5d3740}.route-validation{font-size:.9em}.route-context ul,.route-card ul{padding-left:1.3rem}@media(max-width:850px){.route-refinement-fields{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:500px){.route-filters,.route-refinement-fields{grid-template-columns:1fr}}.page-sources{border-top:1px solid #ccd5df;margin-top:32px;padding-top:8px}.page-sources small{display:block;color:#435364;font-size:12px}.page-sources li{margin:12px 0}.source-excerpt{margin:8px 0}.source-excerpt summary{cursor:pointer;overflow-wrap:anywhere}.source-excerpt pre{white-space:pre;overflow:auto;max-height:28rem;padding:12px;background:#f1f4f7;font-size:13px}.source-excerpt code{font:inherit}</style></head><body class="markdown-reader" data-reader-page="index.md"><a class="skip-link" href="#clew-reader-main">Skip to content</a><header class="reader-nav"><a class="reader-brand" href="index.html"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 -12 132 132">
 <path d="M0,0 L9,0 L11,1 L11,7 L17,8 L19,13 L23,16 L23,19 L40,18 L42,15 L44,15 L46,9 L52,7 L51,4 L55,0 L63,0 L66,2 L66,9 L71,10 L71,38 L78,39 L77,48 L85,48 L87,50 L86,55 L79,56 L80,62 L86,66 L87,72 L83,74 L79,71 L77,73 L77,81 L80,86 L80,94 L78,99 L77,100 L65,100 L63,99 L63,96 L54,100 L22,99 L14,98 L13,93 L9,93 L8,99 L2,100 L-5,98 L-8,100 L-18,100 L-24,95 L-24,80 L-21,77 L-19,77 L-19,69 L-27,69 L-28,68 L-28,62 L-27,61 L-20,60 L-20,56 L-27,55 L-28,54 L-28,49 L-26,48 L-16,47 L-15,42 L-14,37 L-10,36 L-9,11 L-2,9 L-2,2 Z " fill="#C6BFB3" transform="translate(35,3)"/>
 <path d="M0,0 L6,0 L7,1 L7,10 L12,12 L12,20 L22,20 L22,18 L44,17 L44,10 L47,8 L50,8 L50,2 L51,0 L58,0 L60,2 L61,31 L64,32 L65,34 L65,45 L67,45 L68,47 L68,64 L67,65 L58,65 L58,71 L51,74 L48,74 L48,77 L45,77 L45,79 L39,80 L10,80 L5,78 L4,72 L-2,72 L-2,64 L-5,63 L-3,57 L1,53 L3,46 L4,46 L4,56 L15,58 L16,55 L18,55 L17,47 L15,43 L8,42 L8,41 L16,41 L15,40 L7,40 L9,37 L16,36 L17,31 L23,28 L14,28 L14,35 L8,36 L7,38 L3,39 L-1,52 L-6,53 L-12,51 L-12,58 L-13,58 L-13,50 L-12,49 L-11,36 L-9,35 L-7,29 L-3,27 L-4,24 L-4,7 L-1,6 L-1,1 Z M16,38 Z " fill="#F8F4EC" transform="translate(38,13)"/>
 <path d="M0,0 L6,0 L7,1 L7,10 L12,12 L12,20 L22,20 L22,18 L44,17 L44,10 L47,8 L50,8 L50,2 L51,0 L58,0 L60,2 L61,31 L64,32 L65,34 L65,45 L67,45 L68,47 L68,64 L67,65 L59,65 L62,61 L58,59 L56,52 L52,56 L41,56 L41,47 L43,43 L48,42 L48,40 L55,41 L56,48 L56,47 L55,39 L47,38 L44,34 L43,27 L34,27 L34,21 L35,19 L25,20 L25,22 L24,27 L14,28 L14,35 L8,36 L7,38 L3,39 L-1,52 L-6,53 L-12,51 L-12,58 L-13,58 L-13,50 L-12,49 L-11,36 L-9,35 L-7,29 L-3,27 L-4,24 L-4,7 L-1,6 L-1,1 Z " fill="#BEA898" transform="translate(38,13)"/>
@@ -297,704 +297,10 @@ body .route-heading .http-route-paths,body .route-heading .http-route-paths code
 <path d="M0,0 L3,0 L3,3 L0,3 Z " fill="#CAAE9D" transform="translate(92,96)"/>
 <path d="M0,0 L3,2 L0,3 Z " fill="#E6E1D1" transform="translate(42,57)"/>
 </svg>
-<span>Codeclew</span></a><span class="reader-project">Weather demo — документация сервисов</span></header><div class="guide-layout"><aside class="guide-toc"><details class="guide-local-navigation" open><summary>Страницы</summary><nav aria-label="Страницы документации"><a href="index.html" data-page="index.md" data-fragment="" aria-current="page">Weather guide</a><h2 class="navigation-label">Сервисы</h2><details class="service-navigation"><summary>Dashboard</summary><a href="dashboard.html" data-page="dashboard.md" data-fragment="">Обзор сервиса</a><div class="navigation-category"><span class="navigation-label">Начинаются здесь</span><ul><li><a href="dashboard-home-route.html" data-page="dashboard-home-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /</a></li><li><a href="dashboard-weather-route.html" data-page="dashboard-weather-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /api/weather</a></li><li><a href="dashboard-save-place-route.html" data-page="dashboard-save-place-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /api/places</a></li><li><a href="dashboard-refresh-route.html" data-page="dashboard-refresh-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /api/places/{id}/refresh</a></li><li><a href="dashboard-health-route.html" data-page="dashboard-health-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /health</a></li><li><a href="dashboard-openapi-route.html" data-page="dashboard-openapi-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /openapi.json</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Участие в общих маршрутах</span><ul><li><a href="event-flow.html#dashboard-place-requested" data-page="event-flow.md" data-fragment="dashboard-place-requested">weather.place-requested<span class="navigation-role">Dashboard consumer</span></a></li><li><a href="event-flow.html#dashboard-weather-result" data-page="event-flow.md" data-fragment="dashboard-weather-result">weather.forecast-updated<span class="navigation-role">Dashboard consumer</span></a></li></ul></div></details><details class="service-navigation"><summary>Places</summary><a href="places.html" data-page="places.md" data-fragment="">Обзор сервиса</a><div class="navigation-category"><span class="navigation-label">Начинаются здесь</span><ul><li><a href="places-list-route.html" data-page="places-list-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /places</a></li><li><a href="places-save-route.html" data-page="places-save-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /places</a></li><li><a href="places-refresh-route.html" data-page="places-refresh-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /places/{id}/refresh</a></li><li><a href="places-health-route.html" data-page="places-health-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /health</a></li><li><a href="places-openapi-route.html" data-page="places-openapi-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /openapi.json</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Участие в общих маршрутах</span><ul><li><a href="event-flow.html#place-requested-flow" data-page="event-flow.md" data-fragment="place-requested-flow">weather.place-requested<span class="navigation-role">RequestPublisher</span></a></li></ul></div></details><details class="service-navigation"><summary>Forecasts</summary><a href="forecasts.html" data-page="forecasts.md" data-fragment="">Обзор сервиса</a><div class="navigation-category"><span class="navigation-label">Начинаются здесь</span><ul><li><a href="forecasts-get-route.html" data-page="forecasts-get-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /forecasts/{id}</a></li><li><a href="forecasts-health-route.html" data-page="forecasts-health-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /health</a></li><li><a href="forecasts-openapi-route.html" data-page="forecasts-openapi-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /openapi.json</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Участие в общих маршрутах</span><ul><li><a href="event-flow.html#place-requested-flow" data-page="event-flow.md" data-fragment="place-requested-flow">weather.place-requested<span class="navigation-role">Forecasts listener</span></a></li><li><a href="event-flow.html#dashboard-weather-result" data-page="event-flow.md" data-fragment="dashboard-weather-result">weather.forecast-updated<span class="navigation-role">Forecasts publisher</span></a></li></ul></div></details><div class="navigation-category"><span class="navigation-label">Межсервисные маршруты</span><ul><li><a href="event-flow.html#place-requested-flow" data-page="event-flow.md" data-fragment="place-requested-flow">weather.place-requested</a></li><li><a href="event-flow.html#dashboard-weather-result" data-page="event-flow.md" data-fragment="dashboard-weather-result">weather.forecast-updated</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Другие страницы</span><ul><li><a href="events-data.html" data-page="events-data.md" data-fragment="">События и связи сервисов</a></li></ul></div></nav></details></aside><main class="reader-guide" id="clew-reader-main"><nav class="reader-breadcrumb" aria-label="Текущее положение"><a href="index.html" data-page="index.md" data-fragment="" aria-current="page">Weather guide</a><span class="breadcrumb-section" hidden></span></nav><h1 id="weather-demo-локальная-документация">Weather demo: локальная документация</h1>
-<p>Это руководство объясняет три сервиса публичного Weather demo: <a href="dashboard.html">Dashboard</a>, <a href="places.html">Places</a> и <a href="forecasts.html">Forecasts</a>, а также формат и путь событий между ними на странице <a href="events-data.html">События и данные</a>. Имена API, topic и JSON-полей оставлены в исходном регистре.</p>
-<h2 id="как-проходит-запрос">Как проходит запрос</h2>
-<ol>
-<li>Браузер показывает страницу Dashboard и отправляет команду выбрать город в <code>POST /api/places</code>. Dashboard передаёт JSON в Places.</li>
-<li>Для нового города Places сохраняет данные и запрос в PostgreSQL-транзакции; отдельный издатель передаёт ожидающую outbox-запись в <code>weather.place-requested</code>. Кнопка обновления вызывает <code>POST /api/places/{id}/refresh</code>, который создаёт новый запрос для существующего города.</li>
-<li>Forecasts читает <code>weather.place-requested</code>, обновляет город и пробует получить прогноз. По умолчанию используется fixture; в <code>live</code> mode сервис обращается к MET Norway.</li>
-<li>Forecasts сохраняет результат и ставит <code>forecast.updated</code> в собственную outbox.</li>
-<li>Dashboard читает оба топика, создаёт/обновляет строку карточки и обслуживает <code>GET /api/weather</code>; интерфейс получает данные из Dashboard.</li>
-</ol>
-<h2 id="сервисы-и-локальные-адреса">Сервисы и локальные адреса</h2>
-<table>
-<thead>
-<tr>
-<th>Сервис</th>
-<th>Для чего он нужен</th>
-<th>Локальный адрес в Compose</th>
-<th>Своё хранилище</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="dashboard.html">Dashboard</a></td>
-<td>HTML-интерфейс, API для браузера, consumer событий и витрина карточек.</td>
-<td><code>http://127.0.0.1:8080</code></td>
-<td>PostgreSQL database <code>dashboard</code></td>
-</tr>
-<tr>
-<td><a href="places.html">Places</a></td>
-<td>Каталог Oslo/Helsinki/Lisbon и публикация запросов на прогноз.</td>
-<td><code>http://127.0.0.1:8081</code></td>
-<td>PostgreSQL database <code>places</code></td>
-</tr>
-<tr>
-<td><a href="forecasts.html">Forecasts</a></td>
-<td>Чтение <code>place.requested</code>, загрузка, кеширование и выдача прогноза; публикация результата.</td>
-<td><code>http://127.0.0.1:8082</code></td>
-<td>PostgreSQL database <code>forecasts</code></td>
-</tr>
-</tbody></table>
-<p>Compose использует один контейнер PostgreSQL с тремя базами и один Kafka broker/controller. Topics <code>weather.place-requested</code> и <code>weather.forecast-updated</code> создаются по одной partition и replication factor 1. Каждый адрес <code>127.0.0.1</code> привязан к loopback интерфейсу машины.</p>
-<h2 id="по-какой-странице-идти">По какой странице идти</h2>
-<ul>
-<li><a href="dashboard.html">Dashboard</a>: все маршруты веб-сервиса, карточки, UI и обработка событий.</li>
-<li><a href="places.html">Places</a>: список городов, API, запись в базу, <code>request_outbox</code> и publisher.</li>
-<li><a href="forecasts.html">Forecasts</a>: ответ API, schema прогноза, fixture/live, кеш и отправка результата.</li>
-<li><a href="events-data.html">События и данные</a>: topic-ы, общий конверт, payload-поля и границы доставки.</li>
-</ul>
-<p>По умолчанию Compose задаёт <code>FORECAST_MODE=fixture</code>; тип прогноза и происхождение примеров описаны на странице <a href="forecasts.html">Forecasts</a>.</p>
-<p><a id="scope"></a></p>
-<details>
-<summary>Источники и границы проверки</summary>
-
-<p>Материал описывает публичный Weather на ревизии <code>c9a4283cb5bbe2409b95561aca4e751a71255ff9</code>. Для Dashboard и Forecasts использованы сохранённые source fragments; Places прочитан через compiler Work со статусом <code>PARTIAL</code>. Контекст Places не включает generated documents, а некоторые compiler-flow details остаются ограниченными. Пакет и runtime не запускались автором; диаграммы описывают сохранённый код, а не поведение конкретного запуска. Расхождения OpenAPI с сохранёнными обработчиками <code>/health</code> показаны рядом с этими маршрутами.</p>
-</details>
-<section class="page-sources"><h2>Источники</h2><ul><li><span title="dashboard:compose.yaml @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">compose.yaml</span> — <a href="#clew-source-0-0">1–83</a><small>dashboard · compose.yaml · c9a4283cb5bb</small></li><li><span title="dashboard:contracts/dashboard.openapi.json @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">dashboard.openapi.json</span> — <a href="#clew-source-1-0">1–462</a><small>dashboard · contracts/dashboard.openapi.json · c9a4283cb5bb</small></li><li><span title="dashboard:services/dashboard/src/main.ts @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">main.ts</span> — <a href="#clew-source-2-0">1–113</a>; <a href="#clew-source-2-1">69</a>; <a href="#clew-source-2-2">104</a><small>dashboard · services/dashboard/src/main.ts · c9a4283cb5bb</small></li><li><span title="forecasts:compose.yaml @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">compose.yaml</span> — <a href="#clew-source-3-0">1–83</a><small>forecasts · compose.yaml · c9a4283cb5bb</small></li><li><span title="forecasts:contracts/events.schema.json @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">events.schema.json</span> — <a href="#clew-source-4-0">1–173</a><small>forecasts · contracts/events.schema.json · c9a4283cb5bb</small></li><li><span title="forecasts:contracts/forecasts.openapi.json @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">forecasts.openapi.json</span> — <a href="#clew-source-5-0">1–191</a><small>forecasts · contracts/forecasts.openapi.json · c9a4283cb5bb</small></li><li><span title="forecasts:fixtures/provenance.json @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">provenance.json</span> — <a href="#clew-source-6-0">1–14</a><small>forecasts · fixtures/provenance.json · c9a4283cb5bb</small></li><li><span title="forecasts:services/forecasts/src/main/kotlin/weather/ForecastController.kt @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">ForecastController.kt</span> — <a href="#clew-source-7-0">1–20</a><small>forecasts · services/forecasts/src/main/kotlin/weather/ForecastController.kt · c9a4283cb5bb</small></li><li><span title="forecasts:services/forecasts/src/main/kotlin/weather/Forecasts.kt @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">Forecasts.kt</span> — <a href="#clew-source-8-0">1–140</a><small>forecasts · services/forecasts/src/main/kotlin/weather/Forecasts.kt · c9a4283cb5bb</small></li><li><span title="places:contracts/places.openapi.json @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">places.openapi.json</span> — <a href="#clew-source-9-0">1–263</a><small>places · contracts/places.openapi.json · c9a4283cb5bb</small></li><li><span title="places:services/places/PlacesController.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">PlacesController.cs</span> — <a href="#clew-source-10-0">8–9</a>; <a href="#clew-source-10-1">10–17</a>; <a href="#clew-source-10-2">18–25</a><small>places · services/places/PlacesController.cs · c9a4283cb5bb</small></li><li><span title="places:services/places/PlacesRepository.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">PlacesRepository.cs</span> — <a href="#clew-source-11-0">4–60</a>; <a href="#clew-source-11-1">36–44</a><small>places · services/places/PlacesRepository.cs · c9a4283cb5bb</small></li><li><span title="places:services/places/RequestPublisher.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">RequestPublisher.cs</span> — <a href="#clew-source-12-0">18–34</a><small>places · services/places/RequestPublisher.cs · c9a4283cb5bb</small></li></ul><details class="source-fragments"><summary>Фрагменты кода</summary><details class="source-excerpt"><summary>dashboard:compose.yaml @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 1–83</summary><pre id="clew-source-0-0" tabindex="0" role="region" aria-label="compose.yaml — 1–83"><code>name: clew-weather-demo
-services:
-  postgres:
-    image: postgres:18.3
-    environment:
-      POSTGRES_USER: weather
-      POSTGRES_PASSWORD: weather
-    volumes:
-      - weather-data:/var/lib/postgresql
-      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
-    healthcheck:
-      test: [CMD-SHELL, pg_isready -U weather]
-      interval: 3s
-      timeout: 3s
-      retries: 30
-  kafka:
-    image: apache/kafka:4.1.2
-    environment:
-      KAFKA_NODE_ID: 1
-      KAFKA_PROCESS_ROLES: broker,controller
-      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
-      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
-      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
-      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
-    healthcheck:
-      test: [CMD-SHELL, '/opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list']
-      interval: 5s
-      timeout: 10s
-      retries: 30
-  kafka-init:
-    image: apache/kafka:4.1.2
-    entrypoint: [&quot;/bin/bash&quot;, &quot;-ec&quot;]
-    command:
-      - |
-        for topic in weather.place-requested weather.forecast-updated; do
-          /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --create --if-not-exists --topic &quot;$$topic&quot; --partitions 1 --replication-factor 1
-          /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --describe --topic &quot;$$topic&quot;
-        done
-    depends_on:
-      kafka: {condition: service_healthy}
-  places:
-    build:
-      context: .
-      dockerfile: services/places/Dockerfile
-    environment:
-      DATABASE_URL: Host=postgres;Database=places;Username=weather;Password=weather
-      KAFKA_BOOTSTRAP: kafka:9092
-    ports: ['127.0.0.1:8081:8080']
-    depends_on:
-      postgres: {condition: service_healthy}
-      kafka-init: {condition: service_completed_successfully}
-  forecasts:
-    build:
-      context: .
-      dockerfile: services/forecasts/Dockerfile
-    environment:
-      DATABASE_URL: jdbc:postgresql://postgres:5432/forecasts
-      KAFKA_BOOTSTRAP: kafka:9092
-      FORECAST_MODE: ${FORECAST_MODE:-fixture}
-      MET_USER_AGENT: ${MET_USER_AGENT:-}
-    ports: ['127.0.0.1:8082:8080']
-    depends_on:
-      postgres: {condition: service_healthy}
-      kafka-init: {condition: service_completed_successfully}
-  dashboard:
-    build:
-      context: .
-      dockerfile: services/dashboard/Dockerfile
-    environment:
-      DATABASE_URL: postgres://weather:weather@postgres:5432/dashboard
-      KAFKA_BOOTSTRAP: kafka:9092
-      PLACES_URL: http://places:8080
-    ports: ['127.0.0.1:8080:8080']
-    depends_on:
-      postgres: {condition: service_healthy}
-      kafka-init: {condition: service_completed_successfully}
-volumes:
-  weather-data:
-</code></pre></details><details class="source-excerpt"><summary>dashboard:contracts/dashboard.openapi.json @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 1–462</summary><pre id="clew-source-1-0" tabindex="0" role="region" aria-label="contracts/dashboard.openapi.json — 1–462"><code>{
-  &quot;openapi&quot;: &quot;3.1.0&quot;,
-  &quot;info&quot;: {
-    &quot;title&quot;: &quot;dashboard&quot;,
-    &quot;version&quot;: &quot;1.0.0&quot;
-  },
-  &quot;paths&quot;: {
-    &quot;/&quot;: {
-      &quot;get&quot;: {
-        &quot;operationId&quot;: &quot;dashboard_get_&quot;,
-        &quot;responses&quot;: {
-          &quot;200&quot;: {
-            &quot;description&quot;: &quot;200&quot;,
-            &quot;content&quot;: {
-              &quot;text/html&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;string&quot;
-                }
-              }
-            }
-          },
-          &quot;500&quot;: {
-            &quot;description&quot;: &quot;500&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;properties&quot;: {
-                    &quot;error&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    }
-                  },
-                  &quot;additionalProperties&quot;: true
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    &quot;/api/weather&quot;: {
-      &quot;get&quot;: {
-        &quot;operationId&quot;: &quot;dashboard_get_api_weather&quot;,
-        &quot;responses&quot;: {
-          &quot;200&quot;: {
-            &quot;description&quot;: &quot;200&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;array&quot;,
-                  &quot;items&quot;: {
-                    &quot;type&quot;: &quot;object&quot;,
-                    &quot;required&quot;: [
-                      &quot;id&quot;,
-                      &quot;name&quot;,
-                      &quot;latitude&quot;,
-                      &quot;longitude&quot;,
-                      &quot;forecast&quot;
-                    ],
-                    &quot;properties&quot;: {
-                      &quot;id&quot;: {
-                        &quot;type&quot;: &quot;string&quot;,
-                        &quot;enum&quot;: [
-                          &quot;oslo&quot;,
-                          &quot;helsinki&quot;,
-                          &quot;lisbon&quot;
-                        ]
-                      },
-                      &quot;name&quot;: {
-                        &quot;type&quot;: &quot;string&quot;
-                      },
-                      &quot;latitude&quot;: {
-                        &quot;type&quot;: &quot;number&quot;,
-                        &quot;minimum&quot;: -90,
-                        &quot;maximum&quot;: 90
-                      },
-                      &quot;longitude&quot;: {
-                        &quot;type&quot;: &quot;number&quot;,
-                        &quot;minimum&quot;: -180,
-                        &quot;maximum&quot;: 180
-                      },
-                      &quot;forecast&quot;: {
-                        &quot;oneOf&quot;: [
-                          {
-                            &quot;type&quot;: &quot;object&quot;,
-                            &quot;required&quot;: [
-                              &quot;updatedAt&quot;,
-                              &quot;fetchedAt&quot;,
-                              &quot;mode&quot;,
-                              &quot;periods&quot;
-                            ],
-                            &quot;properties&quot;: {
-                              &quot;updatedAt&quot;: {
-                                &quot;type&quot;: &quot;string&quot;,
-                                &quot;format&quot;: &quot;date-time&quot;
-                              },
-                              &quot;fetchedAt&quot;: {
-                                &quot;type&quot;: &quot;string&quot;,
-                                &quot;format&quot;: &quot;date-time&quot;
-                              },
-                              &quot;mode&quot;: {
-                                &quot;type&quot;: &quot;string&quot;,
-                                &quot;enum&quot;: [
-                                  &quot;fixture&quot;,
-                                  &quot;live&quot;
-                                ]
-                              },
-                              &quot;periods&quot;: {
-                                &quot;type&quot;: &quot;array&quot;,
-                                &quot;minItems&quot;: 1,
-                                &quot;maxItems&quot;: 6,
-                                &quot;items&quot;: {
-                                  &quot;type&quot;: &quot;object&quot;,
-                                  &quot;required&quot;: [
-                                    &quot;time&quot;,
-                                    &quot;temperatureC&quot;,
-                                    &quot;precipitationMm&quot;,
-                                    &quot;symbol&quot;
-                                  ],
-                                  &quot;properties&quot;: {
-                                    &quot;time&quot;: {
-                                      &quot;type&quot;: &quot;string&quot;,
-                                      &quot;format&quot;: &quot;date-time&quot;
-                                    },
-                                    &quot;temperatureC&quot;: {
-                                      &quot;type&quot;: &quot;number&quot;
-                                    },
-                                    &quot;precipitationMm&quot;: {
-                                      &quot;type&quot;: [
-                                        &quot;number&quot;,
-                                        &quot;null&quot;
-                                      ],
-                                      &quot;minimum&quot;: 0
-                                    },
-                                    &quot;symbol&quot;: {
-                                      &quot;type&quot;: &quot;string&quot;
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          {
-                            &quot;type&quot;: &quot;null&quot;
-                          }
-                        ]
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          &quot;500&quot;: {
-            &quot;description&quot;: &quot;500&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;properties&quot;: {
-                    &quot;error&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    }
-                  },
-                  &quot;additionalProperties&quot;: true
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    &quot;/api/places&quot;: {
-      &quot;post&quot;: {
-        &quot;operationId&quot;: &quot;dashboard_post_api_places&quot;,
-        &quot;responses&quot;: {
-          &quot;200&quot;: {
-            &quot;description&quot;: &quot;200&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;required&quot;: [
-                    &quot;id&quot;,
-                    &quot;name&quot;,
-                    &quot;latitude&quot;,
-                    &quot;longitude&quot;
-                  ],
-                  &quot;properties&quot;: {
-                    &quot;id&quot;: {
-                      &quot;type&quot;: &quot;string&quot;,
-                      &quot;enum&quot;: [
-                        &quot;oslo&quot;,
-                        &quot;helsinki&quot;,
-                        &quot;lisbon&quot;
-                      ]
-                    },
-                    &quot;name&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    },
-                    &quot;latitude&quot;: {
-                      &quot;type&quot;: &quot;number&quot;,
-                      &quot;minimum&quot;: -90,
-                      &quot;maximum&quot;: 90
-                    },
-                    &quot;longitude&quot;: {
-                      &quot;type&quot;: &quot;number&quot;,
-                      &quot;minimum&quot;: -180,
-                      &quot;maximum&quot;: 180
-                    }
-                  }
-                }
-              }
-            }
-          },
-          &quot;400&quot;: {
-            &quot;description&quot;: &quot;400&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;properties&quot;: {
-                    &quot;error&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    }
-                  },
-                  &quot;additionalProperties&quot;: true
-                }
-              }
-            }
-          },
-          &quot;415&quot;: {
-            &quot;description&quot;: &quot;415&quot;
-          },
-          &quot;500&quot;: {
-            &quot;description&quot;: &quot;500&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;properties&quot;: {
-                    &quot;error&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    }
-                  },
-                  &quot;additionalProperties&quot;: true
-                }
-              }
-            }
-          },
-          &quot;503&quot;: {
-            &quot;description&quot;: &quot;503&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;properties&quot;: {
-                    &quot;error&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    }
-                  },
-                  &quot;additionalProperties&quot;: true
-                }
-              }
-            }
-          }
-        },
-        &quot;requestBody&quot;: {
-          &quot;required&quot;: true,
-          &quot;content&quot;: {
-            &quot;application/json&quot;: {
-              &quot;schema&quot;: {
-                &quot;type&quot;: &quot;object&quot;,
-                &quot;required&quot;: [
-                  &quot;cityId&quot;
-                ],
-                &quot;additionalProperties&quot;: false,
-                &quot;properties&quot;: {
-                  &quot;cityId&quot;: {
-                    &quot;type&quot;: &quot;string&quot;,
-                    &quot;enum&quot;: [
-                      &quot;oslo&quot;,
-                      &quot;helsinki&quot;,
-                      &quot;lisbon&quot;
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    &quot;/api/places/{id}/refresh&quot;: {
-      &quot;post&quot;: {
-        &quot;operationId&quot;: &quot;dashboard_post_api_places_id_refresh&quot;,
-        &quot;responses&quot;: {
-          &quot;202&quot;: {
-            &quot;description&quot;: &quot;202&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;required&quot;: [
-                    &quot;placeId&quot;,
-                    &quot;status&quot;
-                  ],
-                  &quot;properties&quot;: {
-                    &quot;placeId&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    },
-                    &quot;status&quot;: {
-                      &quot;const&quot;: &quot;QUEUED&quot;
-                    }
-                  }
-                }
-              }
-            }
-          },
-          &quot;404&quot;: {
-            &quot;description&quot;: &quot;404&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;properties&quot;: {
-                    &quot;error&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    }
-                  },
-                  &quot;additionalProperties&quot;: true
-                }
-              }
-            }
-          },
-          &quot;500&quot;: {
-            &quot;description&quot;: &quot;500&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;properties&quot;: {
-                    &quot;error&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    }
-                  },
-                  &quot;additionalProperties&quot;: true
-                }
-              }
-            }
-          },
-          &quot;503&quot;: {
-            &quot;description&quot;: &quot;503&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;properties&quot;: {
-                    &quot;error&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    }
-                  },
-                  &quot;additionalProperties&quot;: true
-                }
-              }
-            }
-          }
-        },
-        &quot;parameters&quot;: [
-          {
-            &quot;name&quot;: &quot;id&quot;,
-            &quot;in&quot;: &quot;path&quot;,
-            &quot;required&quot;: true,
-            &quot;schema&quot;: {
-              &quot;type&quot;: &quot;string&quot;,
-              &quot;enum&quot;: [
-                &quot;oslo&quot;,
-                &quot;helsinki&quot;,
-                &quot;lisbon&quot;
-              ]
-            }
-          }
-        ]
-      }
-    },
-    &quot;/health&quot;: {
-      &quot;get&quot;: {
-        &quot;operationId&quot;: &quot;dashboard_get_health&quot;,
-        &quot;responses&quot;: {
-          &quot;200&quot;: {
-            &quot;description&quot;: &quot;200&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;properties&quot;: {
-                    &quot;database&quot;: {
-                      &quot;const&quot;: &quot;READY&quot;
-                    },
-                    &quot;kafka&quot;: {
-                      &quot;const&quot;: &quot;READY&quot;
-                    }
-                  }
-                }
-              }
-            }
-          },
-          &quot;500&quot;: {
-            &quot;description&quot;: &quot;500&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;properties&quot;: {
-                    &quot;error&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    }
-                  },
-                  &quot;additionalProperties&quot;: true
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    &quot;/openapi.json&quot;: {
-      &quot;get&quot;: {
-        &quot;operationId&quot;: &quot;dashboard_get_openapi.json&quot;,
-        &quot;responses&quot;: {
-          &quot;200&quot;: {
-            &quot;description&quot;: &quot;200&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;additionalProperties&quot;: true
-                }
-              }
-            }
-          },
-          &quot;500&quot;: {
-            &quot;description&quot;: &quot;500&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;properties&quot;: {
-                    &quot;error&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    }
-                  },
-                  &quot;additionalProperties&quot;: true
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-</code></pre></details><details class="source-excerpt"><summary>dashboard:services/dashboard/src/main.ts @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 1–113</summary><pre id="clew-source-2-0" tabindex="0" role="region" aria-label="services/dashboard/src/main.ts — 1–113"><code>import Fastify, { type FastifyRequest, type FastifyReply } from 'fastify'
-import pg from 'pg'
-import { Kafka, type EachMessagePayload } from 'kafkajs'
-import { readFile } from 'node:fs/promises'
-
-const app = Fastify({ logger: true })
-const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL })
-const kafka = new Kafka({ clientId: 'weather-dashboard', brokers: [process.env.KAFKA_BOOTSTRAP ?? 'kafka:9092'] })
-const consumer = kafka.consumer({ groupId: 'weather-dashboard-v1' })
-const placesUrl = process.env.PLACES_URL ?? 'http://places:8080'
-let consumerReady = false
-
-import { validateEvent, type Event } from './events.js'
-
-export async function applyEvent(event: Event): Promise&lt;string> {
-  const client = await pool.connect()
-  try {
-    await client.query('BEGIN')
-    const inserted = await client.query('INSERT INTO inbox(event_id) VALUES($1) ON CONFLICT DO NOTHING RETURNING event_id', [event.id])
-    if (inserted.rowCount === 0) {
-      await client.query('COMMIT')
-      return 'DUPLICATE'
-    }
-    let result
-    if (event.type === 'forecast.updated' &amp;&amp; event.forecast) {
-      result = await client.query(`INSERT INTO weather_cards(place_id,name,latitude,longitude,updated_at,forecast)
-        VALUES($1,$2,$3,$4,$5,$6) ON CONFLICT(place_id) DO UPDATE SET
-        name=EXCLUDED.name,latitude=EXCLUDED.latitude,longitude=EXCLUDED.longitude,
-        updated_at=EXCLUDED.updated_at,forecast=EXCLUDED.forecast
-        WHERE weather_cards.updated_at IS NULL OR EXCLUDED.updated_at > weather_cards.updated_at`,
-      [event.place.id, event.place.name, event.place.latitude, event.place.longitude, event.forecast.updatedAt, JSON.stringify(event.forecast)])
-    } else {
-      result = await client.query(`INSERT INTO weather_cards(place_id,name,latitude,longitude) VALUES($1,$2,$3,$4)
-        ON CONFLICT(place_id) DO UPDATE SET name=EXCLUDED.name,latitude=EXCLUDED.latitude,longitude=EXCLUDED.longitude`,
-      [event.place.id, event.place.name, event.place.latitude, event.place.longitude])
-    }
-    await client.query('COMMIT')
-    return result.rowCount === 0 ? 'OLDER_OR_EQUAL' : 'APPLIED'
-  } catch (error) {
-    await client.query('ROLLBACK')
-    throw error
-  } finally {
-    client.release()
-  }
-}
-
-export async function consumeMessage(payload: EachMessagePayload): Promise&lt;void> {
-  const { topic, partition, message } = payload
-  let event
-  try {
-    event = validateEvent(JSON.parse(message.value?.toString() ?? ''), topic)
-  } catch {
-    await pool.query(`INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES($1,$2,$3,'INVALID_EVENT')
-      ON CONFLICT DO NOTHING`, [topic, partition, message.offset])
-    await consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])
-    return
-  }
-  await applyEvent(event)
-  await consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])
-}
-
-export async function getWeather(): Promise&lt;unknown[]> {
-  const result = await pool.query('SELECT place_id AS id,name,latitude,longitude,forecast FROM weather_cards ORDER BY name')
-  return result.rows
-}
-
-export async function savePlace(request: FastifyRequest, reply: FastifyReply): Promise&lt;void> {
-  try {
-    const response = await fetch(`${placesUrl}/places`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(request.body), signal: AbortSignal.timeout(10000) })
-    reply.code(response.status).send(await response.json())
-  } catch {
-    reply.code(503).send({ error: 'PLACES_UNAVAILABLE' })
-  }
-}
-
-export async function requestRefresh(request: FastifyRequest&lt;{ Params: { id: string } }>, reply: FastifyReply): Promise&lt;void> {
-  try {
-    const response = await fetch(`${placesUrl}/places/${encodeURIComponent(request.params.id)}/refresh`, { method: 'POST', signal: AbortSignal.timeout(10000) })
-    reply.code(response.status).send(await response.json())
-  } catch {
-    reply.code(503).send({ error: 'PLACES_UNAVAILABLE' })
-  }
-}
-
-export async function getHealth(): Promise&lt;{ database: string; kafka: string }> {
-  await pool.query('SELECT 1')
-  if (!consumerReady) throw new Error('KAFKA_NOT_READY')
-  return { database: 'READY', kafka: 'READY' }
-}
-
-export async function getOpenApi(): Promise&lt;unknown> {
-  return JSON.parse(await readFile('/app/contracts/dashboard.openapi.json', 'utf8'))
-}
-
-export async function getHome(_request: FastifyRequest, reply: import('fastify').FastifyReply): Promise&lt;void> {
-  reply.type('text/html').send(await readFile('/app/services/dashboard/public/index.html', 'utf8'))
-}
-
-export async function start(): Promise&lt;void> {
+<span>Codeclew</span></a><span class="reader-project">Weather service guide</span></header><div class="guide-layout"><aside class="guide-toc"><details class="guide-local-navigation" open><summary>Pages</summary><nav aria-label="Documentation pages"><a href="index.html" data-page="index.md" data-fragment="" aria-current="page">Guide</a><h2 class="navigation-label">Services</h2><details class="service-navigation"><summary>Dashboard</summary><a href="dashboard.html" data-page="dashboard.md" data-fragment="">Overview</a><div class="navigation-category"><span class="navigation-label">Starts here</span><ul><li><a href="dashboard-weather.html" data-page="dashboard-weather.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /api/weather</a></li><li><a href="dashboard-add-place.html" data-page="dashboard-add-place.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /api/places</a></li><li><a href="dashboard-refresh-place.html" data-page="dashboard-refresh-place.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /api/places/{id}/refresh</a></li><li><a href="dashboard-health.html" data-page="dashboard-health.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /health</a></li><li><a href="dashboard-openapi.html" data-page="dashboard-openapi.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /openapi.json</a></li><li><a href="dashboard-home.html" data-page="dashboard-home.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /</a></li><li><a href="dashboard.html#event-projection" data-page="dashboard.md" data-fragment="event-projection"><span class="trigger-kind">Kafka</span>Weather Kafka consumer</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Data</span><ul><li><a href="dashboard-data.html" data-page="dashboard-data.md" data-fragment="">Weather-card fields</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Shared-route participation</span><ul><li><a href="process-add-place.html" data-page="process-add-place.md" data-fragment="">Add a place and request its forecast</a></li><li><a href="process-refresh-place.html" data-page="process-refresh-place.md" data-fragment="">Request a place refresh</a></li><li><a href="process-scheduled-refresh.html" data-page="process-scheduled-refresh.md" data-fragment="">Refresh and publish forecasts</a></li><li><a href="process-dashboard-events.html" data-page="process-dashboard-events.md" data-fragment="">Project Weather events in Dashboard</a></li></ul></div></details><details class="service-navigation"><summary>Places</summary><a href="places.html" data-page="places.md" data-fragment="">Overview</a><div class="navigation-category"><span class="navigation-label">Starts here</span><ul><li><a href="places-list.html" data-page="places-list.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /places</a></li><li><a href="places-create.html" data-page="places-create.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /places</a></li><li><a href="places-refresh.html" data-page="places-refresh.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /places/{id}/refresh</a></li><li><a href="places-health.html" data-page="places-health.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /health</a></li><li><a href="places-openapi.html" data-page="places-openapi.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /openapi.json</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Data</span><ul><li><a href="place-data.html" data-page="place-data.md" data-fragment="">Place fields and events</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Shared-route participation</span><ul><li><a href="process-add-place.html" data-page="process-add-place.md" data-fragment="">Add a place and request its forecast</a></li><li><a href="process-refresh-place.html" data-page="process-refresh-place.md" data-fragment="">Request a place refresh</a></li></ul></div></details><details class="service-navigation"><summary>Forecasts</summary><a href="forecasts.html" data-page="forecasts.md" data-fragment="">Overview</a><div class="navigation-category"><span class="navigation-label">Starts here</span><ul><li><a href="forecasts-get.html" data-page="forecasts-get.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /forecasts/{id}</a></li><li><a href="forecasts-health.html" data-page="forecasts-health.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /health</a></li><li><a href="forecasts-openapi.html" data-page="forecasts-openapi.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /openapi.json</a></li><li><a href="forecasts.html#background-paths" data-page="forecasts.md" data-fragment="background-paths"><span class="trigger-kind">Scheduled</span>Scheduled forecast refresh</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Data</span><ul><li><a href="forecast-data.html" data-page="forecast-data.md" data-fragment="">Forecast and period fields</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Shared-route participation</span><ul><li><a href="process-add-place.html" data-page="process-add-place.md" data-fragment="">Add a place and request its forecast</a></li><li><a href="process-refresh-place.html" data-page="process-refresh-place.md" data-fragment="">Request a place refresh</a></li><li><a href="process-scheduled-refresh.html" data-page="process-scheduled-refresh.md" data-fragment="">Refresh and publish forecasts</a></li></ul></div></details><div class="navigation-category"><span class="navigation-label">Cross-service routes</span><ul><li><a href="process-add-place.html" data-page="process-add-place.md" data-fragment="">Add a place and request its forecast</a></li><li><a href="process-refresh-place.html" data-page="process-refresh-place.md" data-fragment="">Request a place refresh</a></li><li><a href="process-scheduled-refresh.html" data-page="process-scheduled-refresh.md" data-fragment="">Refresh and publish forecasts</a></li><li><a href="process-dashboard-events.html" data-page="process-dashboard-events.md" data-fragment="">Project Weather events in Dashboard</a></li></ul></div></nav></details></aside><main class="reader-guide" id="clew-reader-main"><nav class="reader-breadcrumb" aria-label="Current location"><a href="index.html" data-page="index.md" data-fragment="" aria-current="page">Guide</a><span class="breadcrumb-section" hidden></span></nav><h1 id="weather-service-guide">Weather service guide</h1>
+<p>This guide explains the retained HTTP handlers and source-described background paths for the Weather example. Start with a service overview, open an endpoint page for one request, or use the process pages to follow a cross-service path.</p><section class="route-catalog" id="clew-route-catalog"><h2>Services</h2><ul class="route-service-list"><li><a href="dashboard.html" data-page="dashboard.md" data-fragment="">Dashboard</a></li><li><a href="places.html" data-page="places.md" data-fragment="">Places</a></li><li><a href="forecasts.html" data-page="forecasts.md" data-fragment="">Forecasts</a></li></ul><h2>Processes</h2><details class="route-help"><summary>How filters work</summary><p id="clew-route-help">Choose where a process starts and a service where it executes a step, whether it ends there or continues. Empty filters include all services. Values within a filter use OR; filters combine with AND in one outcome.</p><p>Processes with classification gaps: 4</p><p>Results apply only to the described scope. Unclassified is not a negative.</p><p class="route-validation">Navigation declarations; remote pages and anchors are not checked.</p></details><details class="route-filter-panel" open><summary>Filter processes</summary><form class="route-filters" aria-label="Filter processes" aria-describedby="clew-route-help"><fieldset class="route-facet"><legend>Starts in</legend><input type="search" class="route-service-search" placeholder="Find service" aria-label="Find service: Starts in"><div class="route-options"><label><input type="checkbox" name="start" value="weather-docs/dashboard"><span>Dashboard</span></label><label><input type="checkbox" name="start" value="weather-docs/places"><span>Places</span></label><label><input type="checkbox" name="start" value="weather-docs/forecasts"><span>Forecasts</span></label></div></fieldset><fieldset class="route-facet"><legend>Includes service</legend><input type="search" class="route-service-search" placeholder="Find service" aria-label="Find service: Includes service"><div class="route-options"><label><input type="checkbox" name="visits" value="weather-docs/dashboard"><span>Dashboard</span></label><label><input type="checkbox" name="visits" value="weather-docs/places"><span>Places</span></label><label><input type="checkbox" name="visits" value="weather-docs/forecasts"><span>Forecasts</span></label></div></fieldset><details class="route-refinements"><summary>More filters</summary><div class="route-refinement-fields"><fieldset class="route-facet"><legend>Ends in</legend><input type="search" class="route-service-search" placeholder="Find service" aria-label="Find service: Ends in"><div class="route-options"><label><input type="checkbox" name="end" value="weather-docs/dashboard"><span>Dashboard</span></label><label><input type="checkbox" name="end" value="weather-docs/places"><span>Places</span></label><label><input type="checkbox" name="end" value="weather-docs/forecasts"><span>Forecasts</span></label></div></fieldset><fieldset class="route-facet"><legend>Internal service</legend><input type="search" class="route-service-search" placeholder="Find service" aria-label="Find service: Internal service"><div class="route-options"><label><input type="checkbox" name="intermediate" value="weather-docs/dashboard"><span>Dashboard</span></label><label><input type="checkbox" name="intermediate" value="weather-docs/places"><span>Places</span></label><label><input type="checkbox" name="intermediate" value="weather-docs/forecasts"><span>Forecasts</span></label></div></fieldset><fieldset class="route-facet"><legend>Outcome</legend><div class="route-options"><label><input type="checkbox" name="outcomeKinds" value="normal"><span>Normal</span></label><label><input type="checkbox" name="outcomeKinds" value="error"><span>Error</span></label><label><input type="checkbox" name="outcomeKinds" value="handoff"><span>Handoff</span></label><label><input type="checkbox" name="outcomeKinds" value="unknown"><span>Unclassified</span></label></div></fieldset></div></details><div class="route-actions"><label class="route-include"><input type="checkbox" name="includeUnknown" checked>Include unclassified results</label><button type="reset">Clear filters</button></div></form></details><p class="route-count" role="status" aria-live="polite"></p><p class="route-empty" hidden></p><noscript>Filters need JavaScript. All declared processes and links are shown.</noscript><div class="route-cards"><article class="route-card" data-route-id="add-place-route"><h3><a href="process-add-place.html" data-page="process-add-place.md" data-fragment="">Add a place and request its forecast</a></h3><p class="route-origin">HTTP · <a href="dashboard-add-place.html" data-page="dashboard-add-place.md" data-fragment="">Dashboard · Dashboard POST /api/places</a></p><ul class="route-visits" aria-label="Matching service steps" hidden></ul><p class="route-gap">End not classified</p><p class="route-state" hidden></p><details class="route-details"><summary>Details and limits</summary><p>Ends in: Unclassified: End not classified</p><p>Some outcomes or roles remain unclassified</p><p class="route-matches" hidden></p><ul class="route-match-evidence" hidden></ul><h4>Described outcomes</h4><ul><li>Terminal outcome unverified (Unclassified): End not classified</li></ul><ul><li><a href="dashboard-add-place.html" data-page="dashboard-add-place.md" data-fragment="">Dashboard</a> — Forward the place request · <a href="dashboard.html" data-page="dashboard.md" data-fragment="">Services</a></li><li><a href="places-create.html" data-page="places-create.md" data-fragment="">Places</a> — Map and save the supported place · <a href="places.html" data-page="places.md" data-fragment="">Services</a></li><li><a href="places.html" data-page="places.md" data-fragment="">Places</a> — Publish the pending place request · <a href="places.html" data-page="places.md" data-fragment="">Services</a></li><li><a href="forecasts.html" data-page="forecasts.md" data-fragment="">Forecasts</a> — Validate and handle the place event · <a href="forecasts.html" data-page="forecasts.md" data-fragment="">Services</a></li><li><a href="forecasts.html" data-page="forecasts.md" data-fragment="">Forecasts</a> — Refresh forecast data · <a href="forecasts.html" data-page="forecasts.md" data-fragment="">Services</a></li><li><a href="forecasts.html" data-page="forecasts.md" data-fragment="">Forecasts</a> — Publish the forecast update · <a href="forecasts.html" data-page="forecasts.md" data-fragment="">Services</a></li><li><a href="dashboard.html" data-page="dashboard.md" data-fragment="">Dashboard</a> — Project the forecast update · <a href="dashboard.html" data-page="dashboard.md" data-fragment="">Services</a></li></ul><p>Described scope: Retained handler and worker bodies identify the logical route and topics; publisher registration, runtime startup, end-to-end delivery, and the terminal result remain unverified.</p></details></article><article class="route-card" data-route-id="refresh-place-route"><h3><a href="process-refresh-place.html" data-page="process-refresh-place.md" data-fragment="">Request a place refresh</a></h3><p class="route-origin">HTTP · <a href="dashboard-refresh-place.html" data-page="dashboard-refresh-place.md" data-fragment="">Dashboard · Dashboard POST /api/places/{id}/refresh</a></p><ul class="route-visits" aria-label="Matching service steps" hidden></ul><p class="route-gap">End not classified</p><p class="route-state" hidden></p><details class="route-details"><summary>Details and limits</summary><p>Ends in: Unclassified: End not classified</p><p>Some outcomes or roles remain unclassified</p><p class="route-matches" hidden></p><ul class="route-match-evidence" hidden></ul><h4>Described outcomes</h4><ul><li>Terminal outcome unverified (Unclassified): End not classified</li></ul><ul><li><a href="dashboard-refresh-place.html" data-page="dashboard-refresh-place.md" data-fragment="">Dashboard</a> — Forward the refresh request · <a href="dashboard.html" data-page="dashboard.md" data-fragment="">Services</a></li><li><a href="places-refresh.html" data-page="places-refresh.md" data-fragment="">Places</a> — Find the place and enqueue a request · <a href="places.html" data-page="places.md" data-fragment="">Services</a></li><li><a href="places.html" data-page="places.md" data-fragment="">Places</a> — Publish the pending place request · <a href="places.html" data-page="places.md" data-fragment="">Services</a></li><li><a href="forecasts.html" data-page="forecasts.md" data-fragment="">Forecasts</a> — Handle the place event · <a href="forecasts.html" data-page="forecasts.md" data-fragment="">Services</a></li><li><a href="forecasts.html" data-page="forecasts.md" data-fragment="">Forecasts</a> — Refresh forecast data · <a href="forecasts.html" data-page="forecasts.md" data-fragment="">Services</a></li><li><a href="forecasts.html" data-page="forecasts.md" data-fragment="">Forecasts</a> — Publish the forecast update · <a href="forecasts.html" data-page="forecasts.md" data-fragment="">Services</a></li><li><a href="dashboard.html" data-page="dashboard.md" data-fragment="">Dashboard</a> — Project a forecast update · <a href="dashboard.html" data-page="dashboard.md" data-fragment="">Services</a></li></ul><p>Described scope: The source handler establishes the 404 and 202 queue branches. Later event handling is described from retained worker bodies; registration, delivery, and terminal completion are unverified.</p></details></article><article class="route-card" data-route-id="scheduled-refresh-route"><h3><a href="process-scheduled-refresh.html" data-page="process-scheduled-refresh.md" data-fragment="">Refresh and publish forecasts</a></h3><p class="route-origin">Scheduled · <a href="forecasts.html#background-paths" data-page="forecasts.md" data-fragment="background-paths">Forecasts · Forecasts refreshExpired schedule</a></p><ul class="route-visits" aria-label="Matching service steps" hidden></ul><p class="route-gap">End not classified</p><p class="route-state" hidden></p><details class="route-details"><summary>Details and limits</summary><p>Ends in: Unclassified: End not classified</p><p>Some outcomes or roles remain unclassified</p><p class="route-matches" hidden></p><ul class="route-match-evidence" hidden></ul><h4>Described outcomes</h4><ul><li>Schedule and terminal outcome unverified (Unclassified): End not classified</li></ul><ul><li><a href="forecasts.html#background-paths" data-page="forecasts.md" data-fragment="background-paths">Forecasts</a> — Select missing or expired forecasts · <a href="forecasts.html" data-page="forecasts.md" data-fragment="">Services</a></li><li><a href="process-scheduled-refresh.html#provider-outcomes" data-page="process-scheduled-refresh.md" data-fragment="provider-outcomes">MET Norway location-forecast API</a> — Return live forecast data when live mode is selected · External actor</li><li><a href="forecasts.html" data-page="forecasts.md" data-fragment="">Forecasts</a> — Build and store the forecast payload · <a href="forecasts.html" data-page="forecasts.md" data-fragment="">Services</a></li><li><a href="forecasts.html" data-page="forecasts.md" data-fragment="">Forecasts</a> — Publish a pending forecast event · <a href="forecasts.html" data-page="forecasts.md" data-fragment="">Services</a></li><li><a href="dashboard.html" data-page="dashboard.md" data-fragment="">Dashboard</a> — Apply a valid forecast event · <a href="dashboard.html" data-page="dashboard.md" data-fragment="">Services</a></li></ul><p>Described scope: Source bodies describe the scheduler, mode branches, provider operation, outbox, and Dashboard consumer; runtime activation and delivery are unverified.</p></details></article><article class="route-card" data-route-id="dashboard-events-route"><h3><a href="process-dashboard-events.html" data-page="process-dashboard-events.md" data-fragment="">Project Weather events in Dashboard</a></h3><p class="route-origin">Kafka · <a href="dashboard.html#event-projection" data-page="dashboard.md" data-fragment="event-projection">Dashboard · Dashboard Weather consumer</a></p><ul class="route-visits" aria-label="Matching service steps" hidden></ul><p class="route-gap">End not classified</p><p class="route-state" hidden></p><details class="route-details"><summary>Details and limits</summary><p>Ends in: Unclassified: End not classified</p><p>Some outcomes or roles remain unclassified</p><p class="route-matches" hidden></p><ul class="route-match-evidence" hidden></ul><h4>Described outcomes</h4><ul><li>Runtime handling unverified (Unclassified): End not classified</li></ul><ul><li><a href="dashboard.html#event-projection" data-page="dashboard.md" data-fragment="event-projection">Dashboard</a> — Validate and project event records · <a href="dashboard.html" data-page="dashboard.md" data-fragment="">Services</a></li></ul><p>Described scope: The source declares the topic subscriptions and handler branches; runtime startup and consumption are not observed.</p></details></article></div></section>
+<p>The retained resource queries did not provide the deployment compose file, database initialization SQL, or Forecasts application properties. The destination value behind Dashboard&#39;s <code>placesUrl</code> and the provider/default for Forecasts&#39; <code>mode</code> were not resolved. The Places publisher body is retained, but its host registration was not established. These are limits of this retained evidence, not claims that the files or configuration do not exist.</p>
+<section class="page-sources"><h2>Sources</h2><ul><li><span title="dashboard:services/dashboard/src/main.ts @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">main.ts</span> — <a href="#clew-source-0-0">99–111</a><small>dashboard · services/dashboard/src/main.ts · c9a4283cb5bb</small></li><li><span title="forecasts:services/forecasts/src/main/kotlin/weather/Forecasts.kt @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">Forecasts.kt</span> — <a href="#clew-source-1-0">38–53</a><small>forecasts · services/forecasts/src/main/kotlin/weather/Forecasts.kt · c9a4283cb5bb</small></li><li><span title="places:services/places/RequestPublisher.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">RequestPublisher.cs</span> — <a href="#clew-source-2-0">5–35</a><small>places · services/places/RequestPublisher.cs · c9a4283cb5bb</small></li></ul><details class="source-fragments"><summary>Code fragments</summary><details class="source-excerpt"><summary>dashboard:services/dashboard/src/main.ts @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 99–111</summary><pre id="clew-source-0-0" tabindex="0" role="region" aria-label="services/dashboard/src/main.ts — 99–111"><code>async function start(): Promise&lt;void> {
   await consumer.connect()
   await consumer.subscribe({ topics: ['weather.place-requested', 'weather.forecast-updated'], fromBeginning: true })
   await consumer.run({ autoCommit: false, eachMessage: consumeMessage })
@@ -1006,528 +312,7 @@ export async function start(): Promise&lt;void> {
   app.get('/openapi.json', getOpenApi)
   app.get('/', getHome)
   await app.listen({ port: Number(process.env.PORT ?? 8080), host: '0.0.0.0' })
-}
-
-await start()
-</code></pre></details><details class="source-excerpt"><summary>dashboard:services/dashboard/src/main.ts @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 69</summary><pre id="clew-source-2-1" tabindex="0" role="region" aria-label="services/dashboard/src/main.ts — 69"><code>fetch(`${placesUrl}/places`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(request.body), signal: AbortSignal.timeout(10000) })</code></pre></details><details class="source-excerpt"><summary>dashboard:services/dashboard/src/main.ts @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 104</summary><pre id="clew-source-2-2" tabindex="0" role="region" aria-label="services/dashboard/src/main.ts — 104"><code>app.get('/api/weather', getWeather)</code></pre></details><details class="source-excerpt"><summary>forecasts:compose.yaml @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 1–83</summary><pre id="clew-source-3-0" tabindex="0" role="region" aria-label="compose.yaml — 1–83"><code>name: clew-weather-demo
-services:
-  postgres:
-    image: postgres:18.3
-    environment:
-      POSTGRES_USER: weather
-      POSTGRES_PASSWORD: weather
-    volumes:
-      - weather-data:/var/lib/postgresql
-      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
-    healthcheck:
-      test: [CMD-SHELL, pg_isready -U weather]
-      interval: 3s
-      timeout: 3s
-      retries: 30
-  kafka:
-    image: apache/kafka:4.1.2
-    environment:
-      KAFKA_NODE_ID: 1
-      KAFKA_PROCESS_ROLES: broker,controller
-      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
-      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
-      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
-      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
-    healthcheck:
-      test: [CMD-SHELL, '/opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list']
-      interval: 5s
-      timeout: 10s
-      retries: 30
-  kafka-init:
-    image: apache/kafka:4.1.2
-    entrypoint: [&quot;/bin/bash&quot;, &quot;-ec&quot;]
-    command:
-      - |
-        for topic in weather.place-requested weather.forecast-updated; do
-          /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --create --if-not-exists --topic &quot;$$topic&quot; --partitions 1 --replication-factor 1
-          /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --describe --topic &quot;$$topic&quot;
-        done
-    depends_on:
-      kafka: {condition: service_healthy}
-  places:
-    build:
-      context: .
-      dockerfile: services/places/Dockerfile
-    environment:
-      DATABASE_URL: Host=postgres;Database=places;Username=weather;Password=weather
-      KAFKA_BOOTSTRAP: kafka:9092
-    ports: ['127.0.0.1:8081:8080']
-    depends_on:
-      postgres: {condition: service_healthy}
-      kafka-init: {condition: service_completed_successfully}
-  forecasts:
-    build:
-      context: .
-      dockerfile: services/forecasts/Dockerfile
-    environment:
-      DATABASE_URL: jdbc:postgresql://postgres:5432/forecasts
-      KAFKA_BOOTSTRAP: kafka:9092
-      FORECAST_MODE: ${FORECAST_MODE:-fixture}
-      MET_USER_AGENT: ${MET_USER_AGENT:-}
-    ports: ['127.0.0.1:8082:8080']
-    depends_on:
-      postgres: {condition: service_healthy}
-      kafka-init: {condition: service_completed_successfully}
-  dashboard:
-    build:
-      context: .
-      dockerfile: services/dashboard/Dockerfile
-    environment:
-      DATABASE_URL: postgres://weather:weather@postgres:5432/dashboard
-      KAFKA_BOOTSTRAP: kafka:9092
-      PLACES_URL: http://places:8080
-    ports: ['127.0.0.1:8080:8080']
-    depends_on:
-      postgres: {condition: service_healthy}
-      kafka-init: {condition: service_completed_successfully}
-volumes:
-  weather-data:
-</code></pre></details><details class="source-excerpt"><summary>forecasts:contracts/events.schema.json @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 1–173</summary><pre id="clew-source-4-0" tabindex="0" role="region" aria-label="contracts/events.schema.json — 1–173"><code>{
-  &quot;$schema&quot;: &quot;https://json-schema.org/draft/2020-12/schema&quot;,
-  &quot;oneOf&quot;: [
-    {
-      &quot;type&quot;: &quot;object&quot;,
-      &quot;required&quot;: [
-        &quot;id&quot;,
-        &quot;type&quot;,
-        &quot;version&quot;,
-        &quot;place&quot;
-      ],
-      &quot;additionalProperties&quot;: false,
-      &quot;properties&quot;: {
-        &quot;id&quot;: {
-          &quot;type&quot;: &quot;string&quot;,
-          &quot;minLength&quot;: 1
-        },
-        &quot;type&quot;: {
-          &quot;const&quot;: &quot;place.requested&quot;
-        },
-        &quot;version&quot;: {
-          &quot;const&quot;: 1
-        },
-        &quot;place&quot;: {
-          &quot;type&quot;: &quot;object&quot;,
-          &quot;required&quot;: [
-            &quot;id&quot;,
-            &quot;name&quot;,
-            &quot;latitude&quot;,
-            &quot;longitude&quot;
-          ],
-          &quot;properties&quot;: {
-            &quot;id&quot;: {
-              &quot;type&quot;: &quot;string&quot;,
-              &quot;enum&quot;: [
-                &quot;oslo&quot;,
-                &quot;helsinki&quot;,
-                &quot;lisbon&quot;
-              ]
-            },
-            &quot;name&quot;: {
-              &quot;type&quot;: &quot;string&quot;
-            },
-            &quot;latitude&quot;: {
-              &quot;type&quot;: &quot;number&quot;,
-              &quot;minimum&quot;: -90,
-              &quot;maximum&quot;: 90
-            },
-            &quot;longitude&quot;: {
-              &quot;type&quot;: &quot;number&quot;,
-              &quot;minimum&quot;: -180,
-              &quot;maximum&quot;: 180
-            }
-          }
-        }
-      }
-    },
-    {
-      &quot;type&quot;: &quot;object&quot;,
-      &quot;required&quot;: [
-        &quot;id&quot;,
-        &quot;type&quot;,
-        &quot;version&quot;,
-        &quot;place&quot;,
-        &quot;forecast&quot;
-      ],
-      &quot;additionalProperties&quot;: false,
-      &quot;properties&quot;: {
-        &quot;id&quot;: {
-          &quot;type&quot;: &quot;string&quot;,
-          &quot;minLength&quot;: 1
-        },
-        &quot;type&quot;: {
-          &quot;const&quot;: &quot;forecast.updated&quot;
-        },
-        &quot;version&quot;: {
-          &quot;const&quot;: 1
-        },
-        &quot;place&quot;: {
-          &quot;type&quot;: &quot;object&quot;,
-          &quot;required&quot;: [
-            &quot;id&quot;,
-            &quot;name&quot;,
-            &quot;latitude&quot;,
-            &quot;longitude&quot;
-          ],
-          &quot;properties&quot;: {
-            &quot;id&quot;: {
-              &quot;type&quot;: &quot;string&quot;,
-              &quot;enum&quot;: [
-                &quot;oslo&quot;,
-                &quot;helsinki&quot;,
-                &quot;lisbon&quot;
-              ]
-            },
-            &quot;name&quot;: {
-              &quot;type&quot;: &quot;string&quot;
-            },
-            &quot;latitude&quot;: {
-              &quot;type&quot;: &quot;number&quot;,
-              &quot;minimum&quot;: -90,
-              &quot;maximum&quot;: 90
-            },
-            &quot;longitude&quot;: {
-              &quot;type&quot;: &quot;number&quot;,
-              &quot;minimum&quot;: -180,
-              &quot;maximum&quot;: 180
-            }
-          }
-        },
-        &quot;forecast&quot;: {
-          &quot;type&quot;: &quot;object&quot;,
-          &quot;required&quot;: [
-            &quot;updatedAt&quot;,
-            &quot;fetchedAt&quot;,
-            &quot;mode&quot;,
-            &quot;periods&quot;
-          ],
-          &quot;properties&quot;: {
-            &quot;updatedAt&quot;: {
-              &quot;type&quot;: &quot;string&quot;,
-              &quot;format&quot;: &quot;date-time&quot;
-            },
-            &quot;fetchedAt&quot;: {
-              &quot;type&quot;: &quot;string&quot;,
-              &quot;format&quot;: &quot;date-time&quot;
-            },
-            &quot;mode&quot;: {
-              &quot;type&quot;: &quot;string&quot;,
-              &quot;enum&quot;: [
-                &quot;fixture&quot;,
-                &quot;live&quot;
-              ]
-            },
-            &quot;periods&quot;: {
-              &quot;type&quot;: &quot;array&quot;,
-              &quot;minItems&quot;: 1,
-              &quot;maxItems&quot;: 6,
-              &quot;items&quot;: {
-                &quot;type&quot;: &quot;object&quot;,
-                &quot;required&quot;: [
-                  &quot;time&quot;,
-                  &quot;temperatureC&quot;,
-                  &quot;precipitationMm&quot;,
-                  &quot;symbol&quot;
-                ],
-                &quot;properties&quot;: {
-                  &quot;time&quot;: {
-                    &quot;type&quot;: &quot;string&quot;,
-                    &quot;format&quot;: &quot;date-time&quot;
-                  },
-                  &quot;temperatureC&quot;: {
-                    &quot;type&quot;: &quot;number&quot;
-                  },
-                  &quot;precipitationMm&quot;: {
-                    &quot;type&quot;: [
-                      &quot;number&quot;,
-                      &quot;null&quot;
-                    ],
-                    &quot;minimum&quot;: 0
-                  },
-                  &quot;symbol&quot;: {
-                    &quot;type&quot;: &quot;string&quot;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  ]
-}
-</code></pre></details><details class="source-excerpt"><summary>forecasts:contracts/forecasts.openapi.json @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 1–191</summary><pre id="clew-source-5-0" tabindex="0" role="region" aria-label="contracts/forecasts.openapi.json — 1–191"><code>{
-  &quot;openapi&quot;: &quot;3.1.0&quot;,
-  &quot;info&quot;: {
-    &quot;title&quot;: &quot;forecasts&quot;,
-    &quot;version&quot;: &quot;1.0.0&quot;
-  },
-  &quot;paths&quot;: {
-    &quot;/forecasts/{id}&quot;: {
-      &quot;get&quot;: {
-        &quot;operationId&quot;: &quot;forecasts_get_forecasts_id&quot;,
-        &quot;responses&quot;: {
-          &quot;200&quot;: {
-            &quot;description&quot;: &quot;200&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;required&quot;: [
-                    &quot;updatedAt&quot;,
-                    &quot;fetchedAt&quot;,
-                    &quot;mode&quot;,
-                    &quot;periods&quot;
-                  ],
-                  &quot;properties&quot;: {
-                    &quot;updatedAt&quot;: {
-                      &quot;type&quot;: &quot;string&quot;,
-                      &quot;format&quot;: &quot;date-time&quot;
-                    },
-                    &quot;fetchedAt&quot;: {
-                      &quot;type&quot;: &quot;string&quot;,
-                      &quot;format&quot;: &quot;date-time&quot;
-                    },
-                    &quot;mode&quot;: {
-                      &quot;type&quot;: &quot;string&quot;,
-                      &quot;enum&quot;: [
-                        &quot;fixture&quot;,
-                        &quot;live&quot;
-                      ]
-                    },
-                    &quot;periods&quot;: {
-                      &quot;type&quot;: &quot;array&quot;,
-                      &quot;minItems&quot;: 1,
-                      &quot;maxItems&quot;: 6,
-                      &quot;items&quot;: {
-                        &quot;type&quot;: &quot;object&quot;,
-                        &quot;required&quot;: [
-                          &quot;time&quot;,
-                          &quot;temperatureC&quot;,
-                          &quot;precipitationMm&quot;,
-                          &quot;symbol&quot;
-                        ],
-                        &quot;properties&quot;: {
-                          &quot;time&quot;: {
-                            &quot;type&quot;: &quot;string&quot;,
-                            &quot;format&quot;: &quot;date-time&quot;
-                          },
-                          &quot;temperatureC&quot;: {
-                            &quot;type&quot;: &quot;number&quot;
-                          },
-                          &quot;precipitationMm&quot;: {
-                            &quot;type&quot;: [
-                              &quot;number&quot;,
-                              &quot;null&quot;
-                            ],
-                            &quot;minimum&quot;: 0
-                          },
-                          &quot;symbol&quot;: {
-                            &quot;type&quot;: &quot;string&quot;
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          &quot;404&quot;: {
-            &quot;description&quot;: &quot;404&quot;
-          },
-          &quot;500&quot;: {
-            &quot;description&quot;: &quot;500&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;properties&quot;: {
-                    &quot;error&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    }
-                  },
-                  &quot;additionalProperties&quot;: true
-                }
-              }
-            }
-          }
-        },
-        &quot;parameters&quot;: [
-          {
-            &quot;name&quot;: &quot;id&quot;,
-            &quot;in&quot;: &quot;path&quot;,
-            &quot;required&quot;: true,
-            &quot;schema&quot;: {
-              &quot;type&quot;: &quot;string&quot;,
-              &quot;enum&quot;: [
-                &quot;oslo&quot;,
-                &quot;helsinki&quot;,
-                &quot;lisbon&quot;
-              ]
-            }
-          }
-        ]
-      }
-    },
-    &quot;/health&quot;: {
-      &quot;get&quot;: {
-        &quot;operationId&quot;: &quot;forecasts_get_health&quot;,
-        &quot;responses&quot;: {
-          &quot;200&quot;: {
-            &quot;description&quot;: &quot;200&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;properties&quot;: {
-                    &quot;database&quot;: {
-                      &quot;const&quot;: &quot;READY&quot;
-                    },
-                    &quot;kafka&quot;: {
-                      &quot;const&quot;: &quot;READY&quot;
-                    }
-                  }
-                }
-              }
-            }
-          },
-          &quot;500&quot;: {
-            &quot;description&quot;: &quot;500&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;properties&quot;: {
-                    &quot;error&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    }
-                  },
-                  &quot;additionalProperties&quot;: true
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    &quot;/openapi.json&quot;: {
-      &quot;get&quot;: {
-        &quot;operationId&quot;: &quot;forecasts_get_openapi.json&quot;,
-        &quot;responses&quot;: {
-          &quot;200&quot;: {
-            &quot;description&quot;: &quot;200&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;additionalProperties&quot;: true
-                }
-              }
-            }
-          },
-          &quot;500&quot;: {
-            &quot;description&quot;: &quot;500&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;properties&quot;: {
-                    &quot;error&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    }
-                  },
-                  &quot;additionalProperties&quot;: true
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-</code></pre></details><details class="source-excerpt"><summary>forecasts:fixtures/provenance.json @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 1–14</summary><pre id="clew-source-6-0" tabindex="0" role="region" aria-label="fixtures/provenance.json — 1–14"><code>{
-  &quot;schema&quot;: &quot;weather-fixture-provenance/1.0&quot;,
-  &quot;provider&quot;: &quot;MET Norway&quot;,
-  &quot;license&quot;: &quot;CC BY 4.0&quot;,
-  &quot;licenseUrl&quot;: &quot;https://creativecommons.org/licenses/by/4.0/&quot;,
-  &quot;sourceUrl&quot;: &quot;https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=59.93&amp;lon=10.72&quot;,
-  &quot;recordedResponse&quot;: &quot;met-oslo-recorded.json&quot;,
-  &quot;fixtureDerivations&quot;: {
-    &quot;oslo&quot;: &quot;first six recorded points&quot;,
-    &quot;helsinki&quot;: &quot;synthetic zero-temperature boundary derived from recorded structure&quot;,
-    &quot;lisbon&quot;: &quot;synthetic temperature values derived from recorded structure&quot;
-  },
-  &quot;liveWeather&quot;: false
-}
-</code></pre></details><details class="source-excerpt"><summary>forecasts:services/forecasts/src/main/kotlin/weather/ForecastController.kt @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 1–20</summary><pre id="clew-source-7-0" tabindex="0" role="region" aria-label="services/forecasts/src/main/kotlin/weather/ForecastController.kt — 1–20"><code>package weather
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RestController
-import org.springframework.http.ResponseEntity
-import java.nio.file.Files
-import java.nio.file.Path
-
-@RestController
-class ForecastController(private val forecasts: Forecasts) {
-    @GetMapping(&quot;/forecasts/{id}&quot;)
-    fun get(@PathVariable id: String): ResponseEntity&lt;String> {
-        val payload = forecasts.get(id) ?: return ResponseEntity.notFound().build()
-        return ResponseEntity.ok().header(&quot;Content-Type&quot;, &quot;application/json&quot;).body(payload)
-    }
-    @GetMapping(&quot;/health&quot;)
-    fun health(): Map&lt;String, String> { forecasts.ping(); return mapOf(&quot;database&quot; to &quot;READY&quot;) }
-    @GetMapping(&quot;/openapi.json&quot;)
-    fun openApi(): ResponseEntity&lt;String> = ResponseEntity.ok().header(&quot;Content-Type&quot;, &quot;application/json&quot;).body(Files.readString(Path.of(&quot;/app/contracts/forecasts.openapi.json&quot;)))
-}
-</code></pre></details><details class="source-excerpt"><summary>forecasts:services/forecasts/src/main/kotlin/weather/Forecasts.kt @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 1–140</summary><pre id="clew-source-8-0" tabindex="0" role="region" aria-label="services/forecasts/src/main/kotlin/weather/Forecasts.kt — 1–140"><code>package weather
-import tools.jackson.databind.JsonNode
-import tools.jackson.databind.ObjectMapper
-import org.springframework.stereotype.Component
-import org.springframework.jdbc.core.JdbcTemplate
-import org.springframework.transaction.support.TransactionTemplate
-import org.springframework.kafka.annotation.KafkaListener
-import org.springframework.kafka.support.Acknowledgment
-import org.springframework.kafka.core.KafkaTemplate
-import org.springframework.scheduling.annotation.Scheduled
-import org.apache.kafka.clients.consumer.ConsumerRecord
-import java.time.Instant
-import java.time.ZonedDateTime
-import java.time.format.DateTimeFormatter
-import java.math.BigDecimal
-import java.math.RoundingMode
-import java.net.URI
-import java.net.http.HttpClient
-import java.net.http.HttpRequest
-import java.net.http.HttpResponse
-import java.nio.file.Files
-import java.nio.file.Path
-import java.time.Duration
-import java.util.concurrent.TimeUnit
-import java.util.concurrent.ConcurrentHashMap
-import java.io.ByteArrayInputStream
-import java.util.zip.GZIPInputStream
-
-@Component
-class Forecasts(private val jdbc: JdbcTemplate, private val transaction: TransactionTemplate, private val kafka: KafkaTemplate&lt;String, String>) {
-    private val json = ObjectMapper()
-    private val nextAttempt = ConcurrentHashMap&lt;String, Instant>()
-    private val mode = System.getenv(&quot;FORECAST_MODE&quot;) ?: &quot;fixture&quot;
-    private val http = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).followRedirects(HttpClient.Redirect.NORMAL).build()
-    fun ping() { jdbc.queryForObject(&quot;SELECT 1&quot;, Int::class.java) }
-    fun get(id: String): String? = jdbc.query(&quot;SELECT payload::text FROM forecasts WHERE place_id=?&quot;, { row, _ -> row.getString(1) }, id).firstOrNull()
-
-    @KafkaListener(topics = [&quot;weather.place-requested&quot;])
+}</code></pre></details><details class="source-excerpt"><summary>forecasts:services/forecasts/src/main/kotlin/weather/Forecasts.kt @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 38–53</summary><pre id="clew-source-1-0" tabindex="0" role="region" aria-label="services/forecasts/src/main/kotlin/weather/Forecasts.kt — 38–53"><code>@KafkaListener(topics = [&quot;weather.place-requested&quot;])
     fun consume(record: ConsumerRecord&lt;String, String>, acknowledgment: Acknowledgment) {
         val event = try { json.readTree(record.value()).also { validatePlaceEvent(it) } } catch (error: Exception) {
             jdbc.update(&quot;INSERT INTO rejected_messages(topic,partition_id,offset_id,reason) VALUES(?,?,?,'INVALID_EVENT') ON CONFLICT DO NOTHING&quot;, record.topic(), record.partition(), record.offset())
@@ -1542,437 +327,20 @@ class Forecasts(private val jdbc: JdbcTemplate, private val transaction: Transac
             refresh(place)
         }
         acknowledgment.acknowledge()
-    }
-
-    fun validatePlaceEvent(event: JsonNode) {
-        val place = event[&quot;place&quot;]
-        require(event[&quot;version&quot;]?.asInt() == 1 &amp;&amp; event[&quot;type&quot;]?.asText() == &quot;place.requested&quot; &amp;&amp; !event[&quot;id&quot;]?.asText().isNullOrBlank())
-        require(place != null &amp;&amp; place[&quot;id&quot;]?.asText() in listOf(&quot;oslo&quot;, &quot;helsinki&quot;, &quot;lisbon&quot;) &amp;&amp; !place[&quot;name&quot;]?.asText().isNullOrBlank())
-        require(place[&quot;latitude&quot;]?.isNumber == true &amp;&amp; place[&quot;longitude&quot;]?.isNumber == true)
-    }
-
-    @Scheduled(fixedDelayString = &quot;\${REFRESH_INTERVAL_MS:60000}&quot;)
-    fun refreshExpired() {
-        val places = jdbc.query(&quot;SELECT p.id,p.name,p.latitude,p.longitude FROM places p LEFT JOIN forecasts f ON f.place_id=p.id WHERE f.expires_at IS NULL OR f.expires_at&lt;now() ORDER BY p.id&quot;, { row, _ -> json.createObjectNode().put(&quot;id&quot;, row.getString(1)).put(&quot;name&quot;, row.getString(2)).put(&quot;latitude&quot;, row.getDouble(3)).put(&quot;longitude&quot;, row.getDouble(4)) })
-        for (place in places) {
-            try { transaction.executeWithoutResult { refresh(place) } } catch (error: Exception) { System.err.println(&quot;FORECAST_RETRY:&quot; + error.javaClass.simpleName) }
-        }
-    }
-
-    fun refresh(place: JsonNode) {
-        val id = place[&quot;id&quot;].asText()
-        val cached = jdbc.queryForList(&quot;SELECT payload::text,expires_at,last_modified FROM forecasts WHERE place_id=?&quot;, id).firstOrNull()
-        if (cached != null &amp;&amp; (cached[&quot;expires_at&quot;] as java.sql.Timestamp).toInstant().isAfter(Instant.now())) return
-        var expires = Instant.now().plusSeconds(3600)
-        var lastModified: String? = null
-        val raw = if (mode == &quot;fixture&quot;) {
-            Files.readString(Path.of(&quot;/app/fixtures/$id.json&quot;))
-        } else {
-            require(mode == &quot;live&quot;)
-            val agent = System.getenv(&quot;MET_USER_AGENT&quot;)?.takeIf { it.isNotBlank() } ?: error(&quot;MET_USER_AGENT_REQUIRED&quot;)
-            if (nextAttempt[id]?.isAfter(Instant.now()) == true) error(&quot;PROVIDER_BACKOFF&quot;)
-            nextAttempt[id] = Instant.now().plusSeconds(60)
-            val lat = BigDecimal.valueOf(place[&quot;latitude&quot;].asDouble()).setScale(4, RoundingMode.DOWN).toPlainString()
-            val lon = BigDecimal.valueOf(place[&quot;longitude&quot;].asDouble()).setScale(4, RoundingMode.DOWN).toPlainString()
-            val builder = HttpRequest.newBuilder(URI.create(&quot;https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=$lat&amp;lon=$lon&quot;)).timeout(Duration.ofSeconds(20)).header(&quot;User-Agent&quot;, agent).header(&quot;Accept-Encoding&quot;, &quot;gzip&quot;)
-            val modified = cached?.get(&quot;last_modified&quot;) as String?
-            if (modified != null) builder.header(&quot;If-Modified-Since&quot;, modified)
-            val response = http.send(builder.GET().build(), HttpResponse.BodyHandlers.ofByteArray())
-            expires = response.headers().firstValue(&quot;Expires&quot;).map { ZonedDateTime.parse(it, DateTimeFormatter.RFC_1123_DATE_TIME).toInstant() }.orElse(Instant.now().plusSeconds(3600))
-            nextAttempt[id] = if (response.statusCode() == 429) {
-                val seconds = response.headers().firstValue(&quot;Retry-After&quot;).orElse(&quot;60&quot;).toLongOrNull() ?: 60L
-                Instant.now().plusSeconds(seconds.coerceAtLeast(60L))
-            } else expires
-            if (response.statusCode() == 304 &amp;&amp; cached != null) {
-                jdbc.update(&quot;UPDATE forecasts SET expires_at=? WHERE place_id=?&quot;, java.sql.Timestamp.from(expires), id)
-                return
-            }
-            require(response.statusCode() == 200 || response.statusCode() == 203) { &quot;PROVIDER_HTTP_&quot; + response.statusCode() }
-            lastModified = response.headers().firstValue(&quot;Last-Modified&quot;).orElse(null)
-            if (response.headers().firstValue(&quot;Content-Encoding&quot;).orElse(&quot;&quot;).equals(&quot;gzip&quot;, ignoreCase = true)) GZIPInputStream(ByteArrayInputStream(response.body())).bufferedReader().use { it.readText() } else response.body().toString(Charsets.UTF_8)
-        }
-        val document = json.readTree(raw)
-        val periods = json.createArrayNode()
-        for (point in document[&quot;properties&quot;][&quot;timeseries&quot;].take(6)) {
-            val temperature = point[&quot;data&quot;][&quot;instant&quot;][&quot;details&quot;][&quot;air_temperature&quot;]
-            require(temperature != null &amp;&amp; temperature.isNumber)
-            val next = point[&quot;data&quot;][&quot;next_1_hours&quot;]
-            val period = json.createObjectNode().put(&quot;time&quot;, point[&quot;time&quot;].asText()).put(&quot;temperatureC&quot;, temperature.asDouble()).put(&quot;symbol&quot;, next?.get(&quot;summary&quot;)?.get(&quot;symbol_code&quot;)?.asText() ?: &quot;unknown&quot;)
-            val rain = next?.get(&quot;details&quot;)?.get(&quot;precipitation_amount&quot;)
-            if (rain == null || !rain.isNumber) period.putNull(&quot;precipitationMm&quot;) else period.put(&quot;precipitationMm&quot;, rain.asDouble())
-            periods.add(period)
-        }
-        require(periods.size() > 0)
-        val updatedAt = document[&quot;properties&quot;][&quot;meta&quot;][&quot;updated_at&quot;].asText()
-        Instant.parse(updatedAt)
-        val forecast = json.createObjectNode().put(&quot;updatedAt&quot;, updatedAt).put(&quot;fetchedAt&quot;, Instant.now().toString()).put(&quot;mode&quot;, mode)
-        forecast.set(&quot;periods&quot;, periods)
-        val payload = json.writeValueAsString(forecast)
-        jdbc.update(&quot;INSERT INTO forecasts(place_id,updated_at,payload,expires_at,last_modified) VALUES(?,?,?::jsonb,?,?) ON CONFLICT(place_id) DO UPDATE SET updated_at=EXCLUDED.updated_at,payload=EXCLUDED.payload,expires_at=EXCLUDED.expires_at,last_modified=EXCLUDED.last_modified WHERE EXCLUDED.updated_at>=forecasts.updated_at&quot;, id, java.sql.Timestamp.from(Instant.parse(updatedAt)), payload, java.sql.Timestamp.from(expires), lastModified)
-        val eventId = &quot;$id:$updatedAt&quot;
-        val event = json.createObjectNode().put(&quot;id&quot;, eventId).put(&quot;type&quot;, &quot;forecast.updated&quot;).put(&quot;version&quot;, 1)
-        event.set(&quot;place&quot;, place)
-        event.set(&quot;forecast&quot;, forecast)
-        jdbc.update(&quot;INSERT INTO forecast_outbox(id,payload) VALUES(?,?::jsonb) ON CONFLICT DO NOTHING&quot;, eventId, json.writeValueAsString(event))
-    }
-
-    @Scheduled(fixedDelayString = &quot;\${PUBLISH_INTERVAL_MS:1000}&quot;)
-    fun publishPending() {
-        try {
-            transaction.executeWithoutResult {
-                val rows = jdbc.queryForList(&quot;SELECT id,payload::text FROM forecast_outbox WHERE NOT published ORDER BY id LIMIT 1 FOR UPDATE SKIP LOCKED&quot;)
-                if (rows.isEmpty()) return@executeWithoutResult
-                val row = rows.first()
-                val event = json.readTree(row[&quot;payload&quot;] as String)
-                kafka.send(&quot;weather.forecast-updated&quot;, event[&quot;place&quot;][&quot;id&quot;].asText(), row[&quot;payload&quot;] as String).get(10, TimeUnit.SECONDS)
-                jdbc.update(&quot;UPDATE forecast_outbox SET published=true WHERE id=?&quot;, row[&quot;id&quot;])
-            }
-        } catch (error: Exception) { System.err.println(&quot;PUBLISH_RETRY:&quot; + error.javaClass.simpleName) }
-    }
-}
-</code></pre></details><details class="source-excerpt"><summary>places:contracts/places.openapi.json @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 1–263</summary><pre id="clew-source-9-0" tabindex="0" role="region" aria-label="contracts/places.openapi.json — 1–263"><code>{
-  &quot;openapi&quot;: &quot;3.1.0&quot;,
-  &quot;info&quot;: {
-    &quot;title&quot;: &quot;places&quot;,
-    &quot;version&quot;: &quot;1.0.0&quot;
-  },
-  &quot;paths&quot;: {
-    &quot;/places&quot;: {
-      &quot;get&quot;: {
-        &quot;operationId&quot;: &quot;places_get_places&quot;,
-        &quot;responses&quot;: {
-          &quot;200&quot;: {
-            &quot;description&quot;: &quot;200&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;array&quot;,
-                  &quot;items&quot;: {
-                    &quot;type&quot;: &quot;object&quot;,
-                    &quot;required&quot;: [
-                      &quot;id&quot;,
-                      &quot;name&quot;,
-                      &quot;latitude&quot;,
-                      &quot;longitude&quot;
-                    ],
-                    &quot;properties&quot;: {
-                      &quot;id&quot;: {
-                        &quot;type&quot;: &quot;string&quot;,
-                        &quot;enum&quot;: [
-                          &quot;oslo&quot;,
-                          &quot;helsinki&quot;,
-                          &quot;lisbon&quot;
-                        ]
-                      },
-                      &quot;name&quot;: {
-                        &quot;type&quot;: &quot;string&quot;
-                      },
-                      &quot;latitude&quot;: {
-                        &quot;type&quot;: &quot;number&quot;,
-                        &quot;minimum&quot;: -90,
-                        &quot;maximum&quot;: 90
-                      },
-                      &quot;longitude&quot;: {
-                        &quot;type&quot;: &quot;number&quot;,
-                        &quot;minimum&quot;: -180,
-                        &quot;maximum&quot;: 180
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          &quot;500&quot;: {
-            &quot;description&quot;: &quot;500&quot;
-          }
-        }
-      },
-      &quot;post&quot;: {
-        &quot;operationId&quot;: &quot;places_post_places&quot;,
-        &quot;responses&quot;: {
-          &quot;200&quot;: {
-            &quot;description&quot;: &quot;200&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;required&quot;: [
-                    &quot;id&quot;,
-                    &quot;name&quot;,
-                    &quot;latitude&quot;,
-                    &quot;longitude&quot;
-                  ],
-                  &quot;properties&quot;: {
-                    &quot;id&quot;: {
-                      &quot;type&quot;: &quot;string&quot;,
-                      &quot;enum&quot;: [
-                        &quot;oslo&quot;,
-                        &quot;helsinki&quot;,
-                        &quot;lisbon&quot;
-                      ]
-                    },
-                    &quot;name&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    },
-                    &quot;latitude&quot;: {
-                      &quot;type&quot;: &quot;number&quot;,
-                      &quot;minimum&quot;: -90,
-                      &quot;maximum&quot;: 90
-                    },
-                    &quot;longitude&quot;: {
-                      &quot;type&quot;: &quot;number&quot;,
-                      &quot;minimum&quot;: -180,
-                      &quot;maximum&quot;: 180
-                    }
-                  }
-                }
-              }
-            }
-          },
-          &quot;400&quot;: {
-            &quot;description&quot;: &quot;400&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;properties&quot;: {
-                    &quot;error&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    }
-                  },
-                  &quot;additionalProperties&quot;: true
-                }
-              }
-            }
-          },
-          &quot;415&quot;: {
-            &quot;description&quot;: &quot;415&quot;
-          },
-          &quot;500&quot;: {
-            &quot;description&quot;: &quot;500&quot;
-          }
-        },
-        &quot;requestBody&quot;: {
-          &quot;required&quot;: true,
-          &quot;content&quot;: {
-            &quot;application/json&quot;: {
-              &quot;schema&quot;: {
-                &quot;type&quot;: &quot;object&quot;,
-                &quot;required&quot;: [
-                  &quot;cityId&quot;
-                ],
-                &quot;additionalProperties&quot;: false,
-                &quot;properties&quot;: {
-                  &quot;cityId&quot;: {
-                    &quot;type&quot;: &quot;string&quot;,
-                    &quot;enum&quot;: [
-                      &quot;oslo&quot;,
-                      &quot;helsinki&quot;,
-                      &quot;lisbon&quot;
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    &quot;/places/{id}/refresh&quot;: {
-      &quot;post&quot;: {
-        &quot;operationId&quot;: &quot;places_post_places_id_refresh&quot;,
-        &quot;responses&quot;: {
-          &quot;202&quot;: {
-            &quot;description&quot;: &quot;202&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;required&quot;: [
-                    &quot;placeId&quot;,
-                    &quot;status&quot;
-                  ],
-                  &quot;properties&quot;: {
-                    &quot;placeId&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    },
-                    &quot;status&quot;: {
-                      &quot;const&quot;: &quot;QUEUED&quot;
-                    }
-                  }
-                }
-              }
-            }
-          },
-          &quot;404&quot;: {
-            &quot;description&quot;: &quot;404&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;properties&quot;: {
-                    &quot;error&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    }
-                  },
-                  &quot;additionalProperties&quot;: true
-                }
-              }
-            }
-          },
-          &quot;500&quot;: {
-            &quot;description&quot;: &quot;500&quot;
-          }
-        },
-        &quot;parameters&quot;: [
-          {
-            &quot;name&quot;: &quot;id&quot;,
-            &quot;in&quot;: &quot;path&quot;,
-            &quot;required&quot;: true,
-            &quot;schema&quot;: {
-              &quot;type&quot;: &quot;string&quot;,
-              &quot;enum&quot;: [
-                &quot;oslo&quot;,
-                &quot;helsinki&quot;,
-                &quot;lisbon&quot;
-              ]
-            }
-          }
-        ]
-      }
-    },
-    &quot;/health&quot;: {
-      &quot;get&quot;: {
-        &quot;operationId&quot;: &quot;places_get_health&quot;,
-        &quot;responses&quot;: {
-          &quot;200&quot;: {
-            &quot;description&quot;: &quot;200&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;properties&quot;: {
-                    &quot;database&quot;: {
-                      &quot;const&quot;: &quot;READY&quot;
-                    },
-                    &quot;kafka&quot;: {
-                      &quot;const&quot;: &quot;READY&quot;
-                    }
-                  }
-                }
-              }
-            }
-          },
-          &quot;500&quot;: {
-            &quot;description&quot;: &quot;500&quot;
-          }
-        }
-      }
-    },
-    &quot;/openapi.json&quot;: {
-      &quot;get&quot;: {
-        &quot;operationId&quot;: &quot;places_get_openapi.json&quot;,
-        &quot;responses&quot;: {
-          &quot;200&quot;: {
-            &quot;description&quot;: &quot;200&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;additionalProperties&quot;: true
-                }
-              }
-            }
-          },
-          &quot;500&quot;: {
-            &quot;description&quot;: &quot;500&quot;
-          }
-        }
-      }
-    }
-  }
-}
-</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesController.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 8–9</summary><pre id="clew-source-10-0" tabindex="0" role="region" aria-label="services/places/PlacesController.cs — 8–9"><code>[HttpGet(&quot;/places&quot;)]
-    public async Task&lt;IReadOnlyList&lt;Place>> List(CancellationToken token) => await repository.List(token);</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesController.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 10–17</summary><pre id="clew-source-10-1" tabindex="0" role="region" aria-label="services/places/PlacesController.cs — 10–17"><code>[HttpPost(&quot;/places&quot;)]
-    public async Task&lt;IActionResult> Save([FromBody] SavePlace request, CancellationToken token)
-    {
-        var city = PlacesRepository.City(request.CityId);
-        if (city is null) return BadRequest(new { error = &quot;UNSUPPORTED_CITY&quot; });
-        await repository.Save(city, token);
-        return Ok(city);
-    }</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesController.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 18–25</summary><pre id="clew-source-10-2" tabindex="0" role="region" aria-label="services/places/PlacesController.cs — 18–25"><code>[HttpPost(&quot;/places/{id}/refresh&quot;)]
-    public async Task&lt;IActionResult> Refresh(string id, CancellationToken token)
-    {
-        var city = await repository.Find(id, token);
-        if (city is null) return NotFound(new { error = &quot;PLACE_NOT_FOUND&quot; });
-        await repository.Enqueue(city, token);
-        return Accepted(new { placeId = id, status = &quot;QUEUED&quot; });
-    }</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesRepository.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 4–60</summary><pre id="clew-source-11-0" tabindex="0" role="region" aria-label="services/places/PlacesRepository.cs — 4–60"><code>public class PlacesRepository
+    }</code></pre></details><details class="source-excerpt"><summary>places:services/places/RequestPublisher.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 5–35</summary><pre id="clew-source-2-0" tabindex="0" role="region" aria-label="services/places/RequestPublisher.cs — 5–35"><code>public class RequestPublisher(PlacesRepository repository, ILogger&lt;RequestPublisher> logger) : BackgroundService
 {
-    private readonly string connectionString = Environment.GetEnvironmentVariable(&quot;DATABASE_URL&quot;) ?? throw new InvalidOperationException(&quot;DATABASE_URL_REQUIRED&quot;);
-    public static Place? City(string id) => id switch
+    protected override async Task ExecuteAsync(CancellationToken token)
     {
-        &quot;oslo&quot; => new(&quot;oslo&quot;, &quot;Oslo&quot;, 59.93, 10.72),
-        &quot;helsinki&quot; => new(&quot;helsinki&quot;, &quot;Helsinki&quot;, 60.17, 24.94),
-        &quot;lisbon&quot; => new(&quot;lisbon&quot;, &quot;Lisbon&quot;, 38.72, -9.14),
-        _ => null
-    };
-    public async Task Ping(CancellationToken token)
-    {
-        await using var connection = await Open(token);
-        await using var command = new NpgsqlCommand(&quot;SELECT 1&quot;, connection);
-        await command.ExecuteScalarAsync(token);
+        using var producer = new ProducerBuilder&lt;string, string>(new ProducerConfig { BootstrapServers = Environment.GetEnvironmentVariable(&quot;KAFKA_BOOTSTRAP&quot;) ?? &quot;kafka:9092&quot;, EnableIdempotence = true, MessageTimeoutMs = 10000 }).Build();
+        while (!token.IsCancellationRequested)
+        {
+            try { await PublishPending(producer, token); }
+            catch (OperationCanceledException) when (token.IsCancellationRequested) { break; }
+            catch (Exception error) { logger.LogWarning(error, &quot;PUBLISH_RETRY&quot;); }
+            await Task.Delay(1000, token);
+        }
     }
-    public async Task&lt;NpgsqlConnection> Open(CancellationToken token)
-    {
-        var connection = new NpgsqlConnection(connectionString);
-        try { await connection.OpenAsync(token); return connection; }
-        catch { await connection.DisposeAsync(); throw; }
-    }
-    public async Task&lt;IReadOnlyList&lt;Place>> List(CancellationToken token)
-    {
-        await using var connection = await Open(token);
-        await using var command = new NpgsqlCommand(&quot;SELECT id,name,latitude,longitude FROM places ORDER BY name&quot;, connection);
-        await using var reader = await command.ExecuteReaderAsync(token);
-        var result = new List&lt;Place>();
-        while (await reader.ReadAsync(token)) result.Add(new(reader.GetString(0), reader.GetString(1), reader.GetDouble(2), reader.GetDouble(3)));
-        return result;
-    }
-    public async Task&lt;Place?> Find(string id, CancellationToken token) => (await List(token)).FirstOrDefault(place => place.Id == id);
-    public async Task Save(Place city, CancellationToken token)
-    {
-        await using var connection = await Open(token);
-        await using var transaction = await connection.BeginTransactionAsync(token);
-        await using var command = new NpgsqlCommand(&quot;INSERT INTO places(id,name,latitude,longitude) VALUES($1,$2,$3,$4) ON CONFLICT DO NOTHING RETURNING id&quot;, connection, transaction);
-        command.Parameters.AddWithValue(city.Id); command.Parameters.AddWithValue(city.Name); command.Parameters.AddWithValue(city.Latitude); command.Parameters.AddWithValue(city.Longitude);
-        if (await command.ExecuteScalarAsync(token) is not null) await InsertRequest(connection, transaction, city, token);
-        await transaction.CommitAsync(token);
-    }
-    public async Task Enqueue(Place city, CancellationToken token)
-    {
-        await using var connection = await Open(token);
-        await using var transaction = await connection.BeginTransactionAsync(token);
-        await InsertRequest(connection, transaction, city, token);
-        await transaction.CommitAsync(token);
-    }
-    private static async Task InsertRequest(NpgsqlConnection connection, NpgsqlTransaction transaction, Place city, CancellationToken token)
-    {
-        var id = Guid.NewGuid();
-        var json = JsonSerializer.Serialize(new { id, type = &quot;place.requested&quot;, version = 1, place = city }, new JsonSerializerOptions(JsonSerializerDefaults.Web));
-        await using var command = new NpgsqlCommand(&quot;INSERT INTO request_outbox(id,payload) VALUES($1,$2::jsonb)&quot;, connection, transaction);
-        command.Parameters.AddWithValue(id); command.Parameters.AddWithValue(json);
-        await command.ExecuteNonQueryAsync(token);
-    }
-}</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesRepository.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 36–44</summary><pre id="clew-source-11-1" tabindex="0" role="region" aria-label="services/places/PlacesRepository.cs — 36–44"><code>public async Task Save(Place city, CancellationToken token)
-    {
-        await using var connection = await Open(token);
-        await using var transaction = await connection.BeginTransactionAsync(token);
-        await using var command = new NpgsqlCommand(&quot;INSERT INTO places(id,name,latitude,longitude) VALUES($1,$2,$3,$4) ON CONFLICT DO NOTHING RETURNING id&quot;, connection, transaction);
-        command.Parameters.AddWithValue(city.Id); command.Parameters.AddWithValue(city.Name); command.Parameters.AddWithValue(city.Latitude); command.Parameters.AddWithValue(city.Longitude);
-        if (await command.ExecuteScalarAsync(token) is not null) await InsertRequest(connection, transaction, city, token);
-        await transaction.CommitAsync(token);
-    }</code></pre></details><details class="source-excerpt"><summary>places:services/places/RequestPublisher.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 18–34</summary><pre id="clew-source-12-0" tabindex="0" role="region" aria-label="services/places/RequestPublisher.cs — 18–34"><code>public async Task PublishPending(IProducer&lt;string, string> producer, CancellationToken token)
+    public async Task PublishPending(IProducer&lt;string, string> producer, CancellationToken token)
     {
         await using var connection = await repository.Open(token);
         await using var transaction = await connection.BeginTransactionAsync(token);
@@ -1988,7 +356,8 @@ class Forecasts(private val jdbc: JdbcTemplate, private val transaction: Transac
         await using var mark = new NpgsqlCommand(&quot;UPDATE request_outbox SET published=true WHERE id=$1&quot;, connection, transaction);
         mark.Parameters.AddWithValue(id); await mark.ExecuteNonQueryAsync(token);
         await transaction.CommitAsync(token);
-    }</code></pre></details></details></section><footer class="markdown-footer"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 170">
+    }
+}</code></pre></details></details></section><footer class="markdown-footer"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 170">
 <path d="M0,0 L10,0 L12,2 L14,7 L18,9 L19,15 L24,17 L24,22 L37,22 L37,17 L43,14 L44,8 L49,6 L50,1 L52,0 L62,0 L63,1 L63,7 L68,8 L70,20 L71,21 L71,44 L77,44 L78,46 L79,70 L82,69 L85,71 L85,76 L79,78 L79,82 L84,85 L83,90 L78,89 L74,88 L71,95 L65,97 L63,100 L58,101 L57,116 L52,121 L50,129 L48,131 L45,131 L45,156 L41,160 L23,160 L20,158 L20,153 L18,153 L18,159 L17,160 L-6,160 L-11,158 L-14,160 L-49,160 L-50,159 L-50,153 L-55,153 L-57,150 L-57,144 L-62,140 L-62,134 L-67,133 L-68,131 L-68,122 L-74,119 L-75,118 L-75,64 L-73,62 L-67,62 L-68,56 L-66,52 L-61,51 L-60,46 L-47,46 L-46,50 L-41,52 L-42,59 L-40,59 L-39,56 L-28,53 L-23,53 L-21,39 L-17,36 L-14,36 L-14,23 L-12,20 L-8,19 L-8,11 L-6,8 L-2,8 L-2,2 Z " fill="#D5C0AF" transform="translate(80,5)"/>
 <path d="M0,0 L10,0 L10,8 L3,8 L2,11 L1,25 L-4,25 L-4,35 L-6,48 L-9,50 L-11,55 L-13,76 L-14,85 L-5,87 L-6,93 L1,93 L3,94 L2,99 L-9,98 L-14,92 L-15,87 L-18,87 L-18,90 L-23,89 L-24,88 L-24,82 L-21,80 L-22,77 L-28,76 L-28,69 L-22,66 L-22,64 L-37,62 L-37,68 L-38,69 L-45,69 L-47,78 L-48,79 L-49,91 L-52,91 L-52,96 L-45,96 L-42,105 L-37,106 L-37,117 L-39,125 L-46,127 L-47,134 L-49,140 L-46,140 L-45,148 L-25,149 L-25,143 L-32,142 L-34,141 L-34,135 L-31,132 L-23,128 L-22,126 L-23,116 L-21,114 L-15,114 L-14,121 L-11,123 L-11,131 L-8,131 L-8,140 L-5,140 L-3,150 L11,150 L11,143 L6,142 L6,132 L12,132 L15,135 L15,141 L23,141 L24,148 L36,149 L36,130 L37,129 L42,129 L43,120 L45,117 L49,117 L48,100 L50,98 L55,97 L57,92 L63,92 L63,86 L64,85 L69,85 L69,47 L64,47 L64,45 L61,44 L60,10 L54,11 L53,15 L51,15 L50,23 L46,25 L45,31 L19,30 L17,24 L12,23 L11,22 L11,9 L16,9 L17,10 L17,18 L22,18 L23,23 L40,23 L40,18 L45,18 L45,9 L50,7 L52,0 L62,0 L63,1 L63,7 L68,8 L70,20 L71,21 L71,44 L77,44 L78,46 L79,70 L82,69 L85,71 L85,76 L79,78 L79,82 L84,85 L83,90 L78,89 L74,88 L71,95 L65,97 L63,100 L58,101 L57,116 L52,121 L50,129 L48,131 L45,131 L45,156 L41,160 L23,160 L20,158 L20,153 L18,153 L18,159 L17,160 L-6,160 L-11,158 L-14,160 L-49,160 L-50,159 L-50,153 L-55,153 L-57,150 L-57,144 L-62,140 L-62,134 L-67,133 L-68,131 L-68,122 L-74,119 L-75,118 L-75,64 L-73,62 L-67,62 L-68,56 L-66,52 L-61,51 L-60,46 L-47,46 L-46,50 L-41,52 L-42,59 L-40,59 L-39,56 L-28,53 L-23,53 L-21,39 L-17,36 L-14,36 L-14,23 L-12,20 L-8,19 L-8,11 L-6,8 L-2,8 L-2,2 Z " fill="#8D9DA3" transform="translate(80,5)"/>
 <path d="M0,0 L15,1 L15,5 L10,7 L9,14 L15,14 L17,18 L13,20 L15,27 L20,28 L20,32 L25,33 L25,38 L35,38 L39,39 L41,38 L81,38 L83,44 L83,52 L82,54 L79,54 L78,65 L77,65 L76,61 L75,65 L71,61 L70,67 L71,67 L71,85 L63,85 L62,75 L64,73 L65,67 L58,68 L57,71 L51,71 L46,68 L46,62 L43,62 L42,81 L48,81 L48,88 L34,88 L32,78 L29,78 L29,69 L26,69 L25,61 L22,59 L22,52 L15,54 L16,65 L10,69 L4,71 L3,79 L12,81 L12,87 L-8,87 L-9,86 L-9,78 L-12,78 L-12,73 L-11,72 L-10,65 L-8,63 L-2,63 L-1,55 L-1,44 L-5,43 L-8,35 L-15,34 L-15,29 L-12,29 L-12,17 L-8,7 L-1,6 Z " fill="#F3EBDC" transform="translate(43,67)"/>
@@ -2216,4 +585,122 @@ class Forecasts(private val jdbc: JdbcTemplate, private val transaction: Transac
 <path d="M0,0 L3,4 L0,4 Z " fill="#D89B91" transform="translate(77,37)"/>
 <path d="M0,0 L2,0 L1,3 L-1,3 Z " fill="#8A9EAC" transform="translate(134,121)"/>
 </svg>
-<span>Codeclew · Документация</span></footer></main><script>const openSource=(hash=location.hash)=>{let id;try{id=decodeURIComponent(hash.slice(1))}catch{return}const detail=document.getElementById(id)?.closest('.source-excerpt');if(detail){for(let p=detail;p;p=p.parentElement)if(p.tagName==='DETAILS')p.open=true;detail.scrollIntoView()}};openSource();addEventListener('hashchange',()=>openSource());for(const a of document.querySelectorAll('.page-sources a'))a.addEventListener('click',()=>openSource(a.hash));</script></div><script>const sequenceNarrow=matchMedia('(max-width:700px)');const syncSequences=()=>{for(const trace of document.querySelectorAll('.sequence-text'))trace.open=sequenceNarrow.matches};syncSequences();sequenceNarrow.addEventListener('change',syncSequences);const menu=document.querySelector('.guide-local-navigation');const narrow=matchMedia('(max-width:950px)');const resize=()=>{menu.open=!narrow.matches};resize();narrow.addEventListener('change',resize);for(const table of document.querySelectorAll('main table')){const region=document.createElement('div');region.className='table-scroll';region.tabIndex=0;region.setAttribute('role','region');region.setAttribute('aria-label',"Таблица; при необходимости прокрутите по горизонтали");table.before(region);region.append(table);for(const th of table.querySelectorAll('thead th'))th.scope='col'}const syncLocation=()=>{let id='';try{id=decodeURIComponent(location.hash.slice(1))}catch{}const target=id?document.getElementById(id):null;const heading=target&&target.tagName!=='MAIN'?(target.matches('h1,h2,h3,h4,h5,h6')?target:target.querySelector('h1,h2,h3,h4,h5,h6')):null;const crumb=document.querySelector('.breadcrumb-section');if(crumb){crumb.hidden=!heading;crumb.replaceChildren();if(heading){crumb.append(' / ');const link=document.createElement('a');link.href='#'+encodeURIComponent(id);link.textContent=heading.textContent;link.setAttribute('aria-current','location');crumb.append(link)}}for(const link of document.querySelectorAll('.guide-local-navigation a[data-page]')){if(link.dataset.page===document.body.dataset.readerPage&&link.dataset.fragment){if(link.dataset.fragment===id)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current')}}};syncLocation();addEventListener('hashchange',syncLocation);</script></body></html>
+<span>Codeclew · Documentation</span></footer></main><script>const openSource=(hash=location.hash)=>{let id;try{id=decodeURIComponent(hash.slice(1))}catch{return}const detail=document.getElementById(id)?.closest('.source-excerpt');if(detail){for(let p=detail;p;p=p.parentElement)if(p.tagName==='DETAILS')p.open=true;detail.scrollIntoView()}};openSource();addEventListener('hashchange',()=>openSource());for(const a of document.querySelectorAll('.page-sources a'))a.addEventListener('click',()=>openSource(a.hash));</script></div><script>const sequenceNarrow=matchMedia('(max-width:700px)');const syncSequences=()=>{for(const trace of document.querySelectorAll('.sequence-text'))trace.open=sequenceNarrow.matches};syncSequences();sequenceNarrow.addEventListener('change',syncSequences);const menu=document.querySelector('.guide-local-navigation');const narrow=matchMedia('(max-width:950px)');const resize=()=>{menu.open=!narrow.matches};resize();narrow.addEventListener('change',resize);for(const table of document.querySelectorAll('main table')){const region=document.createElement('div');region.className='table-scroll';region.tabIndex=0;region.setAttribute('role','region');region.setAttribute('aria-label',"Table; scroll horizontally when needed");table.before(region);region.append(table);for(const th of table.querySelectorAll('thead th'))th.scope='col'}const syncLocation=()=>{let id='';try{id=decodeURIComponent(location.hash.slice(1))}catch{}const target=id?document.getElementById(id):null;const heading=target&&target.tagName!=='MAIN'?(target.matches('h1,h2,h3,h4,h5,h6')?target:target.querySelector('h1,h2,h3,h4,h5,h6')):null;const crumb=document.querySelector('.breadcrumb-section');if(crumb){crumb.hidden=!heading;crumb.replaceChildren();if(heading){crumb.append(' / ');const link=document.createElement('a');link.href='#'+encodeURIComponent(id);link.textContent=heading.textContent;link.setAttribute('aria-current','location');crumb.append(link)}}for(const link of document.querySelectorAll('.guide-local-navigation a[data-page]')){if(link.dataset.page===document.body.dataset.readerPage&&link.dataset.fragment){if(link.dataset.fragment===id)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current')}}};syncLocation();addEventListener('hashchange',syncLocation);</script><script type="application/json" id="clew-route-data">{"registry":{"schema":"codeclew-cross-docset-routes/1.1","revision":"weather-routes-r1","catalog":{"docset":"weather-docs","page":"index.html"},"docsets":[{"id":"weather-docs","title":"Weather service guide","version":"weather-r1","baseURL":"https://codeclew.github.io/clew-weather-demo/human/","services":[{"id":"dashboard","title":"Dashboard","overview":{"docset":"weather-docs","page":"dashboard.html"}},{"id":"places","title":"Places","overview":{"docset":"weather-docs","page":"places.html"}},{"id":"forecasts","title":"Forecasts","overview":{"docset":"weather-docs","page":"forecasts.html"}}]}],"externalActors":[{"id":"met-norway","title":"MET Norway location-forecast API"}],"routes":[{"id":"add-place-route","version":"r1","title":"Add a place and request its forecast","narrative":{"docset":"weather-docs","page":"process-add-place.html"},"origin":{"status":"known","occurrence":"dashboard-request","kind":"http","title":"Dashboard POST /api/places","summary":"Dashboard forwards the incoming JSON body to Places."},"occurrences":[{"id":"dashboard-request","actor":{"kind":"service","docset":"weather-docs","service":"dashboard"},"role":"Forward the place request","target":{"docset":"weather-docs","page":"dashboard-add-place.html"}},{"id":"places-save","actor":{"kind":"service","docset":"weather-docs","service":"places"},"role":"Map and save the supported place","target":{"docset":"weather-docs","page":"places-create.html"}},{"id":"places-publisher","actor":{"kind":"service","docset":"weather-docs","service":"places"},"role":"Publish the pending place request","target":{"docset":"weather-docs","page":"places.html"}},{"id":"forecasts-listener","actor":{"kind":"service","docset":"weather-docs","service":"forecasts"},"role":"Validate and handle the place event","target":{"docset":"weather-docs","page":"forecasts.html"}},{"id":"forecasts-refresh","actor":{"kind":"service","docset":"weather-docs","service":"forecasts"},"role":"Refresh forecast data","target":{"docset":"weather-docs","page":"forecasts.html"}},{"id":"forecasts-publisher","actor":{"kind":"service","docset":"weather-docs","service":"forecasts"},"role":"Publish the forecast update","target":{"docset":"weather-docs","page":"forecasts.html"}},{"id":"dashboard-consumer","actor":{"kind":"service","docset":"weather-docs","service":"dashboard"},"role":"Project the forecast update","target":{"docset":"weather-docs","page":"dashboard.html"}}],"branches":[{"id":"retained-path","title":"Retained source path","condition":"A supported city is mapped. Only a newly inserted place creates the request event; startup and delivery are unverified.","target":{"docset":"weather-docs","page":"process-add-place.html","anchor":"dashboard-request"}}],"outcomes":[{"id":"terminal-unknown","branch":"retained-path","kind":"unknown","title":"Terminal outcome unverified","target":{"docset":"weather-docs","page":"process-add-place.html","anchor":"reader-result"},"internal":{"coverage":"partial","occurrences":["places-save","places-publisher","forecasts-listener","forecasts-refresh","forecasts-publisher","dashboard-consumer"]},"end":{"status":"unknown","reason":"The retained captures do not establish startup, broker delivery, or a final caller-visible forecast result."}}],"coverage":{"outcomeInventory":"partial","scope":"Retained handler and worker bodies identify the logical route and topics; publisher registration, runtime startup, end-to-end delivery, and the terminal result remain unverified.","reference":{"docset":"weather-docs","page":"process-add-place.html","anchor":"dashboard-request"}}},{"id":"refresh-place-route","version":"r1","title":"Request a place refresh","narrative":{"docset":"weather-docs","page":"process-refresh-place.html"},"origin":{"status":"known","occurrence":"dashboard-refresh","kind":"http","title":"Dashboard POST /api/places/{id}/refresh","summary":"Dashboard encodes the ID and forwards a refresh request to Places."},"occurrences":[{"id":"dashboard-refresh","actor":{"kind":"service","docset":"weather-docs","service":"dashboard"},"role":"Forward the refresh request","target":{"docset":"weather-docs","page":"dashboard-refresh-place.html"}},{"id":"places-refresh","actor":{"kind":"service","docset":"weather-docs","service":"places"},"role":"Find the place and enqueue a request","target":{"docset":"weather-docs","page":"places-refresh.html"}},{"id":"places-publisher","actor":{"kind":"service","docset":"weather-docs","service":"places"},"role":"Publish the pending place request","target":{"docset":"weather-docs","page":"places.html"}},{"id":"forecasts-listener","actor":{"kind":"service","docset":"weather-docs","service":"forecasts"},"role":"Handle the place event","target":{"docset":"weather-docs","page":"forecasts.html"}},{"id":"forecasts-refresh","actor":{"kind":"service","docset":"weather-docs","service":"forecasts"},"role":"Refresh forecast data","target":{"docset":"weather-docs","page":"forecasts.html"}},{"id":"forecasts-publisher","actor":{"kind":"service","docset":"weather-docs","service":"forecasts"},"role":"Publish the forecast update","target":{"docset":"weather-docs","page":"forecasts.html"}},{"id":"dashboard-consumer","actor":{"kind":"service","docset":"weather-docs","service":"dashboard"},"role":"Project a forecast update","target":{"docset":"weather-docs","page":"dashboard.html"}}],"branches":[{"id":"existing-place","title":"Existing place","condition":"The place lookup succeeds and the request-outbox insert returns; later startup and delivery are unverified.","target":{"docset":"weather-docs","page":"process-refresh-place.html","anchor":"request-and-queue"}}],"outcomes":[{"id":"terminal-unknown","branch":"existing-place","kind":"unknown","title":"Terminal outcome unverified","target":{"docset":"weather-docs","page":"process-refresh-place.html","anchor":"scope"},"internal":{"coverage":"partial","occurrences":["places-refresh","places-publisher","forecasts-listener","forecasts-refresh","forecasts-publisher","dashboard-consumer"]},"end":{"status":"unknown","reason":"The retained captures do not establish worker registration, broker delivery, or completion of a forecast update."}}],"coverage":{"outcomeInventory":"partial","scope":"The source handler establishes the 404 and 202 queue branches. Later event handling is described from retained worker bodies; registration, delivery, and terminal completion are unverified.","reference":{"docset":"weather-docs","page":"process-refresh-place.html","anchor":"scope"}}},{"id":"scheduled-refresh-route","version":"r1","title":"Refresh and publish forecasts","narrative":{"docset":"weather-docs","page":"process-scheduled-refresh.html"},"origin":{"status":"known","occurrence":"forecast-scheduler","kind":"scheduled","title":"Forecasts refreshExpired schedule","summary":"The source annotation declares a fixed-delay schedule for missing or expired forecasts."},"occurrences":[{"id":"forecast-scheduler","actor":{"kind":"service","docset":"weather-docs","service":"forecasts"},"role":"Select missing or expired forecasts","target":{"docset":"weather-docs","page":"forecasts.html","anchor":"background-paths"}},{"id":"met-provider","actor":{"kind":"external","id":"met-norway"},"role":"Return live forecast data when live mode is selected","target":{"docset":"weather-docs","page":"process-scheduled-refresh.html","anchor":"provider-outcomes"}},{"id":"forecast-refresh","actor":{"kind":"service","docset":"weather-docs","service":"forecasts"},"role":"Build and store the forecast payload","target":{"docset":"weather-docs","page":"forecasts.html"}},{"id":"forecast-publisher","actor":{"kind":"service","docset":"weather-docs","service":"forecasts"},"role":"Publish a pending forecast event","target":{"docset":"weather-docs","page":"forecasts.html"}},{"id":"dashboard-consumer","actor":{"kind":"service","docset":"weather-docs","service":"dashboard"},"role":"Apply a valid forecast event","target":{"docset":"weather-docs","page":"dashboard.html"}}],"branches":[{"id":"refresh-mode","title":"Fixture or live mode","condition":"The retained code describes both modes; the mode provider/default and runtime schedule activation are unresolved.","target":{"docset":"weather-docs","page":"process-scheduled-refresh.html","anchor":"select-and-refresh"}}],"outcomes":[{"id":"terminal-unknown","branch":"refresh-mode","kind":"unknown","title":"Schedule and terminal outcome unverified","target":{"docset":"weather-docs","page":"process-scheduled-refresh.html","anchor":"store-and-publish"},"internal":{"coverage":"partial","occurrences":["met-provider","forecast-refresh","forecast-publisher","dashboard-consumer"]},"end":{"status":"unknown","reason":"Scheduling, provider calls, event delivery, and final projection were not observed at runtime."}}],"coverage":{"outcomeInventory":"partial","scope":"Source bodies describe the scheduler, mode branches, provider operation, outbox, and Dashboard consumer; runtime activation and delivery are unverified.","reference":{"docset":"weather-docs","page":"process-scheduled-refresh.html","anchor":"select-and-refresh"}}},{"id":"dashboard-events-route","version":"r1","title":"Project Weather events in Dashboard","narrative":{"docset":"weather-docs","page":"process-dashboard-events.html"},"origin":{"status":"known","occurrence":"dashboard-listener","kind":"kafka","title":"Dashboard Weather consumer","summary":"The source-described start function subscribes to both Weather topics."},"occurrences":[{"id":"dashboard-listener","actor":{"kind":"service","docset":"weather-docs","service":"dashboard"},"role":"Validate and project event records","target":{"docset":"weather-docs","page":"dashboard.html","anchor":"event-projection"}}],"branches":[{"id":"message-outcome","title":"Valid or invalid event","condition":"The handler describes both paths; listener startup and broker delivery are unverified.","target":{"docset":"weather-docs","page":"process-dashboard-events.html","anchor":"handler-started-message-sequence"}}],"outcomes":[{"id":"terminal-unknown","branch":"message-outcome","kind":"unknown","title":"Runtime handling unverified","target":{"docset":"weather-docs","page":"process-dashboard-events.html","anchor":"what-this-establishes"},"internal":{"coverage":"partial","occurrences":[]},"end":{"status":"unknown","reason":"The retained handler body does not establish an activated consumer or observed message delivery."}}],"coverage":{"outcomeInventory":"partial","scope":"The source declares the topic subscriptions and handler branches; runtime startup and consumption are not observed.","reference":{"docset":"weather-docs","page":"process-dashboard-events.html","anchor":"handler-started-message-sequence"}}}]},"words":{"catalog":"Services and processes","filters":"Filter processes","filterHelp":"How filters work","details":"Details and limits","partialShort":"Some details are unclassified","countUnknown":"Unclassified","countNegative":"No match","resultScope":"Results apply only to the described scope. Unclassified is not a negative.","services":"Services","processes":"Processes","start":"Starts in","visits":"Includes service","searchService":"Find service","refine":"More filters","matchingVisits":"Matching service steps","end":"Ends in","intermediate":"Internal service","kinds":"Outcome","normal":"Normal","error":"Error","handoff":"Handoff","unknown":"Unclassified","whole":"Whole process","ownPart":"This service’s part","origin":"Documented start","outcomes":"Described outcomes","scope":"Described scope","partial":"Some outcomes or roles remain unclassified","other":"Other documentation","external":"External actor","declared":"Navigation declarations; remote pages and anchors are not checked.","help":"Choose where a process starts and a service where it executes a step, whether it ends there or continues. Empty filters include all services. Values within a filter use OR; filters combine with AND in one outcome.","include":"Include unclassified results","clear":"Clear filters","matches":"Matches","negative":"No match in the described scope","unclassified":"Needs classification","none":"No matching processes in the described scope.","uncertain":"No confirmed match; unclassified processes remain.","nojs":"Filters need JavaScript. All declared processes and links are shown.","recipient":"Recipient","noneRecipient":"None","unknownEnd":"End not classified","matchingOutcomes":"Matching outcomes","more":"more","uncertainMatches":"Uncertain for these filters","classificationGaps":"Processes with classification gaps","triggerLabels":{"http":"HTTP","kafka":"Kafka","scheduled":"Scheduled","background":"Background","manual":"Manual","other":"Other"}},"visitLinks":{"add-place-route":{"dashboard-request":{"title":"Dashboard · Forward the place request","href":"dashboard-add-place.html"},"places-save":{"title":"Places · Map and save the supported place","href":"places-create.html"},"places-publisher":{"title":"Places · Publish the pending place request","href":"places.html"},"forecasts-listener":{"title":"Forecasts · Validate and handle the place event","href":"forecasts.html"},"forecasts-refresh":{"title":"Forecasts · Refresh forecast data","href":"forecasts.html"},"forecasts-publisher":{"title":"Forecasts · Publish the forecast update","href":"forecasts.html"},"dashboard-consumer":{"title":"Dashboard · Project the forecast update","href":"dashboard.html"}},"refresh-place-route":{"dashboard-refresh":{"title":"Dashboard · Forward the refresh request","href":"dashboard-refresh-place.html"},"places-refresh":{"title":"Places · Find the place and enqueue a request","href":"places-refresh.html"},"places-publisher":{"title":"Places · Publish the pending place request","href":"places.html"},"forecasts-listener":{"title":"Forecasts · Handle the place event","href":"forecasts.html"},"forecasts-refresh":{"title":"Forecasts · Refresh forecast data","href":"forecasts.html"},"forecasts-publisher":{"title":"Forecasts · Publish the forecast update","href":"forecasts.html"},"dashboard-consumer":{"title":"Dashboard · Project a forecast update","href":"dashboard.html"}},"scheduled-refresh-route":{"forecast-scheduler":{"title":"Forecasts · Select missing or expired forecasts","href":"forecasts.html#background-paths"},"met-provider":{"title":"MET Norway location-forecast API · Return live forecast data when live mode is selected","href":"process-scheduled-refresh.html#provider-outcomes"},"forecast-refresh":{"title":"Forecasts · Build and store the forecast payload","href":"forecasts.html"},"forecast-publisher":{"title":"Forecasts · Publish a pending forecast event","href":"forecasts.html"},"dashboard-consumer":{"title":"Dashboard · Apply a valid forecast event","href":"dashboard.html"}},"dashboard-events-route":{"dashboard-listener":{"title":"Dashboard · Validate and project event records","href":"dashboard.html#event-projection"}}}}</script><script>(()=>{const evaluate=(function filterRoutes(registry,query={}){
+ if(!query||typeof query!=='object'||Array.isArray(query)||Object.keys(query).some(k=>!['start','visits','end','intermediate','outcomeKinds'].includes(k)))throw Error('Unknown filter property');
+ const key=a=>{if(typeof a==='string')return a;if(!a||typeof a!=='object'||Array.isArray(a)||a.kind!=='service'||typeof a.docset!=='string'||typeof a.service!=='string'||Object.keys(a).some(k=>!['kind','docset','service'].includes(k)))throw Error('Expected service filter identity');return a.docset+'/'+a.service};
+ const available=new Set(registry.docsets.flatMap(d=>d.services.map(s=>d.id+'/'+s.id)));
+ const selected={};for(const field of ['start','visits','end','intermediate']){const values=Object.hasOwn(query,field)?query[field]:[];if(!Array.isArray(values)||values.some(v=>!available.has(key(v))))throw Error('Unknown filter service namespace');selected[field]=new Set(values.map(key))}
+ const kinds=Object.hasOwn(query,'outcomeKinds')?query.outcomeKinds:[];if(!Array.isArray(kinds)||kinds.some(k=>!['normal','error','handoff','unknown'].includes(k)))throw Error('Unknown outcome filter');
+ const test=(actor,set)=>!set.size?1:actor?.kind==='service'?(set.has(key(actor))?1:-1):actor?.kind==='external'?-1:0;
+ const name=n=>n===1?'MATCH':n===-1?'NO_MATCH':'UNCLASSIFIED';
+ return registry.routes.map(route=>{
+  const occurrences=new Map(route.occurrences.map(o=>[o.id,o]));const origin=route.origin.status==='known'?occurrences.get(route.origin.occurrence)?.actor:null;
+  const start=test(origin,selected.start),matches=[],unknown=[];
+  if(!selected.end.size&&!selected.intermediate.size&&!kinds.length){
+   if(!selected.visits.size||!route.outcomes.length&&test(origin,selected.visits)===1)return {id:route.id,status:name(start),matches,unknown};
+  }
+  let unassignedVisit=false;
+  if(selected.visits.size){
+   const assigned=new Set([...(route.origin.status==='known'?[route.origin.occurrence]:[]),...route.outcomes.flatMap(o=>[...o.internal.occurrences,...(o.end.status==='known'?[o.end.ownerOccurrence]:[])])]);
+   unassignedVisit=route.occurrences.some(o=>!assigned.has(o.id)&&test(o.actor,selected.visits)===1);
+  }
+  let result=-1;
+  for(const outcome of route.outcomes){
+   const end=outcome.end.status==='known'?test(occurrences.get(outcome.end.ownerOccurrence)?.actor,selected.end):selected.end.size?0:1;
+   let middle=1;if(selected.intermediate.size)middle=outcome.internal.occurrences.some(id=>test(occurrences.get(id)?.actor,selected.intermediate)===1)?1:outcome.internal.coverage==='complete-for-this-outcome'?-1:0;
+   // Only execution occurrences assigned to this outcome participate. Recipients
+   // and occurrences belonging solely to another branch are not witnesses.
+   const execution=new Set([
+    ...(route.origin.status==='known'?[route.origin.occurrence]:[]),
+    ...outcome.internal.occurrences,
+    ...(outcome.end.status==='known'?[outcome.end.ownerOccurrence]:[])
+   ]);
+   const visits=selected.visits.size?[...execution].filter(id=>test(occurrences.get(id)?.actor,selected.visits)===1):[];
+   const membershipComplete=!unassignedVisit&&route.origin.status==='known'&&outcome.internal.coverage==='complete-for-this-outcome'&&outcome.end.status==='known';
+   const participation=!selected.visits.size||visits.length?1:membershipComplete?-1:0;
+   const kind=!kinds.length||kinds.includes(outcome.kind)?1:outcome.kind==='unknown'?0:-1;
+   const state=Math.min(start,end,middle,participation,kind);result=Math.max(result,state);const witness={branch:outcome.branch,outcome:outcome.id,...(selected.visits.size?{visits}: {})};if(state===1)matches.push(witness);if(state===0)unknown.push(witness);
+  }
+  if(result!==1&&route.coverage.outcomeInventory!=='complete-for-declared-scope'&&start!==-1)result=0;
+  return {id:route.id,status:name(result),matches,unknown};
+ });
+}),savedFilters=(function catalogFilterURL(value,prefix,update){
+ const url=new URL(value),fields=['start','visits','end','intermediate','outcomeKinds'];
+ const key=field=>prefix+'-'+field;
+ if(update===undefined)return {query:Object.fromEntries(fields.map(field=>[field,url.searchParams.getAll(key(field))])),includeUnknown:url.searchParams.get(key('includeUnknown'))!=='0'};
+ for(const field of fields){
+  url.searchParams.delete(key(field));const values=update.query[field]??[];
+  if(!Array.isArray(values))throw Error('Invalid saved filter values');
+  for(const v of new Set(values))url.searchParams.append(key(field),v);
+ }
+ url.searchParams.delete(key('includeUnknown'));if(!update.includeUnknown)url.searchParams.set(key('includeUnknown'),'0');
+ return url.href;
+});(function catalogClient(evaluate,prefix,savedFilters,presentMatches){
+ const root=document.getElementById(prefix+'-catalog'),data=JSON.parse(document.getElementById(prefix+'-data').textContent),form=root.querySelector('form');
+ const narrow=matchMedia('(max-width:700px)'),panel=root.querySelector('.route-filter-panel');const resize=()=>{panel.open=!narrow.matches};resize();narrow.addEventListener('change',resize);
+ const cards=new Map([...root.querySelectorAll('[data-route-id]')].map(e=>[e.dataset.routeId,e]));
+ const routes=new Map(data.registry.routes.map(r=>[r.id,r])),fields=['start','visits','end','intermediate','outcomeKinds'];
+ const titles=new Map(data.registry.routes.map(r=>[r.id,new Map(r.outcomes.map(o=>[o.id,o.title]))]));
+ function searchOptions(input){
+  const term=input.value.trim().toLocaleLowerCase();
+  for(const label of input.closest('fieldset').querySelectorAll('.route-options label'))label.hidden=!label.querySelector('input').checked&&!label.textContent.toLocaleLowerCase().includes(term);
+ }
+ function restore(){
+  const state=savedFilters(location.href,prefix);
+  for(const field of fields){const selected=new Set(state.query[field]);for(const input of form.querySelectorAll('input[name="'+field+'"]'))input.checked=selected.has(input.value)}
+  form.elements.namedItem('includeUnknown').checked=state.includeUnknown;
+  if(['end','intermediate','outcomeKinds'].some(field=>state.query[field].length))form.querySelector('.route-refinements').open=true;
+  for(const input of form.querySelectorAll('.route-service-search'))searchOptions(input);
+ }
+ function matchedVisits(card,row,query){
+  const list=card.querySelector('.route-visits'),evidence=card.querySelector('.route-match-evidence');list.replaceChildren();evidence.replaceChildren();
+  function stepLink(info){
+   const link=document.createElement(info.href?'a':'span');link.textContent=info.title;
+   if(info.href)link.href=info.href;else link.className='route-link-unavailable';return link;
+  }
+  if(query.visits.length){
+   const view=presentMatches(row,routes.get(row.id),data.visitLinks[row.id]);
+   for(const info of view.steps){const item=document.createElement('li');item.append(stepLink(info));list.append(item)}
+   for(const witness of view.witnesses){
+    const item=document.createElement('li');
+    if(witness.outcomeTitle)item.append(document.createTextNode(witness.branchTitle+' · '+witness.outcomeTitle+': '));
+    for(const [i,info] of witness.steps.entries()){if(i)item.append(document.createTextNode('; '));item.append(stepLink(info))}
+    evidence.append(item);
+   }
+  }
+  list.hidden=!list.childElementCount;evidence.hidden=!evidence.childElementCount;
+ }
+ function apply(persist=false){
+  const query={};for(const field of fields)query[field]=[...form.querySelectorAll('input[name="'+field+'"]:checked')].map(o=>o.value);
+  const active=Object.values(query).some(values=>values.length);
+  const results=evaluate(data.registry,query),showUnknown=form.elements.namedItem('includeUnknown').checked;
+  let matches=0,unknown=0,negative=0,visible=0;
+  for(const row of results){
+   const card=cards.get(row.id);if(row.status==='MATCH')matches++;else if(row.status==='UNCLASSIFIED')unknown++;else negative++;
+   card.hidden=row.status==='NO_MATCH'||row.status==='UNCLASSIFIED'&&!showUnknown;if(!card.hidden)visible++;
+   const uncertain=active&&row.status==='UNCLASSIFIED';const badge=card.querySelector('.route-gap');if(badge)badge.hidden=uncertain;
+   card.querySelector('.route-state').hidden=!uncertain;card.querySelector('.route-state').textContent=row.status==='MATCH'?data.words.matches:row.status==='UNCLASSIFIED'?data.words.unclassified:data.words.negative;
+   const outcome=card.querySelector('.route-matches');outcome.hidden=!row.matches.length;outcome.textContent=row.matches.length?data.words.matchingOutcomes+': '+row.matches.map(m=>titles.get(row.id).get(m.outcome)).join('; '):'';
+   matchedVisits(card,row,query);
+  }
+  root.querySelector('.route-count').textContent=data.words.matches+': '+matches+' · '+data.words.countUnknown+': '+unknown+' · '+data.words.countNegative+': '+negative;
+  const empty=root.querySelector('.route-empty');empty.hidden=visible>0;empty.textContent=unknown?data.words.uncertain:data.words.none;
+  if(persist)try{history.replaceState(history.state,'',savedFilters(location.href,prefix,{query,includeUnknown:showUnknown}))}catch{}
+ }
+ form.addEventListener('submit',event=>event.preventDefault());
+ for(const input of form.querySelectorAll('.route-service-search'))input.addEventListener('input',()=>searchOptions(input));
+ form.addEventListener('change',()=>{for(const input of form.querySelectorAll('.route-service-search'))searchOptions(input);apply(true)});
+ form.addEventListener('reset',()=>setTimeout(()=>{for(const input of form.querySelectorAll('.route-service-search'))searchOptions(input);apply(true)},0));
+ window.addEventListener('popstate',()=>{restore();apply()});window.addEventListener('pageshow',()=>{restore();apply()});restore();apply();
+})(evaluate,"clew-route",savedFilters,(function routeMatchPresentation(row,route,links){
+ if(row.status!=='MATCH')return {steps:[],witnesses:[]};
+ const supplied=row.matches.length?row.matches:route.origin.status==='known'?[{visits:[route.origin.occurrence]}]:[];
+ const unique=new Map(),witnesses=[];
+ for(const witness of supplied){
+  if(!witness.visits?.length)continue;
+  const steps=witness.visits.map(id=>{const step={id,...links[id]};unique.set(id,step);return step});
+  witnesses.push({branchTitle:route.branches.find(b=>b.id===witness.branch)?.title,
+   outcomeTitle:route.outcomes.find(o=>o.id===witness.outcome)?.title,steps});
+ }
+ return {steps:[...unique.values()],witnesses};
+}))})()</script></body></html>
