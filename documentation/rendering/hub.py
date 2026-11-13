@@ -8,55 +8,105 @@ BASE = '/clew-weather-demo/'
 
 def render(root, human):
     previous = json.loads((root / 'documentation/current/publication.json').read_text())
-    version = html.escape(human['renderer']['version'])
-    previous_version = html.escape(previous['renderer']['version'])
-    revision = html.escape(human['source']['revision'])
-    entry = BASE + 'human/' + html.escape(human['entrypoint'], quote=True)
+    language = human.get('language', 'ru')
+    if language not in ('en', 'ru'):
+        raise ValueError('Unsupported human guide language')
+
+    def t(ru, en):
+        return ru if language == 'ru' else en
+
+    esc = html.escape
+    previous_version = esc(previous['renderer']['version'])
+    revision = esc(human['source']['revision'])
+    entry = BASE + 'human/' + esc(human['entrypoint'], quote=True)
     classic = BASE + 'generated/' + previous['publication'] + '/overview.html'
+    schema = human.get('schema', 'weather-human-publication/1.0')
+    if schema not in ('weather-human-publication/1.0', 'weather-human-publication/1.1'):
+        raise ValueError('Unsupported human publication schema')
+    if schema == 'weather-human-publication/1.1':
+        # Acquisition is official; the independent skill treatment is not a release.
+        identity = ''
+        capture = human['capture']
+        producer = capture['producerVersion'] or t('не записана', 'unrecorded')
+        rows = [
+            t('Версия производителя захвата: ', 'Capture producer version: ') + producer,
+            t('Снимок: ', 'Snapshot: ') + capture['snapshot'],
+            t('Повторный захват не выполнялся.', 'No source recapture was performed.'),
+            t('Официальный runtime чтения: Codeclew ', 'Official acquisition runtime: Codeclew ') + human['acquisition']['version'],
+            t('Принятый неопубликованный навык: ', 'Accepted unreleased skill treatment: ') + human['treatment']['commit'],
+            t('Дерево навыка: ', 'Treatment tree: ') + human['treatment']['tree'],
+            t('Отпечаток навыка: ', 'Skill digest: ') + human['treatment']['skillDigest'],
+            t('Экспорт: ', 'Export: ') + str(human['export']['fileCount']) + t(' файлов · ', ' files · ') + human['export']['digest'],
+        ]
+        build_details = '<ul>' + ''.join('<li>' + esc(row) + '</li>' for row in rows) + '</ul>'
+    else:
+        version = esc(human['renderer']['version'])
+        identity = t('Собрано Codeclew ', 'Generated with Codeclew ') + version + ' · '
+        build_details = ''
+
+    # Choose only destinations present in the admitted reader file map. Historical
+    # and current names coexist here; a missing task is omitted, never guessed.
+    files = human.get('filesSha256', {})
+    tasks = [
+        (('process-add-place.html', 'dashboard-save-place-route.html'),
+         t('Что происходит после выбора города?', 'What happens after choosing a city?'),
+         t('Проследить сохранение города от Dashboard до Places.', 'Follow the request from Dashboard to Places.'),
+         t('Сохранение города →', 'Add a place →')),
+        (('process-refresh-place.html', 'event-flow.html'),
+         t('Как обновляется прогноз?', 'How does a forecast refresh?'),
+         t('Проследить запрос обновления и передачу событий.', 'Follow the refresh request and its events.'),
+         t('Обновление прогноза →', 'Refresh a forecast →')),
+        (('forecast-data.html', 'events-data.html'),
+         t('Какие данные передаются?', 'What data is exchanged?'),
+         t('Посмотреть представления данных и назначение полей.', 'Inspect data representations and field meanings.'),
+         t('Данные и поля →', 'Data and fields →')),
+    ]
+    cards = []
+    for candidates, title, description, label in tasks:
+        target = next((name for name in candidates if name in files), None)
+        if target is not None:
+            cards.append(f'<article class="card"><h3>{title}</h3><p>{description}</p><a href="{BASE}human/{target}">{label}</a></article>')
+    task_section = (f'<section class="section" aria-labelledby="tasks"><h2 id="tasks">{t("Найти ответ", "Find an answer")}</h2>'
+                    + '<div class="grid">' + ''.join(cards) + '</div></section>') if cards else ''
     return f'''<!doctype html>
-<html lang="ru">
+<html lang="{language}">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Weather — документация и форматы</title>
+<title>{t('Weather — документация и форматы', 'Weather — documentation and formats')}</title>
 <link rel="icon" href="{BASE}human/favicon.svg">
 <link rel="stylesheet" href="{BASE}rendering/site.css"></head>
 <body>
-<header><nav aria-label="Основная навигация"><a class="brand" href="{BASE}">Weather / Документация</a>
-<a href="{entry}">Руководство</a><a href="#formats">Другие форматы</a><a href="{BASE}rendering/">Примеры рендеринга</a></nav></header>
+<header><nav aria-label="{t('Основная навигация', 'Main navigation')}"><a class="brand" href="{BASE}">Weather / {t('Документация', 'Documentation')}</a>
+<a href="{entry}">{t('Руководство', 'Guide')}</a><a href="#formats">{t('Другие форматы', 'Other formats')}</a><a href="{BASE}rendering/">{t('Примеры рендеринга', 'Rendering examples')}</a></nav></header>
 <main id="content">
-<section class="hero" aria-labelledby="welcome"><p class="eyebrow">Демо Codeclew · Weather</p>
-<h1 id="welcome">Как устроен Weather</h1>
-<p class="lead">Сохранение города, обновление прогноза и передача событий между Dashboard, Places и Forecasts. Выберите руководство для чтения или другой формат для сравнения.</p>
-<div class="panel"><span class="badge">Рекомендуем начать здесь</span>
-<h2>Актуальное руководство</h2>
-<p>Последовательные объяснения процессов, страницы сервисов, HTTP-входы, Kafka-переходы и таблицы полей. На русском языке; ссылки на исходники доступны рядом с объяснениями.</p>
-<p class="meta">Собрано Codeclew {version} · исходники Weather <a href="https://github.com/codeclew/clew-weather-demo/tree/{revision}">{revision[:8]}</a></p>
-<a class="button" href="{entry}">Читать руководство →</a></div>
+<section class="hero" aria-labelledby="welcome"><p class="eyebrow">{t('Демо Codeclew · Weather', 'Codeclew demo · Weather')}</p>
+<h1 id="welcome">{t('Как устроен Weather', 'How Weather works')}</h1>
+<p class="lead">{t('Сохранение города, обновление прогноза и передача событий между Dashboard, Places и Forecasts. Выберите руководство для чтения или другой формат для сравнения.', 'Adding a place, refreshing its forecast and passing events between Dashboard, Places and Forecasts. Start with the guide or compare the other formats.')}</p>
+<div class="panel"><span class="badge">{t('Рекомендуем начать здесь', 'Start here')}</span>
+<h2>{t('Актуальное руководство', 'Current guide')}</h2>
+<p>{t('Последовательные объяснения процессов, страницы сервисов, HTTP-входы, Kafka-переходы и таблицы полей. На русском языке; ссылки на исходники доступны рядом с объяснениями.', 'Step-by-step processes, service pages, HTTP entries, Kafka interactions and field tables. Written in English, with source links alongside the explanations.')}</p>
+<p class="meta">{identity}{t('исходники Weather', 'Weather source')} <a href="https://github.com/codeclew/clew-weather-demo/tree/{revision}">{revision[:8]}</a></p>
+<a class="button" href="{entry}">{t('Читать руководство →', 'Read the guide →')}</a></div>
 </section>
-<section class="section" aria-labelledby="tasks"><h2 id="tasks">Найти ответ</h2>
+{task_section}
+<section class="section" aria-labelledby="formats"><h2 id="formats">{t('Другие форматы документации', 'Other documentation formats')}</h2>
+<p>{t('Это сохранённые сборки для сравнения. Их состав и описания могут отличаться от актуального руководства.', 'These are retained exports for comparison. Their coverage and explanations may differ from the current guide.')}</p>
 <div class="grid">
-<article class="card"><h3>Что происходит после выбора города?</h3><p>Проследить сохранение города от Dashboard до Places.</p><a href="{BASE}human/dashboard-save-place-route.html">Сохранение города →</a></article>
-<article class="card"><h3>Как обновляется прогноз?</h3><p>Понять передачу событий через Kafka и обновление карточки Dashboard.</p><a href="{BASE}human/event-flow.html">Сквозной поток событий →</a></article>
-<article class="card"><h3>Какие данные передаются?</h3><p>Посмотреть структуру событий и назначение полей.</p><a href="{BASE}human/events-data.html">Данные и поля →</a></article>
-</div></section>
-<section class="section" aria-labelledby="formats"><h2 id="formats">Другие форматы документации</h2>
-<p>Это сохранённые сборки для сравнения. Они не пересобраны на {version} и могут отличаться составом и описаниями от актуального руководства.</p>
-<div class="grid">
-<article class="card"><span class="badge">Предыдущая сборка · {previous_version} · EN</span><h3>Pages · standalone HTML</h3><p>Готовый статический сайт: процессы, контракты, модель данных и дополнительный Data Flow использования полей в сценариях сохранения города и обновления карточки.</p><a href="{BASE}current/native/overview.html">Открыть HTML Pages →</a></article>
-<article class="card"><span class="badge">Предыдущая сборка · {previous_version} · EN</span><h3>Pages · MDX / Docusaurus</h3><p>Документация в оболочке Docusaurus: страницы и боковая навигация, перекрёстные ссылки, модель данных и дополнительный Data Flow тех же сценариев.</p><a href="{BASE}current/docusaurus/">Открыть Docusaurus →</a></article>
-<article class="card"><span class="badge">Архив · EN</span><h3>Классический docs render</h3><p>Прежний интерфейс с разделами сервисов, операциями и сохранёнными процессами. Точная версия производителя этого снимка не записана.</p><a href="{classic}">Открыть классический вид →</a></article>
+<article class="card"><span class="badge">{t('Предыдущая сборка', 'Previous export')} · {previous_version} · EN</span><h3>Pages · standalone HTML</h3><p>{t('Готовый статический сайт: процессы, контракты, модель данных и дополнительный Data Flow использования полей в сценариях сохранения города и обновления карточки.', 'Static pages with processes, contracts, a data model and additional field Data Flow views for saving a place and updating its card.')}</p><a href="{BASE}current/native/overview.html">{t('Открыть HTML Pages →', 'Open HTML Pages →')}</a></article>
+<article class="card"><span class="badge">{t('Предыдущая сборка', 'Previous export')} · {previous_version} · EN</span><h3>Pages · MDX / Docusaurus</h3><p>{t('Документация в оболочке Docusaurus: страницы и боковая навигация, перекрёстные ссылки, модель данных и дополнительный Data Flow тех же сценариев.', 'The same scenarios in Docusaurus, with sidebar navigation, cross-links, a data model and additional Data Flow views.')}</p><a href="{BASE}current/docusaurus/">{t('Открыть Docusaurus →', 'Open Docusaurus →')}</a></article>
+<article class="card"><span class="badge">{t('Архив', 'Archive')} · EN</span><h3>{t('Классический docs render', 'Classic docs render')}</h3><p>{t('Прежний интерфейс с разделами сервисов, операциями и сохранёнными процессами. Точная версия производителя этого снимка не записана.', 'The earlier interface with service sections, operations and saved processes. The exact producer version was not recorded.')}</p><a href="{classic}">{t('Открыть классический вид →', 'Open the classic view →')}</a></article>
 </div>
-<p class="meta">Data Flow использования полей есть в предыдущих Pages-сборках. В актуальном руководстве представлены таблицы полей и поток событий; отдельный Data Flow туда не перенесён.</p>
+<p class="meta">{t('Data Flow использования полей есть в предыдущих Pages-сборках. В актуальном руководстве представлены таблицы полей и поток событий; отдельный Data Flow туда не перенесён.', 'Field Data Flow views remain in the previous Pages exports. The current guide has field tables and event flows; it does not include those separate Data Flow views.')}</p>
 </section>
-<section class="section" aria-labelledby="examples"><h2 id="examples">Возможности и история</h2>
-<p><a href="{BASE}rendering/">Каталог рендеринга</a> — примеры страниц, блоков, диаграмм и способов их создания. Каталог объединяет материалы разных версий; это витрина возможностей, а не единая актуальная сборка.</p>
-<details><summary>Архив и сведения о сборке</summary><ul>
-<li><a href="{BASE}render-catalog/index.html">Исторический каталог блоков</a></li>
-<li><a href="{BASE}history.html">История документации</a></li>
-<li><a href="{BASE}retained-index.html">Прежняя стартовая страница</a></li>
-<li><a href="{BASE}human/publication.json">Версия и состав актуального руководства</a></li>
-</ul><p>«Актуальное» означает последнюю опубликованную сборку на этом сайте. Её привязки зафиксированы на указанной ревизии исходников; работа развёрнутой системы здесь не проверяется.</p></details>
+<section class="section" aria-labelledby="examples"><h2 id="examples">{t('Возможности и история', 'Examples and history')}</h2>
+<p><a href="{BASE}rendering/">{t('Каталог рендеринга', 'Rendering catalog')}</a> — {t('примеры страниц, блоков, диаграмм и способов их создания. Каталог объединяет материалы разных версий; это витрина возможностей, а не единая актуальная сборка.', 'examples of pages, blocks, diagrams and how to create them. It combines material from different versions as a feature showcase.')}</p>
+<details><summary>{t('Архив и сведения о сборке', 'Archive and build details')}</summary>{build_details}<ul>
+<li><a href="{BASE}render-catalog/index.html">{t('Исторический каталог блоков', 'Historical block catalog')}</a></li>
+<li><a href="{BASE}history.html">{t('История документации', 'Documentation history')}</a></li>
+<li><a href="{BASE}retained-index.html">{t('Прежняя стартовая страница', 'Previous landing page')}</a></li>
+<li><a href="{BASE}human/publication.json">{t('Версия и состав актуального руководства', 'Current guide version and files')}</a></li>
+</ul><p>{t('«Актуальное» означает последнюю опубликованную сборку на этом сайте. Её привязки зафиксированы на указанной ревизии исходников; работа развёрнутой системы здесь не проверяется.', 'Current means the latest published guide on this site. Its source bindings refer to the recorded revision; deployed system behavior is not verified here.')}</p></details>
 </section></main>
-<footer><div>Weather — публичный демо-проект Codeclew. <a href="https://github.com/codeclew/clew-weather-demo">Репозиторий</a></div></footer>
+<footer><div>{t('Weather — публичный демо-проект Codeclew.', 'Weather is a public Codeclew demo.')} <a href="https://github.com/codeclew/clew-weather-demo">{t('Репозиторий', 'Repository')}</a></div></footer>
 </body></html>'''
 
 
