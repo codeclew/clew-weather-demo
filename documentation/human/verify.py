@@ -9,6 +9,7 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[2]
 REPOSITORY = 'https://github.com/codeclew/clew-weather-demo'
+PRODUCT = 'https://github.com/codeclew/codeclew'
 ARCHIVES = {f'codeclew-{platform}.tar.gz' for platform in
             ['macos-arm64', 'macos-x86_64', 'linux-x86_64']}
 SUFFIXES = {'.html', '.css', '.js', '.svg', '.png', '.jpg', '.jpeg', '.webp', '.woff2'}
@@ -23,6 +24,16 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def export_digest(files):
+    """Identity of the exact accepted reader-file map, not an operational root."""
+    raw = json.dumps(files, sort_keys=True, separators=(',', ':'), ensure_ascii=False).encode()
+    return 'sha256:' + hashlib.sha256(raw).hexdigest()
+
+
+def acquisition(publication):
+    return publication['renderer'] if publication['schema'] == 'weather-human-publication/1.0' else publication['acquisition']
+
+
 def verify(root=ROOT, *, exported=None, required=False, official=False):
     root = Path(root)
     policy = root / 'documentation/human/publication.json'
@@ -32,18 +43,40 @@ def verify(root=ROOT, *, exported=None, required=False, official=False):
         return None
     require(not policy.is_symlink(), 'Symlink publication record')
     p = json.loads(policy.read_text())
-    require(set(p) == {'schema', 'renderer', 'source', 'services', 'language',
-                       'entrypoint', 'filesSha256'}, 'Unexpected publication fields')
-    require(p['schema'] == 'weather-human-publication/1.0', 'Wrong publication schema')
-    r, source = p['renderer'], p['source']
-    require(set(r) == {'version', 'sourceRevision', 'skillDigest', 'package', 'packageSha256'},
-            'Unexpected renderer fields')
+    legacy = p.get('schema') == 'weather-human-publication/1.0'
+    require(legacy or p.get('schema') == 'weather-human-publication/1.1', 'Wrong publication schema')
+    common = {'schema', 'source', 'services', 'language', 'entrypoint', 'filesSha256'}
+    require(set(p) == common | ({'renderer'} if legacy else {'capture', 'acquisition', 'treatment', 'export'}),
+            'Unexpected publication fields')
+    r, source = acquisition(p), p['source']
+    require(isinstance(r, dict) and set(r) == {'version', 'sourceRevision', 'package', 'packageSha256'} | ({'skillDigest'} if legacy else {'kind'}),
+            'Unexpected renderer fields' if legacy else 'Unexpected acquisition fields')
+    if legacy:
+        require(re.fullmatch('sha256:[0-9a-f]{64}', r['skillDigest']), 'Invalid skill digest')
+    else:
+        require(r['kind'] == 'official-release', 'Acquisition must retain official release identity')
+        capture, treatment, exported_identity = p['capture'], p['treatment'], p['export']
+        require(isinstance(capture, dict) and set(capture) == {'kind', 'snapshot', 'producerVersion', 'recaptured'}
+                and capture['kind'] == 'retained-snapshot' and capture['recaptured'] is False,
+                'Expected retained historical capture without recapture')
+        require(isinstance(capture['snapshot'], str) and re.fullmatch(r'sha256:[0-9a-f]{64}/[1-9][0-9]*', capture['snapshot']), 'Invalid retained snapshot')
+        require(capture['producerVersion'] is None or isinstance(capture['producerVersion'], str) and re.fullmatch(r'\d+\.\d+\.\d+', capture['producerVersion']),
+                'Invalid historical capture version')
+        require(isinstance(treatment, dict) and set(treatment) == {'kind', 'repository', 'commit', 'tree', 'skillDigest', 'runtimeVersion'}
+                and treatment['kind'] == 'accepted-unreleased-skill' and treatment['repository'] == PRODUCT,
+                'Expected explicit accepted unreleased skill treatment')
+        require(all(isinstance(treatment[k], str) and re.fullmatch('[0-9a-f]{40}', treatment[k]) for k in ['commit', 'tree'])
+                and isinstance(treatment['skillDigest'], str) and re.fullmatch('sha256:[0-9a-f]{64}', treatment['skillDigest']), 'Incomplete treatment hashes')
+        require(treatment['runtimeVersion'] == r['version'], 'Treatment runtime version mismatch')
+        require(treatment['commit'] != r['sourceRevision'], 'Unreleased treatment conflates official acquisition identity')
+        require(isinstance(exported_identity, dict) and set(exported_identity) == {'kind', 'digest', 'fileCount'} and exported_identity['kind'] == 'frozen-export'
+                and isinstance(exported_identity['digest'], str) and re.fullmatch('sha256:[0-9a-f]{64}', exported_identity['digest'])
+                and type(exported_identity['fileCount']) is int, 'Incomplete frozen export identity')
     require(set(source) == {'repository', 'revision'} and source['repository'] == REPOSITORY,
             'Human source must be the public Weather repository')
     require(re.fullmatch(r'\d+\.\d+\.\d+', r['version']), 'Invalid release version')
     for revision in [r['sourceRevision'], source['revision']]:
         require(re.fullmatch('[0-9a-f]{40}', revision), 'Invalid public revision')
-    require(re.fullmatch('sha256:[0-9a-f]{64}', r['skillDigest']), 'Invalid skill digest')
     require(re.fullmatch('[0-9a-f]{64}', r['packageSha256']), 'Invalid package digest')
     require(r['package'] in ARCHIVES, 'Unknown official package')
     require(sorted(p['services']) == ['dashboard', 'forecasts', 'places'], 'Wrong service scope')
@@ -72,6 +105,9 @@ def verify(root=ROOT, *, exported=None, required=False, official=False):
             text = file.read_text()
             require(not re.search(r'file://|/(?:Users|home)/|CODECLEW_HOME|[.]codeclew/', text),
                     'Local workspace reference in public export: ' + name)
+    if not legacy:
+        require(p['export']['fileCount'] == len(files) and p['export']['digest'] == export_digest(files),
+                'Frozen export identity differs')
     if staged:
         require((site / 'publication.json').read_bytes() == policy.read_bytes(),
                 'Staged publication record changed')
@@ -96,5 +132,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     publication = verify(required=True, official=args.official_release)
     print(json.dumps({'status': 'PASS', 'files': len(publication['filesSha256']),
-                      'renderer': publication['renderer'], 'source': publication['source'],
+                      **({'renderer': publication['renderer']} if publication['schema'].endswith('/1.0') else
+                         {key: publication[key] for key in ['capture', 'acquisition', 'treatment', 'export']}),
+                      'source': publication['source'],
                       'scope': 'Accepted export identity and bytes; not semantic completeness'}))
