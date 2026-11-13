@@ -34,9 +34,10 @@ def acquisition(publication):
     return publication['renderer'] if publication['schema'] == 'weather-human-publication/1.0' else publication['acquisition']
 
 
-def verify(root=ROOT, *, exported=None, required=False, official=False):
+def verify(root=ROOT, *, exported=None, required=False, official=False, publication=None):
     root = Path(root)
-    policy = root / 'documentation/human/publication.json'
+    require(publication is None or exported is not None, 'Explicit publication requires an export directory')
+    policy = Path(publication) if publication is not None else root / 'documentation/human/publication.json'
     site = Path(exported) if exported is not None else policy.parent / 'site'
     if not policy.exists():
         require(not required and not site.exists(), 'Human export has no publication record')

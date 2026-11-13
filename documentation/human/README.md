@@ -118,3 +118,11 @@ source links. Preserve the previous human export and publication record, as well
 as the existing native/Docusaurus/historical variants, when replacing the current
 reader destination. Site integration and live verification follow acceptance of
 the new export; no binary release or source recapture is implied.
+
+Keep archived human exports under `documentation/human/history/ARCHIVE_ID/`,
+with their original reader files and `publication.json` together. The composer
+verifies each archive using that record and stages it at `/human-history/ARCHIVE_ID/`.
+Do not add archives under `docs/`: that directory is the frozen native export,
+whose complete bytes and file inventory must remain unchanged. The same
+hash, file inventory, path and publication-record checks apply to source and
+staged reader archives; no archived renderer is rerun.
