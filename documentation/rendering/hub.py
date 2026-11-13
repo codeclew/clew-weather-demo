@@ -102,6 +102,7 @@ def render(root, human):
 <details><summary>{t('Архив и сведения о сборке', 'Archive and build details')}</summary>{build_details}<ul>
 <li><a href="{BASE}render-catalog/index.html">{t('Исторический каталог блоков', 'Historical block catalog')}</a></li>
 <li><a href="{BASE}history.html">{t('История документации', 'Documentation history')}</a></li>
+<li><a href="{BASE}human-history/0.14.8-186544d2/index.html">{t('Предыдущее руководство', 'Previous human guide')} · 0.14.8 · RU</a></li>
 <li><a href="{BASE}retained-index.html">{t('Прежняя стартовая страница', 'Previous landing page')}</a></li>
 <li><a href="{BASE}human/publication.json">{t('Версия и состав актуального руководства', 'Current guide version and files')}</a></li>
 </ul><p>{t('«Актуальное» означает последнюю опубликованную сборку на этом сайте. Её привязки зафиксированы на указанной ревизии исходников; работа развёрнутой системы здесь не проверяется.', 'Current means the latest published guide on this site. Its source bindings refer to the recorded revision; deployed system behavior is not verified here.')}</p></details>

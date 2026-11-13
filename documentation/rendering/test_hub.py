@@ -47,6 +47,7 @@ class HubTest(unittest.TestCase):
             self.assertIn('/clew-weather-demo/' + target, page)
         self.assertIn('0.3.0', page)
         self.assertIn('0.2.0', page)
+        self.assertIn('/clew-weather-demo/human-history/0.14.8-186544d2/index.html', page)
         self.assertIn('<html lang="ru">', page)
         for name in ['dashboard-save-place-route.html', 'event-flow.html', 'events-data.html']:
             self.assertIn('/clew-weather-demo/human/' + name, page)

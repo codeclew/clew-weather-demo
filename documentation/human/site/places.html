@@ -1,4 +1,4 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#12334e"><title>Places: каталог городов и запросы прогноза — Weather demo — документация сервисов</title><link rel="icon" type="image/svg+xml" href="favicon.svg"><style>/* Shared engineering documentation shell: bounded global navigation, local contents. */
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="codeclew-docset" content="weather-docs"><meta name="codeclew-docset-version" content="weather-r1"><meta name="codeclew-registry-digest" content="sha256:51a01dfd74e64fb1a320c592976694622b15d35f18dc7c1b46fe1a81955b4c0a"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#12334e"><title>Places — Weather service guide</title><link rel="icon" type="image/svg+xml" href="favicon.svg"><style>/* Shared engineering documentation shell: bounded global navigation, local contents. */
 :root{--ink:#12334e;--muted:#526980;--line:#dce5e9;--green:#087dc1;--green-soft:#e9f5fd;--canvas:#fdfaf2;--accent:#087dc1;--sans:"Avenir Next","Segoe UI",system-ui,sans-serif}
 *{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font:15px/1.65 var(--sans)}a{color:#087dc1}button,input,select{font:inherit}a,button,input,summary{touch-action:manipulation}*:focus-visible{outline:3px solid #087dc1;outline-offset:3px}[hidden]{display:none!important}
 .reader-nav{position:sticky;top:0;z-index:35;display:flex;align-items:center;gap:24px;min-height:66px;padding:10px 28px;background:#fffdf8;border-bottom:1px solid var(--line);color:var(--ink);font-size:13px}.reader-nav a{color:var(--ink);text-decoration:none;white-space:nowrap}.reader-nav a:hover{color:#087dc1;text-decoration:underline}.reader-brand{display:flex;align-items:center;gap:9px;font-size:20px;font-weight:800;letter-spacing:-.6px}.reader-brand svg{width:31px;height:31px}.reader-links{display:flex;gap:20px;align-items:center}.reader-search{margin-left:auto}.reader-search input{width:min(280px,24vw);border:1px solid var(--line);border-radius:7px;padding:8px 12px;background:#fff;font-size:12px;color:var(--ink)}.reader-nav [aria-current=page]{color:#087dc1;text-decoration:underline;text-underline-offset:7px}
@@ -145,7 +145,7 @@ body .route-heading .http-route-paths,body .route-heading .http-route-paths code
 .sequence-direction{display:block;font-size:13px;color:var(--muted,#435364)}
 .sequence-text li>p{margin:4px 0 0;font-size:14px}
 @media(max-width:700px){.clew-sequence{padding:14px}.sequence-scroll,.sequence-hint{display:none}.sequence-text summary{font-size:14px}}
-.page-sources{border-top:1px solid #ccd5df;margin-top:32px;padding-top:8px}.page-sources small{display:block;color:#435364;font-size:12px}.page-sources li{margin:12px 0}.source-excerpt{margin:8px 0}.source-excerpt summary{cursor:pointer;overflow-wrap:anywhere}.source-excerpt pre{white-space:pre;overflow:auto;max-height:28rem;padding:12px;background:#f1f4f7;font-size:13px}.source-excerpt code{font:inherit}</style></head><body class="markdown-reader" data-reader-page="places.md"><a class="skip-link" href="#clew-reader-main">К содержанию</a><header class="reader-nav"><a class="reader-brand" href="index.html"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 -12 132 132">
+.route-catalog,.route-context{margin:1.3rem 0}.route-service-list{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;list-style:none;padding:0}.route-card h3,.markdown-reader .reader-guide .route-card h3{margin:0 0 .7rem;font-size:1.05rem}.route-filter-panel{margin:1rem 0}.route-filters,.route-refinement-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin-top:1rem}.route-refinements{grid-column:1/-1}.route-refinement-fields{grid-template-columns:repeat(3,minmax(0,1fr))}.route-facet{min-width:0;border:1px solid #ccd5df;padding:.7rem}.route-facet legend{font-weight:600}.route-options{max-height:12rem;overflow:auto}.route-filters label{display:flex;align-items:flex-start;gap:.4rem;margin:.4rem 0;overflow-wrap:anywhere}.route-filters input{flex:none;margin-top:.3rem}.route-options label[hidden]{display:none}.route-service-search{box-sizing:border-box;width:100%;min-width:0;padding:.45rem;margin:.35rem 0 .7rem}.route-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:1rem}.route-cards{display:grid;gap:1rem}.route-card{border:1px solid #ccd5df;border-radius:.6rem;padding:1rem;min-width:0}.route-card [hidden],.route-card[hidden]{display:none}.route-state,.route-gap{font-size:.9em;margin:.5rem 0}.route-origin{margin:.6rem 0}.route-details{margin-top:.6rem}.route-help{font-size:.9em;margin:.6rem 0}.route-visits{margin:.6rem 0}.route-link-unavailable{color:#5d3740}.route-validation{font-size:.9em}.route-context ul,.route-card ul{padding-left:1.3rem}@media(max-width:850px){.route-refinement-fields{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:500px){.route-filters,.route-refinement-fields{grid-template-columns:1fr}}.page-sources{border-top:1px solid #ccd5df;margin-top:32px;padding-top:8px}.page-sources small{display:block;color:#435364;font-size:12px}.page-sources li{margin:12px 0}.source-excerpt{margin:8px 0}.source-excerpt summary{cursor:pointer;overflow-wrap:anywhere}.source-excerpt pre{white-space:pre;overflow:auto;max-height:28rem;padding:12px;background:#f1f4f7;font-size:13px}.source-excerpt code{font:inherit}</style></head><body class="markdown-reader" data-reader-page="places.md"><a class="skip-link" href="#clew-reader-main">Skip to content</a><header class="reader-nav"><a class="reader-brand" href="index.html"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 -12 132 132">
 <path d="M0,0 L9,0 L11,1 L11,7 L17,8 L19,13 L23,16 L23,19 L40,18 L42,15 L44,15 L46,9 L52,7 L51,4 L55,0 L63,0 L66,2 L66,9 L71,10 L71,38 L78,39 L77,48 L85,48 L87,50 L86,55 L79,56 L80,62 L86,66 L87,72 L83,74 L79,71 L77,73 L77,81 L80,86 L80,94 L78,99 L77,100 L65,100 L63,99 L63,96 L54,100 L22,99 L14,98 L13,93 L9,93 L8,99 L2,100 L-5,98 L-8,100 L-18,100 L-24,95 L-24,80 L-21,77 L-19,77 L-19,69 L-27,69 L-28,68 L-28,62 L-27,61 L-20,60 L-20,56 L-27,55 L-28,54 L-28,49 L-26,48 L-16,47 L-15,42 L-14,37 L-10,36 L-9,11 L-2,9 L-2,2 Z " fill="#C6BFB3" transform="translate(35,3)"/>
 <path d="M0,0 L6,0 L7,1 L7,10 L12,12 L12,20 L22,20 L22,18 L44,17 L44,10 L47,8 L50,8 L50,2 L51,0 L58,0 L60,2 L61,31 L64,32 L65,34 L65,45 L67,45 L68,47 L68,64 L67,65 L58,65 L58,71 L51,74 L48,74 L48,77 L45,77 L45,79 L39,80 L10,80 L5,78 L4,72 L-2,72 L-2,64 L-5,63 L-3,57 L1,53 L3,46 L4,46 L4,56 L15,58 L16,55 L18,55 L17,47 L15,43 L8,42 L8,41 L16,41 L15,40 L7,40 L9,37 L16,36 L17,31 L23,28 L14,28 L14,35 L8,36 L7,38 L3,39 L-1,52 L-6,53 L-12,51 L-12,58 L-13,58 L-13,50 L-12,49 L-11,36 L-9,35 L-7,29 L-3,27 L-4,24 L-4,7 L-1,6 L-1,1 Z M16,38 Z " fill="#F8F4EC" transform="translate(38,13)"/>
 <path d="M0,0 L6,0 L7,1 L7,10 L12,12 L12,20 L22,20 L22,18 L44,17 L44,10 L47,8 L50,8 L50,2 L51,0 L58,0 L60,2 L61,31 L64,32 L65,34 L65,45 L67,45 L68,47 L68,64 L67,65 L59,65 L62,61 L58,59 L56,52 L52,56 L41,56 L41,47 L43,43 L48,42 L48,40 L55,41 L56,48 L56,47 L55,39 L47,38 L44,34 L43,27 L34,27 L34,21 L35,19 L25,20 L25,22 L24,27 L14,28 L14,35 L8,36 L7,38 L3,39 L-1,52 L-6,53 L-12,51 L-12,58 L-13,58 L-13,50 L-12,49 L-11,36 L-9,35 L-7,29 L-3,27 L-4,24 L-4,7 L-1,6 L-1,1 Z " fill="#BEA898" transform="translate(38,13)"/>
@@ -297,488 +297,36 @@ body .route-heading .http-route-paths,body .route-heading .http-route-paths code
 <path d="M0,0 L3,0 L3,3 L0,3 Z " fill="#CAAE9D" transform="translate(92,96)"/>
 <path d="M0,0 L3,2 L0,3 Z " fill="#E6E1D1" transform="translate(42,57)"/>
 </svg>
-<span>Codeclew</span></a><span class="reader-project">Weather demo — документация сервисов</span></header><div class="guide-layout"><aside class="guide-toc"><details class="guide-local-navigation" open><summary>Страницы</summary><nav aria-label="Страницы документации"><a href="index.html" data-page="index.md" data-fragment="">Weather guide</a><h2 class="navigation-label">Сервисы</h2><details class="service-navigation"><summary>Dashboard</summary><a href="dashboard.html" data-page="dashboard.md" data-fragment="">Обзор сервиса</a><div class="navigation-category"><span class="navigation-label">Начинаются здесь</span><ul><li><a href="dashboard-home-route.html" data-page="dashboard-home-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /</a></li><li><a href="dashboard-weather-route.html" data-page="dashboard-weather-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /api/weather</a></li><li><a href="dashboard-save-place-route.html" data-page="dashboard-save-place-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /api/places</a></li><li><a href="dashboard-refresh-route.html" data-page="dashboard-refresh-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /api/places/{id}/refresh</a></li><li><a href="dashboard-health-route.html" data-page="dashboard-health-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /health</a></li><li><a href="dashboard-openapi-route.html" data-page="dashboard-openapi-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /openapi.json</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Участие в общих маршрутах</span><ul><li><a href="event-flow.html#dashboard-place-requested" data-page="event-flow.md" data-fragment="dashboard-place-requested">weather.place-requested<span class="navigation-role">Dashboard consumer</span></a></li><li><a href="event-flow.html#dashboard-weather-result" data-page="event-flow.md" data-fragment="dashboard-weather-result">weather.forecast-updated<span class="navigation-role">Dashboard consumer</span></a></li></ul></div></details><details class="service-navigation" open><summary>Places</summary><a href="places.html" data-page="places.md" data-fragment="" aria-current="page">Обзор сервиса</a><div class="navigation-category"><span class="navigation-label">Начинаются здесь</span><ul><li><a href="places-list-route.html" data-page="places-list-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /places</a></li><li><a href="places-save-route.html" data-page="places-save-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /places</a></li><li><a href="places-refresh-route.html" data-page="places-refresh-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /places/{id}/refresh</a></li><li><a href="places-health-route.html" data-page="places-health-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /health</a></li><li><a href="places-openapi-route.html" data-page="places-openapi-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /openapi.json</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Участие в общих маршрутах</span><ul><li><a href="event-flow.html#place-requested-flow" data-page="event-flow.md" data-fragment="place-requested-flow">weather.place-requested<span class="navigation-role">RequestPublisher</span></a></li></ul></div></details><details class="service-navigation"><summary>Forecasts</summary><a href="forecasts.html" data-page="forecasts.md" data-fragment="">Обзор сервиса</a><div class="navigation-category"><span class="navigation-label">Начинаются здесь</span><ul><li><a href="forecasts-get-route.html" data-page="forecasts-get-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /forecasts/{id}</a></li><li><a href="forecasts-health-route.html" data-page="forecasts-health-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /health</a></li><li><a href="forecasts-openapi-route.html" data-page="forecasts-openapi-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /openapi.json</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Участие в общих маршрутах</span><ul><li><a href="event-flow.html#place-requested-flow" data-page="event-flow.md" data-fragment="place-requested-flow">weather.place-requested<span class="navigation-role">Forecasts listener</span></a></li><li><a href="event-flow.html#dashboard-weather-result" data-page="event-flow.md" data-fragment="dashboard-weather-result">weather.forecast-updated<span class="navigation-role">Forecasts publisher</span></a></li></ul></div></details><div class="navigation-category"><span class="navigation-label">Межсервисные маршруты</span><ul><li><a href="event-flow.html#place-requested-flow" data-page="event-flow.md" data-fragment="place-requested-flow">weather.place-requested</a></li><li><a href="event-flow.html#dashboard-weather-result" data-page="event-flow.md" data-fragment="dashboard-weather-result">weather.forecast-updated</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Другие страницы</span><ul><li><a href="events-data.html" data-page="events-data.md" data-fragment="">События и связи сервисов</a></li></ul></div></nav></details></aside><main class="reader-guide" id="clew-reader-main"><nav class="reader-breadcrumb" aria-label="Текущее положение"><a href="index.html" data-page="index.md" data-fragment="">Weather guide</a><span aria-hidden="true"> / </span><span aria-current="page">Places: каталог городов и запросы прогноза</span><span class="breadcrumb-section" hidden></span></nav><h1 id="places-каталог-городов-и-запросы-прогноза">Places: каталог городов и запросы прогноза</h1>
-<p>Places хранит поддерживаемые города и принимает запрос на расчёт прогноза. При сохранении города оно записывает строку города и событие в собственную PostgreSQL outbox; фоновый издатель передаёт событие <code>weather.place-requested</code> в Kafka. Ответ <code>QUEUED</code> означает, что Places поставил запрос в outbox, а не что прогноз уже готов.</p><section class="service-hub" aria-label="Навигация сервиса"><div class="hub-columns"><section><h2>Начинаются здесь</h2><ul class="hub-links"><li><a href="places-list-route.html" data-page="places-list-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /places</a><p>Возвращает каталог городов.</p></li><li><a href="places-save-route.html" data-page="places-save-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /places</a><p>Сохраняет город и при необходимости создаёт запрос.</p></li><li><a href="places-refresh-route.html" data-page="places-refresh-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /places/{id}/refresh</a><p>Ставит обновление города в очередь.</p></li><li><a href="places-health-route.html" data-page="places-health-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /health</a><p>Проверяет PostgreSQL.</p></li><li><a href="places-openapi-route.html" data-page="places-openapi-route.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /openapi.json</a><p>Отдаёт декларацию API.</p></li></ul></section><section><h2>Участие в общих маршрутах</h2><ul class="hub-links"><li><a href="event-flow.html#place-requested-flow" data-page="event-flow.md" data-fragment="place-requested-flow">weather.place-requested · RequestPublisher</a><p>Отправляет pending outbox сообщения.</p></li></ul></section></div></section>
-<h2 id="поддерживаемые-города">Поддерживаемые города</h2>
-<table>
-<thead>
-<tr>
-<th><code>id</code></th>
-<th>Имя</th>
-<th align="right">latitude</th>
-<th align="right">longitude</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>oslo</code></td>
-<td>Oslo</td>
-<td align="right">59.93</td>
-<td align="right">10.72</td>
-</tr>
-<tr>
-<td><code>helsinki</code></td>
-<td>Helsinki</td>
-<td align="right">60.17</td>
-<td align="right">24.94</td>
-</tr>
-<tr>
-<td><code>lisbon</code></td>
-<td>Lisbon</td>
-<td align="right">38.72</td>
-<td align="right">-9.14</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>Поле</th>
-<th>Значение и использование</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>id</code></td>
-<td>Идентификатор одного из поддерживаемых городов; API Places принимает его как <code>cityId</code>.</td>
-</tr>
-<tr>
-<td><code>name</code></td>
-<td>Имя города для событий и отображения.</td>
-</tr>
-<tr>
-<td><code>latitude</code></td>
-<td>Широта в градусах; число двойной точности в Places, диапазон контракта −90…90.</td>
-</tr>
-<tr>
-<td><code>longitude</code></td>
-<td>Долгота в градусах; число двойной точности в Places, диапазон контракта −180…180.</td>
-</tr>
-</tbody></table>
-<h2 id="http-api-places">HTTP API Places</h2>
-<table>
-<thead>
-<tr>
-<th>Метод и путь</th>
-<th>Вход и успешный ответ</th>
-<th>Ошибки и поведение</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="places-list-route.html"><code>GET /places</code></a></td>
-<td>Массив объектов города с <code>id</code>, <code>name</code>, <code>latitude</code>, <code>longitude</code>, упорядоченный по имени.</td>
-<td>В декларации OpenAPI указан <code>500</code> при ошибке сервера.</td>
-</tr>
-<tr>
-<td><a href="places-save-route.html"><code>POST /places</code></a></td>
-<td>JSON <code>{&quot;cityId&quot;:&quot;oslo&quot;}</code>; ответ <code>200</code> — объект Place с <code>id</code>, <code>name</code>, <code>latitude</code>, <code>longitude</code>.</td>
-<td><code>400 {error: UNSUPPORTED_CITY}</code> для неизвестного <code>cityId</code>; декларация также перечисляет <code>415</code> и <code>500</code>.</td>
-</tr>
-<tr>
-<td><a href="places-refresh-route.html"><code>POST /places/{id}/refresh</code></a></td>
-<td>Путь содержит идентификатор города; при успехе — <code>202 {placeId, status: QUEUED}</code>.</td>
-<td><code>404 {error: PLACE_NOT_FOUND}</code> для неизвестного города; OpenAPI также перечисляет <code>500</code>.</td>
-</tr>
-<tr>
-<td><a href="places-health-route.html"><code>GET /health</code></a></td>
-<td>Сохранённый обработчик выполняет <code>SELECT 1</code> и возвращает <code>{&quot;database&quot;:&quot;READY&quot;}</code>.</td>
-<td>Сбой PostgreSQL приводит к ошибке обработчика.</td>
-</tr>
-<tr>
-<td><a href="places-openapi-route.html"><code>GET /openapi.json</code></a></td>
-<td>Читает и отдаёт файл декларации OpenAPI Places из контейнера.</td>
-<td>OpenAPI перечисляет <code>500</code> для ошибки сервера.</td>
-</tr>
-</tbody></table>
-<p>Контракт и сохранённый обработчик <code>/health</code> расходятся: OpenAPI объявляет поля <code>database</code> и <code>kafka</code>, а обработчик возвращает только <code>database</code>.</p>
-<h2 id="что-происходит-при-сохранении-и-обновлении">Что происходит при сохранении и обновлении</h2>
-<p>При <code>POST /places</code> Places сначала находит запись города по <code>cityId</code>, затем в транзакции пытается вставить город через <code>ON CONFLICT DO NOTHING</code>. Если это новая запись, в той же транзакции добавляется строка <code>request_outbox</code> с JSON-событием <code>place.requested</code>; если город уже существовал, новый запрос в outbox не создаётся. В обоих случаях обработчик возвращает объект города.</p>
-<p>При <code>POST /places/{id}/refresh</code> сервис ищет город. Если его нет, возвращается <code>404</code>; иначе Places создаёт новую запись outbox и отвечает <code>202</code> с <code>placeId</code> и статусом <code>QUEUED</code>. Событие содержит <code>id</code>, <code>type: place.requested</code>, <code>version: 1</code> и объект <code>place</code>; JSON сериализатор использует web-default имена полей.</p>
-<p>Фоновый <code>RequestPublisher</code> повторяет цикл примерно раз в секунду. За одну итерацию он выбирает одну неопубликованную запись по <code>created_at</code>, блокирует её через <code>FOR UPDATE SKIP LOCKED</code>, отправляет JSON в <code>weather.place-requested</code> с ключом города и помечает запись как опубликованную в той же транзакции. Если отправка выбрасывает исключение, цикл пишет предупреждение <code>PUBLISH_RETRY</code> и продолжает после паузы; в коде включена настройка Kafka producer <code>EnableIdempotence</code> и задан тайм-аут сообщения 10 секунд. Это описывает последовательность кода, но не устанавливает гарантию доставки Kafka или exactly-once.</p>
-<h2 id="хранилище-подключение-и-границы">Хранилище, подключение и границы</h2>
-<p>Places использует отдельную базу <code>places</code> в общем PostgreSQL. Таблица <code>places</code> хранит идентификатор, имя и координаты; <code>request_outbox</code> хранит JSONB события, флаг публикации и время создания. Сервис получает строку подключения через <code>DATABASE_URL</code>; Compose задаёт её для базы Places и внутренний адрес Kafka <code>kafka:9092</code>. HTTP порт контейнера <code>8080</code> опубликован как <code>127.0.0.1:8081</code> на машине разработчика.</p>
-<p>Сохранённый compiler Work для Places имеет статус <code>PARTIAL</code>; его границы и недоступные generated documents описаны в <a href="index.html#scope">примечании о чтении</a>.</p>
-<section class="page-sources"><h2>Источники</h2><ul><li><span title="dashboard:compose.yaml @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">compose.yaml</span> — <a href="#clew-source-0-0">1–83</a><small>dashboard · compose.yaml · c9a4283cb5bb</small></li><li><span title="dashboard:database/init.sql @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">init.sql</span> — <a href="#clew-source-1-0">1–16</a><small>dashboard · database/init.sql · c9a4283cb5bb</small></li><li><span title="places:contracts/places.openapi.json @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">places.openapi.json</span> — <a href="#clew-source-2-0">1–263</a><small>places · contracts/places.openapi.json · c9a4283cb5bb</small></li><li><span title="places:services/places/PlacesController.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">PlacesController.cs</span> — <a href="#clew-source-3-0">3</a>; <a href="#clew-source-3-1">4</a>; <a href="#clew-source-3-2">8–9</a>; <a href="#clew-source-3-3">10–17</a>; <a href="#clew-source-3-4">18–25</a>; <a href="#clew-source-3-5">26–31</a>; <a href="#clew-source-3-6">32–33</a><small>places · services/places/PlacesController.cs · c9a4283cb5bb</small></li><li><span title="places:services/places/PlacesRepository.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">PlacesRepository.cs</span> — <a href="#clew-source-4-0">4–60</a>; <a href="#clew-source-4-1">14–19</a>; <a href="#clew-source-4-2">29</a>; <a href="#clew-source-4-3">36–44</a>; <a href="#clew-source-4-4">40</a>; <a href="#clew-source-4-5">42</a>; <a href="#clew-source-4-6">52–59</a><small>places · services/places/PlacesRepository.cs · c9a4283cb5bb</small></li><li><span title="places:services/places/RequestPublisher.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">RequestPublisher.cs</span> — <a href="#clew-source-5-0">5–35</a>; <a href="#clew-source-5-1">7–17</a>; <a href="#clew-source-5-2">18–34</a><small>places · services/places/RequestPublisher.cs · c9a4283cb5bb</small></li></ul><details class="source-fragments"><summary>Фрагменты кода</summary><details class="source-excerpt"><summary>dashboard:compose.yaml @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 1–83</summary><pre id="clew-source-0-0" tabindex="0" role="region" aria-label="compose.yaml — 1–83"><code>name: clew-weather-demo
-services:
-  postgres:
-    image: postgres:18.3
-    environment:
-      POSTGRES_USER: weather
-      POSTGRES_PASSWORD: weather
-    volumes:
-      - weather-data:/var/lib/postgresql
-      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
-    healthcheck:
-      test: [CMD-SHELL, pg_isready -U weather]
-      interval: 3s
-      timeout: 3s
-      retries: 30
-  kafka:
-    image: apache/kafka:4.1.2
-    environment:
-      KAFKA_NODE_ID: 1
-      KAFKA_PROCESS_ROLES: broker,controller
-      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
-      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
-      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
-      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
-    healthcheck:
-      test: [CMD-SHELL, '/opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list']
-      interval: 5s
-      timeout: 10s
-      retries: 30
-  kafka-init:
-    image: apache/kafka:4.1.2
-    entrypoint: [&quot;/bin/bash&quot;, &quot;-ec&quot;]
-    command:
-      - |
-        for topic in weather.place-requested weather.forecast-updated; do
-          /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --create --if-not-exists --topic &quot;$$topic&quot; --partitions 1 --replication-factor 1
-          /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --describe --topic &quot;$$topic&quot;
-        done
-    depends_on:
-      kafka: {condition: service_healthy}
-  places:
-    build:
-      context: .
-      dockerfile: services/places/Dockerfile
-    environment:
-      DATABASE_URL: Host=postgres;Database=places;Username=weather;Password=weather
-      KAFKA_BOOTSTRAP: kafka:9092
-    ports: ['127.0.0.1:8081:8080']
-    depends_on:
-      postgres: {condition: service_healthy}
-      kafka-init: {condition: service_completed_successfully}
-  forecasts:
-    build:
-      context: .
-      dockerfile: services/forecasts/Dockerfile
-    environment:
-      DATABASE_URL: jdbc:postgresql://postgres:5432/forecasts
-      KAFKA_BOOTSTRAP: kafka:9092
-      FORECAST_MODE: ${FORECAST_MODE:-fixture}
-      MET_USER_AGENT: ${MET_USER_AGENT:-}
-    ports: ['127.0.0.1:8082:8080']
-    depends_on:
-      postgres: {condition: service_healthy}
-      kafka-init: {condition: service_completed_successfully}
-  dashboard:
-    build:
-      context: .
-      dockerfile: services/dashboard/Dockerfile
-    environment:
-      DATABASE_URL: postgres://weather:weather@postgres:5432/dashboard
-      KAFKA_BOOTSTRAP: kafka:9092
-      PLACES_URL: http://places:8080
-    ports: ['127.0.0.1:8080:8080']
-    depends_on:
-      postgres: {condition: service_healthy}
-      kafka-init: {condition: service_completed_successfully}
-volumes:
-  weather-data:
-</code></pre></details><details class="source-excerpt"><summary>dashboard:database/init.sql @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 1–16</summary><pre id="clew-source-1-0" tabindex="0" role="region" aria-label="database/init.sql — 1–16"><code>CREATE DATABASE places;
-CREATE DATABASE forecasts;
-CREATE DATABASE dashboard;
-\connect places
-CREATE TABLE places (id text PRIMARY KEY, name text NOT NULL, latitude double precision NOT NULL, longitude double precision NOT NULL);
-CREATE TABLE request_outbox (id uuid PRIMARY KEY, payload jsonb NOT NULL, published boolean NOT NULL DEFAULT false, created_at timestamptz NOT NULL DEFAULT now());
-\connect forecasts
-CREATE TABLE places (id text PRIMARY KEY, name text NOT NULL, latitude double precision NOT NULL, longitude double precision NOT NULL);
-CREATE TABLE forecasts (place_id text PRIMARY KEY, updated_at timestamptz NOT NULL, payload jsonb NOT NULL, expires_at timestamptz NOT NULL, last_modified text);
-CREATE TABLE inbox (event_id text PRIMARY KEY, consumed_at timestamptz NOT NULL DEFAULT now());
-CREATE TABLE forecast_outbox (id text PRIMARY KEY, payload jsonb NOT NULL, published boolean NOT NULL DEFAULT false);
-CREATE TABLE rejected_messages (topic text NOT NULL, partition_id integer NOT NULL, offset_id bigint NOT NULL, reason text NOT NULL, PRIMARY KEY(topic,partition_id,offset_id));
-\connect dashboard
-CREATE TABLE weather_cards (place_id text PRIMARY KEY, name text NOT NULL, latitude double precision NOT NULL, longitude double precision NOT NULL, updated_at timestamptz, forecast jsonb);
-CREATE TABLE inbox (event_id text PRIMARY KEY, consumed_at timestamptz NOT NULL DEFAULT now());
-CREATE TABLE rejected_messages (topic text NOT NULL, partition_id integer NOT NULL, offset_id bigint NOT NULL, reason text NOT NULL, PRIMARY KEY(topic,partition_id,offset_id));
-</code></pre></details><details class="source-excerpt"><summary>places:contracts/places.openapi.json @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 1–263</summary><pre id="clew-source-2-0" tabindex="0" role="region" aria-label="contracts/places.openapi.json — 1–263"><code>{
-  &quot;openapi&quot;: &quot;3.1.0&quot;,
-  &quot;info&quot;: {
-    &quot;title&quot;: &quot;places&quot;,
-    &quot;version&quot;: &quot;1.0.0&quot;
-  },
-  &quot;paths&quot;: {
-    &quot;/places&quot;: {
-      &quot;get&quot;: {
-        &quot;operationId&quot;: &quot;places_get_places&quot;,
-        &quot;responses&quot;: {
-          &quot;200&quot;: {
-            &quot;description&quot;: &quot;200&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;array&quot;,
-                  &quot;items&quot;: {
-                    &quot;type&quot;: &quot;object&quot;,
-                    &quot;required&quot;: [
-                      &quot;id&quot;,
-                      &quot;name&quot;,
-                      &quot;latitude&quot;,
-                      &quot;longitude&quot;
-                    ],
-                    &quot;properties&quot;: {
-                      &quot;id&quot;: {
-                        &quot;type&quot;: &quot;string&quot;,
-                        &quot;enum&quot;: [
-                          &quot;oslo&quot;,
-                          &quot;helsinki&quot;,
-                          &quot;lisbon&quot;
-                        ]
-                      },
-                      &quot;name&quot;: {
-                        &quot;type&quot;: &quot;string&quot;
-                      },
-                      &quot;latitude&quot;: {
-                        &quot;type&quot;: &quot;number&quot;,
-                        &quot;minimum&quot;: -90,
-                        &quot;maximum&quot;: 90
-                      },
-                      &quot;longitude&quot;: {
-                        &quot;type&quot;: &quot;number&quot;,
-                        &quot;minimum&quot;: -180,
-                        &quot;maximum&quot;: 180
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          &quot;500&quot;: {
-            &quot;description&quot;: &quot;500&quot;
-          }
-        }
-      },
-      &quot;post&quot;: {
-        &quot;operationId&quot;: &quot;places_post_places&quot;,
-        &quot;responses&quot;: {
-          &quot;200&quot;: {
-            &quot;description&quot;: &quot;200&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;required&quot;: [
-                    &quot;id&quot;,
-                    &quot;name&quot;,
-                    &quot;latitude&quot;,
-                    &quot;longitude&quot;
-                  ],
-                  &quot;properties&quot;: {
-                    &quot;id&quot;: {
-                      &quot;type&quot;: &quot;string&quot;,
-                      &quot;enum&quot;: [
-                        &quot;oslo&quot;,
-                        &quot;helsinki&quot;,
-                        &quot;lisbon&quot;
-                      ]
-                    },
-                    &quot;name&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    },
-                    &quot;latitude&quot;: {
-                      &quot;type&quot;: &quot;number&quot;,
-                      &quot;minimum&quot;: -90,
-                      &quot;maximum&quot;: 90
-                    },
-                    &quot;longitude&quot;: {
-                      &quot;type&quot;: &quot;number&quot;,
-                      &quot;minimum&quot;: -180,
-                      &quot;maximum&quot;: 180
-                    }
-                  }
-                }
-              }
-            }
-          },
-          &quot;400&quot;: {
-            &quot;description&quot;: &quot;400&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;properties&quot;: {
-                    &quot;error&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    }
-                  },
-                  &quot;additionalProperties&quot;: true
-                }
-              }
-            }
-          },
-          &quot;415&quot;: {
-            &quot;description&quot;: &quot;415&quot;
-          },
-          &quot;500&quot;: {
-            &quot;description&quot;: &quot;500&quot;
-          }
-        },
-        &quot;requestBody&quot;: {
-          &quot;required&quot;: true,
-          &quot;content&quot;: {
-            &quot;application/json&quot;: {
-              &quot;schema&quot;: {
-                &quot;type&quot;: &quot;object&quot;,
-                &quot;required&quot;: [
-                  &quot;cityId&quot;
-                ],
-                &quot;additionalProperties&quot;: false,
-                &quot;properties&quot;: {
-                  &quot;cityId&quot;: {
-                    &quot;type&quot;: &quot;string&quot;,
-                    &quot;enum&quot;: [
-                      &quot;oslo&quot;,
-                      &quot;helsinki&quot;,
-                      &quot;lisbon&quot;
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    &quot;/places/{id}/refresh&quot;: {
-      &quot;post&quot;: {
-        &quot;operationId&quot;: &quot;places_post_places_id_refresh&quot;,
-        &quot;responses&quot;: {
-          &quot;202&quot;: {
-            &quot;description&quot;: &quot;202&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;required&quot;: [
-                    &quot;placeId&quot;,
-                    &quot;status&quot;
-                  ],
-                  &quot;properties&quot;: {
-                    &quot;placeId&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    },
-                    &quot;status&quot;: {
-                      &quot;const&quot;: &quot;QUEUED&quot;
-                    }
-                  }
-                }
-              }
-            }
-          },
-          &quot;404&quot;: {
-            &quot;description&quot;: &quot;404&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;properties&quot;: {
-                    &quot;error&quot;: {
-                      &quot;type&quot;: &quot;string&quot;
-                    }
-                  },
-                  &quot;additionalProperties&quot;: true
-                }
-              }
-            }
-          },
-          &quot;500&quot;: {
-            &quot;description&quot;: &quot;500&quot;
-          }
-        },
-        &quot;parameters&quot;: [
-          {
-            &quot;name&quot;: &quot;id&quot;,
-            &quot;in&quot;: &quot;path&quot;,
-            &quot;required&quot;: true,
-            &quot;schema&quot;: {
-              &quot;type&quot;: &quot;string&quot;,
-              &quot;enum&quot;: [
-                &quot;oslo&quot;,
-                &quot;helsinki&quot;,
-                &quot;lisbon&quot;
-              ]
-            }
-          }
-        ]
-      }
-    },
-    &quot;/health&quot;: {
-      &quot;get&quot;: {
-        &quot;operationId&quot;: &quot;places_get_health&quot;,
-        &quot;responses&quot;: {
-          &quot;200&quot;: {
-            &quot;description&quot;: &quot;200&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;properties&quot;: {
-                    &quot;database&quot;: {
-                      &quot;const&quot;: &quot;READY&quot;
-                    },
-                    &quot;kafka&quot;: {
-                      &quot;const&quot;: &quot;READY&quot;
-                    }
-                  }
-                }
-              }
-            }
-          },
-          &quot;500&quot;: {
-            &quot;description&quot;: &quot;500&quot;
-          }
-        }
-      }
-    },
-    &quot;/openapi.json&quot;: {
-      &quot;get&quot;: {
-        &quot;operationId&quot;: &quot;places_get_openapi.json&quot;,
-        &quot;responses&quot;: {
-          &quot;200&quot;: {
-            &quot;description&quot;: &quot;200&quot;,
-            &quot;content&quot;: {
-              &quot;application/json&quot;: {
-                &quot;schema&quot;: {
-                  &quot;type&quot;: &quot;object&quot;,
-                  &quot;additionalProperties&quot;: true
-                }
-              }
-            }
-          },
-          &quot;500&quot;: {
-            &quot;description&quot;: &quot;500&quot;
-          }
-        }
-      }
-    }
-  }
-}
-</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesController.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 3</summary><pre id="clew-source-3-0" tabindex="0" role="region" aria-label="services/places/PlacesController.cs — 3"><code>public record Place(string Id, string Name, double Latitude, double Longitude);</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesController.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 4</summary><pre id="clew-source-3-1" tabindex="0" role="region" aria-label="services/places/PlacesController.cs — 4"><code>public record SavePlace(string CityId);</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesController.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 8–9</summary><pre id="clew-source-3-2" tabindex="0" role="region" aria-label="services/places/PlacesController.cs — 8–9"><code>[HttpGet(&quot;/places&quot;)]
-    public async Task&lt;IReadOnlyList&lt;Place>> List(CancellationToken token) => await repository.List(token);</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesController.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 10–17</summary><pre id="clew-source-3-3" tabindex="0" role="region" aria-label="services/places/PlacesController.cs — 10–17"><code>[HttpPost(&quot;/places&quot;)]
+<span>Codeclew</span></a><span class="reader-project">Weather service guide</span></header><div class="guide-layout"><aside class="guide-toc"><details class="guide-local-navigation" open><summary>Pages</summary><nav aria-label="Documentation pages"><a href="index.html" data-page="index.md" data-fragment="">Guide</a><h2 class="navigation-label">Services</h2><details class="service-navigation"><summary>Dashboard</summary><a href="dashboard.html" data-page="dashboard.md" data-fragment="">Overview</a><div class="navigation-category"><span class="navigation-label">Starts here</span><ul><li><a href="dashboard-weather.html" data-page="dashboard-weather.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /api/weather</a></li><li><a href="dashboard-add-place.html" data-page="dashboard-add-place.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /api/places</a></li><li><a href="dashboard-refresh-place.html" data-page="dashboard-refresh-place.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /api/places/{id}/refresh</a></li><li><a href="dashboard-health.html" data-page="dashboard-health.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /health</a></li><li><a href="dashboard-openapi.html" data-page="dashboard-openapi.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /openapi.json</a></li><li><a href="dashboard-home.html" data-page="dashboard-home.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /</a></li><li><a href="dashboard.html#event-projection" data-page="dashboard.md" data-fragment="event-projection"><span class="trigger-kind">Kafka</span>Weather Kafka consumer</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Data</span><ul><li><a href="dashboard-data.html" data-page="dashboard-data.md" data-fragment="">Weather-card fields</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Shared-route participation</span><ul><li><a href="process-add-place.html" data-page="process-add-place.md" data-fragment="">Add a place and request its forecast</a></li><li><a href="process-refresh-place.html" data-page="process-refresh-place.md" data-fragment="">Request a place refresh</a></li><li><a href="process-scheduled-refresh.html" data-page="process-scheduled-refresh.md" data-fragment="">Refresh and publish forecasts</a></li><li><a href="process-dashboard-events.html" data-page="process-dashboard-events.md" data-fragment="">Project Weather events in Dashboard</a></li></ul></div></details><details class="service-navigation" open><summary>Places</summary><a href="places.html" data-page="places.md" data-fragment="" aria-current="page">Overview</a><div class="navigation-category"><span class="navigation-label">Starts here</span><ul><li><a href="places-list.html" data-page="places-list.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /places</a></li><li><a href="places-create.html" data-page="places-create.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /places</a></li><li><a href="places-refresh.html" data-page="places-refresh.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /places/{id}/refresh</a></li><li><a href="places-health.html" data-page="places-health.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /health</a></li><li><a href="places-openapi.html" data-page="places-openapi.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /openapi.json</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Data</span><ul><li><a href="place-data.html" data-page="place-data.md" data-fragment="">Place fields and events</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Shared-route participation</span><ul><li><a href="process-add-place.html" data-page="process-add-place.md" data-fragment="">Add a place and request its forecast</a></li><li><a href="process-refresh-place.html" data-page="process-refresh-place.md" data-fragment="">Request a place refresh</a></li></ul></div></details><details class="service-navigation"><summary>Forecasts</summary><a href="forecasts.html" data-page="forecasts.md" data-fragment="">Overview</a><div class="navigation-category"><span class="navigation-label">Starts here</span><ul><li><a href="forecasts-get.html" data-page="forecasts-get.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /forecasts/{id}</a></li><li><a href="forecasts-health.html" data-page="forecasts-health.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /health</a></li><li><a href="forecasts-openapi.html" data-page="forecasts-openapi.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /openapi.json</a></li><li><a href="forecasts.html#background-paths" data-page="forecasts.md" data-fragment="background-paths"><span class="trigger-kind">Scheduled</span>Scheduled forecast refresh</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Data</span><ul><li><a href="forecast-data.html" data-page="forecast-data.md" data-fragment="">Forecast and period fields</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Shared-route participation</span><ul><li><a href="process-add-place.html" data-page="process-add-place.md" data-fragment="">Add a place and request its forecast</a></li><li><a href="process-refresh-place.html" data-page="process-refresh-place.md" data-fragment="">Request a place refresh</a></li><li><a href="process-scheduled-refresh.html" data-page="process-scheduled-refresh.md" data-fragment="">Refresh and publish forecasts</a></li></ul></div></details><div class="navigation-category"><span class="navigation-label">Cross-service routes</span><ul><li><a href="index.html" data-page="index.md" data-fragment="">Services and processes</a></li><li><a href="process-add-place.html" data-page="process-add-place.md" data-fragment="">Add a place and request its forecast</a></li><li><a href="process-refresh-place.html" data-page="process-refresh-place.md" data-fragment="">Request a place refresh</a></li><li><a href="process-scheduled-refresh.html" data-page="process-scheduled-refresh.md" data-fragment="">Refresh and publish forecasts</a></li><li><a href="process-dashboard-events.html" data-page="process-dashboard-events.md" data-fragment="">Project Weather events in Dashboard</a></li></ul></div></nav></details></aside><main class="reader-guide" id="clew-reader-main"><nav class="reader-breadcrumb" aria-label="Current location"><a href="index.html" data-page="index.md" data-fragment="">Guide</a><span aria-hidden="true"> / </span><span aria-current="page">Places</span><span class="breadcrumb-section" hidden></span></nav><h1 id="places">Places</h1>
+<p>Places maps supported city IDs, lists or saves places, and queues refresh requests. Its retained <code>RequestPublisher</code> body sends pending request-outbox items to <code>weather.place-requested</code>; its hosting registration is not established by this Work. See the create and refresh pages for the separate queue branches.</p><section class="service-hub" aria-label="Service navigation"><div class="hub-columns"><section><h2>Starts here</h2><ul class="hub-links"><li><a href="places-list.html" data-page="places-list.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /places</a><p>Lists saved places ordered by name.</p></li><li><a href="places-create.html" data-page="places-create.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /places</a><p>Maps and saves a supported city selector.</p></li><li><a href="places-refresh.html" data-page="places-refresh.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /places/{id}/refresh</a><p>Queues a refresh request for an existing place.</p></li><li><a href="places-health.html" data-page="places-health.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /health</a><p>Checks the database.</p></li><li><a href="places-openapi.html" data-page="places-openapi.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /openapi.json</a><p>Returns the Places contract file.</p></li></ul></section><section><h2>Data</h2><ul class="hub-links"><li><a href="place-data.html" data-page="place-data.md" data-fragment="">Place fields and events</a></li></ul></section></div></section><section class="route-context"><h2><a href="process-add-place.html" data-page="process-add-place.md" data-fragment="">Add a place and request its forecast</a></h2><p>Documented start: HTTP · <a href="dashboard-add-place.html" data-page="dashboard-add-place.md" data-fragment="">Dashboard · Dashboard POST /api/places</a></p><p><a href="process-add-place.html" data-page="process-add-place.md" data-fragment="">Whole process</a></p><ul><li><a href="places-create.html" data-page="places-create.md" data-fragment="">This service’s part</a> — Map and save the supported place</li><li><a href="places.html" data-page="places.md" data-fragment="" aria-current="page">This service’s part</a> — Publish the pending place request</li></ul><p><a href="index.html" data-page="index.md" data-fragment="">Services and processes</a></p></section><section class="route-context"><h2><a href="process-refresh-place.html" data-page="process-refresh-place.md" data-fragment="">Request a place refresh</a></h2><p>Documented start: HTTP · <a href="dashboard-refresh-place.html" data-page="dashboard-refresh-place.md" data-fragment="">Dashboard · Dashboard POST /api/places/{id}/refresh</a></p><p><a href="process-refresh-place.html" data-page="process-refresh-place.md" data-fragment="">Whole process</a></p><ul><li><a href="places-refresh.html" data-page="places-refresh.md" data-fragment="">This service’s part</a> — Find the place and enqueue a request</li><li><a href="places.html" data-page="places.md" data-fragment="" aria-current="page">This service’s part</a> — Publish the pending place request</li></ul><p><a href="index.html" data-page="index.md" data-fragment="">Services and processes</a></p></section>
+<h2 id="http-starts">HTTP starts</h2>
+<ul>
+<li><a href="places-list.html">GET /places</a></li>
+<li><a href="places-create.html">POST /places</a></li>
+<li><a href="places-refresh.html">POST /places/{id}/refresh</a></li>
+<li><a href="places-health.html">GET /health</a></li>
+<li><a href="places-openapi.html">GET /openapi.json</a></li>
+</ul>
+<h2 id="storage-and-publisher">Storage and publisher</h2>
+<p>The repository requires <code>DATABASE_URL</code>; the retained source supplies no fallback value. The publisher reads <code>KAFKA_BOOTSTRAP</code> or uses <code>kafka:9092</code>, sets idempotence and a 10-second message timeout, then checks for one unpublished outbox row at a time. It awaits <code>ProduceAsync</code>, marks the row published, and commits. Its loop logs <code>PUBLISH_RETRY</code> after an exception and delays one second before continuing. This describes retained method bodies; Work did not establish that the background service is registered or running.</p>
+<h2 id="data">Data</h2>
+<p>See <a href="place-data.html">Place data</a> for the model, request and event representations.</p>
+<section class="page-sources"><h2>Sources</h2><ul><li><span title="places:services/places/PlacesController.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">PlacesController.cs</span> — <a href="#clew-source-0-0">8–9</a>; <a href="#clew-source-0-1">10–17</a>; <a href="#clew-source-0-2">18–25</a><small>places · services/places/PlacesController.cs · c9a4283cb5bb</small></li><li><span title="places:services/places/PlacesRepository.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">PlacesRepository.cs</span> — <a href="#clew-source-1-0">4–60</a>; <a href="#clew-source-1-1">6</a>; <a href="#clew-source-1-2">7–13</a><small>places · services/places/PlacesRepository.cs · c9a4283cb5bb</small></li><li><span title="places:services/places/RequestPublisher.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">RequestPublisher.cs</span> — <a href="#clew-source-2-0">5–35</a>; <a href="#clew-source-2-1">7–17</a>; <a href="#clew-source-2-2">18–34</a><small>places · services/places/RequestPublisher.cs · c9a4283cb5bb</small></li></ul><details class="source-fragments"><summary>Code fragments</summary><details class="source-excerpt"><summary>places:services/places/PlacesController.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 8–9</summary><pre id="clew-source-0-0" tabindex="0" role="region" aria-label="services/places/PlacesController.cs — 8–9"><code>[HttpGet(&quot;/places&quot;)]
+    public async Task&lt;IReadOnlyList&lt;Place>> List(CancellationToken token) => await repository.List(token);</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesController.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 10–17</summary><pre id="clew-source-0-1" tabindex="0" role="region" aria-label="services/places/PlacesController.cs — 10–17"><code>[HttpPost(&quot;/places&quot;)]
     public async Task&lt;IActionResult> Save([FromBody] SavePlace request, CancellationToken token)
     {
         var city = PlacesRepository.City(request.CityId);
         if (city is null) return BadRequest(new { error = &quot;UNSUPPORTED_CITY&quot; });
         await repository.Save(city, token);
         return Ok(city);
-    }</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesController.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 18–25</summary><pre id="clew-source-3-4" tabindex="0" role="region" aria-label="services/places/PlacesController.cs — 18–25"><code>[HttpPost(&quot;/places/{id}/refresh&quot;)]
+    }</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesController.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 18–25</summary><pre id="clew-source-0-2" tabindex="0" role="region" aria-label="services/places/PlacesController.cs — 18–25"><code>[HttpPost(&quot;/places/{id}/refresh&quot;)]
     public async Task&lt;IActionResult> Refresh(string id, CancellationToken token)
     {
         var city = await repository.Find(id, token);
         if (city is null) return NotFound(new { error = &quot;PLACE_NOT_FOUND&quot; });
         await repository.Enqueue(city, token);
         return Accepted(new { placeId = id, status = &quot;QUEUED&quot; });
-    }</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesController.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 26–31</summary><pre id="clew-source-3-5" tabindex="0" role="region" aria-label="services/places/PlacesController.cs — 26–31"><code>[HttpGet(&quot;/health&quot;)]
-    public async Task&lt;IActionResult> Health(CancellationToken token)
-    {
-        await repository.Ping(token);
-        return Ok(new { database = &quot;READY&quot; });
-    }</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesController.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 32–33</summary><pre id="clew-source-3-6" tabindex="0" role="region" aria-label="services/places/PlacesController.cs — 32–33"><code>[HttpGet(&quot;/openapi.json&quot;)]
-    public async Task&lt;IActionResult> OpenApi(CancellationToken token) => Content(await System.IO.File.ReadAllTextAsync(&quot;/app/contracts/places.openapi.json&quot;, token), &quot;application/json&quot;);</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesRepository.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 4–60</summary><pre id="clew-source-4-0" tabindex="0" role="region" aria-label="services/places/PlacesRepository.cs — 4–60"><code>public class PlacesRepository
+    }</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesRepository.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 4–60</summary><pre id="clew-source-1-0" tabindex="0" role="region" aria-label="services/places/PlacesRepository.cs — 4–60"><code>public class PlacesRepository
 {
     private readonly string connectionString = Environment.GetEnvironmentVariable(&quot;DATABASE_URL&quot;) ?? throw new InvalidOperationException(&quot;DATABASE_URL_REQUIRED&quot;);
     public static Place? City(string id) => id switch
@@ -834,27 +382,13 @@ CREATE TABLE rejected_messages (topic text NOT NULL, partition_id integer NOT NU
         command.Parameters.AddWithValue(id); command.Parameters.AddWithValue(json);
         await command.ExecuteNonQueryAsync(token);
     }
-}</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesRepository.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 14–19</summary><pre id="clew-source-4-1" tabindex="0" role="region" aria-label="services/places/PlacesRepository.cs — 14–19"><code>public async Task Ping(CancellationToken token)
+}</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesRepository.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 6</summary><pre id="clew-source-1-1" tabindex="0" role="region" aria-label="services/places/PlacesRepository.cs — 6"><code>    private readonly string connectionString = Environment.GetEnvironmentVariable(&quot;DATABASE_URL&quot;) ?? throw new InvalidOperationException(&quot;DATABASE_URL_REQUIRED&quot;);</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesRepository.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 7–13</summary><pre id="clew-source-1-2" tabindex="0" role="region" aria-label="services/places/PlacesRepository.cs — 7–13"><code>public static Place? City(string id) => id switch
     {
-        await using var connection = await Open(token);
-        await using var command = new NpgsqlCommand(&quot;SELECT 1&quot;, connection);
-        await command.ExecuteScalarAsync(token);
-    }</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesRepository.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 29</summary><pre id="clew-source-4-2" tabindex="0" role="region" aria-label="services/places/PlacesRepository.cs — 29"><code>await using var command = new NpgsqlCommand(&quot;SELECT id,name,latitude,longitude FROM places ORDER BY name&quot;, connection);</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesRepository.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 36–44</summary><pre id="clew-source-4-3" tabindex="0" role="region" aria-label="services/places/PlacesRepository.cs — 36–44"><code>public async Task Save(Place city, CancellationToken token)
-    {
-        await using var connection = await Open(token);
-        await using var transaction = await connection.BeginTransactionAsync(token);
-        await using var command = new NpgsqlCommand(&quot;INSERT INTO places(id,name,latitude,longitude) VALUES($1,$2,$3,$4) ON CONFLICT DO NOTHING RETURNING id&quot;, connection, transaction);
-        command.Parameters.AddWithValue(city.Id); command.Parameters.AddWithValue(city.Name); command.Parameters.AddWithValue(city.Latitude); command.Parameters.AddWithValue(city.Longitude);
-        if (await command.ExecuteScalarAsync(token) is not null) await InsertRequest(connection, transaction, city, token);
-        await transaction.CommitAsync(token);
-    }</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesRepository.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 40</summary><pre id="clew-source-4-4" tabindex="0" role="region" aria-label="services/places/PlacesRepository.cs — 40"><code>new NpgsqlCommand(&quot;INSERT INTO places(id,name,latitude,longitude) VALUES($1,$2,$3,$4) ON CONFLICT DO NOTHING RETURNING id&quot;, connection, transaction)</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesRepository.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 42</summary><pre id="clew-source-4-5" tabindex="0" role="region" aria-label="services/places/PlacesRepository.cs — 42"><code>await command.ExecuteScalarAsync(token) is not null</code></pre></details><details class="source-excerpt"><summary>places:services/places/PlacesRepository.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 52–59</summary><pre id="clew-source-4-6" tabindex="0" role="region" aria-label="services/places/PlacesRepository.cs — 52–59"><code>private static async Task InsertRequest(NpgsqlConnection connection, NpgsqlTransaction transaction, Place city, CancellationToken token)
-    {
-        var id = Guid.NewGuid();
-        var json = JsonSerializer.Serialize(new { id, type = &quot;place.requested&quot;, version = 1, place = city }, new JsonSerializerOptions(JsonSerializerDefaults.Web));
-        await using var command = new NpgsqlCommand(&quot;INSERT INTO request_outbox(id,payload) VALUES($1,$2::jsonb)&quot;, connection, transaction);
-        command.Parameters.AddWithValue(id); command.Parameters.AddWithValue(json);
-        await command.ExecuteNonQueryAsync(token);
-    }</code></pre></details><details class="source-excerpt"><summary>places:services/places/RequestPublisher.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 5–35</summary><pre id="clew-source-5-0" tabindex="0" role="region" aria-label="services/places/RequestPublisher.cs — 5–35"><code>public class RequestPublisher(PlacesRepository repository, ILogger&lt;RequestPublisher> logger) : BackgroundService
+        &quot;oslo&quot; => new(&quot;oslo&quot;, &quot;Oslo&quot;, 59.93, 10.72),
+        &quot;helsinki&quot; => new(&quot;helsinki&quot;, &quot;Helsinki&quot;, 60.17, 24.94),
+        &quot;lisbon&quot; => new(&quot;lisbon&quot;, &quot;Lisbon&quot;, 38.72, -9.14),
+        _ => null
+    };</code></pre></details><details class="source-excerpt"><summary>places:services/places/RequestPublisher.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 5–35</summary><pre id="clew-source-2-0" tabindex="0" role="region" aria-label="services/places/RequestPublisher.cs — 5–35"><code>public class RequestPublisher(PlacesRepository repository, ILogger&lt;RequestPublisher> logger) : BackgroundService
 {
     protected override async Task ExecuteAsync(CancellationToken token)
     {
@@ -884,7 +418,7 @@ CREATE TABLE rejected_messages (topic text NOT NULL, partition_id integer NOT NU
         mark.Parameters.AddWithValue(id); await mark.ExecuteNonQueryAsync(token);
         await transaction.CommitAsync(token);
     }
-}</code></pre></details><details class="source-excerpt"><summary>places:services/places/RequestPublisher.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 7–17</summary><pre id="clew-source-5-1" tabindex="0" role="region" aria-label="services/places/RequestPublisher.cs — 7–17"><code>protected override async Task ExecuteAsync(CancellationToken token)
+}</code></pre></details><details class="source-excerpt"><summary>places:services/places/RequestPublisher.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 7–17</summary><pre id="clew-source-2-1" tabindex="0" role="region" aria-label="services/places/RequestPublisher.cs — 7–17"><code>protected override async Task ExecuteAsync(CancellationToken token)
     {
         using var producer = new ProducerBuilder&lt;string, string>(new ProducerConfig { BootstrapServers = Environment.GetEnvironmentVariable(&quot;KAFKA_BOOTSTRAP&quot;) ?? &quot;kafka:9092&quot;, EnableIdempotence = true, MessageTimeoutMs = 10000 }).Build();
         while (!token.IsCancellationRequested)
@@ -894,7 +428,7 @@ CREATE TABLE rejected_messages (topic text NOT NULL, partition_id integer NOT NU
             catch (Exception error) { logger.LogWarning(error, &quot;PUBLISH_RETRY&quot;); }
             await Task.Delay(1000, token);
         }
-    }</code></pre></details><details class="source-excerpt"><summary>places:services/places/RequestPublisher.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 18–34</summary><pre id="clew-source-5-2" tabindex="0" role="region" aria-label="services/places/RequestPublisher.cs — 18–34"><code>public async Task PublishPending(IProducer&lt;string, string> producer, CancellationToken token)
+    }</code></pre></details><details class="source-excerpt"><summary>places:services/places/RequestPublisher.cs @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 18–34</summary><pre id="clew-source-2-2" tabindex="0" role="region" aria-label="services/places/RequestPublisher.cs — 18–34"><code>public async Task PublishPending(IProducer&lt;string, string> producer, CancellationToken token)
     {
         await using var connection = await repository.Open(token);
         await using var transaction = await connection.BeginTransactionAsync(token);
@@ -1138,4 +672,4 @@ CREATE TABLE rejected_messages (topic text NOT NULL, partition_id integer NOT NU
 <path d="M0,0 L3,4 L0,4 Z " fill="#D89B91" transform="translate(77,37)"/>
 <path d="M0,0 L2,0 L1,3 L-1,3 Z " fill="#8A9EAC" transform="translate(134,121)"/>
 </svg>
-<span>Codeclew · Документация</span></footer></main><script>const openSource=(hash=location.hash)=>{let id;try{id=decodeURIComponent(hash.slice(1))}catch{return}const detail=document.getElementById(id)?.closest('.source-excerpt');if(detail){for(let p=detail;p;p=p.parentElement)if(p.tagName==='DETAILS')p.open=true;detail.scrollIntoView()}};openSource();addEventListener('hashchange',()=>openSource());for(const a of document.querySelectorAll('.page-sources a'))a.addEventListener('click',()=>openSource(a.hash));</script></div><script>const sequenceNarrow=matchMedia('(max-width:700px)');const syncSequences=()=>{for(const trace of document.querySelectorAll('.sequence-text'))trace.open=sequenceNarrow.matches};syncSequences();sequenceNarrow.addEventListener('change',syncSequences);const menu=document.querySelector('.guide-local-navigation');const narrow=matchMedia('(max-width:950px)');const resize=()=>{menu.open=!narrow.matches};resize();narrow.addEventListener('change',resize);for(const table of document.querySelectorAll('main table')){const region=document.createElement('div');region.className='table-scroll';region.tabIndex=0;region.setAttribute('role','region');region.setAttribute('aria-label',"Таблица; при необходимости прокрутите по горизонтали");table.before(region);region.append(table);for(const th of table.querySelectorAll('thead th'))th.scope='col'}const syncLocation=()=>{let id='';try{id=decodeURIComponent(location.hash.slice(1))}catch{}const target=id?document.getElementById(id):null;const heading=target&&target.tagName!=='MAIN'?(target.matches('h1,h2,h3,h4,h5,h6')?target:target.querySelector('h1,h2,h3,h4,h5,h6')):null;const crumb=document.querySelector('.breadcrumb-section');if(crumb){crumb.hidden=!heading;crumb.replaceChildren();if(heading){crumb.append(' / ');const link=document.createElement('a');link.href='#'+encodeURIComponent(id);link.textContent=heading.textContent;link.setAttribute('aria-current','location');crumb.append(link)}}for(const link of document.querySelectorAll('.guide-local-navigation a[data-page]')){if(link.dataset.page===document.body.dataset.readerPage&&link.dataset.fragment){if(link.dataset.fragment===id)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current')}}};syncLocation();addEventListener('hashchange',syncLocation);</script></body></html>
+<span>Codeclew · Documentation</span></footer></main><script>const openSource=(hash=location.hash)=>{let id;try{id=decodeURIComponent(hash.slice(1))}catch{return}const detail=document.getElementById(id)?.closest('.source-excerpt');if(detail){for(let p=detail;p;p=p.parentElement)if(p.tagName==='DETAILS')p.open=true;detail.scrollIntoView()}};openSource();addEventListener('hashchange',()=>openSource());for(const a of document.querySelectorAll('.page-sources a'))a.addEventListener('click',()=>openSource(a.hash));</script></div><script>const sequenceNarrow=matchMedia('(max-width:700px)');const syncSequences=()=>{for(const trace of document.querySelectorAll('.sequence-text'))trace.open=sequenceNarrow.matches};syncSequences();sequenceNarrow.addEventListener('change',syncSequences);const menu=document.querySelector('.guide-local-navigation');const narrow=matchMedia('(max-width:950px)');const resize=()=>{menu.open=!narrow.matches};resize();narrow.addEventListener('change',resize);for(const table of document.querySelectorAll('main table')){const region=document.createElement('div');region.className='table-scroll';region.tabIndex=0;region.setAttribute('role','region');region.setAttribute('aria-label',"Table; scroll horizontally when needed");table.before(region);region.append(table);for(const th of table.querySelectorAll('thead th'))th.scope='col'}const syncLocation=()=>{let id='';try{id=decodeURIComponent(location.hash.slice(1))}catch{}const target=id?document.getElementById(id):null;const heading=target&&target.tagName!=='MAIN'?(target.matches('h1,h2,h3,h4,h5,h6')?target:target.querySelector('h1,h2,h3,h4,h5,h6')):null;const crumb=document.querySelector('.breadcrumb-section');if(crumb){crumb.hidden=!heading;crumb.replaceChildren();if(heading){crumb.append(' / ');const link=document.createElement('a');link.href='#'+encodeURIComponent(id);link.textContent=heading.textContent;link.setAttribute('aria-current','location');crumb.append(link)}}for(const link of document.querySelectorAll('.guide-local-navigation a[data-page]')){if(link.dataset.page===document.body.dataset.readerPage&&link.dataset.fragment){if(link.dataset.fragment===id)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current')}}};syncLocation();addEventListener('hashchange',syncLocation);</script></body></html>
