@@ -404,14 +404,48 @@ def build(output):
     return manifest
 
 
+def human_history():
+    """Validate additive reader archives outside the frozen native docs tree."""
+    history = ROOT / 'documentation/human/history'
+    if history.is_symlink() or history.exists() and not history.is_dir():
+        raise ValueError('Unsafe human history directory')
+    if not history.exists():
+        return []
+    archives = sorted(history.iterdir())
+    for archive in archives:
+        if not archive.is_dir() or archive.is_symlink():
+            raise ValueError('Unsafe human history entry')
+        HUMAN['verify'](ROOT, exported=archive, publication=archive / 'publication.json', required=True)
+    return archives
+
+
 def stage_human(output):
     human = HUMAN['verify'](ROOT)
+    archives = human_history()
+    if archives and ((output / 'human-history').exists() or (output / 'human-history').is_symlink()):
+        raise ValueError('Human history destination already exists in frozen site')
     if human:
         if (output / 'human').exists():
             raise ValueError('Human destination already exists in frozen site')
         shutil.copytree(ROOT / 'documentation/human/site', output / 'human')
         shutil.copy2(ROOT / 'documentation/human/publication.json', output / 'human/publication.json')
+    for archive in archives:
+        shutil.copytree(archive, output / 'human-history' / archive.name)
     return human
+
+
+def verify_human_history(output):
+    archives = human_history()
+    destination = output / 'human-history'
+    if not archives and not destination.exists() and not destination.is_symlink():
+        return
+    if not destination.is_dir() or destination.is_symlink():
+        raise ValueError('Unsafe staged human history directory')
+    if {p.name for p in destination.iterdir()} != {p.name for p in archives}:
+        raise ValueError('Missing or unlisted human history export')
+    for archive in archives:
+        HUMAN['verify'](ROOT, exported=destination / archive.name,
+                        publication=archive / 'publication.json', required=True)
 
 
 def compose(output, docusaurus):
@@ -496,12 +530,13 @@ class Links(HTMLParser):
 def verify(output):
     if HUMAN['verify'](ROOT):
         HUMAN['verify'](ROOT, exported=output / 'human', required=True)
+    verify_human_history(output)
     manifest = read(output / 'rendering/manifest.json')
     assert manifest['historicalCount'] == 93
     assert {x['historicalRecord']['id'] for x in manifest['capabilities'] if 'historicalRecord' in x} == {x['id'] for x in read(ROOT / 'docs/render-catalog/catalogue.json')['items']}
     assert not manifest['priorAcceptanceAppliesToNewPages']
     urls = []
-    for folder in ['rendering', 'human']:
+    for folder in ['rendering', 'human', 'human-history']:
         for page_path in (output / folder).rglob('*.html'):
             parser = Links(); parser.feed(page_path.read_text())
             urls.extend((page_path.relative_to(output).as_posix(), url) for url in parser.urls)

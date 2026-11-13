@@ -4,6 +4,7 @@ import importlib.util
 import copy
 import json
 from pathlib import Path
+import shutil
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -43,6 +44,64 @@ class HumanPublicationTest(unittest.TestCase):
 
     def save(self):
         (self.folder / 'publication.json').write_text(json.dumps(self.policy))
+
+    def history(self):
+        archive = self.folder / 'history/previous'
+        archive.mkdir(parents=True)
+        shutil.copy2(self.site / 'index.html', archive / 'index.html')
+        shutil.copy2(self.folder / 'publication.json', archive / 'publication.json')
+        old_root = C.ROOT; C.ROOT = self.root
+        self.addCleanup(setattr, C, 'ROOT', old_root)
+        return archive
+
+    def test_history_staging_preserves_all_bytes_without_touching_frozen_native_docs(self):
+        archive = self.history()
+        native = self.root / 'docs'; native.mkdir()
+        (native / 'index.html').write_bytes(b'Native export')
+        output = self.root / 'output'; output.mkdir()
+        C.stage_human(output)
+        C.verify_human_history(output)
+        exported = output / 'human-history/previous'
+        self.assertEqual(V.verify(self.root, exported=exported, publication=archive / 'publication.json'), self.policy)
+        for name in ['index.html', 'publication.json']:
+            self.assertEqual((exported / name).read_bytes(), (archive / name).read_bytes())
+        self.assertEqual(list(native.iterdir()), [native / 'index.html'])
+        self.assertEqual((native / 'index.html').read_bytes(), b'Native export')
+        (exported / 'index.html').write_text('changed')
+        with self.assertRaisesRegex(ValueError, 'Changed human export'): C.verify_human_history(output)
+        shutil.copy2(archive / 'index.html', exported / 'index.html')
+        (exported / 'publication.json').write_text('{}')
+        with self.assertRaisesRegex(ValueError, 'record changed'): C.verify_human_history(output)
+
+    def test_history_source_rejects_mutation_extra_files_symlinks_and_missing_policy(self):
+        archive = self.history()
+        original = (archive / 'index.html').read_bytes()
+        (archive / 'index.html').write_text('changed')
+        with self.assertRaisesRegex(ValueError, 'Changed human export'): C.human_history()
+        (archive / 'index.html').write_bytes(original)
+        extra = archive / 'unexpected.html'; extra.write_text('extra')
+        with self.assertRaisesRegex(ValueError, 'unlisted'): C.human_history()
+        extra.unlink(); extra.symlink_to('index.html')
+        with self.assertRaisesRegex(ValueError, 'Symlink'): C.human_history()
+        extra.unlink(); (archive / 'publication.json').unlink()
+        with self.assertRaisesRegex(ValueError, 'no publication record'): C.human_history()
+
+    def test_history_destination_refuses_overwrite_extra_entries_and_symlink_root(self):
+        archive = self.history()
+        output = self.root / 'output'; output.mkdir()
+        destination = output / 'human-history'; destination.mkdir()
+        with self.assertRaisesRegex(ValueError, 'already exists'): C.stage_human(output)
+        destination.rmdir(); C.stage_human(output)
+        (destination / 'unlisted').mkdir()
+        with self.assertRaisesRegex(ValueError, 'unlisted'): C.verify_human_history(output)
+        shutil.rmtree(destination); destination.symlink_to(archive.parent, target_is_directory=True)
+        with self.assertRaisesRegex(ValueError, 'Unsafe staged'): C.verify_human_history(output)
+
+    def test_broken_history_symlink_is_not_treated_as_absent(self):
+        old_root = C.ROOT; C.ROOT = self.root
+        self.addCleanup(setattr, C, 'ROOT', old_root)
+        (self.folder / 'history').symlink_to('missing-history', target_is_directory=True)
+        with self.assertRaisesRegex(ValueError, 'Unsafe human history'): C.human_history()
 
     def use_treatment(self):
         runtime = dict(self.policy.pop('renderer'))

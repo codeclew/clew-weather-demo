@@ -29,6 +29,10 @@ class VariantTests(unittest.TestCase):
                         'commit', '-qm', 'baseline'], cwd=r, check=True)
         baseline = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=r, text=True).strip()
         self.assertTrue(V.native_unchanged(r, baseline))
+        archive = r / 'documentation/human/history/previous'
+        archive.mkdir(parents=True)
+        (archive / 'index.html').write_text('independent reader archive')
+        self.assertTrue(V.native_unchanged(r, baseline))
         (r / 'docs/index.html').write_text('changed')
         self.assertFalse(V.native_unchanged(r, baseline))
         (r / 'docs/index.html').write_text('original')
