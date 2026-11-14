@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="codeclew-docset" content="weather-docs"><meta name="codeclew-docset-version" content="weather-r1"><meta name="codeclew-registry-digest" content="sha256:51a01dfd74e64fb1a320c592976694622b15d35f18dc7c1b46fe1a81955b4c0a"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#12334e"><title>Dashboard — Weather service guide</title><link rel="icon" type="image/svg+xml" href="favicon.svg"><style>/* Shared engineering documentation shell: bounded global navigation, local contents. */
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="codeclew-docset" content="weather"><meta name="codeclew-docset-version" content="weather-docs-r1"><meta name="codeclew-registry-digest" content="sha256:64676f4590824ff60f6602179121aff9cfdf692b815ecb1e38aa1d5a041c1c7d"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#12334e"><title>Dashboard service — Сделай документацию Weather по навыку.</title><link rel="icon" type="image/svg+xml" href="favicon.svg"><style>/* Shared engineering documentation shell: bounded global navigation, local contents. */
 :root{--ink:#12334e;--muted:#526980;--line:#dce5e9;--green:#087dc1;--green-soft:#e9f5fd;--canvas:#fdfaf2;--accent:#087dc1;--sans:"Avenir Next","Segoe UI",system-ui,sans-serif}
 *{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font:15px/1.65 var(--sans)}a{color:#087dc1}button,input,select{font:inherit}a,button,input,summary{touch-action:manipulation}*:focus-visible{outline:3px solid #087dc1;outline-offset:3px}[hidden]{display:none!important}
 .reader-nav{position:sticky;top:0;z-index:35;display:flex;align-items:center;gap:24px;min-height:66px;padding:10px 28px;background:#fffdf8;border-bottom:1px solid var(--line);color:var(--ink);font-size:13px}.reader-nav a{color:var(--ink);text-decoration:none;white-space:nowrap}.reader-nav a:hover{color:#087dc1;text-decoration:underline}.reader-brand{display:flex;align-items:center;gap:9px;font-size:20px;font-weight:800;letter-spacing:-.6px}.reader-brand svg{width:31px;height:31px}.reader-links{display:flex;gap:20px;align-items:center}.reader-search{margin-left:auto}.reader-search input{width:min(280px,24vw);border:1px solid var(--line);border-radius:7px;padding:8px 12px;background:#fff;font-size:12px;color:var(--ink)}.reader-nav [aria-current=page]{color:#087dc1;text-decoration:underline;text-underline-offset:7px}
@@ -145,7 +145,7 @@ body .route-heading .http-route-paths,body .route-heading .http-route-paths code
 .sequence-direction{display:block;font-size:13px;color:var(--muted,#435364)}
 .sequence-text li>p{margin:4px 0 0;font-size:14px}
 @media(max-width:700px){.clew-sequence{padding:14px}.sequence-scroll,.sequence-hint{display:none}.sequence-text summary{font-size:14px}}
-.route-catalog,.route-context{margin:1.3rem 0}.route-service-list{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;list-style:none;padding:0}.route-card h3,.markdown-reader .reader-guide .route-card h3{margin:0 0 .7rem;font-size:1.05rem}.route-filter-panel{margin:1rem 0}.route-filters,.route-refinement-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin-top:1rem}.route-refinements{grid-column:1/-1}.route-refinement-fields{grid-template-columns:repeat(3,minmax(0,1fr))}.route-facet{min-width:0;border:1px solid #ccd5df;padding:.7rem}.route-facet legend{font-weight:600}.route-options{max-height:12rem;overflow:auto}.route-filters label{display:flex;align-items:flex-start;gap:.4rem;margin:.4rem 0;overflow-wrap:anywhere}.route-filters input{flex:none;margin-top:.3rem}.route-options label[hidden]{display:none}.route-service-search{box-sizing:border-box;width:100%;min-width:0;padding:.45rem;margin:.35rem 0 .7rem}.route-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:1rem}.route-cards{display:grid;gap:1rem}.route-card{border:1px solid #ccd5df;border-radius:.6rem;padding:1rem;min-width:0}.route-card [hidden],.route-card[hidden]{display:none}.route-state,.route-gap{font-size:.9em;margin:.5rem 0}.route-origin{margin:.6rem 0}.route-details{margin-top:.6rem}.route-help{font-size:.9em;margin:.6rem 0}.route-visits{margin:.6rem 0}.route-link-unavailable{color:#5d3740}.route-validation{font-size:.9em}.route-context ul,.route-card ul{padding-left:1.3rem}@media(max-width:850px){.route-refinement-fields{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:500px){.route-filters,.route-refinement-fields{grid-template-columns:1fr}}.page-sources{border-top:1px solid #ccd5df;margin-top:32px;padding-top:8px}.page-sources small{display:block;color:#435364;font-size:12px}.page-sources li{margin:12px 0}.source-excerpt{margin:8px 0}.source-excerpt summary{cursor:pointer;overflow-wrap:anywhere}.source-excerpt pre{white-space:pre;overflow:auto;max-height:28rem;padding:12px;background:#f1f4f7;font-size:13px}.source-excerpt code{font:inherit}</style></head><body class="markdown-reader" data-reader-page="dashboard.md"><a class="skip-link" href="#clew-reader-main">Skip to content</a><header class="reader-nav"><a class="reader-brand" href="index.html"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 -12 132 132">
+.route-catalog,.route-context{margin:1.3rem 0}.route-service-list{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;list-style:none;padding:0}.route-card h3,.markdown-reader .reader-guide .route-card h3{margin:0 0 .7rem;font-size:1.05rem}.route-filter-panel{margin:1rem 0}.route-filters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem;margin-top:1rem}.route-facet{min-width:0;border:1px solid #ccd5df;padding:.7rem}.route-facet legend{font-weight:600}.route-options{max-height:12rem;overflow:auto}.route-filters label{display:flex;align-items:flex-start;gap:.4rem;margin:.4rem 0;overflow-wrap:anywhere}.route-filters input{flex:none;margin-top:.3rem}.route-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:1rem}.route-cards{display:grid;gap:1rem}.route-card{border:1px solid #ccd5df;border-radius:.6rem;padding:1rem;min-width:0}.route-card [hidden],.route-card[hidden]{display:none}.route-state,.route-gap{font-size:.9em}.route-link-unavailable{color:#5d3740}.route-validation{font-size:.9em}.route-context ul,.route-card ul{padding-left:1.3rem}@media(max-width:850px){.route-filters{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:500px){.route-filters{grid-template-columns:1fr}}.page-sources{border-top:1px solid #ccd5df;margin-top:32px;padding-top:8px}.page-sources small{display:block;color:#435364;font-size:12px}.page-sources li{margin:12px 0}.source-excerpt{margin:8px 0}.source-excerpt summary{cursor:pointer;overflow-wrap:anywhere}.source-excerpt pre{white-space:pre;overflow:auto;max-height:28rem;padding:12px;background:#f1f4f7;font-size:13px}.source-excerpt code{font:inherit}</style></head><body class="markdown-reader" data-reader-page="dashboard.md"><a class="skip-link" href="#clew-reader-main">Skip to content</a><header class="reader-nav"><a class="reader-brand" href="index.html"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 -12 132 132">
 <path d="M0,0 L9,0 L11,1 L11,7 L17,8 L19,13 L23,16 L23,19 L40,18 L42,15 L44,15 L46,9 L52,7 L51,4 L55,0 L63,0 L66,2 L66,9 L71,10 L71,38 L78,39 L77,48 L85,48 L87,50 L86,55 L79,56 L80,62 L86,66 L87,72 L83,74 L79,71 L77,73 L77,81 L80,86 L80,94 L78,99 L77,100 L65,100 L63,99 L63,96 L54,100 L22,99 L14,98 L13,93 L9,93 L8,99 L2,100 L-5,98 L-8,100 L-18,100 L-24,95 L-24,80 L-21,77 L-19,77 L-19,69 L-27,69 L-28,68 L-28,62 L-27,61 L-20,60 L-20,56 L-27,55 L-28,54 L-28,49 L-26,48 L-16,47 L-15,42 L-14,37 L-10,36 L-9,11 L-2,9 L-2,2 Z " fill="#C6BFB3" transform="translate(35,3)"/>
 <path d="M0,0 L6,0 L7,1 L7,10 L12,12 L12,20 L22,20 L22,18 L44,17 L44,10 L47,8 L50,8 L50,2 L51,0 L58,0 L60,2 L61,31 L64,32 L65,34 L65,45 L67,45 L68,47 L68,64 L67,65 L58,65 L58,71 L51,74 L48,74 L48,77 L45,77 L45,79 L39,80 L10,80 L5,78 L4,72 L-2,72 L-2,64 L-5,63 L-3,57 L1,53 L3,46 L4,46 L4,56 L15,58 L16,55 L18,55 L17,47 L15,43 L8,42 L8,41 L16,41 L15,40 L7,40 L9,37 L16,36 L17,31 L23,28 L14,28 L14,35 L8,36 L7,38 L3,39 L-1,52 L-6,53 L-12,51 L-12,58 L-13,58 L-13,50 L-12,49 L-11,36 L-9,35 L-7,29 L-3,27 L-4,24 L-4,7 L-1,6 L-1,1 Z M16,38 Z " fill="#F8F4EC" transform="translate(38,13)"/>
 <path d="M0,0 L6,0 L7,1 L7,10 L12,12 L12,20 L22,20 L22,18 L44,17 L44,10 L47,8 L50,8 L50,2 L51,0 L58,0 L60,2 L61,31 L64,32 L65,34 L65,45 L67,45 L68,47 L68,64 L67,65 L59,65 L62,61 L58,59 L56,52 L52,56 L41,56 L41,47 L43,43 L48,42 L48,40 L55,41 L56,48 L56,47 L55,39 L47,38 L44,34 L43,27 L34,27 L34,21 L35,19 L25,20 L25,22 L24,27 L14,28 L14,35 L8,36 L7,38 L3,39 L-1,52 L-6,53 L-12,51 L-12,58 L-13,58 L-13,50 L-12,49 L-11,36 L-9,35 L-7,29 L-3,27 L-4,24 L-4,7 L-1,6 L-1,1 Z " fill="#BEA898" transform="translate(38,13)"/>
@@ -297,23 +297,834 @@ body .route-heading .http-route-paths,body .route-heading .http-route-paths code
 <path d="M0,0 L3,0 L3,3 L0,3 Z " fill="#CAAE9D" transform="translate(92,96)"/>
 <path d="M0,0 L3,2 L0,3 Z " fill="#E6E1D1" transform="translate(42,57)"/>
 </svg>
-<span>Codeclew</span></a><span class="reader-project">Weather service guide</span></header><div class="guide-layout"><aside class="guide-toc"><details class="guide-local-navigation" open><summary>Pages</summary><nav aria-label="Documentation pages"><a href="index.html" data-page="index.md" data-fragment="">Guide</a><h2 class="navigation-label">Services</h2><details class="service-navigation" open><summary>Dashboard</summary><a href="dashboard.html" data-page="dashboard.md" data-fragment="" aria-current="page">Overview</a><div class="navigation-category"><span class="navigation-label">Starts here</span><ul><li><a href="dashboard-weather.html" data-page="dashboard-weather.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /api/weather</a></li><li><a href="dashboard-add-place.html" data-page="dashboard-add-place.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /api/places</a></li><li><a href="dashboard-refresh-place.html" data-page="dashboard-refresh-place.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /api/places/{id}/refresh</a></li><li><a href="dashboard-health.html" data-page="dashboard-health.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /health</a></li><li><a href="dashboard-openapi.html" data-page="dashboard-openapi.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /openapi.json</a></li><li><a href="dashboard-home.html" data-page="dashboard-home.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /</a></li><li><a href="dashboard.html#event-projection" data-page="dashboard.md" data-fragment="event-projection"><span class="trigger-kind">Kafka</span>Weather Kafka consumer</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Data</span><ul><li><a href="dashboard-data.html" data-page="dashboard-data.md" data-fragment="">Weather-card fields</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Shared-route participation</span><ul><li><a href="process-add-place.html" data-page="process-add-place.md" data-fragment="">Add a place and request its forecast</a></li><li><a href="process-refresh-place.html" data-page="process-refresh-place.md" data-fragment="">Request a place refresh</a></li><li><a href="process-scheduled-refresh.html" data-page="process-scheduled-refresh.md" data-fragment="">Refresh and publish forecasts</a></li><li><a href="process-dashboard-events.html" data-page="process-dashboard-events.md" data-fragment="">Project Weather events in Dashboard</a></li></ul></div></details><details class="service-navigation"><summary>Places</summary><a href="places.html" data-page="places.md" data-fragment="">Overview</a><div class="navigation-category"><span class="navigation-label">Starts here</span><ul><li><a href="places-list.html" data-page="places-list.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /places</a></li><li><a href="places-create.html" data-page="places-create.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /places</a></li><li><a href="places-refresh.html" data-page="places-refresh.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /places/{id}/refresh</a></li><li><a href="places-health.html" data-page="places-health.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /health</a></li><li><a href="places-openapi.html" data-page="places-openapi.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /openapi.json</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Data</span><ul><li><a href="place-data.html" data-page="place-data.md" data-fragment="">Place fields and events</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Shared-route participation</span><ul><li><a href="process-add-place.html" data-page="process-add-place.md" data-fragment="">Add a place and request its forecast</a></li><li><a href="process-refresh-place.html" data-page="process-refresh-place.md" data-fragment="">Request a place refresh</a></li></ul></div></details><details class="service-navigation"><summary>Forecasts</summary><a href="forecasts.html" data-page="forecasts.md" data-fragment="">Overview</a><div class="navigation-category"><span class="navigation-label">Starts here</span><ul><li><a href="forecasts-get.html" data-page="forecasts-get.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /forecasts/{id}</a></li><li><a href="forecasts-health.html" data-page="forecasts-health.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /health</a></li><li><a href="forecasts-openapi.html" data-page="forecasts-openapi.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /openapi.json</a></li><li><a href="forecasts.html#background-paths" data-page="forecasts.md" data-fragment="background-paths"><span class="trigger-kind">Scheduled</span>Scheduled forecast refresh</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Data</span><ul><li><a href="forecast-data.html" data-page="forecast-data.md" data-fragment="">Forecast and period fields</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Shared-route participation</span><ul><li><a href="process-add-place.html" data-page="process-add-place.md" data-fragment="">Add a place and request its forecast</a></li><li><a href="process-refresh-place.html" data-page="process-refresh-place.md" data-fragment="">Request a place refresh</a></li><li><a href="process-scheduled-refresh.html" data-page="process-scheduled-refresh.md" data-fragment="">Refresh and publish forecasts</a></li></ul></div></details><div class="navigation-category"><span class="navigation-label">Cross-service routes</span><ul><li><a href="index.html" data-page="index.md" data-fragment="">Services and processes</a></li><li><a href="process-add-place.html" data-page="process-add-place.md" data-fragment="">Add a place and request its forecast</a></li><li><a href="process-refresh-place.html" data-page="process-refresh-place.md" data-fragment="">Request a place refresh</a></li><li><a href="process-scheduled-refresh.html" data-page="process-scheduled-refresh.md" data-fragment="">Refresh and publish forecasts</a></li><li><a href="process-dashboard-events.html" data-page="process-dashboard-events.md" data-fragment="">Project Weather events in Dashboard</a></li></ul></div></nav></details></aside><main class="reader-guide" id="clew-reader-main"><nav class="reader-breadcrumb" aria-label="Current location"><a href="index.html" data-page="index.md" data-fragment="">Guide</a><span aria-hidden="true"> / </span><span aria-current="page">Dashboard</span><span class="breadcrumb-section" hidden></span></nav><h1 id="dashboard">Dashboard</h1>
-<p>Dashboard serves the current weather-card list, proxies place creation and refresh requests to Places, and contains a consumer for <code>weather.place-requested</code> and <code>weather.forecast-updated</code>. Its source-described projection is explained in <a href="dashboard-data.html">Dashboard data</a>.</p><section class="service-hub" aria-label="Service navigation"><div class="hub-columns"><section><h2>Starts here</h2><ul class="hub-links"><li><a href="dashboard-weather.html" data-page="dashboard-weather.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /api/weather</a><p>Returns the weather-card projection ordered by name.</p></li><li><a href="dashboard-add-place.html" data-page="dashboard-add-place.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /api/places</a><p>Forwards a place request to Places and returns its status and body.</p></li><li><a href="dashboard-refresh-place.html" data-page="dashboard-refresh-place.md" data-fragment=""><span class="trigger-kind">HTTP</span>POST /api/places/{id}/refresh</a><p>Forwards a refresh request to Places.</p></li><li><a href="dashboard-health.html" data-page="dashboard-health.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /health</a><p>Checks the database and consumer readiness flag.</p></li><li><a href="dashboard-openapi.html" data-page="dashboard-openapi.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /openapi.json</a><p>Returns the Dashboard contract file.</p></li><li><a href="dashboard-home.html" data-page="dashboard-home.md" data-fragment=""><span class="trigger-kind">HTTP</span>GET /</a><p>Returns the Dashboard HTML file.</p></li><li><a href="dashboard.html#event-projection" data-page="dashboard.md" data-fragment="event-projection"><span class="trigger-kind">Kafka</span>Weather Kafka consumer</a><p>Consumes place-requested and forecast-updated topics in the source-described start function.</p></li></ul></section><section><h2>Data</h2><ul class="hub-links"><li><a href="dashboard-data.html" data-page="dashboard-data.md" data-fragment="">Weather-card fields</a></li></ul></section></div></section><section class="route-context"><h2><a href="process-add-place.html" data-page="process-add-place.md" data-fragment="">Add a place and request its forecast</a></h2><p>Documented start: HTTP · <a href="dashboard-add-place.html" data-page="dashboard-add-place.md" data-fragment="">Dashboard · Dashboard POST /api/places</a></p><p><a href="process-add-place.html" data-page="process-add-place.md" data-fragment="">Whole process</a></p><ul><li><a href="dashboard-add-place.html" data-page="dashboard-add-place.md" data-fragment="">This service’s part</a> — Forward the place request</li><li><a href="dashboard.html" data-page="dashboard.md" data-fragment="" aria-current="page">This service’s part</a> — Project the forecast update</li></ul><p><a href="index.html" data-page="index.md" data-fragment="">Services and processes</a></p></section><section class="route-context"><h2><a href="process-refresh-place.html" data-page="process-refresh-place.md" data-fragment="">Request a place refresh</a></h2><p>Documented start: HTTP · <a href="dashboard-refresh-place.html" data-page="dashboard-refresh-place.md" data-fragment="">Dashboard · Dashboard POST /api/places/{id}/refresh</a></p><p><a href="process-refresh-place.html" data-page="process-refresh-place.md" data-fragment="">Whole process</a></p><ul><li><a href="dashboard-refresh-place.html" data-page="dashboard-refresh-place.md" data-fragment="">This service’s part</a> — Forward the refresh request</li><li><a href="dashboard.html" data-page="dashboard.md" data-fragment="" aria-current="page">This service’s part</a> — Project a forecast update</li></ul><p><a href="index.html" data-page="index.md" data-fragment="">Services and processes</a></p></section><section class="route-context"><h2><a href="process-scheduled-refresh.html" data-page="process-scheduled-refresh.md" data-fragment="">Refresh and publish forecasts</a></h2><p>Documented start: Scheduled · <a href="forecasts.html#background-paths" data-page="forecasts.md" data-fragment="background-paths">Forecasts · Forecasts refreshExpired schedule</a></p><p><a href="process-scheduled-refresh.html" data-page="process-scheduled-refresh.md" data-fragment="">Whole process</a></p><ul><li><a href="dashboard.html" data-page="dashboard.md" data-fragment="" aria-current="page">This service’s part</a> — Apply a valid forecast event</li></ul><p><a href="index.html" data-page="index.md" data-fragment="">Services and processes</a></p></section><section class="route-context"><h2><a href="process-dashboard-events.html" data-page="process-dashboard-events.md" data-fragment="">Project Weather events in Dashboard</a></h2><p>Documented start: Kafka · <a href="dashboard.html#event-projection" data-page="dashboard.md" data-fragment="event-projection">Dashboard · Dashboard Weather consumer</a></p><p><a href="process-dashboard-events.html" data-page="process-dashboard-events.md" data-fragment="">Whole process</a></p><ul><li><a href="dashboard.html#event-projection" data-page="dashboard.md" data-fragment="event-projection">This service’s part</a> — Validate and project event records</li></ul><p><a href="index.html" data-page="index.md" data-fragment="">Services and processes</a></p></section>
-<h2 id="http-starts">HTTP starts</h2>
-<ul>
-<li><a href="dashboard-weather.html">GET /api/weather</a></li>
-<li><a href="dashboard-add-place.html">POST /api/places</a></li>
-<li><a href="dashboard-refresh-place.html">POST /api/places/{id}/refresh</a></li>
-<li><a href="dashboard-health.html">GET /health</a></li>
-<li><a href="dashboard-openapi.html">GET /openapi.json</a></li>
-<li><a href="dashboard-home.html">GET /</a></li>
-</ul>
-<h2 id="event-projection">Event projection</h2>
-<p>The source function <code>start</code> connects a consumer, subscribes from the beginning to both Weather topics, and passes each message to <code>consumeMessage</code> with automatic commits disabled. Valid messages are projected in a database transaction; invalid messages are recorded and their offsets are advanced. The function body also registers the HTTP handlers and listens on <code>PORT</code> or port 8080. Work did not establish that this function is activated at runtime.</p>
-<p>A duplicate event ID is committed without applying the event again. A place-requested event inserts or updates place fields. A forecast-updated event updates a card only when its timestamp is newer than the stored timestamp, or no timestamp is stored. See the <a href="process-dashboard-events.html">event projection sequence</a>.</p>
-<h2 id="integration-boundary">Integration boundary</h2>
-<p>The handlers call the Places API at a value named <code>placesUrl</code>; its host or provider was not resolved in the retained source reads. The consumer code names the two Kafka topics, but its runtime startup and delivery were not observed.</p>
-<section class="page-sources"><h2>Sources</h2><ul><li><span title="dashboard:services/dashboard/src/main.ts @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">main.ts</span> — <a href="#clew-source-0-0">15–45</a>; <a href="#clew-source-0-1">47–60</a>; <a href="#clew-source-0-2">62–65</a>; <a href="#clew-source-0-3">67–74</a>; <a href="#clew-source-0-4">76–83</a>; <a href="#clew-source-0-5">99–111</a><small>dashboard · services/dashboard/src/main.ts · c9a4283cb5bb</small></li></ul><details class="source-fragments"><summary>Code fragments</summary><details class="source-excerpt"><summary>dashboard:services/dashboard/src/main.ts @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 15–45</summary><pre id="clew-source-0-0" tabindex="0" role="region" aria-label="services/dashboard/src/main.ts — 15–45"><code>async function applyEvent(event: Event): Promise&lt;string> {
+<span>Codeclew</span></a><span class="reader-project">Сделай документацию Weather по навыку.</span></header><div class="guide-layout"><aside class="guide-toc"><details class="guide-local-navigation" open><summary>Pages</summary><nav aria-label="Documentation pages"><a href="index.html" data-page="index.md" data-fragment="">Weather</a><h2 class="navigation-label">Services</h2><details class="service-navigation" open><summary>Dashboard</summary><a href="dashboard.html" data-page="dashboard.md" data-fragment="" aria-current="page">Overview</a><div class="navigation-category"><span class="navigation-label">Starts here</span><ul><li><a href="dashboard-get-api-weather.html#handler" data-page="dashboard-get-api-weather.md" data-fragment="handler"><span class="trigger-kind">HTTP</span>GET /api/weather</a></li><li><a href="dashboard-get-openapi-json.html#handler" data-page="dashboard-get-openapi-json.md" data-fragment="handler"><span class="trigger-kind">HTTP</span>GET /openapi.json</a></li><li><a href="dashboard-post-api-places-id-refresh.html#handler" data-page="dashboard-post-api-places-id-refresh.md" data-fragment="handler"><span class="trigger-kind">HTTP</span>POST /api/places/{id}/refresh</a></li><li><a href="dashboard-get.html#handler" data-page="dashboard-get.md" data-fragment="handler"><span class="trigger-kind">HTTP</span>GET /</a></li><li><a href="dashboard-post-api-places.html#handler" data-page="dashboard-post-api-places.md" data-fragment="handler"><span class="trigger-kind">HTTP</span>POST /api/places</a></li><li><a href="dashboard-get-health.html#handler" data-page="dashboard-get-health.md" data-fragment="handler"><span class="trigger-kind">HTTP</span>GET /health</a></li><li><a href="dashboard-kafka-consumer.html#handler" data-page="dashboard-kafka-consumer.md" data-fragment="handler"><span class="trigger-kind">Kafka</span>Consume weather events</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Data</span><ul><li><a href="dashboard.html#storage" data-page="dashboard.md" data-fragment="storage">Dashboard storage</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Shared-route participation</span><ul><li><a href="route-add-place.html#trace" data-page="route-add-place.md" data-fragment="trace">Add a place</a></li><li><a href="route-manual-refresh.html#trace" data-page="route-manual-refresh.md" data-fragment="trace">Request a manual refresh</a></li><li><a href="route-forecast-publish.html#trace" data-page="route-forecast-publish.md" data-fragment="trace">Publish and project a forecast event</a></li><li><a href="route-dashboard-projection.html#trace" data-page="route-dashboard-projection.md" data-fragment="trace">Project weather events into cards</a></li></ul></div></details><details class="service-navigation"><summary>Places</summary><a href="places.html" data-page="places.md" data-fragment="">Overview</a><div class="navigation-category"><span class="navigation-label">Starts here</span><ul><li><a href="places-get-health.html#handler" data-page="places-get-health.md" data-fragment="handler"><span class="trigger-kind">HTTP</span>GET /health</a></li><li><a href="places-post-places.html#handler" data-page="places-post-places.md" data-fragment="handler"><span class="trigger-kind">HTTP</span>POST /places</a></li><li><a href="places-get-places.html#handler" data-page="places-get-places.md" data-fragment="handler"><span class="trigger-kind">HTTP</span>GET /places</a></li><li><a href="places-get-openapi-json.html#handler" data-page="places-get-openapi-json.md" data-fragment="handler"><span class="trigger-kind">HTTP</span>GET /openapi.json</a></li><li><a href="places-post-places-id-refresh.html#handler" data-page="places-post-places-id-refresh.md" data-fragment="handler"><span class="trigger-kind">HTTP</span>POST /places/{id}/refresh</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Data</span><ul><li><a href="places.html#storage" data-page="places.md" data-fragment="storage">Place storage</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Shared-route participation</span><ul><li><a href="route-add-place.html#trace" data-page="route-add-place.md" data-fragment="trace">Add a place</a></li><li><a href="route-manual-refresh.html#trace" data-page="route-manual-refresh.md" data-fragment="trace">Request a manual refresh</a></li><li><a href="route-place-publisher.html#trace" data-page="route-place-publisher.md" data-fragment="trace">Publish a place request</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Other pages</span><ul><li><a href="places-publish-requests.html" data-page="places-publish-requests.md" data-fragment="">Place request publisher</a></li></ul></div></details><details class="service-navigation"><summary>Forecasts</summary><a href="forecasts.html" data-page="forecasts.md" data-fragment="">Overview</a><div class="navigation-category"><span class="navigation-label">Starts here</span><ul><li><a href="forecasts-publish-pending.html#handler" data-page="forecasts-publish-pending.md" data-fragment="handler"><span class="trigger-kind">Scheduled</span>Publish pending forecast</a></li><li><a href="forecasts-consume.html#handler" data-page="forecasts-consume.md" data-fragment="handler"><span class="trigger-kind">Kafka</span>Consume place request</a></li><li><a href="forecasts-get-openapi-json.html#handler" data-page="forecasts-get-openapi-json.md" data-fragment="handler"><span class="trigger-kind">HTTP</span>GET /openapi.json</a></li><li><a href="forecasts-refresh-expired.html#handler" data-page="forecasts-refresh-expired.md" data-fragment="handler"><span class="trigger-kind">Scheduled</span>Refresh expired forecasts</a></li><li><a href="forecasts-get-health.html#handler" data-page="forecasts-get-health.md" data-fragment="handler"><span class="trigger-kind">HTTP</span>GET /health</a></li><li><a href="forecasts-get-forecasts-id.html#handler" data-page="forecasts-get-forecasts-id.md" data-fragment="handler"><span class="trigger-kind">HTTP</span>GET /forecasts/{id}</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Data</span><ul><li><a href="forecasts.html#storage" data-page="forecasts.md" data-fragment="storage">Forecast storage</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Shared-route participation</span><ul><li><a href="route-place-publisher.html#trace" data-page="route-place-publisher.md" data-fragment="trace">Publish a place request</a></li><li><a href="route-forecast-request.html#trace" data-page="route-forecast-request.md" data-fragment="trace">Process a place request</a></li><li><a href="route-scheduled-refresh.html#trace" data-page="route-scheduled-refresh.md" data-fragment="trace">Refresh expired forecasts</a></li><li><a href="route-forecast-publish.html#trace" data-page="route-forecast-publish.md" data-fragment="trace">Publish and project a forecast event</a></li></ul></div></details><div class="navigation-category"><span class="navigation-label">Cross-service routes</span><ul><li><a href="weather-processes.html" data-page="weather-processes.md" data-fragment="">Services and processes</a></li><li><a href="route-add-place.html#trace" data-page="route-add-place.md" data-fragment="trace">Add a place</a></li><li><a href="route-manual-refresh.html#trace" data-page="route-manual-refresh.md" data-fragment="trace">Request a manual refresh</a></li><li><a href="route-place-publisher.html#trace" data-page="route-place-publisher.md" data-fragment="trace">Publish a place request</a></li><li><a href="route-forecast-request.html#trace" data-page="route-forecast-request.md" data-fragment="trace">Process a place request</a></li><li><a href="route-scheduled-refresh.html#trace" data-page="route-scheduled-refresh.md" data-fragment="trace">Refresh expired forecasts</a></li><li><a href="route-forecast-publish.html#trace" data-page="route-forecast-publish.md" data-fragment="trace">Publish and project a forecast event</a></li><li><a href="route-dashboard-projection.html#trace" data-page="route-dashboard-projection.md" data-fragment="trace">Project weather events into cards</a></li></ul></div><div class="navigation-category"><span class="navigation-label">Other pages</span><ul><li><a href="met-norway.html" data-page="met-norway.md" data-fragment="">MET Norway integration</a></li><li><a href="weather-data.html" data-page="weather-data.md" data-fragment="">Weather data and contracts</a></li><li><a href="weather-processes.html" data-page="weather-processes.md" data-fragment="">Weather process map</a></li></ul></div></nav></details></aside><main class="reader-guide" id="clew-reader-main"><nav class="reader-breadcrumb" aria-label="Current location"><a href="index.html" data-page="index.md" data-fragment="">Weather</a><span aria-hidden="true"> / </span><span aria-current="page">Dashboard service</span><span class="breadcrumb-section" hidden></span></nav><h1 id="dashboard-service">Dashboard service</h1><section class="service-hub" aria-label="Service navigation"><div class="hub-columns"><section><h2>Starts here</h2><ul class="hub-links"><li><a href="dashboard-get-api-weather.html#handler" data-page="dashboard-get-api-weather.md" data-fragment="handler"><span class="trigger-kind">HTTP</span>GET /api/weather</a><p>Reads weather cards ordered by place name.</p></li><li><a href="dashboard-get-openapi-json.html#handler" data-page="dashboard-get-openapi-json.md" data-fragment="handler"><span class="trigger-kind">HTTP</span>GET /openapi.json</a><p>Reads and parses the dashboard contract file.</p></li><li><a href="dashboard-post-api-places-id-refresh.html#handler" data-page="dashboard-post-api-places-id-refresh.md" data-fragment="handler"><span class="trigger-kind">HTTP</span>POST /api/places/{id}/refresh</a><p>Forwards a refresh request to Places.</p></li><li><a href="dashboard-get.html#handler" data-page="dashboard-get.md" data-fragment="handler"><span class="trigger-kind">HTTP</span>GET /</a><p>Serves the Weather page.</p></li><li><a href="dashboard-post-api-places.html#handler" data-page="dashboard-post-api-places.md" data-fragment="handler"><span class="trigger-kind">HTTP</span>POST /api/places</a><p>Forwards a selected city to Places.</p></li><li><a href="dashboard-get-health.html#handler" data-page="dashboard-get-health.md" data-fragment="handler"><span class="trigger-kind">HTTP</span>GET /health</a><p>Checks PostgreSQL and the consumer-ready flag.</p></li><li><a href="dashboard-kafka-consumer.html#handler" data-page="dashboard-kafka-consumer.md" data-fragment="handler"><span class="trigger-kind">Kafka</span>Consume weather events</a><p>Consumes place-requested and forecast-updated topics.</p></li></ul></section><section><h2>Data</h2><ul class="hub-links"><li><a href="dashboard.html#storage" data-page="dashboard.md" data-fragment="storage">Dashboard storage</a></li></ul></section></div></section><section class="route-context"><h2><a href="route-add-place.html#trace" data-page="route-add-place.md" data-fragment="trace">Add a place</a></h2><p>Documented start: HTTP · <a href="dashboard-post-api-places.html#handler" data-page="dashboard-post-api-places.md" data-fragment="handler">Dashboard · POST /api/places</a></p><p><a href="route-add-place.html#trace" data-page="route-add-place.md" data-fragment="trace">Whole process</a></p><ul><li><a href="dashboard-post-api-places.html#handler" data-page="dashboard-post-api-places.md" data-fragment="handler">This service’s part</a> — Forward the add-place request.</li><li><a href="dashboard-post-api-places.html#handler" data-page="dashboard-post-api-places.md" data-fragment="handler">This service’s part</a> — Forward the Places response or report proxy failure.</li></ul><p><a href="weather-processes.html" data-page="weather-processes.md" data-fragment="">Services and processes</a></p></section><section class="route-context"><h2><a href="route-manual-refresh.html#trace" data-page="route-manual-refresh.md" data-fragment="trace">Request a manual refresh</a></h2><p>Documented start: HTTP · <a href="dashboard-post-api-places-id-refresh.html#handler" data-page="dashboard-post-api-places-id-refresh.md" data-fragment="handler">Dashboard · POST /api/places/{id}/refresh</a></p><p><a href="route-manual-refresh.html#trace" data-page="route-manual-refresh.md" data-fragment="trace">Whole process</a></p><ul><li><a href="dashboard-post-api-places-id-refresh.html#handler" data-page="dashboard-post-api-places-id-refresh.md" data-fragment="handler">This service’s part</a> — Encode and forward the place ID.</li><li><a href="dashboard-post-api-places-id-refresh.html#handler" data-page="dashboard-post-api-places-id-refresh.md" data-fragment="handler">This service’s part</a> — Return Places status/body or proxy error.</li></ul><p><a href="weather-processes.html" data-page="weather-processes.md" data-fragment="">Services and processes</a></p></section><section class="route-context"><h2><a href="route-forecast-publish.html#trace" data-page="route-forecast-publish.md" data-fragment="trace">Publish and project a forecast event</a></h2><p>Documented start: Scheduled · <a href="forecasts-publish-pending.html#handler" data-page="forecasts-publish-pending.md" data-fragment="handler">Forecasts · publishPending()</a></p><p><a href="route-forecast-publish.html#trace" data-page="route-forecast-publish.md" data-fragment="trace">Whole process</a></p><ul><li><a href="dashboard-kafka-consumer.html#handler" data-page="dashboard-kafka-consumer.md" data-fragment="handler">This service’s part</a> — Validate the event and update a weather card.</li></ul><p><a href="weather-processes.html" data-page="weather-processes.md" data-fragment="">Services and processes</a></p></section><section class="route-context"><h2><a href="route-dashboard-projection.html#trace" data-page="route-dashboard-projection.md" data-fragment="trace">Project weather events into cards</a></h2><p>Documented start: Kafka · <a href="dashboard-kafka-consumer.html#handler" data-page="dashboard-kafka-consumer.md" data-fragment="handler">Dashboard · Dashboard event consumer</a></p><p><a href="route-dashboard-projection.html#trace" data-page="route-dashboard-projection.md" data-fragment="trace">Whole process</a></p><ul><li><a href="dashboard-kafka-consumer.html#handler" data-page="dashboard-kafka-consumer.md" data-fragment="handler">This service’s part</a> — Parse and validate one event, then apply it.</li><li><a href="dashboard.html#storage" data-page="dashboard.md" data-fragment="storage">This service’s part</a> — Record rejection or transact inbox and card updates.</li><li><a href="dashboard-kafka-consumer.html#handler" data-page="dashboard-kafka-consumer.md" data-fragment="handler">This service’s part</a> — Commit the next offset after a recorded rejection or successful transaction.</li><li><a href="dashboard-kafka-consumer.html#handler" data-page="dashboard-kafka-consumer.md" data-fragment="handler">This service’s part</a> — Allow processing failure to escape without committing the offset.</li></ul><p><a href="weather-processes.html" data-page="weather-processes.md" data-fragment="">Services and processes</a></p></section>
+<h2 id="scope">Scope</h2>
+<p>The dashboard serves the Weather page, reads persisted weather cards, forwards place creation and refresh requests to Places, and consumes place and forecast events into its own card table. Its code reads <code>DATABASE_URL</code>, uses <code>KAFKA_BOOTSTRAP</code> with a <code>kafka:9092</code> default, <code>PLACES_URL</code> with an <code>http://places:8080</code> default, and <code>PORT</code> with an <code>8080</code> default. Compose supplies the database, broker, and Places URL. See the <a href="weather-data.html">shared fields</a>, <a href="weather-processes.html">process map</a>, and endpoint starts in the service navigation.</p>
+<p>The source shows HTTP handler registration and a consumer subscribed to <code>weather.place-requested</code> and <code>weather.forecast-updated</code>. It does not prove runtime registration or readiness in a deployed process. The contract files are declared inputs, not observed wire responses.</p>
+<h2 id="discovery">Discovery</h2>
+<p><code>main.ts</code> wires six HTTP handlers in <code>start()</code> and connects a Kafka consumer that subscribes from the beginning to both weather topics before starting the server. The two-topic <code>eachMessage</code> callback is an additional message start, documented on <a href="dashboard-kafka-consumer.html#handler">Dashboard event consumer</a>. Its syntax is visible in this full source read; deployment registration is not established.
+<code>events.ts</code> defines the place, period, forecast, and event shapes and validates topic-specific payloads. The handler checks timestamp strings, supported place IDs, finite coordinates, and 1–6 forecast periods. It does not apply every bound shown in the separate schema, including coordinate ranges or nonempty event IDs.
+<code>unchecked-place-forecast.ts</code> contains a separate validator whose timestamp and topic checks differ from <code>events.ts</code>. The retained file does not show a production registration path or establish whether this exercise is invoked, so its behavior is not attributed to the service runtime.</p>
+<h2 id="storage">Storage</h2>
+<p><code>weather_cards</code> is keyed by <code>place_id</code> and stores name, coordinates, nullable <code>updated_at</code>, and nullable JSON <code>forecast</code>. The service also keeps an <code>inbox</code> for event IDs and a <code>rejected_messages</code> table keyed by topic, partition, and offset. See <a href="weather-data.html#stored-state">stored fields</a>.</p>
+<h2 id="contracts">Contracts</h2>
+<p>The served OpenAPI document is read from <code>/app/contracts/dashboard.openapi.json</code>. It declares the browser-facing routes and their response shapes; those definitions are described beside each handler and are not verified as wire behavior.</p>
+<h2 id="static-page">Static page</h2>
+<p>The page offers Oslo, Helsinki, and Lisbon buttons, renders one card per returned place, shows the first period&#39;s temperature, distinguishes fixture from live mode, and displays unknown rain when precipitation is null. It polls the weather endpoint every three seconds and posts refresh from each card.</p>
+<section class="page-sources"><h2>Sources</h2><ul><li><span title="dashboard:compose.yaml @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">compose.yaml</span> — <a href="#clew-source-0-0">1–83</a><small>dashboard · compose.yaml · c9a4283cb5bb</small></li><li><span title="dashboard:contracts/dashboard.openapi.json @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">dashboard.openapi.json</span> — <a href="#clew-source-1-0">1–462</a><small>dashboard · contracts/dashboard.openapi.json · c9a4283cb5bb</small></li><li><span title="dashboard:contracts/events.schema.json @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">events.schema.json</span> — <a href="#clew-source-2-0">1–173</a><small>dashboard · contracts/events.schema.json · c9a4283cb5bb</small></li><li><span title="dashboard:database/init.sql @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">init.sql</span> — <a href="#clew-source-3-0">1–16</a><small>dashboard · database/init.sql · c9a4283cb5bb</small></li><li><span title="dashboard:exercises/unchecked-place-forecast.ts @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">unchecked-place-forecast.ts</span> — <a href="#clew-source-4-0">1–24</a><small>dashboard · exercises/unchecked-place-forecast.ts · c9a4283cb5bb</small></li><li><span title="dashboard:services/dashboard/public/index.html @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">index.html</span> — <a href="#clew-source-5-0">1–11</a><small>dashboard · services/dashboard/public/index.html · c9a4283cb5bb</small></li><li><span title="dashboard:services/dashboard/src/events.ts @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">events.ts</span> — <a href="#clew-source-6-0">1–30</a><small>dashboard · services/dashboard/src/events.ts · c9a4283cb5bb</small></li><li><span title="dashboard:services/dashboard/src/main.ts @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535">main.ts</span> — <a href="#clew-source-7-0">1–113</a><small>dashboard · services/dashboard/src/main.ts · c9a4283cb5bb</small></li></ul><details class="source-fragments"><summary>Code fragments</summary><details class="source-excerpt"><summary>dashboard:compose.yaml @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 1–83</summary><pre id="clew-source-0-0" tabindex="0" role="region" aria-label="compose.yaml — 1–83"><code>name: clew-weather-demo
+services:
+  postgres:
+    image: postgres:18.3
+    environment:
+      POSTGRES_USER: weather
+      POSTGRES_PASSWORD: weather
+    volumes:
+      - weather-data:/var/lib/postgresql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U weather]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  kafka:
+    image: apache/kafka:4.1.2
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+    healthcheck:
+      test: [CMD-SHELL, '/opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list']
+      interval: 5s
+      timeout: 10s
+      retries: 30
+  kafka-init:
+    image: apache/kafka:4.1.2
+    entrypoint: [&quot;/bin/bash&quot;, &quot;-ec&quot;]
+    command:
+      - |
+        for topic in weather.place-requested weather.forecast-updated; do
+          /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --create --if-not-exists --topic &quot;$$topic&quot; --partitions 1 --replication-factor 1
+          /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --describe --topic &quot;$$topic&quot;
+        done
+    depends_on:
+      kafka: {condition: service_healthy}
+  places:
+    build:
+      context: .
+      dockerfile: services/places/Dockerfile
+    environment:
+      DATABASE_URL: Host=postgres;Database=places;Username=weather;Password=weather
+      KAFKA_BOOTSTRAP: kafka:9092
+    ports: ['127.0.0.1:8081:8080']
+    depends_on:
+      postgres: {condition: service_healthy}
+      kafka-init: {condition: service_completed_successfully}
+  forecasts:
+    build:
+      context: .
+      dockerfile: services/forecasts/Dockerfile
+    environment:
+      DATABASE_URL: jdbc:postgresql://postgres:5432/forecasts
+      KAFKA_BOOTSTRAP: kafka:9092
+      FORECAST_MODE: ${FORECAST_MODE:-fixture}
+      MET_USER_AGENT: ${MET_USER_AGENT:-}
+    ports: ['127.0.0.1:8082:8080']
+    depends_on:
+      postgres: {condition: service_healthy}
+      kafka-init: {condition: service_completed_successfully}
+  dashboard:
+    build:
+      context: .
+      dockerfile: services/dashboard/Dockerfile
+    environment:
+      DATABASE_URL: postgres://weather:weather@postgres:5432/dashboard
+      KAFKA_BOOTSTRAP: kafka:9092
+      PLACES_URL: http://places:8080
+    ports: ['127.0.0.1:8080:8080']
+    depends_on:
+      postgres: {condition: service_healthy}
+      kafka-init: {condition: service_completed_successfully}
+volumes:
+  weather-data:
+</code></pre></details><details class="source-excerpt"><summary>dashboard:contracts/dashboard.openapi.json @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 1–462</summary><pre id="clew-source-1-0" tabindex="0" role="region" aria-label="contracts/dashboard.openapi.json — 1–462"><code>{
+  &quot;openapi&quot;: &quot;3.1.0&quot;,
+  &quot;info&quot;: {
+    &quot;title&quot;: &quot;dashboard&quot;,
+    &quot;version&quot;: &quot;1.0.0&quot;
+  },
+  &quot;paths&quot;: {
+    &quot;/&quot;: {
+      &quot;get&quot;: {
+        &quot;operationId&quot;: &quot;dashboard_get_&quot;,
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;200&quot;,
+            &quot;content&quot;: {
+              &quot;text/html&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;string&quot;
+                }
+              }
+            }
+          },
+          &quot;500&quot;: {
+            &quot;description&quot;: &quot;500&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;object&quot;,
+                  &quot;properties&quot;: {
+                    &quot;error&quot;: {
+                      &quot;type&quot;: &quot;string&quot;
+                    }
+                  },
+                  &quot;additionalProperties&quot;: true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    &quot;/api/weather&quot;: {
+      &quot;get&quot;: {
+        &quot;operationId&quot;: &quot;dashboard_get_api_weather&quot;,
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;200&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;type&quot;: &quot;object&quot;,
+                    &quot;required&quot;: [
+                      &quot;id&quot;,
+                      &quot;name&quot;,
+                      &quot;latitude&quot;,
+                      &quot;longitude&quot;,
+                      &quot;forecast&quot;
+                    ],
+                    &quot;properties&quot;: {
+                      &quot;id&quot;: {
+                        &quot;type&quot;: &quot;string&quot;,
+                        &quot;enum&quot;: [
+                          &quot;oslo&quot;,
+                          &quot;helsinki&quot;,
+                          &quot;lisbon&quot;
+                        ]
+                      },
+                      &quot;name&quot;: {
+                        &quot;type&quot;: &quot;string&quot;
+                      },
+                      &quot;latitude&quot;: {
+                        &quot;type&quot;: &quot;number&quot;,
+                        &quot;minimum&quot;: -90,
+                        &quot;maximum&quot;: 90
+                      },
+                      &quot;longitude&quot;: {
+                        &quot;type&quot;: &quot;number&quot;,
+                        &quot;minimum&quot;: -180,
+                        &quot;maximum&quot;: 180
+                      },
+                      &quot;forecast&quot;: {
+                        &quot;oneOf&quot;: [
+                          {
+                            &quot;type&quot;: &quot;object&quot;,
+                            &quot;required&quot;: [
+                              &quot;updatedAt&quot;,
+                              &quot;fetchedAt&quot;,
+                              &quot;mode&quot;,
+                              &quot;periods&quot;
+                            ],
+                            &quot;properties&quot;: {
+                              &quot;updatedAt&quot;: {
+                                &quot;type&quot;: &quot;string&quot;,
+                                &quot;format&quot;: &quot;date-time&quot;
+                              },
+                              &quot;fetchedAt&quot;: {
+                                &quot;type&quot;: &quot;string&quot;,
+                                &quot;format&quot;: &quot;date-time&quot;
+                              },
+                              &quot;mode&quot;: {
+                                &quot;type&quot;: &quot;string&quot;,
+                                &quot;enum&quot;: [
+                                  &quot;fixture&quot;,
+                                  &quot;live&quot;
+                                ]
+                              },
+                              &quot;periods&quot;: {
+                                &quot;type&quot;: &quot;array&quot;,
+                                &quot;minItems&quot;: 1,
+                                &quot;maxItems&quot;: 6,
+                                &quot;items&quot;: {
+                                  &quot;type&quot;: &quot;object&quot;,
+                                  &quot;required&quot;: [
+                                    &quot;time&quot;,
+                                    &quot;temperatureC&quot;,
+                                    &quot;precipitationMm&quot;,
+                                    &quot;symbol&quot;
+                                  ],
+                                  &quot;properties&quot;: {
+                                    &quot;time&quot;: {
+                                      &quot;type&quot;: &quot;string&quot;,
+                                      &quot;format&quot;: &quot;date-time&quot;
+                                    },
+                                    &quot;temperatureC&quot;: {
+                                      &quot;type&quot;: &quot;number&quot;
+                                    },
+                                    &quot;precipitationMm&quot;: {
+                                      &quot;type&quot;: [
+                                        &quot;number&quot;,
+                                        &quot;null&quot;
+                                      ],
+                                      &quot;minimum&quot;: 0
+                                    },
+                                    &quot;symbol&quot;: {
+                                      &quot;type&quot;: &quot;string&quot;
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          {
+                            &quot;type&quot;: &quot;null&quot;
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          &quot;500&quot;: {
+            &quot;description&quot;: &quot;500&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;object&quot;,
+                  &quot;properties&quot;: {
+                    &quot;error&quot;: {
+                      &quot;type&quot;: &quot;string&quot;
+                    }
+                  },
+                  &quot;additionalProperties&quot;: true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    &quot;/api/places&quot;: {
+      &quot;post&quot;: {
+        &quot;operationId&quot;: &quot;dashboard_post_api_places&quot;,
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;200&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;object&quot;,
+                  &quot;required&quot;: [
+                    &quot;id&quot;,
+                    &quot;name&quot;,
+                    &quot;latitude&quot;,
+                    &quot;longitude&quot;
+                  ],
+                  &quot;properties&quot;: {
+                    &quot;id&quot;: {
+                      &quot;type&quot;: &quot;string&quot;,
+                      &quot;enum&quot;: [
+                        &quot;oslo&quot;,
+                        &quot;helsinki&quot;,
+                        &quot;lisbon&quot;
+                      ]
+                    },
+                    &quot;name&quot;: {
+                      &quot;type&quot;: &quot;string&quot;
+                    },
+                    &quot;latitude&quot;: {
+                      &quot;type&quot;: &quot;number&quot;,
+                      &quot;minimum&quot;: -90,
+                      &quot;maximum&quot;: 90
+                    },
+                    &quot;longitude&quot;: {
+                      &quot;type&quot;: &quot;number&quot;,
+                      &quot;minimum&quot;: -180,
+                      &quot;maximum&quot;: 180
+                    }
+                  }
+                }
+              }
+            }
+          },
+          &quot;400&quot;: {
+            &quot;description&quot;: &quot;400&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;object&quot;,
+                  &quot;properties&quot;: {
+                    &quot;error&quot;: {
+                      &quot;type&quot;: &quot;string&quot;
+                    }
+                  },
+                  &quot;additionalProperties&quot;: true
+                }
+              }
+            }
+          },
+          &quot;415&quot;: {
+            &quot;description&quot;: &quot;415&quot;
+          },
+          &quot;500&quot;: {
+            &quot;description&quot;: &quot;500&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;object&quot;,
+                  &quot;properties&quot;: {
+                    &quot;error&quot;: {
+                      &quot;type&quot;: &quot;string&quot;
+                    }
+                  },
+                  &quot;additionalProperties&quot;: true
+                }
+              }
+            }
+          },
+          &quot;503&quot;: {
+            &quot;description&quot;: &quot;503&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;object&quot;,
+                  &quot;properties&quot;: {
+                    &quot;error&quot;: {
+                      &quot;type&quot;: &quot;string&quot;
+                    }
+                  },
+                  &quot;additionalProperties&quot;: true
+                }
+              }
+            }
+          }
+        },
+        &quot;requestBody&quot;: {
+          &quot;required&quot;: true,
+          &quot;content&quot;: {
+            &quot;application/json&quot;: {
+              &quot;schema&quot;: {
+                &quot;type&quot;: &quot;object&quot;,
+                &quot;required&quot;: [
+                  &quot;cityId&quot;
+                ],
+                &quot;additionalProperties&quot;: false,
+                &quot;properties&quot;: {
+                  &quot;cityId&quot;: {
+                    &quot;type&quot;: &quot;string&quot;,
+                    &quot;enum&quot;: [
+                      &quot;oslo&quot;,
+                      &quot;helsinki&quot;,
+                      &quot;lisbon&quot;
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    &quot;/api/places/{id}/refresh&quot;: {
+      &quot;post&quot;: {
+        &quot;operationId&quot;: &quot;dashboard_post_api_places_id_refresh&quot;,
+        &quot;responses&quot;: {
+          &quot;202&quot;: {
+            &quot;description&quot;: &quot;202&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;object&quot;,
+                  &quot;required&quot;: [
+                    &quot;placeId&quot;,
+                    &quot;status&quot;
+                  ],
+                  &quot;properties&quot;: {
+                    &quot;placeId&quot;: {
+                      &quot;type&quot;: &quot;string&quot;
+                    },
+                    &quot;status&quot;: {
+                      &quot;const&quot;: &quot;QUEUED&quot;
+                    }
+                  }
+                }
+              }
+            }
+          },
+          &quot;404&quot;: {
+            &quot;description&quot;: &quot;404&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;object&quot;,
+                  &quot;properties&quot;: {
+                    &quot;error&quot;: {
+                      &quot;type&quot;: &quot;string&quot;
+                    }
+                  },
+                  &quot;additionalProperties&quot;: true
+                }
+              }
+            }
+          },
+          &quot;500&quot;: {
+            &quot;description&quot;: &quot;500&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;object&quot;,
+                  &quot;properties&quot;: {
+                    &quot;error&quot;: {
+                      &quot;type&quot;: &quot;string&quot;
+                    }
+                  },
+                  &quot;additionalProperties&quot;: true
+                }
+              }
+            }
+          },
+          &quot;503&quot;: {
+            &quot;description&quot;: &quot;503&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;object&quot;,
+                  &quot;properties&quot;: {
+                    &quot;error&quot;: {
+                      &quot;type&quot;: &quot;string&quot;
+                    }
+                  },
+                  &quot;additionalProperties&quot;: true
+                }
+              }
+            }
+          }
+        },
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;id&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;enum&quot;: [
+                &quot;oslo&quot;,
+                &quot;helsinki&quot;,
+                &quot;lisbon&quot;
+              ]
+            }
+          }
+        ]
+      }
+    },
+    &quot;/health&quot;: {
+      &quot;get&quot;: {
+        &quot;operationId&quot;: &quot;dashboard_get_health&quot;,
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;200&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;object&quot;,
+                  &quot;properties&quot;: {
+                    &quot;database&quot;: {
+                      &quot;const&quot;: &quot;READY&quot;
+                    },
+                    &quot;kafka&quot;: {
+                      &quot;const&quot;: &quot;READY&quot;
+                    }
+                  }
+                }
+              }
+            }
+          },
+          &quot;500&quot;: {
+            &quot;description&quot;: &quot;500&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;object&quot;,
+                  &quot;properties&quot;: {
+                    &quot;error&quot;: {
+                      &quot;type&quot;: &quot;string&quot;
+                    }
+                  },
+                  &quot;additionalProperties&quot;: true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    &quot;/openapi.json&quot;: {
+      &quot;get&quot;: {
+        &quot;operationId&quot;: &quot;dashboard_get_openapi.json&quot;,
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;200&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;object&quot;,
+                  &quot;additionalProperties&quot;: true
+                }
+              }
+            }
+          },
+          &quot;500&quot;: {
+            &quot;description&quot;: &quot;500&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;object&quot;,
+                  &quot;properties&quot;: {
+                    &quot;error&quot;: {
+                      &quot;type&quot;: &quot;string&quot;
+                    }
+                  },
+                  &quot;additionalProperties&quot;: true
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre></details><details class="source-excerpt"><summary>dashboard:contracts/events.schema.json @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 1–173</summary><pre id="clew-source-2-0" tabindex="0" role="region" aria-label="contracts/events.schema.json — 1–173"><code>{
+  &quot;$schema&quot;: &quot;https://json-schema.org/draft/2020-12/schema&quot;,
+  &quot;oneOf&quot;: [
+    {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;required&quot;: [
+        &quot;id&quot;,
+        &quot;type&quot;,
+        &quot;version&quot;,
+        &quot;place&quot;
+      ],
+      &quot;additionalProperties&quot;: false,
+      &quot;properties&quot;: {
+        &quot;id&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;minLength&quot;: 1
+        },
+        &quot;type&quot;: {
+          &quot;const&quot;: &quot;place.requested&quot;
+        },
+        &quot;version&quot;: {
+          &quot;const&quot;: 1
+        },
+        &quot;place&quot;: {
+          &quot;type&quot;: &quot;object&quot;,
+          &quot;required&quot;: [
+            &quot;id&quot;,
+            &quot;name&quot;,
+            &quot;latitude&quot;,
+            &quot;longitude&quot;
+          ],
+          &quot;properties&quot;: {
+            &quot;id&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;enum&quot;: [
+                &quot;oslo&quot;,
+                &quot;helsinki&quot;,
+                &quot;lisbon&quot;
+              ]
+            },
+            &quot;name&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;latitude&quot;: {
+              &quot;type&quot;: &quot;number&quot;,
+              &quot;minimum&quot;: -90,
+              &quot;maximum&quot;: 90
+            },
+            &quot;longitude&quot;: {
+              &quot;type&quot;: &quot;number&quot;,
+              &quot;minimum&quot;: -180,
+              &quot;maximum&quot;: 180
+            }
+          }
+        }
+      }
+    },
+    {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;required&quot;: [
+        &quot;id&quot;,
+        &quot;type&quot;,
+        &quot;version&quot;,
+        &quot;place&quot;,
+        &quot;forecast&quot;
+      ],
+      &quot;additionalProperties&quot;: false,
+      &quot;properties&quot;: {
+        &quot;id&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;minLength&quot;: 1
+        },
+        &quot;type&quot;: {
+          &quot;const&quot;: &quot;forecast.updated&quot;
+        },
+        &quot;version&quot;: {
+          &quot;const&quot;: 1
+        },
+        &quot;place&quot;: {
+          &quot;type&quot;: &quot;object&quot;,
+          &quot;required&quot;: [
+            &quot;id&quot;,
+            &quot;name&quot;,
+            &quot;latitude&quot;,
+            &quot;longitude&quot;
+          ],
+          &quot;properties&quot;: {
+            &quot;id&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;enum&quot;: [
+                &quot;oslo&quot;,
+                &quot;helsinki&quot;,
+                &quot;lisbon&quot;
+              ]
+            },
+            &quot;name&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;latitude&quot;: {
+              &quot;type&quot;: &quot;number&quot;,
+              &quot;minimum&quot;: -90,
+              &quot;maximum&quot;: 90
+            },
+            &quot;longitude&quot;: {
+              &quot;type&quot;: &quot;number&quot;,
+              &quot;minimum&quot;: -180,
+              &quot;maximum&quot;: 180
+            }
+          }
+        },
+        &quot;forecast&quot;: {
+          &quot;type&quot;: &quot;object&quot;,
+          &quot;required&quot;: [
+            &quot;updatedAt&quot;,
+            &quot;fetchedAt&quot;,
+            &quot;mode&quot;,
+            &quot;periods&quot;
+          ],
+          &quot;properties&quot;: {
+            &quot;updatedAt&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;format&quot;: &quot;date-time&quot;
+            },
+            &quot;fetchedAt&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;format&quot;: &quot;date-time&quot;
+            },
+            &quot;mode&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;enum&quot;: [
+                &quot;fixture&quot;,
+                &quot;live&quot;
+              ]
+            },
+            &quot;periods&quot;: {
+              &quot;type&quot;: &quot;array&quot;,
+              &quot;minItems&quot;: 1,
+              &quot;maxItems&quot;: 6,
+              &quot;items&quot;: {
+                &quot;type&quot;: &quot;object&quot;,
+                &quot;required&quot;: [
+                  &quot;time&quot;,
+                  &quot;temperatureC&quot;,
+                  &quot;precipitationMm&quot;,
+                  &quot;symbol&quot;
+                ],
+                &quot;properties&quot;: {
+                  &quot;time&quot;: {
+                    &quot;type&quot;: &quot;string&quot;,
+                    &quot;format&quot;: &quot;date-time&quot;
+                  },
+                  &quot;temperatureC&quot;: {
+                    &quot;type&quot;: &quot;number&quot;
+                  },
+                  &quot;precipitationMm&quot;: {
+                    &quot;type&quot;: [
+                      &quot;number&quot;,
+                      &quot;null&quot;
+                    ],
+                    &quot;minimum&quot;: 0
+                  },
+                  &quot;symbol&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
+</code></pre></details><details class="source-excerpt"><summary>dashboard:database/init.sql @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 1–16</summary><pre id="clew-source-3-0" tabindex="0" role="region" aria-label="database/init.sql — 1–16"><code>CREATE DATABASE places;
+CREATE DATABASE forecasts;
+CREATE DATABASE dashboard;
+\connect places
+CREATE TABLE places (id text PRIMARY KEY, name text NOT NULL, latitude double precision NOT NULL, longitude double precision NOT NULL);
+CREATE TABLE request_outbox (id uuid PRIMARY KEY, payload jsonb NOT NULL, published boolean NOT NULL DEFAULT false, created_at timestamptz NOT NULL DEFAULT now());
+\connect forecasts
+CREATE TABLE places (id text PRIMARY KEY, name text NOT NULL, latitude double precision NOT NULL, longitude double precision NOT NULL);
+CREATE TABLE forecasts (place_id text PRIMARY KEY, updated_at timestamptz NOT NULL, payload jsonb NOT NULL, expires_at timestamptz NOT NULL, last_modified text);
+CREATE TABLE inbox (event_id text PRIMARY KEY, consumed_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE forecast_outbox (id text PRIMARY KEY, payload jsonb NOT NULL, published boolean NOT NULL DEFAULT false);
+CREATE TABLE rejected_messages (topic text NOT NULL, partition_id integer NOT NULL, offset_id bigint NOT NULL, reason text NOT NULL, PRIMARY KEY(topic,partition_id,offset_id));
+\connect dashboard
+CREATE TABLE weather_cards (place_id text PRIMARY KEY, name text NOT NULL, latitude double precision NOT NULL, longitude double precision NOT NULL, updated_at timestamptz, forecast jsonb);
+CREATE TABLE inbox (event_id text PRIMARY KEY, consumed_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE rejected_messages (topic text NOT NULL, partition_id integer NOT NULL, offset_id bigint NOT NULL, reason text NOT NULL, PRIMARY KEY(topic,partition_id,offset_id));
+</code></pre></details><details class="source-excerpt"><summary>dashboard:exercises/unchecked-place-forecast.ts @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 1–24</summary><pre id="clew-source-4-0" tabindex="0" role="region" aria-label="exercises/unchecked-place-forecast.ts — 1–24"><code>type Place = { id: string; name: string; latitude: number; longitude: number }
+type Period = { time: string; temperatureC: number; precipitationMm: number | null; symbol: string }
+type Forecast = { updatedAt: string; fetchedAt: string; mode: 'fixture' | 'live'; periods: Period[] }
+type Event = { id: string; type: string; version: number; place: Place; forecast?: Forecast }
+
+export function validateEvent(value: unknown, topic: string): Event {
+  if (!value || typeof value !== 'object') throw new Error('INVALID_EVENT')
+  const event = value as Event
+  if (typeof event.id !== 'string' || event.version !== 1 || !event.place || typeof event.place.id !== 'string'
+      || !['oslo', 'helsinki', 'lisbon'].includes(event.place.id) || typeof event.place.name !== 'string'
+      || !Number.isFinite(event.place.latitude) || !Number.isFinite(event.place.longitude)) throw new Error('INVALID_EVENT')
+  if (topic === 'weather.forecast-updated') {
+    if (event.type !== 'forecast.updated' || !event.forecast || !Number.isFinite(Date.parse(event.forecast.updatedAt))
+        || !Number.isFinite(Date.parse(event.forecast.fetchedAt)) || !['fixture', 'live'].includes(event.forecast.mode)
+        || !Array.isArray(event.forecast.periods) || event.forecast.periods.length &lt; 1 || event.forecast.periods.length > 6) throw new Error('INVALID_FORECAST')
+    for (const period of event.forecast.periods) {
+      if (!Number.isFinite(Date.parse(period.time)) || !Number.isFinite(period.temperatureC)
+          || !(period.precipitationMm === null || (Number.isFinite(period.precipitationMm) &amp;&amp; period.precipitationMm >= 0))
+          || typeof period.symbol !== 'string') throw new Error('INVALID_PERIOD')
+    }
+  } else if (event.type !== 'place.requested') throw new Error('INVALID_PLACE_EVENT')
+  return event
+}
+
+</code></pre></details><details class="source-excerpt"><summary>dashboard:services/dashboard/public/index.html @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 1–11</summary><pre id="clew-source-5-0" tabindex="0" role="region" aria-label="services/dashboard/public/index.html — 1–11"><code>&lt;!doctype html>&lt;html lang=&quot;en&quot;>&lt;meta charset=&quot;utf-8&quot;>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>&lt;title>Weather&lt;/title>
+&lt;style>body{font:16px system-ui,sans-serif;color:#193544;background:#f5f8fb;margin:0}main{max-width:980px;margin:auto;padding:32px 20px}h1{font-size:44px;margin-bottom:8px}button{font:inherit;background:#fff;border:1px solid #b8ccd6;border-radius:9px;padding:10px 16px;cursor:pointer}button:focus-visible{outline:3px solid #167fad;outline-offset:3px}nav{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}article{background:white;border:1px solid #dce5eb;border-radius:18px;padding:24px}h2{margin-top:0}.temperature{font-size:42px;margin:16px 0}.periods{display:flex;gap:14px;flex-wrap:wrap}.periods span{display:block;font-size:13px;color:#58707f}.badge{font-size:12px;background:#eaf2f7;padding:5px 9px;border-radius:8px}.rain{color:#106299;font-weight:650}footer{font-size:13px;color:#58707f;margin-top:34px}#status{min-height:24px}a{color:#106299}&lt;/style>
+&lt;main>&lt;h1>Weather&lt;/h1>&lt;nav aria-label=&quot;Add a city&quot;>&lt;button data-city=&quot;oslo&quot;>Oslo +&lt;/button>&lt;button data-city=&quot;helsinki&quot;>Helsinki +&lt;/button>&lt;button data-city=&quot;lisbon&quot;>Lisbon +&lt;/button>&lt;/nav>&lt;p id=&quot;status&quot; role=&quot;status&quot;>&lt;/p>&lt;section class=&quot;cards&quot; id=&quot;cards&quot; aria-live=&quot;polite&quot;>&lt;/section>&lt;footer>Weather data: &lt;a href=&quot;https://www.met.no/&quot;>MET Norway&lt;/a>, &lt;a href=&quot;https://creativecommons.org/licenses/by/4.0/&quot;>CC BY 4.0&lt;/a>. &lt;span id=&quot;mode&quot;>&lt;/span>&lt;/footer>&lt;/main>
+&lt;script>
+const status=document.querySelector('#status');
+let renderedRows=null;
+function temperature(value){return value===null?'—':`${value}°C`}
+async function update(){try{const response=await fetch('/api/weather');if(!response.ok)throw Error('READ_FAILED');const rows=await response.json();const cards=document.querySelector('#cards');const serialized=JSON.stringify(rows);if(serialized!==renderedRows){const focusedId=cards.contains(document.activeElement)?document.activeElement.dataset.refresh:null;cards.replaceChildren();for(const row of rows){const card=document.createElement('article');const title=document.createElement('h2');title.textContent=row.name;card.append(title);if(!row.forecast){const pending=document.createElement('p');pending.textContent='Forecast pending';card.append(pending)}else{const forecast=row.forecast;const badge=document.createElement('span');badge.className='badge';badge.textContent=forecast.mode==='fixture'?'Recorded fixture':'Live provider data';card.append(badge);const current=document.createElement('p');current.className='temperature';current.textContent=temperature(forecast.periods[0].temperatureC);card.append(current);const periods=document.createElement('div');periods.className='periods';for(const p of forecast.periods){const item=document.createElement('div');const time=document.createElement('span');time.textContent=new Date(p.time).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});const temp=document.createElement('strong');temp.textContent=temperature(p.temperatureC);const rain=document.createElement('span');rain.textContent=p.precipitationMm===null?'Rain unknown':`${p.precipitationMm} mm`;if(p.precipitationMm!==null&amp;&amp;p.precipitationMm>=0.2)rain.className='rain';item.append(time,temp,rain);periods.append(item)}card.append(periods);const updated=document.createElement('p');updated.style.fontSize='12px';updated.textContent=`Model updated ${new Date(forecast.updatedAt).toLocaleString()}`;card.append(updated)}const refresh=document.createElement('button');refresh.textContent='Refresh';refresh.dataset.refresh=row.id;refresh.onclick=async()=>{try{const r=await fetch(`/api/places/${encodeURIComponent(row.id)}/refresh`,{method:'POST'});if(!r.ok)throw Error('REFRESH_FAILED');status.textContent='Refresh queued'}catch{status.textContent='Refresh unavailable; retry shortly'}};card.append(refresh);cards.append(card)}renderedRows=serialized;if(focusedId){const replacement=Array.from(cards.querySelectorAll('[data-refresh]')).find(button=>button.dataset.refresh===focusedId);replacement?.focus()}}status.textContent=!rows.length?'Choose a city':rows.some(row=>!row.forecast)?'Forecast pending':'';}catch{status.textContent='Dashboard unavailable; retrying'}}
+for(const button of document.querySelectorAll('[data-city]'))button.onclick=async()=>{button.disabled=true;try{const response=await fetch('/api/places',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({cityId:button.dataset.city})});if(!response.ok)throw Error('SAVE_FAILED');status.textContent='City saved; forecast pending';await update()}catch{status.textContent='City unavailable; retry shortly'}finally{button.disabled=false}};
+update();setInterval(update,3000);
+&lt;/script>&lt;/html>
+</code></pre></details><details class="source-excerpt"><summary>dashboard:services/dashboard/src/events.ts @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 1–30</summary><pre id="clew-source-6-0" tabindex="0" role="region" aria-label="services/dashboard/src/events.ts — 1–30"><code>export type Place = { id: string; name: string; latitude: number; longitude: number }
+export type Period = { time: string; temperatureC: number; precipitationMm: number | null; symbol: string }
+export type Forecast = { updatedAt: string; fetchedAt: string; mode: 'fixture' | 'live'; periods: Period[] }
+export type Event = { id: string; type: string; version: number; place: Place; forecast?: Forecast }
+
+export function isTimestamp(value: unknown): value is string {
+  return typeof value === 'string' &amp;&amp; /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/.test(value) &amp;&amp; Number.isFinite(Date.parse(value))
+}
+
+export function validateEvent(value: unknown, topic: string): Event {
+  if (!value || typeof value !== 'object') throw new Error('INVALID_EVENT')
+  const event = value as Event
+  if (typeof event.id !== 'string' || event.version !== 1 || !event.place || typeof event.place.id !== 'string'
+      || !['oslo', 'helsinki', 'lisbon'].includes(event.place.id) || typeof event.place.name !== 'string'
+      || !Number.isFinite(event.place.latitude) || !Number.isFinite(event.place.longitude)) throw new Error('INVALID_EVENT')
+  if (topic === 'weather.forecast-updated') {
+    if (event.type !== 'forecast.updated' || !event.forecast || !isTimestamp(event.forecast.updatedAt)
+        || !isTimestamp(event.forecast.fetchedAt) || !['fixture', 'live'].includes(event.forecast.mode)
+        || !Array.isArray(event.forecast.periods) || event.forecast.periods.length &lt; 1 || event.forecast.periods.length > 6) throw new Error('INVALID_FORECAST')
+    for (const period of event.forecast.periods) {
+      if (!isTimestamp(period.time) || !Number.isFinite(period.temperatureC)
+          || !(period.precipitationMm === null || (Number.isFinite(period.precipitationMm) &amp;&amp; period.precipitationMm >= 0))
+          || typeof period.symbol !== 'string') throw new Error('INVALID_PERIOD')
+    }
+  } else if (topic === 'weather.place-requested') {
+    if (event.type !== 'place.requested' || event.forecast !== undefined) throw new Error('INVALID_PLACE_EVENT')
+  } else throw new Error('UNKNOWN_TOPIC')
+  return event
+}
+
+</code></pre></details><details class="source-excerpt"><summary>dashboard:services/dashboard/src/main.ts @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 1–113</summary><pre id="clew-source-7-0" tabindex="0" role="region" aria-label="services/dashboard/src/main.ts — 1–113"><code>import Fastify, { type FastifyRequest, type FastifyReply } from 'fastify'
+import pg from 'pg'
+import { Kafka, type EachMessagePayload } from 'kafkajs'
+import { readFile } from 'node:fs/promises'
+
+const app = Fastify({ logger: true })
+const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL })
+const kafka = new Kafka({ clientId: 'weather-dashboard', brokers: [process.env.KAFKA_BOOTSTRAP ?? 'kafka:9092'] })
+const consumer = kafka.consumer({ groupId: 'weather-dashboard-v1' })
+const placesUrl = process.env.PLACES_URL ?? 'http://places:8080'
+let consumerReady = false
+
+import { validateEvent, type Event } from './events.js'
+
+export async function applyEvent(event: Event): Promise&lt;string> {
   const client = await pool.connect()
   try {
     await client.query('BEGIN')
@@ -343,7 +1154,9 @@ body .route-heading .http-route-paths,body .route-heading .http-route-paths code
   } finally {
     client.release()
   }
-}</code></pre></details><details class="source-excerpt"><summary>dashboard:services/dashboard/src/main.ts @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 47–60</summary><pre id="clew-source-0-1" tabindex="0" role="region" aria-label="services/dashboard/src/main.ts — 47–60"><code>async function consumeMessage(payload: EachMessagePayload): Promise&lt;void> {
+}
+
+export async function consumeMessage(payload: EachMessagePayload): Promise&lt;void> {
   const { topic, partition, message } = payload
   let event
   try {
@@ -356,24 +1169,46 @@ body .route-heading .http-route-paths,body .route-heading .http-route-paths code
   }
   await applyEvent(event)
   await consumer.commitOffsets([{ topic, partition, offset: (BigInt(message.offset) + 1n).toString() }])
-}</code></pre></details><details class="source-excerpt"><summary>dashboard:services/dashboard/src/main.ts @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 62–65</summary><pre id="clew-source-0-2" tabindex="0" role="region" aria-label="services/dashboard/src/main.ts — 62–65"><code>async function getWeather(): Promise&lt;unknown[]> {
+}
+
+export async function getWeather(): Promise&lt;unknown[]> {
   const result = await pool.query('SELECT place_id AS id,name,latitude,longitude,forecast FROM weather_cards ORDER BY name')
   return result.rows
-}</code></pre></details><details class="source-excerpt"><summary>dashboard:services/dashboard/src/main.ts @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 67–74</summary><pre id="clew-source-0-3" tabindex="0" role="region" aria-label="services/dashboard/src/main.ts — 67–74"><code>async function savePlace(request: FastifyRequest, reply: FastifyReply): Promise&lt;void> {
+}
+
+export async function savePlace(request: FastifyRequest, reply: FastifyReply): Promise&lt;void> {
   try {
     const response = await fetch(`${placesUrl}/places`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(request.body), signal: AbortSignal.timeout(10000) })
     reply.code(response.status).send(await response.json())
   } catch {
     reply.code(503).send({ error: 'PLACES_UNAVAILABLE' })
   }
-}</code></pre></details><details class="source-excerpt"><summary>dashboard:services/dashboard/src/main.ts @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 76–83</summary><pre id="clew-source-0-4" tabindex="0" role="region" aria-label="services/dashboard/src/main.ts — 76–83"><code>async function requestRefresh(request: FastifyRequest&lt;{ Params: { id: string } }>, reply: FastifyReply): Promise&lt;void> {
+}
+
+export async function requestRefresh(request: FastifyRequest&lt;{ Params: { id: string } }>, reply: FastifyReply): Promise&lt;void> {
   try {
     const response = await fetch(`${placesUrl}/places/${encodeURIComponent(request.params.id)}/refresh`, { method: 'POST', signal: AbortSignal.timeout(10000) })
     reply.code(response.status).send(await response.json())
   } catch {
     reply.code(503).send({ error: 'PLACES_UNAVAILABLE' })
   }
-}</code></pre></details><details class="source-excerpt"><summary>dashboard:services/dashboard/src/main.ts @ c9a4283cb5bbe2409b95561aca4e751a71255ff9 · sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535 — 99–111</summary><pre id="clew-source-0-5" tabindex="0" role="region" aria-label="services/dashboard/src/main.ts — 99–111"><code>async function start(): Promise&lt;void> {
+}
+
+export async function getHealth(): Promise&lt;{ database: string; kafka: string }> {
+  await pool.query('SELECT 1')
+  if (!consumerReady) throw new Error('KAFKA_NOT_READY')
+  return { database: 'READY', kafka: 'READY' }
+}
+
+export async function getOpenApi(): Promise&lt;unknown> {
+  return JSON.parse(await readFile('/app/contracts/dashboard.openapi.json', 'utf8'))
+}
+
+export async function getHome(_request: FastifyRequest, reply: import('fastify').FastifyReply): Promise&lt;void> {
+  reply.type('text/html').send(await readFile('/app/services/dashboard/public/index.html', 'utf8'))
+}
+
+export async function start(): Promise&lt;void> {
   await consumer.connect()
   await consumer.subscribe({ topics: ['weather.place-requested', 'weather.forecast-updated'], fromBeginning: true })
   await consumer.run({ autoCommit: false, eachMessage: consumeMessage })
@@ -385,7 +1220,10 @@ body .route-heading .http-route-paths,body .route-heading .http-route-paths code
   app.get('/openapi.json', getOpenApi)
   app.get('/', getHome)
   await app.listen({ port: Number(process.env.PORT ?? 8080), host: '0.0.0.0' })
-}</code></pre></details></details></section><footer class="markdown-footer"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 170">
+}
+
+await start()
+</code></pre></details></details></section><footer class="markdown-footer"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 170">
 <path d="M0,0 L10,0 L12,2 L14,7 L18,9 L19,15 L24,17 L24,22 L37,22 L37,17 L43,14 L44,8 L49,6 L50,1 L52,0 L62,0 L63,1 L63,7 L68,8 L70,20 L71,21 L71,44 L77,44 L78,46 L79,70 L82,69 L85,71 L85,76 L79,78 L79,82 L84,85 L83,90 L78,89 L74,88 L71,95 L65,97 L63,100 L58,101 L57,116 L52,121 L50,129 L48,131 L45,131 L45,156 L41,160 L23,160 L20,158 L20,153 L18,153 L18,159 L17,160 L-6,160 L-11,158 L-14,160 L-49,160 L-50,159 L-50,153 L-55,153 L-57,150 L-57,144 L-62,140 L-62,134 L-67,133 L-68,131 L-68,122 L-74,119 L-75,118 L-75,64 L-73,62 L-67,62 L-68,56 L-66,52 L-61,51 L-60,46 L-47,46 L-46,50 L-41,52 L-42,59 L-40,59 L-39,56 L-28,53 L-23,53 L-21,39 L-17,36 L-14,36 L-14,23 L-12,20 L-8,19 L-8,11 L-6,8 L-2,8 L-2,2 Z " fill="#D5C0AF" transform="translate(80,5)"/>
 <path d="M0,0 L10,0 L10,8 L3,8 L2,11 L1,25 L-4,25 L-4,35 L-6,48 L-9,50 L-11,55 L-13,76 L-14,85 L-5,87 L-6,93 L1,93 L3,94 L2,99 L-9,98 L-14,92 L-15,87 L-18,87 L-18,90 L-23,89 L-24,88 L-24,82 L-21,80 L-22,77 L-28,76 L-28,69 L-22,66 L-22,64 L-37,62 L-37,68 L-38,69 L-45,69 L-47,78 L-48,79 L-49,91 L-52,91 L-52,96 L-45,96 L-42,105 L-37,106 L-37,117 L-39,125 L-46,127 L-47,134 L-49,140 L-46,140 L-45,148 L-25,149 L-25,143 L-32,142 L-34,141 L-34,135 L-31,132 L-23,128 L-22,126 L-23,116 L-21,114 L-15,114 L-14,121 L-11,123 L-11,131 L-8,131 L-8,140 L-5,140 L-3,150 L11,150 L11,143 L6,142 L6,132 L12,132 L15,135 L15,141 L23,141 L24,148 L36,149 L36,130 L37,129 L42,129 L43,120 L45,117 L49,117 L48,100 L50,98 L55,97 L57,92 L63,92 L63,86 L64,85 L69,85 L69,47 L64,47 L64,45 L61,44 L60,10 L54,11 L53,15 L51,15 L50,23 L46,25 L45,31 L19,30 L17,24 L12,23 L11,22 L11,9 L16,9 L17,10 L17,18 L22,18 L23,23 L40,23 L40,18 L45,18 L45,9 L50,7 L52,0 L62,0 L63,1 L63,7 L68,8 L70,20 L71,21 L71,44 L77,44 L78,46 L79,70 L82,69 L85,71 L85,76 L79,78 L79,82 L84,85 L83,90 L78,89 L74,88 L71,95 L65,97 L63,100 L58,101 L57,116 L52,121 L50,129 L48,131 L45,131 L45,156 L41,160 L23,160 L20,158 L20,153 L18,153 L18,159 L17,160 L-6,160 L-11,158 L-14,160 L-49,160 L-50,159 L-50,153 L-55,153 L-57,150 L-57,144 L-62,140 L-62,134 L-67,133 L-68,131 L-68,122 L-74,119 L-75,118 L-75,64 L-73,62 L-67,62 L-68,56 L-66,52 L-61,51 L-60,46 L-47,46 L-46,50 L-41,52 L-42,59 L-40,59 L-39,56 L-28,53 L-23,53 L-21,39 L-17,36 L-14,36 L-14,23 L-12,20 L-8,19 L-8,11 L-6,8 L-2,8 L-2,2 Z " fill="#8D9DA3" transform="translate(80,5)"/>
 <path d="M0,0 L15,1 L15,5 L10,7 L9,14 L15,14 L17,18 L13,20 L15,27 L20,28 L20,32 L25,33 L25,38 L35,38 L39,39 L41,38 L81,38 L83,44 L83,52 L82,54 L79,54 L78,65 L77,65 L76,61 L75,65 L71,61 L70,67 L71,67 L71,85 L63,85 L62,75 L64,73 L65,67 L58,68 L57,71 L51,71 L46,68 L46,62 L43,62 L42,81 L48,81 L48,88 L34,88 L32,78 L29,78 L29,69 L26,69 L25,61 L22,59 L22,52 L15,54 L16,65 L10,69 L4,71 L3,79 L12,81 L12,87 L-8,87 L-9,86 L-9,78 L-12,78 L-12,73 L-11,72 L-10,65 L-8,63 L-2,63 L-1,55 L-1,44 L-5,43 L-8,35 L-15,34 L-15,29 L-12,29 L-12,17 L-8,7 L-1,6 Z " fill="#F3EBDC" transform="translate(43,67)"/>

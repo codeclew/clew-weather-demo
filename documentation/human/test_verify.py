@@ -6,6 +6,11 @@ import json
 from pathlib import Path
 import shutil
 import tempfile
+import hashlib
+import io
+import tarfile
+import re
+import subprocess
 import unittest
 from unittest.mock import patch
 
@@ -122,6 +127,122 @@ class HumanPublicationTest(unittest.TestCase):
                 {'draft': False, 'prerelease': False, 'assets': [{'name': runtime['package'], 'digest': 'sha256:' + runtime['packageSha256']}]},
                 'repos/codeclew/codeclew/commits/v' + runtime['version']: {'sha': runtime['sourceRevision']},
                 'repos/codeclew/clew-weather-demo/commits/' + 'd' * 40: {'sha': 'd' * 40}}
+
+    def use_assisted(self):
+        archive = self.history()
+        (archive / 'old-entry.html').write_text('<!doctype html><h1 id="handler">Old entry</h1>')
+        old = json.loads((archive / 'publication.json').read_text())
+        old['filesSha256']['old-entry.html'] = V.digest(archive / 'old-entry.html')
+        (archive / 'publication.json').write_text(json.dumps(old))
+        self.use_treatment()
+        files = {'SKILL.md': 'sha256:' + '5' * 64}
+        self.policy['schema'] = 'weather-human-publication/1.2'
+        self.policy['treatment'] = {
+            'kind': 'assisted-retained-export', 'repository': V.PRODUCT,
+            'runtimeVersion': self.policy['acquisition']['version'],
+            'authoring': {'helperFilesSha256': files, 'helperDigest': V.helper_digest(files)},
+            'assistance': {'targetedAuthorRepairs': True, 'rootDirectedNormalization': True, 'autonomousPass': False}}
+        self.policy['validation'] = {'kind': 'official-release', 'version': '0.1.1', 'sourceRevision': '6' * 40,
+            'sourceTree': '7' * 40, 'package': 'codeclew-macos-arm64.tar.gz', 'packageSha256': '8' * 64,
+            'skillDigest': 'sha256:' + '9' * 64}
+        self.policy['legacyRedirects'] = {'archive': 'previous', 'publicationSha256': V.digest(archive / 'publication.json'),
+            'exportDigest': V.export_digest(old['filesSha256']), 'files': {'old-entry.html': 'old-entry.html'}}
+        self.save()
+
+    def test_legacy_redirect_staging_is_separate_from_canonical_bytes_and_keeps_query_fragment(self):
+        self.use_assisted(); output = self.root / 'redirect-output'; output.mkdir()
+        C.stage_human(output)
+        V.verify(self.root, exported=output / 'human', required=True)
+        self.assertEqual((output / 'human/index.html').read_bytes(), (self.site / 'index.html').read_bytes())
+        stub = output / 'human/old-entry.html'; raw = stub.read_bytes()
+        script = re.search(r'<script>(.*?)</script>', raw.decode()).group(1)
+        evaluator = """import vm from 'node:vm';import{readFileSync}from'node:fs';
+const [script,search,hash]=JSON.parse(readFileSync(0,'utf8'));let result;
+vm.runInNewContext(script,{location:{search,hash,replace:value=>result=value}});console.log(result);"""
+        for search, fragment in [('', ''), ('?from=old', '#handler'), ('?next=https://example.invalid/&x=%23', '#part%20two')]:
+            result = subprocess.run(['node', '--input-type=module', '-e', evaluator],
+                input=json.dumps([script, search, fragment]), check=True, capture_output=True, text=True)
+            self.assertEqual(result.stdout.strip(), '../human-history/previous/old-entry.html' + search + fragment)
+        stub.write_bytes(raw + b'changed')
+        with self.assertRaisesRegex(ValueError, 'legacy redirect bytes'): V.verify(self.root, exported=output / 'human')
+
+    def test_legacy_map_archive_policy_and_payload_drift_refuse(self):
+        self.use_assisted(); pristine = copy.deepcopy(self.policy)
+        for change in [lambda p: p['legacyRedirects'].update(files={}),
+                       lambda p: p['legacyRedirects']['files'].update({'old-entry.html': 'https://example.invalid/'}),
+                       lambda p: p['legacyRedirects'].update(archive='../outside'),
+                       lambda p: p['legacyRedirects'].update(publicationSha256='f' * 64),
+                       lambda p: p['legacyRedirects'].update(exportDigest='sha256:' + 'f' * 64)]:
+            self.policy = copy.deepcopy(pristine); change(self.policy); self.save()
+            with self.assertRaises(ValueError): V.verify(self.root)
+        self.policy = pristine; self.save()
+        archive = self.folder / 'history/previous'
+        (archive / 'old-entry.html').unlink()
+        with self.assertRaises(ValueError): V.verify(self.root)
+
+    def assisted_responses(self):
+        responses = self.official_responses()
+        v = self.policy['validation']
+        responses['repos/codeclew/codeclew/releases/tags/v' + v['version']] = {
+            'draft': False, 'prerelease': False, 'assets': [{'name': v['package'], 'digest': 'sha256:' + v['packageSha256']}]}
+        responses['repos/codeclew/codeclew/commits/v' + v['version']] = {
+            'sha': v['sourceRevision'], 'commit': {'tree': {'sha': v['sourceTree']}}}
+        return responses
+
+    def test_assisted_export_keeps_author_acquisition_and_final_validation_distinct(self):
+        self.use_assisted(); responses = self.assisted_responses()
+        with patch.object(V.subprocess, 'check_output', side_effect=lambda argv, **kw: json.dumps(responses[argv[2]])), \
+             patch.object(V, 'release_skill_digest', return_value=self.policy['validation']['skillDigest']) as archive:
+            self.assertEqual(V.verify(self.root, official=True), self.policy)
+            archive.assert_called_once_with(self.policy['validation'])
+        self.assertEqual(self.policy['capture']['producerVersion'], '0.0.9')
+        self.assertEqual(self.policy['treatment']['runtimeVersion'], '0.1.0')
+        self.assertEqual(self.policy['validation']['version'], '0.1.1')
+
+    def test_assisted_helper_runtime_and_assistance_mutations_refuse(self):
+        self.use_assisted(); pristine = copy.deepcopy(self.policy)
+        for mutate in [lambda p: p['treatment']['authoring']['helperFilesSha256'].update({'SKILL.md': 'sha256:' + 'f' * 64}),
+                       lambda p: p['treatment'].update(runtimeVersion='0.1.1'),
+                       lambda p: p['treatment']['assistance'].update(autonomousPass=True),
+                       lambda p: p['treatment']['assistance'].update(targetedAuthorRepairs=1),
+                       lambda p: p['treatment'].update(localRoot='/private/fixture'),
+                       lambda p: p['validation'].update(packageSha256=None)]:
+            with self.subTest(mutation=mutate):
+                self.policy = copy.deepcopy(pristine); mutate(self.policy); self.save()
+                with self.assertRaises(ValueError): V.verify(self.root)
+
+    def test_assisted_official_version_tree_archive_and_skill_mismatches_refuse(self):
+        self.use_assisted(); pristine = self.assisted_responses()
+        for key, mutate in [
+            ('repos/codeclew/codeclew/releases/tags/v0.1.1', lambda p: p.update(draft=True)),
+            ('repos/codeclew/codeclew/releases/tags/v0.1.1', lambda p: p['assets'][0].update(digest='sha256:' + 'f' * 64)),
+            ('repos/codeclew/codeclew/commits/v0.1.1', lambda p: p.update(sha='f' * 40)),
+            ('repos/codeclew/codeclew/commits/v0.1.1', lambda p: p['commit']['tree'].update(sha='f' * 40))]:
+            responses = copy.deepcopy(pristine); mutate(responses[key])
+            with self.subTest(key=key), patch.object(V.subprocess, 'check_output', side_effect=lambda argv, **kw: json.dumps(responses[argv[2]])):
+                with self.assertRaises(ValueError): V.verify(self.root, official=True)
+        with patch.object(V.subprocess, 'check_output', side_effect=lambda argv, **kw: json.dumps(pristine[argv[2]])), \
+             patch.object(V, 'release_skill_digest', return_value='sha256:' + 'f' * 64):
+            with self.assertRaisesRegex(ValueError, 'validation skill digest differs'): V.verify(self.root, official=True)
+
+    def test_validation_skill_identity_uses_actual_verified_archive_bytes_and_modes(self):
+        archive = self.root / 'fixture.tar.gz'
+        rows = [('SKILL.md', b'# Fixture\n', 0o644), ('scripts/entry.py', b'print(1)\n', 0o755)]
+        with tarfile.open(archive, 'w:gz') as bundle:
+            for name, data, mode in rows:
+                member = tarfile.TarInfo('codeclew/source/skills/codeclew/' + name)
+                member.size = len(data); member.mode = mode; bundle.addfile(member, io.BytesIO(data))
+        h = hashlib.sha256()
+        for name, data, mode in rows:
+            h.update(name.encode() + b'\0' + str(mode).encode() + b'\0' + data + b'\0')
+        identity = {'version': '0.1.1', 'package': 'codeclew-macos-arm64.tar.gz', 'packageSha256': V.digest(archive)}
+        def download(argv, **kwargs):
+            shutil.copy2(archive, Path(argv[argv.index('--dir') + 1]) / identity['package'])
+        with patch.object(V.subprocess, 'run', side_effect=download):
+            self.assertEqual(V.release_skill_digest(identity), 'sha256:' + h.hexdigest())
+            identity['packageSha256'] = 'f' * 64
+            with self.assertRaisesRegex(ValueError, 'Downloaded validation package digest differs'):
+                V.release_skill_digest(identity)
 
     def test_treatment_keeps_historical_capture_official_runtime_and_frozen_export_separate(self):
         self.use_treatment()

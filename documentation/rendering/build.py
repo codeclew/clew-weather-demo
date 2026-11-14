@@ -429,6 +429,8 @@ def stage_human(output):
             raise ValueError('Human destination already exists in frozen site')
         shutil.copytree(ROOT / 'documentation/human/site', output / 'human')
         shutil.copy2(ROOT / 'documentation/human/publication.json', output / 'human/publication.json')
+        for name, raw in HUMAN['legacy_redirects'](ROOT, human).items():
+            (output / 'human' / name).write_bytes(raw)
     for archive in archives:
         shutil.copytree(archive, output / 'human-history' / archive.name)
     return human

@@ -21,9 +21,9 @@ def render(root, human):
     entry = BASE + 'human/' + esc(human['entrypoint'], quote=True)
     classic = BASE + 'generated/' + previous['publication'] + '/overview.html'
     schema = human.get('schema', 'weather-human-publication/1.0')
-    if schema not in ('weather-human-publication/1.0', 'weather-human-publication/1.1'):
+    if schema not in ('weather-human-publication/1.0', 'weather-human-publication/1.1', 'weather-human-publication/1.2'):
         raise ValueError('Unsupported human publication schema')
-    if schema == 'weather-human-publication/1.1':
+    if schema != 'weather-human-publication/1.0':
         # Acquisition is official; the independent skill treatment is not a release.
         identity = ''
         capture = human['capture']
@@ -33,11 +33,22 @@ def render(root, human):
             t('Снимок: ', 'Snapshot: ') + capture['snapshot'],
             t('Повторный захват не выполнялся.', 'No source recapture was performed.'),
             t('Официальный runtime чтения: Codeclew ', 'Official acquisition runtime: Codeclew ') + human['acquisition']['version'],
-            t('Принятый неопубликованный навык: ', 'Accepted unreleased skill treatment: ') + human['treatment']['commit'],
-            t('Дерево навыка: ', 'Treatment tree: ') + human['treatment']['tree'],
-            t('Отпечаток навыка: ', 'Skill digest: ') + human['treatment']['skillDigest'],
-            t('Экспорт: ', 'Export: ') + str(human['export']['fileCount']) + t(' файлов · ', ' files · ') + human['export']['digest'],
         ]
+        if schema == 'weather-human-publication/1.2':
+            rows += [
+                t('Экспорт принят после точечных исправлений и независимой нормализации.', 'Export accepted after targeted author repairs and independent normalization.'),
+                t('Отпечаток инструментов автора: ', 'Frozen author helper digest: ') + human['treatment']['authoring']['helperDigest'],
+                t('Пакет проверки: Codeclew ', 'Validation package: Codeclew ') + human['validation']['version'],
+                t('Ревизия проверки: ', 'Validation revision: ') + human['validation']['sourceRevision'],
+                t('Отпечаток проверенного навыка: ', 'Validated skill digest: ') + human['validation']['skillDigest'],
+            ]
+        else:
+            rows += [
+                t('Принятый неопубликованный навык: ', 'Accepted unreleased skill treatment: ') + human['treatment']['commit'],
+                t('Дерево навыка: ', 'Treatment tree: ') + human['treatment']['tree'],
+                t('Отпечаток навыка: ', 'Skill digest: ') + human['treatment']['skillDigest'],
+            ]
+        rows += [t('Экспорт: ', 'Export: ') + str(human['export']['fileCount']) + t(' файлов · ', ' files · ') + human['export']['digest']]
         build_details = '<ul>' + ''.join('<li>' + esc(row) + '</li>' for row in rows) + '</ul>'
     else:
         version = esc(human['renderer']['version'])
@@ -48,15 +59,15 @@ def render(root, human):
     # and current names coexist here; a missing task is omitted, never guessed.
     files = human.get('filesSha256', {})
     tasks = [
-        (('process-add-place.html', 'dashboard-save-place-route.html'),
+        (('route-add-place.html', 'process-add-place.html', 'dashboard-save-place-route.html'),
          t('Что происходит после выбора города?', 'What happens after choosing a city?'),
          t('Проследить сохранение города от Dashboard до Places.', 'Follow the request from Dashboard to Places.'),
          t('Сохранение города →', 'Add a place →')),
-        (('process-refresh-place.html', 'event-flow.html'),
+        (('route-manual-refresh.html', 'process-refresh-place.html', 'event-flow.html'),
          t('Как обновляется прогноз?', 'How does a forecast refresh?'),
          t('Проследить запрос обновления и передачу событий.', 'Follow the refresh request and its events.'),
          t('Обновление прогноза →', 'Refresh a forecast →')),
-        (('forecast-data.html', 'events-data.html'),
+        (('weather-data.html', 'forecast-data.html', 'events-data.html'),
          t('Какие данные передаются?', 'What data is exchanged?'),
          t('Посмотреть представления данных и назначение полей.', 'Inspect data representations and field meanings.'),
          t('Данные и поля →', 'Data and fields →')),

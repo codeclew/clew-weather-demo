@@ -5,3 +5,4 @@ obj/
 target/
 .env
 .artifacts/
+__pycache__/

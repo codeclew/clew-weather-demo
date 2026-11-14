@@ -1,0 +1,68 @@
+{
+  "schema": "weather-human-publication/1.1",
+  "capture": {
+    "kind": "retained-snapshot",
+    "snapshot": "sha256:5535d98c3542230181d4b982dde45cf51306e8d9fa45737be5f19091e76b3d88/31535",
+    "producerVersion": "0.14.7",
+    "recaptured": false
+  },
+  "acquisition": {
+    "kind": "official-release",
+    "version": "0.15.5",
+    "sourceRevision": "334224af22ba4a3528cb6f563b50231e05734e4b",
+    "package": "codeclew-macos-arm64.tar.gz",
+    "packageSha256": "104d2e9a655ccd0d3817ed6948d826f52933534109f034df50642ddcec1a0d89"
+  },
+  "treatment": {
+    "kind": "accepted-unreleased-skill",
+    "repository": "https://github.com/codeclew/codeclew",
+    "commit": "d1ab9d3215fabf6f3844786fca03348626bb2241",
+    "tree": "64ac6898c7b8d5925ba9079d201c4d57d630b147",
+    "skillDigest": "sha256:b56a36f17acf10f4d7f6cd3a7755884acb291f9c35ff552d11ab8d56646325cf",
+    "runtimeVersion": "0.15.5"
+  },
+  "export": {
+    "kind": "frozen-export",
+    "digest": "sha256:6e4fbc7737739c42a70f363cce1488598b03c581b36571f6a35295b4cea05c20",
+    "fileCount": 26
+  },
+  "source": {
+    "repository": "https://github.com/codeclew/clew-weather-demo",
+    "revision": "c9a4283cb5bbe2409b95561aca4e751a71255ff9"
+  },
+  "services": [
+    "dashboard",
+    "forecasts",
+    "places"
+  ],
+  "language": "en",
+  "entrypoint": "index.html",
+  "filesSha256": {
+    "dashboard-add-place.html": "bab254e42a1a31a3dee3f75727cdffcbd562e133720e29bb2bb6bd85d851ea0c",
+    "dashboard-data.html": "36c56e876c15c0f8786f733854b8984e9308966b6fc1f242f7c3291669e0f1b5",
+    "dashboard-health.html": "06584a7f8ae757d9117b2b8b10c3ce7eba4d67f91d09bd7343077911821c50b3",
+    "dashboard-home.html": "385b72ca8b1b78e1c6c08aff8ea2f495b35b23d8768b7f9670ec6f85529e5332",
+    "dashboard-openapi.html": "e193baea2f882da1a12f0da0ef013ed963be3d13c89b2a50e71fe57652dec1dc",
+    "dashboard-refresh-place.html": "215e42b4bb8d8942f373d0004f0e773c0ff3dc8bfba14a7ac3c5bf7b890a9a86",
+    "dashboard-weather.html": "2bb9870ce21f67757d2652481ffc824c9ccbbb23861b97e9c3da374601a47fef",
+    "dashboard.html": "05038044d7692e92824ba94938f6ea308a2c7eb3d6ea51651c1d6c03d5923638",
+    "favicon.svg": "5ef38ba07960a1441a5f59841948cd8be4a561e77093018bfe7af4ff285bbb61",
+    "forecast-data.html": "47c51c1ddf14c524739673f57b52db413643c15eac9a8643b2fd25eed9d386ce",
+    "forecasts-get.html": "d466a47511594e5fc4f02d05b54225e980efbef0231d1ea613bca5beeb9be443",
+    "forecasts-health.html": "2291fede39e31e795dd06a4791d45bf61d5ac575cbe9f511fcae54807175ffb4",
+    "forecasts-openapi.html": "9a584975e7e8361618f2614a5c62a7b9782e22c61299a8c79b2ea543431fedae",
+    "forecasts.html": "04cf6decde7db08f1ef3724092ddfca21c07ec17cf4e000528928066454ef145",
+    "index.html": "7db631cf30bf557ec4ab7a27b37842f00d97656d9c1100f349689a53f53b76f1",
+    "place-data.html": "e4686eff3813852d331283203854887d8d6b539703119b87fe7509881c845ca7",
+    "places-create.html": "43cce4504422a6797158ed483e2d67f5734ab598e5254d874946c0d7b476de11",
+    "places-health.html": "cf7de5ce1c22a40dd9d01bfb7335a65dd7f67d3e43c6ddc62ac05212a2c9cebc",
+    "places-list.html": "e875a6a7fbd002605c40fe617f3f38ba8ae8a38e9f501bb0c366b3409d71fd24",
+    "places-openapi.html": "1c10c5de69ce81dffe4b766cbd7f5f3fb7f98a2ebc42e020fa8e2866c8cdb646",
+    "places-refresh.html": "4627c91d518de47785fbd296de1d044dc0ebfc054a76fb713f590d1b30e9b313",
+    "places.html": "fd9e49311887dc8ab37d68f54889ec4753dd8c18b1b502e61a6587bd7fba3e5e",
+    "process-add-place.html": "ccae2058592ae1d70c24c85d93c595421890f6c0bcaf540d89d94f895a8dbbd8",
+    "process-dashboard-events.html": "b09306763be01af712fdc1b9155ea45dcd96d54b90b1d2b34e04c40873eef3e6",
+    "process-refresh-place.html": "00e05023b8c4af97c73e36ad0d2626843f12dc8e03c88c31852d664ff9ed8338",
+    "process-scheduled-refresh.html": "2a79aeec8f23b0bb05bb181d3be2758c2c846f71d7d2294803e5487b4c04ca01"
+  }
+}
