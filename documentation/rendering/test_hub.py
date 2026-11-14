@@ -82,6 +82,25 @@ class HubTest(unittest.TestCase):
         self.assertNotIn('human/event-flow.html', page)
         self.assertNotIn('human/process-refresh-place.html', page)
 
+    def test_assisted_reader_links_and_acquisition_are_separate_from_final_validation(self):
+        human = self.separate_treatment()
+        human['schema'] = 'weather-human-publication/1.2'
+        human['treatment'] = {'authoring': {'helperDigest': 'sha256:' + '1' * 64}}
+        human['validation'] = {'version': '0.5.0', 'sourceRevision': '2' * 40, 'skillDigest': 'sha256:' + '3' * 64}
+        human['filesSha256'] = {name: 'a' * 64 for name in
+                                ['index.html', 'route-add-place.html', 'route-manual-refresh.html', 'weather-data.html']}
+        page = HUB['render'](self.root, human)
+        primary, details = page.split('<details>', 1)
+        self.assertNotIn('Generated with Codeclew', primary)
+        self.assertNotIn('0.5.0', primary)
+        for name in ['route-add-place.html', 'route-manual-refresh.html', 'weather-data.html']:
+            self.assertIn('/clew-weather-demo/human/' + name, primary)
+        self.assertIn('Official acquisition runtime: Codeclew 0.4.0', details)
+        self.assertIn('Validation package: Codeclew 0.5.0', details)
+        self.assertIn(human['treatment']['authoring']['helperDigest'], details)
+        self.assertIn('targeted author repairs', details)
+        self.assertNotIn('Accepted unreleased skill treatment:', details)
+
     def test_unknown_producer_stays_unknown_and_metadata_is_escaped(self):
         human = self.separate_treatment()
         human['capture']['producerVersion'] = None

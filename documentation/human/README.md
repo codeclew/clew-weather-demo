@@ -126,3 +126,39 @@ Do not add archives under `docs/`: that directory is the frozen native export,
 whose complete bytes and file inventory must remain unchanged. The same
 hash, file inventory, path and publication-record checks apply to source and
 staged reader archives; no archived renderer is rerun.
+
+## Assisted export with a separately verified release
+
+Schema `weather-human-publication/1.2` retains the same capture, acquisition,
+source and frozen export records. It records `treatment.kind` as
+`assisted-retained-export`, with the actual acquisition `runtimeVersion`,
+`repository`, `authoring` and `assistance`. It does not assign a later release
+version to the historical author invocation.
+
+`authoring.helperFilesSha256` maps relative helper paths to their original
+`sha256:` file hashes. `authoring.helperDigest` hashes that map as UTF-8 JSON
+with sorted keys, two-space indentation, unescaped Unicode and a final newline.
+This is the runner's frozen file-map identity, distinct from the installed skill
+digest. `assistance` explicitly records `targetedAuthorRepairs: true`,
+`rootDirectedNormalization: true` and `autonomousPass: false`.
+
+The separate `validation` object identifies the final official package using
+`kind: official-release`, `version`, `sourceRevision`, `sourceTree`, `package`,
+`packageSha256` and `skillDigest`. Under `--official-release`, the guard verifies
+both public stable release/tag/package identities, the final commit's actual Git
+tree, and the public Weather source. It downloads the declared validation archive,
+checks its SHA-256, and reads its bundled skill bytes and modes to verify the
+installer's skill digest. It does not extract or execute archive code.
+
+Incomplete validation identities refuse publication. The frozen reader map must
+still match exactly; this provenance type does not grant semantic approval or
+turn an assisted result into an autonomous author pass. Schemas `1.0` and `1.1`
+retain their existing checks for current and archived exports.
+
+`legacyRedirects` pins one previous archive by `archive`, the original record's
+`publicationSha256`, its canonical `exportDigest`, and an explicit `files` map.
+The map must contain exactly the former HTML paths absent from the new reader,
+each pointing to the same archived filename. The composer adds deterministic
+redirect stubs only to the staged site, preserving query and fragment. Their
+inventory and bytes are checked separately from the unchanged canonical reader
+map; unknown targets, missing archives and archive/policy drift refuse staging.
